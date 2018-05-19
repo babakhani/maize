@@ -1,0 +1,113 @@
+.blocks-area {
+  //border: 2px dashed gray;
+  width: 60%;
+  margin: 0 20%;
+
+  .widget-block {
+    display: block;
+    border: 2px dashed grey;
+    position: relative;
+
+    .widget-text-editable {
+      position: relative;
+
+      &.editable-active {
+        .widget-text-editable--toolbox {
+          display: block;
+        }
+      }
+    }
+    .background-editable {
+      .background-editable--toolbox {
+        opacity: 0;
+      }
+      &.edit-mode {
+        .background-editable--toolbox {
+          opacity: 1;
+        }
+      }
+    }
+    .widget-block--image-editable {
+      position: relative;
+      border: 0;
+
+      .widget-block--image-editable--toolbox {
+        position: absolute;
+        top: -20px;
+        display: none;
+        z-index: 10;
+        width: 100%;
+        //height: 50px;
+        border-radius: 10px;
+        background: #333;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: 15px;
+        padding: 5px 0;
+        .dropdown {
+          position: absolute;
+          display: inline-flex;
+        }
+      }
+
+      input {
+        &.image--editable {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          left: 0;
+          border: 3px dashed blue;
+          background: none;
+          width: 100%;
+          opacity: 0;
+          cursor: pointer;
+        }
+      }
+
+      &.edit-mode {
+        border: 2px dashed yellow;
+        &:hover {
+          .widget-block--image-editable--toolbox {
+            display: block;
+          }
+        }
+      }
+
+    }
+
+    [contenteditable='true'] {
+      outline: 2px dashed yellow;
+      position: relative;
+
+      &::before {
+        display: block;
+        content: "ویرایش";
+        position: absolute;
+        right: 0;
+        top: -30px;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        font-size: 12px;
+      }
+    }
+
+    .widget-block--toolbox {
+      display: block;
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      top: 0;
+      right: -100px;
+      //border:3px dashed green;
+      z-index: 10;
+
+      .widget-block--toolbox-btn {
+        //border: 3px dashed red;
+        margin: 1em;
+      }
+    }
+  }
+
+}
