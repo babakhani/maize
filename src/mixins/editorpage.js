@@ -4,5 +4,4 @@ const Mixin =  {
   components: {PageToolbox, Team}
 }
 
-
 export default Mixin

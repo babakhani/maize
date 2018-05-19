@@ -1,7 +1,6 @@
 import TextEditable from '@/components/editable-parts/Text.vue'
 import ImageEditable from '@/components/editable-parts/Image.vue'
 import BgEditable from '@/components/editable-parts/Bg.vue'
-
 const Mixin =  {
   components: {TextEditable, ImageEditable, BgEditable},
   name: 'EventBody',

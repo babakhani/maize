@@ -1,12 +1,12 @@
 .widget-text-editable--toolbox {
   z-index: 10;
-  display: none;
+  display: block;
   position: absolute;
   width:600px;
   height: 90px;
   border-radius: 10px;
   background: rgba(51, 51, 51, 0.78);
-  top: -100px;
+  top: -80px;
   left: 50%;
   transform: translateX(-50%);
   margin-bottom: 15px;
@@ -34,7 +34,13 @@
   .dropdown,
   .input-group {
     float: left;
+  }
 
+  .dropdown{
+    input[type='range'] {
+      margin: .5em;
+      cursor: pointer;
+    }
   }
 
   .widget-text-editable--toolbox--button {
@@ -66,9 +72,6 @@
     margin: 0px;
   }
 
-  input[type='range'] {
-
-  }
 
   .dropdown {
     display: inline-flex;
