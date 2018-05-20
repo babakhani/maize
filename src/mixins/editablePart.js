@@ -1,4 +1,4 @@
-import EditablePartToolbox from '@/components/Partial/EditablePartToolbox'
+import EditablePartToolbox from '@/components/partial/EditablePartToolbox'
 import {EventBus} from '../events/event-bus'
 const Mixin = {
   components: {EditablePartToolbox},
@@ -44,7 +44,8 @@ const Mixin = {
           'border-style': 'solid',
           'border-radius': '0',
           'opacity': '1',
-          'overflow': 'visible'
+          'overflow': 'visible',
+          'letter-spacing': 'normal'
         }
       }
     }

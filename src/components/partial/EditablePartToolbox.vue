@@ -75,6 +75,7 @@
       <button title="indent" @click="toggleTextIndent()" class="btn btn-sm widget-text-editable--toolbox--button">
         ind
       </button>
+
       <!--DropDown Example-->
       <div class="dropdown">
         <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
@@ -100,6 +101,21 @@
         color
         <input type="color" @input="updateColor"/>
       </button>
+       <div class="dropdown">
+        <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
+                type="button"
+                title="border width"
+                id="dropdownMenuButto6"
+                data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          Letter Spacing
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton5">
+          <input type="text" v-model="styles['letter-spacing']"/>
+          <br>
+          <input @input="letterSpacing" type="range" min="0" max="10" value="10" step="1">
+        </div>
+      </div>
     </div>
     <div class="widget-text-editable--toolbox--group">
       <div class="dropdown">
@@ -288,7 +304,10 @@
       },
       borderStyle(style) {
         this.styles['border-style'] = style
-      }
+      },
+      letterSpacing(e) {
+        this.styles['letter-spacing'] = e.target.value + 'px'
+      },
     }
   }
 </script>

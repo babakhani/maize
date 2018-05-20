@@ -1,6 +1,6 @@
 <template>
   <div class="widget-block--image-editable" @click="showToolbox">
-    <EditablePartToolbox :styles="styles" v-if="toolboxVisible" @hide="hideToolbox"></EditablePartToolbox>
+    <EditablePartToolbox :styles="styles" v-if="editMode && toolboxVisible" @hide="hideToolbox"></EditablePartToolbox>
     <!--<input v-if="editMode" class="image&#45;&#45;editable" @change="imageUpload" type="file">-->
     <img v-bind:style="styles" alt="image" class="img-fluid" src="/static/imgs/img_round.svg">
   </div>
