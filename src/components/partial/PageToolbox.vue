@@ -1,7 +1,7 @@
 <!-- Fixed navbar -->
 <template>
   <header class="page-toolbox bg-dark rtl" data-block-type="headers" data-id="2">
-    <div class="container">
+    <div class="container p-0">
       <nav class="navbar navbar-expand-lg px-0 py-3">
         <a class="auto-save-status" href="https://www.froala.com">
           <span>{{autosaveStatus}}</span>
@@ -15,13 +15,25 @@
         <div class="collapse navbar-collapse" id="navbarNav13">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item mr-lg-3">
-              <a class="nav-link" href="https://www.froala.com">{{ $t("show_header") }}</a>
+
+              <a class="nav-link" href="#">
+                <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+                <span class="preview-text">{{ $t("show_header") }}</span>
+              </a>
+
             </li>
             <li class="nav-item mr-lg-3">
-              <a class="nav-link" href="https://www.froala.com">نسخه قابل نمایش</a>
+              <a class="nav-link" href="#">
+                <icon name="eye"></icon>
+                <span class="preview-text"> نسخه قابل نمایش</span>
+              </a>
+
             </li>
-            <li class="mr-lg-3">
-              <a class="btn btn-published btn-lg" href="https://www.froala.com">درخواست انتشار</a>
+            <li class="mr-lg-3 btn-published">
+              <a class="btn btn-published--link btn-lg" href="#">درخواست انتشار</a>
             </li>
           </ul>
         </div>

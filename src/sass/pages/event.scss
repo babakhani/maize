@@ -1,0 +1,37 @@
+.event {
+  background: #fff;
+}
+
+.event-body {
+  min-height: 500px;
+  background: rgba(241, 29, 34, 0.05);
+  padding: 36px;
+  border-radius: 4px;
+
+  .event-body--main {
+    border: 2px dashed rgba(255, 0, 0, 0.6);
+    border-radius: 4px;
+    min-height: 424px;
+    padding-top:15%;
+    text-align: center;
+    .btn-add-widget {
+      width: 48px;
+      height: 48px;
+      background: #f11d22;
+      border-radius: 100%;
+      font-size: 36px;
+      line-height: 34px;
+      box-shadow: 0 2px 4px 0 rgba(241, 29, 34, 0.5);
+      &:hover{
+        border-color: #f11d22;
+      }
+
+    }
+    .text-add-widget {
+      font-size: 14px;
+      color: #f11d22;
+      margin-top: 15px;
+      font-weight: 500;
+    }
+  }
+}

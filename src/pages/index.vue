@@ -1,10 +1,10 @@
 <template>
   <div class="event">
     <page-toolbox></page-toolbox>
-    <br>
-    <div class="blocks-area">
-      <team></team>
-    </div>
+    <event>
+      <div class="blocks-area">
+      </div>
+    </event>
   </div>
 </template>
 <script>

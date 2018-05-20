@@ -1,16 +1,21 @@
 <template>
-  <div v-bind:style="styles" class="background-editable" :class="{'edit-mode': editMode}">
-    <div class="background-editable--toolbox">
+  <div  class="background-editable" :class="{'edit-mode': editMode}">
+    <button class="btn btn-link" @click="showToolbox" >
       <icon name="cog"></icon>
-      <input type="color" @input="updateColor"/>
+    </button>
+    <EditablePartToolbox :groups="['background', 'border']" :styles="styles" v-if="editMode && toolboxVisible" @hide="hideToolbox"></EditablePartToolbox>
+
+    <div v-bind:style="styles">
+      <slot></slot>
     </div>
-    <slot></slot>
   </div>
 </template>
 
 <script>
+  import EditablePartMixin from '../../mixins/editablePart'
   export default {
     name: 'BgEditable',
+    mixins: [EditablePartMixin],
     methods: {
       updateColor(e) {
         this.styles['background-color'] = e.target.value
@@ -19,13 +24,6 @@
     props: {
       editMode: {
         default: 'false'
-      },
-      styles: {
-        default() {
-          return {
-            'background-color': '#f1f1f1'
-          }
-        }
       }
     }
   }

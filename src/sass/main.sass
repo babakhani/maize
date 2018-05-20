@@ -1,17 +1,14 @@
-@import "./components/settings"
-@import "./components/event"
-@import "./components/event-builder"
+@import "./settings"
 @import "./components/page-toolbox"
-@import "./components/event-body"
-@import "./components/event-body"
-@import "./components/background-editable"
 @import "./components/editable-part-toolbox"
 @import "./pages/index"
+@import "./pages/event"
 
 body
   font-family: 'IranSansFaNum', 'IranSans', tahoma, Arial, sans-serif
   font-size: 12px
   overflow-x: hidden
+  background: #f5f5f5
   a:hover
     text-decoration: none
 
@@ -30,28 +27,3 @@ button:focus
 .ltr
   direction: ltr
 
-.btn-published
-  background-color: $primary-color
-  color: white !important
-  height: 40px
-  width: 96px
-  border-radius: 0
-  padding: 5px
-  line-height: 25px
-  font-size: 1em
-  font-weight: bold
-
-.btn-add-widget
-  background-color: $primary-color
-  width: 40px
-  height: 40px
-  line-height: 30px
-  color: $white !important
-  border: 0 !important
-  &:hover,
-  &:focus
-    background-color: $primary-color
-    color: $gray-4 !important
-    box-shadow: none !important
-    border: 0 !important
-    outline: 0 !important

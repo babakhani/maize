@@ -67,7 +67,7 @@
       }
 
       &.edit-mode {
-        border: 2px dashed yellow;
+        outline: 3px dashed #f1f1f1;
         &:hover {
           .widget-block--image-editable--toolbox {
             display: block;
@@ -78,19 +78,8 @@
     }
 
     [contenteditable='true'] {
-      outline: 2px dashed yellow;
+      outline: 2px dashed #f1f1f1;
       position: relative;
-
-      &::before {
-        display: block;
-        content: "ویرایش";
-        position: absolute;
-        right: 0;
-        top: -30px;
-        background: rgba(0, 0, 0, 0.5);
-        color: white;
-        font-size: 12px;
-      }
     }
 
     .widget-block--toolbox {

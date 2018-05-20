@@ -1,7 +1,7 @@
 <!-- Fixed navbar -->
 <template>
   <div class="widget-text-editable--toolbox">
-    <div class="widget-text-editable--toolbox--group">
+    <div v-if="groups.indexOf('text') > -1" class="widget-text-editable--toolbox--group">
       <!--DropDown Example-->
       <div class="dropdown">
         <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
@@ -12,12 +12,18 @@
           <icon :style="{'width': styles['font-size']}" name="font"></icon>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" @click="setSize('44px')">x-large</a>
-          <a class="dropdown-item" @click="setSize('18px')">large</a>
-          <a class="dropdown-item" @click="setSize('16px')">Medium</a>
-          <a class="dropdown-item" @click="setSize('14px')">small</a>
-          <a class="dropdown-item" @click="setSize('12px')">x-small</a>
-          <a class="dropdown-item" @click="setSize('10px')">xx-small</a>
+          <a :class="{'widget-text-editable--selected': styles['font-size'] == '44px'}" class="dropdown-item"
+             @click="setSize('44px')">x-large</a>
+          <a :class="{'widget-text-editable--selected': styles['font-size'] == '18px'}" class="dropdown-item"
+             @click="setSize('18px')">large</a>
+          <a :class="{'widget-text-editable--selected': styles['font-size'] == '16px'}" class="dropdown-item"
+             @click="setSize('16px')">Medium</a>
+          <a :class="{'widget-text-editable--selected': styles['font-size'] == '14px'}" class="dropdown-item"
+             @click="setSize('14px')">small</a>
+          <a :class="{'widget-text-editable--selected': styles['font-size'] == '12px'}" class="dropdown-item"
+             @click="setSize('12px')">x-small</a>
+          <a :class="{'widget-text-editable--selected': styles['font-size'] == '10px'}" class="dropdown-item"
+             @click="setSize('10px')">xx-small</a>
         </div>
       </div>
       <!--DropDown Example-->
@@ -72,7 +78,8 @@
         <icon v-if="styles.direction == 'ltr'" name="arrow-left"></icon>
         <icon v-if="styles.direction == 'rtl'" name="arrow-right"></icon>
       </button>
-      <button title="indent" @click="toggleTextIndent()" class="btn btn-sm widget-text-editable--toolbox--button">
+      <button :class="{'widget-text-editable--selected': styles['text-indent'] != '0'}" title="indent"
+              @click="toggleTextIndent()" class="btn btn-sm widget-text-editable--toolbox--button">
         ind
       </button>
 
@@ -86,38 +93,24 @@
           line height
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
-          <a class="dropdown-item" @click="setLineHeight('1em')">1</a>
-          <a class="dropdown-item" @click="setLineHeight('1.2em')">1.2</a>
-          <a class="dropdown-item" @click="setLineHeight('1.5em')">1.5</a>
-          <a class="dropdown-item" @click="setLineHeight('2em')">2</a>
-          <a class="dropdown-item" @click="setLineHeight('2em')">3</a>
+          <a :class="{'widget-text-editable--selected': styles['line-height'] == '1em'}" class="dropdown-item"
+             @click="setLineHeight('1em')">1</a>
+          <a :class="{'widget-text-editable--selected': styles['line-height'] == '1.2em'}" class="dropdown-item"
+             @click="setLineHeight('1.2em')">1.2</a>
+          <a :class="{'widget-text-editable--selected': styles['line-height'] == '1.5e'}" class="dropdown-item"
+             @click="setLineHeight('1.5em')">1.5</a>
+          <a :class="{'widget-text-editable--selected': styles['line-height'] == '2em'}" class="dropdown-item"
+             @click="setLineHeight('2em')">2</a>
+          <a :class="{'widget-text-editable--selected': styles['line-height'] == '3em'}" class="dropdown-item"
+             @click="setLineHeight('3em')">3</a>
         </div>
       </div>
-      <button title="overflow" @click="toggleOverflow()" class="btn btn-sm widget-text-editable--toolbox--button">
-        overflow
-      </button>
-
       <button class="btn btn-sm widget-text-editable--toolbox--button">
         color
         <input type="color" @input="updateColor"/>
       </button>
-       <div class="dropdown">
-        <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
-                type="button"
-                title="border width"
-                id="dropdownMenuButto6"
-                data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-          Letter Spacing
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton5">
-          <input type="text" v-model="styles['letter-spacing']"/>
-          <br>
-          <input @input="letterSpacing" type="range" min="0" max="10" value="10" step="1">
-        </div>
-      </div>
     </div>
-    <div class="widget-text-editable--toolbox--group">
+    <div v-if="groups.indexOf('border') > -1" class="widget-text-editable--toolbox--group">
       <div class="dropdown">
         <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                 type="button"
@@ -146,60 +139,42 @@
           border style
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton6">
-          <a class="dropdown-item" @click="borderStyle('none')">none</a>
-          <a class="dropdown-item" @click="borderStyle('solid')">solid</a>
-          <a class="dropdown-item" @click="borderStyle('dashed')">dashed</a>
-          <a class="dropdown-item" @click="borderStyle('double')">double</a>
-          <a class="dropdown-item" @click="borderStyle('dotted')">dotted</a>
+          <a :class="{'widget-text-editable--selected': styles['border-style'] == 'none'}" class="dropdown-item"
+             @click="setBorderStyle('none')">none</a>
+          <a :class="{'widget-text-editable--selected': styles['border-style'] == 'solid'}" class="dropdown-item"
+             @click="setBorderStyle('solid')">solid</a>
+          <a :class="{'widget-text-editable--selected': styles['border-style'] == 'dashed'}" class="dropdown-item"
+             @click="setBorderStyle('dashed')">dashed</a>
+          <a :class="{'widget-text-editable--selected': styles['border-style'] == 'double'}" class="dropdown-item"
+             @click="setBorderStyle('double')">double</a>
+          <a :class="{'widget-text-editable--selected': styles['border-style'] == 'dotted'}" class="dropdown-item"
+             @click="setBorderStyle('dotted')">dotted</a>
         </div>
       </div>
     </div>
-    <button class="btn btn-sm widget-text-editable--toolbox--button">
-      bg
-      <input type="color" @input="updateBgColor"/>
-    </button>
-
-    <div class="dropdown">
-      <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
-              type="button"
-              title="opacity"
-              id="dropdownMenuButto3"
-              data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-        opacity
+    <div v-if="groups.indexOf('background') > -1" class="widget-text-editable--toolbox--group">
+      <button class="btn btn-sm widget-text-editable--toolbox--button">
+        bg
+        <input type="color" @input="updateBgColor"/>
       </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-        <input type="text" v-model="styles['opacity']"/>
-        <br>
-        <input @input="setOpacityColor" type="range" min="0.0" max="1.0" value="100" step="0.01">
+    </div>
+    <div v-if="groups.indexOf('general') > -1" class="widget-text-editable--toolbox--group">
+      <div class="dropdown">
+        <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
+                type="button"
+                title="opacity"
+                id="dropdownMenuButto3"
+                data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          opacity
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+          <input type="text" v-model="styles['opacity']"/>
+          <br>
+          <input @input="setOpacityColor" type="range" min="0.0" max="1.0" value="100" step="0.01">
+        </div>
       </div>
     </div>
-
-
-    <!--<div class="dropdown">-->
-      <!--<button class="btn btn-sm dropdown-toggle widget-text-editable&#45;&#45;toolbox&#45;&#45;button"-->
-              <!--type="button"-->
-              <!--title="opacity"-->
-              <!--id="dropdownMenuButto3"-->
-              <!--data-toggle="dropdown"-->
-              <!--aria-haspopup="true" aria-expanded="false">-->
-        <!--Rotate-->
-      <!--</button>-->
-      <!--<div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">-->
-        <!--x-->
-        <!--<br>-->
-        <!--<input @input="setRotateX" type="range" min="0" max="360" v-model="styles._rotateX" step="1">-->
-        <!--<br>-->
-        <!--y-->
-        <!--<br>-->
-        <!--<input @input="setRotateY" type="range" min="0" max="360" v-model="styles._rotateY" step="1">-->
-        <!--<br>-->
-        <!--z-->
-        <!--<br>-->
-        <!--<input @input="setRotateZ" type="range" min="0" max="360" v-model="styles._rotateZ" step="1">-->
-      <!--</div>-->
-    <!--</div>-->
-
     <!-- closed button-->
     <button @click="hide" class="btn btn-sm btn-danger float-right widget-text-editable--toolbox--close">
       <icon name="times"></icon>
@@ -213,29 +188,16 @@
       styles: {
         default: {},
         required: true
+      },
+      groups: {
+        default: ['text', 'background', 'border', 'general'],
+        required: false
       }
     },
     methods: {
       hide(){
         this.$emit('hide')
       },
-      // setRotateX(e) {
-      //   this.styles._rotateX = e.target.value
-      //   this.setRotatation()
-      // },
-      // setRotateY(e) {
-      //   this.styles._rotateY = e.target.value
-      //   this.setRotatation()
-      // },
-      // setRotateZ(e) {
-      //   this.styles._rotateZ = e.target.value
-      //   this.setRotatation()
-      // },
-      // setRotatation() {
-      //   console.log('setRotatation')
-      //   console.log( `rotate3d(0,0,0, ${this.styles._rotateX}deg)`)
-      //   this.styles['transform'] = `rotate3d(0,0,0, ${this.styles._rotateX}deg)`
-      // },
       toggleBold() {
         if (this.styles['font-weight'] == 'bold') {
           this.styles['font-weight'] = 'normal'
@@ -302,7 +264,7 @@
       borderWidth(e) {
         this.styles['border-width'] = e.target.value + 'px'
       },
-      borderStyle(style) {
+      setBorderStyle(style) {
         this.styles['border-style'] = style
       },
       letterSpacing(e) {
