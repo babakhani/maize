@@ -2,9 +2,22 @@
   <div class="editor-page">
     <page-toolbox></page-toolbox>
     <div class="editor-page--plot-area">
-      <div v-for="(widget, index) in currentWidgetList" :key="widget.uniqeId">
-        <div :is="widget.name" :widgetData="widget.data" :uniqeKey="widget.uniqeId"></div>
-      </div>
+
+
+      <!--<draggable v-model="myArray" :options="{group:'people'}" @start="drag=true" @end="drag=false">-->
+      <!--<div v-for="element in myArray" :key="element.id">{{element.name}}</div>-->
+      <!--</draggable>-->
+
+      <draggable v-model="currentWidgetList" :options="{group:'people'}" @start="drag=true" @end="drag=false">
+        <div v-for="(widget, index) in currentWidgetList" :key="widget.uniqeId">
+          <div :is="widget.name" :widgetData="widget.data" :uniqeKey="widget.uniqeId"></div>
+        </div>
+      </draggable>
+
+
+      <!--<div v-for="(widget, index) in currentWidgetList" :key="widget.uniqeId">-->
+      <!--<div :is="widget.name" :widgetData="widget.data" :uniqeKey="widget.uniqeId"></div>-->
+      <!--</div>-->
 
       <AddWidget>
         <div class="blocks-area">
@@ -16,7 +29,7 @@
 </template>
 <script>
   import editor from '../mixins/editorpage'
-
+  import draggable from 'vuedraggable'
   // TODO: move to mixin
   import TeamWidget from '../components/widgets/Team'
   import TeamWidget2 from '../components/widgets/Team2'
@@ -26,14 +39,36 @@
 
   export default {
     name: 'Events',
-    mixins: [editor],
-    components: {TeamWidget, TeamWidget2, Banner, Header, Footer},
-    computed: {
-      currentWidgetList() {
-        console.log('currentWidgetList computed')
-        console.log(this.$store.state.main.currentWidgetList)
-        return this.$store.state.main.currentWidgetList
+    data() {
+      return {
+        myArray: [
+          {
+            id: 1,
+            name: 'reza'
+          },
+          {
+            id: 2,
+            name: 'bita'
+          }
+        ]
       }
+    },
+    mixins: [editor],
+    components: {TeamWidget, TeamWidget2, Banner, Header, Footer, draggable},
+    computed: {
+      currentWidgetList: {
+        get() {
+          return this.$store.state.main.currentWidgetList
+        },
+        set(value) {
+          this.$store.dispatch('main/sortCurrentWidgetList', value)
+        }
+      },
+      // currentWidgetList() {
+      //   // console.log('currentWidgetList computed')
+      //   // console.log(this.$store.state.main.currentWidgetList)
+      //   return this.$store.state.main.currentWidgetList
+      // }
     }
   }
 </script>

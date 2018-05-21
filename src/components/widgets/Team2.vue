@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'container': !fullWidth}">
+  <div :class="{'container': !data.config.fullWidth}">
     <div class="widget-block">
       <WidgetToolbox @toggleFullWidth="toggleFullWidth" @toggleEditMode="toggleEditMode"
                      @deleteWidget="deleteWidget"></WidgetToolbox>
@@ -8,17 +8,42 @@
           <div class="container">
             <div class="row text-center justify-content-center">
               <div class="col-12">
-                <text-editable tag="h1" :editMode="editMode">
-                  {{widgetData.mainTitle.text}}
+                <text-editable tag="h1"
+                               :editMode="editMode"
+                               name="mainTitle"
+                               @update="updateData"
+                               :styles="data.mainTitle.styles"
+                               :text="data.mainTitle.text">
                 </text-editable>
-
-                <text-editable tag="h3" :editMode="editMode">
-                  {{widgetData.subtitle.text}}
+                <text-editable tag="h2"
+                               :editMode="editMode"
+                               name="subtitle"
+                               @update="updateData"
+                               :styles="data.subtitle.styles"
+                               :text="data.subtitle.text">
+                  {{data.subtitle.text}}
+                </text-editable>
+                <text-editable tag="h3"
+                               :editMode="editMode"
+                               name="subtitle1"
+                               @update="updateData"
+                               :styles="data.subtitle1.styles"
+                               :text="data.subtitle1.text">
+                  {{data.subtitle.text}}
+                </text-editable>
+                <text-editable tag="p"
+                               :editMode="editMode"
+                               name="subtitle2"
+                               @update="updateData"
+                               :styles="data.subtitle2.styles"
+                               :text="data.subtitle2.text">
+                  {{data.subtitle.text}}
                 </text-editable>
               </div>
             </div>
           </div>
         </section>
+
       </BgEditable>
     </div>
   </div>
@@ -29,6 +54,43 @@
 
   export default {
     name: 'TeamWidget2',
-    mixins: [widgetMixin]
+    mixins: [widgetMixin],
+    props: {
+      data: {
+        default() {
+          return {
+            config: {
+              fullWidth: true
+            },
+            mainTitle: {
+              text: 'HI i am banner Widget from store',
+              styles: {}
+            },
+            subtitle: {
+              text: 'HI i am banner Widget from store',
+              styles: {}
+            },
+            subtitle1: {
+              text: 'HI i am banner Widget from store',
+              styles: {}
+            },
+            subtitle2: {
+              text: 'HI i am banner Widget from store',
+              styles: {}
+            }
+          }
+        },
+        require: false
+      }
+    },
+    methods: {
+      updateData(e) {
+        this.$store.dispatch('main/updateItemOfCurrentWidgetList', {
+          key: this.uniqeKey, // index of this widget in cuurentWidgetList
+          name: e.name, // name of editble part that his data must be update
+          data: e
+        })
+      }
+    }
   }
 </script>

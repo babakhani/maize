@@ -14,7 +14,7 @@ const Mixin = {
   },
   mounted() {
     this.data = this._.extend(this.data, this.widgetData)
-    console.log(this.data)
+    // console.log(this.data)
   },
   props: {
     // TODO: merge widget data expect default pattern
@@ -30,8 +30,21 @@ const Mixin = {
     }
   },
   methods: {
+    updateData(e = {name: null, data: null}) {
+      this.$store.dispatch('main/updateItemOfCurrentWidgetList', {
+        key: this.uniqeKey, // id of this widget in cuurentWidgetList
+        name: e.name, // name of editble part that his data must be update
+        data: e.data
+      })
+    },
     toggleFullWidth() {
-      this.fullWidth = !this.fullWidth
+      this.data.config.fullWidth = !this.data.config.fullWidth
+      this.updateData({
+        name: 'config',
+        data: {
+          fullWidth: this.data.config.fullWidth
+        }
+      })
     },
     deleteWidget() {
       this.$store.dispatch('main/removeFromCurrentWidgetList', this.uniqeKey)

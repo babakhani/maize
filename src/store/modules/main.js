@@ -56,9 +56,6 @@ export default {
       let item = state.currentWidgetList.filter((n) => {
         return n.uniqeId == payload.key
       })[0]
-      // console.log('updateItemOfCurrentWidgetList')
-      // console.log(item)
-      // console.log(item.uniqeId)
       if (typeof item.data === 'undefined') {
         item.data = {}
       }
@@ -80,18 +77,23 @@ export default {
     removeFromCurrentWidgetList(state, payload) {
       // console.log('---------------- removeFromCurrentWidgetList :: ' + payload)
       let list = lodash.cloneDeep(state.currentWidgetList)
-
       // TODO: check this functionality later
       lodash.remove(list, (n, index) => {
         return n.uniqeId === payload
       })
-
       // console.log(list.splice(payload, 1))
       state.currentWidgetList = list
+      window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
+    },
+    sortCurrentWidgetList(state, payload) {
+      state.currentWidgetList = payload
       window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
     }
   },
   actions: {
+    sortCurrentWidgetList(context, payload) {
+      context.commit('sortCurrentWidgetList', payload)
+    },
     updateItemOfCurrentWidgetList(context, payload) {
       context.commit('updateItemOfCurrentWidgetList', payload)
     },

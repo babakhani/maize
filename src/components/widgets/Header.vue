@@ -31,18 +31,7 @@
   export default {
     name: 'Header',
     mixins: [widgetMixin],
-    mounted() {
-      this.data = this._.extend(this.data, this.widgetData)
-      console.log(this.data)
-    },
     props: {
-      widgetData: {
-        default() {
-          return {}
-        },
-        require: false
-      },
-      // TODO: merge widget data expect default pattern
       data: {
         default() {
           return {
@@ -57,9 +46,6 @@
     },
     methods: {
       updateData(e) {
-        console.log('widget update method')
-        console.log(e)
-        console.log(this.uniqeKey)
         this.$store.dispatch('main/updateItemOfCurrentWidgetList', {
           key: this.uniqeKey, // index of this widget in cuurentWidgetList
           name: e.name, // name of editble part that his data must be update

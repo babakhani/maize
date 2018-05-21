@@ -1,8 +1,5 @@
 <template>
-  <div :class="{'container': !fullWidth}">
-
-    <h1>Banner {{uniqeKey}}</h1>
-
+  <div :class="{'container': !data.config.fullWidth}">
     <div class="widget-block">
       <WidgetToolbox @toggleFullWidth="toggleFullWidth" @toggleEditMode="toggleEditMode"
                      @deleteWidget="deleteWidget"></WidgetToolbox>
@@ -62,6 +59,13 @@
       data: {
         default() {
           return {
+
+            // general widget config
+            config: {
+              fullWidth: true
+            },
+
+            // Editable parts config that can be used in editable components
             mainTitle: {
               text: 'HI i am banner Widget from store',
               styles: {}
@@ -81,18 +85,6 @@
           }
         },
         require: false
-      }
-    },
-    methods: {
-      updateData(e) {
-        console.log('widget update method')
-        console.log(e)
-        console.log(this.uniqeKey)
-        this.$store.dispatch('main/updateItemOfCurrentWidgetList', {
-          key: this.uniqeKey, // index of this widget in cuurentWidgetList
-          name: e.name, // name of editble part that his data must be update
-          data: e
-        })
       }
     }
   }

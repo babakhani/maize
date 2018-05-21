@@ -69,8 +69,10 @@
       update() {
         this.$emit('update', {
           name: this.name,
-          styles: this.styles,
-          text: this.touchedText
+          data: {
+            styles: this.styles,
+            text: this.touchedText
+          }
         })
       }
     },
