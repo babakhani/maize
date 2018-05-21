@@ -48,34 +48,11 @@
   </div>
 </template>
 <script>
-
   import EditablePartMixin from '../../mixins/editablePart'
 
   export default {
     name: 'TextEditable',
     mixins: [EditablePartMixin],
-    created() {
-      this.styles = this._.extend(this.styles, this.currentStyles)
-    },
-    methods: {
-      updateText(e) {
-        this.touchedText = e.target.innerText
-        this.update()
-      },
-      updateStyles(e) {
-        this.styles = e
-        this.update()
-      },
-      update() {
-        this.$emit('update', {
-          name: this.name,
-          data: {
-            styles: this.styles,
-            text: this.touchedText
-          }
-        })
-      }
-    },
     data() {
       return {
         touchedText: this.text

@@ -1,24 +1,27 @@
 <template>
-  <div :class="{'container': !fullWidth}">
+  <div :class="{'container': !data.config.fullWidth}">
     <div class="widget-block">
-      <WidgetToolbox @toggleFullWidth="toggleFullWidth" @toggleEditMode="toggleEditMode"
-                     @deleteWidget="deleteWidget"></WidgetToolbox>
+      <WidgetToolbox @toggleFullWidth="toggleFullWidth"
+                     @toggleEditMode="toggleEditMode"
+                     @deleteWidget="deleteWidget">
+      </WidgetToolbox>
       <BgEditable :editMode="editMode">
         <section class="fdb-block team-2">
           <div class="container">
             <div class="row text-center justify-content-center">
               <div class="col-12">
-                <text-editable tag="h1" :editMode="editMode">
-                  {{widgetData.mainTitle.text}}
-                </text-editable>
-
-                <text-editable tag="h3" :editMode="editMode">
-                  {{widgetData.subtitle.text}}
+                <text-editable tag="h1"
+                               :editMode="editMode"
+                               name="mainTitle"
+                               @update="updateData"
+                               :styles="data.mainTitle.styles"
+                               :text="data.mainTitle.text">
                 </text-editable>
               </div>
             </div>
           </div>
         </section>
+
       </BgEditable>
     </div>
   </div>
@@ -29,6 +32,24 @@
 
   export default {
     name: 'Footer',
-    mixins: [widgetMixin]
+    mixins: [widgetMixin],
+    props: {
+      data: {
+        default() {
+          return {
+            // general widget config
+            config: {
+              fullWidth: true
+              // sticky: false
+            },
+            mainTitle: {
+              text: 'HI i am header Widget default text',
+              styles: {}
+            }
+          }
+        },
+        require: false
+      }
+    }
   }
 </script>

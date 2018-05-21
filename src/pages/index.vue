@@ -3,21 +3,11 @@
     <page-toolbox></page-toolbox>
     <div class="editor-page--plot-area">
 
-
-      <!--<draggable v-model="myArray" :options="{group:'people'}" @start="drag=true" @end="drag=false">-->
-      <!--<div v-for="element in myArray" :key="element.id">{{element.name}}</div>-->
-      <!--</draggable>-->
-
       <draggable v-model="currentWidgetList" :options="{group:'people'}" @start="drag=true" @end="drag=false">
         <div v-for="(widget, index) in currentWidgetList" :key="widget.uniqeId">
           <div :is="widget.name" :widgetData="widget.data" :uniqeKey="widget.uniqeId"></div>
         </div>
       </draggable>
-
-
-      <!--<div v-for="(widget, index) in currentWidgetList" :key="widget.uniqeId">-->
-      <!--<div :is="widget.name" :widgetData="widget.data" :uniqeKey="widget.uniqeId"></div>-->
-      <!--</div>-->
 
       <AddWidget>
         <div class="blocks-area">
@@ -58,17 +48,13 @@
     computed: {
       currentWidgetList: {
         get() {
+          console.log('currentWidgetList')
           return this.$store.state.main.currentWidgetList
         },
         set(value) {
           this.$store.dispatch('main/sortCurrentWidgetList', value)
         }
-      },
-      // currentWidgetList() {
-      //   // console.log('currentWidgetList computed')
-      //   // console.log(this.$store.state.main.currentWidgetList)
-      //   return this.$store.state.main.currentWidgetList
-      // }
+      }
     }
   }
 </script>

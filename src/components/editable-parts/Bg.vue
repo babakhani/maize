@@ -3,9 +3,9 @@
     <button  v-if="editMode" class="btn btn-link background-editable--settings-btn" @click="showToolbox">
       <icon name="cog"></icon>
     </button>
-    <EditablePartToolbox
-                         :groups="['background', 'border']"
-                         :styles="styles" v-if="editMode && toolboxVisible"
+    <EditablePartToolbox @update="updateStyles"
+                         :currentStyles="styles"
+                         v-if="editMode && toolboxVisible"
                          @hide="hideToolbox"></EditablePartToolbox>
     <div v-bind:style="styles">
       <slot></slot>
@@ -19,11 +19,6 @@
   export default {
     name: 'BgEditable',
     mixins: [EditablePartMixin],
-    methods: {
-      updateColor(e) {
-        this.styles['background-color'] = e.target.value
-      }
-    },
     props: {
       editMode: {
         default: 'false'

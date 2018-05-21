@@ -1,9 +1,15 @@
 <template>
-  <div :class="{'container': !fullWidth}">
+  <div :class="{'container': !data.config.fullWidth}">
     <div class="widget-block">
-      <WidgetToolbox @toggleFullWidth="toggleFullWidth" @toggleEditMode="toggleEditMode"
-                     @deleteWidget="deleteWidget"></WidgetToolbox>
-      <BgEditable :editMode="editMode">
+      <WidgetToolbox @toggleFullWidth="toggleFullWidth"
+                     @toggleEditMode="toggleEditMode"
+                     @deleteWidget="deleteWidget">
+      </WidgetToolbox>
+      <BgEditable
+        name="bg"
+        @update="updateData"
+        :editMode="editMode"
+        :styles="data.bg.styles">
         <section class="fdb-block team-2">
           <div class="container">
             <div class="row text-center justify-content-center">
@@ -29,28 +35,27 @@
   import widgetMixin from '@/mixins/widget'
 
   export default {
-    name: 'Header',
+    name: 'Footer',
     mixins: [widgetMixin],
     props: {
       data: {
         default() {
           return {
+            // general widget config
+            config: {
+              fullWidth: true
+              // sticky: false
+            },
             mainTitle: {
               text: 'HI i am header Widget default text',
+              styles: {}
+            },
+            bg: {
               styles: {}
             }
           }
         },
         require: false
-      }
-    },
-    methods: {
-      updateData(e) {
-        this.$store.dispatch('main/updateItemOfCurrentWidgetList', {
-          key: this.uniqeKey, // index of this widget in cuurentWidgetList
-          name: e.name, // name of editble part that his data must be update
-          data: e
-        })
       }
     }
   }

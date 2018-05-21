@@ -1,9 +1,16 @@
 <template>
   <div :class="{'container': !data.config.fullWidth}">
     <div class="widget-block">
-      <WidgetToolbox @toggleFullWidth="toggleFullWidth" @toggleEditMode="toggleEditMode"
+      <WidgetToolbox @toggleFullWidth="toggleFullWidth"
+                     @toggleEditMode="toggleEditMode"
                      @deleteWidget="deleteWidget"></WidgetToolbox>
-      <BgEditable :editMode="editMode">
+
+      <BgEditable
+        name="bg"
+        @update="updateData"
+        :editMode="editMode"
+        :styles="data.bg.styles">
+
         <section class="fdb-block team-2">
           <div class="container">
             <div class="row text-center justify-content-center">
@@ -21,7 +28,6 @@
                                @update="updateData"
                                :styles="data.subtitle.styles"
                                :text="data.subtitle.text">
-                  {{data.subtitle.text}}
                 </text-editable>
                 <text-editable tag="h3"
                                :editMode="editMode"
@@ -29,7 +35,6 @@
                                @update="updateData"
                                :styles="data.subtitle1.styles"
                                :text="data.subtitle1.text">
-                  {{data.subtitle.text}}
                 </text-editable>
                 <text-editable tag="p"
                                :editMode="editMode"
@@ -37,7 +42,6 @@
                                @update="updateData"
                                :styles="data.subtitle2.styles"
                                :text="data.subtitle2.text">
-                  {{data.subtitle.text}}
                 </text-editable>
               </div>
             </div>
@@ -80,6 +84,9 @@
             },
             subtitle2: {
               text: 'HI i am banner Widget from store',
+              styles: {}
+            },
+            bg: {
               styles: {}
             }
           }

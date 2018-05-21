@@ -14,7 +14,13 @@ const Mixin = {
   },
   mounted() {
     this.data = this._.extend(this.data, this.widgetData)
-    // console.log(this.data)
+    console.log('widget mounted')
+    console.log(this.data)
+  },
+  watch: {
+    widgetData() {
+      this.data = this._.extend(this.data, this.widgetData)
+    }
   },
   props: {
     // TODO: merge widget data expect default pattern
@@ -50,7 +56,7 @@ const Mixin = {
       this.$store.dispatch('main/removeFromCurrentWidgetList', this.uniqeKey)
     },
     toggleEditMode() {
-      console.log('toggleEditMode')
+      // console.log('toggleEditMode')
       this.editMode = !this.editMode
     },
     imageUpload(e) {

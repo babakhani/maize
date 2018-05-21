@@ -29,15 +29,13 @@ let page = [
     name: 'Banner',
     uniqeId: 'Bannere21432141',
     data: {
-      mainTitle: {
-        text: 'Hi i am banner Widget from store',
-        styles: {}
-      }
     }
   }
 ]
 
 let defaultCurrentWidgetList = window.localStorage.getItem('page') ? JSON.parse(window.localStorage.getItem('page')).data : page
+
+// console.log(defaultCurrentWidgetList)
 
 export default {
   namespaced: true,
@@ -52,14 +50,21 @@ export default {
       state.addWidgetMode = payload
     },
     updateItemOfCurrentWidgetList(state, payload = {key: null, name: 'null', data: {}}) {
+
+      const list = lodash.cloneDeep(state.currentWidgetList)
+
       // TODO: check this, it might raise cant read 0 of undefined
-      let item = state.currentWidgetList.filter((n) => {
+      let item = list.filter((n) => {
         return n.uniqeId == payload.key
       })[0]
       if (typeof item.data === 'undefined') {
         item.data = {}
       }
       item.data[payload.name] = payload.data
+
+      state.currentWidgetList = []
+      state.currentWidgetList = list
+
       window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
     },
     addToCurrentWidgetList(state, payload) {

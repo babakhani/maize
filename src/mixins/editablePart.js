@@ -3,6 +3,9 @@ import {EventBus} from '../events/event-bus'
 
 const Mixin = {
   components: {EditablePartToolbox},
+  created () {
+    this.touchedStyle = this.styles
+  },
   mounted() {
     EventBus.$on('igotoeditmode', (uid) => {
       if (this._uid != uid) {
@@ -11,6 +14,32 @@ const Mixin = {
     })
   },
   methods: {
+    updateText(e) {
+      this.touchedText = e.target.innerText
+      this.update()
+    },
+    updateStyles(e) {
+      this.touchedStyle = e
+      this.update()
+    },
+    update() {
+
+      console.log({
+        name: this.name,
+        data: {
+          styles: this.touchedStyle,
+          text: this.touchedText
+        }
+      })
+
+      this.$emit('update', {
+        name: this.name,
+        data: {
+          styles: this.touchedStyle,
+          text: this.touchedText
+        }
+      })
+    },
     hideToolbox() {
       this.toolboxVisible = false
     },
@@ -21,6 +50,7 @@ const Mixin = {
   },
   data() {
     return {
+      touchedStyle: {},
       toolboxVisible: false
     }
   },

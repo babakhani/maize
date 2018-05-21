@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'container': !fullWidth}">
+  <div :class="{'container': !data.config.fullWidth}">
     <div class="widget-block">
       <WidgetToolbox @toggleFullWidth="toggleFullWidth" @toggleEditMode="toggleEditMode"
                      @deleteWidget="deleteWidget"></WidgetToolbox>
@@ -8,12 +8,19 @@
           <div class="container">
             <div class="row text-center justify-content-center">
               <div class="col-12">
-                <text-editable tag="h1" :editMode="editMode">
-                  {{widgetData.mainTitle.text}}
+                <text-editable tag="h1"
+                               :editMode="editMode"
+                               name="mainHeader"
+                               @update="updateData"
+                               :styles="data.mainHeader.styles"
+                               :text="data.mainHeader.text">
                 </text-editable>
-
-                <text-editable tag="h3" :editMode="editMode">
-                  {{widgetData.subtitle.text}}
+                <text-editable tag="h2"
+                               :editMode="editMode"
+                               name="subHeader"
+                               @update="updateData"
+                               :styles="data.subHeader.styles"
+                               :text="data.subHeader.text">
                 </text-editable>
               </div>
             </div>
@@ -47,6 +54,31 @@
 
   export default {
     name: 'TeamWidget',
-    mixins: [widgetMixin]
+    mixins: [widgetMixin],
+    props: {
+      data: {
+        default() {
+          return {
+
+            // general widget config
+            config: {
+              fullWidth: true
+            },
+
+            // Editable parts config that can be used in editable components
+            mainHeader: {
+              text: 'HI i am team Widget header from Default text',
+              styles: {}
+            },
+            subHeader: {
+              text: 'HI i am team Widget subheader from Default text',
+              styles: {}
+            }
+          }
+        },
+        require: false
+      }
+    }
   }
 </script>
+
