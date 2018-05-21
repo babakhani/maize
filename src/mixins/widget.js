@@ -1,19 +1,26 @@
 import TextEditable from '@/components/editable-parts/Text.vue'
 import ImageEditable from '@/components/editable-parts/Image.vue'
 import BgEditable from '@/components/editable-parts/Bg.vue'
-const Mixin =  {
+
+const Mixin = {
   components: {TextEditable, ImageEditable, BgEditable},
   name: 'EventBody',
-  data () {
+  data() {
     return {
-      editMode: true
+      editMode: false
     }
   },
   methods: {
+    deleteWidget() {
+      console.log('deleteWidget')
+      console.log(this.$options.name)
+      this.$store.dispatch('main/removeFromCurrentWidgetList', this.$options.name)
+    },
     toggleEditMode() {
+      console.log('toggleEditMode')
       this.editMode = !this.editMode
     },
-    imageUpload (e) {
+    imageUpload(e) {
       console.log('imageUpload')
       const $img = $(e.target).next('img')
       if (e.target.files && e.target.files[0]) {

@@ -1,5 +1,5 @@
 <template>
-  <div class="widget-text-editable">
+  <div class="widget-text-editable" :class="{'editable-active': editMode}">
     <EditablePartToolbox :styles="styles" v-if="editMode && toolboxVisible" @hide="hideToolbox"></EditablePartToolbox>
     <!--Min Slot-->
     <h1 v-bind:style="styles" v-if="tag === 'h1'" @focusin="showToolbox"

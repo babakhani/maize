@@ -190,7 +190,7 @@
         required: true
       },
       groups: {
-        default: ['text', 'background', 'border', 'general'],
+        default(){ return ['text', 'background', 'border', 'general']},
         required: false
       }
     },

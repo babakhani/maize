@@ -13,10 +13,6 @@ export default {
       state.addWidgetMode = payload
     },
     addToCurrentWidgetList(state, payload) {
-      console.log('addToCurrentWidgetList')
-      console.log(lodash.isString(payload))
-      console.log(lodash.isArray(payload))
-
       if (lodash.isString(payload)) {
         state.currentWidgetList.push(payload)
       } else if (lodash.isArray(payload)) {
@@ -27,15 +23,12 @@ export default {
       }
     },
     removeFromCurrentWidgetList(state, payload) {
+      let list = lodash.cloneDeep(state.currentWidgetList)
       // TODO: check this functionality later
-      // state.currentWidgetList.push(payload)
-      if (lodash.isString(payload)) {
-        state.currentWidgetList.push(payload)
-      } else if (lodash.isArray(payload)) {
-        lodash.remove(this.state, function(n) {
-          return payload.indexOf(n) > -1
-        })
-      }
+      lodash.remove(list, (n) => {
+        return n === payload
+      })
+      state.currentWidgetList = list
     }
   },
   actions: {
@@ -43,7 +36,7 @@ export default {
       context.commit('addToCurrentWidgetList', payload)
     },
     removeFromCurrentWidgetList(context, payload) {
-      state.addWidgetMode = payload
+      context.commit('removeFromCurrentWidgetList', payload)
     },
     setAddWidgetMode(context, payload) {
       context.commit('setAddWidgetMode', payload)

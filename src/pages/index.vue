@@ -30,6 +30,7 @@
     components: {TeamWidget, TeamWidget2, Banner, Header, Footer},
     computed: {
       currentWidgetList() {
+        console.log('currentWidgetList computed')
         return this.$store.state.main.currentWidgetList
       }
     }

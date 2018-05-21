@@ -1,4 +1,4 @@
-.blocks-area {
+.editor-page--plot-area {
   //border: 2px dashed gray;
   width: 60%;
   margin: 0 20%;
@@ -12,6 +12,7 @@
       position: relative;
 
       &.editable-active {
+        border: 2px dashed red !important;
         .widget-text-editable--toolbox {
           display: block;
         }
