@@ -1,45 +1,48 @@
 <template>
   <div class="widget-text-editable" :class="{'editable-active': editMode}">
-    <EditablePartToolbox :styles="styles" v-if="editMode && toolboxVisible" @hide="hideToolbox"></EditablePartToolbox>
+    <EditablePartToolbox @update="updateStyles"
+                         :currentStyles="styles"
+                         v-if="editMode && toolboxVisible"
+                         @hide="hideToolbox"></EditablePartToolbox>
     <!--Min Slot-->
     <h1 v-bind:style="styles" v-if="tag === 'h1'" @focusin="showToolbox"
         :contenteditable="editMode"
-        @input="update">
+        @input="updateText">
       {{text}}
     </h1>
     <h2 v-bind:style="styles" v-if="tag === 'h2'" @focusin="showToolbox"
         :contenteditable="editMode"
-        @input="update">
+        @input="updateText">
       {{text}}
     </h2>
     <h3 v-bind:style="styles" v-if="tag === 'h3'" @focusin="showToolbox"
         :contenteditable="editMode"
-        @input="update">
+        @input="updateText">
       {{text}}
     </h3>
     <h4 v-bind:style="styles" v-if="tag === 'h4'" @focusin="showToolbox"
         :contenteditable="editMode"
-        @input="update">
+        @input="updateText">
       {{text}}
     </h4>
     <h5 v-bind:style="styles" v-if="tag === 'h5'" @focusin="showToolbox"
         :contenteditable="editMode"
-        @input="update">
+        @input="updateText">
       {{text}}
     </h5>
     <h6 v-bind:style="styles" v-if="tag === 'h6'" @focusin="showToolbox"
         :contenteditable="editMode"
-        @input="update">
+        @input="updateText">
       {{text}}
     </h6>
     <span v-bind:style="styles" v-if="tag === 'span'" @focusin="showToolbox"
           :contenteditable="editMode"
-          @input="update">
+          @input="updateText">
       {{text}}
     </span>
     <p v-bind:style="styles" v-if="tag === 'p'" @focusin="showToolbox"
        :contenteditable="editMode"
-       @input="update">
+       @input="updateText">
       {{text}}
     </p>
   </div>
@@ -51,29 +54,26 @@
   export default {
     name: 'TextEditable',
     mixins: [EditablePartMixin],
+    created() {
+      this.styles = this._.extend(this.styles, this.currentStyles)
+    },
     methods: {
-      update(e) {
-        console.log('editable part update method')
+      updateText(e) {
+        if (e) {
+          this.text = e.target.innerText
+        }
+        this.update()
+      },
+      updateStyles(e) {
+        this.styles = e
+        this.update()
+      },
+      update() {
         this.$emit('update', {
           name: this.name,
           styles: this.styles,
-          text: e.target.innerText
+          text: this.text
         })
-      }
-    },
-    watch: {
-      styles: {
-        handler: function () {
-          console.log('styles changed:')
-          console.log(this.styles)
-
-          this.$emit('update', {
-            name: this.name,
-            styles: this.styles
-          })
-
-        },
-        deep: true
       }
     },
     props: {

@@ -16,12 +16,6 @@ const Mixin = {
     uniqeKey: {
       default: null,
       require: true
-    },
-    widgetData: {
-      default() {
-        return {}
-      },
-      require: false
     }
   },
   methods: {

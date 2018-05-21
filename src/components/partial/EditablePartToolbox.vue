@@ -185,17 +185,53 @@
   export default {
     name: 'EditablePartToolbox',
     props: {
-      styles: {
-        default: {},
+      currentStyles: {
+        default() {
+          return {}
+        },
         required: true
       },
       groups: {
-        default(){ return ['text', 'background', 'border', 'general']},
+        default() {
+          return ['text', 'background', 'border', 'general']
+        },
         required: false
+      },
+      styles: {
+        default() {
+          return {
+            'color': '#333',
+            'direction': 'rtl',
+            'font-size': null,
+            'font-weight': 'normal',
+            'font-family': 'Tahoma',
+            'text-align': 'center',
+            'text-decoration': 'none',
+            'white-space': 'wrap',
+
+            'text-indent': '0',
+            'background-color': 'transparent',
+            'line-height': 'inherit',
+            'border-width': '1px',
+            'border-color': 'transparent',
+            'border-style': 'solid',
+            'border-radius': '0',
+            'opacity': '1',
+            'overflow': 'visible',
+            'letter-spacing': 'normal'
+          }
+        }
       }
     },
+    created() {
+      this.styles = this._.extend(this.styles, this.currentStyles)
+    },
     methods: {
-      hide(){
+      update() {
+        //  TODO: send only changed data to update methods
+        this.$emit('update', this.styles)
+      },
+      hide() {
         this.$emit('hide')
       },
       toggleBold() {
@@ -204,18 +240,23 @@
         } else {
           this.styles['font-weight'] = 'bold'
         }
+        this.update()
       },
       updateColor(e) {
         this.styles['color'] = e.target.value
+        this.update()
       },
       updateBgColor(e) {
         this.styles['background-color'] = e.target.value
+        this.update()
       },
       align(direction) {
         this.styles['text-align'] = direction
+        this.update()
       },
       setSize(size) {
         this.styles['font-size'] = size
+        this.update()
       },
       toggleDirection() {
         if (this.styles['direction'] == 'rtl') {
@@ -223,6 +264,7 @@
         } else {
           this.styles['direction'] = 'rtl'
         }
+        this.update()
       },
       toggleTextIndent() {
         if (this.styles['text-indent'] == '0') {
@@ -240,6 +282,7 @@
         } else {
           this.styles['overflow'] = 'hidden'
         }
+        this.update()
       },
       setOpacityColor(e) {
         this.styles['opacity'] = e.target.value
@@ -250,6 +293,7 @@
         } else {
           this.styles['text-decoration'] = 'none'
         }
+        this.update()
       },
       toggleThroughDecoration() {
         if (this.styles['text-decoration'] == 'none') {
@@ -257,18 +301,23 @@
         } else {
           this.styles['text-decoration'] = 'none'
         }
+        this.update()
       },
       updateBorderColor(e) {
         this.styles['border-color'] = e.target.value
+        this.update()
       },
       borderWidth(e) {
         this.styles['border-width'] = e.target.value + 'px'
+        this.update()
       },
       setBorderStyle(style) {
         this.styles['border-style'] = style
+        this.update()
       },
       letterSpacing(e) {
         this.styles['letter-spacing'] = e.target.value + 'px'
+        this.update()
       },
     }
   }

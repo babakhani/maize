@@ -33,27 +33,7 @@ const Mixin = {
     },
     styles: {
       default() {
-        return {
-          'color': '#333',
-          'direction': 'rtl',
-          'font-size': null,
-          'font-weight': 'normal',
-          'font-family': 'Tahoma',
-          'text-align': 'center',
-          'text-decoration': 'none',
-          'white-space': 'wrap',
-
-          'text-indent': '0',
-          'background-color': 'transparent',
-          'line-height': 'inherit',
-          'border-width': '1px',
-          'border-color': 'transparent',
-          'border-style': 'solid',
-          'border-radius': '0',
-          'opacity': '1',
-          'overflow': 'visible',
-          'letter-spacing': 'normal'
-        }
+        return {}
       }
     }
   }

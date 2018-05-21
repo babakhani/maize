@@ -29,20 +29,15 @@ let page = [
       },
       subtitle: {
         text: 'HI i am banner Widget from store',
-        styles: {color: 'red'}
-      }
-    }
-  },
-  {
-    name: 'Banner',
-    data: {
-      mainTitle: {
-        text: 'HI i am banner Widget from store 1',
         styles: {}
       },
-      subtitle: {
-        text: 'HI i am banner Widget from store 1',
-        styles: {color: 'red'}
+      subtitle1: {
+        text: 'HI i am banner Widget from store',
+        styles: {}
+      },
+      subtitle2: {
+        text: 'HI i am banner Widget from store',
+        styles: {}
       }
     }
   }
@@ -62,7 +57,7 @@ export default {
     setAddWidgetMode(state, payload) {
       state.addWidgetMode = payload
     },
-    updateItemOfCurrentWidgetList(state, payload={key: null,name:'null',  }) {
+    updateItemOfCurrentWidgetList(state, payload = {key: null, name: 'null',}) {
 
       state.currentWidgetList[payload.key].data[payload.name] = payload.data
 
