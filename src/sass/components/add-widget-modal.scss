@@ -1,0 +1,21 @@
+.add-widget-modal{
+  .add-widget-modal--widget-item{
+    width: 8em;
+    height: 5em;
+    border: 1px solid #999;
+    float: left;
+    margin: 1em;
+    line-height: 3em;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover{
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+
+    &.add-widget-modal--widget-item--selected{
+      background: rgba(0, 0, 0, 0.3);
+    }
+  }
+}

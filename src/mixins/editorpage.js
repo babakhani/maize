@@ -1,8 +1,10 @@
+import Team from '@/components/widgets/Team.vue'
+
 import PageToolbox from '@/components/partial/PageToolbox.vue'
-import Team from '@/components/blocks/Team.vue'
-import Event from '@/components/blocks/Event.vue'
+import AddWidget from '@/components/partial/AddWidget'
+import WidgetListModal from '@/components/partial/WidgetListModal'
 const Mixin =  {
-  components: {PageToolbox, Team, Event}
+  components: {PageToolbox, Team, AddWidget, WidgetListModal}
 }
 
 export default Mixin

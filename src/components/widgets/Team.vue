@@ -1,5 +1,6 @@
 <template>
   <div class="widget-block">
+    <h6>Team</h6>
     <div class="widget-block--toolbox">
       <button @click="toggleEditMode()" class="widget-block--toolbox-btn widget-block--toolbox--edit-mode-btn">
         Edite

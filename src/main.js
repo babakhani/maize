@@ -7,6 +7,13 @@ import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon'
 import Store from './store'
 import i18n from '@/i18n'
+import BootstrapVue from 'bootstrap-vue'
+import VueLodash from 'vue-lodash'
+const options = { name: '_' } // customize the way you want to call it
+
+Vue.use(VueLodash, options) /
+
+Vue.use(BootstrapVue);
 Vue.config.productionTip = false
 Vue.use(Vuex)
 Vue.component('icon', Icon)
