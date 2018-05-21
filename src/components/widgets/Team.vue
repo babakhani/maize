@@ -3,7 +3,11 @@
     <div class="widget-block">
       <WidgetToolbox @toggleFullWidth="toggleFullWidth" @toggleEditMode="toggleEditMode"
                      @deleteWidget="deleteWidget"></WidgetToolbox>
-      <BgEditable :editMode="editMode">
+      <BgEditable
+        name="bg"
+        @update="updateData"
+        :editMode="editMode"
+        :styles="data.bg.styles">
         <section class="fdb-block team-2">
           <div class="container">
             <div class="row text-center justify-content-center">
@@ -27,19 +31,24 @@
             <div class="row-50"></div>
             <div class="row text-center justify-content-center">
               <div class="col-sm-3 m-sm-auto">
-                <ImageEditable :editMode="editMode"></ImageEditable>
-                <text-editable tag="h2" :editMode="editMode">Sara Doe</text-editable>
-                <text-editable tag="p" :editMode="editMode">Founder</text-editable>
-              </div>
-              <div class="col-sm-3 m-sm-auto">
-                <ImageEditable :editMode="editMode"></ImageEditable>
-                <text-editable tag="h2" :editMode="editMode">Sara Doe</text-editable>
-                <text-editable tag="p" :editMode="editMode">Founder</text-editable>
-              </div>
-              <div class="col-sm-3 m-sm-auto">
-                <ImageEditable :editMode="editMode"></ImageEditable>
-                <text-editable tag="h2" :editMode="editMode">Sara Doe</text-editable>
-                <text-editable tag="p" :editMode="editMode">Founder</text-editable>
+
+
+
+                <ImageEditable :editMode="editMode"
+                               name="image1"
+                               @update="updateData"
+                               :styles="data.image1.styles"
+                               :src="data.image1.src"
+                ></ImageEditable>
+
+
+                <text-editable tag="p"
+                               :editMode="editMode"
+                               name="imageCaption1"
+                               @update="updateData"
+                               :styles="data.imageCaption1.styles"
+                               :text="data.imageCaption1.text">
+                </text-editable>
               </div>
             </div>
           </div>
@@ -70,8 +79,19 @@
               text: 'HI i am team Widget header from Default text',
               styles: {}
             },
+            imageCaption1: {
+              text: 'HI i am team Widget header from Default text',
+              styles: {}
+            },
             subHeader: {
-              text: 'HI i am team Widget subheader from Default text',
+              text: 'this is image caption',
+              styles: {}
+            },
+            image1: {
+              styles: {},
+              src: '/static/imgs/img_round.svg'
+            },
+            bg: {
               styles: {}
             }
           }

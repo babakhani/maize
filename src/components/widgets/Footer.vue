@@ -5,7 +5,11 @@
                      @toggleEditMode="toggleEditMode"
                      @deleteWidget="deleteWidget">
       </WidgetToolbox>
-      <BgEditable :editMode="editMode">
+      <BgEditable
+        name="bg"
+        @update="updateData"
+        :editMode="editMode"
+        :styles="data.bg.styles">
         <section class="fdb-block team-2">
           <div class="container">
             <div class="row text-center justify-content-center">

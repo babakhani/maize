@@ -28,8 +28,7 @@ let page = [
   {
     name: 'Banner',
     uniqeId: 'Bannere21432141',
-    data: {
-    }
+    data: {}
   }
 ]
 
@@ -60,7 +59,7 @@ export default {
       if (typeof item.data === 'undefined') {
         item.data = {}
       }
-      item.data[payload.name] = payload.data
+      item.data[payload.name] = lodash.extend(item.data[payload.name], payload.data)
 
       state.currentWidgetList = []
       state.currentWidgetList = list

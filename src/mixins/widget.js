@@ -19,7 +19,10 @@ const Mixin = {
   },
   watch: {
     widgetData() {
+
       this.data = this._.extend(this.data, this.widgetData)
+      console.log('widget data')
+      console.log(this.data)
     }
   },
   props: {

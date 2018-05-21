@@ -1,8 +1,14 @@
 <template>
   <div class="widget-block--image-editable" @click="showToolbox">
-    <EditablePartToolbox :groups="['background', 'border', 'general']"  :styles="styles" v-if="editMode && toolboxVisible" @hide="hideToolbox"></EditablePartToolbox>
+
+    <EditablePartToolbox @update="updateStyles"
+                         :currentStyles="styles"
+                         :groups="['background', 'border', 'general']"
+                         v-if="editMode && toolboxVisible"
+                         @hide="hideToolbox"></EditablePartToolbox>
+
     <!--<input v-if="editMode" class="image&#45;&#45;editable" @change="imageUpload" type="file">-->
-    <img v-bind:style="styles" alt="image" class="img-fluid" src="/static/imgs/img_round.svg">
+    <img v-bind:style="styles" alt="image" class="img-fluid" :src="src">
   </div>
 </template>
 
@@ -12,10 +18,13 @@
   export default {
     name: 'ImageEditable',
     mixins: [EditablePartMixin],
+    props: {
+      src: {
+        default: null,
+        require: false
+      }
+    },
     methods: {
-      toggleEditMode() {
-        this.editMode = !this.editMode
-      },
       imageUpload(e) {
         console.log('imageUpload')
         const $img = $(e.target).next('img')
@@ -26,18 +35,7 @@
           }
           reader.readAsDataURL(e.target.files[0]);
         }
-      },
-      updateColor(e) {
-        this.styles['border-color'] = e.target.value
-      },
-      setSize(size) {
-        this.styles['border'] = size
       }
-    },
-    props: {
-      editMode: {
-        default: false
-      }
-    },
+    }
   }
 </script>

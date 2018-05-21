@@ -23,20 +23,12 @@ const Mixin = {
       this.update()
     },
     update() {
-
-      console.log({
-        name: this.name,
-        data: {
-          styles: this.touchedStyle,
-          text: this.touchedText
-        }
-      })
-
       this.$emit('update', {
         name: this.name,
         data: {
           styles: this.touchedStyle,
-          text: this.touchedText
+          text: this.touchedText,
+          src: this.src
         }
       })
     },
