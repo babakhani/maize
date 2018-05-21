@@ -12,6 +12,18 @@ const Mixin = {
       fullWidth: false
     }
   },
+  props: {
+    uniqeKey: {
+      default: null,
+      require: true
+    },
+    widgetData: {
+      default() {
+        return {}
+      },
+      require: false
+    }
+  },
   methods: {
     toggleFullWidth() {
       this.fullWidth = !this.fullWidth

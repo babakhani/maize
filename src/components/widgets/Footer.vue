@@ -29,18 +29,6 @@
 
   export default {
     name: 'Footer',
-    data() {
-      return {
-        widgetData: {
-          mainTitle: {
-            text: 'Footer Widget say hello'
-          },
-          subtitle: {
-            text: 'دلاری مگنا الیکوام اَرآت ولوتپات.'
-          }
-        }
-      }
-    },
     mixins: [widgetMixin]
   }
 </script>

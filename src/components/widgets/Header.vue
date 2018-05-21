@@ -29,18 +29,6 @@
 
   export default {
     name: 'Header',
-    data() {
-      return {
-        widgetData: {
-          mainTitle: {
-            text: 'Header Widget say hello'
-          },
-          subtitle: {
-            text: 'دلاری مگنا الیکوام اَرآت ولوتپات.'
-          }
-        }
-      }
-    },
     mixins: [widgetMixin]
   }
 </script>

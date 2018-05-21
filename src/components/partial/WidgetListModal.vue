@@ -13,7 +13,7 @@
          class="add-widget-modal--widget-item"
          :class="{'add-widget-modal--widget-item--selected': addWidgetList.indexOf(item) > -1}"
          @click="updateAddList(item)">
-      {{item}}
+      {{item.name}}
     </div>
 
   </b-modal>

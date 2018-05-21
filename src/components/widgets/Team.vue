@@ -47,18 +47,6 @@
 
   export default {
     name: 'TeamWidget',
-    data() {
-      return {
-        widgetData: {
-          mainTitle: {
-            text: 'TeamWidget Widget say hello'
-          },
-          subtitle: {
-            text: 'دلاری مگنا الیکوام اَرآت ولوتپات.'
-          }
-        }
-      }
-    },
     mixins: [widgetMixin]
   }
 </script>

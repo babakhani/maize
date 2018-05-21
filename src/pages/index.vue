@@ -4,7 +4,7 @@
 
     <div class="editor-page--plot-area">
       <div v-for="widget in currentWidgetList">
-        <div :is="widget"></div>
+        <div :is="widget.name" :widgetData="widget.data" :uniqeKey="currentWidgetList.indexOf(widget)"></div>
       </div>
       <AddWidget>
         <div class="blocks-area">

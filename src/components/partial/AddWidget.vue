@@ -23,8 +23,6 @@
 </template>
 
 <script>
-  import widgetMixin from '@/mixins/widget'
-
   export default {
     name: 'TeamWidget1',
     methods: {
@@ -32,19 +30,6 @@
         console.log('goToAddWidgetMode')
         this.$store.dispatch('main/setAddWidgetMode', true)
       }
-    },
-    data() {
-      return {
-        widgetData: {
-          mainTitle: {
-            text: 'لورم ایپسوم دلار سیت امیت'
-          },
-          subtitle: {
-            text: 'دلاری مگنا الیکوام اَرآت ولوتپات.'
-          }
-        }
-      }
-    },
-    mixins: [widgetMixin]
+    }
   }
 </script>

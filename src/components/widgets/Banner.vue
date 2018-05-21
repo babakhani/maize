@@ -1,19 +1,23 @@
 <template>
   <div :class="{'container': !fullWidth}">
     <div class="widget-block">
-      <WidgetToolbox @toggleFullWidth="toggleFullWidth" @toggleEditMode="toggleEditMode" @deleteWidget="deleteWidget"></WidgetToolbox>
-
+      <WidgetToolbox @toggleFullWidth="toggleFullWidth" @toggleEditMode="toggleEditMode"
+                     @deleteWidget="deleteWidget"></WidgetToolbox>
       <BgEditable :editMode="editMode">
-
         <section class="fdb-block team-2">
           <div class="container">
             <div class="row text-center justify-content-center">
               <div class="col-12">
-                <text-editable tag="h1" :editMode="editMode">
-                  {{widgetData.mainTitle.text}}
+
+                <text-editable tag="h1"
+                               :editMode="editMode"
+                               name="mainTitle"
+                               @update="updateData"
+                               :styles="widgetData.mainTitle.styles"
+                               :text="widgetData.mainTitle.text">
                 </text-editable>
 
-                <text-editable tag="h3" :editMode="editMode">
+                <text-editable tag="h3" :editMode="editMode" name="subtitle" @update="updateData">
                   {{widgetData.subtitle.text}}
                 </text-editable>
               </div>
@@ -31,18 +35,18 @@
 
   export default {
     name: 'Banner',
-    data() {
-      return {
-        widgetData: {
-          mainTitle: {
-            text: 'Banner Widget say hello'
-          },
-          subtitle: {
-            text: 'دلاری مگنا الیکوام اَرآت ولوتپات.'
-          }
-        }
+    mixins: [widgetMixin],
+    methods: {
+      updateData(e) {
+        console.log('widget update method')
+        console.log(e)
+        console.log(this.uniqeKey)
+        this.$store.dispatch('main/updateItemOfCurrentWidgetList', {
+          key: this.uniqeKey, // index of this widget in cuurentWidgetList
+          name: e.name, // name of editble part that his data must be update
+          data: e
+        })
       }
-    },
-    mixins: [widgetMixin]
+    }
   }
 </script>
