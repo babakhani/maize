@@ -12,7 +12,18 @@ const Mixin = {
       fullWidth: false
     }
   },
+  mounted() {
+    this.data = this._.extend(this.data, this.widgetData)
+    console.log(this.data)
+  },
   props: {
+    // TODO: merge widget data expect default pattern
+    widgetData: {
+      default() {
+        return {}
+      },
+      require: false
+    },
     uniqeKey: {
       default: null,
       require: true

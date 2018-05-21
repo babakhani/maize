@@ -3,19 +3,24 @@ import lodash from 'lodash'
 
 const rawWidgetList = [
   {
-    name: 'TeamWidget'
+    name: 'TeamWidget',
+    data: {}
   },
   {
-    name: 'TeamWidget2'
+    name: 'TeamWidget2',
+    data: {}
   },
   {
-    name: 'Header'
+    name: 'Header',
+    data: {}
   },
   {
-    name: 'Footer'
+    name: 'Footer',
+    data: {}
   },
   {
-    name: 'Banner'
+    name: 'Banner',
+    data: {}
   },
 ]
 
@@ -24,19 +29,7 @@ let page = [
     name: 'Banner',
     data: {
       mainTitle: {
-        text: 'HI i am banner Widget from store',
-        styles: {}
-      },
-      subtitle: {
-        text: 'HI i am banner Widget from store',
-        styles: {}
-      },
-      subtitle1: {
-        text: 'HI i am banner Widget from store',
-        styles: {}
-      },
-      subtitle2: {
-        text: 'HI i am banner Widget from store',
+        text: '11111HI i am banner Widget from store',
         styles: {}
       }
     }
@@ -58,9 +51,12 @@ export default {
       state.addWidgetMode = payload
     },
     updateItemOfCurrentWidgetList(state, payload = {key: null, name: 'null',}) {
-
-      state.currentWidgetList[payload.key].data[payload.name] = payload.data
-
+      if (state.currentWidgetList[payload.key].data) {
+        state.currentWidgetList[payload.key].data[payload.name] = payload.data
+      } else {
+        state.currentWidgetList[payload.key].data = {}
+        state.currentWidgetList[payload.key].data[payload.name] = payload.data
+      }
       window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
     },
     addToCurrentWidgetList(state, payload) {
@@ -71,6 +67,7 @@ export default {
           state.currentWidgetList.unshift(item)
         })
       }
+      window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
     },
     removeFromCurrentWidgetList(state, payload) {
       let list = lodash.cloneDeep(state.currentWidgetList)
@@ -79,6 +76,7 @@ export default {
         return n.name === payload
       })
       state.currentWidgetList = list
+      window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
     }
   },
   actions: {

@@ -8,17 +8,18 @@
           <div class="container">
             <div class="row text-center justify-content-center">
               <div class="col-12">
-                <text-editable tag="h1" :editMode="editMode">
-                  {{widgetData.mainTitle.text}}
-                </text-editable>
-
-                <text-editable tag="h3" :editMode="editMode">
-                  {{widgetData.subtitle.text}}
+                <text-editable tag="h1"
+                               :editMode="editMode"
+                               name="mainTitle"
+                               @update="updateData"
+                               :styles="data.mainTitle.styles"
+                               :text="data.mainTitle.text">
                 </text-editable>
               </div>
             </div>
           </div>
         </section>
+
       </BgEditable>
     </div>
   </div>
@@ -29,6 +30,42 @@
 
   export default {
     name: 'Header',
-    mixins: [widgetMixin]
+    mixins: [widgetMixin],
+    mounted() {
+      this.data = this._.extend(this.data, this.widgetData)
+      console.log(this.data)
+    },
+    props: {
+      widgetData: {
+        default() {
+          return {}
+        },
+        require: false
+      },
+      // TODO: merge widget data expect default pattern
+      data: {
+        default() {
+          return {
+            mainTitle: {
+              text: 'HI i am header Widget default text',
+              styles: {}
+            }
+          }
+        },
+        require: false
+      }
+    },
+    methods: {
+      updateData(e) {
+        console.log('widget update method')
+        console.log(e)
+        console.log(this.uniqeKey)
+        this.$store.dispatch('main/updateItemOfCurrentWidgetList', {
+          key: this.uniqeKey, // index of this widget in cuurentWidgetList
+          name: e.name, // name of editble part that his data must be update
+          data: e
+        })
+      }
+    }
   }
 </script>

@@ -1,7 +1,6 @@
 <template>
   <div class="editor-page">
     <page-toolbox></page-toolbox>
-
     <div class="editor-page--plot-area">
       <div v-for="widget in currentWidgetList">
         <div :is="widget.name" :widgetData="widget.data" :uniqeKey="currentWidgetList.indexOf(widget)"></div>

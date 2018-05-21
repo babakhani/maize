@@ -12,32 +12,32 @@
                                :editMode="editMode"
                                name="mainTitle"
                                @update="updateData"
-                               :styles="widgetData.mainTitle.styles"
-                               :text="widgetData.mainTitle.text">
+                               :styles="data.mainTitle.styles"
+                               :text="data.mainTitle.text">
                 </text-editable>
                 <text-editable tag="h2"
                                :editMode="editMode"
                                name="subtitle"
                                @update="updateData"
-                               :styles="widgetData.subtitle.styles"
-                               :text="widgetData.subtitle.text">
-                  {{widgetData.subtitle.text}}
+                               :styles="data.subtitle.styles"
+                               :text="data.subtitle.text">
+                  {{data.subtitle.text}}
                 </text-editable>
                 <text-editable tag="h3"
                                :editMode="editMode"
                                name="subtitle1"
                                @update="updateData"
-                               :styles="widgetData.subtitle1.styles"
-                               :text="widgetData.subtitle1.text">
-                  {{widgetData.subtitle.text}}
+                               :styles="data.subtitle1.styles"
+                               :text="data.subtitle1.text">
+                  {{data.subtitle.text}}
                 </text-editable>
                 <text-editable tag="p"
                                :editMode="editMode"
                                name="subtitle2"
                                @update="updateData"
-                               :styles="widgetData.subtitle2.styles"
-                               :text="widgetData.subtitle2.text">
-                  {{widgetData.subtitle.text}}
+                               :styles="data.subtitle2.styles"
+                               :text="data.subtitle2.text">
+                  {{data.subtitle.text}}
                 </text-editable>
               </div>
             </div>
@@ -56,8 +56,7 @@
     name: 'Banner',
     mixins: [widgetMixin],
     props: {
-      // TODO: merge widget data expect default pattern
-      widgetData: {
+      data: {
         default() {
           return {
             mainTitle: {

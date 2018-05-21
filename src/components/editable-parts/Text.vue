@@ -59,20 +59,17 @@
     },
     methods: {
       updateText(e) {
-        if (e) {
-          this.text = e.target.innerText
-        }
-        this.update()
+        this.update(e.target.innerText)
       },
       updateStyles(e) {
         this.styles = e
         this.update()
       },
-      update() {
+      update(txt) {
         this.$emit('update', {
           name: this.name,
           styles: this.styles,
-          text: this.text
+          text: txt ? txt : this.text
         })
       }
     },
