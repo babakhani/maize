@@ -1,5 +1,8 @@
 <template>
   <div :class="{'container': !fullWidth}">
+
+    <h1>Banner {{uniqeKey}}</h1>
+
     <div class="widget-block">
       <WidgetToolbox @toggleFullWidth="toggleFullWidth" @toggleEditMode="toggleEditMode"
                      @deleteWidget="deleteWidget"></WidgetToolbox>

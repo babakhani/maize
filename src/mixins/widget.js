@@ -34,9 +34,7 @@ const Mixin = {
       this.fullWidth = !this.fullWidth
     },
     deleteWidget() {
-      console.log('deleteWidget')
-      console.log(this.$options.name)
-      this.$store.dispatch('main/removeFromCurrentWidgetList', this.$options.name)
+      this.$store.dispatch('main/removeFromCurrentWidgetList', this.uniqeKey)
     },
     toggleEditMode() {
       console.log('toggleEditMode')

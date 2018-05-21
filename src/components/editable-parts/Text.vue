@@ -59,18 +59,24 @@
     },
     methods: {
       updateText(e) {
-        this.update(e.target.innerText)
+        this.touchedText = e.target.innerText
+        this.update()
       },
       updateStyles(e) {
         this.styles = e
         this.update()
       },
-      update(txt) {
+      update() {
         this.$emit('update', {
           name: this.name,
           styles: this.styles,
-          text: txt ? txt : this.text
+          text: this.touchedText
         })
+      }
+    },
+    data() {
+      return {
+        touchedText: this.text
       }
     },
     props: {

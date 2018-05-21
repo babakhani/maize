@@ -27,9 +27,10 @@ const rawWidgetList = [
 let page = [
   {
     name: 'Banner',
+    uniqeId: 'Bannere21432141',
     data: {
       mainTitle: {
-        text: '11111HI i am banner Widget from store',
+        text: 'Hi i am banner Widget from store',
         styles: {}
       }
     }
@@ -50,13 +51,18 @@ export default {
     setAddWidgetMode(state, payload) {
       state.addWidgetMode = payload
     },
-    updateItemOfCurrentWidgetList(state, payload = {key: null, name: 'null',}) {
-      if (state.currentWidgetList[payload.key].data) {
-        state.currentWidgetList[payload.key].data[payload.name] = payload.data
-      } else {
-        state.currentWidgetList[payload.key].data = {}
-        state.currentWidgetList[payload.key].data[payload.name] = payload.data
+    updateItemOfCurrentWidgetList(state, payload = {key: null, name: 'null', data: {}}) {
+      // TODO: check this, it might raise cant read 0 of undefined
+      let item = state.currentWidgetList.filter((n) => {
+        return n.uniqeId == payload.key
+      })[0]
+      // console.log('updateItemOfCurrentWidgetList')
+      // console.log(item)
+      // console.log(item.uniqeId)
+      if (typeof item.data === 'undefined') {
+        item.data = {}
       }
+      item.data[payload.name] = payload.data
       window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
     },
     addToCurrentWidgetList(state, payload) {
@@ -64,17 +70,23 @@ export default {
         state.currentWidgetList.push(payload)
       } else if (lodash.isArray(payload)) {
         payload.forEach((item) => {
-          state.currentWidgetList.unshift(item)
+          let it = lodash.cloneDeep(item)
+          it.uniqeId = it.name + (lodash.random(1000) + new Date().valueOf())
+          state.currentWidgetList.push(it)
         })
       }
       window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
     },
     removeFromCurrentWidgetList(state, payload) {
+      // console.log('---------------- removeFromCurrentWidgetList :: ' + payload)
       let list = lodash.cloneDeep(state.currentWidgetList)
+
       // TODO: check this functionality later
-      lodash.remove(list, (n) => {
-        return n.name === payload
+      lodash.remove(list, (n, index) => {
+        return n.uniqeId === payload
       })
+
+      // console.log(list.splice(payload, 1))
       state.currentWidgetList = list
       window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
     }
