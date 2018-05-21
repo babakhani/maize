@@ -5,7 +5,7 @@ export default {
   namespaced: true,
   state: {
     addWidgetMode: false,
-    currentWidgetList: [],
+    currentWidgetList: ['Banner'],
     rawWidgetList: ['TeamWidget', 'TeamWidget2', 'Header', 'Footer', 'Banner']
   },
   mutations: {

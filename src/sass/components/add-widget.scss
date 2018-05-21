@@ -1,0 +1,47 @@
+.add-widget-box {
+  margin: 1em;
+  // TODO: bita fix class name
+  .event-body {
+    min-height: 200px;
+    background: rgba(241, 29, 34, 0.05);
+    border-radius: 4px;
+    position: relative;
+    .event-body--main {
+      border: 2px dashed rgba(255, 0, 0, 0.2);
+      border-radius: 4px;
+      text-align: center;
+      top: 2em;
+      left: 2em;
+      right: 2em;
+      bottom: 2em;
+      position: absolute;
+      .center-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .btn-add-widget {
+        cursor: pointer;
+        width: 48px;
+        height: 48px;
+        background: #f11d22;
+        border-radius: 100%;
+        font-size: 36px;
+        line-height: 34px;
+        box-shadow: 0 2px 4px 0 rgba(241, 29, 34, 0.5);
+        &:hover {
+          border-color: #f11d22;
+        }
+
+      }
+      .text-add-widget {
+        font-size: 14px;
+        color: #f11d22;
+        margin-top: 15px;
+        font-weight: 500;
+      }
+    }
+  }
+}

@@ -1,10 +1,12 @@
 <template>
-  <div  class="background-editable" :class="{'edit-mode': editMode}">
-    <button class="btn btn-link" @click="showToolbox" >
+  <div class="background-editable" :class="{'edit-mode': editMode}">
+    <button  v-if="editMode" class="btn btn-link background-editable--settings-btn" @click="showToolbox">
       <icon name="cog"></icon>
     </button>
-    <EditablePartToolbox :groups="['background', 'border']" :styles="styles" v-if="editMode && toolboxVisible" @hide="hideToolbox"></EditablePartToolbox>
-
+    <EditablePartToolbox
+                         :groups="['background', 'border']"
+                         :styles="styles" v-if="editMode && toolboxVisible"
+                         @hide="hideToolbox"></EditablePartToolbox>
     <div v-bind:style="styles">
       <slot></slot>
     </div>
@@ -13,6 +15,7 @@
 
 <script>
   import EditablePartMixin from '../../mixins/editablePart'
+
   export default {
     name: 'BgEditable',
     mixins: [EditablePartMixin],

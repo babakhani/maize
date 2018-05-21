@@ -1,11 +1,16 @@
 <template>
-  <div class="widget-block">
+  <div class="add-widget-box">
+    <!--TODO: bita fix class name-->
     <div class="event-body container">
       <div class="event-body--main">
-        <button @click="goToAddWidgetMode" class="btn btn-add-widget">
-          +
-        </button>
-        <p class="text-add-widget">اضافه کردن بخش</p>
+
+        <div class="center-center">
+          <button @click="goToAddWidgetMode" class="btn btn-add-widget">
+            +
+          </button>
+          <p class="text-add-widget">اضافه کردن بخش</p>
+        </div>
+
       </div>
 
       <!-- Modal Component -->

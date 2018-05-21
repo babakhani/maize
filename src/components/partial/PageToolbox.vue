@@ -30,10 +30,9 @@
                 <icon name="eye"></icon>
                 <span class="preview-text"> نسخه قابل نمایش</span>
               </a>
-
             </li>
             <li class="mr-lg-3 btn-published">
-              <a class="btn btn-published--link btn-lg" href="#">درخواست انتشار</a>
+              <button class="btn btn-published--link btn-lg" @click="gotToAddWidgetMode">+ Add Widget</button>
             </li>
           </ul>
         </div>
@@ -44,9 +43,14 @@
 <script>
   export default {
     name: 'PageToolbax',
-    data () {
+    data() {
       return {
         status: 'درحال ذخیره سازی تغییرات...'
+      }
+    },
+    methods: {
+      gotToAddWidgetMode() {
+        this.$store.dispatch('main/setAddWidgetMode', true)
       }
     },
     computed: {

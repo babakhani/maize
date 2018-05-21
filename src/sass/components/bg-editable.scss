@@ -1,0 +1,20 @@
+
+
+.background-editable {
+  position: relative;
+
+
+  .background-editable--toolbox {
+    opacity: 0;
+  }
+  &.edit-mode {
+    .background-editable--toolbox {
+      opacity: 1;
+    }
+  }
+
+  .background-editable--settings-btn{
+    position: absolute;
+    z-index: 2;
+  }
+}

@@ -1,16 +1,21 @@
 import TextEditable from '@/components/editable-parts/Text.vue'
 import ImageEditable from '@/components/editable-parts/Image.vue'
 import BgEditable from '@/components/editable-parts/Bg.vue'
+import WidgetToolbox from '../components/partial/WidgetToolbox'
 
 const Mixin = {
-  components: {TextEditable, ImageEditable, BgEditable},
+  components: {TextEditable, ImageEditable, BgEditable, WidgetToolbox},
   name: 'EventBody',
   data() {
     return {
-      editMode: false
+      editMode: false,
+      fullWidth: false
     }
   },
   methods: {
+    toggleFullWidth() {
+      this.fullWidth = !this.fullWidth
+    },
     deleteWidget() {
       console.log('deleteWidget')
       console.log(this.$options.name)
