@@ -1,0 +1,24 @@
+.image-picker-modal {
+  .modal-dialog {
+    max-width: 80% !important;
+    margin: 2% 10% !important;
+  }
+
+  .modal-content{
+    padding-right: 15px;
+    max-height: 60em;
+  }
+  .modal-body {
+    text-align: center;
+    overflow: auto;
+    .image-picker-modal--img {
+      width: 20em;
+      margin: 1em;
+      &:hover,
+      &:focus,
+      &:active {
+        outline: 2px solid rgba(250, 0, 0, 0.6);
+      }
+    }
+  }
+}

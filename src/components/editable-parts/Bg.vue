@@ -4,6 +4,7 @@
       <icon name="cog"></icon>
     </button>
     <EditablePartToolbox @update="updateStyles"
+                         :groups="['background', 'border']"
                          :currentStyles="styles"
                          v-if="editMode && toolboxVisible"
                          @hide="hideToolbox"></EditablePartToolbox>

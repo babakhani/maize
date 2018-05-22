@@ -40,11 +40,15 @@ export default {
   namespaced: true,
   state: {
     addWidgetMode: false,
+    pickImageMode: false,
     // currentWidgetList: ['Banner'],
     currentWidgetList: defaultCurrentWidgetList,
     rawWidgetList: rawWidgetList
   },
   mutations: {
+    setPickImageMode (state, payload) {
+      state.pickImageMode = payload
+    },
     setAddWidgetMode(state, payload) {
       state.addWidgetMode = payload
     },
@@ -95,6 +99,9 @@ export default {
     }
   },
   actions: {
+    setPickImageMode(context, payload) {
+      context.commit('setPickImageMode', payload)
+    },
     sortCurrentWidgetList(context, payload) {
       context.commit('sortCurrentWidgetList', payload)
     },

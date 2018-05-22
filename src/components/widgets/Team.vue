@@ -50,6 +50,46 @@
                                :text="data.imageCaption1.text">
                 </text-editable>
               </div>
+              <div class="col-sm-3 m-sm-auto">
+
+
+
+                <ImageEditable :editMode="editMode"
+                               name="image1"
+                               @update="updateData"
+                               :styles="data.image1.styles"
+                               :src="data.image1.src"
+                ></ImageEditable>
+
+
+                <text-editable tag="p"
+                               :editMode="editMode"
+                               name="imageCaption1"
+                               @update="updateData"
+                               :styles="data.imageCaption1.styles"
+                               :text="data.imageCaption1.text">
+                </text-editable>
+              </div>
+              <div class="col-sm-3">
+
+
+
+                <ImageEditable :editMode="editMode"
+                               name="image1"
+                               @update="updateData"
+                               :styles="data.image1.styles"
+                               :src="data.image1.src"
+                ></ImageEditable>
+
+
+                <text-editable tag="p"
+                               :editMode="editMode"
+                               name="imageCaption1"
+                               @update="updateData"
+                               :styles="data.imageCaption1.styles"
+                               :text="data.imageCaption1.text">
+                </text-editable>
+              </div>
             </div>
           </div>
         </section>
@@ -89,7 +129,7 @@
             },
             image1: {
               styles: {},
-              src: '/static/imgs/img_round.svg'
+              src: '/static/imgs/colors_wide_1.jpg'
             },
             bg: {
               styles: {}

@@ -15,6 +15,7 @@
       </AddWidget>
     </div>
     <WidgetListModal></WidgetListModal>
+    <ImagePickerModal></ImagePickerModal>
   </div>
 </template>
 <script>
@@ -26,6 +27,7 @@
   import Header from '../components/widgets/Header'
   import Footer from '../components/widgets/Footer'
   import Banner from '../components/widgets/Banner'
+  import ImagePickerModal from '../components/partial/ImagePickermodal'
 
   export default {
     name: 'Events',
@@ -44,7 +46,7 @@
       }
     },
     mixins: [editor],
-    components: {TeamWidget, TeamWidget2, Banner, Header, Footer, draggable},
+    components: {TeamWidget, TeamWidget2, Banner, Header, Footer, draggable, ImagePickerModal},
     computed: {
       currentWidgetList: {
         get() {
