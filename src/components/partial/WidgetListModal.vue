@@ -7,7 +7,7 @@
     size="lg"
     centered
     class="add-widget-modal"
-    title="Bootstrap-Vue">
+    title="Choose your Widget :">
 
     <div v-for="item in widgetList"
          class="add-widget-modal--widget-item"

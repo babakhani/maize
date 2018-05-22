@@ -1,8 +1,8 @@
 <template>
   <div class="add-widget-box">
     <!--TODO: bita fix class name-->
-    <div class="event-body container">
-      <div class="event-body--main">
+    <div class="add-widget-box--main container">
+      <div class="add-widget-box--main--details">
 
         <div class="center-center">
           <button @click="goToAddWidgetMode" class="btn btn-add-widget">

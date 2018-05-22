@@ -10,6 +10,7 @@
         @update="updateData"
         :editMode="editMode"
         :styles="data.bg.styles">
+
         <section class="fdb-block team-2">
           <div class="container">
             <div class="row text-center justify-content-center">
@@ -47,7 +48,10 @@
               // sticky: false
             },
             mainTitle: {
-              text: 'HI i am header Widget default text',
+              text: 'Hi i am footer Widget default text',
+              styles: {}
+            },
+            bg: {
               styles: {}
             }
           }

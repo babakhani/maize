@@ -1,12 +1,12 @@
 .add-widget-box {
   margin: 1em;
   // TODO: bita fix class name
-  .event-body {
+  .add-widget-box--main {
     min-height: 200px;
     background: rgba(241, 29, 34, 0.05);
     border-radius: 4px;
     position: relative;
-    .event-body--main {
+    .add-widget-box--main--details {
       border: 2px dashed rgba(255, 0, 0, 0.2);
       border-radius: 4px;
       text-align: center;
