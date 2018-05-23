@@ -5,9 +5,32 @@
           data-id="2">
     <div class="container p-0">
       <nav class="navbar navbar-expand-lg px-0 py-3">
+
+
         <div class="collapse navbar-collapse"
              id="navbarNav13">
           <ul class="navbar-nav mr-auto">
+
+
+            <li class="nav-item mr-lg-3">
+              <a v-b-tooltip.hover.bottom.small
+                 class="nav-link"
+                 title="Undo"
+                 @click="undo">
+                <icon name="undo"></icon>
+              </a>
+            </li>
+
+            <li class="nav-item mr-lg-3">
+              <a v-b-tooltip.hover.bottom.small
+                 class="nav-link"
+                 title="Redo"
+                 @click="redo">
+                <icon name="redo"></icon>
+              </a>
+            </li>
+
+
             <li class="nav-item mr-lg-3">
               <a class="nav-link"
                  title="Preview Mode"
@@ -59,6 +82,12 @@
       }
     },
     methods: {
+      undo() {
+        this.$store.dispatch('undo')
+      },
+      redo() {
+        this.$store.dispatch('redo')
+      },
       setPreviewMode(e) {
         this.$store.dispatch('main/setPreviewMode', e.target.checked)
       },
@@ -68,7 +97,7 @@
       setTabletPreviewMode() {
         this.$store.dispatch('main/setTabletPreviewMode', !this.tabletPreviewMode)
       },
-      setDesktopPreviewMode () {
+      setDesktopPreviewMode() {
         this.$store.dispatch('main/setMobilePreviewMode', false)
         this.$store.dispatch('main/setTabletPreviewMode', false)
       },
@@ -83,7 +112,7 @@
       mobilePreviewMode() {
         return this.$store.state.main.mobilePreviewMode
       },
-      tabletPreviewMode () {
+      tabletPreviewMode() {
         return this.$store.state.main.tabletPreviewMode
       },
       autosaveStatus: function () {
