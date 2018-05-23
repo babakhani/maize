@@ -7,7 +7,7 @@
     centered
     class="image-picker-modal"
     title="Choose your pick:">
-    <div>
+    <div class="image-picker-modal--body ">
       <img :class="{'image-picker-modal-selected' : pickedImageSrc == imageItem }"
            class="image-picker-modal--img"
            v-for="imageItem in fakeImagesForTest"
