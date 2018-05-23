@@ -11,13 +11,19 @@
                   <input @change="setPreviewMode" type="checkbox">
                   <span class="slider round"></span>
                 </label>
-                <span class="preview-text">{{ $t("show_header") }}</span>
+                <!--<span class="preview-text">{{ $t("show_header") }}</span>-->
               </a>
             </li>
             <li class="nav-item mr-lg-3">
               <a class="nav-link" href="#">
                 <icon name="eye"></icon>
-                <span class="preview-text">{{ $t("preview_mode") }}</span>
+                <!--<span class="preview-text">{{ $t("preview_mode") }}</span>-->
+              </a>
+            </li>
+            <li class="nav-item mr-lg-3">
+              <a class="nav-link" @click="setMobilePreviewMode">
+                <icon name="mobile"></icon>
+                <!--<span class="preview-text">{{ $t("mobile_preview_mode") }}</span>-->
               </a>
             </li>
           </ul>
@@ -38,11 +44,20 @@
       setPreviewMode(e) {
         this.$store.dispatch('main/setPreviewMode', e.target.checked)
       },
+      setMobilePreviewMode() {
+        this.$store.dispatch('main/setMobilePreviewMode', !this.mobilePreviewMode)
+      },
       gotToAddWidgetMode() {
         this.$store.dispatch('main/setAddWidgetMode', true)
       }
     },
     computed: {
+      previewMode() {
+        return this.$store.state.main.previewMode
+      },
+      mobilePreviewMode() {
+        return this.$store.state.main.mobilePreviewMode
+      },
       autosaveStatus: function () {
         return this.status;
       }

@@ -43,6 +43,7 @@ let defaultCurrentWidgetList = window.localStorage.getItem('page') ? JSON.parse(
 export default {
   namespaced: true,
   state: {
+    mobilePreviewMode: false,
     previewMode: false,
     addWidgetMode: false,
     pickImageMode: false,
@@ -51,6 +52,9 @@ export default {
     rawWidgetList: rawWidgetList
   },
   mutations: {
+    setMobilePreviewMode(state, payload) {
+      state.mobilePreviewMode = payload
+    },
     setPreviewMode(state, payload) {
       state.previewMode = payload
     },
@@ -61,9 +65,7 @@ export default {
       state.addWidgetMode = payload
     },
     updateItemOfCurrentWidgetList(state, payload = {key: null, name: 'null', data: {}}) {
-
       const list = lodash.cloneDeep(state.currentWidgetList)
-
       // TODO: check this, it might raise cant read 0 of undefined
       let item = list.filter((n) => {
         return n.uniqeId == payload.key
@@ -72,10 +74,8 @@ export default {
         item.data = {}
       }
       item.data[payload.name] = lodash.extend(item.data[payload.name], payload.data)
-
       state.currentWidgetList = []
       state.currentWidgetList = list
-
       window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
     },
     addToCurrentWidgetList(state, payload) {
@@ -91,13 +91,11 @@ export default {
       window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
     },
     removeFromCurrentWidgetList(state, payload) {
-      // console.log('---------------- removeFromCurrentWidgetList :: ' + payload)
       let list = lodash.cloneDeep(state.currentWidgetList)
       // TODO: check this functionality later
       lodash.remove(list, (n, index) => {
         return n.uniqeId === payload
       })
-      // console.log(list.splice(payload, 1))
       state.currentWidgetList = list
       window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
     },
@@ -107,6 +105,9 @@ export default {
     }
   },
   actions: {
+    setMobilePreviewMode(context, payload) {
+      context.commit('setMobilePreviewMode', payload)
+    },
     setPreviewMode(context, payload) {
       context.commit('setPreviewMode', payload)
     },

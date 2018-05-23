@@ -16,6 +16,15 @@
       margin: 0 0%;
     }
   }
+
+  &.editor-page-mobile-preview-mode {
+    // write preview mode styles here
+    .editor-page--plot-area {
+      float: none;
+      width: 360px;
+      margin: 0 auto;
+    }
+  }
 }
 
 

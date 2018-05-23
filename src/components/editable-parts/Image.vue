@@ -29,16 +29,18 @@
     },
     methods: {
       setPickImageMode() {
-        this.$store.dispatch('main/setPickImageMode', true)
-        EventBus.$once('pickImage', (imageSrc) => {
-          this.src = imageSrc
-          this.$emit('update', {
-            name: this.name,
-            data: {
-              src: this.src
-            }
+        if (this.editMode) {
+          this.$store.dispatch('main/setPickImageMode', true)
+          EventBus.$once('pickImage', (imageSrc) => {
+            this.src = imageSrc
+            this.$emit('update', {
+              name: this.name,
+              data: {
+                src: this.src
+              }
+            })
           })
-        })
+        }
       },
       imageUpload(e) {
         console.log('imageUpload')
