@@ -4,6 +4,7 @@ import {EventBus} from '../events/event-bus'
 const Mixin = {
   components: {EditablePartToolbox},
   created () {
+    this.touchedStyle = this.text
     this.touchedStyle = this.styles
   },
   mounted() {
@@ -16,19 +17,19 @@ const Mixin = {
   methods: {
     updateText(e) {
       this.touchedText = e.target.innerText
-      this.update()
-    },
-    updateStyles(e) {
-      this.touchedStyle = e
-      this.update()
-    },
-    update() {
       this.$emit('update', {
         name: this.name,
         data: {
-          styles: this.touchedStyle,
-          text: this.touchedText,
-          src: this.src
+          text: this.touchedText
+        }
+      })
+    },
+    updateStyles(e) {
+      this.touchedStyle = e
+      this.$emit('update', {
+        name: this.name,
+        data: {
+          styles: this.touchedStyle
         }
       })
     },
