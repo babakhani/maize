@@ -2,10 +2,10 @@
   <div :class="{'container': !data.config.fullWidth}">
     <div class="widget-block">
       <WidgetToolbox
-                     :editMode="editMode"
-                     @toggleFullWidth="toggleFullWidth"
-                     @toggleEditMode="toggleEditMode"
-                     @deleteWidget="deleteWidget"></WidgetToolbox>
+        :editMode="editMode"
+        @toggleFullWidth="toggleFullWidth"
+        @toggleEditMode="toggleEditMode"
+        @deleteWidget="deleteWidget"></WidgetToolbox>
 
       <BgEditable
         name="bg"
@@ -15,7 +15,7 @@
         <section class="fdb-block team-2">
           <div class="container">
             <div class="row text-center justify-content-center">
-              <div class="col-3">
+              <div class="col-3 col-xs-5">
                 <ImageEditable :editMode="editMode"
                                name="image1"
                                @update="updateData"
@@ -23,7 +23,16 @@
                                :src="data.image1.src"
                 ></ImageEditable>
               </div>
+              <div class="col-3 col-xs-5">
+                <ImageEditable :editMode="editMode"
+                               name="image2"
+                               @update="updateData"
+                               :styles="data.image2.styles"
+                               :src="data.image2.src"
+                ></ImageEditable>
+              </div>
 
+              <br>
               <div class="col-12">
                 <text-editable tag="h1"
                                :editMode="editMode"
@@ -45,6 +54,27 @@
                                @update="updateData"
                                :styles="data.subtitle1.styles"
                                :text="data.subtitle1.text">
+                </text-editable>
+                <text-editable tag="h4"
+                               :editMode="editMode"
+                               name="subtitle2"
+                               @update="updateData"
+                               :styles="data.subtitle2.styles"
+                               :text="data.subtitle2.text">
+                </text-editable>
+                <text-editable tag="h5"
+                               :editMode="editMode"
+                               name="subtitle2"
+                               @update="updateData"
+                               :styles="data.subtitle2.styles"
+                               :text="data.subtitle2.text">
+                </text-editable>
+                <text-editable tag="h6"
+                               :editMode="editMode"
+                               name="subtitle2"
+                               @update="updateData"
+                               :styles="data.subtitle2.styles"
+                               :text="data.subtitle2.text">
                 </text-editable>
                 <text-editable tag="p"
                                :editMode="editMode"
@@ -73,12 +103,15 @@
       data: {
         default() {
           return {
-
             // general widget config
             config: {
               fullWidth: true
             },
             image1: {
+              styles: {},
+              src: '/static/imgs/colors_wide_1.jpg'
+            },
+            image2: {
               styles: {},
               src: '/static/imgs/colors_wide_1.jpg'
             },

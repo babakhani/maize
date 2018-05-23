@@ -14,12 +14,12 @@
                 <!--<span class="preview-text">{{ $t("show_header") }}</span>-->
               </a>
             </li>
-            <li class="nav-item mr-lg-3">
-              <a class="nav-link" href="#">
-                <icon name="eye"></icon>
-                <!--<span class="preview-text">{{ $t("preview_mode") }}</span>-->
-              </a>
-            </li>
+            <!--<li class="nav-item mr-lg-3">-->
+            <!--<a class="nav-link" href="#">-->
+            <!--<icon name="eye"></icon>-->
+            <!--&lt;!&ndash;<span class="preview-text">{{ $t("preview_mode") }}</span>&ndash;&gt;-->
+            <!--</a>-->
+            <!--</li>-->
             <li class="nav-item mr-lg-3">
               <a class="nav-link" @click="setMobilePreviewMode">
                 <icon name="mobile"></icon>

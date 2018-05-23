@@ -1,5 +1,6 @@
 <template>
-  <div class="editor-page" :class="{ 'editor-page-preview-mode': previewMode, 'editor-page-mobile-preview-mode': mobilePreviewMode}">
+  <div class="editor-page"
+       :class="{ 'editor-page-preview-mode': previewMode, 'editor-page-mobile-preview-mode': mobilePreviewMode}">
     <!--<page-toolbox></page-toolbox>-->
     <global-page-toolbox></global-page-toolbox>
     <div class="editor-page--plot-area">
