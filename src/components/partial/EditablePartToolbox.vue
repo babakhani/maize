@@ -338,6 +338,7 @@
       },
       setLineHeight(payload) {
         this.styles['line-height'] = payload
+        this.update()
       },
       toggleOverflow() {
         if (this.styles['overflow'] == 'hidden') {
