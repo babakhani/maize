@@ -39,6 +39,7 @@ let defaultCurrentWidgetList = window.localStorage.getItem('page') ? JSON.parse(
 export default {
   namespaced: true,
   state: {
+    previewMode: false,
     addWidgetMode: false,
     pickImageMode: false,
     // currentWidgetList: ['Banner'],
@@ -46,7 +47,10 @@ export default {
     rawWidgetList: rawWidgetList
   },
   mutations: {
-    setPickImageMode (state, payload) {
+    setPreviewMode(state, payload) {
+      state.previewMode = payload
+    },
+    setPickImageMode(state, payload) {
       state.pickImageMode = payload
     },
     setAddWidgetMode(state, payload) {
@@ -99,6 +103,9 @@ export default {
     }
   },
   actions: {
+    setPreviewMode(context, payload) {
+      context.commit('setPreviewMode', payload)
+    },
     setPickImageMode(context, payload) {
       context.commit('setPickImageMode', payload)
     },

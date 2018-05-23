@@ -1,6 +1,7 @@
 <template>
-  <div class="editor-page">
-    <page-toolbox></page-toolbox>
+  <div class="editor-page" :class="{ 'editor-page-preview-mode': previewMode}">
+    <!--<page-toolbox></page-toolbox>-->
+    <global-page-toolbox></global-page-toolbox>
     <div class="editor-page--plot-area">
 
       <draggable v-model="currentWidgetList" :options="{group:'people'}" @start="drag=true" @end="drag=false">
@@ -48,6 +49,9 @@
     mixins: [editor],
     components: {TeamWidget, TeamWidget2, Banner, Header, Footer, draggable, ImagePickerModal},
     computed: {
+      previewMode() {
+        return this.$store.state.main.previewMode
+      },
       currentWidgetList: {
         get() {
           console.log('currentWidgetList')

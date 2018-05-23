@@ -13,6 +13,11 @@
   padding: 5px;
   text-align: left;
 
+  // Preview Mode Styles
+  .editor-page-preview-mode & {
+    display: none;
+  }
+
   .widget-text-editable--toolbox--close {
     position: absolute;
     top: -10px;

@@ -1,8 +1,15 @@
 .widget-block {
-  margin: 1em;
+  margin-bttom: 1em;
   display: block;
   position: relative;
-  border: 1px solid #999;
+  border: 2px dashed rgba(0, 0, 0, .5);
+
+
+  // Preview Mode Styles
+  .editor-page-preview-mode & {
+    border: 0;
+    margin-bttom: 0em;
+  }
 
   .fdb-block {
     overflow: visible;

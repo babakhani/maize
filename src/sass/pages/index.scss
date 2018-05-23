@@ -1,15 +1,21 @@
-.editor-page--plot-area {
-  //border: 2px dashed gray;
-  width: 90%;
-  margin: 0 5%;
-}
 
 .editor-page {
   background: rgba(170, 170, 170, 0.2);
   .editor-page--plot-area {
     display: block;
     float: left;
-    min-height: 1200px;
-    //border: 2px dashed rgba(0, 0, 0, .2);
+    width: 88%;
+    margin: 0 6%;
+    min-height: 800px;
+  }
+
+  &.editor-page-preview-mode {
+    // write preview mode styles here
+    .editor-page--plot-area {
+      width: 100%;
+      margin: 0 0%;
+    }
   }
 }
+
+

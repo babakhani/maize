@@ -1,8 +1,6 @@
 
-
 .background-editable {
   position: relative;
-
 
   .background-editable--toolbox {
     opacity: 0;
@@ -13,7 +11,7 @@
     }
   }
 
-  .background-editable--settings-btn{
+  .background-editable--settings-btn {
     position: absolute;
     z-index: 2;
   }

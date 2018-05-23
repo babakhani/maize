@@ -1,5 +1,13 @@
 .add-widget-box {
   margin: 1em;
+
+
+  // Preview Mode Styles
+  .editor-page-preview-mode & {
+    display: none;
+  }
+
+
   // TODO: bita fix class name
   .add-widget-box--main {
     min-height: 200px;

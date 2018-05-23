@@ -1,5 +1,5 @@
-.add-widget-modal{
-  .add-widget-modal--widget-item{
+.add-widget-modal {
+  .add-widget-modal--widget-item {
     width: 8em;
     height: 5em;
     border: 1px solid #999;
@@ -9,12 +9,11 @@
     text-align: center;
     cursor: pointer;
 
-    &:hover{
+    &:hover {
       background: rgba(0, 0, 0, 0.1);
     }
 
-
-    &.add-widget-modal--widget-item--selected{
+    &.add-widget-modal--widget-item--selected {
       background: rgba(0, 0, 0, 0.3);
     }
   }
