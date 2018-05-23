@@ -17,12 +17,21 @@ const Mixin = {
     console.log('widget mounted')
     console.log(this.data)
   },
+  computed: {
+    previewMode() {
+      return this.$store.state.main.previewMode
+    }
+  },
   watch: {
+    previewMode() {
+      console.log('watch previewMode')
+      console.log(this.previewMode)
+      if (this.previewMode) {
+        this.editMode = false
+      }
+    },
     widgetData() {
-
       this.data = this._.extend(this.data, this.widgetData)
-      console.log('widget data')
-      console.log(this.data)
     }
   },
   props: {
@@ -59,7 +68,6 @@ const Mixin = {
       this.$store.dispatch('main/removeFromCurrentWidgetList', this.uniqeKey)
     },
     toggleEditMode() {
-      // console.log('toggleEditMode')
       this.editMode = !this.editMode
     },
     imageUpload(e) {

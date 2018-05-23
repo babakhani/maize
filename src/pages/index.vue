@@ -28,6 +28,7 @@
   import Header from '../components/widgets/Header'
   import Footer from '../components/widgets/Footer'
   import Banner from '../components/widgets/Banner'
+  import Kitchensink from '../components/widgets/Kitchensink'
   import ImagePickerModal from '../components/partial/ImagePickermodal'
 
   export default {
@@ -47,7 +48,7 @@
       }
     },
     mixins: [editor],
-    components: {TeamWidget, TeamWidget2, Banner, Header, Footer, draggable, ImagePickerModal},
+    components: {TeamWidget, TeamWidget2, Banner, Header, Footer, draggable, ImagePickerModal, Kitchensink},
     computed: {
       previewMode() {
         return this.$store.state.main.previewMode

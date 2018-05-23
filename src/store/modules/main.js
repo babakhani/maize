@@ -22,6 +22,10 @@ const rawWidgetList = [
     name: 'Banner',
     data: {}
   },
+  {
+    name: 'Kitchensink',
+    data: {}
+  },
 ]
 
 let page = [

@@ -4,11 +4,15 @@
   position: relative;
   border: 2px dashed rgba(0, 0, 0, .5);
 
-
   // Preview Mode Styles
   .editor-page-preview-mode & {
     border: 0;
     margin-bttom: 0em;
+
+    .widget-block--toolbox {
+      display: none;
+    }
+
   }
 
   .fdb-block {
@@ -31,7 +35,6 @@
     position: relative;
     border: 0;
     width: 100%;
-    //height: 210px;
     background: rgba(0, 0, 0, 0.8);
     padding-top: 75%; /* 4:3 Aspect Ratio */
     img {
@@ -41,8 +44,6 @@
       left: 50%;
       transform: translate(-50%, -50%);
       position: absolute;
-      bottom: 0;
-      right: 0;
     }
 
     .widget-block--image-editable--toolbox {
@@ -88,7 +89,6 @@
         }
       }
     }
-
   }
 
   [contenteditable='true'] {
@@ -101,12 +101,16 @@
     position: absolute;
     width: 5.4em;
     height: 15em;
-    top: 0;
+    top: 2em;
     right: -6.4em;
     //border:3px dashed green;
     z-index: 10;
 
     .widget-block--toolbox-btn {
+
+      &.btn-active {
+        background: #ccc;
+      }
       //width: 4.6em;
       //cursor: pointer;
       //height: 4.6em;
