@@ -16,8 +16,6 @@ const Mixin = {
   },
   mounted() {
     this.data = this._.extend(this.data, this.widgetData)
-    console.log('widget mounted')
-    console.log(this.data)
   },
   computed: {
     previewMode() {
@@ -26,8 +24,6 @@ const Mixin = {
   },
   watch: {
     previewMode() {
-      console.log('watch previewMode')
-      console.log(this.previewMode)
       if (this.previewMode) {
         this.editMode = false
       }
