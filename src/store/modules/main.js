@@ -47,6 +47,7 @@ export default {
     previewMode: false,
     addWidgetMode: false,
     pickImageMode: false,
+    pickVideoMode: false,
     // currentWidgetList: ['Banner'],
     currentWidgetList: defaultCurrentWidgetList,
     rawWidgetList: rawWidgetList
@@ -60,6 +61,10 @@ export default {
     },
     setPickImageMode(state, payload) {
       state.pickImageMode = payload
+    },
+    setPickVideoMode(state, payload) {
+      state.pickVideoMode = payload
+      console.log('setPickImageMode : ' + payload)
     },
     setAddWidgetMode(state, payload) {
       state.addWidgetMode = payload
@@ -113,6 +118,9 @@ export default {
     },
     setPickImageMode(context, payload) {
       context.commit('setPickImageMode', payload)
+    },
+    setPickVideoMode(context, payload) {
+      context.commit('setPickVideoMode', payload)
     },
     sortCurrentWidgetList(context, payload) {
       context.commit('sortCurrentWidgetList', payload)

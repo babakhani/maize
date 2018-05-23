@@ -7,30 +7,27 @@
     centered
     class="image-picker-modal"
     title="Choose your pick:">
-
     <div>
-      <img :class="{'image-picker-modal-selected' : pick }" class="image-picker-modal--img"  v-for="imageItem in fakeImagesForTest" @click="pick(imageItem)"
-         :src="imageItem">
+      <img :class="{'image-picker-modal-selected' : pick }" class="image-picker-modal--img"
+           v-for="imageItem in fakeImagesForTest" @click="pick(imageItem)"
+           :src="imageItem">
     </div>
-
   </b-modal>
 </template>
 
 <script>
   import {EventBus} from '../../events/event-bus'
+
   export default {
-    name: 'ImagePickerModal',
+    name: 'VideoPickerModal',
     methods: {
       onHide() {
-        this.$store.dispatch('main/setPickImageMode', false)
+        this.$store.dispatch('main/setPickVideoMode', false)
       },
       onOk() {
-//        // TODO: complete this
-//        this.$store.dispatch('main/addToCurrentWidgetList', this.addWidgetList)
         if (this.pickedImageSrc) {
-          EventBus.$emit('pickImage', this.pickedImageSrc)
+          EventBus.$emit('pickVideo', this.pickedImageSrc)
         }
-
       },
       pick(imageSrc) {
         this.pickedImageSrc = imageSrc
@@ -38,7 +35,7 @@
     },
     computed: {
       modalShowGlobalState() {
-        return this.$store.state.main.pickImageMode
+        return this.$store.state.main.pickVideoMode
       }
     },
     data() {
@@ -46,6 +43,7 @@
         showModal: false,
         pickedImageSrc: null,
         fakeImagesForTest: [
+          'https://source.unsplash.com/user/erondu/160x90',
           'https://source.unsplash.com/user/erondu/160x90',
           'https://source.unsplash.com/collection/190727/160x90',
           'https://source.unsplash.com/collection/190737/160x90',

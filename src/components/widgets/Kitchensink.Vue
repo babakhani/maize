@@ -14,25 +14,47 @@
         :styles="data.bg.styles">
         <section class="fdb-block team-2">
           <div class="container">
-            <div class="row text-center justify-content-center">
-              <div class="col-3 col-xs-5">
-                <ImageEditable :editMode="editMode"
-                               name="image1"
-                               @update="updateData"
-                               :styles="data.image1.styles"
-                               :src="data.image1.src"
-                ></ImageEditable>
-              </div>
-              <div class="col-3 col-xs-5">
-                <ImageEditable :editMode="editMode"
-                               name="image2"
-                               @update="updateData"
-                               :styles="data.image2.styles"
-                               :src="data.image2.src"
-                ></ImageEditable>
-              </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="row justify-content-center">
+                  <div class="col-3 col-xs-5">
+                    <VideoEditable :editMode="editMode"
+                                   name="video1"
+                                   @update="updateData"
+                                   :styles="data.video1.styles"
+                                   :src="data.video1.src"
+                    ></VideoEditable>
+                  </div>
+                  <div class="col-3 col-xs-5">
+                    <VideoEditable :editMode="editMode"
+                                   name="video2"
+                                   @update="updateData"
+                                   :styles="data.video2.styles"
+                                   :src="data.video2.src"
+                    ></VideoEditable>
+                  </div>
+                </div>
 
-              <br>
+                <div class="row justify-content-center m-5">
+                  <div class="col-3 col-xs-5">
+                    <ImageEditable :editMode="editMode"
+                                   name="image1"
+                                   @update="updateData"
+                                   :styles="data.image1.styles"
+                                   :src="data.image1.src"
+                    ></ImageEditable>
+                  </div>
+                  <div class="col-3 col-xs-5">
+                    <ImageEditable :editMode="editMode"
+                                   name="image2"
+                                   @update="updateData"
+                                   :styles="data.image2.styles"
+                                   :src="data.image2.src"
+                    ></ImageEditable>
+                  </div>
+                </div>
+
+              </div>
               <div class="col-12">
                 <text-editable tag="h1"
                                :editMode="editMode"
@@ -112,6 +134,14 @@
               src: '/static/imgs/colors_wide_1.jpg'
             },
             image2: {
+              styles: {},
+              src: '/static/imgs/colors_wide_1.jpg'
+            },
+            video1: {
+              styles: {},
+              src: '/static/imgs/colors_wide_1.jpg'
+            },
+            video2: {
               styles: {},
               src: '/static/imgs/colors_wide_1.jpg'
             },

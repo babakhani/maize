@@ -18,6 +18,7 @@
     </div>
     <WidgetListModal></WidgetListModal>
     <ImagePickerModal></ImagePickerModal>
+    <VideoPickerModal></VideoPickerModal>
   </div>
 </template>
 <script>
@@ -31,6 +32,7 @@
   import Banner from '../components/widgets/Banner'
   import Kitchensink from '../components/widgets/Kitchensink'
   import ImagePickerModal from '../components/partial/ImagePickermodal'
+  import VideoPickerModal from '../components/partial/VideoPickermodal'
 
   export default {
     name: 'Events',
@@ -49,7 +51,7 @@
       }
     },
     mixins: [editor],
-    components: {TeamWidget, TeamWidget2, Banner, Header, Footer, draggable, ImagePickerModal, Kitchensink},
+    components: {TeamWidget, TeamWidget2, Banner, Header, Footer, draggable, ImagePickerModal, Kitchensink, VideoPickerModal},
     computed: {
       previewMode() {
         return this.$store.state.main.previewMode
