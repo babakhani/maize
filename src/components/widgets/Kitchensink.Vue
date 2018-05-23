@@ -3,6 +3,8 @@
     <div class="widget-block">
       <WidgetToolbox
         :editMode="editMode"
+        @moveUp="moveUp"
+        @moveDown="moveDown"
         @toggleFullWidth="toggleFullWidth"
         @toggleEditMode="toggleEditMode"
         @deleteWidget="deleteWidget"></WidgetToolbox>

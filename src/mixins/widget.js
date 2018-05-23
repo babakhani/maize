@@ -50,6 +50,18 @@ const Mixin = {
     }
   },
   methods: {
+    moveUp() {
+      this.$store.dispatch('main/moveWidget', {
+        direction: 'up',
+        key: this.uniqeKey
+      })
+    },
+    moveDown() {
+      this.$store.dispatch('main/moveWidget', {
+        direction: 'down',
+        key: this.uniqeKey
+      })
+    },
     updateData(e = {name: null, data: null}) {
       this.$store.dispatch('main/updateItemOfCurrentWidgetList', {
         key: this.uniqeKey, // id of this widget in cuurentWidgetList

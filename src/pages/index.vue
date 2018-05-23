@@ -9,6 +9,7 @@
                  :options="{group:'people'}"
                  @start="drag=true"
                  @end="drag=false">
+
         <div v-for="(widget, index) in currentWidgetList"
              :key="widget.uniqeId">
           <div :is="widget.name"

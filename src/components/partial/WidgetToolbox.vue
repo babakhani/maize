@@ -3,21 +3,37 @@
     <button @click="$emit('toggleEditMode')"
             title="Edite"
             :class="{ 'btn-active': editMode}"
-            class="btn btn-link widget-block--toolbox-btn widget-block--toolbox--edit-mode-btn">
+            class="btn btn-link widget-block--toolbox-btn">
       <icon name="pencil-alt"></icon>
     </button>
     <button @click="$emit('deleteWidget')"
             title="Delete"
-            class="btn btn-link widget-block--toolbox-btn widget-block--toolbox--delete-btn">
+            class="btn btn-link widget-block--toolbox-btn">
 
       <icon name="trash"></icon>
     </button>
     <button @click="$emit('toggleFullWidth')"
             title="Toggle Full Width"
-            class="btn btn-link widget-block--toolbox-btn widget-block--toolbox--delete-btn">
+            class="btn btn-link widget-block--toolbox-btn">
 
       <icon name="arrows-alt-h"></icon>
     </button>
+
+
+    <button @click="$emit('moveUp')"
+            title="Delete"
+            class="btn btn-link widget-block--toolbox-btn">
+
+      <icon name="arrow-up"></icon>
+    </button>
+    <button @click="$emit('moveDown')"
+            title="Toggle Full Width"
+            class="btn btn-link widget-block--toolbox-btn">
+
+      <icon name="arrow-down"></icon>
+    </button>
+
+
   </div>
 </template>
 

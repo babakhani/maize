@@ -69,6 +69,44 @@ export default {
     setAddWidgetMode(state, payload) {
       state.addWidgetMode = payload
     },
+    moveWidget(state, payload) {
+      function arrayMove(x, from, to) {
+        x.splice((to < 0 ? x.length + to : to), 0, x.splice(from, 1)[0]);
+      }
+
+      const list = lodash.cloneDeep(state.currentWidgetList)
+      let itemIndex = null
+      // TODO: check this, it might raise cant read 0 of undefined
+      let item = list.filter((n, index) => {
+        if (n.uniqeId == payload.key) {
+          itemIndex = index
+        }
+        return n.uniqeId == payload.key
+      })[0]
+      // console.log('moveWidget')
+      // console.log(list[0].uniqeId)
+      // console.log(list[1].uniqeId)
+      // console.log(itemIndex)
+      // console.log(list.length - 1)
+
+      // if (payload.direction == 'down') {
+      //   if (list.length - 1 === itemIndex) {
+      //     list.splice(itemIndex, 1);
+      //     list.push(item)
+      //   }
+      // }
+      // if (payload.direction == 'up') {
+      //   if (0 === itemIndex) {
+      //     list.splice(itemIndex, 1);
+      //     list.pop(item)
+      //   }
+      // }
+      // list.splice(itemIndex, 1, item)
+      arrayMove(list, itemIndex, itemIndex + 1)
+      state.currentWidgetList = []
+      state.currentWidgetList = list
+      window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
+    },
     updateItemOfCurrentWidgetList(state, payload = {key: null, name: 'null', data: {}}) {
       const list = lodash.cloneDeep(state.currentWidgetList)
       // TODO: check this, it might raise cant read 0 of undefined
@@ -110,6 +148,9 @@ export default {
     }
   },
   actions: {
+    moveWidget(context, payload = {direction: null, key: null}) {
+      context.commit('moveWidget', payload)
+    },
     setMobilePreviewMode(context, payload) {
       context.commit('setMobilePreviewMode', payload)
     },
