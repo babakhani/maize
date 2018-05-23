@@ -14,12 +14,29 @@
     }
   }
 
+  .image-picker-modal--search-box {
+    //margin-bottom: 2em;
+  }
+
+  .image-picker-modal--image-container {
+    overflow: hidden;
+    position: relative;
+    padding-top: 16.25%;
+    border: 1px dashed rgba(0, 0, 0, .1);
+    width: 100%;
+    img {
+      position: absolute;
+      max-width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
   .modal-body {
     text-align: center;
     overflow: auto;
     .image-picker-modal--img {
-      width: 20em;
-      margin: 1em;
       &:hover,
       &:focus,
       &:active {

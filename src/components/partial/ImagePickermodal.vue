@@ -8,40 +8,43 @@
     class="image-picker-modal"
     title="Choose your pick:">
     <!--Start Modal Tab-->
-    <nav>
-      <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#" role="tab"
-           aria-controls="nav-home" aria-selected="true">Home</a>
-        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#" role="tab"
-           aria-controls="nav-profile" aria-selected="false">Profile</a>
-        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#" role="tab"
-           aria-controls="nav-contact" aria-selected="false">Contact</a>
-      </div>
-    </nav>
-    <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-        <div class="image-picker-modal--body ">
-          <img :class="{'image-picker-modal-selected' : pickedImageSrc == imageItem }"
-               class="image-picker-modal--img"
-               v-for="imageItem in fakeImagesForTest"
-               @click="pick(imageItem)"
-               @dblclick="pickAndHide(imageItem)"
-               :src="imageItem">
+    <b-tabs card>
+      <b-tab active>
+        <template slot="title">
+          <strong>Random Images</strong>
+          <icon name="images"></icon>
+        </template>
+
+        <div class="row">
+          <div class="col-12 text-center mb-4 image-picker-modal--search-box">
+            <b-form-input v-model="text1"
+                          type="text"
+                          placeholder="Search Image here">
+
+            </b-form-input>
+          </div>
         </div>
-      </div>
-      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-        insert URL
-      </div>
-      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">3</div>
-    </div>
-    <!--<div class="image-picker-modal&#45;&#45;body ">-->
-    <!--<img :class="{'image-picker-modal-selected' : pickedImageSrc == imageItem }"-->
-    <!--class="image-picker-modal&#45;&#45;img"-->
-    <!--v-for="imageItem in fakeImagesForTest"-->
-    <!--@click="pick(imageItem)"-->
-    <!--@dblclick="pickAndHide(imageItem)"-->
-    <!--:src="imageItem">-->
-    <!--</div>-->
+        <div class="image-picker-modal--body ">
+          <div class="row">
+            <div class="col-12 col-sm-3 col-md-4 col-lg-2 float-left image-picker-modal--image-container"
+                 v-for="imageItem in fakeImagesForTest">
+              <img :class="{'image-picker-modal-selected' : pickedImageSrc == imageItem }"
+                   class="image-picker-modal--img p-2"
+                   @click="pick(imageItem)"
+                   @dblclick="pickAndHide(imageItem)"
+                   :src="imageItem">
+            </div>
+          </div>
+        </div>
+      </b-tab>
+      <b-tab title="Upload">
+        <br>I'm the second tab content
+      </b-tab>
+      <b-tab title="Comming soon!!"
+             disabled>
+        <br>Disabled tab!
+      </b-tab>
+    </b-tabs>
   </b-modal>
 </template>
 
