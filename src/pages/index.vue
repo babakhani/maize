@@ -6,7 +6,7 @@
     <div class="editor-page--plot-area">
 
       <draggable v-model="currentWidgetList"
-                 :options="{group:'people'}"
+                 :options="{handle:'.widget-drag-handle'}"
                  @start="drag=true"
                  @end="drag=false">
 
