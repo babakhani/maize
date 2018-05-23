@@ -114,7 +114,7 @@
             },
             image1: {
               styles: {},
-              src: '/static/imgs/colors_wide_1.jpg'
+              src:'http://via.placeholder.com/150x114'
             },
             bg: {
               styles: {}

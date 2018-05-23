@@ -1,11 +1,16 @@
 .image-picker-modal {
   .modal-dialog {
     max-width: 80% !important;
-    margin: 2% 10% !important;
+    margin: 6.5em 10% !important;
     height: 80%;
-    overflow: auto;
+    overflow: hidden;
     .modal-body {
-      height: 60%;
+      height: 90%;
+      padding: 0;
+      margin-bottom: 1em;
+    }
+    .modal-content {
+      height: 100%;
     }
   }
 
@@ -21,5 +26,8 @@
         outline: 2px solid rgba(250, 0, 0, 0.6);
       }
     }
+  }
+  footer {
+    padding-right: 1.5em !important;
   }
 }

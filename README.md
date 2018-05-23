@@ -1,6 +1,6 @@
-# vue_hawk_event
+# maize
 
-> vue hawk feature event manufacturer 
+> vue hawk feature event manufacturer
 
 ## Build Setup
 
