@@ -1,6 +1,7 @@
 <template>
   <div class="widget-block--image-editable"
-       @click="setPickVideoMode">
+       @click="setPickVideoMode"
+       @dblclick="setPickVideoMode(true)">
     <EditablePartToolbox @update="updateStyles"
                          :currentStyles="styles"
                          :groups="['background', 'border']"
@@ -33,8 +34,8 @@
       }
     },
     methods: {
-      setPickVideoMode() {
-        if (this.editMode) {
+      setPickVideoMode(noCheckState) {
+        if (this.editMode || noCheckState == true) {
           this.$store.dispatch('main/setPickVideoMode', true)
           EventBus.$once('pickVideo', (imageSrc) => {
             this.src = imageSrc

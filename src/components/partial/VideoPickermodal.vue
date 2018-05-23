@@ -12,6 +12,7 @@
            class="image-picker-modal--img"
            v-for="imageItem in fakeImagesForTest"
            @click="pick(imageItem)"
+           @dblclick="pickAndHide(imageItem)"
            :src="imageItem">
     </div>
   </b-modal>
@@ -23,6 +24,13 @@
   export default {
     name: 'VideoPickerModal',
     methods: {
+      pickAndHide(imageSrc) {
+        this.pickedImageSrc = imageSrc
+        if (this.pickedImageSrc) {
+          EventBus.$emit('pickVideo', this.pickedImageSrc)
+        }
+        this.showModal = false
+      },
       onHide() {
         this.$store.dispatch('main/setPickVideoMode', false)
       },

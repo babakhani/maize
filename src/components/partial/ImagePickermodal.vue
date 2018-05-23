@@ -12,6 +12,7 @@
            class="image-picker-modal--img"
            v-for="imageItem in fakeImagesForTest"
            @click="pick(imageItem)"
+           @dblclick="pickAndHide(imageItem)"
            :src="imageItem">
     </div>
   </b-modal>
@@ -23,16 +24,20 @@
   export default {
     name: 'ImagePickerModal',
     methods: {
+      pickAndHide(imageSrc) {
+        this.pickedImageSrc = imageSrc
+        if (this.pickedImageSrc) {
+          EventBus.$emit('pickImage', this.pickedImageSrc)
+        }
+        this.showModal = false
+      },
       onHide() {
         this.$store.dispatch('main/setPickImageMode', false)
       },
       onOk() {
-//        // TODO: complete this
-//        this.$store.dispatch('main/addToCurrentWidgetList', this.addWidgetList)
         if (this.pickedImageSrc) {
           EventBus.$emit('pickImage', this.pickedImageSrc)
         }
-
       },
       pick(imageSrc) {
         this.pickedImageSrc = imageSrc

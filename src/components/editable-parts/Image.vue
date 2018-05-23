@@ -1,6 +1,7 @@
 <template>
   <div class="widget-block--image-editable"
-       @click="setPickImageMode">
+       @click="setPickImageMode"
+       @dblclick="setPickImageMode(true)">
     <EditablePartToolbox @update="updateStyles"
                          :currentStyles="styles"
                          :groups="['background', 'border']"
@@ -34,8 +35,8 @@
       }
     },
     methods: {
-      setPickImageMode() {
-        if (this.editMode) {
+      setPickImageMode(noCheckState) {
+        if (this.editMode || noCheckState == true) {
           this.$store.dispatch('main/setPickImageMode', true)
           EventBus.$once('pickImage', (imageSrc) => {
             this.src = imageSrc
