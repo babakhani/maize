@@ -334,6 +334,7 @@
         } else {
           this.styles['text-indent'] = '0'
         }
+        this.update()
       },
       setLineHeight(payload) {
         this.styles['line-height'] = payload
@@ -348,6 +349,7 @@
       },
       setOpacityColor(e) {
         this.styles['opacity'] = e.target.value
+        this.update()
       },
       toggleTextDecoration() {
         if (this.styles['text-decoration'] == 'none') {
