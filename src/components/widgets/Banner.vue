@@ -100,19 +100,19 @@
             },
             image1: {
               styles: {},
-              src: '/static/imgs/colors_wide_1.jpg'
+              src:'http://via.placeholder.com/150x114'
             },
             image2: {
               styles: {},
-              src: '/static/imgs/colors_wide_1.jpg'
+              src:'http://via.placeholder.com/150x114'
             },
             video1: {
               styles: {},
-              src: '/static/imgs/colors_wide_1.jpg'
+              src:'http://via.placeholder.com/150x114'
             },
             video2: {
               styles: {},
-              src: '/static/imgs/colors_wide_1.jpg'
+              src:'http://via.placeholder.com/150x114'
             },
             // Editable parts config that can be used in editable components
             mainTitle: {
