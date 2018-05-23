@@ -3,25 +3,46 @@
   background: rgba(170, 170, 170, 0.2);
   .editor-page--plot-area {
     display: block;
-    float: left;
-    width: 88%;
-    margin: 0 6%;
+    width: 90%;
+    margin: 0 auto;
     min-height: 800px;
+    transition: all 150ms;
+    * {
+      transition: all 250ms;
+    }
   }
 
   &.editor-page-preview-mode {
     // write preview mode styles here
     .editor-page--plot-area {
+      display: block;
       width: 100%;
-      margin: 0 0%;
+      margin: 0 auto;
+      min-height: 800px;
+      transition: all 200ms;
     }
   }
 
+  // Mobile View
   &.editor-page-mobile-preview-mode {
     // write preview mode styles here
     .editor-page--plot-area {
+      -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, .4);
+      box-shadow: 0 0 5px 0 rgba(0, 0, 0, .4);
       float: none;
       width: 360px;
+      margin: 0 auto;
+    }
+  }
+
+  // Tablet View
+  &.editor-page-tablet-preview-mode {
+    // write preview mode styles here
+    .editor-page--plot-area {
+      -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, .4);
+      box-shadow: 0 0 5px 0 rgba(0, 0, 0, .4);
+      float: none;
+      width: 600px;
       margin: 0 auto;
     }
   }

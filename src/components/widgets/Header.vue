@@ -1,31 +1,69 @@
 <template>
   <div :class="{'container': !data.config.fullWidth}">
     <div class="widget-block">
-      <WidgetToolbox @toggleFullWidth="toggleFullWidth"
-                     @toggleEditMode="toggleEditMode"
-                     @deleteWidget="deleteWidget">
-      </WidgetToolbox>
+      <WidgetToolbox
+        :editMode="editMode"
+        @moveUp="moveUp"
+        @moveDown="moveDown"
+        @toggleFullWidth="toggleFullWidth"
+        @toggleEditMode="toggleEditMode"
+        @deleteWidget="deleteWidget"></WidgetToolbox>
       <BgEditable
         name="bg"
         @update="updateData"
         :editMode="editMode"
         :styles="data.bg.styles">
-        <section class="fdb-block team-2">
+        <header class="bg-dark">
           <div class="container">
-            <div class="row text-center justify-content-center">
-              <div class="col-12">
-                <text-editable tag="h1"
-                               :editMode="editMode"
-                               name="mainTitle"
-                               @update="updateData"
-                               :styles="data.mainTitle.styles"
-                               :text="data.mainTitle.text">
-                </text-editable>
-              </div>
-            </div>
-          </div>
-        </section>
+            <nav class="navbar navbar-expand-md">
+              <a class="navbar-brand"
+                 href="#">
+                <img src="/static/imgs/img_logo.png"
+                     height="30"
+                     alt="image">
+              </a>
 
+              <button class="navbar-toggler"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#navbarNav11"
+                      aria-controls="navbarNav11"
+                      aria-expanded="false"
+                      aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse"
+                   id="navbarNav11">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link"
+                       href="#">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"
+                       href="#">Features</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"
+                       href="#">Pricing</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"
+                       href="#">Team</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"
+                       href="#">About</a>
+                  </li>
+                </ul>
+
+                <a class="btn btn-white btn-empty ml-md-3"
+                   href="#">Button</a>
+              </div>
+            </nav>
+          </div>
+        </header>
       </BgEditable>
     </div>
   </div>
@@ -35,7 +73,7 @@
   import widgetMixin from '@/mixins/widget'
 
   export default {
-    name: 'Footer',
+    name: 'Kitchensink',
     mixins: [widgetMixin],
     props: {
       data: {
@@ -44,10 +82,38 @@
             // general widget config
             config: {
               fullWidth: true
-              // sticky: false
             },
+            image1: {
+              styles: {},
+              src: '/static/imgs/colors_wide_1.jpg'
+            },
+            image2: {
+              styles: {},
+              src: '/static/imgs/colors_wide_1.jpg'
+            },
+            video1: {
+              styles: {},
+              src: '/static/imgs/colors_wide_1.jpg'
+            },
+            video2: {
+              styles: {},
+              src: '/static/imgs/colors_wide_1.jpg'
+            },
+            // Editable parts config that can be used in editable components
             mainTitle: {
-              text: 'HI i am header Widget default text',
+              text: 'HI i am banner Widget from store',
+              styles: {}
+            },
+            subtitle: {
+              text: 'HI i am banner Widget from store',
+              styles: {}
+            },
+            subtitle1: {
+              text: 'HI i am banner Widget from store',
+              styles: {}
+            },
+            subtitle2: {
+              text: 'HI i am banner Widget from store',
               styles: {}
             },
             bg: {

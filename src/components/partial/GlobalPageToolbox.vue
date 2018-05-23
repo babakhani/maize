@@ -10,26 +10,38 @@
           <ul class="navbar-nav mr-auto">
             <li class="nav-item mr-lg-3">
               <a class="nav-link"
+                 title="Preview Mode"
+                 v-b-tooltip.hover.bottom.small
                  href="#">
                 <label class="switch">
                   <input @change="setPreviewMode"
                          type="checkbox">
                   <span class="slider round"></span>
                 </label>
-                <!--<span class="preview-text">{{ $t("show_header") }}</span>-->
               </a>
             </li>
-            <!--<li class="nav-item mr-lg-3">-->
-            <!--<a class="nav-link" href="#">-->
-            <!--<icon name="eye"></icon>-->
-            <!--&lt;!&ndash;<span class="preview-text">{{ $t("preview_mode") }}</span>&ndash;&gt;-->
-            <!--</a>-->
-            <!--</li>-->
             <li class="nav-item mr-lg-3">
-              <a class="nav-link"
+              <a v-b-tooltip.hover.bottom.small
+                 class="nav-link"
+                 title="Mobile size"
                  @click="setMobilePreviewMode">
-                <icon name="mobile"></icon>
-                <!--<span class="preview-text">{{ $t("mobile_preview_mode") }}</span>-->
+                <icon name="mobile-alt"></icon>
+              </a>
+            </li>
+            <li class="nav-item mr-lg-3">
+              <a v-b-tooltip.hover.bottom.small
+                 class="nav-link"
+                 title="Tablet size"
+                 @click="setTabletPreviewMode">
+                <icon name="tablet-alt"></icon>
+              </a>
+            </li>
+            <li class="nav-item mr-lg-3">
+              <a v-b-tooltip.hover.bottom.small
+                 class="nav-link"
+                 title="Desktop size"
+                 @click="setDesktopPreviewMode">
+                <icon name="desktop"></icon>
               </a>
             </li>
           </ul>
@@ -53,6 +65,13 @@
       setMobilePreviewMode() {
         this.$store.dispatch('main/setMobilePreviewMode', !this.mobilePreviewMode)
       },
+      setTabletPreviewMode() {
+        this.$store.dispatch('main/setTabletPreviewMode', !this.tabletPreviewMode)
+      },
+      setDesktopPreviewMode () {
+        this.$store.dispatch('main/setMobilePreviewMode', false)
+        this.$store.dispatch('main/setTabletPreviewMode', false)
+      },
       gotToAddWidgetMode() {
         this.$store.dispatch('main/setAddWidgetMode', true)
       }
@@ -63,6 +82,9 @@
       },
       mobilePreviewMode() {
         return this.$store.state.main.mobilePreviewMode
+      },
+      tabletPreviewMode () {
+        return this.$store.state.main.tabletPreviewMode
       },
       autosaveStatus: function () {
         return this.status;

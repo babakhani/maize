@@ -1,6 +1,6 @@
 <template>
   <div class="editor-page"
-       :class="{ 'editor-page-preview-mode': previewMode, 'editor-page-mobile-preview-mode': mobilePreviewMode}">
+       :class="{ 'editor-page-preview-mode': previewMode, 'editor-page-mobile-preview-mode': mobilePreviewMode, 'editor-page-tablet-preview-mode':tabletPreviewMode}">
     <!--<page-toolbox></page-toolbox>-->
     <global-page-toolbox></global-page-toolbox>
     <div class="editor-page--plot-area">
@@ -9,7 +9,6 @@
                  :options="{handle:'.widget-drag-handle'}"
                  @start="drag=true"
                  @end="drag=false">
-
         <div v-for="(widget, index) in currentWidgetList"
              :key="widget.uniqeId">
           <div :is="widget.name"
@@ -72,6 +71,9 @@
     computed: {
       previewMode() {
         return this.$store.state.main.previewMode
+      },
+      tabletPreviewMode() {
+        return this.$store.state.main.tabletPreviewMode
       },
       mobilePreviewMode() {
         return this.$store.state.main.mobilePreviewMode

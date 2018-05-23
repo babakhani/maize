@@ -2,12 +2,13 @@
   .modal-dialog {
     max-width: 80% !important;
     margin: 2% 10% !important;
+    height: 80%;
+    overflow: auto;
+    .modal-body {
+      height: 60%;
+    }
   }
 
-  .modal-content{
-    padding-right: 15px;
-    max-height: 60em;
-  }
   .modal-body {
     text-align: center;
     overflow: auto;

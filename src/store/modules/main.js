@@ -46,6 +46,7 @@ export default {
     mobilePreviewMode: false,
     previewMode: false,
     addWidgetMode: false,
+    tabletPreviewMode: false,
     pickImageMode: false,
     pickVideoMode: false,
     // currentWidgetList: ['Banner'],
@@ -55,6 +56,15 @@ export default {
   mutations: {
     setMobilePreviewMode(state, payload) {
       state.mobilePreviewMode = payload
+      if (payload) {
+        state.tabletPreviewMode = false
+      }
+    },
+    setTabletPreviewMode(state, payload) {
+      state.tabletPreviewMode = payload
+      if (payload) {
+        state.mobilePreviewMode = false
+      }
     },
     setPreviewMode(state, payload) {
       state.previewMode = payload
@@ -153,6 +163,9 @@ export default {
     },
     setMobilePreviewMode(context, payload) {
       context.commit('setMobilePreviewMode', payload)
+    },
+    setTabletPreviewMode(context, payload) {
+      context.commit('setTabletPreviewMode', payload)
     },
     setPreviewMode(context, payload) {
       context.commit('setPreviewMode', payload)
