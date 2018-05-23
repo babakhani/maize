@@ -31,17 +31,12 @@
             <div class="row-50"></div>
             <div class="row text-center justify-content-center">
               <div class="col-sm-3 m-sm-auto">
-
-
-
                 <ImageEditable :editMode="editMode"
                                name="image1"
                                @update="updateData"
                                :styles="data.image1.styles"
                                :src="data.image1.src"
                 ></ImageEditable>
-
-
                 <text-editable tag="p"
                                :editMode="editMode"
                                name="imageCaption1"
@@ -51,17 +46,12 @@
                 </text-editable>
               </div>
               <div class="col-sm-3 m-sm-auto">
-
-
-
                 <ImageEditable :editMode="editMode"
                                name="image1"
                                @update="updateData"
                                :styles="data.image1.styles"
                                :src="data.image1.src"
                 ></ImageEditable>
-
-
                 <text-editable tag="p"
                                :editMode="editMode"
                                name="imageCaption1"
@@ -71,17 +61,12 @@
                 </text-editable>
               </div>
               <div class="col-sm-3">
-
-
-
                 <ImageEditable :editMode="editMode"
                                name="image1"
                                @update="updateData"
                                :styles="data.image1.styles"
                                :src="data.image1.src"
                 ></ImageEditable>
-
-
                 <text-editable tag="p"
                                :editMode="editMode"
                                name="imageCaption1"

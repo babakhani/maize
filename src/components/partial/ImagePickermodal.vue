@@ -7,17 +7,19 @@
     centered
     class="image-picker-modal"
     title="Choose your pick:">
-
     <div>
-      <img :class="{'image-picker-modal-selected' : pick }" class="image-picker-modal--img"  v-for="imageItem in fakeImagesForTest" @click="pick(imageItem)"
-         :src="imageItem">
+      <img :class="{'image-picker-modal-selected' : pickedImageSrc == imageItem }"
+           class="image-picker-modal--img"
+           v-for="imageItem in fakeImagesForTest"
+           @click="pick(imageItem)"
+           :src="imageItem">
     </div>
-
   </b-modal>
 </template>
 
 <script>
   import {EventBus} from '../../events/event-bus'
+
   export default {
     name: 'ImagePickerModal',
     methods: {

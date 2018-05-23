@@ -5,9 +5,15 @@
     <global-page-toolbox></global-page-toolbox>
     <div class="editor-page--plot-area">
 
-      <draggable v-model="currentWidgetList" :options="{group:'people'}" @start="drag=true" @end="drag=false">
-        <div v-for="(widget, index) in currentWidgetList" :key="widget.uniqeId">
-          <div :is="widget.name" :widgetData="widget.data" :uniqeKey="widget.uniqeId"></div>
+      <draggable v-model="currentWidgetList"
+                 :options="{group:'people'}"
+                 @start="drag=true"
+                 @end="drag=false">
+        <div v-for="(widget, index) in currentWidgetList"
+             :key="widget.uniqeId">
+          <div :is="widget.name"
+               :widgetData="widget.data"
+               :uniqeKey="widget.uniqeId"></div>
         </div>
       </draggable>
 
@@ -51,7 +57,17 @@
       }
     },
     mixins: [editor],
-    components: {TeamWidget, TeamWidget2, Banner, Header, Footer, draggable, ImagePickerModal, Kitchensink, VideoPickerModal},
+    components: {
+      TeamWidget,
+      TeamWidget2,
+      Banner,
+      Header,
+      Footer,
+      draggable,
+      ImagePickerModal,
+      Kitchensink,
+      VideoPickerModal
+    },
     computed: {
       previewMode() {
         return this.$store.state.main.previewMode

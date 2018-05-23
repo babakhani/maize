@@ -1,6 +1,9 @@
 <template>
-  <div class="background-editable" :class="{'edit-mode': editMode}">
-    <button  v-if="editMode" class="btn btn-link background-editable--settings-btn" @click="showToolbox">
+  <div class="background-editable"
+       :class="{'edit-mode': editMode}">
+    <button v-if="editMode"
+            class="btn btn-link background-editable--settings-btn"
+            @click="showToolbox">
       <icon name="cog"></icon>
     </button>
     <EditablePartToolbox @update="updateStyles"

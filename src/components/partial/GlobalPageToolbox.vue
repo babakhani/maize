@@ -1,14 +1,19 @@
 <!-- Fixed navbar -->
 <template>
-  <header class="page-toolbox bg-dark rtl" data-block-type="headers" data-id="2">
+  <header class="page-toolbox bg-dark rtl"
+          data-block-type="headers"
+          data-id="2">
     <div class="container p-0">
       <nav class="navbar navbar-expand-lg px-0 py-3">
-        <div class="collapse navbar-collapse" id="navbarNav13">
+        <div class="collapse navbar-collapse"
+             id="navbarNav13">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item mr-lg-3">
-              <a class="nav-link" href="#">
+              <a class="nav-link"
+                 href="#">
                 <label class="switch">
-                  <input @change="setPreviewMode" type="checkbox">
+                  <input @change="setPreviewMode"
+                         type="checkbox">
                   <span class="slider round"></span>
                 </label>
                 <!--<span class="preview-text">{{ $t("show_header") }}</span>-->
@@ -21,7 +26,8 @@
             <!--</a>-->
             <!--</li>-->
             <li class="nav-item mr-lg-3">
-              <a class="nav-link" @click="setMobilePreviewMode">
+              <a class="nav-link"
+                 @click="setMobilePreviewMode">
                 <icon name="mobile"></icon>
                 <!--<span class="preview-text">{{ $t("mobile_preview_mode") }}</span>-->
               </a>

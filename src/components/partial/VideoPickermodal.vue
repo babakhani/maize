@@ -8,8 +8,10 @@
     class="image-picker-modal"
     title="Choose your pick:">
     <div>
-      <img :class="{'image-picker-modal-selected' : pick }" class="image-picker-modal--img"
-           v-for="imageItem in fakeImagesForTest" @click="pick(imageItem)"
+      <img :class="{'image-picker-modal-selected' : pick }"
+           class="image-picker-modal--img"
+           v-for="imageItem in fakeImagesForTest"
+           @click="pick(imageItem)"
            :src="imageItem">
     </div>
   </b-modal>

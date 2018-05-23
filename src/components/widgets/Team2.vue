@@ -1,7 +1,8 @@
 <template>
   <div :class="{'container': !data.config.fullWidth}">
     <div class="widget-block">
-      <WidgetToolbox @toggleFullWidth="toggleFullWidth" @toggleEditMode="toggleEditMode"
+      <WidgetToolbox @toggleFullWidth="toggleFullWidth"
+                     @toggleEditMode="toggleEditMode"
                      @deleteWidget="deleteWidget"></WidgetToolbox>
       <BgEditable :editMode="editMode">
         <section class="fdb-block team-2">

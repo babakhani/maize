@@ -5,7 +5,8 @@
       <div class="add-widget-box--main--details">
 
         <div class="center-center">
-          <button @click="goToAddWidgetMode" class="btn btn-add-widget">
+          <button @click="goToAddWidgetMode"
+                  class="btn btn-add-widget">
             +
           </button>
           <p class="text-add-widget">اضافه کردن بخش</p>
@@ -14,7 +15,8 @@
       </div>
 
       <!-- Modal Component -->
-      <b-modal id="modal1" title="Bootstrap-Vue">
+      <b-modal id="modal1"
+               title="Bootstrap-Vue">
         <p class="my-4">Hello from modal!</p>
       </b-modal>
 

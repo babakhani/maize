@@ -1,5 +1,6 @@
 <template>
-  <div class="widget-block--image-editable" @click="setPickVideoMode">
+  <div class="widget-block--image-editable"
+       @click="setPickVideoMode">
     <EditablePartToolbox @update="updateStyles"
                          :currentStyles="styles"
                          :groups="['background', 'border']"
@@ -7,8 +8,13 @@
                          @hide="hideToolbox"></EditablePartToolbox>
 
     <!--<input v-if="editMode" class="image&#45;&#45;editable" @change="imageUpload" type="file">-->
-    <img v-bind:style="styles" alt="image" class="img-fluid mb-3 widget-block--image-editable-img" :src="src">
-    <b-modal v-if="editMode" id="modal1" title="Bootstrap-Vue">
+    <img v-bind:style="styles"
+         alt="image"
+         class="img-fluid mb-3 widget-block--image-editable-img"
+         :src="src">
+    <b-modal v-if="editMode"
+             id="modal1"
+             title="Bootstrap-Vue">
       <p class="my-4">Hello from modal!</p>
     </b-modal>
   </div>
@@ -16,6 +22,7 @@
 <script>
   import EditablePartMixin from '../../mixins/editablePart'
   import {EventBus} from '../../events/event-bus'
+
   export default {
     name: 'VideoEditable',
     mixins: [EditablePartMixin],
