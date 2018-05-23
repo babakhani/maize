@@ -1,47 +1,80 @@
 <template>
-  <div class="widget-text-editable" :class="{'editable-active': editMode}">
+  <div class="widget-text-editable"
+       :class="{'editable-active': editMode}">
     <EditablePartToolbox @update="updateStyles"
                          :currentStyles="styles"
                          v-if="editMode && toolboxVisible"
                          @hide="hideToolbox"></EditablePartToolbox>
     <!--Min Slot-->
-    <h1 v-bind:style="styles" v-if="tag === 'h1'" @focusin="showToolbox"
+    <h1 v-bind:style="styles"
+        v-if="tag === 'h1'"
         :contenteditable="editMode"
+        @focusin="showToolbox"
+        @dblclick="goToEditMode"
+        @paste="onPaste"
         @input="updateText">
       {{text}}
     </h1>
-    <h2 v-bind:style="styles" v-if="tag === 'h2'" @focusin="showToolbox"
+    <h2 v-bind:style="styles"
+        v-if="tag === 'h2'"
         :contenteditable="editMode"
+        @focusin="showToolbox"
+        @dblclick="goToEditMode"
+        @paste="onPaste"
         @input="updateText">
       {{text}}
     </h2>
-    <h3 v-bind:style="styles" v-if="tag === 'h3'" @focusin="showToolbox"
+    <h3 v-bind:style="styles"
+        v-if="tag === 'h3'"
+        @focusin="showToolbox"
         :contenteditable="editMode"
+        @dblclick="goToEditMode"
+        @paste="onPaste"
         @input="updateText">
       {{text}}
     </h3>
-    <h4 v-bind:style="styles" v-if="tag === 'h4'" @focusin="showToolbox"
+    <h4 v-bind:style="styles"
+        v-if="tag === 'h4'"
+        @focusin="showToolbox"
         :contenteditable="editMode"
+        @dblclick="goToEditMode"
+        @paste="onPaste"
         @input="updateText">
       {{text}}
     </h4>
-    <h5 v-bind:style="styles" v-if="tag === 'h5'" @focusin="showToolbox"
+    <h5 v-bind:style="styles"
+        v-if="tag === 'h5'"
+        @focusin="showToolbox"
         :contenteditable="editMode"
+        @dblclick="goToEditMode"
+        @paste="onPaste"
         @input="updateText">
       {{text}}
     </h5>
-    <h6 v-bind:style="styles" v-if="tag === 'h6'" @focusin="showToolbox"
+    <h6 v-bind:style="styles"
+        v-if="tag === 'h6'"
+        @focusin="showToolbox"
         :contenteditable="editMode"
+        @dblclick="goToEditMode"
+        @paste="onPaste"
         @input="updateText">
       {{text}}
     </h6>
-    <span v-bind:style="styles" v-if="tag === 'span'" @focusin="showToolbox"
+    <span v-bind:style="styles"
+          v-if="tag === 'span'"
+          @focusin="showToolbox"
           :contenteditable="editMode"
+          @dblclick="goToEditMode"
+          @paste="onPaste"
           @input="updateText">
       {{text}}
     </span>
-    <p v-bind:style="styles" v-if="tag === 'p'" @focusin="showToolbox"
+    <p v-bind:style="styles"
+       v-if="tag === 'p'"
+       @focusin="showToolbox"
        :contenteditable="editMode"
+       @dblclick="goToEditMode"
+       @paste="onPaste"
        @input="updateText">
       {{text}}
     </p>
@@ -56,6 +89,32 @@
     data() {
       return {
         touchedText: this.text
+      }
+    },
+    methods: {
+      goToEditMode() {
+        if (this.editMode === false)
+          this.$emit('goToEditMode')
+      },
+      /**
+       * @link https://stackoverflow.com/questions/2176861/javascript-get-clipboard-data-on-paste-event-cross-browser/6804718#6804718
+       * @param e
+       */
+      onPaste(e) {
+        // TODO: must move to helpre class
+        function strip(html) {
+          var tmp = document.createElement("DIV");
+          tmp.innerHTML = html;
+          return tmp.textContent || tmp.innerText || "";
+        }
+
+        var clipboardData, pastedData;
+        e.stopPropagation();
+        e.preventDefault();
+        clipboardData = e.clipboardData || window.clipboardData;
+        pastedData = clipboardData.getData('Text');
+        this.text = strip(pastedData)
+        this.touchedText = strip(pastedData)
       }
     },
     props: {

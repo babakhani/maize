@@ -62,6 +62,7 @@
                                :editMode="editMode"
                                name="mainTitle"
                                @update="updateData"
+                               @goToEditMode="toggleEditMode"
                                :styles="data.mainTitle.styles"
                                :text="data.mainTitle.text">
                 </text-editable>
@@ -69,6 +70,7 @@
                                :editMode="editMode"
                                name="subtitle"
                                @update="updateData"
+                               @goToEditMode="toggleEditMode"
                                :styles="data.subtitle.styles"
                                :text="data.subtitle.text">
                 </text-editable>
@@ -76,6 +78,7 @@
                                :editMode="editMode"
                                name="subtitle1"
                                @update="updateData"
+                               @goToEditMode="toggleEditMode"
                                :styles="data.subtitle1.styles"
                                :text="data.subtitle1.text">
                 </text-editable>
@@ -83,6 +86,7 @@
                                :editMode="editMode"
                                name="subtitle2"
                                @update="updateData"
+                               @goToEditMode="toggleEditMode"
                                :styles="data.subtitle2.styles"
                                :text="data.subtitle2.text">
                 </text-editable>
@@ -90,6 +94,7 @@
                                :editMode="editMode"
                                name="subtitle2"
                                @update="updateData"
+                               @goToEditMode="toggleEditMode"
                                :styles="data.subtitle2.styles"
                                :text="data.subtitle2.text">
                 </text-editable>
@@ -97,6 +102,7 @@
                                :editMode="editMode"
                                name="subtitle2"
                                @update="updateData"
+                               @goToEditMode="toggleEditMode"
                                :styles="data.subtitle2.styles"
                                :text="data.subtitle2.text">
                 </text-editable>
@@ -104,6 +110,7 @@
                                :editMode="editMode"
                                name="subtitle2"
                                @update="updateData"
+                               @goToEditMode="toggleEditMode"
                                :styles="data.subtitle2.styles"
                                :text="data.subtitle2.text">
                 </text-editable>

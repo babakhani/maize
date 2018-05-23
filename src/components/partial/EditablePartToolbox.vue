@@ -263,7 +263,7 @@
         default() {
           return {
             'color': '#333',
-            'direction': 'inherit',
+            'direction': 'ltr',
             'font-size': null,
             'font-weight': 'normal',
             'font-family': 'Tahoma',
