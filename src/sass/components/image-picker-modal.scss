@@ -42,6 +42,9 @@
       &:active {
         outline: 2px solid rgba(250, 0, 0, 0.6);
       }
+      &.image-picker-modal-selected {
+        outline: 2px solid rgba(250, 0, 0, 0.6);
+      }
     }
   }
   footer {

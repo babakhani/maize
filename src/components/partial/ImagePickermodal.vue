@@ -38,7 +38,7 @@
         </div>
       </b-tab>
       <b-tab title="Upload">
-        <br>I'm the second tab content
+        <UploadImage></UploadImage>
       </b-tab>
       <b-tab title="Comming soon!!"
              disabled>
@@ -50,9 +50,11 @@
 
 <script>
   import {EventBus} from '../../events/event-bus'
+  import UploadImage from './UploaderImage.vue'
 
   export default {
     name: 'ImagePickerModal',
+      components: {UploadImage},
     methods: {
       pickAndHide(imageSrc) {
         this.pickedImageSrc = imageSrc

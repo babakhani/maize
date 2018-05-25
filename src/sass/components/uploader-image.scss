@@ -1,0 +1,31 @@
+.upload-image-widget {
+  position: relative;
+  border: 2px dashed #aaa;
+  color: #bfbfbf;
+  background: #f8f8f8;
+  padding: 5%;
+  margin: 4%;
+  button {
+    position: relative;
+  }
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .upload-image-widget--box {
+    border: 2px dashed deeppink;
+    display: block;
+    opacity: 1;
+    &.upload-image-widget--default {
+      opacity: 0;
+    }
+  }
+
+}
