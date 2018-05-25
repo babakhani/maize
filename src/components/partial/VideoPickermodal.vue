@@ -57,7 +57,7 @@
           <strong>Upload</strong>
           <icon class="upload-image-icon" name="upload"></icon>
         </template>
-        <UploadImage @chooseImage="chooseImage"></UploadImage>
+        <!--<UploadImage @chooseImage="chooseImage"></UploadImage>-->
       </b-tab>
     </b-tabs>
   </b-modal>
@@ -93,35 +93,16 @@
     computed: {
       modalShowGlobalState() {
         return this.$store.state.layout.pickVideoMode
+      },
+      randomImageList() {
+        return this.$store.state.unsplash.imageList
       }
     },
     data() {
       return {
+        imageUploadLoading: false,
         showModal: false,
-        pickedImageSrc: null,
-        fakeImagesForTest: [
-          'https://source.unsplash.com/user/erondu/160x90',
-          'https://source.unsplash.com/user/erondu/160x90',
-          'https://source.unsplash.com/collection/190727/160x90',
-          'https://source.unsplash.com/collection/190737/160x90',
-          'https://source.unsplash.com/collection/190737/160x90',
-          'https://source.unsplash.com/user/erondu/160x90',
-          'https://source.unsplash.com/collection/190727/160x90',
-          'https://source.unsplash.com/collection/190737/160x90',
-          'https://source.unsplash.com/collection/190737/160x90',
-          'https://source.unsplash.com/1600x900/?nature,water/160x90',
-          'https://source.unsplash.com/user/erondu/160x90',
-          'https://source.unsplash.com/collection/190727/160x90',
-          'https://source.unsplash.com/collection/190737/160x90',
-          'https://source.unsplash.com/collection/190737/160x90',
-          'https://source.unsplash.com/1600x900/?nature,water/160x90',
-          'https://source.unsplash.com/1600x900/?nature,water/160x90',
-          'https://source.unsplash.com/user/erondu/160x90',
-          'https://source.unsplash.com/collection/190727/160x90',
-          'https://source.unsplash.com/collection/190737/160x90',
-          'https://source.unsplash.com/collection/190737/160x90',
-          'https://source.unsplash.com/1600x900/?nature,water/160x90',
-        ]
+        pickedImageSrc: null
       }
     },
     watch: {

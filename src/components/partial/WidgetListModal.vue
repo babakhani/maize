@@ -45,7 +45,7 @@
     },
     computed: {
       modalShowGlobalState() {
-        return this.$store.state.main.addWidgetMode
+        return this.$store.state.layout.addWidgetMode
       },
       widgetList() {
         return this.$store.state.main.rawWidgetList
