@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import main from './modules/main'
 import layout from './modules/layout'
 import locale from './modules/locale'
+import unsplash from './modules/unsplash'
 import lodash from 'lodash'
 
 Vue.use(Vuex)
@@ -72,7 +73,8 @@ const store = new Vuex.Store({
   modules: {
     main: main,
     locale: locale,
-    layout: layout
+    layout: layout,
+    unsplash: unsplash
   }
 })
 export default store
