@@ -26,23 +26,23 @@
           <icon name="images"></icon>
         </template>
 
-        <div class="row">
-          <div class="col-12 text-center mb-4 image-picker-modal--search-box">
-            <b-form-input type="text"
-                          placeholder="Search Image here">
+        <!--<div class="row">-->
+          <!--<div class="col-12 text-center mb-4 image-picker-modal&#45;&#45;search-box">-->
+            <!--<b-form-input type="text"-->
+                          <!--placeholder="Search Image here">-->
 
-            </b-form-input>
-          </div>
-        </div>
+            <!--</b-form-input>-->
+          <!--</div>-->
+        <!--</div>-->
         <div class="image-picker-modal--body ">
           <div class="row">
             <div class="col-12 col-sm-3 col-md-4 col-lg-2 float-left image-picker-modal--image-container"
-                 v-for="imageItem in fakeImagesForTest">
-              <img :class="{'image-picker-modal-selected' : pickedImageSrc == imageItem }"
+                 v-for="imageItem in randomImageList">
+              <img :class="{'image-picker-modal-selected' : pickedImageSrc == imageItem.urls.small }"
                    class="image-picker-modal--img p-2"
-                   @click="pick(imageItem)"
-                   @dblclick="pickAndHide(imageItem)"
-                   :src="imageItem">
+                   @click="pick(imageItem.urls.small)"
+                   @dblclick="pickAndHide(imageItem.urls.small)"
+                   :src="imageItem.urls.small">
             </div>
           </div>
         </div>
@@ -70,6 +70,9 @@
   export default {
     name: 'ImagePickerModal',
     components: {UploadImage},
+    mounted() {
+      this.$store.dispatch('unsplash/loadRandomImages')
+    },
     methods: {
       chooseImage(imageSrc) {
         this.currentChoosedImage = imageSrc
@@ -102,6 +105,9 @@
       }
     },
     computed: {
+      randomImageList() {
+        return this.$store.state.unsplash.imageList
+      },
       showModal: {
         get() {
           return this.$store.state.layout.pickImageMode
@@ -115,29 +121,7 @@
       return {
         imageUploadLoading: false,
         currentChoosedImage: null,
-        pickedImageSrc: null,
-        fakeImagesForTest: [
-          'https://source.unsplash.com/user/erondu/160x90',
-          'https://source.unsplash.com/collection/190727/160x90',
-          'https://source.unsplash.com/collection/190737/160x90',
-          'https://source.unsplash.com/collection/190737/160x90',
-          'https://source.unsplash.com/user/erondu/160x90',
-          'https://source.unsplash.com/collection/190727/160x90',
-          'https://source.unsplash.com/collection/190737/160x90',
-          'https://source.unsplash.com/collection/190737/160x90',
-          'https://source.unsplash.com/1600x900/?nature,water/160x90',
-          'https://source.unsplash.com/user/erondu/160x90',
-          'https://source.unsplash.com/collection/190727/160x90',
-          'https://source.unsplash.com/collection/190737/160x90',
-          'https://source.unsplash.com/collection/190737/160x90',
-          'https://source.unsplash.com/1600x900/?nature,water/160x90',
-          'https://source.unsplash.com/1600x900/?nature,water/160x90',
-          'https://source.unsplash.com/user/erondu/160x90',
-          'https://source.unsplash.com/collection/190727/160x90',
-          'https://source.unsplash.com/collection/190737/160x90',
-          'https://source.unsplash.com/collection/190737/160x90',
-          'https://source.unsplash.com/1600x900/?nature,water/160x90',
-        ]
+        pickedImageSrc: null
       }
     }
   }
