@@ -43,42 +43,10 @@ let defaultCurrentWidgetList = window.localStorage.getItem('page') ? JSON.parse(
 export default {
   namespaced: true,
   state: {
-    mobilePreviewMode: false,
-    previewMode: false,
-    addWidgetMode: false,
-    tabletPreviewMode: false,
-    pickImageMode: false,
-    pickVideoMode: false,
-    // currentWidgetList: ['Banner'],
     currentWidgetList: defaultCurrentWidgetList,
     rawWidgetList: rawWidgetList
   },
   mutations: {
-    setMobilePreviewMode(state, payload) {
-      state.mobilePreviewMode = payload
-      if (payload) {
-        state.tabletPreviewMode = false
-      }
-    },
-    setTabletPreviewMode(state, payload) {
-      state.tabletPreviewMode = payload
-      if (payload) {
-        state.mobilePreviewMode = false
-      }
-    },
-    setPreviewMode(state, payload) {
-      state.previewMode = payload
-    },
-    setPickImageMode(state, payload) {
-      state.pickImageMode = payload
-    },
-    setPickVideoMode(state, payload) {
-      state.pickVideoMode = payload
-      console.log('setPickImageMode : ' + payload)
-    },
-    setAddWidgetMode(state, payload) {
-      state.addWidgetMode = payload
-    },
     moveWidget(state, payload) {
       function arrayMove(x, from, to) {
         x.splice((to < 0 ? x.length + to : to), 0, x.splice(from, 1)[0]);
@@ -93,25 +61,6 @@ export default {
         }
         return n.uniqeId == payload.key
       })[0]
-      // console.log('moveWidget')
-      // console.log(list[0].uniqeId)
-      // console.log(list[1].uniqeId)
-      // console.log(itemIndex)
-      // console.log(list.length - 1)
-
-      // if (payload.direction == 'down') {
-      //   if (list.length - 1 === itemIndex) {
-      //     list.splice(itemIndex, 1);
-      //     list.push(item)
-      //   }
-      // }
-      // if (payload.direction == 'up') {
-      //   if (0 === itemIndex) {
-      //     list.splice(itemIndex, 1);
-      //     list.pop(item)
-      //   }
-      // }
-      // list.splice(itemIndex, 1, item)
       arrayMove(list, itemIndex, itemIndex + 1)
       state.currentWidgetList = []
       state.currentWidgetList = list
@@ -161,21 +110,6 @@ export default {
     moveWidget(context, payload = {direction: null, key: null}) {
       context.commit('moveWidget', payload)
     },
-    setMobilePreviewMode(context, payload) {
-      context.commit('setMobilePreviewMode', payload)
-    },
-    setTabletPreviewMode(context, payload) {
-      context.commit('setTabletPreviewMode', payload)
-    },
-    setPreviewMode(context, payload) {
-      context.commit('setPreviewMode', payload)
-    },
-    setPickImageMode(context, payload) {
-      context.commit('setPickImageMode', payload)
-    },
-    setPickVideoMode(context, payload) {
-      context.commit('setPickVideoMode', payload)
-    },
     sortCurrentWidgetList(context, payload) {
       context.commit('sortCurrentWidgetList', payload)
     },
@@ -187,9 +121,6 @@ export default {
     },
     removeFromCurrentWidgetList(context, payload) {
       context.commit('removeFromCurrentWidgetList', payload)
-    },
-    setAddWidgetMode(context, payload) {
-      context.commit('setAddWidgetMode', payload)
     }
   }
 }

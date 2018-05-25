@@ -2,16 +2,18 @@
   <b-modal
     @hidden="onHide"
     @ok="onOk"
-    v-model.sync="showModal"
+    v-model="showModal"
     size="lg"
     centered
     class="image-picker-modal"
     title="Choose your pick:">
 
     <template slot="modal-footer">
-      <button @click="onHide" class="btn btn-link text-muted" >Cancel
+      <button @click="onHide"
+              class="btn btn-link text-muted">Cancel
       </button>
-      <button @click="onOk" class="btn btn-success"
+      <button @click="onOk"
+              class="btn btn-success"
               :class="{'btn-loading': imageUploadLoading}">OK
       </button>
     </template>
@@ -73,24 +75,23 @@
         this.currentChoosedImage = imageSrc
       },
       pickAndHide(imageSrc) {
+        this.onHide()
         this.pickedImageSrc = imageSrc
         if (this.pickedImageSrc) {
           EventBus.$emit('pickImage', this.pickedImageSrc)
         }
-        this.showModal = false
       },
       onHide() {
-        this.$store.dispatch('main/setPickImageMode', false)
+        this.$store.dispatch('layout/setPickImageMode', false)
       },
       onOk(e) {
         this.imageUploadLoading = true
         e.preventDefault()
         // This is promise example and use image uploader service
         ImageSaver(this.currentChoosedImage).then((imageSrc) => {
-          console.log('image saved done happy')
+          this.onHide()
           EventBus.$emit('pickImage', imageSrc)
           this.imageUploadLoading = false
-          this.showModal = false
         }).catch(() => {
           this.imageUploadLoading = false
         })
@@ -101,15 +102,19 @@
       }
     },
     computed: {
-      modalShowGlobalState() {
-        return this.$store.state.main.pickImageMode
+      showModal: {
+        get() {
+          return this.$store.state.layout.pickImageMode
+        },
+        set(value) {
+          this.$store.dispatch('layout/setPickImageMode', value)
+        }
       }
     },
     data() {
       return {
         imageUploadLoading: false,
         currentChoosedImage: null,
-        showModal: false,
         pickedImageSrc: null,
         fakeImagesForTest: [
           'https://source.unsplash.com/user/erondu/160x90',
@@ -133,11 +138,6 @@
           'https://source.unsplash.com/collection/190737/160x90',
           'https://source.unsplash.com/1600x900/?nature,water/160x90',
         ]
-      }
-    },
-    watch: {
-      modalShowGlobalState() {
-        this.showModal = this.modalShowGlobalState
       }
     }
   }

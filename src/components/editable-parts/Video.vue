@@ -36,7 +36,7 @@
     methods: {
       setPickVideoMode(noCheckState) {
         if (this.editMode || noCheckState == true) {
-          this.$store.dispatch('main/setPickVideoMode', true)
+          this.$store.dispatch('layout/setPickVideoMode', true)
           EventBus.$once('pickVideo', (imageSrc) => {
             this.src = imageSrc
             this.$emit('update', {
