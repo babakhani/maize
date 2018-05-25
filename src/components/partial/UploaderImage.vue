@@ -16,7 +16,7 @@
               name="upload"></icon>
       </h1>
       <h4 class="mt-4">
-        Drop Image Here To Upload
+        Drop Image Here
       </h4>
       <br>
       <h6 class="text-muted">

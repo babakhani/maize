@@ -10,12 +10,34 @@
 @import "./components/image-picker-modal"
 @import "./components/uploader-image"
 
-.btn
-  cursor: pointer
+.btn,
+.input
+  cursor: pointer !important
+  border: 0
+  &:focus
+    box-shadow: none
 
 // TODO: Bita add appreciate loading styles here
 .btn-loading
-  border: 3px dashed red !important
+  position: relative
+  //border: 1px solid #28a746
+  .btn-hover
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background-color: rgba(0, 0, 0, 0.5)
+    color: white
+    padding: 6px 12px
+    font-size: 16px
+
+  .fa-spin
+    position: absolute
+    width: 100%
+    left: 0
+    height: 1.5em
+    animation: fa-spin 2s 0s infinite linear
 
 body
   font-family: 'IranSansFaNum', 'IranSans', tahoma, Arial, sans-serif

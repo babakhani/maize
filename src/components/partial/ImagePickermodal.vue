@@ -12,9 +12,16 @@
       <button @click="onHide"
               class="btn btn-link text-muted">Cancel
       </button>
-      <button @click="onOk"
-              class="btn btn-success"
-              :class="{'btn-loading': imageUploadLoading}">OK
+
+      <button v-if="imageUploadLoading" @click="onOk"
+              class="btn btn-success btn-loading">OK
+          <div class="btn btn-hover">
+            <icon class="fa fa-spin" name="spinner"></icon>
+          </div>
+
+      </button>
+      <button v-else @click="onOk"
+              class="btn btn-success">OK
       </button>
     </template>
 

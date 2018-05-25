@@ -7,6 +7,7 @@
   margin: 4%;
   button {
     position: relative;
+    cursor: pointer !important;
   }
   input {
     position: absolute;
@@ -17,6 +18,7 @@
     opacity: 0;
     width: 100%;
     height: 100%;
+    cursor: pointer !important;
   }
 
   .upload-image-widget--box {
