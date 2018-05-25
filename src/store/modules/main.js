@@ -48,6 +48,7 @@ export default {
   },
   mutations: {
     moveWidget(state, payload) {
+      // TODO: do better
       function arrayMove(x, from, to) {
         x.splice((to < 0 ? x.length + to : to), 0, x.splice(from, 1)[0]);
       }
@@ -61,7 +62,16 @@ export default {
         }
         return n.uniqeId == payload.key
       })[0]
-      arrayMove(list, itemIndex, itemIndex + 1)
+      let targetIndex = null
+      if (payload.direction === 'up') {
+        targetIndex = itemIndex - 1
+      } else if (payload.direction === 'down') {
+        targetIndex = itemIndex + 1
+      }
+      if (targetIndex < 0 || targetIndex == list.length - 1) {
+      } else {
+        arrayMove(list, itemIndex, targetIndex)
+      }
       state.currentWidgetList = []
       state.currentWidgetList = list
       window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
