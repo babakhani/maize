@@ -39,11 +39,11 @@
         if (this.editMode || noCheckState == true) {
           this.$store.dispatch('main/setPickImageMode', true)
           EventBus.$once('pickImage', (imageSrc) => {
-            this.src = imageSrc
+            // this.src = imageSrc
             this.$emit('update', {
               name: this.name,
               data: {
-                src: this.src
+                src: imageSrc
               }
             })
           })

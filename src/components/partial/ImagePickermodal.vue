@@ -7,6 +7,15 @@
     centered
     class="image-picker-modal"
     title="Choose your pick:">
+
+    <template slot="modal-footer">
+      <button @click="onHide" class="btn btn-link text-muted" >Cancel
+      </button>
+      <button @click="onOk" class="btn btn-success"
+              :class="{'btn-loading': imageUploadLoading}">OK
+      </button>
+    </template>
+
     <!--Start Modal Tab-->
     <b-tabs card>
       <b-tab active>
@@ -17,8 +26,7 @@
 
         <div class="row">
           <div class="col-12 text-center mb-4 image-picker-modal--search-box">
-            <b-form-input v-model="text1"
-                          type="text"
+            <b-form-input type="text"
                           placeholder="Search Image here">
 
             </b-form-input>
@@ -38,12 +46,16 @@
         </div>
       </b-tab>
       <b-tab title="Upload">
-        <UploadImage></UploadImage>
+        <template slot="title">
+          <strong>Upload</strong>
+          <icon name="upload"></icon>
+        </template>
+        <UploadImage @chooseImage="chooseImage"></UploadImage>
       </b-tab>
-      <b-tab title="Comming soon!!"
-             disabled>
-        <br>Disabled tab!
-      </b-tab>
+      <!--<b-tab title="Comming soon!!"-->
+      <!--disabled>-->
+      <!--<br>Disabled tab!-->
+      <!--</b-tab>-->
     </b-tabs>
   </b-modal>
 </template>
@@ -51,11 +63,15 @@
 <script>
   import {EventBus} from '../../events/event-bus'
   import UploadImage from './UploaderImage.vue'
+  import ImageSaver from '../../service/image-saver'
 
   export default {
     name: 'ImagePickerModal',
-      components: {UploadImage},
+    components: {UploadImage},
     methods: {
+      chooseImage(imageSrc) {
+        this.currentChoosedImage = imageSrc
+      },
       pickAndHide(imageSrc) {
         this.pickedImageSrc = imageSrc
         if (this.pickedImageSrc) {
@@ -66,10 +82,19 @@
       onHide() {
         this.$store.dispatch('main/setPickImageMode', false)
       },
-      onOk() {
-        if (this.pickedImageSrc) {
-          EventBus.$emit('pickImage', this.pickedImageSrc)
-        }
+      onOk(e) {
+        this.imageUploadLoading = true
+        e.preventDefault()
+        // This is promise example and use image uploader service
+        ImageSaver(this.currentChoosedImage).then((imageSrc) => {
+          console.log('image saved done happy')
+          EventBus.$emit('pickImage', imageSrc)
+          this.imageUploadLoading = false
+          this.showModal = false
+        }).catch(() => {
+          this.imageUploadLoading = false
+        })
+        return false
       },
       pick(imageSrc) {
         this.pickedImageSrc = imageSrc
@@ -82,6 +107,8 @@
     },
     data() {
       return {
+        imageUploadLoading: false,
+        currentChoosedImage: null,
         showModal: false,
         pickedImageSrc: null,
         fakeImagesForTest: [
