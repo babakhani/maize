@@ -50,4 +50,9 @@
   footer {
     padding-right: 1.5em !important;
   }
+  svg {
+    &.upload-image-icon {
+      height: 1em;
+    }
+  }
 }

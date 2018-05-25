@@ -12,11 +12,11 @@
     </div>
     <div v-else>
       <h1>
-        <icon size="lg"
+        <icon class="upload-image-widget--icon" size="lg"
               name="upload"></icon>
       </h1>
-      <h4>
-        Drop Image Here
+      <h4 class="mt-4">
+        Drop Image Here To Upload
       </h4>
       <br>
       <h6 class="text-muted">

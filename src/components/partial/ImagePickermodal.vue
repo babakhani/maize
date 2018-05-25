@@ -48,7 +48,7 @@
       <b-tab title="Upload">
         <template slot="title">
           <strong>Upload</strong>
-          <icon name="upload"></icon>
+          <icon class="upload-image-icon" name="upload"></icon>
         </template>
         <UploadImage @chooseImage="chooseImage"></UploadImage>
       </b-tab>

@@ -27,5 +27,10 @@
       opacity: 0;
     }
   }
-
+  svg {
+    &.upload-image-widget--icon {
+      width: 100px;
+      height: 2.2em;
+    }
+  }
 }
