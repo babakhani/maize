@@ -63,7 +63,7 @@
     },
     methods: {
       gotToAddWidgetMode() {
-        this.$store.dispatch('main/setAddWidgetMode', true)
+        this.$store.dispatch('layout/setAddWidgetMode', true)
       }
     },
     computed: {

@@ -89,31 +89,31 @@
         this.$store.dispatch('redo')
       },
       setPreviewMode(e) {
-        this.$store.dispatch('main/setPreviewMode', e.target.checked)
+        this.$store.dispatch('layout/setPreviewMode', e.target.checked)
       },
       setMobilePreviewMode() {
-        this.$store.dispatch('main/setMobilePreviewMode', !this.mobilePreviewMode)
+        this.$store.dispatch('layout/setMobilePreviewMode', !this.mobilePreviewMode)
       },
       setTabletPreviewMode() {
-        this.$store.dispatch('main/setTabletPreviewMode', !this.tabletPreviewMode)
+        this.$store.dispatch('layout/setTabletPreviewMode', !this.tabletPreviewMode)
       },
       setDesktopPreviewMode() {
-        this.$store.dispatch('main/setMobilePreviewMode', false)
-        this.$store.dispatch('main/setTabletPreviewMode', false)
+        this.$store.dispatch('layout/setMobilePreviewMode', false)
+        this.$store.dispatch('layout/setTabletPreviewMode', false)
       },
       gotToAddWidgetMode() {
-        this.$store.dispatch('main/setAddWidgetMode', true)
+        this.$store.dispatch('layout/setAddWidgetMode', true)
       }
     },
     computed: {
       previewMode() {
-        return this.$store.state.main.previewMode
+        return this.$store.state.layout.previewMode
       },
       mobilePreviewMode() {
-        return this.$store.state.main.mobilePreviewMode
+        return this.$store.state.layout.mobilePreviewMode
       },
       tabletPreviewMode() {
-        return this.$store.state.main.tabletPreviewMode
+        return this.$store.state.layout.tabletPreviewMode
       },
       autosaveStatus: function () {
         return this.status;

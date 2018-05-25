@@ -30,7 +30,7 @@
     methods: {
       goToAddWidgetMode() {
         console.log('goToAddWidgetMode')
-        this.$store.dispatch('main/setAddWidgetMode', true)
+        this.$store.dispatch('layout/setAddWidgetMode', true)
       }
     }
   }

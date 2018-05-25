@@ -32,7 +32,7 @@
         this.showModal = false
       },
       onHide() {
-        this.$store.dispatch('main/setPickVideoMode', false)
+        this.$store.dispatch('layout/setPickVideoMode', false)
       },
       onOk() {
         if (this.pickedImageSrc) {
@@ -45,7 +45,7 @@
     },
     computed: {
       modalShowGlobalState() {
-        return this.$store.state.main.pickVideoMode
+        return this.$store.state.layout.pickVideoMode
       }
     },
     data() {

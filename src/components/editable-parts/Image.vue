@@ -37,7 +37,7 @@
     methods: {
       setPickImageMode(noCheckState) {
         if (this.editMode || noCheckState == true) {
-          this.$store.dispatch('main/setPickImageMode', true)
+          this.$store.dispatch('layout/setPickImageMode', true)
           EventBus.$once('pickImage', (imageSrc) => {
             // this.src = imageSrc
             this.$emit('update', {

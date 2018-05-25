@@ -70,13 +70,13 @@
     },
     computed: {
       previewMode() {
-        return this.$store.state.main.previewMode
+        return this.$store.state.layout.previewMode
       },
       tabletPreviewMode() {
-        return this.$store.state.main.tabletPreviewMode
+        return this.$store.state.layout.tabletPreviewMode
       },
       mobilePreviewMode() {
-        return this.$store.state.main.mobilePreviewMode
+        return this.$store.state.layout.mobilePreviewMode
       },
       currentWidgetList: {
         get() {

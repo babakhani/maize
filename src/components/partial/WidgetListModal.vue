@@ -35,7 +35,7 @@
         this.$forceUpdate()
       },
       onHide() {
-        this.$store.dispatch('main/setAddWidgetMode', false)
+        this.$store.dispatch('layout/setAddWidgetMode', false)
         this.addWidgetList = []
       },
       onOk() {
