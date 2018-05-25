@@ -38,12 +38,15 @@
 
   .widget-block--image-editable {
     position: relative;
+    overflow: hidden;
     border: 0;
     width: 100%;
     padding-top: 75%; /* 4:3 Aspect Ratio */
+    background-color: #ccc;
     img {
       border-radius: 0 !important;
-      width: 100%;
+      max-width: 100%;
+      max-height: 100%;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);

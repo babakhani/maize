@@ -43,9 +43,10 @@
         <!--</div>-->
         <div class="image-picker-modal--body ">
           <div class="row">
-            <div class="col-12 col-sm-3 col-md-4 col-lg-2 float-left image-picker-modal--image-container"
-                 v-for="imageItem in randomImageList">
-              <img :class="{'image-picker-modal-selected' : pickedImageSrc == imageItem.urls.small }"
+            <div class="col-12 col-sm-3 col-md-4 col-lg-2 m-2 float-left image-picker-modal--image-container"
+                 v-for="imageItem in randomImageList"
+                 :class="{'image-picker-modal-selected' : pickedImageSrc == imageItem.urls.small }">
+              <img
                    class="image-picker-modal--img p-2"
                    @click="pick(imageItem.urls.small)"
                    @dblclick="pickAndHide(imageItem.urls.small)"
