@@ -36,8 +36,6 @@
                 </label>
               </a>
             </li>
-
-
             <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
@@ -66,7 +64,7 @@
             <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
-                 :title="$t('toolbox.redo')"
+                 :title="$t('language')"
                  @click="toggleLanguage">
                 <icon name="language"></icon>
               </a>
