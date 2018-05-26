@@ -40,7 +40,6 @@ export default {
       function arrayMove (x, from, to) {
         x.splice((to < 0 ? x.length + to : to), 0, x.splice(from, 1)[0]);
       }
-
       const list = lodash.cloneDeep(state.currentWidgetList)
       let itemIndex = null
       // TODO: check this, it might raise cant read 0 of undefined
@@ -56,7 +55,7 @@ export default {
       } else if (payload.direction === 'down') {
         targetIndex = itemIndex + 1
       }
-      if (targetIndex < 0 || targetIndex == list.length - 1) {
+      if (targetIndex < 0 || targetIndex > list.length - 1) {
       } else {
         arrayMove(list, itemIndex, targetIndex)
       }

@@ -44,7 +44,8 @@
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false">
-          <icon :name="'align-'+ styles['text-align']"></icon>
+          <icon v-if="styles['text-align'] != 'inherit'" :name="'align-'+ styles['text-align']"></icon>
+          <icon v-else name="align-left"></icon>
         </button>
         <div class="dropdown-menu"
              aria-labelledby="dropdownMenuButton2">
@@ -274,7 +275,7 @@
             'text-indent': '0',
             'background-color': 'transparent',
             'line-height': 'inherit',
-            'border-width': '0',
+            'border-width': 'inherit',
             'border-color': 'transparent',
             'border-style': 'solid',
             'border-radius': '0',

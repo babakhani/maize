@@ -13,28 +13,31 @@ class UndoRedoHistory {
   history = [];
   currentIndex = -1;
 
-  init(store) {
+  init (store) {
     this.store = store;
   }
 
-  addState(state) {
+  addState (state) {
     // may be we have to remove redo steps
     if (this.currentIndex + 1 < this.history.length) {
       this.history.splice(this.currentIndex + 1);
     }
-    this.history.push(state);
+    this.history.push(state.main);
     this.currentIndex++;
   }
 
-  undo() {
+  undo () {
     const prevState = this.history[this.currentIndex - 1];
     if (prevState) {
+      console.log('undo')
+      console.log(prevState)
+
       this.store.replaceState(lodash.cloneDeep(prevState));
       this.currentIndex--;
     }
   }
 
-  redo() {
+  redo () {
     const nextState = this.history[this.currentIndex + 1];
     if (nextState) {
       this.store.replaceState(lodash.cloneDeep(nextState));
@@ -63,10 +66,10 @@ const store = new Vuex.Store({
     storeVersion: '0.0.0'
   },
   actions: {
-    undo() {
+    undo () {
       undoRedoHistory.undo()
     },
-    redo() {
+    redo () {
       undoRedoHistory.redo()
     }
   },

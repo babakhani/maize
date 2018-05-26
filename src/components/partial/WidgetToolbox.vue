@@ -1,11 +1,11 @@
 <template>
   <div class="widget-block--toolbox">
-    <button @click="showTools = !showTools"
-            title="Settings"
-            v-b-tooltip.hover.top
-            class="btn btn-link widget-block--toolbox-btn">
-      <icon name="cog"></icon>
-    </button>
+    <!--<button @click="showTools = !showTools"-->
+            <!--title="Settings"-->
+            <!--v-b-tooltip.hover.top-->
+            <!--class="btn btn-link widget-block&#45;&#45;toolbox-btn">-->
+      <!--<icon name="cog"></icon>-->
+    <!--</button>-->
     <transition name="fade">
       <button v-if="showTools"
               @click="$parent.toggleEditMode"
@@ -53,7 +53,6 @@
     </transition>
     <transition name="fade">
       <button v-if="showTools"
-              @click="$parent.moveDown"
               title="Move"
               v-b-tooltip.hover.top
               class="btn btn-link widget-block--toolbox-btn widget-drag-handle">

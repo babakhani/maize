@@ -2,7 +2,6 @@
   <div :class="{'container': !data.config.fullWidth}">
     <div class="widget-block">
       <WidgetToolbox></WidgetToolbox>
-
       <BgEditable
         name="bg"
         :editMode="editMode"

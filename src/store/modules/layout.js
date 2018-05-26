@@ -16,13 +16,7 @@ const rawWidgetList = [
   },
 ]
 
-let page = [
-  {
-    name: 'Banner',
-    uniqeId: 'Bannere21432141',
-    data: {}
-  }
-]
+let page = []
 
 let defaultCurrentWidgetList = window.localStorage.getItem('page') ? JSON.parse(window.localStorage.getItem('page')).data : page
 
