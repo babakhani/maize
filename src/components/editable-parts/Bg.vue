@@ -3,6 +3,8 @@
        :class="{'edit-mode': editMode}">
     <button v-if="editMode"
             class="btn btn-link background-editable--settings-btn"
+            :title="$t('toolbox.bg_settings')"
+            v-b-tooltip.hover.right
             @click="showToolbox">
       <icon name="cog"></icon>
     </button>

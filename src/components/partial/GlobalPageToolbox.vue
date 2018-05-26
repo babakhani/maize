@@ -5,35 +5,28 @@
           data-id="2">
     <div class="container p-0">
       <nav class="navbar navbar-expand-lg px-0 py-3">
-
-
         <div class="collapse navbar-collapse"
              id="navbarNav13">
           <ul class="navbar-nav mr-auto">
-
-
             <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
-                 title="Undo"
+                 :title="$t('toolbox.undo')"
                  @click="undo">
                 <icon name="undo"></icon>
               </a>
             </li>
-
             <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
-                 title="Redo"
+                 :title="$t('toolbox.redo')"
                  @click="redo">
                 <icon name="redo"></icon>
               </a>
             </li>
-
-
             <li class="nav-item mr-lg-3">
               <a class="nav-link"
-                 title="Preview Mode"
+                 :title="$t('toolbox.preview_mode')"
                  v-b-tooltip.hover.bottom.small
                  href="#">
                 <label class="switch">
@@ -43,10 +36,12 @@
                 </label>
               </a>
             </li>
+
+
             <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
-                 title="Mobile size"
+                 :title="$t('toolbox.mobile')"
                  @click="setMobilePreviewMode">
                 <icon name="mobile-alt"></icon>
               </a>
@@ -54,7 +49,7 @@
             <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
-                 title="Tablet size"
+                 :title="$t('toolbox.tablet')"
                  @click="setTabletPreviewMode">
                 <icon name="tablet-alt"></icon>
               </a>
@@ -62,9 +57,18 @@
             <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
-                 title="Desktop size"
+                 :title="$t('toolbox.desktop')"
                  @click="setDesktopPreviewMode">
                 <icon name="desktop"></icon>
+              </a>
+            </li>
+
+            <li class="nav-item mr-lg-3">
+              <a v-b-tooltip.hover.bottom.small
+                 class="nav-link"
+                 :title="$t('toolbox.redo')"
+                 @click="toggleLanguage">
+                <icon name="language"></icon>
               </a>
             </li>
           </ul>
@@ -76,43 +80,48 @@
 <script>
   export default {
     name: 'PageToolbax',
-    data() {
-      return {
-        status: 'درحال ذخیره سازی تغییرات...'
-      }
-    },
     methods: {
-      undo() {
+      toggleLanguage () {
+        if (this.currentLocale == 'fa') {
+          this.$store.dispatch('locale/changeLang', 'en')
+        } else {
+          this.$store.dispatch('locale/changeLang', 'fa')
+        }
+      },
+      undo () {
         this.$store.dispatch('undo')
       },
-      redo() {
+      redo () {
         this.$store.dispatch('redo')
       },
-      setPreviewMode(e) {
+      setPreviewMode (e) {
         this.$store.dispatch('layout/setPreviewMode', e.target.checked)
       },
-      setMobilePreviewMode() {
+      setMobilePreviewMode () {
         this.$store.dispatch('layout/setMobilePreviewMode', !this.mobilePreviewMode)
       },
-      setTabletPreviewMode() {
+      setTabletPreviewMode () {
         this.$store.dispatch('layout/setTabletPreviewMode', !this.tabletPreviewMode)
       },
-      setDesktopPreviewMode() {
+      setDesktopPreviewMode () {
         this.$store.dispatch('layout/setMobilePreviewMode', false)
         this.$store.dispatch('layout/setTabletPreviewMode', false)
       },
-      gotToAddWidgetMode() {
+      gotToAddWidgetMode () {
         this.$store.dispatch('layout/setAddWidgetMode', true)
       }
     },
     computed: {
-      previewMode() {
+      currentLocale () {
+        return this.$store.state.locale.currentLocale
+      },
+      previewMode () {
         return this.$store.state.layout.previewMode
       },
-      mobilePreviewMode() {
+      mobilePreviewMode () {
         return this.$store.state.layout.mobilePreviewMode
       },
-      tabletPreviewMode() {
+      tabletPreviewMode () {
         return this.$store.state.layout.tabletPreviewMode
       },
       autosaveStatus: function () {

@@ -10,18 +10,19 @@
 
     <template slot="modal-footer">
       <button @click="onHide"
-              class="btn btn-link text-muted">Cancel
+              class="btn btn-link text-muted">
+        {{ $t('modal.cancel') }}
       </button>
-
       <button v-if="imageUploadLoading" @click="onOk"
-              class="btn btn-success btn-loading">OK
+              class="btn btn-success btn-loading">
+        {{ $t('modal.ok') }}
           <div class="btn btn-hover">
             <icon class="fa fa-spin" name="spinner"></icon>
           </div>
-
       </button>
       <button v-else @click="onOk"
-              class="btn btn-success">OK
+              class="btn btn-success">
+        {{ $t('modal.ok') }}
       </button>
     </template>
 
@@ -29,10 +30,9 @@
     <b-tabs card>
       <b-tab active>
         <template slot="title">
-          <strong>Random Images</strong>
+          <strong> {{ $t('modal.random_image') }}</strong>
           <icon name="images"></icon>
         </template>
-
         <!--<div class="row">-->
           <!--<div class="col-12 text-center mb-4 image-picker-modal&#45;&#45;search-box">-->
             <!--<b-form-input type="text"-->
@@ -57,7 +57,7 @@
       </b-tab>
       <b-tab title="Upload">
         <template slot="title">
-          <strong>Upload</strong>
+          <strong> {{ $t('modal.upload') }}</strong>
           <icon class="upload-image-icon" name="upload"></icon>
         </template>
         <UploadImage @chooseImage="chooseImage"></UploadImage>

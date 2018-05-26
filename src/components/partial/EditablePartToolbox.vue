@@ -44,8 +44,10 @@
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false">
-          <icon v-if="styles['text-align'] != 'inherit'" :name="'align-'+ styles['text-align']"></icon>
-          <icon v-else name="align-left"></icon>
+          <icon v-if="styles['text-align'] != 'inherit'"
+                :name="'align-'+ styles['text-align']"></icon>
+          <icon v-else
+                name="align-left"></icon>
         </button>
         <div class="dropdown-menu"
              aria-labelledby="dropdownMenuButton2">
@@ -249,19 +251,19 @@
     name: 'EditablePartToolbox',
     props: {
       currentStyles: {
-        default() {
+        default () {
           return {}
         },
         required: true
       },
       groups: {
-        default() {
+        default () {
           return ['text', 'background', 'border', 'general']
         },
         required: false
       },
       styles: {
-        default() {
+        default () {
           return {
             'color': 'inherit',
             'direction': 'inherit',
@@ -286,18 +288,18 @@
         }
       }
     },
-    created() {
+    created () {
       this.styles = this._.extend(this.styles, this.currentStyles)
     },
     methods: {
-      update() {
+      update () {
         //  TODO: send only changed data to update methods
         this.$emit('update', this.styles)
       },
-      hide() {
+      hide () {
         this.$emit('hide')
       },
-      toggleBold() {
+      toggleBold () {
         if (this.styles['font-weight'] == 'bold') {
           this.styles['font-weight'] = 'normal'
         } else {
@@ -305,23 +307,23 @@
         }
         this.update()
       },
-      updateColor(e) {
+      updateColor (e) {
         this.styles['color'] = e.target.value
         this.update()
       },
-      updateBgColor(e) {
+      updateBgColor (e) {
         this.styles['background-color'] = e.target.value
         this.update()
       },
-      align(direction) {
+      align (direction) {
         this.styles['text-align'] = direction
         this.update()
       },
-      setSize(size) {
+      setSize (size) {
         this.styles['font-size'] = size
         this.update()
       },
-      toggleDirection() {
+      toggleDirection () {
         if (this.styles['direction'] == 'rtl') {
           this.styles['direction'] = 'ltr'
         } else {
@@ -329,7 +331,7 @@
         }
         this.update()
       },
-      toggleTextIndent() {
+      toggleTextIndent () {
         if (this.styles['text-indent'] == '0') {
           this.styles['text-indent'] = '15px'
         } else {
@@ -337,11 +339,11 @@
         }
         this.update()
       },
-      setLineHeight(payload) {
+      setLineHeight (payload) {
         this.styles['line-height'] = payload
         this.update()
       },
-      toggleOverflow() {
+      toggleOverflow () {
         if (this.styles['overflow'] == 'hidden') {
           this.styles['overflow'] = 'visible'
         } else {
@@ -349,11 +351,11 @@
         }
         this.update()
       },
-      setOpacityColor(e) {
+      setOpacityColor (e) {
         this.styles['opacity'] = e.target.value
         this.update()
       },
-      toggleTextDecoration() {
+      toggleTextDecoration () {
         if (this.styles['text-decoration'] == 'none') {
           this.styles['text-decoration'] = 'underline'
         } else {
@@ -361,7 +363,7 @@
         }
         this.update()
       },
-      toggleThroughDecoration() {
+      toggleThroughDecoration () {
         if (this.styles['text-decoration'] == 'none') {
           this.styles['text-decoration'] = 'line-through'
         } else {
@@ -369,19 +371,19 @@
         }
         this.update()
       },
-      updateBorderColor(e) {
+      updateBorderColor (e) {
         this.styles['border-color'] = e.target.value
         this.update()
       },
-      borderWidth(e) {
+      borderWidth (e) {
         this.styles['border-width'] = e.target.value + 'px'
         this.update()
       },
-      setBorderStyle(style) {
+      setBorderStyle (style) {
         this.styles['border-style'] = style
         this.update()
       },
-      letterSpacing(e) {
+      letterSpacing (e) {
         this.styles['letter-spacing'] = e.target.value + 'px'
         this.update()
       },

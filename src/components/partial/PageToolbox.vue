@@ -5,11 +5,6 @@
           data-id="2">
     <div class="container p-0">
       <nav class="navbar navbar-expand-lg px-0 py-3">
-        <a class="auto-save-status"
-           href="https://www.froala.com">
-          <span>{{autosaveStatus}}</span>
-        </a>
-
         <button class="navbar-toggler"
                 type="button"
                 data-toggle="collapse"
@@ -39,7 +34,9 @@
               <a class="nav-link"
                  href="#">
                 <icon name="eye"></icon>
-                <span class="preview-text"> نسخه قابل نمایش</span>
+                <span class="preview-text">
+                {{ $t('toolbox.preview_mode') }}
+                </span>
               </a>
             </li>
             <li class="mr-lg-3 btn-published">

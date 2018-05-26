@@ -1,4 +1,4 @@
 const config = {
-  locale: 'en'
+  locale: 'fa'
 }
 export default config

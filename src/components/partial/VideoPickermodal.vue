@@ -12,14 +12,17 @@
               class="btn btn-link text-muted">Cancel
       </button>
 
-      <button v-if="imageUploadLoading" @click="onOk"
+      <button v-if="imageUploadLoading"
+              @click="onOk"
               class="btn btn-success btn-loading">OK
         <div class="btn btn-hover">
-          <icon class="fa fa-spin" name="spinner"></icon>
+          <icon class="fa fa-spin"
+                name="spinner"></icon>
         </div>
 
       </button>
-      <button v-else @click="onOk"
+      <button v-else
+              @click="onOk"
               class="btn btn-success">OK
       </button>
     </template>
@@ -44,10 +47,10 @@
                  v-for="imageItem in randomImageList"
                  :class="{'image-picker-modal-selected' : pickedImageSrc == imageItem.urls.small }">
               <img
-                      class="image-picker-modal--img p-2"
-                      @click="pick(imageItem.urls.small)"
-                      @dblclick="pickAndHide(imageItem.urls.small)"
-                      :src="imageItem.urls.small">
+                class="image-picker-modal--img p-2"
+                @click="pick(imageItem.urls.small)"
+                @dblclick="pickAndHide(imageItem.urls.small)"
+                :src="imageItem.urls.small">
             </div>
           </div>
         </div>
@@ -55,7 +58,8 @@
       <b-tab title="Upload">
         <template slot="title">
           <strong>Upload</strong>
-          <icon class="upload-image-icon" name="upload"></icon>
+          <icon class="upload-image-icon"
+                name="upload"></icon>
         </template>
         <!--<UploadImage @chooseImage="chooseImage"></UploadImage>-->
       </b-tab>
@@ -71,34 +75,34 @@
   export default {
     name: 'VideoPickerModal',
     methods: {
-      pickAndHide(imageSrc) {
+      pickAndHide (imageSrc) {
         this.pickedImageSrc = imageSrc
         if (this.pickedImageSrc) {
           EventBus.$emit('pickVideo', this.pickedImageSrc)
         }
         this.showModal = false
       },
-      onHide() {
+      onHide () {
         this.$store.dispatch('layout/setPickVideoMode', false)
       },
-      onOk() {
+      onOk () {
         if (this.pickedImageSrc) {
           EventBus.$emit('pickVideo', this.pickedImageSrc)
         }
       },
-      pick(imageSrc) {
+      pick (imageSrc) {
         this.pickedImageSrc = imageSrc
       }
     },
     computed: {
-      modalShowGlobalState() {
+      modalShowGlobalState () {
         return this.$store.state.layout.pickVideoMode
       },
-      randomImageList() {
+      randomImageList () {
         return this.$store.state.unsplash.imageList
       }
     },
-    data() {
+    data () {
       return {
         imageUploadLoading: false,
         showModal: false,
@@ -106,7 +110,7 @@
       }
     },
     watch: {
-      modalShowGlobalState() {
+      modalShowGlobalState () {
         this.showModal = this.modalShowGlobalState
       }
     }

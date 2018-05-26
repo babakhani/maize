@@ -3,23 +3,21 @@
     <!--TODO: bita fix class name-->
     <div class="add-widget-box--main container">
       <div class="add-widget-box--main--details">
-
         <div class="center-center">
           <button @click="goToAddWidgetMode"
                   class="btn btn-add-widget">
             +
           </button>
-          <p class="text-add-widget">اضافه کردن بخش</p>
+          <p class="text-add-widget">
+            {{ $t('add_widget') }}
+          </p>
         </div>
-
       </div>
-
       <!-- Modal Component -->
       <b-modal id="modal1"
                title="Bootstrap-Vue">
         <p class="my-4">Hello from modal!</p>
       </b-modal>
-
     </div>
   </div>
 </template>

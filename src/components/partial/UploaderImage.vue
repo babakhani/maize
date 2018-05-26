@@ -12,15 +12,15 @@
               name="upload"></icon>
       </h1>
       <h4 class="mt-4">
-        Drop Image Here
+        {{ $t('modal.drop_image') }}
       </h4>
       <br>
       <h6 class="text-muted">
-        OR
+        {{ $t('modal.or') }}
       </h6>
       <br>
       <button class="btn btn-lg btn-link">
-        Choose your Image
+        {{ $t('modal.choose_your_image') }}
       </button>
     </div>
     <input class=""

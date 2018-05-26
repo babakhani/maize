@@ -6,16 +6,13 @@
     id="addWidgetModal"
     size="lg"
     centered
-    class="add-widget-modal"
-    title="Choose your Widget :">
-
+    class="add-widget-modal">
     <div v-for="item in widgetList"
          class="add-widget-modal--widget-item"
          :class="{'add-widget-modal--widget-item--selected': addWidgetList.indexOf(item) > -1}"
          @click="updateAddList(item)">
       {{item.name}}
     </div>
-
   </b-modal>
 </template>
 
@@ -23,7 +20,7 @@
   export default {
     name: 'WidgetListModal',
     methods: {
-      updateAddList(itemName) {
+      updateAddList (itemName) {
         if (this.addWidgetList.indexOf(itemName) > -1) {
           this._.remove(this.addWidgetList, (n) => {
             return n === itemName
@@ -34,31 +31,31 @@
         // TODO: fix this, remove $forceUpdate
         this.$forceUpdate()
       },
-      onHide() {
+      onHide () {
         this.$store.dispatch('layout/setAddWidgetMode', false)
         this.addWidgetList = []
       },
-      onOk() {
+      onOk () {
         // TODO: complete this
         this.$store.dispatch('main/addToCurrentWidgetList', this.addWidgetList)
       }
     },
     computed: {
-      modalShowGlobalState() {
+      modalShowGlobalState () {
         return this.$store.state.layout.addWidgetMode
       },
-      widgetList() {
+      widgetList () {
         return this.$store.state.main.rawWidgetList
       }
     },
-    data() {
+    data () {
       return {
         showModal: false,
         addWidgetList: []
       }
     },
     watch: {
-      modalShowGlobalState() {
+      modalShowGlobalState () {
         this.showModal = this.modalShowGlobalState
       }
     }
