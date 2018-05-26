@@ -262,19 +262,19 @@
       styles: {
         default() {
           return {
-            'color': '#333',
-            'direction': 'ltr',
+            'color': 'inherit',
+            'direction': 'inherit',
             'font-size': null,
-            'font-weight': 'normal',
-            'font-family': 'Tahoma',
-            'text-align': 'center',
-            'text-decoration': 'none',
-            'white-space': 'wrap',
+            'font-weight': 'inherit',
+            'font-family': 'inherit',
+            'text-align': 'inherit',
+            'text-decoration': 'inherit',
+            'white-space': 'inherit',
 
             'text-indent': '0',
             'background-color': 'transparent',
             'line-height': 'inherit',
-            'border-width': '1px',
+            'border-width': '0',
             'border-color': 'transparent',
             'border-style': 'solid',
             'border-radius': '0',

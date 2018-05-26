@@ -3,14 +3,6 @@ import lodash from 'lodash'
 
 const rawWidgetList = [
   {
-    name: 'TeamWidget',
-    data: {}
-  },
-  {
-    name: 'TeamWidget2',
-    data: {}
-  },
-  {
     name: 'Header',
     data: {}
   },
@@ -19,18 +11,14 @@ const rawWidgetList = [
     data: {}
   },
   {
-    name: 'Banner',
-    data: {}
-  },
-  {
     name: 'Kitchensink',
     data: {}
-  },
+  }
 ]
 
 let page = [
   {
-    name: 'Banner',
+    name: 'Kitchensink',
     uniqeId: 'Bannere21432141',
     data: {}
   }
@@ -47,9 +35,9 @@ export default {
     rawWidgetList: rawWidgetList
   },
   mutations: {
-    moveWidget(state, payload) {
+    moveWidget (state, payload) {
       // TODO: do better
-      function arrayMove(x, from, to) {
+      function arrayMove (x, from, to) {
         x.splice((to < 0 ? x.length + to : to), 0, x.splice(from, 1)[0]);
       }
 
@@ -76,7 +64,7 @@ export default {
       state.currentWidgetList = list
       window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
     },
-    updateItemOfCurrentWidgetList(state, payload = {key: null, name: 'null', data: {}}) {
+    updateItemOfCurrentWidgetList (state, payload = {key: null, name: 'null', data: {}}) {
       const list = lodash.cloneDeep(state.currentWidgetList)
       // TODO: check this, it might raise cant read 0 of undefined
       let item = list.filter((n) => {
@@ -90,7 +78,7 @@ export default {
       state.currentWidgetList = list
       window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
     },
-    addToCurrentWidgetList(state, payload) {
+    addToCurrentWidgetList (state, payload) {
       if (lodash.isString(payload)) {
         state.currentWidgetList.push(payload)
       } else if (lodash.isArray(payload)) {
@@ -102,7 +90,7 @@ export default {
       }
       window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
     },
-    removeFromCurrentWidgetList(state, payload) {
+    removeFromCurrentWidgetList (state, payload) {
       let list = lodash.cloneDeep(state.currentWidgetList)
       // TODO: check this functionality later
       lodash.remove(list, (n, index) => {
@@ -111,25 +99,25 @@ export default {
       state.currentWidgetList = list
       window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
     },
-    sortCurrentWidgetList(state, payload) {
+    sortCurrentWidgetList (state, payload) {
       state.currentWidgetList = payload
       window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
     }
   },
   actions: {
-    moveWidget(context, payload = {direction: null, key: null}) {
+    moveWidget (context, payload = {direction: null, key: null}) {
       context.commit('moveWidget', payload)
     },
-    sortCurrentWidgetList(context, payload) {
+    sortCurrentWidgetList (context, payload) {
       context.commit('sortCurrentWidgetList', payload)
     },
-    updateItemOfCurrentWidgetList(context, payload) {
+    updateItemOfCurrentWidgetList (context, payload) {
       context.commit('updateItemOfCurrentWidgetList', payload)
     },
-    addToCurrentWidgetList(context, payload) {
+    addToCurrentWidgetList (context, payload) {
       context.commit('addToCurrentWidgetList', payload)
     },
-    removeFromCurrentWidgetList(context, payload) {
+    removeFromCurrentWidgetList (context, payload) {
       context.commit('removeFromCurrentWidgetList', payload)
     }
   }

@@ -28,14 +28,8 @@
   export default {
     name: 'ImageEditable',
     mixins: [EditablePartMixin],
-    props: {
-      src: {
-        default: null,
-        require: false
-      }
-    },
     methods: {
-      setPickImageMode(noCheckState) {
+      setPickImageMode (noCheckState) {
         if (this.editMode || noCheckState == true) {
           this.$store.dispatch('layout/setPickImageMode', true)
           EventBus.$once('pickImage', (imageSrc) => {
@@ -49,7 +43,7 @@
           })
         }
       },
-      imageUpload(e) {
+      imageUpload (e) {
         console.log('imageUpload')
         const $img = $(e.target).next('img')
         if (e.target.files && e.target.files[0]) {

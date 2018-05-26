@@ -3,23 +3,11 @@ import lodash from 'lodash'
 
 const rawWidgetList = [
   {
-    name: 'TeamWidget',
-    data: {}
-  },
-  {
-    name: 'TeamWidget2',
-    data: {}
-  },
-  {
     name: 'Header',
     data: {}
   },
   {
     name: 'Footer',
-    data: {}
-  },
-  {
-    name: 'Banner',
     data: {}
   },
   {

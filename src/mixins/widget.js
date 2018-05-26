@@ -8,34 +8,34 @@ import WidgetToolbox from '../components/partial/WidgetToolbox'
 const Mixin = {
   components: {TextEditable, ImageEditable, BgEditable, WidgetToolbox, VideoEditable},
   name: 'EventBody',
-  data() {
+  data () {
     return {
       editMode: false,
       fullWidth: false
     }
   },
-  mounted() {
+  mounted () {
     this.data = this._.extend(this.data, this.widgetData)
   },
   computed: {
-    previewMode() {
+    previewMode () {
       return this.$store.state.main.previewMode
     }
   },
   watch: {
-    previewMode() {
+    previewMode () {
       if (this.previewMode) {
         this.editMode = false
       }
     },
-    widgetData() {
+    widgetData () {
       this.data = this._.extend(this.data, this.widgetData)
     }
   },
   props: {
     // TODO: merge widget data expect default pattern
     widgetData: {
-      default() {
+      default () {
         return {}
       },
       require: false
@@ -46,26 +46,26 @@ const Mixin = {
     }
   },
   methods: {
-    moveUp() {
+    moveUp () {
       this.$store.dispatch('main/moveWidget', {
         direction: 'up',
         key: this.uniqeKey
       })
     },
-    moveDown() {
+    moveDown () {
       this.$store.dispatch('main/moveWidget', {
         direction: 'down',
         key: this.uniqeKey
       })
     },
-    updateData(e = {name: null, data: null}) {
+    updateData (e = {name: null, data: null}) {
       this.$store.dispatch('main/updateItemOfCurrentWidgetList', {
         key: this.uniqeKey, // id of this widget in cuurentWidgetList
         name: e.name, // name of editble part that his data must be update
         data: e.data
       })
     },
-    toggleFullWidth() {
+    toggleFullWidth () {
       this.data.config.fullWidth = !this.data.config.fullWidth
       this.updateData({
         name: 'config',
@@ -74,13 +74,13 @@ const Mixin = {
         }
       })
     },
-    deleteWidget() {
+    deleteWidget () {
       this.$store.dispatch('main/removeFromCurrentWidgetList', this.uniqeKey)
     },
-    toggleEditMode() {
+    toggleEditMode () {
       this.editMode = !this.editMode
     },
-    imageUpload(e) {
+    imageUpload (e) {
       console.log('imageUpload')
       const $img = $(e.target).next('img')
       if (e.target.files && e.target.files[0]) {

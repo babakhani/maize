@@ -22,11 +22,6 @@
 
   export default {
     name: 'BgEditable',
-    mixins: [EditablePartMixin],
-    props: {
-      editMode: {
-        default: 'false'
-      }
-    }
+    mixins: [EditablePartMixin]
   }
 </script>

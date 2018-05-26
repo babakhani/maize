@@ -7,7 +7,7 @@ const Mixin = {
     this.touchedStyle = this.text
     this.touchedStyle = this.styles
   },
-  mounted() {
+  mounted () {
     EventBus.$on('igotoeditmode', (uid) => {
       if (this._uid != uid) {
         this.toolboxVisible = false
@@ -15,39 +15,76 @@ const Mixin = {
     })
   },
   methods: {
-    updateText(e) {
-      this.touchedText = e.target.innerText
-      this.$emit('update', {
+    toggleEditMode () {
+      this.$parent.toggleEditMode()
+    },
+    goToEditMode () {
+      if (this.editMode === false)
+        this.$parent.toggleEditMode()
+      // this.$emit('goToEditMode')
+    },
+    updateData (payload) {
+      this.$parent.updateData(payload)
+    },
+    updateWidget (payload) {
+      // this.$emit('update', payload)
+      this.$parent.updateData(payload)
+    },
+    updatePastedText (payload) {
+      this.touchedText = payload
+      this.updateWidget({
         name: this.name,
         data: {
           text: this.touchedText
         }
       })
     },
-    updateStyles(e) {
+    updateText (e) {
+      this.touchedText = e.target.innerText
+      this.updateWidget({
+        name: this.name,
+        data: {
+          text: this.touchedText
+        }
+      })
+    },
+    updateStyles (e) {
       this.touchedStyle = e
-      this.$emit('update', {
+      this.updateWidget({
         name: this.name,
         data: {
           styles: this.touchedStyle
         }
       })
     },
-    hideToolbox() {
+    hideToolbox () {
       this.toolboxVisible = false
     },
-    showToolbox() {
+    showToolbox () {
       this.toolboxVisible = true
       EventBus.$emit('igotoeditmode', this._uid)
     }
   },
-  data() {
+  data () {
     return {
+      uniqeKey: null,
       touchedStyle: {},
       toolboxVisible: false
     }
   },
   props: {
+    text: {
+      default: "please replace me",
+      required: false
+    },
+    src: {
+      default: null,
+      require: false
+    },
+    tag: {
+      default: 'p',
+      required: false
+    },
     name: {
       default: false
     },
@@ -55,7 +92,7 @@ const Mixin = {
       default: false
     },
     styles: {
-      default() {
+      default () {
         return {}
       }
     }

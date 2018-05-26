@@ -1,17 +1,10 @@
 <template>
   <div :class="{'container': !data.config.fullWidth}">
     <div class="widget-block">
-      <WidgetToolbox
-        :editMode="editMode"
-        @moveUp="moveUp"
-        @moveDown="moveDown"
-        @toggleFullWidth="toggleFullWidth"
-        @toggleEditMode="toggleEditMode"
-        @deleteWidget="deleteWidget"></WidgetToolbox>
+      <WidgetToolbox></WidgetToolbox>
 
       <BgEditable
         name="bg"
-        @update="updateData"
         :editMode="editMode"
         :styles="data.bg.styles">
         <section class="fdb-block team-2">
@@ -20,97 +13,77 @@
               <div class="col-12">
                 <div class="row justify-content-center">
                   <div class="col-3 col-xs-5">
-                    <VideoEditable :editMode="editMode"
-                                   name="video1"
-                                   @update="updateData"
+                    <VideoEditable name="video1"
+                                   :editMode="editMode"
                                    :styles="data.video1.styles"
                                    :src="data.video1.src"
                     ></VideoEditable>
                   </div>
                   <div class="col-3 col-xs-5">
-                    <VideoEditable :editMode="editMode"
-                                   name="video2"
-                                   @update="updateData"
+                    <VideoEditable name="video2"
+                                   :editMode="editMode"
                                    :styles="data.video2.styles"
                                    :src="data.video2.src"
                     ></VideoEditable>
                   </div>
                 </div>
-
                 <div class="row justify-content-center m-5">
                   <div class="col-3 col-xs-5">
-                    <ImageEditable :editMode="editMode"
-                                   name="image1"
-                                   @update="updateData"
+                    <ImageEditable name="image1"
+                                   :editMode="editMode"
                                    :styles="data.image1.styles"
                                    :src="data.image1.src"
                     ></ImageEditable>
                   </div>
                   <div class="col-3 col-xs-5">
-                    <ImageEditable :editMode="editMode"
-                                   name="image2"
-                                   @update="updateData"
+                    <ImageEditable name="image2"
+                                   :editMode="editMode"
                                    :styles="data.image2.styles"
                                    :src="data.image2.src"
                     ></ImageEditable>
                   </div>
                 </div>
-
               </div>
               <div class="col-12">
                 <text-editable tag="h1"
-                               :editMode="editMode"
                                name="mainTitle"
-                               @update="updateData"
-                               @goToEditMode="toggleEditMode"
+                               :editMode="editMode"
                                :styles="data.mainTitle.styles"
                                :text="data.mainTitle.text">
                 </text-editable>
                 <text-editable tag="h2"
-                               :editMode="editMode"
                                name="subtitle"
-                               @update="updateData"
-                               @goToEditMode="toggleEditMode"
+                               :editMode="editMode"
                                :styles="data.subtitle.styles"
                                :text="data.subtitle.text">
                 </text-editable>
                 <text-editable tag="h3"
-                               :editMode="editMode"
                                name="subtitle1"
-                               @update="updateData"
-                               @goToEditMode="toggleEditMode"
+                               :editMode="editMode"
                                :styles="data.subtitle1.styles"
                                :text="data.subtitle1.text">
                 </text-editable>
                 <text-editable tag="h4"
-                               :editMode="editMode"
                                name="subtitle2"
-                               @update="updateData"
-                               @goToEditMode="toggleEditMode"
+                               :editMode="editMode"
                                :styles="data.subtitle2.styles"
                                :text="data.subtitle2.text">
                 </text-editable>
                 <text-editable tag="h5"
-                               :editMode="editMode"
                                name="subtitle2"
-                               @update="updateData"
-                               @goToEditMode="toggleEditMode"
+                               :editMode="editMode"
                                :styles="data.subtitle2.styles"
                                :text="data.subtitle2.text">
                 </text-editable>
                 <text-editable tag="h6"
-                               :editMode="editMode"
                                name="subtitle2"
-                               @update="updateData"
-                               @goToEditMode="toggleEditMode"
+                               :editMode="editMode"
                                :styles="data.subtitle2.styles"
                                :text="data.subtitle2.text">
                 </text-editable>
                 <text-editable tag="p"
-                               :editMode="editMode"
                                name="subtitle2"
-                               @update="updateData"
-                               @goToEditMode="toggleEditMode"
+                               :editMode="editMode"
                                :styles="data.subtitle2.styles"
                                :text="data.subtitle2.text">
                 </text-editable>
@@ -118,7 +91,6 @@
             </div>
           </div>
         </section>
-
       </BgEditable>
     </div>
   </div>
@@ -130,9 +102,12 @@
   export default {
     name: 'Kitchensink',
     mixins: [widgetMixin],
+    mounted () {
+      console.log(this.$children)
+    },
     props: {
       data: {
-        default() {
+        default () {
           return {
             // general widget config
             config: {
@@ -140,19 +115,19 @@
             },
             image1: {
               styles: {},
-              src:'http://via.placeholder.com/150x114'
+              src: 'http://via.placeholder.com/150x114'
             },
             image2: {
               styles: {},
-              src:'http://via.placeholder.com/150x114'
+              src: 'http://via.placeholder.com/150x114'
             },
             video1: {
               styles: {},
-              src:'http://via.placeholder.com/150x114'
+              src: 'http://via.placeholder.com/150x114'
             },
             video2: {
               styles: {},
-              src:'http://via.placeholder.com/150x114'
+              src: 'http://via.placeholder.com/150x114'
             },
             // Editable parts config that can be used in editable components
             mainTitle: {

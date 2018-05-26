@@ -31,11 +31,8 @@
   import editor from '../mixins/editorpage'
   import draggable from 'vuedraggable'
   // TODO: move to mixin
-  import TeamWidget from '../components/widgets/Team'
-  import TeamWidget2 from '../components/widgets/Team2'
   import Header from '../components/widgets/Header'
   import Footer from '../components/widgets/Footer'
-  import Banner from '../components/widgets/Banner'
   import Kitchensink from '../components/widgets/Kitchensink'
   import ImagePickerModal from '../components/partial/ImagePickermodal'
   import VideoPickerModal from '../components/partial/VideoPickermodal'
@@ -58,9 +55,6 @@
     },
     mixins: [editor],
     components: {
-      TeamWidget,
-      TeamWidget2,
-      Banner,
       Header,
       Footer,
       draggable,

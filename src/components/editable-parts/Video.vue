@@ -27,28 +27,21 @@
   export default {
     name: 'VideoEditable',
     mixins: [EditablePartMixin],
-    props: {
-      src: {
-        default: null,
-        require: false
-      }
-    },
     methods: {
-      setPickVideoMode(noCheckState) {
+      setPickVideoMode (noCheckState) {
         if (this.editMode || noCheckState == true) {
           this.$store.dispatch('layout/setPickVideoMode', true)
           EventBus.$once('pickVideo', (imageSrc) => {
-            this.src = imageSrc
             this.$emit('update', {
               name: this.name,
               data: {
-                src: this.src
+                src: imageSrc
               }
             })
           })
         }
       },
-      imageUpload(e) {
+      imageUpload (e) {
         console.log('imageUpload')
         const $img = $(e.target).next('img')
         if (e.target.files && e.target.files[0]) {

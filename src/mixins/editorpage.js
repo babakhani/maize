@@ -5,7 +5,7 @@ import PageToolbox from '@/components/partial/PageToolbox.vue'
 import AddWidget from '@/components/partial/AddWidget'
 import WidgetListModal from '@/components/partial/WidgetListModal'
 
-const Mixin =  {
+const Mixin = {
   components: {PageToolbox, Team, AddWidget, WidgetListModal, GlobalPageToolbox}
 }
 

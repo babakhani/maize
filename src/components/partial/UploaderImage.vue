@@ -1,10 +1,5 @@
 <template>
   <div class="upload-image-widget">
-    <EditablePartToolbox @update="updateStyles"
-                         :currentStyles="styles"
-                         :groups="['background', 'border']"
-                         v-if="editMode && toolboxVisible"
-                         @hide="hideToolbox"></EditablePartToolbox>
     <div v-if="src">
       <img alt="image"
            class="upload-image-widget--box col-12"
@@ -12,7 +7,8 @@
     </div>
     <div v-else>
       <h1>
-        <icon class="upload-image-widget--icon" size="lg"
+        <icon class="upload-image-widget--icon"
+              size="lg"
               name="upload"></icon>
       </h1>
       <h4 class="mt-4">
@@ -34,30 +30,25 @@
 </template>
 
 <script>
-  import EditablePartMixin from '../../mixins/editablePart'
-
   export default {
     name: 'UploadImage',
-    mixins: [EditablePartMixin],
-    data() {
+    data () {
       return {
         src: null
       }
     },
     methods: {
-      imageUpload(e) {
+      imageUpload (e) {
         const self = this
-        // const $img = $(e.target).next('img')
         if (e.target.files && e.target.files[0]) {
-          var reader = new FileReader();
+          var reader = new FileReader()
           reader.onload = function (e) {
             self.src = e.target.result
             self.$emit('chooseImage', e.target.result)
           }
-          reader.readAsDataURL(e.target.files[0]);
+          reader.readAsDataURL(e.target.files[0])
         }
       }
-    },
-
+    }
   }
 </script>

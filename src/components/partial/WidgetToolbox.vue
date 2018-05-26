@@ -1,16 +1,14 @@
 <template>
   <div class="widget-block--toolbox">
-
     <button @click="showTools = !showTools"
             title="Settings"
             v-b-tooltip.hover.top
             class="btn btn-link widget-block--toolbox-btn">
       <icon name="cog"></icon>
     </button>
-
     <transition name="fade">
       <button v-if="showTools"
-              @click="$emit('toggleEditMode')"
+              @click="$parent.toggleEditMode"
               title="Edite"
               v-b-tooltip.hover.top
               class="btn btn-link widget-block--toolbox-btn">
@@ -19,7 +17,7 @@
     </transition>
     <transition name="fade">
       <button v-if="showTools"
-              @click="$emit('deleteWidget')"
+              @click="$parent.deleteWidget"
               title="Delete"
               v-b-tooltip.hover.top
               class="btn btn-link widget-block--toolbox-btn">
@@ -28,7 +26,7 @@
     </transition>
     <transition name="fade">
       <button v-if="showTools"
-              @click="$emit('toggleFullWidth')"
+              @click="$parent.toggleFullWidth"
               title="Toggle Full Width"
               v-b-tooltip.hover.top
               class="btn btn-link widget-block--toolbox-btn">
@@ -37,7 +35,7 @@
     </transition>
     <transition name="fade">
       <button v-if="showTools"
-              @click="$emit('moveUp')"
+              @click="$parent.moveUp"
               title="Move Up"
               v-b-tooltip.hover.top
               class="btn btn-link widget-block--toolbox-btn">
@@ -46,7 +44,7 @@
     </transition>
     <transition name="fade">
       <button v-if="showTools"
-              @click="$emit('moveDown')"
+              @click="$parent.moveDown"
               title="Move Down"
               v-b-tooltip.hover.top
               class="btn btn-link widget-block--toolbox-btn">
@@ -55,7 +53,7 @@
     </transition>
     <transition name="fade">
       <button v-if="showTools"
-              @click="$emit('moveDown')"
+              @click="$parent.moveDown"
               title="Move"
               v-b-tooltip.hover.top
               class="btn btn-link widget-block--toolbox-btn widget-drag-handle">
@@ -67,7 +65,7 @@
 <script>
   export default {
     name: 'WidgetToolbox',
-    data() {
+    data () {
       return {
         showTools: true
       }

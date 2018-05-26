@@ -86,45 +86,30 @@
   export default {
     name: 'TextEditable',
     mixins: [EditablePartMixin],
-    data() {
+    data () {
       return {
         touchedText: this.text
       }
     },
     methods: {
-      goToEditMode() {
-        if (this.editMode === false)
-          this.$emit('goToEditMode')
-      },
       /**
        * @link https://stackoverflow.com/questions/2176861/javascript-get-clipboard-data-on-paste-event-cross-browser/6804718#6804718
        * @param e
        */
-      onPaste(e) {
+      onPaste (e) {
         // TODO: must move to helpre class
-        function strip(html) {
-          var tmp = document.createElement("DIV");
-          tmp.innerHTML = html;
-          return tmp.textContent || tmp.innerText || "";
+        function strip (html) {
+          const tmp = document.createElement("DIV")
+          tmp.innerHTML = html
+          return tmp.textContent || tmp.innerText || ""
         }
 
-        var clipboardData, pastedData;
-        e.stopPropagation();
-        e.preventDefault();
-        clipboardData = e.clipboardData || window.clipboardData;
-        pastedData = clipboardData.getData('Text');
-        this.text = strip(pastedData)
+        e.stopPropagation()
+        e.preventDefault()
+        const clipboardData = e.clipboardData || window.clipboardData
+        const pastedData = clipboardData.getData('Text')
         this.touchedText = strip(pastedData)
-      }
-    },
-    props: {
-      text: {
-        default: "please replace me",
-        required: false
-      },
-      tag: {
-        default: 'p',
-        required: true
+        this.updatePastedText(this.touchedText)
       }
     }
   }

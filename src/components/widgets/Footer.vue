@@ -1,44 +1,63 @@
 <template>
   <div :class="{'container': !data.config.fullWidth}">
     <div class="widget-block">
-      <WidgetToolbox
-        :editMode="editMode"
-        @moveUp="moveUp"
-        @moveDown="moveDown"
-        @toggleFullWidth="toggleFullWidth"
-        @toggleEditMode="toggleEditMode"
-        @deleteWidget="deleteWidget"></WidgetToolbox>
+      <WidgetToolbox></WidgetToolbox>
       <BgEditable
         name="bg"
-        @update="updateData"
         :editMode="editMode"
         :styles="data.bg.styles">
         <footer class="fdb-block footer-large bg-dark">
           <div class="container">
             <div class="row align-items-top text-center text-md-left">
               <div class="col-12 col-sm-6 col-md-4">
-                <h3><strong>Country A</strong></h3>
-                <p>Street Address 52<br>Contact Name</p>
-                <p>+44 827 312 5002</p>
-                <p><a href="https://www.froala.com">countrya@amazing.com</a></p>
+                <text-editable tag="h3"
+                               name="sec_1_title"
+                               :editMode="editMode"
+                               :styles="data.sec_1_title.styles"
+                               :text="data.sec_1_title.text">
+                </text-editable>
+                <text-editable tag="p"
+                               name="sec_1_desc"
+                               :editMode="editMode"
+                               :text="data.copyright.text">
+                </text-editable>
               </div>
-
               <div class="col-12 col-sm-6 col-md-4 mt-4 mt-sm-0">
-                <h3><strong>Country B</strong></h3>
-                <p>Street Address 100<br>Contact Name</p>
-                <p>+13 827 312 5002</p>
-                <p><a href="https://www.froala.com">countryb@amazing.com</a></p>
+                <text-editable tag="h3"
+                               name="sec_2_title"
+                               :editMode="editMode"
+                               :styles="data.sec_2_title.styles"
+                               :text="data.sec_2_title.text">
+                </text-editable>
+                <text-editable tag="p"
+                               name="sec_2_desc"
+                               :editMode="editMode"
+                               :text="data.sec_2_desc.text">
+                </text-editable>
               </div>
-
               <div class="col-12 col-md-4 mt-5 mt-md-0 text-md-left">
-                <h3><strong>About Us</strong></h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                <text-editable tag="h3"
+                               name="sec_3_title"
+                               :editMode="editMode"
+                               :styles="data.sec_3_title.styles"
+                               :text="data.sec_3_title.text">
+                </text-editable>
+                <text-editable tag="p"
+                               name="sec_3_desc"
+                               :editMode="editMode"
+                               :text="data.sec_1_desc.text">
+                </text-editable>
               </div>
             </div>
-
             <div class="row mt-5">
               <div class="col text-center">
-                &copy; 2017 Froala. All Rights Reserved
+                <text-editable tag="p"
+                               name="copyright"
+                               :editMode="editMode"
+                               :styles="data.copyright.styles"
+                               :text="data.copyright.text">
+                </text-editable>
+                <!--&copy; 2017 Froala. All Rights Reserved-->
               </div>
             </div>
           </div>
@@ -56,45 +75,41 @@
     mixins: [widgetMixin],
     props: {
       data: {
-        default() {
+        default () {
           return {
             // general widget config
             config: {
               fullWidth: true
             },
-            image1: {
+            copyright: {
               styles: {},
-              src:'http://via.placeholder.com/150x114'
+              src: '&copy; 2017 Froala. All Rights Reserved'
             },
-            image2: {
-              styles: {},
-              src:'http://via.placeholder.com/150x114'
-            },
-            video1: {
-              styles: {},
-              src:'http://via.placeholder.com/150x114'
-            },
-            video2: {
-              styles: {},
-              src:'http://via.placeholder.com/150x114'
-            },
-            // Editable parts config that can be used in editable components
-            mainTitle: {
+            sec_1_title: {
               text: 'HI i am banner Widget from store',
               styles: {}
             },
-            subtitle: {
+            sec_2_title: {
               text: 'HI i am banner Widget from store',
               styles: {}
             },
-            subtitle1: {
+            sec_3_title: {
               text: 'HI i am banner Widget from store',
               styles: {}
             },
-            subtitle2: {
+            sec_1_desc: {
               text: 'HI i am banner Widget from store',
               styles: {}
             },
+            sec_2_desc: {
+              text: 'HI i am banner Widget from store',
+              styles: {}
+            },
+            sec_3_desc: {
+              text: 'HI i am banner Widget from store',
+              styles: {}
+            },
+
             bg: {
               styles: {}
             }
