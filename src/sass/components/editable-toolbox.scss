@@ -1,21 +1,29 @@
 .widget-text-editable--toolbox {
-  z-index: 10;
-  display: block;
-  position: absolute;
-  width:650px;
-  height: 90px;
-  border-radius: 10px;
-  background: rgba(51, 51, 51, 0.78);
-  top: -80px;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-bottom: 15px;
-  padding: 5px;
-  text-align: left;
+  //z-index: 10;
+  //display: block;
+  //position: absolute;
+  //width:650px;
+  //height: 90px;
+  //border-radius: 10px;
+  //background: rgba(51, 51, 51, 0.78);
+  //top: -80px;
+  //left: 50%;
+  //transform: translateX(-50%);
+  //margin-bottom: 15px;
+  //padding: 5px;
+  ////text-align: left;
+  //padding: 1em;
+  //position: absolute;
+  //top: 0;
+  //bottom: 0;
+  //left: 0;
+  //right: 0;
+  //width: 100%;
+  //height: 20em;
 
   // Preview Mode Styles
   .editor-page-preview-mode & {
-    display: none;
+    visibility: hidden;
   }
 
   .widget-text-editable--toolbox--close {
@@ -32,8 +40,9 @@
   .widget-text-editable--toolbox--group {
     display: block;
     float: left;
-    border-right: 2px solid rgba(250, 250, 250, 0.4);
-    border-left: 2px solid rgba(250, 250, 250, 0.4);
+    clear: both;
+    //border-right: 2px solid rgba(250, 250, 250, 0.4);
+    //border-left: 2px solid rgba(250, 250, 250, 0.4);
   }
 
   .dropdown,
@@ -41,7 +50,7 @@
     float: left;
   }
 
-  .dropdown{
+  .dropdown {
     input[type='range'] {
       margin: .5em;
       cursor: pointer;
@@ -76,7 +85,6 @@
     padding: 0px;
     margin: 0px;
   }
-
 
   .dropdown {
     display: inline-flex;

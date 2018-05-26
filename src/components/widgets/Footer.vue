@@ -57,7 +57,6 @@
                                :styles="data.copyright.styles"
                                :text="data.copyright.text">
                 </text-editable>
-                <!--&copy; 2017 Froala. All Rights Reserved-->
               </div>
             </div>
           </div>

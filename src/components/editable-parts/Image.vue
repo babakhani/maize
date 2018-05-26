@@ -1,23 +1,22 @@
 <template>
-  <div class="widget-block--image-editable"
-       @click="setPickImageMode"
-       @dblclick="setPickImageMode(true)">
-    <EditablePartToolbox @update="updateStyles"
-                         :currentStyles="styles"
-                         :groups="['background', 'border']"
-                         v-if="editMode && toolboxVisible"
-                         @hide="hideToolbox"></EditablePartToolbox>
-
-    <!--<input v-if="editMode" class="image&#45;&#45;editable" @change="imageUpload" type="file">-->
+  <div class="widget-block--image-editable">
+    <button v-if="editMode"
+            class="btn btn-link img-editable--settings-btn"
+            :title="$t('toolbox.bg_settings')"
+            @click="showToolbox">
+      <icon name="cog"></icon>
+      <EditablePartToolbox @update="updateStyles"
+                           :groups="['background', 'border']"
+                           :currentStyles="styles"
+                           v-if="editMode && toolboxVisible"
+                           @hide="hideToolbox"></EditablePartToolbox>
+    </button>
     <img v-bind:style="styles"
          alt="image"
+         @dblclick="setPickImageMode(true)"
+         @click="setPickImageMode"
          class="img-fluid mb-3 widget-block--image-editable-img"
          :src="src">
-    <b-modal v-if="editMode"
-             id="modal1"
-             title="Bootstrap-Vue">
-      <p class="my-4">Hello from modal!</p>
-    </b-modal>
   </div>
 </template>
 
@@ -30,11 +29,11 @@
     mixins: [EditablePartMixin],
     methods: {
       setPickImageMode (noCheckState) {
+        this.goToEditMode()
         if (this.editMode || noCheckState == true) {
           this.$store.dispatch('layout/setPickImageMode', true)
           EventBus.$once('pickImage', (imageSrc) => {
-            // this.src = imageSrc
-            this.$emit('update', {
+            this.updateData({
               name: this.name,
               data: {
                 src: imageSrc

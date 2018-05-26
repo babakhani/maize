@@ -4,7 +4,6 @@
     <!--<page-toolbox></page-toolbox>-->
     <global-page-toolbox></global-page-toolbox>
     <div class="editor-page--plot-area">
-
       <draggable v-model="currentWidgetList"
                  :options="{handle:'.widget-drag-handle'}"
                  @start="drag=true"
@@ -16,7 +15,6 @@
                :uniqeKey="widget.uniqeId"></div>
         </div>
       </draggable>
-
       <AddWidget>
         <div class="blocks-area">
         </div>
@@ -39,7 +37,7 @@
 
   export default {
     name: 'Events',
-    data() {
+    data () {
       return {
         myArray: [
           {
@@ -63,21 +61,21 @@
       VideoPickerModal
     },
     computed: {
-      previewMode() {
+      previewMode () {
         return this.$store.state.layout.previewMode
       },
-      tabletPreviewMode() {
+      tabletPreviewMode () {
         return this.$store.state.layout.tabletPreviewMode
       },
-      mobilePreviewMode() {
+      mobilePreviewMode () {
         return this.$store.state.layout.mobilePreviewMode
       },
       currentWidgetList: {
-        get() {
+        get () {
           console.log('currentWidgetList')
           return this.$store.state.main.currentWidgetList
         },
-        set(value) {
+        set (value) {
           this.$store.dispatch('main/sortCurrentWidgetList', value)
         }
       }

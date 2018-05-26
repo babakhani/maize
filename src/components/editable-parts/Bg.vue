@@ -4,15 +4,17 @@
     <button v-if="editMode"
             class="btn btn-link background-editable--settings-btn"
             :title="$t('toolbox.bg_settings')"
-            v-b-tooltip.hover.right
+
             @click="showToolbox">
       <icon name="cog"></icon>
+
+      <EditablePartToolbox @update="updateStyles"
+                           :groups="['background', 'border']"
+                           :currentStyles="styles"
+                           v-if="editMode && toolboxVisible"
+                           @hide="hideToolbox"></EditablePartToolbox>
+
     </button>
-    <EditablePartToolbox @update="updateStyles"
-                         :groups="['background', 'border']"
-                         :currentStyles="styles"
-                         v-if="editMode && toolboxVisible"
-                         @hide="hideToolbox"></EditablePartToolbox>
     <div v-bind:style="styles">
       <slot></slot>
     </div>
