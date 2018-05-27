@@ -18,26 +18,29 @@ class UndoRedoHistory {
   }
 
   addState (state) {
-    // may be we have to remove redo steps
     if (this.currentIndex + 1 < this.history.length) {
       this.history.splice(this.currentIndex + 1);
     }
-    this.history.push(state);
+    this.history.push(state.main);
     this.currentIndex++;
   }
 
   undo () {
-    const prevState = this.history[this.currentIndex - 1];
-    if (prevState) {
-      this.store.replaceState(lodash.cloneDeep(prevState));
+    const prevMainState = this.history[this.currentIndex - 1];
+    if (prevMainState) {
+      let oldStates = lodash.cloneDeep(store.state)
+      oldStates.main = prevMainState
+      this.store.replaceState(lodash.cloneDeep(oldStates));
       this.currentIndex--;
     }
   }
 
   redo () {
-    const nextState = this.history[this.currentIndex + 1];
-    if (nextState) {
-      this.store.replaceState(lodash.cloneDeep(nextState));
+    const nextMainState = this.history[this.currentIndex + 1];
+    if (nextMainState) {
+      let oldStates = lodash.cloneDeep(store.state)
+      oldStates.main = nextMainState
+      this.store.replaceState(lodash.cloneDeep(oldStates));
       this.currentIndex++;
     }
   }
