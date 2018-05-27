@@ -31,6 +31,7 @@
                  href="#">
                 <label class="switch">
                   <input @change="setPreviewMode"
+                         :checked="previewMode"
                          type="checkbox">
                   <span class="slider round"></span>
                 </label>

@@ -8,29 +8,10 @@
     <!--</button>-->
     <transition name="fade">
       <button v-if="showTools"
-              @click="$parent.toggleEditMode"
-              :title="$t('toolbox.edit')"
+              :title="$t('toolbox.drag')"
               v-b-tooltip.hover.top
-              class="btn btn-link widget-block--toolbox-btn">
-        <icon name="pencil-alt"></icon>
-      </button>
-    </transition>
-    <transition name="fade">
-      <button v-if="showTools"
-              @click="$parent.deleteWidget"
-              :title="$t('toolbox.delete')"
-              v-b-tooltip.hover.top
-              class="btn btn-link widget-block--toolbox-btn">
-        <icon name="trash"></icon>
-      </button>
-    </transition>
-    <transition name="fade">
-      <button v-if="showTools"
-              @click="$parent.toggleFullWidth"
-              :title="$t('toolbox.full_width')"
-              v-b-tooltip.hover.top
-              class="btn btn-link widget-block--toolbox-btn">
-        <icon name="arrows-alt-h"></icon>
+              class="btn btn-link widget-block--toolbox-btn widget-drag-handle">
+        <icon name="arrows-alt"></icon>
       </button>
     </transition>
     <transition name="fade">
@@ -53,12 +34,34 @@
     </transition>
     <transition name="fade">
       <button v-if="showTools"
-              :title="$t('toolbox.drag')"
+              @click="$parent.toggleFullWidth"
+              :title="$t('toolbox.full_width')"
               v-b-tooltip.hover.top
-              class="btn btn-link widget-block--toolbox-btn widget-drag-handle">
-        <icon name="arrows-alt"></icon>
+              class="btn btn-link widget-block--toolbox-btn">
+        <icon name="arrows-alt-h"></icon>
       </button>
     </transition>
+    <transition name="fade">
+      <button v-if="showTools"
+              @click="$parent.toggleEditMode"
+              :title="$t('toolbox.edit')"
+              v-b-tooltip.hover.top
+              class="btn btn-link widget-block--toolbox-btn">
+        <icon name="pencil-alt"></icon>
+      </button>
+    </transition>
+    <transition name="fade">
+      <button v-if="showTools"
+              @click="$parent.deleteWidget"
+              :title="$t('toolbox.delete')"
+              v-b-tooltip.hover.top
+              class="btn btn-link widget-block--toolbox-btn">
+        <icon name="trash"></icon>
+      </button>
+    </transition>
+
+
+
   </div>
 </template>
 <script>

@@ -22,16 +22,13 @@ class UndoRedoHistory {
     if (this.currentIndex + 1 < this.history.length) {
       this.history.splice(this.currentIndex + 1);
     }
-    this.history.push(state.main);
+    this.history.push(state);
     this.currentIndex++;
   }
 
   undo () {
     const prevState = this.history[this.currentIndex - 1];
     if (prevState) {
-      console.log('undo')
-      console.log(prevState)
-
       this.store.replaceState(lodash.cloneDeep(prevState));
       this.currentIndex--;
     }
