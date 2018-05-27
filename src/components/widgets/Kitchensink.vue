@@ -9,6 +9,22 @@
         <section class="fdb-block team-2">
           <div class="container">
             <div class="row text-center">
+
+              <div class="col-12">
+                <div class="row justify-content-center">
+                  <div class="col-3 col-xs-5">
+
+                    <PlayerEditable name="player"
+                                    :editMode="editMode"
+                                    :styles="data.player.styles"
+                                    :src="data.player.src">
+
+                    </PlayerEditable>
+
+                  </div>
+                </div>
+              </div>
+
               <div class="col-12">
                 <div class="row justify-content-center">
                   <div class="col-3 col-xs-5">
@@ -147,6 +163,10 @@
             },
             bg: {
               styles: {}
+            },
+            player: {
+              styles: {},
+              src: 'http://tamasha.com/embed/GmKVW'
             }
           }
         },

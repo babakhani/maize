@@ -1,13 +1,12 @@
 <template>
-  <div class="background-editable"
+  <div class="editable-background"
        :class="{'edit-mode': editMode}">
     <button v-if="editMode"
-            class="btn btn-link background-editable--settings-btn"
+            class="btn btn-link editable-background--settings-btn"
             :title="$t('toolbox.bg_settings')"
 
             @click="showToolbox">
       <icon name="cog"></icon>
-
       <EditablePartToolbox @update="updateStyles"
                            :groups="['background', 'border']"
                            :currentStyles="styles"

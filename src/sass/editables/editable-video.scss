@@ -1,21 +1,15 @@
-.widget-block--image-editable {
+.editable-video{
   position: relative;
+  border: 0;
+  width: 100%;
+  padding-top: 75%; /* 4:3 Aspect Ratio */
 
-  .img-editable--settings-btn {
+  .editable-video--settings-btn {
     position: absolute;
     z-index: 2;
     top: 0;
     left: 0;
   }
-}
-
-.widget-block--image-editable {
-  position: relative;
-  //overflow: hidden;
-  border: 0;
-  width: 100%;
-  padding-top: 75%; /* 4:3 Aspect Ratio */
-  //background-color: #ccc;
 
   img {
     max-width: 100%;
@@ -26,7 +20,7 @@
     position: absolute;
   }
 
-  .widget-block--image-editable--toolbox {
+  .editable-video--toolbox {
     position: absolute;
     top: -20px;
     display: none;
@@ -46,7 +40,7 @@
   }
 
   input {
-    &.image--editable {
+    &.editable-video {
       position: absolute;
       top: 0;
       bottom: 0;
@@ -63,7 +57,7 @@
   &.edit-mode {
     outline: 3px dashed #f1f1f1;
     &:hover {
-      .widget-block--image-editable--toolbox {
+      .editable-video--toolbox {
         display: block;
       }
     }

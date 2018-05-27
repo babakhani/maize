@@ -1,17 +1,17 @@
 
-.background-editable {
+.editable-background {
   position: relative;
 
-  .background-editable--toolbox {
+  .editable-background--toolbox {
     opacity: 0;
   }
   &.edit-mode {
-    .background-editable--toolbox {
+    .editable-background--toolbox {
       opacity: 1;
     }
   }
 
-  .background-editable--settings-btn {
+  .editable-background--settings-btn {
     position: absolute;
     z-index: 2;
   }

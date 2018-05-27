@@ -1,0 +1,10 @@
+.editable-text {
+  position: relative;
+  margin-top: 1em;
+
+  &.editable-active {
+    .widget-text-editable--toolbox {
+      display: block;
+    }
+  }
+}

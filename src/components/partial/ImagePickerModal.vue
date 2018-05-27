@@ -130,7 +130,7 @@
           return this.$store.state.layout.pickImageMode
         },
         set (value) {
-          this.$store.dispatch('layout/setPickVideoMode', value)
+          this.$store.dispatch('layout/setPickImageMode', value)
         }
       }
     },

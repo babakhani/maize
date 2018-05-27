@@ -1,5 +1,5 @@
 <template>
-  <div class="widget-text-editable"
+  <div class="editable-text"
        :class="{'editable-active': editMode}">
     <!--Min Slot-->
     <EditablePartToolbox @update="updateStyles"

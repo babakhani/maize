@@ -2,11 +2,12 @@ import TextEditable from '@/components/editable-parts/Text.vue'
 import ImageEditable from '@/components/editable-parts/Image.vue'
 import VideoEditable from '@/components/editable-parts/Video.vue'
 import BgEditable from '@/components/editable-parts/Bg.vue'
+import PlayerEditable from '@/components/editable-parts/Player.vue'
 import WidgetToolbox from '../components/partial/WidgetToolbox'
 
 
 const Mixin = {
-  components: {TextEditable, ImageEditable, BgEditable, WidgetToolbox, VideoEditable},
+  components: {TextEditable, ImageEditable, BgEditable, WidgetToolbox, VideoEditable, PlayerEditable},
   name: 'EventBody',
   data () {
     return {

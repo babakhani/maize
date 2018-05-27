@@ -1,7 +1,8 @@
 <template>
-  <div class="widget-block--image-editable">
+  <div class="editable-image"
+       @dblclick="setPickImageMode(true)">
     <button v-if="editMode"
-            class="btn btn-link img-editable--settings-btn"
+            class="btn btn-link editable-image--settings-btn"
             :title="$t('toolbox.bg_settings')"
             @click="showToolbox">
       <icon name="cog"></icon>
@@ -13,9 +14,9 @@
     </button>
     <img v-bind:style="styles"
          alt="image"
-         @dblclick="setPickImageMode(true)"
+
          @click="setPickImageMode"
-         class="img-fluid mb-3 widget-block--image-editable-img"
+         class="img-fluid mb-3 editable-image-img"
          :src="src">
   </div>
 </template>
@@ -33,6 +34,8 @@
         if (this.editMode || noCheckState == true) {
           this.$store.dispatch('layout/setPickImageMode', true)
           EventBus.$once('pickImage', (imageSrc) => {
+
+            console.log('image editable pickImage')
             this.updateData({
               name: this.name,
               data: {
@@ -43,7 +46,6 @@
         }
       },
       imageUpload (e) {
-        console.log('imageUpload')
         const $img = $(e.target).next('img')
         if (e.target.files && e.target.files[0]) {
           var reader = new FileReader();

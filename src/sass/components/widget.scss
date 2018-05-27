@@ -31,18 +31,6 @@
     background: transparent;
   }
 
-  .widget-text-editable {
-    position: relative;
-    margin-top: 1em;
-
-    &.editable-active {
-      .widget-text-editable--toolbox {
-        display: block;
-      }
-    }
-  }
-
-
 
   [contenteditable='true'] {
     outline: 2px dashed #f1f1f1;
