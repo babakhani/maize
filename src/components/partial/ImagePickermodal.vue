@@ -28,10 +28,11 @@
 
     <!--Start Modal Tab-->
     <b-tabs card>
+
       <b-tab active>
         <template slot="title">
           <strong> {{ $t('modal.random_image') }}</strong>
-          <icon name="images"></icon>
+          <icon class="upload-image-icon" name="images"></icon>
         </template>
         <!--<div class="row">-->
           <!--<div class="col-12 text-center mb-4 image-picker-modal&#45;&#45;search-box">-->
