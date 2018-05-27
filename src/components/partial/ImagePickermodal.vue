@@ -43,10 +43,10 @@
         <!--</div>-->
         <div class="image-picker-modal--body ">
           <div class="row">
-            <div class="col-12 col-sm-3 col-md-4 col-lg-2 m-2 float-left image-picker-modal--image-container"
+            <div class="col col-12 col-sm-6 col-md-3 col-xl-4 m-1 h-100 image-picker-modal--image-container"
                  v-for="imageItem in randomImageList"
                  :class="{'image-picker-modal-selected' : pickedImageSrc == imageItem.urls.small }">
-              <img
+                <img
                    class="image-picker-modal--img p-2"
                    @click="pick(imageItem.urls.small)"
                    @dblclick="pickAndHide(imageItem.urls.small)"
@@ -55,7 +55,7 @@
           </div>
         </div>
       </b-tab>
-      <b-tab title="Upload">
+      <b-tab class="h-100" title="Upload">
         <template slot="title">
           <strong> {{ $t('modal.upload') }}</strong>
           <icon class="upload-image-icon" name="upload"></icon>

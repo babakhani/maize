@@ -39,13 +39,14 @@
     &:hover,
     &:focus,
     &:active {
-        outline: 2px solid rgba(250, 0, 0, 0.6);
-      }
+      outline: 2px solid rgba(250, 0, 0, 0.6);
+    }
+
   }
 
   .modal-body {
     text-align: center;
-    overflow: auto;
+    overflow: hidden;
     //.image-picker-modal--img {
     //  &:hover,
     //  &:focus,
@@ -56,6 +57,12 @@
     //    border: 2px solid rgba(250, 0, 0, 0.6);
     //  }
     //}
+    .tabs {
+      height: 90%;
+    }
+    .tab-content {
+      height: 100%;
+    }
   }
   footer {
     padding-right: 1.5em !important;
@@ -64,5 +71,15 @@
     &.upload-image-icon {
       height: 1em;
     }
+  }
+  .nav-link {
+    line-height: 24px;
+    &:hover{
+      //border: 0 !important;
+    }
+    &.active {
+      line-height: 24px;
+    }
+
   }
 }

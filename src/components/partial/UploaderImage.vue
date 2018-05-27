@@ -1,26 +1,27 @@
 <template>
   <div class="upload-image-widget">
-    <div v-if="src">
+    <div v-if="src"
+         class="upload-image-widget--box">
       <img alt="image"
-           class="upload-image-widget--box col-12"
+           class="upload-image-widget--box--image"
            :src='src'>
     </div>
-    <div v-else>
+    <div class="upload-image-widget--empty-state" v-else>
       <h1>
         <icon class="upload-image-widget--icon"
               size="lg"
               name="upload"></icon>
       </h1>
-      <h4 class="mt-4">
+      <h4 class="mt-4 p-2">
         {{ $t('modal.drop_image') }}
       </h4>
       <br>
-      <h6 class="text-muted">
+      <h6 class="p-1 mb-0">
         {{ $t('modal.or') }}
       </h6>
       <br>
       <button class="btn btn-lg btn-link">
-        {{ $t('modal.choose_your_image') }}
+        <span>{{ $t('modal.choose_your_image') }}</span>
       </button>
     </div>
     <input class=""
