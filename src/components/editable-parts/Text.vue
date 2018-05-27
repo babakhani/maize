@@ -2,6 +2,11 @@
   <div class="widget-text-editable"
        :class="{'editable-active': editMode}">
     <!--Min Slot-->
+    <EditablePartToolbox @update="updateStyles"
+                         :currentStyles="styles"
+                         v-if="editMode && toolboxVisible"
+                         @hide="hideToolbox"></EditablePartToolbox>
+
     <h1 v-bind:style="styles"
         v-if="tag === 'h1'"
         :contenteditable="editMode"
@@ -9,11 +14,6 @@
         @dblclick="goToEditMode"
         @paste="onPaste"
         @input="updateText">
-
-      <EditablePartToolbox @update="updateStyles"
-                           :currentStyles="styles"
-                           v-if="editMode && toolboxVisible"
-                           @hide="hideToolbox"></EditablePartToolbox>
       {{text}}
     </h1>
     <h2 v-bind:style="styles"
@@ -24,11 +24,6 @@
         @paste="onPaste"
         @input="updateText">
 
-      <EditablePartToolbox @update="updateStyles"
-                           :currentStyles="styles"
-                           v-if="editMode && toolboxVisible"
-                           @hide="hideToolbox"></EditablePartToolbox>
-
       {{text}}
     </h2>
     <h3 v-bind:style="styles"
@@ -38,11 +33,6 @@
         @dblclick="goToEditMode"
         @paste="onPaste"
         @input="updateText">
-
-      <EditablePartToolbox @update="updateStyles"
-                           :currentStyles="styles"
-                           v-if="editMode && toolboxVisible"
-                           @hide="hideToolbox"></EditablePartToolbox>
       {{text}}
     </h3>
     <h4 v-bind:style="styles"
@@ -52,10 +42,7 @@
         @dblclick="goToEditMode"
         @paste="onPaste"
         @input="updateText">
-      <EditablePartToolbox @update="updateStyles"
-                           :currentStyles="styles"
-                           v-if="editMode && toolboxVisible"
-                           @hide="hideToolbox"></EditablePartToolbox>
+
       {{text}}
     </h4>
     <h5 v-bind:style="styles"
@@ -65,10 +52,6 @@
         @dblclick="goToEditMode"
         @paste="onPaste"
         @input="updateText">
-      <EditablePartToolbox @update="updateStyles"
-                           :currentStyles="styles"
-                           v-if="editMode && toolboxVisible"
-                           @hide="hideToolbox"></EditablePartToolbox>
       {{text}}
     </h5>
     <h6 v-bind:style="styles"
@@ -78,10 +61,7 @@
         @dblclick="goToEditMode"
         @paste="onPaste"
         @input="updateText">
-      <EditablePartToolbox @update="updateStyles"
-                           :currentStyles="styles"
-                           v-if="editMode && toolboxVisible"
-                           @hide="hideToolbox"></EditablePartToolbox>
+
       {{text}}
     </h6>
     <span v-bind:style="styles"
@@ -91,10 +71,7 @@
           @dblclick="goToEditMode"
           @paste="onPaste"
           @input="updateText">
-       <EditablePartToolbox @update="updateStyles"
-                            :currentStyles="styles"
-                            v-if="editMode && toolboxVisible"
-                            @hide="hideToolbox"></EditablePartToolbox>
+
       {{text}}
     </span>
     <p v-bind:style="styles"
@@ -104,10 +81,6 @@
        @dblclick="goToEditMode"
        @paste="onPaste"
        @input="updateText">
-      <EditablePartToolbox @update="updateStyles"
-                           :currentStyles="styles"
-                           v-if="editMode && toolboxVisible"
-                           @hide="hideToolbox"></EditablePartToolbox>
       {{text}}
     </p>
   </div>
