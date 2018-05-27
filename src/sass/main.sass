@@ -1,4 +1,5 @@
-@import "./settings"
+@import "settings"
+@import "general"
 @import "./components/page-toolbox"
 
 @import "./components/widget"
@@ -11,57 +12,4 @@
 @import "./components/image-picker-modal"
 @import "./components/uploader-image"
 @import "./components/tooltip"
-
-.btn,
-.input
-  cursor: pointer !important
-  border: 0
-  &:focus
-    box-shadow: none
-
-// TODO: Bita add appreciate loading styles here
-.btn-loading
-  position: relative
-  //border: 1px solid #28a746
-  .btn-hover
-    position: absolute
-    top: 0
-    left: 0
-    right: 0
-    bottom: 0
-    background-color: rgba(0, 0, 0, 0.5)
-    color: white
-    padding: 6px 12px
-    font-size: 16px
-
-  .fa-spin
-    position: absolute
-    width: 100%
-    left: 0
-    height: 1.5em
-    animation: fa-spin 2s 0s infinite linear
-
-body
-  font-family: 'IranSansFaNum', 'IranSans', tahoma, Arial, sans-serif
-  font-size: 12px
-  overflow-x: hidden
-  direction: ltr
-  background: #f5f5f5
-  a:hover
-    text-decoration: none
-
-button:focus
-  border: 0
-  outline: none
-
-.main-body
-  min-height: 35em
-  padding: 3%
-  background: rgba(251, 124, 130, 0.1)
-
-.rtl
-  direction: rtl
-
-.ltr
-  direction: ltr
 
