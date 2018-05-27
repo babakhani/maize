@@ -18,9 +18,14 @@
             <nav class="navbar navbar-expand-md">
               <a class="navbar-brand"
                  href="#">
-                <img src="/static/imgs/img_logo.png"
-                     height="30"
-                     alt="image">
+                <!--<img src="/static/imgs/img_logo.png"-->
+                     <!--height="30"-->
+                     <!--alt="image">-->
+                <ImageEditable name="logo"
+                               :editMode="editMode"
+                               :styles="data.logo.styles"
+                               :src="data.logo.src"
+                ></ImageEditable>
               </a>
 
               <button class="navbar-toggler"
@@ -37,8 +42,18 @@
                    id="navbarNav11">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item active">
-                    <a class="nav-link"
-                       href="#">Home <span class="sr-only">(current)</span></a>
+                    <!--<a class="nav-link"-->
+                       <!--href="#">-->
+
+                      <text-editable tag="a"
+                                     name="home"
+                                     :editMode="editMode"
+                                     :styles="data.home.styles"
+                                     :src="data.home.src"
+                                     :text="data.home.text">
+                      </text-editable>
+
+                    <!--</a>-->
                   </li>
                   <li class="nav-item">
                     <a class="nav-link"
@@ -77,47 +92,25 @@
     mixins: [widgetMixin],
     props: {
       data: {
-        default() {
+        default () {
           return {
             // general widget config
             config: {
               fullWidth: true
             },
-            image1: {
-              styles: {},
-              src:'http://via.placeholder.com/150x114'
-            },
-            image2: {
-              styles: {},
-              src:'http://via.placeholder.com/150x114'
-            },
-            video1: {
-              styles: {},
-              src:'http://via.placeholder.com/150x114'
-            },
-            video2: {
-              styles: {},
-              src:'http://via.placeholder.com/150x114'
-            },
-            // Editable parts config that can be used in editable components
-            mainTitle: {
-              text: 'HI i am banner Widget from store',
-              styles: {}
-            },
-            subtitle: {
-              text: 'HI i am banner Widget from store',
-              styles: {}
-            },
-            subtitle1: {
-              text: 'HI i am banner Widget from store',
-              styles: {}
-            },
-            subtitle2: {
-              text: 'HI i am banner Widget from store',
-              styles: {}
+            logo: {
+              styles: {
+                width: '50px'
+              },
+              src: '/static/imgs/img_logo.png'
             },
             bg: {
               styles: {}
+            },
+            home: {
+              styles: {},
+              text: 'Home',
+              src: 'tamasha.com'
             }
           }
         },

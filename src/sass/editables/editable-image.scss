@@ -3,21 +3,29 @@
   border: 0;
   width: 100%;
   padding-top: 75%; /* 4:3 Aspect Ratio */
+  border: 1px dashed red;
 
   .editable-image--settings-btn {
     position: absolute;
     z-index: 2;
     top: 0;
     left: 0;
+    width: 2em;
+    height: 2em;
+    padding: 0;
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 
   img {
+    min-height: 2em;
+    min-width: 2em;
     max-width: 100%;
     max-height: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
   }
 
   .editable-image--toolbox {

@@ -83,6 +83,19 @@
        @input="updateText">
       {{text}}
     </p>
+
+    <a v-bind:style="styles"
+       v-if="tag === 'a'"
+       :href="src"
+       target="_blank"
+       @focusin="showToolbox"
+       :contenteditable="editMode"
+       @dblclick="goToEditMode"
+       @click.native="preventInEditMode"
+       @paste="onPaste"
+       @input="updateText">
+      {{text}}
+    </a>
   </div>
 </template>
 <script>
@@ -97,6 +110,12 @@
       }
     },
     methods: {
+      preventInEditMode (e) {
+        if (this.editMode) {
+          e.preventDefault()
+          return false
+        }
+      },
       /**
        * @link https://stackoverflow.com/questions/2176861/javascript-get-clipboard-data-on-paste-event-cross-browser/6804718#6804718
        * @param e
