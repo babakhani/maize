@@ -37,6 +37,9 @@
         videoList: []
       }
     },
+    mounted () {
+      this.loadSearchResult('انیمیشن')
+    },
     props: {
       sourceType: {
         default: 'thumb'
@@ -44,9 +47,7 @@
     },
     methods: {
       getData (payload) {
-        console.log('getData')
-        console.log(this.sourceType)
-        if(this.sourceType == 'embed') {
+        if (this.sourceType == 'embed') {
           return `http://tamasha.com/embed/${payload.id}`
         } else {
           return payload.thumbnailUrl
@@ -59,19 +60,11 @@
         this.$emit('pickAndHide', this.getData(payload))
       },
       loadSearchResult (query) {
-        console.log('loadSearchResult')
-        console.log(query)
-        axios.get(`http://nightlyapi.tamasha.com/api/v1/videos?query=${query}`, {
-          params: {
-            ID: 12345
-          }
-        })
+        axios.get(`http://nightlyapi.tamasha.com/api/v1/videos?query=${query}`)
           .then((response) => {
-            console.log(response);
             this.videoList = response.data.data
           })
           .catch(function (error) {
-            console.log(error);
           });
 
       }
