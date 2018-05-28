@@ -8,6 +8,7 @@ const Mixin = {
     this.touchedStyle = this.styles
   },
   mounted () {
+    this.touchedText = this.text
     EventBus.$on('igotoeditmode', (uid) => {
       if (this._uid != uid) {
         this.toolboxVisible = false
@@ -65,6 +66,11 @@ const Mixin = {
     showToolbox () {
       this.toolboxVisible = true
       EventBus.$emit('igotoeditmode', this._uid)
+    }
+  },
+  watch: {
+    text () {
+      this.touchedText = this.text
     }
   },
   data () {

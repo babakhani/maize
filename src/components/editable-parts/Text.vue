@@ -119,7 +119,7 @@
     mixins: [EditablePartMixin],
     data () {
       return {
-        touchedText: this.text
+        touchedText: null
       }
     },
     methods: {
