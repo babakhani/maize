@@ -2,24 +2,30 @@
   <div class="editable-text"
        :class="{'editable-active': editMode}">
     <!--Min Slot-->
-    <EditablePartToolbox @update="updateStyles"
-                         :currentStyles="styles"
-                         v-if="editMode && toolboxVisible"
-                         @hide="hideToolbox"></EditablePartToolbox>
+    <button v-if="editMode"
+            class="btn btn-link editable-text--settings-btn"
+            :title="$t('toolbox.bg_settings')"
+            @click="showToolbox">
+      <icon name="cog"></icon>
+      <EditablePartToolbox @update="updateStyles"
+                           :currentStyles="styles"
+                           v-if="editMode && toolboxVisible"
+                           @hide="hideToolbox"></EditablePartToolbox>
+    </button>
 
     <h1 v-bind:style="styles"
         v-if="tag === 'h1'"
         :contenteditable="editMode"
         @focusin="showToolbox"
+        @focusout="updateTextOnBlur"
         @dblclick="goToEditMode"
         @paste="onPaste"
-        @input="updateText">
-      {{text}}
-    </h1>
+        @input="updateText">{{text}}</h1>
     <h2 v-bind:style="styles"
         v-if="tag === 'h2'"
         :contenteditable="editMode"
         @focusin="showToolbox"
+
         @dblclick="goToEditMode"
         @paste="onPaste"
         @input="updateText">
@@ -29,6 +35,7 @@
     <h3 v-bind:style="styles"
         v-if="tag === 'h3'"
         @focusin="showToolbox"
+        @focusout="updateTextOnBlur"
         :contenteditable="editMode"
         @dblclick="goToEditMode"
         @paste="onPaste"
@@ -38,6 +45,7 @@
     <h4 v-bind:style="styles"
         v-if="tag === 'h4'"
         @focusin="showToolbox"
+        @focusout="updateTextOnBlur"
         :contenteditable="editMode"
         @dblclick="goToEditMode"
         @paste="onPaste"
@@ -48,6 +56,7 @@
     <h5 v-bind:style="styles"
         v-if="tag === 'h5'"
         @focusin="showToolbox"
+        @focusout="updateTextOnBlur"
         :contenteditable="editMode"
         @dblclick="goToEditMode"
         @paste="onPaste"
@@ -57,6 +66,7 @@
     <h6 v-bind:style="styles"
         v-if="tag === 'h6'"
         @focusin="showToolbox"
+        @focusout="updateTextOnBlur"
         :contenteditable="editMode"
         @dblclick="goToEditMode"
         @paste="onPaste"
@@ -67,6 +77,7 @@
     <span v-bind:style="styles"
           v-if="tag === 'span'"
           @focusin="showToolbox"
+          @focusout="updateTextOnBlur"
           :contenteditable="editMode"
           @dblclick="goToEditMode"
           @paste="onPaste"
@@ -77,6 +88,7 @@
     <p v-bind:style="styles"
        v-if="tag === 'p'"
        @focusin="showToolbox"
+       @focusout="updateTextOnBlur"
        :contenteditable="editMode"
        @dblclick="goToEditMode"
        @paste="onPaste"
@@ -89,6 +101,7 @@
        :href="src"
        target="_blank"
        @focusin="showToolbox"
+       @focusout="updateTextOnBlur"
        :contenteditable="editMode"
        @dblclick="goToEditMode"
        @click.native="preventInEditMode"
@@ -106,7 +119,7 @@
     mixins: [EditablePartMixin],
     data () {
       return {
-        touchedText: this.text
+        touchedText: null
       }
     },
     methods: {

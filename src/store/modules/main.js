@@ -1,33 +1,7 @@
 import Vue from 'vue'
 import lodash from 'lodash'
-
-const rawWidgetList = [
-  {
-    name: 'Header',
-    data: {}
-  },
-  {
-    name: 'Footer',
-    data: {}
-  },
-  {
-    name: 'Kitchensink',
-    data: {}
-  }
-]
-
-let page = [
-  {
-    name: 'Kitchensink',
-    uniqeId: 'Bannere21432141',
-    data: {}
-  }
-]
-
+import rawWidgetList from '../../components/widgets/spec'
 let defaultCurrentWidgetList = window.localStorage.getItem('page') ? JSON.parse(window.localStorage.getItem('page')).data : page
-
-// console.log(defaultCurrentWidgetList)
-
 export default {
   namespaced: true,
   state: {

@@ -8,6 +8,7 @@ const Mixin = {
     this.touchedStyle = this.styles
   },
   mounted () {
+    this.touchedText = this.text
     EventBus.$on('igotoeditmode', (uid) => {
       if (this._uid != uid) {
         this.toolboxVisible = false
@@ -39,14 +40,16 @@ const Mixin = {
         }
       })
     },
-    updateText (e) {
-      this.touchedText = e.target.innerText
+    updateTextOnBlur () {
       this.updateWidget({
         name: this.name,
         data: {
           text: this.touchedText
         }
       })
+    },
+    updateText (e) {
+      this.touchedText = e.target.innerText
     },
     updateStyles (e) {
       this.touchedStyle = e
@@ -65,8 +68,14 @@ const Mixin = {
       EventBus.$emit('igotoeditmode', this._uid)
     }
   },
+  watch: {
+    text () {
+      this.touchedText = this.text
+    }
+  },
   data () {
     return {
+      updateTextTimeout: null,
       uniqeKey: null,
       touchedStyle: {},
       toolboxVisible: false
