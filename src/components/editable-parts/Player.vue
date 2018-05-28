@@ -19,6 +19,9 @@
       <icon name="upload"></icon>
     </button>
     <iframe :src="src"
+            allowfullscreen="true"
+            webkitallowfullscreen="true"
+            mozallowfullscreen="true"
             :style="styles"
             @click.self="setPickVideoMode"
             :contenteditable="editMode"

@@ -18,5 +18,9 @@ export default [
   {
     name: 'Testimonials',
     data: {}
+  },
+  {
+    name: 'Content',
+    data: {}
   }
 ]

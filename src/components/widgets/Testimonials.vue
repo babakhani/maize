@@ -136,8 +136,8 @@
                                      name="box2text3"
                                      :cssClass="'text-h3'"
                                      :editMode="editMode"
-                                     :styles="data.box1text3.styles"
-                                     :text="data.box1text3.text">
+                                     :styles="data.box2text3.styles"
+                                     :text="data.box2text3.text">
                       </text-editable>
                     </div>
                   </div>
@@ -181,8 +181,8 @@
                                      name="box3text3"
                                      :cssClass="'text-h3'"
                                      :editMode="editMode"
-                                     :styles="data.box1text3.styles"
-                                     :text="data.box1text3.text">
+                                     :styles="data.box3text3.styles"
+                                     :text="data.box3text3.text">
                       </text-editable>
                     </div>
                   </div>
