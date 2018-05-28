@@ -18,16 +18,12 @@
             <nav class="navbar navbar-expand-md">
               <a class="navbar-brand"
                  href="#">
-                <!--<img src="/static/imgs/img_logo.png"-->
-                     <!--height="30"-->
-                     <!--alt="image">-->
                 <ImageEditable name="logo"
                                :editMode="editMode"
                                :styles="data.logo.styles"
                                :src="data.logo.src"
                 ></ImageEditable>
               </a>
-
               <button class="navbar-toggler"
                       type="button"
                       data-toggle="collapse"
@@ -37,44 +33,68 @@
                       aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-
               <div class="collapse navbar-collapse"
                    id="navbarNav11">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item active">
-                    <!--<a class="nav-link"-->
-                       <!--href="#">-->
-
-                      <text-editable tag="a"
-                                     name="home"
-                                     :editMode="editMode"
-                                     :styles="data.home.styles"
-                                     :src="data.home.src"
-                                     :text="data.home.text">
-                      </text-editable>
-
-                    <!--</a>-->
+                    <text-editable tag="a"
+                                   name="link1"
+                                   :cssClass="'nav-link'"
+                                   :editMode="editMode"
+                                   :styles="data.link1.styles"
+                                   :src="data.link1.src"
+                                   :text="data.link1.text">
+                    </text-editable>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link"
-                       href="#">Features</a>
+                    <text-editable tag="a"
+                                   name="link2"
+                                   :cssClass="'nav-link'"
+                                   :editMode="editMode"
+                                   :styles="data.link2.styles"
+                                   :src="data.link2.src"
+                                   :text="data.link2.text">
+                    </text-editable>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link"
-                       href="#">Pricing</a>
+                    <text-editable tag="a"
+                                   name="link3"
+                                   :cssClass="'nav-link'"
+                                   :editMode="editMode"
+                                   :styles="data.link3.styles"
+                                   :src="data.link3.src"
+                                   :text="data.link3.text">
+                    </text-editable>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link"
-                       href="#">Team</a>
+                    <text-editable tag="a"
+                                   name="link4"
+                                   :cssClass="'nav-link'"
+                                   :editMode="editMode"
+                                   :styles="data.link4.styles"
+                                   :src="data.link4.src"
+                                   :text="data.link4.text">
+                    </text-editable>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link"
-                       href="#">About</a>
+                    <text-editable tag="a"
+                                   name="link5"
+                                   :cssClass="'nav-link'"
+                                   :editMode="editMode"
+                                   :styles="data.link5.styles"
+                                   :src="data.link5.src"
+                                   :text="data.link5.text">
+                    </text-editable>
                   </li>
                 </ul>
-
-                <a class="btn btn-white btn-empty ml-md-3"
-                   href="#">Button</a>
+                <text-editable tag="a"
+                               name="link6"
+                               :cssClass="'btn btn-white btn-empty ml-md-3'"
+                               :editMode="editMode"
+                               :styles="data.link5.styles"
+                               :src="data.link5.src"
+                               :text="data.link5.text">
+                </text-editable>
               </div>
             </nav>
           </div>
@@ -107,9 +127,34 @@
             bg: {
               styles: {}
             },
-            home: {
+            link1: {
               styles: {},
-              text: 'Home',
+              text: 'Link 1',
+              src: 'tamasha.com'
+            },
+            link2: {
+              styles: {},
+              text: 'Link 2',
+              src: 'tamasha.com'
+            },
+            link3: {
+              styles: {},
+              text: 'Link 3',
+              src: 'tamasha.com'
+            },
+            link4: {
+              styles: {},
+              text: 'Link 4',
+              src: 'tamasha.com'
+            },
+            link5: {
+              styles: {},
+              text: 'Link 5',
+              src: 'tamasha.com'
+            },
+            link6: {
+              styles: {},
+              text: 'Link 6',
               src: 'tamasha.com'
             }
           }

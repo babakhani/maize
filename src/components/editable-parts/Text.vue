@@ -15,12 +15,14 @@
     </button>
     <h1 v-bind:style="styles"
         v-if="tag === 'h1'"
+        :class="cssClass"
         :contenteditable="editMode"
         @focusout="updateTextOnBlur"
         @dblclick="goToEditMode"
         @paste="onPaste"
         @input="updateText">{{text}}</h1>
     <h2 v-bind:style="styles"
+        :class="cssClass"
         v-if="tag === 'h2'"
         :contenteditable="editMode"
         @dblclick="goToEditMode"
@@ -31,6 +33,7 @@
     </h2>
     <h3 v-bind:style="styles"
         v-if="tag === 'h3'"
+        :class="cssClass"
         @focusout="updateTextOnBlur"
         :contenteditable="editMode"
         @dblclick="goToEditMode"
@@ -40,6 +43,7 @@
     </h3>
     <h4 v-bind:style="styles"
         v-if="tag === 'h4'"
+        :class="cssClass"
         @focusout="updateTextOnBlur"
         :contenteditable="editMode"
         @dblclick="goToEditMode"
@@ -50,6 +54,7 @@
     </h4>
     <h5 v-bind:style="styles"
         v-if="tag === 'h5'"
+        :class="cssClass"
         @focusout="updateTextOnBlur"
         :contenteditable="editMode"
         @dblclick="goToEditMode"
@@ -59,6 +64,7 @@
     </h5>
     <h6 v-bind:style="styles"
         v-if="tag === 'h6'"
+        :class="cssClass"
         @focusout="updateTextOnBlur"
         :contenteditable="editMode"
         @dblclick="goToEditMode"
@@ -69,6 +75,7 @@
     </h6>
     <span v-bind:style="styles"
           v-if="tag === 'span'"
+          :class="cssClass"
           @focusout="updateTextOnBlur"
           :contenteditable="editMode"
           @dblclick="goToEditMode"
@@ -79,6 +86,7 @@
     </span>
     <p v-bind:style="styles"
        v-if="tag === 'p'"
+       :class="cssClass"
        @focusout="updateTextOnBlur"
        :contenteditable="editMode"
        @dblclick="goToEditMode"
@@ -89,6 +97,7 @@
 
     <a v-bind:style="styles"
        v-if="tag === 'a'"
+       :class="cssClass"
        :href="src"
        target="_blank"
        @focusout="updateTextOnBlur"

@@ -1,8 +1,9 @@
 .editable-text {
   position: relative;
-  margin-top: 1em;
+  padding: 0em;
 
   &.editable-active {
+    padding-left: 2em;
     .widget-text-editable--toolbox {
       display: block;
     }
