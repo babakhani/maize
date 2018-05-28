@@ -31,6 +31,7 @@ export default {
     tabletPreviewMode: false,
     pickImageMode: false,
     pickVideoMode: false,
+    pickVideoType: false,
   },
   mutations: {
     setMobilePreviewMode(state, payload) {
@@ -52,11 +53,16 @@ export default {
       state.pickImageMode = payload
     },
     setPickVideoMode(state, payload) {
+      if (payload == false) {
+        state.pickVideoType = false
+      }
       state.pickVideoMode = payload
-      console.log('setPickImageMode : ' + payload)
     },
     setAddWidgetMode(state, payload) {
       state.addWidgetMode = payload
+    },
+    setPickVideoType(state, payload) {
+      state.pickVideoType = payload
     }
   },
   actions: {
@@ -77,6 +83,9 @@ export default {
     },
     setAddWidgetMode(context, payload) {
       context.commit('setAddWidgetMode', payload)
+    },
+    setPickVideoType (context, payload) {
+      context.commit('setPickVideoType', payload)
     }
   }
 }

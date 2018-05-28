@@ -31,6 +31,7 @@
       setPickVideoMode (noCheckState) {
         if (this.editMode || noCheckState == true) {
           this.$store.dispatch('layout/setPickVideoMode', true)
+          this.$store.dispatch('layout/setPickVideoType', 'thumb')
           EventBus.$once('pickVideo', (imageSrc) => {
             this.updateData({
               name: this.name,

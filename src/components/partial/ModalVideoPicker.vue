@@ -30,59 +30,35 @@
 
     <!--Start Modal Tab-->
     <b-tabs card>
-
       <b-tab active>
         <template slot="title">
-          <strong> {{ $t('modal.random_image') }}</strong>
+          <!--TODO: i18n-->
+          <strong>Tamasha</strong>
           <icon name="images"></icon>
         </template>
-        <!--<div class="row">-->
-        <!--<div class="col-12 text-center mb-4 image-picker-modal&#45;&#45;search-box">-->
-        <!--<b-form-input type="text"-->
-        <!--placeholder="Search Image here">-->
-
-        <!--</b-form-input>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--<div class="image-picker-modal&#45;&#45;body ">-->
-        <!--<div class="row">-->
-        <!--<div v-for="imageItem in fakeVideosForTest"-->
-
-        <!--@click="pick(imageItem)"-->
-        <!--class="col col-12 col-sm-6 col-md-3 col-xl-4 m-1 h-100 image-picker-modal&#45;&#45;image-container">-->
-        <!--<img :src="imageItem"-->
-        <!--class="image-picker-modal&#45;&#45;img p-2">-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
-
-        <div class="image-picker-modal--body ">
-          <div class="row">
-            <div class="col-6 col-sm-6 col-md-3 col-xl-3 h-100 image-picker-modal--image-container"
-                 v-for="imageItem in randomImageList">
-              <div class="image-picker-modal--image-thumb-box"
-                   @click="pick(imageItem.urls.small)"
-                   @dblclick="pickAndHide(imageItem.urls.small)"
-                   :class="{'image-picker-modal-selected' : pickedVideoSrc == imageItem.urls.small }">
-                <img
-                  class="image-picker-modal--img p-2"
-                  :src="imageItem.urls.small">
-              </div>
-            </div>
-          </div>
-        </div>
-
+        <TamashaVideoPicker :sourceType="pickVideoType" @pickAndHide="pickAndHide" @pick="pick"></TamashaVideoPicker>
       </b-tab>
-      <!--<b-tab class="h-100" title="Upload">-->
-      <!--<template slot="title">-->
-      <!--<strong> {{ $t('modal.upload') }}</strong>-->
-      <!--<icon class="upload-image-icon" name="upload"></icon>-->
-      <!--</template>-->
-      <!--<UploadImage @chooseImage="chooseImage"></UploadImage>-->
-      <!--</b-tab>-->
-      <!--<b-tab title="Comming soon!!"-->
-      <!--disabled>-->
-      <!--<br>Disabled tab!-->
+
+      <!--<b-tab >-->
+        <!--<template slot="title">-->
+          <!--<strong> {{ $t('modal.random_image') }}</strong>-->
+          <!--<icon name="images"></icon>-->
+        <!--</template>-->
+        <!--<div class="image-picker-modal&#45;&#45;body ">-->
+          <!--<div class="row">-->
+            <!--<div class="col-6 col-sm-6 col-md-3 col-xl-3 h-100 image-picker-modal&#45;&#45;image-container"-->
+                 <!--v-for="imageItem in randomImageList">-->
+              <!--<div class="image-picker-modal&#45;&#45;image-thumb-box"-->
+                   <!--@click="pick(imageItem.urls.small)"-->
+                   <!--@dblclick="pickAndHide(imageItem.urls.small)"-->
+                   <!--:class="{'image-picker-modal-selected' : pickedVideoSrc == imageItem.urls.small }">-->
+                <!--<img-->
+                  <!--class="image-picker-modal&#45;&#45;img p-2"-->
+                  <!--:src="imageItem.urls.small">-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
       <!--</b-tab>-->
     </b-tabs>
   </b-modal>
@@ -92,9 +68,10 @@
   import {EventBus} from '../../events/event-bus'
   import ImageSaver from '../../service/image-saver'
 
+  import TamashaVideoPicker from '../services/TamashaVideoPicker'
   export default {
     name: 'VideoPickerModal',
-
+    components: { TamashaVideoPicker },
     methods: {
       chooseImage (imageSrc) {
         this.pickedVideoSrc = imageSrc
@@ -129,6 +106,9 @@
     computed: {
       randomImageList () {
         return this.$store.state.unsplash.imageList
+      },
+      pickVideoType (){
+        return this.$store.state.layout.pickVideoType
       },
       showModal: {
         get () {

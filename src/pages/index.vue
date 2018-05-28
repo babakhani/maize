@@ -32,8 +32,8 @@
   import Header from '../components/widgets/Header'
   import Footer from '../components/widgets/Footer'
   import Kitchensink from '../components/widgets/Kitchensink'
-  import ImagePickerModal from '../components/partial/ImagePickerModal'
-  import VideoPickerModal from '../components/partial/VideoPickerModal'
+  import ImagePickerModal from '../components/partial/ModalImagePicker'
+  import VideoPickerModal from '../components/partial/ModalVideoPicker'
 
   export default {
     name: 'Events',
