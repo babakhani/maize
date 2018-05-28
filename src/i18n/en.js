@@ -19,6 +19,7 @@ export default {
     'preview_mode': 'Preview mode'
   },
   'modal': {
+    'pick_link': 'Pick link',
     'ok': 'Ok',
     'submit': 'Ok',
     'cancel': 'Cancel',

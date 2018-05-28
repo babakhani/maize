@@ -9,6 +9,7 @@
       <icon name="cog"></icon>
       <EditablePartToolbox @update="updateStyles"
                            :currentStyles="styles"
+                           @setPickLinkMode="setPickLinkMode"
                            v-if="editMode && toolboxVisible"
                            @hide="hideToolbox">
       </EditablePartToolbox>
@@ -112,7 +113,7 @@
 </template>
 <script>
   import EditablePartMixin from '../../mixins/editablePart'
-
+  import {EventBus} from '../../events/event-bus'
   export default {
     name: 'TextEditable',
     mixins: [EditablePartMixin],
@@ -126,6 +127,23 @@
         if (this.editMode) {
           e.preventDefault()
           return false
+        }
+      },
+      setPickLinkMode () {
+        console.log('setPickLinkMode -----------------------------------')
+        this.goToEditMode()
+        if (this.editMode || noCheckState == true) {
+          this.$store.dispatch('layout/setPickLinkMode', true)
+          EventBus.$once('pickLink', (linkSrc) => {
+
+            console.log('text editabl picked link')
+            this.updateData({
+              name: this.name,
+              data: {
+                src: linkSrc
+              }
+            })
+          })
         }
       },
       /**

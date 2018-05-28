@@ -19,6 +19,7 @@ export default {
     'preview_mode': 'پیش نمایش'
   },
   'modal': {
+    'pick_link': 'انتخاب پیوند',
     'ok': 'تایید',
     'submit': 'تایید',
     'cancel': 'انصراف',
