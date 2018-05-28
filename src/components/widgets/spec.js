@@ -14,5 +14,9 @@ export default [
   {
     name: 'Kitchensink',
     data: {}
+  },
+  {
+    name: 'Testimonials',
+    data: {}
   }
 ]

@@ -96,6 +96,28 @@
       {{text}}
     </p>
 
+    <strong v-bind:style="styles"
+       v-if="tag === 'strong'"
+       :class="cssClass"
+       @focusout="updateTextOnBlur"
+       :contenteditable="editMode"
+       @dblclick="goToEditMode"
+       @paste="onPaste"
+       @input="updateText">
+      {{text}}
+    </strong>
+
+    <em v-bind:style="styles"
+            v-if="tag === 'em'"
+            :class="cssClass"
+            @focusout="updateTextOnBlur"
+            :contenteditable="editMode"
+            @dblclick="goToEditMode"
+            @paste="onPaste"
+            @input="updateText">
+      {{text}}
+    </em>
+
     <a v-bind:style="styles"
        v-if="tag === 'a'"
        :class="cssClass"

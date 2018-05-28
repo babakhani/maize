@@ -1,9 +1,12 @@
 .editable-text {
   position: relative;
-  padding: 0em;
+  padding: 0;
+  display: inline-block;
 
   &.editable-active {
     padding-left: 2em;
+    min-height: 2em !important;
+    line-height: 2em;
     .widget-text-editable--toolbox {
       display: block;
     }
