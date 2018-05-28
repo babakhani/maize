@@ -10,13 +10,12 @@
       <EditablePartToolbox @update="updateStyles"
                            :currentStyles="styles"
                            v-if="editMode && toolboxVisible"
-                           @hide="hideToolbox"></EditablePartToolbox>
+                           @hide="hideToolbox">
+      </EditablePartToolbox>
     </button>
-
     <h1 v-bind:style="styles"
         v-if="tag === 'h1'"
         :contenteditable="editMode"
-        @focusin="showToolbox"
         @focusout="updateTextOnBlur"
         @dblclick="goToEditMode"
         @paste="onPaste"
@@ -24,8 +23,6 @@
     <h2 v-bind:style="styles"
         v-if="tag === 'h2'"
         :contenteditable="editMode"
-        @focusin="showToolbox"
-
         @dblclick="goToEditMode"
         @paste="onPaste"
         @input="updateText">
@@ -34,7 +31,6 @@
     </h2>
     <h3 v-bind:style="styles"
         v-if="tag === 'h3'"
-        @focusin="showToolbox"
         @focusout="updateTextOnBlur"
         :contenteditable="editMode"
         @dblclick="goToEditMode"
@@ -44,7 +40,6 @@
     </h3>
     <h4 v-bind:style="styles"
         v-if="tag === 'h4'"
-        @focusin="showToolbox"
         @focusout="updateTextOnBlur"
         :contenteditable="editMode"
         @dblclick="goToEditMode"
@@ -55,7 +50,6 @@
     </h4>
     <h5 v-bind:style="styles"
         v-if="tag === 'h5'"
-        @focusin="showToolbox"
         @focusout="updateTextOnBlur"
         :contenteditable="editMode"
         @dblclick="goToEditMode"
@@ -65,7 +59,6 @@
     </h5>
     <h6 v-bind:style="styles"
         v-if="tag === 'h6'"
-        @focusin="showToolbox"
         @focusout="updateTextOnBlur"
         :contenteditable="editMode"
         @dblclick="goToEditMode"
@@ -76,7 +69,6 @@
     </h6>
     <span v-bind:style="styles"
           v-if="tag === 'span'"
-          @focusin="showToolbox"
           @focusout="updateTextOnBlur"
           :contenteditable="editMode"
           @dblclick="goToEditMode"
@@ -87,7 +79,6 @@
     </span>
     <p v-bind:style="styles"
        v-if="tag === 'p'"
-       @focusin="showToolbox"
        @focusout="updateTextOnBlur"
        :contenteditable="editMode"
        @dblclick="goToEditMode"
@@ -100,7 +91,6 @@
        v-if="tag === 'a'"
        :href="src"
        target="_blank"
-       @focusin="showToolbox"
        @focusout="updateTextOnBlur"
        :contenteditable="editMode"
        @dblclick="goToEditMode"
