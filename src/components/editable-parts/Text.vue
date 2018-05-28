@@ -2,10 +2,17 @@
   <div class="editable-text"
        :class="{'editable-active': editMode}">
     <!--Min Slot-->
-    <EditablePartToolbox @update="updateStyles"
-                         :currentStyles="styles"
-                         v-if="editMode && toolboxVisible"
-                         @hide="hideToolbox"></EditablePartToolbox>
+    <button v-if="editMode"
+            class="btn btn-link editable-text--settings-btn"
+            :title="$t('toolbox.bg_settings')"
+            @click="showToolbox">
+      <icon name="cog"></icon>
+      <EditablePartToolbox @update="updateStyles"
+                           :currentStyles="styles"
+                           v-if="editMode && toolboxVisible"
+                           @hide="hideToolbox"></EditablePartToolbox>
+    </button>
+
     <h1 v-bind:style="styles"
         v-if="tag === 'h1'"
         :contenteditable="editMode"

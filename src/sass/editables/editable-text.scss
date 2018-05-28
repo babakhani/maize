@@ -7,4 +7,20 @@
       display: block;
     }
   }
+
+  .editable-text--settings-btn {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 2em;
+    height: 2em;
+    padding: 0;
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
 }
