@@ -2,16 +2,26 @@
   <div>
     <div class="col-12 text-center mb-4 image-picker-modal--search-box">
       <!--TODO: i18n-->
-      <b-form-input @input="loadSearchResult"
-                    type="text"
-                    placeholder="Search video here">
-      </b-form-input>
+      <div class="image-picker-modal--search-box--input">
+        <b-input-group>
+          <b-form-input @input="loadSearchResult"
+                        type="text"
+                        placeholder="Search video here">
+          </b-form-input>
+          <b-input-group-append>
+            <b-btn variant="search">
+              <icon name="search"></icon>
+            </b-btn>
+          </b-input-group-append>
+        </b-input-group>
+
+      </div>
     </div>
     <div class="row">
       <div class="col-12 modal-video-picker--box">
         <div v-if="videoLoading" class="video-loading">
 
-            <h1 class="video-loading--text">loading...</h1>
+          <h1 class="video-loading--text">loading...</h1>
 
         </div>
         <div class="image-picker-modal--body p-3">
@@ -79,7 +89,7 @@
         this.$emit('pickAndHide', this.getData(payload))
       },
       loadSearchResult (query) {
-          this.videoLoading = true
+        this.videoLoading = true
         axios.get(`http://nightlyapi.tamasha.com/api/v1/videos?query=${query}`)
           .then((response) => {
             this.videoList = response.data.data
