@@ -1,7 +1,10 @@
 
 .editable-background {
   border-top: 2px dashed #cfcfcf;
-  .editable-part--settings-btn {
-    //left: -2em;
+  .editor-page-preview-mode & {
+    border-top: 0;
+    .editable-part--settings-btn {
+      display: none;
+    }
   }
 }
