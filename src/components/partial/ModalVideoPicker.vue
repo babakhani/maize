@@ -5,7 +5,7 @@
     v-model="showModal"
     size="lg"
     centered
-    class="image-picker-modal"
+    class="video-picker-modal"
     title="Choose your video:">
     <template slot="modal-footer">
       <button @click="onHide"

@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div class="row">
-      <div class="col-12 text-center mb-4 image-picker-modal--search-box">
+    <div class="col-12 text-center mb-4 image-picker-modal--search-box">
         <!--TODO: i18n-->
         <b-form-input @input="loadSearchResult"
                       type="text"
@@ -9,6 +8,8 @@
 
         </b-form-input>
       </div>
+    <div class="row">
+
     </div>
     <div class="image-picker-modal--body">
       <div class="row">
@@ -38,7 +39,7 @@
       }
     },
     mounted () {
-      this.loadSearchResult('انیمیشن')
+      this.loadSearchResult('z')
     },
     props: {
       sourceType: {
