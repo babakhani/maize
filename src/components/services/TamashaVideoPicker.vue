@@ -26,6 +26,7 @@
                 <img
                   class="image-picker-modal--img p-2"
                   :src="videoItem.thumbnailUrl">
+                <p class="image-picker-modal--image--caption">{{videoItem.title}}</p>
               </div>
             </div>
           </div>
