@@ -274,7 +274,7 @@
         default () {
           return {
             'color': 'inherit',
-            'direction': 'inherit',
+            'direction': 'auto',
             'font-size': null,
             'font-weight': 'inherit',
             'font-family': 'inherit',

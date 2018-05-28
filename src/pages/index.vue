@@ -29,9 +29,7 @@
   import editor from '../mixins/editorpage'
   import draggable from 'vuedraggable'
   // TODO: move to mixin
-  import Header from '../components/widgets/Header'
-  import Footer from '../components/widgets/Footer'
-  import Kitchensink from '../components/widgets/Kitchensink'
+  import Widgets from '../components/widgets'
   import ImagePickerModal from '../components/partial/ModalImagePicker'
   import VideoPickerModal from '../components/partial/ModalVideoPicker'
 
@@ -53,11 +51,9 @@
     },
     mixins: [editor],
     components: {
-      Header,
-      Footer,
+      ...Widgets,
       draggable,
       ImagePickerModal,
-      Kitchensink,
       VideoPickerModal
     },
     computed: {

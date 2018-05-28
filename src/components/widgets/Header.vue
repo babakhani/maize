@@ -88,7 +88,7 @@
   import widgetMixin from '@/mixins/widget'
 
   export default {
-    name: 'Kitchensink',
+    name: 'Header',
     mixins: [widgetMixin],
     props: {
       data: {

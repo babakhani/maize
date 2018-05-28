@@ -6,16 +6,13 @@
                          :currentStyles="styles"
                          v-if="editMode && toolboxVisible"
                          @hide="hideToolbox"></EditablePartToolbox>
-
     <h1 v-bind:style="styles"
         v-if="tag === 'h1'"
         :contenteditable="editMode"
         @focusin="showToolbox"
         @dblclick="goToEditMode"
         @paste="onPaste"
-        @input="updateText">
-      {{text}}
-    </h1>
+        @input="updateText">{{text}}</h1>
     <h2 v-bind:style="styles"
         v-if="tag === 'h2'"
         :contenteditable="editMode"
