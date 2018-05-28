@@ -7,7 +7,7 @@
             @click="showToolbox">
       <icon name="cog"></icon>
       <EditablePartToolbox @update="updateStyles"
-                           :groups="['background', 'border']"
+                           :groups="['background', 'border', 'general']"
                            :currentStyles="styles"
                            v-if="editMode && toolboxVisible"
                            @hide="hideToolbox"></EditablePartToolbox>

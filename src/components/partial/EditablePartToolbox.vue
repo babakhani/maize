@@ -173,7 +173,7 @@
                      type="range"
                      min="0"
                      max="10"
-                     value="10"
+                     :value="styles['border-width']"
                      step="1">
             </div>
           </div>
@@ -240,7 +240,7 @@
                      type="range"
                      min="0.0"
                      max="1.0"
-                     value="100"
+                     :value="styles['opacity']"
                      step="0.01">
             </div>
           </div>

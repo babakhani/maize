@@ -120,7 +120,8 @@
             },
             logo: {
               styles: {
-                width: '50px'
+                width: '120px',
+                opacity: .2
               },
               src: '/static/imgs/img_logo.png'
             },

@@ -7,12 +7,12 @@
             @click="showToolbox">
       <icon name="cog"></icon>
       <EditablePartToolbox @update="updateStyles"
-                           :groups="['background', 'border']"
+                           :groups="['background', 'border', 'general']"
                            :currentStyles="styles"
                            v-if="editMode && toolboxVisible"
                            @hide="hideToolbox"></EditablePartToolbox>
     </button>
-    <img v-bind:style="styles"
+    <img :style="styles"
          alt="image"
          :contenteditable="editMode"
          @click="setPickImageMode"
