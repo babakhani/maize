@@ -1,0 +1,51 @@
+$icon-size: 1.6em;
+
+.editable-part{
+  min-height: 2em;
+  outline: 2px dashed #cfcfcf;
+  position: relative;
+  cursor: pointer;
+
+  &:hover{
+    outline: 2px dashed #999;
+    .editable-part--upload-btn,
+    .editable-part--settings-btn {
+      background: red;
+    }
+  }
+
+  .editor-page-preview-mode & {
+    border: 0;
+    outline: 0;
+    .editable-part--upload-btn,
+    .editable-part--settings-btn {
+      display: none;
+    }
+  }
+
+  .editable-part--upload-btn,
+  .editable-part--settings-btn {
+    background-color:rgba(0, 0, 0, .2);
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    padding: .25em;
+    z-index: 2;
+    width: $icon-size;
+    height: $icon-size;
+    border-radius: 100%;
+    top: .1em;
+    left: .1em;
+    svg{
+      height: .8em;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .editable-part--upload-btn{
+    top: 1.9em;
+  }
+}

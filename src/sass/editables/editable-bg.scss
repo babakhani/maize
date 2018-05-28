@@ -1,25 +1,7 @@
 
 .editable-background {
-  position: relative;
-
-  .editable-background--toolbox {
-    opacity: 0;
-  }
-  &.edit-mode {
-    .editable-background--toolbox {
-      opacity: 1;
-    }
-  }
-
-  .editable-background--settings-btn {
-    position: absolute;
-    top: -.7em;
-    left: -.7em;
-    z-index: 2;
-    width: 1.4em;
-    height: 1.4em;
-    border-radius: 100%;
-    padding: .13em;
-    background: rgba(250, 250, 250, .8);
+  border-top: 2px dashed #cfcfcf;
+  .editable-part--settings-btn {
+    //left: -2em;
   }
 }

@@ -1,8 +1,8 @@
 <template>
-  <div class="editable-image"
+  <div class="editable-image editable-part"
        @dblclick="setPickImageMode(true)">
     <button v-if="editMode"
-            class="btn btn-link editable-image--settings-btn"
+            class="btn btn-link editable-part--settings-btn"
             :title="$t('toolbox.bg_settings')"
             @click="showToolbox">
       <icon name="cog"></icon>

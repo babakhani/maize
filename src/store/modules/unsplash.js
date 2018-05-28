@@ -7,12 +7,12 @@ export default {
     imageList: []
   },
   mutations: {
-    updateImageList(state, payload) {
+    updateImageList (state, payload) {
       state.imageList = payload
     }
   },
   actions: {
-    loadRandomImages(context, payload) {
+    loadRandomImages (context, payload) {
       console.log('loadRandomImages')
       context.commit('updateImageList', [
         {

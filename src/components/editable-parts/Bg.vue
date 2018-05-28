@@ -2,7 +2,7 @@
   <div class="editable-background"
        :class="{'edit-mode': editMode}">
     <button v-if="editMode"
-            class="btn btn-link editable-background--settings-btn"
+            class="btn btn-link editable-part--settings-btn"
             :title="$t('toolbox.bg_settings')"
 
             @click="showToolbox">

@@ -1,9 +1,9 @@
 <template>
-  <div class="editable-text"
+  <div class="editable-text editable-part"
        :class="{'editable-active': editMode}">
     <!--Min Slot-->
     <button v-if="editMode"
-            class="btn btn-link editable-text--settings-btn"
+            class="btn btn-link editable-part--settings-btn"
             :title="$t('toolbox.bg_settings')"
             @click="showToolbox">
       <icon name="cog"></icon>

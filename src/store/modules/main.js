@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import lodash from 'lodash'
 import rawWidgetList from '../../components/widgets/spec'
-let defaultCurrentWidgetList = window.localStorage.getItem('page') ? JSON.parse(window.localStorage.getItem('page')).data : page
+let defaultCurrentWidgetList = window.localStorage.getItem('page') ? JSON.parse(window.localStorage.getItem('page')).data : []
 export default {
   namespaced: true,
   state: {
