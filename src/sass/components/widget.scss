@@ -33,8 +33,9 @@
 
 
   [contenteditable='true'] {
-    outline: 2px dashed #f1f1f1;
+    outline: 2px dashed #cfcfcf;
     position: relative;
+    padding:.5em;
   }
 
   .widget-block--toolbox {

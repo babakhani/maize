@@ -25,7 +25,8 @@
                 </div>
               </div>
 
-              <div class="col-12">
+
+              <div class="col-12 mt-4">
                 <div class="row justify-content-center">
                   <div class="col-3 col-xs-5">
                     <VideoEditable name="video1"
@@ -42,6 +43,8 @@
                     ></VideoEditable>
                   </div>
                 </div>
+              </div>
+              <div class="col-12">
                 <div class="row justify-content-center mt-5">
                   <div class="col-3 col-xs-5">
                     <ImageEditable name="image1"

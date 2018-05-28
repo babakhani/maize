@@ -14,6 +14,7 @@
     </button>
     <iframe :src="src"
             @click.self="setPickVideoMode"
+            :contenteditable="editMode"
             frameborder="0"></iframe>
   </div>
 </template>

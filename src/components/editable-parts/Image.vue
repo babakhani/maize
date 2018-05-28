@@ -14,7 +14,7 @@
     </button>
     <img v-bind:style="styles"
          alt="image"
-
+         :contenteditable="editMode"
          @click="setPickImageMode"
          class="img-fluid mb-3 editable-image-img"
          :src="src">
