@@ -39,14 +39,16 @@ const Mixin = {
         }
       })
     },
-    updateText (e) {
-      this.touchedText = e.target.innerText
+    updateTextOnBlur () {
       this.updateWidget({
         name: this.name,
         data: {
           text: this.touchedText
         }
       })
+    },
+    updateText (e) {
+      this.touchedText = e.target.innerText
     },
     updateStyles (e) {
       this.touchedStyle = e
@@ -67,6 +69,7 @@ const Mixin = {
   },
   data () {
     return {
+      updateTextTimeout: null,
       uniqeKey: null,
       touchedStyle: {},
       toolboxVisible: false
