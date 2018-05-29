@@ -1,5 +1,6 @@
 export default {
   language: 'fa',
+  'export': 'Export',
   'show_header': 'Show header',
   'preview_mode': 'Preview Mode',
   'add_widget': 'Add widget, make fun!',
@@ -11,7 +12,7 @@ export default {
     'move_down': 'Move Down',
     'drag': 'Drag',
     'bg_settings': 'Background settings',
-    'undo': 'Undoَٔ',
+    'undo': 'Undo',
     'redo': 'Redo',
     'mobile': 'Mobile view',
     'tablet': 'Tablet view',

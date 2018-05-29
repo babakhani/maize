@@ -1,5 +1,6 @@
 export default {
   language: 'en',
+  'export': 'ذخیره',
   'show_header': 'نمایش هدر',
   preview_mode: 'نسخه نمایش',
   'add_widget': 'اضافه کردن ویجت',
