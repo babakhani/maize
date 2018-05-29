@@ -12,6 +12,10 @@
     }
   }
 
+  .editor-page-preview-mode & {
+    padding-left: 0;
+  }
+
   .editable-text--settings-btn {
     position: absolute;
     z-index: 2;

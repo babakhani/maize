@@ -6,7 +6,10 @@
         name="bg"
         :editMode="editMode"
         :styles="data.bg.styles">
-        <section class="fdb-block fp-active" data-block-type="contents" data-id="2" draggable="true">
+        <section class="fdb-block fp-active"
+                 data-block-type="contents"
+                 data-id="2"
+                 draggable="true">
           <div class="container">
             <div class="row align-items-center">
               <div class="col-12 col-md-6 col-lg-5">
@@ -17,6 +20,7 @@
                                :styles="data.mainTitle.styles"
                                :text="data.mainTitle.text">
                 </text-editable>
+                <br>
                 <text-editable tag="p"
                                name="secondTitle"
                                :cssClass="'text-h3'"

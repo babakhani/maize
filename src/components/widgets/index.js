@@ -1,9 +1,10 @@
-import Header from './Header'
-import Footer from './Footer'
-import Kitchensink from './Kitchensink'
-import Player from './Player'
-import Testimonials from './Testimonials'
-import Content from './Content'
+import Header from './Header/Header'
+import Footer from './Footer/Footer'
+import Kitchensink from './Content/Kitchensink'
+import Player from './Media/Player'
+import Testimonials from './Content/Testimonials'
+import Content from './Content/Content'
+import Gallery from './Gallery/Gallery'
 
 export default {
   Header: Header,
@@ -11,5 +12,6 @@ export default {
   Player: Player,
   Kitchensink: Kitchensink,
   Testimonials: Testimonials,
-  Content: Content
+  Content: Content,
+  Gallery: Gallery
 }

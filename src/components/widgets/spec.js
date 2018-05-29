@@ -22,5 +22,9 @@ export default [
   {
     name: 'Content',
     data: {}
+  },
+  {
+    name: 'Gallery',
+    data: {}
   }
 ]
