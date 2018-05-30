@@ -29,5 +29,17 @@ export default {
     'or': 'OR',
     'choose_your_image': 'Choose your image',
     'random_image': 'Random Image'
+  },
+  'toolbox': {
+    'x-large' : 'x-Large',
+    'large' : 'Large',
+    'Medium' : 'Medium',
+    'small' : 'Small',
+    'x-small' : 'x-Small',
+    'xx-small' : 'xx-Small',
+    'indent' : 'Indent',
+    'bold' : 'Bold',
+    'underline' : 'Underline',
+    'strikethrough' : 'Strikethrough'
   }
 }

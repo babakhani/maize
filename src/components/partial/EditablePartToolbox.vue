@@ -55,37 +55,43 @@
                  aria-labelledby="dropdownMenuButton">
               <a :class="{'widget-text-editable--selected': styles['font-size'] == '44px'}"
                  class="dropdown-item"
-                 @click="setSize('44px')">x-large</a>
+                 @click="setSize('44px')">{{$t('toolbox.x-large')}}</a>
               <a :class="{'widget-text-editable--selected': styles['font-size'] == '18px'}"
                  class="dropdown-item"
-                 @click="setSize('18px')">large</a>
+                 @click="setSize('18px')">{{$t('toolbox.large')}}</a>
               <a :class="{'widget-text-editable--selected': styles['font-size'] == '16px'}"
                  class="dropdown-item"
-                 @click="setSize('16px')">Medium</a>
+                 @click="setSize('16px')">{{$t('toolbox.Medium')}}</a>
               <a :class="{'widget-text-editable--selected': styles['font-size'] == '14px'}"
                  class="dropdown-item"
-                 @click="setSize('14px')">small</a>
+                 @click="setSize('14px')">{{$t('toolbox.small')}}</a>
               <a :class="{'widget-text-editable--selected': styles['font-size'] == '12px'}"
                  class="dropdown-item"
-                 @click="setSize('12px')">x-small</a>
-              <a :class="{'widget-text-editable--selected': styles['font-size'] == '10px'}"
-                 class="dropdown-item"
-                 @click="setSize('10px')">xx-small</a>
+                 @click="setSize('12px')">{{$t('toolbox.x-small')}}</a>
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '10px'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setSize('10px')">{{$t('toolbox.xx-small')}}</a>-->
             </div>
           </div>
 
-          <button title="bold"
+          <button title="$t('toolbox.bold')"
                   @click="toggleBold()"
                   :class="{'widget-text-editable--selected': styles['font-weight'] == 'bold'}"
                   class="btn btn-sm widget-text-editable--toolbox--button">
             <maizcon name="bold"></maizcon>
           </button>
 
-          <button title="underline"
+          <button title="$t('toolbox.underline')"
                   @click="toggleTextDecoration()"
                   :class="{'widget-text-editable--selected': styles['text-decoration'] == 'underline'}"
                   class="btn btn-sm widget-text-editable--toolbox--button">
             <maizcon name="underline"></maizcon>
+          </button>
+          <button title="t('toolbox.line-through)"
+                  @click="toggleThroughDecoration()"
+                  :class="{'widget-text-editable--selected': styles['text-decoration'] == 'line-through'}"
+                  class="btn btn-sm widget-text-editable--toolbox--button">
+            <maizcon name="strikethrough"></maizcon>
           </button>
 
           <!--<button title="underline"-->
@@ -95,50 +101,45 @@
             <!--<maizcon name="italic"></maizcon>-->
           <!--</button>-->
 
-          <!--<button title="line-through"-->
-                  <!--@click="toggleThroughDecoration()"-->
-                  <!--:class="{'widget-text-editable&#45;&#45;selected': styles['text-decoration'] == 'line-through'}"-->
-                  <!--class="btn btn-sm widget-text-editable&#45;&#45;toolbox&#45;&#45;button">-->
-            <!--<maizcon name="strikethrough"></maizcon>-->
-          <!--</button>-->
+
 
           <!--Button Example-->
 
           <!--Text Shadow-->
-          <div class="dropdown">
-            <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
-                    type="button"
-                    id="dropdownMenuButton"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false">
-              <!--<icon :style="{'width': styles['font-size']}"-->
-              <!--name="font"></icon>-->
-              <maizcon name="text-shadow"></maizcon>
-            </button>
-            <div class="dropdown-menu"
-                 aria-labelledby="dropdownMenuButton">
-              <a :class="{'widget-text-editable--selected': styles['font-size'] == '44px'}"
-                 class="dropdown-item"
-                 @click="setSize('44px')">x-large</a>
-              <a :class="{'widget-text-editable--selected': styles['font-size'] == '18px'}"
-                 class="dropdown-item"
-                 @click="setSize('18px')">large</a>
-              <a :class="{'widget-text-editable--selected': styles['font-size'] == '16px'}"
-                 class="dropdown-item"
-                 @click="setSize('16px')">Medium</a>
-              <a :class="{'widget-text-editable--selected': styles['font-size'] == '14px'}"
-                 class="dropdown-item"
-                 @click="setSize('14px')">small</a>
-              <a :class="{'widget-text-editable--selected': styles['font-size'] == '12px'}"
-                 class="dropdown-item"
-                 @click="setSize('12px')">x-small</a>
-              <a :class="{'widget-text-editable--selected': styles['font-size'] == '10px'}"
-                 class="dropdown-item"
-                 @click="setSize('10px')">xx-small</a>
-            </div>
+          <!--<div class="dropdown">-->
+            <!--<button class="btn btn-sm dropdown-toggle widget-text-editable&#45;&#45;toolbox&#45;&#45;button"-->
+                    <!--type="button"-->
+                    <!--id="dropdownMenuButton"-->
+                    <!--data-toggle="dropdown"-->
+                    <!--aria-haspopup="true"-->
+                    <!--aria-expanded="false">-->
+              <!--&lt;!&ndash;<icon :style="{'width': styles['font-size']}"&ndash;&gt;-->
+              <!--&lt;!&ndash;name="font"></icon>&ndash;&gt;-->
+              <!--<maizcon name="text-shadow"></maizcon>-->
+            <!--</button>-->
+            <!--<div class="dropdown-menu"-->
+                 <!--aria-labelledby="dropdownMenuButton">-->
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '44px'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setSize('44px')">x-large</a>-->
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '18px'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setSize('18px')">large</a>-->
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '16px'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setSize('16px')">Medium</a>-->
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '14px'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setSize('14px')">small</a>-->
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '12px'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setSize('12px')">x-small</a>-->
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '10px'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setSize('10px')">xx-small</a>-->
+            <!--</div>-->
 
-          </div>
+          <!--</div>-->
 
 
           <button @click="setPickLinkMode"
@@ -334,39 +335,39 @@
              class="widget-text-editable--toolbox--group">
           <!--Box Shadow-->
           <!--TODO: check box-shadow icon-->
-          <div class="dropdown">
-            <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
-                    type="button"
-                    id="dropdownMenuButton"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false">
-              <!--<icon :style="{'width': styles['font-size']}"-->
-              <!--name="font"></icon>-->
-              <maizcon name="box-shadow"></maizcon>
-            </button>
-            <div class="dropdown-menu"
-                 aria-labelledby="dropdownMenuButton">
-              <a :class="{'widget-text-editable--selected': styles['font-size'] == '44px'}"
-                 class="dropdown-item"
-                 @click="setSize('44px')">x-large</a>
-              <a :class="{'widget-text-editable--selected': styles['font-size'] == '18px'}"
-                 class="dropdown-item"
-                 @click="setSize('18px')">large</a>
-              <a :class="{'widget-text-editable--selected': styles['font-size'] == '16px'}"
-                 class="dropdown-item"
-                 @click="setSize('16px')">Medium</a>
-              <a :class="{'widget-text-editable--selected': styles['font-size'] == '14px'}"
-                 class="dropdown-item"
-                 @click="setSize('14px')">small</a>
-              <a :class="{'widget-text-editable--selected': styles['font-size'] == '12px'}"
-                 class="dropdown-item"
-                 @click="setSize('12px')">x-small</a>
-              <a :class="{'widget-text-editable--selected': styles['font-size'] == '10px'}"
-                 class="dropdown-item"
-                 @click="setSize('10px')">xx-small</a>
-            </div>
-          </div>
+          <!--<div class="dropdown">-->
+            <!--<button class="btn btn-sm dropdown-toggle widget-text-editable&#45;&#45;toolbox&#45;&#45;button"-->
+                    <!--type="button"-->
+                    <!--id="dropdownMenuButton"-->
+                    <!--data-toggle="dropdown"-->
+                    <!--aria-haspopup="true"-->
+                    <!--aria-expanded="false">-->
+              <!--&lt;!&ndash;<icon :style="{'width': styles['font-size']}"&ndash;&gt;-->
+              <!--&lt;!&ndash;name="font"></icon>&ndash;&gt;-->
+              <!--<maizcon name="box-shadow"></maizcon>-->
+            <!--</button>-->
+            <!--<div class="dropdown-menu"-->
+                 <!--aria-labelledby="dropdownMenuButton">-->
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '44px'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setSize('44px')">x-large</a>-->
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '18px'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setSize('18px')">large</a>-->
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '16px'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setSize('16px')">Medium</a>-->
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '14px'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setSize('14px')">small</a>-->
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '12px'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setSize('12px')">x-small</a>-->
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '10px'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setSize('10px')">xx-small</a>-->
+            <!--</div>-->
+          <!--</div>-->
 
           <div class="dropdown">
             <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"

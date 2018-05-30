@@ -29,5 +29,17 @@ export default {
     'or': 'یا',
     'choose_your_image': 'انتخاب کنید',
     'random_image': 'تصاویر تصادفی'
+  },
+  'toolbox': {
+    'x-large' : 'بزرگ تر',
+    'large' : 'بزرگ',
+    'Medium' : 'متوسط',
+    'small' : 'کوچک',
+    'x-small' : 'کوچک تر',
+    'xx-small' : 'خیلی کوچک تر',
+    'indent' : 'تورفتگی ',
+    'bold' : 'درشت',
+    'underline' : 'زیرخط دار',
+    'Strikethrough' : 'خط خورده'
   }
 }
