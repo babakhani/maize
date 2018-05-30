@@ -1,13 +1,12 @@
 .widget-block {
   display: block;
   position: relative;
-  //border: 2px dashed rgba(0, 0, 0, .1);
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,.3);
-  margin-bttom: 3em;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .3);
   border-radius: 6px;
   width: 100%;
   padding-top: 3em;
   margin-top: 2em;
+  margin-bttom: 3em;
 
   // Preview Mode Styles
   .editor-page-preview-mode & {
@@ -31,12 +30,6 @@
     background: transparent;
   }
 
-
-  [contenteditable='true'] {
-    outline: 2px dashed #cfcfcf;
-    position: relative;
-    padding:.5em;
-  }
 
   .widget-block--toolbox {
     display: block;

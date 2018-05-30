@@ -1,16 +1,22 @@
 <template>
-  <div class="editable-video"
+  <div class="editable-video editable-part"
        @dblclick="setPickVideoMode(true)">
     <button v-if="editMode"
-            class="btn btn-link editable-video--settings-btn"
+            class="btn btn-link editable-part--settings-btn"
             :title="$t('toolbox.bg_settings')"
             @click="showToolbox">
       <icon name="cog"></icon>
       <EditablePartToolbox @update="updateStyles"
-                           :groups="['background', 'border']"
+                           :groups="['background', 'border', 'general']"
                            :currentStyles="styles"
                            v-if="editMode && toolboxVisible"
                            @hide="hideToolbox"></EditablePartToolbox>
+    </button>
+    <button v-if="editMode"
+            class="btn btn-link editable-part--upload-btn"
+            :title="$t('toolbox.bg_settings')"
+            @click="setPickVideoMode">
+      <icon name="upload"></icon>
     </button>
     <!--<input v-if="editMode" class="image&#45;&#45;editable" @change="imageUpload" type="file">-->
     <img v-bind:style="styles"

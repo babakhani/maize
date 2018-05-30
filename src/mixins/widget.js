@@ -11,7 +11,7 @@ const Mixin = {
   name: 'EventBody',
   data () {
     return {
-      editMode: false,
+      editMode: true,
       fullWidth: false
     }
   },

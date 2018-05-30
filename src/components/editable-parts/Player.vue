@@ -1,18 +1,28 @@
 <template>
-  <div class="editable-player"
+  <div class="editable-player editable-part"
        @dblclick="setPickVideoMode(true)">
     <button v-if="editMode"
-            class="btn btn-link editable-player--settings-btn"
+            class="btn btn-link editable-part--settings-btn"
             :title="$t('toolbox.bg_settings')"
             @click.prevent.stop="showToolbox">
       <icon name="cog"></icon>
       <EditablePartToolbox @update="updateStyles"
-                           :groups="['background', 'border']"
+                           :groups="['background', 'border', 'general']"
                            :currentStyles="styles"
                            v-if="editMode && toolboxVisible"
                            @hide="hideToolbox"></EditablePartToolbox>
     </button>
+    <button v-if="editMode"
+            class="btn btn-link editable-part--upload-btn"
+            :title="$t('toolbox.bg_settings')"
+            @click="setPickVideoMode">
+      <icon name="upload"></icon>
+    </button>
     <iframe :src="src"
+            allowfullscreen="true"
+            webkitallowfullscreen="true"
+            mozallowfullscreen="true"
+            :style="styles"
             @click.self="setPickVideoMode"
             :contenteditable="editMode"
             frameborder="0"></iframe>

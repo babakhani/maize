@@ -7,8 +7,8 @@
     :auto-hide="false">
     <template slot="popover">
       <div class="widget-text-editable--toolbox">
-        <div  v-if="groups.indexOf('text') > -1"
-          class="widget-text-editable--toolbox--group">
+        <div v-if="groups.indexOf('text') > -1"
+             class="widget-text-editable--toolbox--group">
           <!--DropDown Example-->
           <div class="dropdown">
             <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
@@ -173,7 +173,7 @@
                      type="range"
                      min="0"
                      max="10"
-                     value="10"
+                     :value="styles['border-width']"
                      step="1">
             </div>
           </div>
@@ -240,11 +240,17 @@
                      type="range"
                      min="0.0"
                      max="1.0"
-                     value="100"
+                     :value="styles['opacity']"
                      step="0.01">
             </div>
           </div>
         </div>
+
+        <button @click="setPickLinkMode"
+                class="btn btn-sm btn-danger">
+          <icon name="link"></icon>
+          pick link
+        </button>
         <!-- closed button-->
         <button @click="hide"
                 class="btn btn-sm btn-danger float-right widget-text-editable--toolbox--close">
@@ -300,6 +306,9 @@
       this.styles = this._.extend(this.styles, this.currentStyles)
     },
     methods: {
+      setPickLinkMode () {
+        this.$emit('setPickLinkMode')
+      },
       update () {
         //  TODO: send only changed data to update methods
         this.$emit('update', this.styles)

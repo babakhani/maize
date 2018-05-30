@@ -1,18 +1,18 @@
 <template>
-  <div class="editable-image"
+  <div class="editable-image editable-part"
        @dblclick="setPickImageMode(true)">
     <button v-if="editMode"
-            class="btn btn-link editable-image--settings-btn"
+            class="btn btn-link editable-part--settings-btn"
             :title="$t('toolbox.bg_settings')"
             @click="showToolbox">
       <icon name="cog"></icon>
       <EditablePartToolbox @update="updateStyles"
-                           :groups="['background', 'border']"
+                           :groups="['background', 'border', 'general']"
                            :currentStyles="styles"
                            v-if="editMode && toolboxVisible"
                            @hide="hideToolbox"></EditablePartToolbox>
     </button>
-    <img v-bind:style="styles"
+    <img :style="styles"
          alt="image"
          :contenteditable="editMode"
          @click="setPickImageMode"

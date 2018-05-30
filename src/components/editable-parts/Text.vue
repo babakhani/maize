@@ -1,31 +1,31 @@
 <template>
-  <div class="editable-text"
+  <div class="editable-text editable-part"
        :class="{'editable-active': editMode}">
     <!--Min Slot-->
     <button v-if="editMode"
-            class="btn btn-link editable-text--settings-btn"
+            class="btn btn-link editable-part--settings-btn"
             :title="$t('toolbox.bg_settings')"
             @click="showToolbox">
       <icon name="cog"></icon>
       <EditablePartToolbox @update="updateStyles"
                            :currentStyles="styles"
+                           @setPickLinkMode="setPickLinkMode"
                            v-if="editMode && toolboxVisible"
-                           @hide="hideToolbox"></EditablePartToolbox>
+                           @hide="hideToolbox">
+      </EditablePartToolbox>
     </button>
-
     <h1 v-bind:style="styles"
         v-if="tag === 'h1'"
+        :class="cssClass"
         :contenteditable="editMode"
-        @focusin="showToolbox"
         @focusout="updateTextOnBlur"
         @dblclick="goToEditMode"
         @paste="onPaste"
         @input="updateText">{{text}}</h1>
     <h2 v-bind:style="styles"
+        :class="cssClass"
         v-if="tag === 'h2'"
         :contenteditable="editMode"
-        @focusin="showToolbox"
-
         @dblclick="goToEditMode"
         @paste="onPaste"
         @input="updateText">
@@ -34,7 +34,7 @@
     </h2>
     <h3 v-bind:style="styles"
         v-if="tag === 'h3'"
-        @focusin="showToolbox"
+        :class="cssClass"
         @focusout="updateTextOnBlur"
         :contenteditable="editMode"
         @dblclick="goToEditMode"
@@ -44,7 +44,7 @@
     </h3>
     <h4 v-bind:style="styles"
         v-if="tag === 'h4'"
-        @focusin="showToolbox"
+        :class="cssClass"
         @focusout="updateTextOnBlur"
         :contenteditable="editMode"
         @dblclick="goToEditMode"
@@ -55,7 +55,7 @@
     </h4>
     <h5 v-bind:style="styles"
         v-if="tag === 'h5'"
-        @focusin="showToolbox"
+        :class="cssClass"
         @focusout="updateTextOnBlur"
         :contenteditable="editMode"
         @dblclick="goToEditMode"
@@ -65,7 +65,7 @@
     </h5>
     <h6 v-bind:style="styles"
         v-if="tag === 'h6'"
-        @focusin="showToolbox"
+        :class="cssClass"
         @focusout="updateTextOnBlur"
         :contenteditable="editMode"
         @dblclick="goToEditMode"
@@ -76,7 +76,7 @@
     </h6>
     <span v-bind:style="styles"
           v-if="tag === 'span'"
-          @focusin="showToolbox"
+          :class="cssClass"
           @focusout="updateTextOnBlur"
           :contenteditable="editMode"
           @dblclick="goToEditMode"
@@ -87,7 +87,7 @@
     </span>
     <p v-bind:style="styles"
        v-if="tag === 'p'"
-       @focusin="showToolbox"
+       :class="cssClass"
        @focusout="updateTextOnBlur"
        :contenteditable="editMode"
        @dblclick="goToEditMode"
@@ -96,11 +96,33 @@
       {{text}}
     </p>
 
+    <strong v-bind:style="styles"
+       v-if="tag === 'strong'"
+       :class="cssClass"
+       @focusout="updateTextOnBlur"
+       :contenteditable="editMode"
+       @dblclick="goToEditMode"
+       @paste="onPaste"
+       @input="updateText">
+      {{text}}
+    </strong>
+
+    <em v-bind:style="styles"
+            v-if="tag === 'em'"
+            :class="cssClass"
+            @focusout="updateTextOnBlur"
+            :contenteditable="editMode"
+            @dblclick="goToEditMode"
+            @paste="onPaste"
+            @input="updateText">
+      {{text}}
+    </em>
+
     <a v-bind:style="styles"
        v-if="tag === 'a'"
+       :class="cssClass"
        :href="src"
        target="_blank"
-       @focusin="showToolbox"
        @focusout="updateTextOnBlur"
        :contenteditable="editMode"
        @dblclick="goToEditMode"
@@ -113,7 +135,7 @@
 </template>
 <script>
   import EditablePartMixin from '../../mixins/editablePart'
-
+  import {EventBus} from '../../events/event-bus'
   export default {
     name: 'TextEditable',
     mixins: [EditablePartMixin],
@@ -127,6 +149,23 @@
         if (this.editMode) {
           e.preventDefault()
           return false
+        }
+      },
+      setPickLinkMode () {
+        console.log('setPickLinkMode -----------------------------------')
+        this.goToEditMode()
+        if (this.editMode || noCheckState == true) {
+          this.$store.dispatch('layout/setPickLinkMode', true)
+          EventBus.$once('pickLink', (linkSrc) => {
+
+            console.log('text editabl picked link')
+            this.updateData({
+              name: this.name,
+              data: {
+                src: linkSrc
+              }
+            })
+          })
         }
       },
       /**

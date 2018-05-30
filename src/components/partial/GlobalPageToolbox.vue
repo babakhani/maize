@@ -61,7 +61,6 @@
                 <icon name="desktop"></icon>
               </a>
             </li>
-
             <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
@@ -70,6 +69,16 @@
                 <icon name="language"></icon>
               </a>
             </li>
+
+            <li class="nav-item mr-lg-3">
+              <a v-b-tooltip.hover.bottom.small
+                 class="nav-link"
+                 :title="$t('export')"
+                 @click="exportPage">
+                <icon name="download"></icon>
+              </a>
+            </li>
+
           </ul>
         </div>
       </nav>
@@ -108,6 +117,9 @@
       },
       gotToAddWidgetMode () {
         this.$store.dispatch('layout/setAddWidgetMode', true)
+      },
+      exportPage () {
+        this.$store.dispatch('exportPage/exportPage', true)
       }
     },
     computed: {

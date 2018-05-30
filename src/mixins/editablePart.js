@@ -82,8 +82,12 @@ const Mixin = {
     }
   },
   props: {
+    cssClass: {
+      default: '',
+      required: false
+    },
     text: {
-      default: "please replace me",
+      default: 'please replace me',
       required: false
     },
     src: {

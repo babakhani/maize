@@ -14,5 +14,17 @@ export default [
   {
     name: 'Kitchensink',
     data: {}
+  },
+  {
+    name: 'Testimonials',
+    data: {}
+  },
+  {
+    name: 'Content',
+    data: {}
+  },
+  {
+    name: 'Gallery',
+    data: {}
   }
 ]

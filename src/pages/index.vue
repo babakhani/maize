@@ -23,15 +23,16 @@
     <WidgetListModal></WidgetListModal>
     <ImagePickerModal></ImagePickerModal>
     <VideoPickerModal></VideoPickerModal>
+    <LinkPickerModal></LinkPickerModal>
   </div>
 </template>
 <script>
   import editor from '../mixins/editorpage'
   import draggable from 'vuedraggable'
   // TODO: move to mixin
-  import Widgets from '../components/widgets'
   import ImagePickerModal from '../components/partial/ModalImagePicker'
   import VideoPickerModal from '../components/partial/ModalVideoPicker'
+  import LinkPickerModal from '../components/partial/ModalLinkPicker'
 
   export default {
     name: 'Events',
@@ -51,7 +52,7 @@
     },
     mixins: [editor],
     components: {
-      ...Widgets,
+      LinkPickerModal,
       draggable,
       ImagePickerModal,
       VideoPickerModal
