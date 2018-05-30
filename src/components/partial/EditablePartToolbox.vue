@@ -14,7 +14,7 @@
           <div class="dropdown">
             <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                     type="button"
-                    id="dropdownMenuButton"
+                    id="dropdownMenuButtonFamily"
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false">
@@ -25,25 +25,16 @@
 
             </button>
             <div class="dropdown-menu"
-                 aria-labelledby="dropdownMenuButton">
-              <a :class="{'widget-text-editable--selected': styles['font-size'] == '44px'}"
+                 aria-labelledby="dropdownMenuButtonFamily">
+              <a :class="{'widget-text-editable--selected': styles['font-family'] == 'monospace'}"
                  class="dropdown-item"
-                 @click="setSize('44px')">x-large</a>
-              <a :class="{'widget-text-editable--selected': styles['font-size'] == '18px'}"
+                 @click="setFontFamily('monospace')">monospace</a>
+              <a :class="{'widget-text-editable--selected': styles['font-family'] == 'serif'}"
                  class="dropdown-item"
-                 @click="setSize('18px')">large</a>
-              <a :class="{'widget-text-editable--selected': styles['font-size'] == '16px'}"
+                 @click="setFontFamily('serif')">serif</a>
+              <a :class="{'widget-text-editable--selected': styles['font-family'] == 'fantasy'}"
                  class="dropdown-item"
-                 @click="setSize('16px')">Medium</a>
-              <a :class="{'widget-text-editable--selected': styles['font-size'] == '14px'}"
-                 class="dropdown-item"
-                 @click="setSize('14px')">small</a>
-              <a :class="{'widget-text-editable--selected': styles['font-size'] == '12px'}"
-                 class="dropdown-item"
-                 @click="setSize('12px')">x-small</a>
-              <a :class="{'widget-text-editable--selected': styles['font-size'] == '10px'}"
-                 class="dropdown-item"
-                 @click="setSize('10px')">xx-small</a>
+                 @click="setFontFamily('fantasy')">fantasy</a>
             </div>
 
           </div>
@@ -411,11 +402,15 @@
             <input type="color"
                    @input="updateBgColor"/>
           </button>
-          <button @click="hide"
+          <!--<button @click="hide"-->
+                  <!--class="btn btn-sm btn-danger float-right widget-text-editable&#45;&#45;toolbox&#45;&#45;close">-->
+            <!--<icon name="times"></icon>-->
+          <!--</button>-->
+        </div>
+        <button @click="hide"
                   class="btn btn-sm btn-danger float-right widget-text-editable--toolbox--close">
             <icon name="times"></icon>
           </button>
-        </div>
       </div>
       <!--<div v-if="groups.indexOf('background') > -1"-->
       <!--class="widget-text-editable&#45;&#45;toolbox&#45;&#45;group">-->
@@ -511,6 +506,11 @@
         this.styles['font-size'] = size
         this.update()
       },
+      setFontFamily (family) {
+        this.styles['font-family'] = family
+        this.update()
+      },
+
       toggleDirection () {
         if (this.styles['direction'] == 'rtl') {
           this.styles['direction'] = 'ltr'
