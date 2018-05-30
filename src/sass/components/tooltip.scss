@@ -2,6 +2,7 @@
   background: transparent;
   border: 0;
 }
+
 .v-popover {
   //border: 2px solid red;
   background: transparent;
@@ -20,10 +21,14 @@
 .vue-popover-theme {
   display: block !important;
   z-index: 1000;
-  width: 600px;
+  width: 50%;
   padding: 1em;
   max-width: 100%;
   background: rgba(0, 0, 0, .9);
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  height: 38px;
+  padding-top: 0;
   //border:  2px dashed red !important;
 
   .tooltip-inner {
@@ -35,7 +40,7 @@
     color: white;
     position: relative;
     border-radius: 16px;
-    padding: 5px 10px 4px;
+    padding: 0;
   }
 
   .tooltip-arrow {

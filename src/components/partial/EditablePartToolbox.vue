@@ -7,9 +7,10 @@
     :auto-hide="false">
     <template slot="popover">
       <div class="widget-text-editable--toolbox">
-        <div v-if="groups.indexOf('text') > -1"
-             class="widget-text-editable--toolbox--group">
+        <!--<div v-if="groups.indexOf('text') > -1"-->
+             <!--class="widget-text-editable&#45;&#45;toolbox&#45;&#45;group">-->
           <!--DropDown Example-->
+          <!--Font Size-->
           <div class="dropdown">
             <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                     type="button"
@@ -41,221 +42,223 @@
                  class="dropdown-item"
                  @click="setSize('10px')">xx-small</a>
             </div>
-          </div>
+          <!--</div>-->
           <!--DropDown Example-->
-          <div class="dropdown">
-            <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
-                    type="button"
-                    id="dropdownMenuButton2"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false">
-              <icon v-if="styles['text-align'] != 'inherit'"
-                    :name="'align-'+ styles['text-align']"></icon>
-              <icon v-else
-                    name="align-left"></icon>
-            </button>
-            <div class="dropdown-menu"
-                 aria-labelledby="dropdownMenuButton2">
-              <button title="align left"
-                      @click="align('left')"
-                      :class="{'widget-text-editable--selected': styles['text-align'] == 'left'}"
-                      class="btn btn-sm widget-text-editable--toolbox--button ">
-                <icon name="align-left"></icon>
-              </button>
-              <button title="align right"
-                      @click="align('right')"
-                      :class="{'widget-text-editable--selected': styles['text-align'] == 'right'}"
-                      class="btn btn-sm widget-text-editable--toolbox--button">
-                <icon name="align-right"></icon>
-              </button>
-              <button title="align center"
-                      @click="align('center')"
-                      :class="{'widget-text-editable--selected': styles['text-align'] == 'center'}"
-                      class="btn btn-sm widget-text-editable--toolbox--button">
-                <icon name="align-center"></icon>
-              </button>
-              <button title="align justify"
-                      @click="align('justify')"
-                      :class="{'widget-text-editable--selected': styles['text-align'] == 'justify'}"
-                      class="btn btn-sm widget-text-editable--toolbox--button">
-                <icon name="align-justify"></icon>
-              </button>
-            </div>
-          </div>
+          <!--Alignment-->
+          <!--<div class="dropdown">-->
+            <!--<button class="btn btn-sm dropdown-toggle widget-text-editable&#45;&#45;toolbox&#45;&#45;button"-->
+                    <!--type="button"-->
+                    <!--id="dropdownMenuButton2"-->
+                    <!--data-toggle="dropdown"-->
+                    <!--aria-haspopup="true"-->
+                    <!--aria-expanded="false">-->
+              <!--<icon v-if="styles['text-align'] != 'inherit'"-->
+                    <!--:name="'align-'+ styles['text-align']"></icon>-->
+              <!--<icon v-else-->
+                    <!--name="align-left"></icon>-->
+            <!--</button>-->
+            <!--<div class="dropdown-menu"-->
+                 <!--aria-labelledby="dropdownMenuButton2">-->
+              <!--<button title="align left"-->
+                      <!--@click="align('left')"-->
+                      <!--:class="{'widget-text-editable&#45;&#45;selected': styles['text-align'] == 'left'}"-->
+                      <!--class="btn btn-sm widget-text-editable&#45;&#45;toolbox&#45;&#45;button ">-->
+                <!--<icon name="align-left"></icon>-->
+              <!--</button>-->
+              <!--<button title="align right"-->
+                      <!--@click="align('right')"-->
+                      <!--:class="{'widget-text-editable&#45;&#45;selected': styles['text-align'] == 'right'}"-->
+                      <!--class="btn btn-sm widget-text-editable&#45;&#45;toolbox&#45;&#45;button">-->
+                <!--<icon name="align-right"></icon>-->
+              <!--</button>-->
+              <!--<button title="align center"-->
+                      <!--@click="align('center')"-->
+                      <!--:class="{'widget-text-editable&#45;&#45;selected': styles['text-align'] == 'center'}"-->
+                      <!--class="btn btn-sm widget-text-editable&#45;&#45;toolbox&#45;&#45;button">-->
+                <!--<icon name="align-center"></icon>-->
+              <!--</button>-->
+              <!--<button title="align justify"-->
+                      <!--@click="align('justify')"-->
+                      <!--:class="{'widget-text-editable&#45;&#45;selected': styles['text-align'] == 'justify'}"-->
+                      <!--class="btn btn-sm widget-text-editable&#45;&#45;toolbox&#45;&#45;button">-->
+                <!--<icon name="align-justify"></icon>-->
+              <!--</button>-->
+            <!--</div>-->
+          <!--</div>-->
           <!--Button Example-->
-          <button title="bold"
-                  @click="toggleBold()"
-                  :class="{'widget-text-editable--selected': styles['font-weight'] == 'bold'}"
-                  class="btn btn-sm widget-text-editable--toolbox--button">
-            <icon name="bold"></icon>
-          </button>
-          <button title="underline"
-                  @click="toggleTextDecoration()"
-                  :class="{'widget-text-editable--selected': styles['text-decoration'] == 'underline'}"
-                  class="btn btn-sm widget-text-editable--toolbox--button">
-            <icon name="underline"></icon>
-          </button>
-          <button title="line-through"
-                  @click="toggleThroughDecoration()"
-                  :class="{'widget-text-editable--selected': styles['text-decoration'] == 'line-through'}"
-                  class="btn btn-sm widget-text-editable--toolbox--button">
-            <icon name="strikethrough"></icon>
-          </button>
-          <button title="direction"
-                  @click="toggleDirection()"
-                  class="btn btn-sm widget-text-editable--toolbox--button">
-            <icon v-if="styles.direction == 'ltr'"
-                  name="arrow-left"></icon>
-            <icon v-if="styles.direction == 'rtl'"
-                  name="arrow-right"></icon>
-          </button>
-          <button :class="{'widget-text-editable--selected': styles['text-indent'] != '0'}"
-                  title="indent"
-                  @click="toggleTextIndent()"
-                  class="btn btn-sm widget-text-editable--toolbox--button">
-            ind
-          </button>
+          <!--<button title="bold"-->
+                  <!--@click="toggleBold()"-->
+                  <!--:class="{'widget-text-editable&#45;&#45;selected': styles['font-weight'] == 'bold'}"-->
+                  <!--class="btn btn-sm widget-text-editable&#45;&#45;toolbox&#45;&#45;button">-->
+            <!--<icon name="bold"></icon>-->
+          <!--</button>-->
+          <!--<button title="underline"-->
+                  <!--@click="toggleTextDecoration()"-->
+                  <!--:class="{'widget-text-editable&#45;&#45;selected': styles['text-decoration'] == 'underline'}"-->
+                  <!--class="btn btn-sm widget-text-editable&#45;&#45;toolbox&#45;&#45;button">-->
+            <!--<icon name="underline"></icon>-->
+          <!--</button>-->
+          <!--<button title="line-through"-->
+                  <!--@click="toggleThroughDecoration()"-->
+                  <!--:class="{'widget-text-editable&#45;&#45;selected': styles['text-decoration'] == 'line-through'}"-->
+                  <!--class="btn btn-sm widget-text-editable&#45;&#45;toolbox&#45;&#45;button">-->
+            <!--<icon name="strikethrough"></icon>-->
+          <!--</button>-->
+          <!--<button title="direction"-->
+                  <!--@click="toggleDirection()"-->
+                  <!--class="btn btn-sm widget-text-editable&#45;&#45;toolbox&#45;&#45;button">-->
+            <!--<icon v-if="styles.direction == 'ltr'"-->
+                  <!--name="arrow-left"></icon>-->
+            <!--<icon v-if="styles.direction == 'rtl'"-->
+                  <!--name="arrow-right"></icon>-->
+          <!--</button>-->
+          <!--<button :class="{'widget-text-editable&#45;&#45;selected': styles['text-indent'] != '0'}"-->
+                  <!--title="indent"-->
+                  <!--@click="toggleTextIndent()"-->
+                  <!--class="btn btn-sm widget-text-editable&#45;&#45;toolbox&#45;&#45;button">-->
+            <!--ind-->
+          <!--</button>-->
 
           <!--DropDown Example-->
-          <div class="dropdown">
-            <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
-                    type="button"
-                    id="dropdownMenuButton4"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false">
-              line height
-            </button>
-            <div class="dropdown-menu"
-                 aria-labelledby="dropdownMenuButton4">
-              <a :class="{'widget-text-editable--selected': styles['line-height'] == '1em'}"
-                 class="dropdown-item"
-                 @click="setLineHeight('1em')">1</a>
-              <a :class="{'widget-text-editable--selected': styles['line-height'] == '1.2em'}"
-                 class="dropdown-item"
-                 @click="setLineHeight('1.2em')">1.2</a>
-              <a :class="{'widget-text-editable--selected': styles['line-height'] == '1.5e'}"
-                 class="dropdown-item"
-                 @click="setLineHeight('1.5em')">1.5</a>
-              <a :class="{'widget-text-editable--selected': styles['line-height'] == '2em'}"
-                 class="dropdown-item"
-                 @click="setLineHeight('2em')">2</a>
-              <a :class="{'widget-text-editable--selected': styles['line-height'] == '3em'}"
-                 class="dropdown-item"
-                 @click="setLineHeight('3em')">3</a>
-            </div>
-          </div>
-          <button class="btn btn-sm widget-text-editable--toolbox--button">
-            color
-            <input type="color"
-                   @input="updateColor"/>
-          </button>
-        </div>
-        <div v-if="groups.indexOf('border') > -1"
-             class="widget-text-editable--toolbox--group">
-          <div class="dropdown">
-            <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
-                    type="button"
-                    title="border width"
-                    id="dropdownMenuButto5"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false">
-              Border Width
-            </button>
-            <div class="dropdown-menu"
-                 aria-labelledby="dropdownMenuButton5">
-              <input type="text"
-                     v-model="styles['border-width']"/>
-              <br>
-              <input @input="borderWidth"
-                     type="range"
-                     min="0"
-                     max="10"
-                     :value="styles['border-width']"
-                     step="1">
-            </div>
-          </div>
-          <button class="btn btn-sm widget-text-editable--toolbox--button">
-            border color
-            <input type="color"
-                   @input="updateBorderColor"/>
-          </button>
-          <div class="dropdown">
-            <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
-                    type="button"
-                    id="dropdownMenuButton6"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false">
-              border style
-            </button>
-            <div class="dropdown-menu"
-                 aria-labelledby="dropdownMenuButton6">
-              <a :class="{'widget-text-editable--selected': styles['border-style'] == 'none'}"
-                 class="dropdown-item"
-                 @click="setBorderStyle('none')">none</a>
-              <a :class="{'widget-text-editable--selected': styles['border-style'] == 'solid'}"
-                 class="dropdown-item"
-                 @click="setBorderStyle('solid')">solid</a>
-              <a :class="{'widget-text-editable--selected': styles['border-style'] == 'dashed'}"
-                 class="dropdown-item"
-                 @click="setBorderStyle('dashed')">dashed</a>
-              <a :class="{'widget-text-editable--selected': styles['border-style'] == 'double'}"
-                 class="dropdown-item"
-                 @click="setBorderStyle('double')">double</a>
-              <a :class="{'widget-text-editable--selected': styles['border-style'] == 'dotted'}"
-                 class="dropdown-item"
-                 @click="setBorderStyle('dotted')">dotted</a>
-            </div>
-          </div>
-        </div>
-        <div v-if="groups.indexOf('background') > -1"
-             class="widget-text-editable--toolbox--group">
-          <button class="btn btn-sm widget-text-editable--toolbox--button">
-            bg
-            <input type="color"
-                   @input="updateBgColor"/>
-          </button>
-        </div>
-        <div v-if="groups.indexOf('general') > -1"
-             class="widget-text-editable--toolbox--group">
-          <div class="dropdown">
-            <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
-                    type="button"
-                    title="opacity"
-                    id="dropdownMenuButto3"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false">
-              opacity
-            </button>
-            <div class="dropdown-menu"
-                 aria-labelledby="dropdownMenuButton3">
-              <input type="text"
-                     v-model="styles['opacity']"/>
-              <br>
-              <input @input="setOpacityColor"
-                     type="range"
-                     min="0.0"
-                     max="1.0"
-                     :value="styles['opacity']"
-                     step="0.01">
-            </div>
-          </div>
-        </div>
+          <!--<div class="dropdown">-->
+            <!--<button class="btn btn-sm dropdown-toggle widget-text-editable&#45;&#45;toolbox&#45;&#45;button"-->
+                    <!--type="button"-->
+                    <!--id="dropdownMenuButton4"-->
+                    <!--data-toggle="dropdown"-->
+                    <!--aria-haspopup="true"-->
+                    <!--aria-expanded="false">-->
+              <!--line height-->
+            <!--</button>-->
+            <!--<div class="dropdown-menu"-->
+                 <!--aria-labelledby="dropdownMenuButton4">-->
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['line-height'] == '1em'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setLineHeight('1em')">1</a>-->
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['line-height'] == '1.2em'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setLineHeight('1.2em')">1.2</a>-->
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['line-height'] == '1.5e'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setLineHeight('1.5em')">1.5</a>-->
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['line-height'] == '2em'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setLineHeight('2em')">2</a>-->
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['line-height'] == '3em'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setLineHeight('3em')">3</a>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<button class="btn btn-sm widget-text-editable&#45;&#45;toolbox&#45;&#45;button">-->
+            <!--color-->
+            <!--<input type="color"-->
+                   <!--@input="updateColor"/>-->
+          <!--</button>-->
+        <!--</div>-->
+        <!--<div v-if="groups.indexOf('border') > -1"-->
+             <!--class="widget-text-editable&#45;&#45;toolbox&#45;&#45;group">-->
+          <!--<div class="dropdown">-->
+            <!--<button class="btn btn-sm dropdown-toggle widget-text-editable&#45;&#45;toolbox&#45;&#45;button"-->
+                    <!--type="button"-->
+                    <!--title="border width"-->
+                    <!--id="dropdownMenuButto5"-->
+                    <!--data-toggle="dropdown"-->
+                    <!--aria-haspopup="true"-->
+                    <!--aria-expanded="false">-->
+              <!--Border Width-->
+            <!--</button>-->
+            <!--<div class="dropdown-menu"-->
+                 <!--aria-labelledby="dropdownMenuButton5">-->
+              <!--<input type="text"-->
+                     <!--v-model="styles['border-width']"/>-->
+              <!--<br>-->
+              <!--<input @input="borderWidth"-->
+                     <!--type="range"-->
+                     <!--min="0"-->
+                     <!--max="10"-->
+                     <!--:value="styles['border-width']"-->
+                     <!--step="1">-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<button class="btn btn-sm widget-text-editable&#45;&#45;toolbox&#45;&#45;button">-->
+            <!--border color-->
+            <!--<input type="color"-->
+                   <!--@input="updateBorderColor"/>-->
+          <!--</button>-->
+          <!--<div class="dropdown">-->
+            <!--<button class="btn btn-sm dropdown-toggle widget-text-editable&#45;&#45;toolbox&#45;&#45;button"-->
+                    <!--type="button"-->
+                    <!--id="dropdownMenuButton6"-->
+                    <!--data-toggle="dropdown"-->
+                    <!--aria-haspopup="true"-->
+                    <!--aria-expanded="false">-->
+              <!--border style-->
+            <!--</button>-->
+            <!--<div class="dropdown-menu"-->
+                 <!--aria-labelledby="dropdownMenuButton6">-->
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['border-style'] == 'none'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setBorderStyle('none')">none</a>-->
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['border-style'] == 'solid'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setBorderStyle('solid')">solid</a>-->
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['border-style'] == 'dashed'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setBorderStyle('dashed')">dashed</a>-->
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['border-style'] == 'double'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setBorderStyle('double')">double</a>-->
+              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['border-style'] == 'dotted'}"-->
+                 <!--class="dropdown-item"-->
+                 <!--@click="setBorderStyle('dotted')">dotted</a>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div v-if="groups.indexOf('background') > -1"-->
+             <!--class="widget-text-editable&#45;&#45;toolbox&#45;&#45;group">-->
+          <!--<button class="btn btn-sm widget-text-editable&#45;&#45;toolbox&#45;&#45;button">-->
+            <!--bg-->
+            <!--<input type="color"-->
+                   <!--@input="updateBgColor"/>-->
+          <!--</button>-->
+        <!--</div>-->
+        <!--<div v-if="groups.indexOf('general') > -1"-->
+             <!--class="widget-text-editable&#45;&#45;toolbox&#45;&#45;group">-->
+          <!--<div class="dropdown">-->
+            <!--<button class="btn btn-sm dropdown-toggle widget-text-editable&#45;&#45;toolbox&#45;&#45;button"-->
+                    <!--type="button"-->
+                    <!--title="opacity"-->
+                    <!--id="dropdownMenuButto3"-->
+                    <!--data-toggle="dropdown"-->
+                    <!--aria-haspopup="true"-->
+                    <!--aria-expanded="false">-->
+              <!--opacity-->
+            <!--</button>-->
+            <!--<div class="dropdown-menu"-->
+                 <!--aria-labelledby="dropdownMenuButton3">-->
+              <!--<input type="text"-->
+                     <!--v-model="styles['opacity']"/>-->
+              <!--<br>-->
+              <!--<input @input="setOpacityColor"-->
+                     <!--type="range"-->
+                     <!--min="0.0"-->
+                     <!--max="1.0"-->
+                     <!--:value="styles['opacity']"-->
+                     <!--step="0.01">-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
 
-        <button @click="setPickLinkMode"
-                class="btn btn-sm btn-danger">
-          <icon name="link"></icon>
-          pick link
-        </button>
+        <!--<button @click="setPickLinkMode"-->
+                <!--class="btn btn-sm btn-danger">-->
+          <!--<icon name="link"></icon>-->
+          <!--pick link-->
+        <!--</button>-->
         <!-- closed button-->
         <button @click="hide"
                 class="btn btn-sm btn-danger float-right widget-text-editable--toolbox--close">
           <icon name="times"></icon>
         </button>
+      </div>
       </div>
     </template>
   </v-popover>

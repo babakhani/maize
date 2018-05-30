@@ -1,4 +1,8 @@
 .widget-text-editable--toolbox {
+  //outline: 2px solid red;
+  padding: 0;
+  float: left;
+  width: 100%;
   // Preview Mode Styles
   .editor-page-preview-mode & {
     visibility: hidden;
@@ -6,12 +10,16 @@
 
   .widget-text-editable--toolbox--close {
     position: absolute;
-    top: -10px;
-    right: -10px;
+    top: 0;
+    right: -55px;
     cursor: pointer;
     border-radius: 100px;
+    background-color: #000;
+    z-index: 10;
+    width: 37px;
+    height: 37px;
     svg {
-      margin-top: .2em;
+      margin-top: .43em;
     }
   }
 
@@ -35,11 +43,17 @@
 
   .widget-text-editable--toolbox--button {
     float: left;
+    height: 100%;
+    padding: 9px 5px;
     cursor: pointer;
-    height: 2em;
-    margin-bottom: .2em;
-
+    //height: 2em;
     background: transparent !important;
+    line-height: 100%;
+    //float: left;
+    //cursor: pointer;
+    //height: 2em;
+    //margin-bottom: .2em;
+    //background: transparent !important;
     &.widget-text-editable--selected {
       border: 1px solid #f1f1f1;
     }
@@ -63,7 +77,7 @@
   }
 
   .dropdown {
-    display: inline-flex;
+    float: none;
   }
   button {
     img {
