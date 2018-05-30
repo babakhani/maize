@@ -20,15 +20,17 @@
 
 .vue-popover-theme {
   display: block !important;
+  position: absolute;
   z-index: 1000;
-  width: 50%;
-  padding: 1em;
-  max-width: 100%;
+  //width: 50%;
+  //TODO: Reza: plz checke it
+  min-width: 845px;
+  //max-width: 925px;
   background: rgba(0, 0, 0, .9);
   border-top-left-radius: 100px;
   border-bottom-left-radius: 100px;
-  height: 38px;
-  padding-top: 0;
+  min-height: 32px;
+  padding-left: 1em;
   //border:  2px dashed red !important;
 
   .tooltip-inner {

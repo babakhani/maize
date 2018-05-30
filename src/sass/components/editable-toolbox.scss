@@ -8,25 +8,10 @@
     visibility: hidden;
   }
 
-  .widget-text-editable--toolbox--close {
-    position: absolute;
-    top: 0;
-    right: -55px;
-    cursor: pointer;
-    border-radius: 100px;
-    background-color: #000;
-    z-index: 10;
-    width: 37px;
-    height: 37px;
-    svg {
-      margin-top: .43em;
-    }
-  }
-
   .widget-text-editable--toolbox--group {
-    display: block;
-    float: left;
+    display: inline;
     clear: both;
+    position: relative;
   }
 
   .dropdown,
@@ -35,27 +20,50 @@
   }
 
   .dropdown {
+    .dropdown-toggle::after {
+      display: none;
+    }
     input[type='range'] {
       margin: .5em;
       cursor: pointer;
+    }
+    .dropdown-menu {
+      margin-top: 0;
+      min-width: 2em;
+      .dropdown-item {
+        padding: .25rem .75rem
+      }
     }
   }
 
   .widget-text-editable--toolbox--button {
     float: left;
     height: 100%;
-    padding: 9px 5px;
+    padding: 9px;
     cursor: pointer;
-    //height: 2em;
-    background: transparent !important;
-    line-height: 100%;
-    //float: left;
-    //cursor: pointer;
-    //height: 2em;
-    //margin-bottom: .2em;
-    //background: transparent !important;
+    background: transparent;
+    line-height: 10px;
+    min-height: 40px;
+    img {
+      color: red;
+      fill: red;
+    }
     &.widget-text-editable--selected {
       border: 1px solid #f1f1f1;
+    }
+    &.color-box-btn {
+      position: relative;
+      overflow: hidden;
+      input {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        bottom: 0;
+        right: 0;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        width: 100%;
+      }
     }
   }
 
@@ -84,17 +92,7 @@
       border-radius: 0 !important;
     }
   }
-  //.btn-color-input {
-  //  position: relative;
-  //  display: inline-block;
-  //  input {
-  //    opacity: 0;
-  //    position: absolute;
-  //    left: 0;
-  //    top: 30%;
-  //    width: 100%;
-  //  }
-  //}
+
   .slider-wrapper {
     display: inline-block;
     //width: 20px;
@@ -107,6 +105,21 @@
       height: 20px;
       margin: 0;
       transform: rotate(0deg);
+    }
+  }
+  .widget-text-editable--toolbox--close {
+    position: absolute;
+    top: 0;
+    right: -45px;
+    cursor: pointer;
+    border-radius: 100px;
+    background-color: #000;
+    z-index: 10;
+    width: 37px;
+    height: 37px;
+    svg {
+      margin-top: .43em;
+      margin-left: .1em;
     }
   }
 }
