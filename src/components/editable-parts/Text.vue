@@ -4,7 +4,8 @@
     <!--Min Slot-->
     <button v-if="editMode"
             class="btn btn-link editable-part--settings-btn"
-            :title="$t('toolbox.bg_settings')"
+            :title="$t('toolbox.settings')"
+            v-b-tooltip.hover.bottom.small
             @click="showToolbox">
       <icon name="cog"></icon>
       <EditablePartToolbox @update="updateStyles"

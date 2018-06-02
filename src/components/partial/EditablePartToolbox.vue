@@ -12,7 +12,9 @@
           <!--DropDown Example-->
           <!--Font Size-->
           <div class="dropdown">
-            <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
+            <button :title="$t('toolbox.font-family')"
+                    v-b-tooltip.hover.bottom.small
+                    class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                     type="button"
                     id="dropdownMenuButtonFamily"
                     data-toggle="dropdown"
@@ -39,7 +41,9 @@
 
           </div>
           <div class="dropdown">
-            <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
+            <button :title="$t('toolbox.font-size')"
+                    v-b-tooltip.hover.bottom.small
+                    class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                     type="button"
                     id="dropdownMenuButton"
                     data-toggle="dropdown"
@@ -69,80 +73,37 @@
                  class="dropdown-item"
                  @click="setSize('12px')">{{$t('toolbox.x-small')}}</a>
               <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '10px'}"-->
-                 <!--class="dropdown-item"-->
-                 <!--@click="setSize('10px')">{{$t('toolbox.xx-small')}}</a>-->
+              <!--class="dropdown-item"-->
+              <!--@click="setSize('10px')">{{$t('toolbox.xx-small')}}</a>-->
             </div>
           </div>
 
-          <button title="$t('toolbox.bold')"
+          <button :title="$t('toolbox.bold')"
+                  v-b-tooltip.hover.bottom.small
                   @click="toggleBold()"
                   :class="{'widget-text-editable--selected': styles['font-weight'] == 'bold'}"
                   class="btn btn-sm widget-text-editable--toolbox--button">
             <maizcon name="bold"></maizcon>
           </button>
 
-          <button title="$t('toolbox.underline')"
+          <button :title="$t('toolbox.underline')"
+                  v-b-tooltip.hover.bottom.small
                   @click="toggleTextDecoration()"
                   :class="{'widget-text-editable--selected': styles['text-decoration'] == 'underline'}"
                   class="btn btn-sm widget-text-editable--toolbox--button">
             <maizcon name="underline"></maizcon>
           </button>
-          <button title="t('toolbox.line-through)"
+          <button :title="$t('toolbox.line-through')"
+                  v-b-tooltip.hover.bottom.small
                   @click="toggleThroughDecoration()"
                   :class="{'widget-text-editable--selected': styles['text-decoration'] == 'line-through'}"
                   class="btn btn-sm widget-text-editable--toolbox--button">
             <maizcon name="strikethrough"></maizcon>
           </button>
 
-          <!--<button title="underline"-->
-                  <!--@click="toggleTextDecoration()"-->
-                  <!--:class="{'widget-text-editable&#45;&#45;selected': styles['text-decoration'] == 'underline'}"-->
-                  <!--class="btn btn-sm widget-text-editable&#45;&#45;toolbox&#45;&#45;button">-->
-            <!--<maizcon name="italic"></maizcon>-->
-          <!--</button>-->
-
-
-
-          <!--Button Example-->
-
-          <!--Text Shadow-->
-          <!--<div class="dropdown">-->
-            <!--<button class="btn btn-sm dropdown-toggle widget-text-editable&#45;&#45;toolbox&#45;&#45;button"-->
-                    <!--type="button"-->
-                    <!--id="dropdownMenuButton"-->
-                    <!--data-toggle="dropdown"-->
-                    <!--aria-haspopup="true"-->
-                    <!--aria-expanded="false">-->
-              <!--&lt;!&ndash;<icon :style="{'width': styles['font-size']}"&ndash;&gt;-->
-              <!--&lt;!&ndash;name="font"></icon>&ndash;&gt;-->
-              <!--<maizcon name="text-shadow"></maizcon>-->
-            <!--</button>-->
-            <!--<div class="dropdown-menu"-->
-                 <!--aria-labelledby="dropdownMenuButton">-->
-              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '44px'}"-->
-                 <!--class="dropdown-item"-->
-                 <!--@click="setSize('44px')">x-large</a>-->
-              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '18px'}"-->
-                 <!--class="dropdown-item"-->
-                 <!--@click="setSize('18px')">large</a>-->
-              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '16px'}"-->
-                 <!--class="dropdown-item"-->
-                 <!--@click="setSize('16px')">Medium</a>-->
-              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '14px'}"-->
-                 <!--class="dropdown-item"-->
-                 <!--@click="setSize('14px')">small</a>-->
-              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '12px'}"-->
-                 <!--class="dropdown-item"-->
-                 <!--@click="setSize('12px')">x-small</a>-->
-              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '10px'}"-->
-                 <!--class="dropdown-item"-->
-                 <!--@click="setSize('10px')">xx-small</a>-->
-            <!--</div>-->
-
-          <!--</div>-->
-
-
-          <button @click="setPickLinkMode"
+          <button :title="$t('toolbox.link')"
+                  v-b-tooltip.hover.bottom.small
+                  @click="setPickLinkMode"
                   class="btn btn-sm widget-text-editable--toolbox--button">
             <maizcon name="link"></maizcon>
           </button>
@@ -151,6 +112,8 @@
           <!--Alignment-->
           <div class="dropdown">
             <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
+                    :title="$t('toolbox.alignment')"
+                    v-b-tooltip.hover.bottom.small
                     type="button"
                     id="dropdownMenuButton2"
                     data-toggle="dropdown"
@@ -194,6 +157,8 @@
           <!-- Line Space!-->
           <div class="dropdown">
             <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
+                    :title="$t('toolbox.line-space')"
+                    v-b-tooltip.hover.bottom.small
                     type="button"
                     id="dropdownMenuButton4"
                     data-toggle="dropdown"
@@ -223,7 +188,8 @@
 
 
           <button :class="{'widget-text-editable--selected': styles['text-indent'] != '0'}"
-                  title="indent"
+                  :title="$t('toolbox.indent')"
+                  v-b-tooltip.hover.bottom.small
                   @click="toggleTextIndent()"
                   class="btn btn-sm widget-text-editable--toolbox--button">
             <maizcon name="indent-increase"></maizcon>
@@ -239,16 +205,30 @@
           <!--name="arrow-right"></icon>-->
           <!--</button>-->
 
-          <button class="btn btn-sm widget-text-editable--toolbox--button color-box-btn">
-            <maizcon name="color-fill"></maizcon>
+          <button :title="$t('toolbox.font-color')"
+                  v-b-tooltip.hover.bottom.small
+                  class="btn btn-sm widget-text-editable--toolbox--button color-box-btn">
+            <maizcon name="back-color"></maizcon>
+            <input type="color"></maizcon>
             <input type="color"
                    @input="updateColor"/>
           </button>
+
+          <button :title="$t('toolbox.bg-color')"
+                  v-b-tooltip.hover.bottom.small
+                  class="btn btn-sm widget-text-editable--toolbox--button color-box-btn">
+            <maizcon name="color-fill"></maizcon>
+            <input type="color"
+                   @input="updateBgColor"/>
+          </button>
         </div>
+
         <div v-if="groups.indexOf('border') > -1"
              class="widget-text-editable--toolbox--group">
           <div class="dropdown">
-            <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
+            <button :title="$t('toolbox.border-width')"
+                    v-b-tooltip.hover.bottom.small
+                    class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                     type="button"
                     title="border width"
                     id="dropdownMenuButto5"
@@ -272,7 +252,9 @@
           </div>
 
           <div class="dropdown">
-            <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
+            <button :title="$t('toolbox.border-style')"
+                    v-b-tooltip.hover.bottom.small
+                    class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                     type="button"
                     id="dropdownMenuButton6"
                     data-toggle="dropdown"
@@ -300,16 +282,19 @@
             </div>
           </div>
 
-          <button class="btn btn-sm widget-text-editable--toolbox--button color-box-btn">
+          <button :title="$t('toolbox.border-color')"
+                  v-b-tooltip.hover.bottom.small
+                  class="btn btn-sm widget-text-editable--toolbox--button color-box-btn">
             <maizcon name="border-color"></maizcon>
             <input type="color"
                    @input="updateBorderColor"/>
           </button>
 
           <div class="dropdown">
-            <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
+            <button :title="$t('toolbox.opacity')"
+                    v-b-tooltip.hover.bottom.small
+                    class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                     type="button"
-                    title="opacity"
                     id="dropdownMenuButto3"
                     data-toggle="dropdown"
                     aria-haspopup="true"
@@ -333,85 +318,21 @@
 
         <div v-if="groups.indexOf('background') > -1"
              class="widget-text-editable--toolbox--group">
-          <!--Box Shadow-->
-          <!--TODO: check box-shadow icon-->
-          <!--<div class="dropdown">-->
-            <!--<button class="btn btn-sm dropdown-toggle widget-text-editable&#45;&#45;toolbox&#45;&#45;button"-->
-                    <!--type="button"-->
-                    <!--id="dropdownMenuButton"-->
-                    <!--data-toggle="dropdown"-->
-                    <!--aria-haspopup="true"-->
-                    <!--aria-expanded="false">-->
-              <!--&lt;!&ndash;<icon :style="{'width': styles['font-size']}"&ndash;&gt;-->
-              <!--&lt;!&ndash;name="font"></icon>&ndash;&gt;-->
-              <!--<maizcon name="box-shadow"></maizcon>-->
-            <!--</button>-->
-            <!--<div class="dropdown-menu"-->
-                 <!--aria-labelledby="dropdownMenuButton">-->
-              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '44px'}"-->
-                 <!--class="dropdown-item"-->
-                 <!--@click="setSize('44px')">x-large</a>-->
-              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '18px'}"-->
-                 <!--class="dropdown-item"-->
-                 <!--@click="setSize('18px')">large</a>-->
-              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '16px'}"-->
-                 <!--class="dropdown-item"-->
-                 <!--@click="setSize('16px')">Medium</a>-->
-              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '14px'}"-->
-                 <!--class="dropdown-item"-->
-                 <!--@click="setSize('14px')">small</a>-->
-              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '12px'}"-->
-                 <!--class="dropdown-item"-->
-                 <!--@click="setSize('12px')">x-small</a>-->
-              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '10px'}"-->
-                 <!--class="dropdown-item"-->
-                 <!--@click="setSize('10px')">xx-small</a>-->
-            <!--</div>-->
-          <!--</div>-->
 
-          <div class="dropdown">
-            <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
-                    type="button"
-                    title="opacity"
-                    id="dropdownMenuButto3"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false">
-              <maizcon name="blur"></maizcon>
-            </button>
-            <div class="dropdown-menu"
-                 aria-labelledby="dropdownMenuButton3">
-              <input type="text"
-                     v-model="styles['opacity']"/>
-              <br>
-              <input @input="setOpacityColor"
-                     type="range"
-                     min="0.0"
-                     max="1.0"
-                     :value="styles['opacity']"
-                     step="0.01">
-            </div>
-          </div>
-
-          <button class="btn btn-sm widget-text-editable--toolbox--button color-box-btn">
+          <button :title="$t('toolbox.input-file')"
+                  v-b-tooltip.hover.bottom.small
+                  class="btn btn-sm widget-text-editable--toolbox--button color-box-btn">
             <maizcon name="upload-photo"></maizcon>
             <input type="file"/>
           </button>
 
-          <button class="btn btn-sm widget-text-editable--toolbox--button color-box-btn">
-            <maizcon name="back-color"></maizcon>
-            <input type="color"
-                   @input="updateBgColor"/>
-          </button>
-          <!--<button @click="hide"-->
-                  <!--class="btn btn-sm btn-danger float-right widget-text-editable&#45;&#45;toolbox&#45;&#45;close">-->
-            <!--<icon name="times"></icon>-->
-          <!--</button>-->
         </div>
-        <button @click="hide"
-                  class="btn btn-sm btn-danger float-right widget-text-editable--toolbox--close">
-            <icon name="times"></icon>
-          </button>
+        <button :title="$t('toolbox.close')"
+                v-b-tooltip.hover.bottom.small
+                @click="hide"
+                class="btn btn-sm btn-danger float-right widget-text-editable--toolbox--close">
+          <icon name="times"></icon>
+        </button>
       </div>
       <!--<div v-if="groups.indexOf('background') > -1"-->
       <!--class="widget-text-editable&#45;&#45;toolbox&#45;&#45;group">-->
