@@ -4,17 +4,17 @@
       <!--TODO: i18n-->
       <div class="image-picker-modal--search-box--input">
         <b-input-group>
-          <b-form-input @input="loadSearchResult"
+          <b-form-input v-model="searchQuery"
                         type="text"
+                        @input="loadSearchResult"
                         placeholder="Search video here">
           </b-form-input>
           <b-input-group-append>
-            <b-btn variant="search">
+            <b-btn variant="search" @click="loadSearchResult" class="loadSearchResult">
               <icon name="search"></icon>
             </b-btn>
           </b-input-group-append>
         </b-input-group>
-
       </div>
     </div>
     <div class="row">
@@ -61,13 +61,12 @@
     data () {
       return {
         videoLoading: false,
-        videoList: []
+        videoList: [],
+        searchQuery: null
       }
     },
     mounted () {
-
       this.loadSearchResult('z')
-
     },
     props: {
       sourceType: {
@@ -88,9 +87,9 @@
       pickAndHide (payload) {
         this.$emit('pickAndHide', this.getData(payload))
       },
-      loadSearchResult (query) {
+      loadSearchResult () {
         this.videoLoading = true
-        axios.get(`http://nightlyapi.tamasha.com/api/v1/videos?query=${query}`)
+        axios.get(`http://nightlyapi.tamasha.com/api/v1/videos?query=${this.searchQuery}`)
           .then((response) => {
             this.videoList = response.data.data
             this.videoLoading = false
