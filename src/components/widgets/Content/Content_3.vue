@@ -12,29 +12,18 @@
         :partData="touchedData.bg">
         <section class="fdb-block">
           <div class="container">
-            <div class="row">
-              <div class="col text-center">
+            <div class="row justify-content-center">
+              <div class="col col-md-8 text-center">
                 <text-editable tag="h1"
                                name="mainTitle"
                                :partData="touchedData.mainTitle">
                 </text-editable>
-
-                <div class="row text-left pt-4">
-                  <div class="col-12 col-md-6">
-                    <text-editable tag="p"
-                                   name="description1"
-                                   cssClass="text-h3"
-                                   :partData="touchedData.description1">
-                    </text-editable>
-                  </div>
-                  <div class="col-12 col-md-6">
-                    <text-editable tag="p"
-                                   name="description2"
-                                   cssClass="text-h3"
-                                   :partData="touchedData.description2">
-                    </text-editable>
-                  </div>
-                </div>
+                <br>
+                <text-editable tag="p"
+                               name="secondTitle"
+                               cssClass="text-h3"
+                               :partData="touchedData.secondTitle">
+                </text-editable>
               </div>
             </div>
           </div>
@@ -48,7 +37,7 @@
   import widgetMixin from '@/mixins/widget'
 
   export default {
-    name: 'ContentBasic7',
+    name: 'Content_3',
     mixins: [widgetMixin],
     props: {
       defaultData: {
@@ -63,16 +52,11 @@
             },
             mainTitle: {
               styles: {},
-              text: this.faker.lorem.words(3),
+              text: this.faker.company.companyName()
             },
-            description1: {
+            secondTitle: {
               styles: {},
-              text: this.faker.lorem.words(100),
-              src: this.faker.internet.url(),
-            },
-            description2: {
-              styles: {},
-              text: this.faker.lorem.words(100),
+              text: this.faker.lorem.words(30),
               src: this.faker.internet.url(),
             }
           }

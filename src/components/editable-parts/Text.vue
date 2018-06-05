@@ -26,13 +26,13 @@
       {{touchedData.text}}
     </h1>
     <h2 v-bind:style="touchedData.styles"
-        :class="touchedData.cssClass"
         v-if="tag === 'h2'"
+        :class="touchedData.cssClass"
         :contenteditable="editMode"
+        @focusout="updateTextOnBlur"
         @dblclick="goToEditMode"
         @paste="onPaste"
         @input="updateText">
-
       {{touchedData.text}}
     </h2>
     <h3 v-bind:style="touchedData.styles"

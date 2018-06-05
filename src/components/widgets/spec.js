@@ -24,63 +24,63 @@ export default [
     data: {}
   },
   {
-    name: 'ContentBasic',
+    name: 'Content_1',
     data: {}
   },
   {
-    name: 'ContentBasic2',
+    name: 'Content_2',
     data: {}
   },
   {
-    name: 'ContentBasic3',
+    name: 'Content_3',
     data: {}
   },
   {
-    name: 'ContentBasic4',
+    name: 'Content_4',
     data: {}
   },
   {
-    name: 'ContentBasic5',
+    name: 'Content_5',
     data: {}
   },
   {
-    name: 'ContentBasic6',
+    name: 'Content_6',
     data: {}
   },
   {
-    name: 'ContentBasic7',
+    name: 'Content_7',
     data: {}
   },
   {
-    name: 'ContentBasic8',
+    name: 'Content_8',
     data: {}
   },
   {
-    name: 'ContentBasic9',
+    name: 'Content_9',
     data: {}
   },
   {
-    name: 'ContentBasic10',
+    name: 'Content_10',
     data: {}
   },
   {
-    name: 'ContentBasic11',
+    name: 'Content_11',
     data: {}
   },
   {
-    name: 'ContentBasic12',
+    name: 'Content_12',
     data: {}
   },
   {
-    name: 'ContentBasic13',
+    name: 'Content_13',
     data: {}
   },
   {
-    name: 'ContentBasic14',
+    name: 'Content_14',
     data: {}
   },
   {
-    name: 'ContentBasic15',
+    name: 'Content_15',
     data: {}
   },
   {
@@ -96,7 +96,16 @@ export default [
     data: {}
   },
   {
+    name: 'Feature_4',
+    data: {}
+  },
+  {
+    name: 'Feature_5',
+    data: {}
+  },
+  {
     name: 'Gallery',
     data: {}
-  }
+  },
+_
 ]

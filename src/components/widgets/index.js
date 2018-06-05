@@ -1,27 +1,29 @@
 import Feature_1 from './Features/Feature_1'
 import Feature_2 from './Features/Feature_2'
 import Feature_3 from './Features/Feature_3'
+import Feature_4 from './Features/Feature_4'
+import Feature_5 from './Features/Feature_5'
 import Header from './Header/Header'
 import Footer from './Footer/Footer'
 import Kitchensink from './Content/Kitchensink'
 import Player from './Media/Player'
 import Testimonials from './Content/Testimonials'
 import Content from './Content/Content'
-import ContentBasic from './Content/ContentBasic'
-import ContentBasic2 from './Content/ContentBasic2'
-import ContentBasic3 from './Content/ContentBasic3'
-import ContentBasic4 from './Content/ContentBasic4'
-import ContentBasic5 from './Content/ContentBasic5'
-import ContentBasic6 from './Content/ContentBasic6'
-import ContentBasic7 from './Content/ContentBasic7'
-import ContentBasic8 from './Content/ContentBasic8'
-import ContentBasic9 from './Content/ContentBasic9'
-import ContentBasic10 from './Content/ContentBasic10'
-import ContentBasic11 from './Content/ContentBasic11'
-import ContentBasic12 from './Content/ContentBasic12'
-import ContentBasic13 from './Content/ContentBasic13'
-import ContentBasic14 from './Content/ContentBasic14'
-import ContentBasic15 from './Content/ContentBasic15'
+import Content_1 from './Content/Content_1'
+import Content_2 from './Content/Content_2'
+import Content_3 from './Content/Content_3'
+import Content_4 from './Content/Content_4'
+import Content_5 from './Content/Content_5'
+import Content_6 from './Content/Content_6'
+import Content_7 from './Content/Content_7'
+import Content_8 from './Content/Content_8'
+import Content_9 from './Content/Content_9'
+import Content_10 from './Content/Content_10'
+import Content_11 from './Content/Content_11'
+import Content_12 from './Content/Content_12'
+import Content_13 from './Content/Content_13'
+import Content_14 from './Content/Content_14'
+import Content_15 from './Content/Content_15'
 import Gallery from './Gallery/Gallery'
 
 export default {
@@ -33,21 +35,23 @@ export default {
   Feature_1: Feature_1,
   Feature_2: Feature_2,
   Feature_3: Feature_3,
+  Feature_4: Feature_4,
+  Feature_5: Feature_5,
   Content: Content,
-  ContentBasic: ContentBasic,
-  ContentBasic2: ContentBasic2,
-  ContentBasic3: ContentBasic3,
-  ContentBasic4: ContentBasic4,
-  ContentBasic5: ContentBasic5,
-  ContentBasic6: ContentBasic6,
-  ContentBasic7: ContentBasic7,
-  ContentBasic8: ContentBasic8,
-  ContentBasic9: ContentBasic9,
-  ContentBasic10: ContentBasic10,
-  ContentBasic11: ContentBasic11,
-  ContentBasic12: ContentBasic12,
-  ContentBasic13: ContentBasic13,
-  ContentBasic14: ContentBasic14,
-  ContentBasic15: ContentBasic15,
+  Content_1:  Content_1,
+  Content_2:  Content_2,
+  Content_3:  Content_3,
+  Content_4:  Content_4,
+  Content_5:  Content_5,
+  Content_6:  Content_6,
+  Content_7:  Content_7,
+  Content_8:  Content_8,
+  Content_9:  Content_9,
+  Content_10: Content_10,
+  Content_11: Content_11,
+  Content_12: Content_12,
+  Content_13: Content_13,
+  Content_14: Content_14,
+  Content_15: Content_15,
   Gallery: Gallery
 }

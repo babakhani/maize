@@ -83,7 +83,7 @@ const Mixin = {
       })
     },
     toggleFullWidth () {
-      this.data.config.fullWidth = !this.touchedData.config.fullWidth
+      this.touchedData.config.fullWidth = !this.touchedData.config.fullWidth
       this.updateData({
         name: 'config',
         data: {

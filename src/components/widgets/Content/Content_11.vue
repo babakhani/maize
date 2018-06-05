@@ -10,7 +10,6 @@
         name="bg"
         v-if="touchedData.bg"
         :partData="touchedData.bg">
-
         <section class="fdb-block">
           <div class="container">
             <div class="row">
@@ -19,21 +18,31 @@
                                name="mainTitle"
                                :partData="touchedData.mainTitle">
                 </text-editable>
-                <br>
-                <text-editable tag="h2"
-                               name="secondTitle"
-                               :partData="touchedData.secondTitle">
-                </text-editable>
-                <br>
-                <text-editable tag="p"
-                               cssClass="text-h3"
-                               name="description"
-                               :partData="touchedData.description">
-                </text-editable>
-                <br>
-                <ImageEditable name="image"
-                               cssClass="img-fluid mt-5"
-                               :partData="touchedData.image">
+              </div>
+            </div>
+            <div class="row pt-4">
+              <div class="col-6 col-md-3">
+                <ImageEditable name="image1"
+                               cssClass="img-fluid"
+                               :partData="touchedData.image1">
+                </ImageEditable>
+              </div>
+              <div class="col-6 col-md-3">
+                <ImageEditable name="image2"
+                               cssClass="img-fluid"
+                               :partData="touchedData.image2">
+                </ImageEditable>
+              </div>
+              <div class="col-6 col-md-3 mt-4 mt-md-0">
+                <ImageEditable name="image3"
+                               cssClass="img-fluid"
+                               :partData="touchedData.image3">
+                </ImageEditable>
+              </div>
+              <div class="col-6 col-md-3 mt-4 mt-md-0">
+                <ImageEditable name="image4"
+                               cssClass="img-fluid"
+                               :partData="touchedData.image4">
                 </ImageEditable>
               </div>
             </div>
@@ -48,7 +57,7 @@
   import widgetMixin from '@/mixins/widget'
 
   export default {
-    name: 'ContentBasic8',
+    name: 'Content_11',
     mixins: [widgetMixin],
     props: {
       defaultData: {
@@ -65,17 +74,19 @@
               styles: {},
               text: this.faker.lorem.words(3),
             },
-            secondTitle: {
+            image1: {
               styles: {},
-              text: this.faker.lorem.words(5),
-              src: this.faker.internet.url(),
+              src: this.faker.img.big()
             },
-            description: {
+            image2: {
               styles: {},
-              text: this.faker.lorem.words(100),
-              src: this.faker.internet.url(),
+              src: this.faker.img.big()
             },
-            image: {
+            image3: {
+              styles: {},
+              src: this.faker.img.big()
+            },
+            image4: {
               styles: {},
               src: this.faker.img.big()
             }

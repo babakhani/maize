@@ -10,19 +10,36 @@
         name="bg"
         v-if="touchedData.bg"
         :partData="touchedData.bg">
-        <section class="fdb-block">
+
+        <section class="fdb-block pb-0">
           <div class="container">
-            <div class="row justify-content-end">
-              <div class="col col-sm-10 col-md-8 text-left">
+            <div class="row align-items-center">
+              <div class="col-12 col-md-6 col-lg-5">
+                <ImageEditable name="image"
+                               cssClass="fdb-icon"
+                               :partData="touchedData.image">
+                </ImageEditable>
+
+                <text-editable tag="h1"
+                               name="mainTitle"
+                               :partData="touchedData.mainTitle">
+                </text-editable>
                 <text-editable tag="p"
-                               cssClass="text-h3"
                                name="description"
+                               cssClass="text-h3"
                                :partData="touchedData.description">
                 </text-editable>
+              </div>
+              <div class="col-10 col-sm-6 m-auto col-md-4 pt-4 pt-md-0">
+                <ImageEditable name="imageTall"
+                               cssClass="img-fluid br-0"
+                               :partData="touchedData.imageTall">
+                </ImageEditable>
               </div>
             </div>
           </div>
         </section>
+
       </BgEditable>
     </div>
   </div>
@@ -32,7 +49,7 @@
   import widgetMixin from '@/mixins/widget'
 
   export default {
-    name: 'ContentBasic5',
+    name: 'Content_15',
     mixins: [widgetMixin],
     props: {
       defaultData: {
@@ -45,10 +62,22 @@
             bg: {
               styles: {}
             },
+            mainTitle: {
+              styles: {},
+              text: this.faker.lorem.words(3),
+            },
             description: {
               styles: {},
               text: this.faker.lorem.words(100),
               src: this.faker.internet.url(),
+            },
+            image: {
+              styles: {},
+              src: this.faker.img.icon()
+            },
+            imageTall: {
+              styles: {},
+              src: this.faker.img.tall()
             }
           }
         },

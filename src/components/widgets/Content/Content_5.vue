@@ -12,17 +12,12 @@
         :partData="touchedData.bg">
         <section class="fdb-block">
           <div class="container">
-            <div class="row justify-content-center">
-              <div class="col col-md-8 text-center">
-                <text-editable tag="h1"
-                               name="mainTitle"
-                               :partData="touchedData.mainTitle">
-                </text-editable>
-                <br>
+            <div class="row justify-content-end">
+              <div class="col col-sm-10 col-md-8 text-left">
                 <text-editable tag="p"
-                               name="secondTitle"
                                cssClass="text-h3"
-                               :partData="touchedData.secondTitle">
+                               name="description"
+                               :partData="touchedData.description">
                 </text-editable>
               </div>
             </div>
@@ -37,7 +32,7 @@
   import widgetMixin from '@/mixins/widget'
 
   export default {
-    name: 'ContentBasic3',
+    name: 'Content_5',
     mixins: [widgetMixin],
     props: {
       defaultData: {
@@ -50,13 +45,9 @@
             bg: {
               styles: {}
             },
-            mainTitle: {
+            description: {
               styles: {},
-              text: this.faker.company.companyName()
-            },
-            secondTitle: {
-              styles: {},
-              text: this.faker.lorem.words(30),
+              text: this.faker.lorem.words(100),
               src: this.faker.internet.url(),
             }
           }

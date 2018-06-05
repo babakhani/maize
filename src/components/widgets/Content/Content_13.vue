@@ -10,27 +10,36 @@
         name="bg"
         v-if="touchedData.bg"
         :partData="touchedData.bg">
+
         <section class="fdb-block">
           <div class="container">
             <div class="row justify-content-center">
               <div class="col col-md-8 text-center">
-                <text-editable tag="h1"
-                               name="mainTitle"
-                               :partData="touchedData.mainTitle">
+                <ImageEditable name="image"
+                               cssClass="fdb-icon mb-4"
+                               :partData="touchedData.image">
+                </ImageEditable>
+                <text-editable tag="p"
+                               name="description"
+                               cssClass="text-h3"
+                               :partData="touchedData.description">
                 </text-editable>
               </div>
             </div>
           </div>
         </section>
+
+
       </BgEditable>
     </div>
   </div>
 </template>
+
 <script>
   import widgetMixin from '@/mixins/widget'
 
   export default {
-    name: 'ContentBasic',
+    name: 'Content_13',
     mixins: [widgetMixin],
     props: {
       defaultData: {
@@ -43,10 +52,15 @@
             bg: {
               styles: {}
             },
-            mainTitle: {
+            description: {
               styles: {},
-              text: this.faker.company.companyName()
+              text: this.faker.lorem.words(100),
+              src: this.faker.internet.url(),
             },
+            image: {
+              styles: {},
+              src: this.faker.img.big()
+            }
           }
         },
         require: false
