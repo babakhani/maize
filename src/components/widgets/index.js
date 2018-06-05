@@ -3,6 +3,16 @@ import Feature_2 from './Features/Feature_2'
 import Feature_3 from './Features/Feature_3'
 import Feature_4 from './Features/Feature_4'
 import Feature_5 from './Features/Feature_5'
+import Feature_6 from './Features/Feature_6'
+import Feature_7 from './Features/Feature_7'
+import Feature_8 from './Features/Feature_8'
+import Feature_9 from './Features/Feature_9'
+import Feature_10 from './Features/Feature_10'
+import Feature_11 from './Features/Feature_11'
+import Feature_12 from './Features/Feature_12'
+import Feature_13 from './Features/Feature_13'
+import Feature_14 from './Features/Feature_14'
+import Feature_15 from './Features/Feature_15'
 import Header from './Header/Header'
 import Footer from './Footer/Footer'
 import Kitchensink from './Content/Kitchensink'
@@ -37,6 +47,16 @@ export default {
   Feature_3: Feature_3,
   Feature_4: Feature_4,
   Feature_5: Feature_5,
+  Feature_6: Feature_6,
+  Feature_7: Feature_7,
+  Feature_8: Feature_8,
+  Feature_9: Feature_9,
+  Feature_10: Feature_10,
+  Feature_11: Feature_11,
+  Feature_12: Feature_12,
+  Feature_13: Feature_13,
+  Feature_14: Feature_14,
+  Feature_15: Feature_15,
   Content: Content,
   Content_1:  Content_1,
   Content_2:  Content_2,

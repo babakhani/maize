@@ -27,6 +27,12 @@ const Mixin = {
         },
         icon () {
           return '/static/imgs/img_square_1.svg'
+        },
+        wide () {
+          return '/static/imgs/img_very_wide.svg'
+        },
+        rounded () {
+          return '/static/imgs/img_round.svg'
         }
       }
     })

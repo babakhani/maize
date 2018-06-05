@@ -9,7 +9,7 @@
              id="navbarNav13">
 
           <div class="nav-item float-right">
-            <a :title="$t('toolbox.add-widget')"
+            <a :title="$t('add_widget')"
                v-b-tooltip.hover.bottom.small
                class="nav-link"
                @click="goToAddWidgetMode">
