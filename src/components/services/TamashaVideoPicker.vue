@@ -10,7 +10,9 @@
                         placeholder="Search video here">
           </b-form-input>
           <b-input-group-append>
-            <b-btn variant="search" @click="loadSearchResult" class="loadSearchResult">
+            <b-btn variant="search"
+                   @click="loadSearchResult"
+                   class="loadSearchResult">
               <icon name="search"></icon>
             </b-btn>
           </b-input-group-append>
@@ -19,18 +21,22 @@
     </div>
     <div class="row">
       <div class="col-12 modal-video-picker--box">
-        <div v-if="videoLoading" class="video-loading">
+        <div v-if="videoLoading"
+             class="video-loading">
 
           <h1 class="video-loading--text">loading...</h1>
 
         </div>
         <div class="image-picker-modal--body p-3">
           <div class="row">
-            <div class="col-6 col-sm-6 col-md-3 col-xl-3 h-100 image-picker-modal--image-container"
+            <div class="col-12" v-if="videoList.length == 0">
+              <NoResult></NoResult>
+            </div>
 
+            <div v-else
+                 class="col-6 col-sm-6 col-md-3 col-xl-3 h-100 image-picker-modal--image-container"
                  v-for="videoItem in videoList">
               <div class="image-picker-modal--image-thumb-box"
-
                    @click="pick(videoItem)"
                    @dblclick="pickAndHide(videoItem)">
                 <img
@@ -54,9 +60,10 @@
 <script>
   import axios from 'axios'
   import Icon from "../../../node_modules/vue-awesome/components/Icon";
+  import NoResult from '../partial/NoResult.vue';
 
   export default {
-    components: {Icon},
+    components: {Icon, NoResult},
     name: 'TeamWidget1',
     data () {
       return {
@@ -91,6 +98,9 @@
         this.videoLoading = true
         axios.get(`http://nightlyapi.tamasha.com/api/v1/videos?query=${this.searchQuery}`)
           .then((response) => {
+            console.log('this.videoList================')
+            console.log(this.videoList)
+            console.log('================')
             this.videoList = response.data.data
             this.videoLoading = false
           })
