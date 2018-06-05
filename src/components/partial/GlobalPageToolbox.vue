@@ -8,25 +8,40 @@
         <div class="collapse navbar-collapse"
              id="navbarNav13">
           <ul class="navbar-nav mr-auto">
+
             <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
-                 :title="$t('toolbox.undo')"
+                 :title="$t('export')"
+                 @click="exportPage">
+                <icon name="download"></icon>
+              </a>
+            </li>
+
+
+
+            <li class="nav-item mr-lg-3">
+              <a v-b-tooltip.hover.bottom.small
+                 class="nav-link"
+                 :title="$t('undo')"
                  @click="undo">
                 <icon name="undo"></icon>
               </a>
             </li>
+
+
+
             <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
-                 :title="$t('toolbox.redo')"
+                 :title="$t('redo')"
                  @click="redo">
                 <icon name="redo"></icon>
               </a>
             </li>
             <li class="nav-item mr-lg-3">
               <a class="nav-link"
-                 :title="$t('toolbox.preview_mode')"
+                 :title="$t('preview_mode')"
                  v-b-tooltip.hover.bottom.small
                  href="#">
                 <label class="switch">
@@ -40,7 +55,7 @@
             <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
-                 :title="$t('toolbox.mobile')"
+                 :title="$t('mobile')"
                  @click="setMobilePreviewMode">
                 <icon name="mobile-alt"></icon>
               </a>
@@ -48,7 +63,7 @@
             <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
-                 :title="$t('toolbox.tablet')"
+                 :title="$t('tablet')"
                  @click="setTabletPreviewMode">
                 <icon name="tablet-alt"></icon>
               </a>
@@ -56,7 +71,7 @@
             <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
-                 :title="$t('toolbox.desktop')"
+                 :title="$t('desktop')"
                  @click="setDesktopPreviewMode">
                 <icon name="desktop"></icon>
               </a>

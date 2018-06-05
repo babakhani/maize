@@ -3,7 +3,8 @@
        @dblclick="setPickImageMode(true)">
     <button v-if="editMode"
             class="btn btn-link editable-part--settings-btn"
-            :title="$t('toolbox.bg_settings')"
+            :title="$t('toolbox.settings')"
+            v-b-tooltip.hover.bottom.small
             @click="showToolbox">
       <icon name="cog"></icon>
       <EditablePartToolbox @update="updateStyles"
@@ -16,7 +17,7 @@
          alt="image"
          :contenteditable="editMode"
          @click="setPickImageMode"
-         class="img-fluid mb-3 editable-image-img"
+         class="img-fluid editable-image-img"
          :src="src">
   </div>
 </template>

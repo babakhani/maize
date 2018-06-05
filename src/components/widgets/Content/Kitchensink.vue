@@ -15,7 +15,7 @@
 
               <div class="col-12">
                 <div class="row justify-content-center">
-                  <div class="col-3 col-xs-5">
+                  <div class="col-5 col-xs-5">
 
                     <PlayerEditable name="player"
                                     :editMode="editMode"

@@ -3,7 +3,8 @@
        @dblclick="setPickVideoMode(true)">
     <button v-if="editMode"
             class="btn btn-link editable-part--settings-btn"
-            :title="$t('toolbox.bg_settings')"
+            :title="$t('toolbox.settings')"
+            v-b-tooltip.hover.bottom.small
             @click.prevent.stop="showToolbox">
       <icon name="cog"></icon>
       <EditablePartToolbox @update="updateStyles"
@@ -14,7 +15,8 @@
     </button>
     <button v-if="editMode"
             class="btn btn-link editable-part--upload-btn"
-            :title="$t('toolbox.bg_settings')"
+            :title="$t('modal.upload')"
+            v-b-tooltip.hover.bottom.small
             @click="setPickVideoMode">
       <icon name="upload"></icon>
     </button>
