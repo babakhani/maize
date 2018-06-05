@@ -7,7 +7,7 @@
       <nav class="navbar navbar-expand-lg px-0 py-3">
         <div class="collapse navbar-collapse"
              id="navbarNav13">
-          
+
           <div class="nav-item float-right">
             <a :title="$t('toolbox.add-widget')"
                v-b-tooltip.hover.bottom.small
