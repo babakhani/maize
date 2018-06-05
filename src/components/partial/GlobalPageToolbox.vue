@@ -8,14 +8,22 @@
         <div class="collapse navbar-collapse"
              id="navbarNav13">
 
-            <button v-b-tooltip.hover.bottom.small
-               class="btn btn-outline-primary btn-lg"
-               :title="$t('export')"
-               @click="goToAddWidgetMode">
-              <icon name="plus-square"></icon>
-            </button>
+          <button v-b-tooltip.hover.bottom.small
+                  class="btn btn-outline-primary btn-lg"
+                  :title="$t('export')"
+                  @click="goToAddWidgetMode">
+            <icon name="plus-square"></icon>
+          </button>
 
           <ul class="navbar-nav mr-auto">
+            <li class="nav-item mr-lg-3">
+              <a :title="$t('toolbox.settings')"
+                 v-b-tooltip.hover.top.small
+                 class="nav-link"
+                 v-b-modal.modal1>
+                <icon name="cog"></icon>
+              </a>
+            </li>
             <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
