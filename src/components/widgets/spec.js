@@ -84,6 +84,14 @@ export default [
     data: {}
   },
   {
+    name: 'Feature_1',
+    data: {}
+  },
+  {
+    name: 'Feature_2',
+    data: {}
+  },
+  {
     name: 'Gallery',
     data: {}
   }

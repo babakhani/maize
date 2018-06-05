@@ -1,3 +1,5 @@
+import Feature_1 from './Features/Feature_1'
+import Feature_2 from './Features/Feature_2'
 import Header from './Header/Header'
 import Footer from './Footer/Footer'
 import Kitchensink from './Content/Kitchensink'
@@ -27,6 +29,8 @@ export default {
   Player: Player,
   Kitchensink: Kitchensink,
   Testimonials: Testimonials,
+  Feature_1: Feature_1,
+  Feature_2: Feature_2,
   Content: Content,
   ContentBasic: ContentBasic,
   ContentBasic2: ContentBasic2,

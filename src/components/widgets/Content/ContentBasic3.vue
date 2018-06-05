@@ -14,10 +14,11 @@
           <div class="container">
             <div class="row justify-content-center">
               <div class="col col-md-8 text-center">
-                <text-editable tag="H1"
+                <text-editable tag="h1"
                                name="mainTitle"
                                :partData="touchedData.mainTitle">
                 </text-editable>
+                <br>
                 <text-editable tag="p"
                                name="secondTitle"
                                cssClass="text-h3"
@@ -27,7 +28,6 @@
             </div>
           </div>
         </section>
-
       </BgEditable>
     </div>
   </div>
