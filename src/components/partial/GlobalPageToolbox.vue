@@ -7,19 +7,15 @@
       <nav class="navbar navbar-expand-lg px-0 py-3">
         <div class="collapse navbar-collapse"
              id="navbarNav13">
+
+            <button v-b-tooltip.hover.bottom.small
+               class="btn btn-outline-primary btn-lg"
+               :title="$t('export')"
+               @click="goToAddWidgetMode">
+              <icon name="plus-square"></icon>
+            </button>
+
           <ul class="navbar-nav mr-auto">
-
-            <li class="nav-item mr-lg-3">
-              <a v-b-tooltip.hover.bottom.small
-                 class="nav-link"
-                 :title="$t('export')"
-                 @click="exportPage">
-                <icon name="download"></icon>
-              </a>
-            </li>
-
-
-
             <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
@@ -28,9 +24,6 @@
                 <icon name="undo"></icon>
               </a>
             </li>
-
-
-
             <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
@@ -104,6 +97,9 @@
   export default {
     name: 'PageToolbax',
     methods: {
+      goToAddWidgetMode() {
+        this.$store.dispatch('layout/setAddWidgetMode', true)
+      },
       toggleLanguage () {
         if (this.currentLocale == 'fa') {
           this.$store.dispatch('locale/changeLang', 'en')

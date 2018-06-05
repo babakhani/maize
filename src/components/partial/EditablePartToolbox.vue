@@ -13,7 +13,7 @@
           <!--Font Size-->
           <div class="dropdown">
             <button :title="$t('toolbox.font-family')"
-                    v-b-tooltip.hover.bottom.small
+                    v-b-tooltip.hover.top.small
                     class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                     type="button"
                     id="dropdownMenuButtonFamily"
@@ -42,7 +42,7 @@
           </div>
           <div class="dropdown">
             <button :title="$t('toolbox.font-size')"
-                    v-b-tooltip.hover.bottom.small
+                    v-b-tooltip.hover.top.small
                     class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                     type="button"
                     id="dropdownMenuButton"
@@ -79,7 +79,7 @@
           </div>
 
           <button :title="$t('toolbox.bold')"
-                  v-b-tooltip.hover.bottom.small
+                  v-b-tooltip.hover.top.small
                   @click="toggleBold()"
                   :class="{'widget-text-editable--selected': styles['font-weight'] == 'bold'}"
                   class="btn btn-sm widget-text-editable--toolbox--button">
@@ -87,14 +87,14 @@
           </button>
 
           <button :title="$t('toolbox.underline')"
-                  v-b-tooltip.hover.bottom.small
+                  v-b-tooltip.hover.top.small
                   @click="toggleTextDecoration()"
                   :class="{'widget-text-editable--selected': styles['text-decoration'] == 'underline'}"
                   class="btn btn-sm widget-text-editable--toolbox--button">
             <maizcon name="underline"></maizcon>
           </button>
           <button :title="$t('toolbox.line-through')"
-                  v-b-tooltip.hover.bottom.small
+                  v-b-tooltip.hover.top.small
                   @click="toggleThroughDecoration()"
                   :class="{'widget-text-editable--selected': styles['text-decoration'] == 'line-through'}"
                   class="btn btn-sm widget-text-editable--toolbox--button">
@@ -102,7 +102,7 @@
           </button>
 
           <button :title="$t('toolbox.link')"
-                  v-b-tooltip.hover.bottom.small
+                  v-b-tooltip.hover.top.small
                   @click="setPickLinkMode"
                   class="btn btn-sm widget-text-editable--toolbox--button">
             <maizcon name="link"></maizcon>
@@ -113,7 +113,7 @@
           <div class="dropdown">
             <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                     :title="$t('toolbox.alignment')"
-                    v-b-tooltip.hover.bottom.small
+                    v-b-tooltip.hover.top.small
                     type="button"
                     id="dropdownMenuButton2"
                     data-toggle="dropdown"
@@ -158,7 +158,7 @@
           <div class="dropdown">
             <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                     :title="$t('toolbox.line-space')"
-                    v-b-tooltip.hover.bottom.small
+                    v-b-tooltip.hover.top.small
                     type="button"
                     id="dropdownMenuButton4"
                     data-toggle="dropdown"
@@ -189,7 +189,7 @@
 
           <button :class="{'widget-text-editable--selected': styles['text-indent'] != '0'}"
                   :title="$t('toolbox.indent')"
-                  v-b-tooltip.hover.bottom.small
+                  v-b-tooltip.hover.top.small
                   @click="toggleTextIndent()"
                   class="btn btn-sm widget-text-editable--toolbox--button">
             <maizcon name="indent-increase"></maizcon>
@@ -208,7 +208,7 @@
           <div class="dropdown">
             <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                     :title="$t('toolbox.font-color')"
-                    v-b-tooltip.hover.bottom.small
+                    v-b-tooltip.hover.top.small
                     type="button"
                     id="dropdownMenuButtonColor"
                     data-toggle="dropdown"
@@ -228,7 +228,7 @@
           <div class="dropdown">
             <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                     :title="$t('toolbox.bg-color')"
-                    v-b-tooltip.hover.bottom.small
+                    v-b-tooltip.hover.top.small
                     type="button"
                     id="dropdownMenuButtonBgColor"
                     data-toggle="dropdown"
@@ -250,7 +250,7 @@
              class="widget-text-editable--toolbox--group">
           <div class="dropdown">
             <button :title="$t('toolbox.border-width')"
-                    v-b-tooltip.hover.bottom.small
+                    v-b-tooltip.hover.top.small
                     class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                     type="button"
                     title="border width"
@@ -276,7 +276,7 @@
 
           <div class="dropdown">
             <button :title="$t('toolbox.border-style')"
-                    v-b-tooltip.hover.bottom.small
+                    v-b-tooltip.hover.top.small
                     class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                     type="button"
                     id="dropdownMenuButton6"
@@ -308,7 +308,7 @@
           <div class="dropdown">
             <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                     :title="$t('toolbox.border-color')"
-                    v-b-tooltip.hover.bottom.small
+                    v-b-tooltip.hover.top.small
                     type="button"
                     id="dropdownMenuButtonBorderColor"
                     data-toggle="dropdown"
@@ -326,7 +326,7 @@
 
           <div class="dropdown">
             <button :title="$t('toolbox.opacity')"
-                    v-b-tooltip.hover.bottom.small
+                    v-b-tooltip.hover.top.small
                     class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                     type="button"
                     id="dropdownMenuButto3"
@@ -354,7 +354,7 @@
              class="widget-text-editable--toolbox--group">
 
           <button :title="$t('toolbox.input-file')"
-                  v-b-tooltip.hover.bottom.small
+                  v-b-tooltip.hover.top.small
                   class="btn btn-sm widget-text-editable--toolbox--button color-box-btn">
             <maizcon name="upload-photo"></maizcon>
             <input type="file"/>
@@ -362,7 +362,7 @@
 
         </div>
         <button :title="$t('toolbox.close')"
-                v-b-tooltip.hover.bottom.small
+                v-b-tooltip.hover.top.small
                 @click="hide"
                 class="btn btn-sm btn-danger float-right widget-text-editable--toolbox--close">
           <icon name="times"></icon>
