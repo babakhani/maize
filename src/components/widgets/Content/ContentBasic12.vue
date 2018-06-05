@@ -1,5 +1,6 @@
 <template>
-  <div :class="{'container': !data.config.fullWidth}">
+  <div v-if="touchedData !== {}"
+       :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
     <div class="widget-block">
       <WidgetToolbox></WidgetToolbox>
       <div class="widget-block--name">
@@ -7,24 +8,31 @@
       </div>
       <BgEditable
         name="bg"
-        :editMode="editMode"
-        :styles="data.bg.styles">
-
+        v-if="touchedData.bg"
+        :partData="touchedData.bg">
         <section class="fdb-block">
           <div class="container">
             <div class="row align-items-center">
               <div class="col-12 col-md-6 col-lg-5">
-                <h1>Design Blocks</h1>
-                <p class="text-h3">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                <text-editable tag="h1"
+                               name="mainTitle"
+                               :partData="touchedData.mainTitle">
+                </text-editable>
+                <text-editable tag="p"
+                               name="description"
+                               cssClass="text-h3"
+                               :partData="touchedData.description">
+                </text-editable>
               </div>
               <div class="col-12 col-md-6 ml-md-auto mt-4 mt-md-0">
-                <img alt="image" class="img-fluid" src="/static/imgs/colors_wide_1.jpg">
+                <ImageEditable name="image"
+                               cssClass="img-fluid"
+                               :partData="touchedData.image">
+                </ImageEditable>
               </div>
             </div>
           </div>
         </section>
-
-
       </BgEditable>
     </div>
   </div>
@@ -34,10 +42,10 @@
   import widgetMixin from '@/mixins/widget'
 
   export default {
-    name: 'ContentBasic10',
+    name: 'ContentBasic12',
     mixins: [widgetMixin],
     props: {
-      data: {
+      defaultData: {
         default () {
           return {
             // general widget config
@@ -49,14 +57,16 @@
             },
             mainTitle: {
               styles: {},
-              text: 'Content title'
+              text: this.faker.lorem.words(3),
             },
-            secondTitle: {
+            description: {
               styles: {},
-              text: 'Link 2',
-              src: 'Lorem ipsum dolor sit amet, has sonet perpetua ex, ad lorem nulla verterem sed. Eos assum sonet ocurreret ad, at munere soluta euismod duo, id has dolorum omnesque iracundia. In usu legere laboramus. Ullum quidam causae cu sed, doming persius eu nec. Fugit definitionem in mea, ut nec equidem nostrum dissentiunt.\n'
-            }, image: {
-              styles: {}, src: '/static/imgs/colors_wide_1.jpg'
+              text: this.faker.lorem.words(100),
+              src: this.faker.internet.url(),
+            },
+            image: {
+              styles: {},
+              src: this.faker.img.big()
             }
           }
         },

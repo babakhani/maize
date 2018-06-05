@@ -9,120 +9,122 @@
             @click="showToolbox">
       <icon name="cog"></icon>
       <EditablePartToolbox @update="updateStyles"
-                           :currentStyles="styles"
+                           :currentStyles="touchedData.styles"
                            @setPickLinkMode="setPickLinkMode"
                            v-if="editMode && toolboxVisible"
                            @hide="hideToolbox">
       </EditablePartToolbox>
     </button>
-    <h1 v-bind:style="styles"
+    <h1 v-bind:style="touchedData.styles"
         v-if="tag === 'h1'"
-        :class="cssClass"
+        :class="touchedData.cssClass"
         :contenteditable="editMode"
         @focusout="updateTextOnBlur"
         @dblclick="goToEditMode"
         @paste="onPaste"
-        @input="updateText">{{text}}</h1>
-    <h2 v-bind:style="styles"
-        :class="cssClass"
+        @input="updateText">
+      {{touchedData.text}}
+    </h1>
+    <h2 v-bind:style="touchedData.styles"
+        :class="touchedData.cssClass"
         v-if="tag === 'h2'"
         :contenteditable="editMode"
         @dblclick="goToEditMode"
         @paste="onPaste"
         @input="updateText">
 
-      {{text}}
+      {{touchedData.text}}
     </h2>
-    <h3 v-bind:style="styles"
+    <h3 v-bind:style="touchedData.styles"
         v-if="tag === 'h3'"
-        :class="cssClass"
+        :class="touchedData.cssClass"
         @focusout="updateTextOnBlur"
         :contenteditable="editMode"
         @dblclick="goToEditMode"
         @paste="onPaste"
         @input="updateText">
-      {{text}}
+      {{touchedData.text}}
     </h3>
-    <h4 v-bind:style="styles"
+    <h4 v-bind:style="touchedData.styles"
         v-if="tag === 'h4'"
-        :class="cssClass"
+        :class="touchedData.cssClass"
         @focusout="updateTextOnBlur"
         :contenteditable="editMode"
         @dblclick="goToEditMode"
         @paste="onPaste"
         @input="updateText">
 
-      {{text}}
+      {{touchedData.text}}
     </h4>
-    <h5 v-bind:style="styles"
+    <h5 v-bind:style="touchedData.styles"
         v-if="tag === 'h5'"
-        :class="cssClass"
+        :class="touchedData.cssClass"
         @focusout="updateTextOnBlur"
         :contenteditable="editMode"
         @dblclick="goToEditMode"
         @paste="onPaste"
         @input="updateText">
-      {{text}}
+      {{touchedData.text}}
     </h5>
-    <h6 v-bind:style="styles"
+    <h6 v-bind:style="touchedData.styles"
         v-if="tag === 'h6'"
-        :class="cssClass"
+        :class="touchedData.cssClass"
         @focusout="updateTextOnBlur"
         :contenteditable="editMode"
         @dblclick="goToEditMode"
         @paste="onPaste"
         @input="updateText">
 
-      {{text}}
+      {{touchedData.text}}
     </h6>
-    <span v-bind:style="styles"
+    <span v-bind:style="touchedData.styles"
           v-if="tag === 'span'"
-          :class="cssClass"
+          :class="touchedData.cssClass"
           @focusout="updateTextOnBlur"
           :contenteditable="editMode"
           @dblclick="goToEditMode"
           @paste="onPaste"
           @input="updateText">
 
-      {{text}}
+    {{touchedData.text}}
     </span>
-    <p v-bind:style="styles"
+    <p v-bind:style="touchedData.styles"
        v-if="tag === 'p'"
-       :class="cssClass"
+       :class="touchedData.cssClass"
        @focusout="updateTextOnBlur"
        :contenteditable="editMode"
        @dblclick="goToEditMode"
        @paste="onPaste"
        @input="updateText">
-      {{text}}
+      {{touchedData.text}}
     </p>
 
-    <strong v-bind:style="styles"
-       v-if="tag === 'strong'"
-       :class="cssClass"
-       @focusout="updateTextOnBlur"
-       :contenteditable="editMode"
-       @dblclick="goToEditMode"
-       @paste="onPaste"
-       @input="updateText">
-      {{text}}
-    </strong>
-
-    <em v-bind:style="styles"
-            v-if="tag === 'em'"
-            :class="cssClass"
+    <strong v-bind:style="touchedData.styles"
+            v-if="tag === 'strong'"
+            :class="touchedData.cssClass"
             @focusout="updateTextOnBlur"
             :contenteditable="editMode"
             @dblclick="goToEditMode"
             @paste="onPaste"
             @input="updateText">
-      {{text}}
+      {{touchedData.text}}
+    </strong>
+
+    <em v-bind:style="touchedData.styles"
+        v-if="tag === 'em'"
+        :class="touchedData.cssClass"
+        @focusout="updateTextOnBlur"
+        :contenteditable="editMode"
+        @dblclick="goToEditMode"
+        @paste="onPaste"
+        @input="updateText">
+      {{touchedData.text}}
     </em>
 
-    <a v-bind:style="styles"
+    <a v-bind:style="touchedData.styles"
        v-if="tag === 'a'"
-       :class="cssClass"
-       :href="src"
+       :class="touchedData.cssClass"
+       :href="touchedData.src"
        target="_blank"
        @focusout="updateTextOnBlur"
        :contenteditable="editMode"
@@ -130,13 +132,14 @@
        @click.native="preventInEditMode"
        @paste="onPaste"
        @input="updateText">
-      {{text}}
+      {{touchedData.text}}
     </a>
   </div>
 </template>
 <script>
   import EditablePartMixin from '../../mixins/editablePart'
   import {EventBus} from '../../events/event-bus'
+
   export default {
     name: 'TextEditable',
     mixins: [EditablePartMixin],
@@ -153,19 +156,12 @@
         }
       },
       setPickLinkMode () {
-        console.log('setPickLinkMode -----------------------------------')
         this.goToEditMode()
         if (this.editMode || noCheckState == true) {
           this.$store.dispatch('layout/setPickLinkMode', true)
           EventBus.$once('pickLink', (linkSrc) => {
-
-            console.log('text editabl picked link')
-            this.updateData({
-              name: this.name,
-              data: {
-                src: linkSrc
-              }
-            })
+            this.touchedData.src = linkSrc
+            this.updateWidget()
           })
         }
       },

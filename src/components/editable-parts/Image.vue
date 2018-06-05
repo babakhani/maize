@@ -9,16 +9,17 @@
       <icon name="cog"></icon>
       <EditablePartToolbox @update="updateStyles"
                            :groups="['background', 'border', 'general', 'text']"
-                           :currentStyles="styles"
+                           :currentStyles="touchedData.styles"
                            v-if="editMode && toolboxVisible"
                            @hide="hideToolbox"></EditablePartToolbox>
     </button>
-    <img :style="styles"
+    <img :style="touchedData.styles"
          alt="image"
+         :class="cssClass"
          :contenteditable="editMode"
          @click="setPickImageMode"
          class="img-fluid editable-image-img"
-         :src="src">
+         :src="touchedData.src">
   </div>
 </template>
 
@@ -35,14 +36,8 @@
         if (this.editMode || noCheckState == true) {
           this.$store.dispatch('layout/setPickImageMode', true)
           EventBus.$once('pickImage', (imageSrc) => {
-
-            console.log('image editable pickImage')
-            this.updateData({
-              name: this.name,
-              data: {
-                src: imageSrc
-              }
-            })
+            this.touchedData.src = imageSrc
+            this.updateWidget()
           })
         }
       },

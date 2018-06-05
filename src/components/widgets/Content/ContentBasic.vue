@@ -1,5 +1,6 @@
 <template>
-  <div :class="{'container': !data.config.fullWidth}">
+  <div v-if="touchedData !== {}"
+       :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
     <div class="widget-block">
       <WidgetToolbox></WidgetToolbox>
       <div class="widget-block--name">
@@ -7,24 +8,24 @@
       </div>
       <BgEditable
         name="bg"
-        :editMode="editMode"
-        :styles="data.bg.styles">
-
+        v-if="touchedData.bg"
+        :partData="touchedData.bg">
         <section class="fdb-block">
           <div class="container">
             <div class="row justify-content-center">
               <div class="col col-md-8 text-center">
-                <h1>Froala Design Blocks</h1>
+                <text-editable tag="h1"
+                               name="mainTitle"
+                               :partData="touchedData.mainTitle">
+                </text-editable>
               </div>
             </div>
           </div>
         </section>
-
       </BgEditable>
     </div>
   </div>
 </template>
-
 <script>
   import widgetMixin from '@/mixins/widget'
 
@@ -32,7 +33,7 @@
     name: 'ContentBasic',
     mixins: [widgetMixin],
     props: {
-      data: {
+      defaultData: {
         default () {
           return {
             // general widget config
@@ -44,12 +45,8 @@
             },
             mainTitle: {
               styles: {},
-              text: 'Content title'
+              text: this.faker.company.companyName()
             },
-            secondTitle: {
-              styles: {},
-              text: 'Link 2', src: 'Lorem ipsum dolor sit amet, has sonet perpetua ex, ad lorem nulla verterem sed. Eos assum sonet ocurreret ad, at munere soluta euismod duo, id has dolorum omnesque iracundia. In usu legere laboramus. Ullum quidam causae cu sed, doming persius eu nec. Fugit definitionem in mea, ut nec equidem nostrum dissentiunt.\n' }, image: { styles: {}, src: '/static/imgs/colors_wide_1.jpg'
-            }
           }
         },
         require: false
