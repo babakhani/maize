@@ -24,6 +24,46 @@ export default [
     data: {}
   },
   {
+    name: 'ContentBasic',
+    data: {}
+  },
+  {
+    name: 'ContentBasic2',
+    data: {}
+  },
+  {
+    name: 'ContentBasic3',
+    data: {}
+  },
+  {
+    name: 'ContentBasic4',
+    data: {}
+  },
+  {
+    name: 'ContentBasic5',
+    data: {}
+  },
+  {
+    name: 'ContentBasic6',
+    data: {}
+  },
+  {
+    name: 'ContentBasic7',
+    data: {}
+  },
+  {
+    name: 'ContentBasic8',
+    data: {}
+  },
+  {
+    name: 'ContentBasic9',
+    data: {}
+  },
+  {
+    name: 'ContentBasic10',
+    data: {}
+  },
+  {
     name: 'Gallery',
     data: {}
   }

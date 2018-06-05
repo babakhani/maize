@@ -8,6 +8,16 @@
   margin-top: 2em;
   margin-bttom: 3em;
 
+  .widget-block--name{
+    display: block;
+    width: 120px;
+    height: 3em;
+    line-height: 3em;
+    position: absolute;
+    left: 4em;
+    color: #999;
+    font-weight: bold;
+  }
   // Preview Mode Styles
   .editor-page-preview-mode & {
     border: 0;
@@ -19,6 +29,7 @@
     -webkit-box-shadow: none;
     box-shadow: none;
 
+    .widget-block--name,
     .widget-block--toolbox {
       display: none;
     }

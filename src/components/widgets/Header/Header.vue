@@ -8,6 +8,9 @@
         @toggleFullWidth="toggleFullWidth"
         @toggleEditMode="toggleEditMode"
         @deleteWidget="deleteWidget"></WidgetToolbox>
+      <div class="widget-block--name">
+        {{$options.name}}
+      </div>
       <BgEditable
         name="bg"
         @update="updateData"

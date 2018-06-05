@@ -10,40 +10,16 @@
         :editMode="editMode"
         :styles="data.bg.styles">
 
-        <section class="fdb-block fp-active"
-                 data-block-type="contents"
-                 data-id="2"
-                 draggable="true">
+        <section class="fdb-block">
           <div class="container">
-            <div class="row align-items-center">
-              <div class="col-12 col-md-6 col-lg-5">
-                <text-editable tag="h1"
-                               name="mainTitle"
-                               :cssClass="''"
-                               :editMode="editMode"
-                               :styles="data.mainTitle.styles"
-                               :text="data.mainTitle.text">
-                </text-editable>
-                <br>
-                <text-editable tag="p"
-                               name="secondTitle"
-                               :cssClass="'text-h3'"
-                               :editMode="editMode"
-                               :styles="data.secondTitle.styles"
-                               :text="data.secondTitle.text">
-                </text-editable>
-              </div>
-              <div class="col-12 col-md-6 ml-md-auto mt-4 mt-md-0">
-                <ImageEditable name="image"
-                               :cssClass="'img-fluid'"
-                               :editMode="editMode"
-                               :styles="data.image.styles"
-                               :src="data.image.src">
-                </ImageEditable>
+            <div class="row justify-content-center">
+              <div class="col col-md-8 text-center">
+                <h1>Froala Design Blocks</h1>
               </div>
             </div>
           </div>
         </section>
+
       </BgEditable>
     </div>
   </div>
@@ -53,7 +29,7 @@
   import widgetMixin from '@/mixins/widget'
 
   export default {
-    name: 'Content',
+    name: 'ContentBasic',
     mixins: [widgetMixin],
     props: {
       data: {
