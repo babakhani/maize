@@ -253,7 +253,6 @@
                     v-b-tooltip.hover.top.small
                     class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                     type="button"
-                    title="border width"
                     id="dropdownMenuButto5"
                     data-toggle="dropdown"
                     aria-haspopup="true"

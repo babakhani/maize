@@ -7,15 +7,25 @@
       <nav class="navbar navbar-expand-lg px-0 py-3">
         <div class="collapse navbar-collapse"
              id="navbarNav13">
-
-            <button v-b-tooltip.hover.bottom.small
-               class="btn btn-outline-primary btn-lg"
-               :title="$t('export')"
+          
+          <div class="nav-item float-right">
+            <a :title="$t('toolbox.add-widget')"
+               v-b-tooltip.hover.bottom.small
+               class="nav-link"
                @click="goToAddWidgetMode">
               <icon name="plus-square"></icon>
-            </button>
+            </a>
+          </div>
 
           <ul class="navbar-nav mr-auto">
+            <li class="nav-item mr-lg-3">
+              <a :title="$t('toolbox.settings')"
+                 v-b-tooltip.hover.top.small
+                 class="nav-link"
+                 v-b-modal.modal1>
+                <icon name="cog"></icon>
+              </a>
+            </li>
             <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
