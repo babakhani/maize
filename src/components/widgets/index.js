@@ -14,6 +14,11 @@ import ContentBasic7 from './Content/ContentBasic7'
 import ContentBasic8 from './Content/ContentBasic8'
 import ContentBasic9 from './Content/ContentBasic9'
 import ContentBasic10 from './Content/ContentBasic10'
+import ContentBasic11 from './Content/ContentBasic11'
+import ContentBasic12 from './Content/ContentBasic12'
+import ContentBasic13 from './Content/ContentBasic13'
+import ContentBasic14 from './Content/ContentBasic14'
+import ContentBasic15 from './Content/ContentBasic15'
 import Gallery from './Gallery/Gallery'
 
 export default {
@@ -33,5 +38,10 @@ export default {
   ContentBasic8: ContentBasic8,
   ContentBasic9: ContentBasic9,
   ContentBasic10: ContentBasic10,
+  ContentBasic11: ContentBasic11,
+  ContentBasic12: ContentBasic12,
+  ContentBasic13: ContentBasic13,
+  ContentBasic14: ContentBasic14,
+  ContentBasic15: ContentBasic15,
   Gallery: Gallery
 }
