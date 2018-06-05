@@ -17,7 +17,7 @@
          alt="image"
          :contenteditable="editMode"
          @click="setPickImageMode"
-         class="img-fluid mb-3 editable-image-img"
+         class="img-fluid editable-image-img"
          :src="src">
   </div>
 </template>

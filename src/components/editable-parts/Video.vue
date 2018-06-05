@@ -24,7 +24,7 @@
     <img v-bind:style="styles"
          alt="image"
          @click="setPickVideoMode"
-         class="img-fluid mb-3 editable-image-img"
+         class="img-fluid editable-image-img"
          :contenteditable="editMode"
          :src="src">
   </div>

@@ -21,7 +21,7 @@
         border-bottom-left-radius : 0;
         border: 1px solid red;
         background-color: red;
-        line-height: 1em;
+        //line-height: 1em;
         height: 100%;
         padding-top: .75em;
       }
@@ -73,7 +73,7 @@
       bottom: .5em;
       right: .5em;
       left: .5em;
-      background: #ddd;
+      background: rgba(0, 0, 0, 0.4);
       cursor: pointer;
       &.image-picker-modal-selected {
         outline: 2px solid rgba(40, 167, 70, 0.6);
