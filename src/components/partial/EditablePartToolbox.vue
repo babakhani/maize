@@ -205,22 +205,45 @@
           <!--name="arrow-right"></icon>-->
           <!--</button>-->
 
-          <button :title="$t('toolbox.font-color')"
-                  v-b-tooltip.hover.bottom.small
-                  class="btn btn-sm widget-text-editable--toolbox--button color-box-btn">
-            <maizcon name="back-color"></maizcon>
-            <input type="color"></maizcon>
-            <input type="color"
-                   @input="updateColor"/>
-          </button>
+          <div class="dropdown">
+            <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
+                    :title="$t('toolbox.font-color')"
+                    v-b-tooltip.hover.bottom.small
+                    type="button"
+                    id="dropdownMenuButtonColor"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false">
+              <maizcon name="back-color"></maizcon>
+            </button>
+            <div class="dropdown-menu"
+                 aria-labelledby="dropdownMenuButtonColor">
+              <compact-picker :value="styles['color']"
+                              @input="updateColor">
+              </compact-picker>
+            </div>
+          </div>
 
-          <button :title="$t('toolbox.bg-color')"
-                  v-b-tooltip.hover.bottom.small
-                  class="btn btn-sm widget-text-editable--toolbox--button color-box-btn">
-            <maizcon name="color-fill"></maizcon>
-            <input type="color"
-                   @input="updateBgColor"/>
-          </button>
+
+          <div class="dropdown">
+            <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
+                    :title="$t('toolbox.bg-color')"
+                    v-b-tooltip.hover.bottom.small
+                    type="button"
+                    id="dropdownMenuButtonBgColor"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false">
+              <maizcon name="color-fill"></maizcon>
+            </button>
+            <div class="dropdown-menu"
+                 aria-labelledby="dropdownMenuButtonBgColor">
+              <compact-picker :value="styles['background-color']"
+                              @input="updateBgColor">
+              </compact-picker>
+            </div>
+          </div>
+
         </div>
 
         <div v-if="groups.indexOf('border') > -1"
@@ -282,13 +305,24 @@
             </div>
           </div>
 
-          <button :title="$t('toolbox.border-color')"
-                  v-b-tooltip.hover.bottom.small
-                  class="btn btn-sm widget-text-editable--toolbox--button color-box-btn">
-            <maizcon name="border-color"></maizcon>
-            <input type="color"
-                   @input="updateBorderColor"/>
-          </button>
+          <div class="dropdown">
+            <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
+                    :title="$t('toolbox.border-color')"
+                    v-b-tooltip.hover.bottom.small
+                    type="button"
+                    id="dropdownMenuButtonBorderColor"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false">
+              <maizcon name="border-color"></maizcon>
+            </button>
+            <div class="dropdown-menu"
+                 aria-labelledby="dropdownMenuButtonBorderColor">
+              <compact-picker :value="styles['border-color']"
+                              @input="updateBorderColor">
+              </compact-picker>
+            </div>
+          </div>
 
           <div class="dropdown">
             <button :title="$t('toolbox.opacity')"
@@ -348,9 +382,19 @@
 </template>
 <script>
   import maizcon from '../partial/MaizeCon.vue'
+  import {Material, Compact, Swatches, Slider, Sketch, Chrome, Photoshop} from 'vue-color'
   export default {
     name: 'EditablePartToolbox',
-    components: {maizcon},
+    components: {
+      'maizcon': maizcon,
+      'material-picker': Material,
+      'compact-picker': Compact,
+      'swatches-picker': Swatches,
+      'slider-picker': Slider,
+      'sketch-picker': Sketch,
+      'chrome-picker': Chrome,
+      'photoshop-picker': Photoshop
+    },
     props: {
       currentStyles: {
         default () {
@@ -413,11 +457,11 @@
         this.update()
       },
       updateColor (e) {
-        this.styles['color'] = e.target.value
+        this.styles['color'] = e.hex
         this.update()
       },
       updateBgColor (e) {
-        this.styles['background-color'] = e.target.value
+        this.styles['background-color'] = e.hex
         this.update()
       },
       align (direction) {
@@ -482,7 +526,7 @@
         this.update()
       },
       updateBorderColor (e) {
-        this.styles['border-color'] = e.target.value
+        this.styles['border-color'] = e.hex
         this.update()
       },
       borderWidth (e) {
