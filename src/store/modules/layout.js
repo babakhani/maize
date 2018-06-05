@@ -8,9 +8,11 @@ export default {
     pickImageMode: false,
     pickVideoMode: false,
     pickVideoType: false,
-    pickLinkType: false
+    pickLinkType: false,
+    settingsMode: false
   },
   mutations: {
+
     setMobilePreviewMode (state, payload) {
       state.mobilePreviewMode = payload
       if (payload) {
@@ -43,6 +45,9 @@ export default {
     },
     setPickLinkMode (state, payload) {
       state.pickLinkType = payload
+    },
+    setSettingsMode (state, payload) {
+      state.settingsMode = payload
     }
   },
   actions: {
@@ -69,6 +74,9 @@ export default {
     },
     setPickLinkMode (context, payload) {
       context.commit('setPickLinkMode', payload)
+    },
+    setSettingsMode (context, payload) {
+      context.commit('setSettingsMode', payload)
     }
   }
 }

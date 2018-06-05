@@ -22,7 +22,7 @@
               <a :title="$t('toolbox.settings')"
                  v-b-tooltip.hover.top.small
                  class="nav-link"
-                 v-b-modal.modal1>
+                 @click="goToSettingsMode">
                 <icon name="cog"></icon>
               </a>
             </li>
@@ -107,7 +107,7 @@
   export default {
     name: 'PageToolbax',
     methods: {
-      goToAddWidgetMode() {
+      goToAddWidgetMode () {
         this.$store.dispatch('layout/setAddWidgetMode', true)
       },
       toggleLanguage () {
@@ -141,6 +141,9 @@
       },
       exportPage () {
         this.$store.dispatch('exportPage/exportPage', true)
+      },
+      goToSettingsMode () {
+        this.$store.dispatch('layout/setSettingsMode', true)
       }
     },
     computed: {

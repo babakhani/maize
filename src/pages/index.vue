@@ -24,6 +24,7 @@
     <ImagePickerModal></ImagePickerModal>
     <VideoPickerModal></VideoPickerModal>
     <LinkPickerModal></LinkPickerModal>
+    <ModalSettings></ModalSettings>
   </div>
 </template>
 <script>
@@ -33,6 +34,7 @@
   import ImagePickerModal from '../components/partial/ModalImagePicker'
   import VideoPickerModal from '../components/partial/ModalVideoPicker'
   import LinkPickerModal from '../components/partial/ModalLinkPicker'
+  import ModalSettings from '../components/partial/ModalSettings'
 
   export default {
     name: 'Events',
@@ -55,7 +57,8 @@
       LinkPickerModal,
       draggable,
       ImagePickerModal,
-      VideoPickerModal
+      VideoPickerModal,
+      ModalSettings
     },
     computed: {
       previewMode () {
