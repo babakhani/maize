@@ -4,7 +4,7 @@ import VideoEditable from '@/components/editable-parts/Video.vue'
 import BgEditable from '@/components/editable-parts/Bg.vue'
 import PlayerEditable from '@/components/editable-parts/Player.vue'
 import WidgetToolbox from '../components/partial/WidgetToolbox'
-
+import faker from 'faker'
 
 const Mixin = {
   components: {TextEditable, ImageEditable, BgEditable, WidgetToolbox, VideoEditable, PlayerEditable},
@@ -14,6 +14,15 @@ const Mixin = {
       editMode: true,
       fullWidth: false
     }
+  },
+  beforeCreate () {
+    this.faker = $.extend(faker, {
+      img: {
+        big () {
+          return '/static/imgs/colors_wide_1.jpg'
+        }
+      }
+    })
   },
   mounted () {
     this.data = this._.extend(this.data, this.widgetData)
