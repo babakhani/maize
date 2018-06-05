@@ -125,7 +125,7 @@
   import widgetMixin from '@/mixins/widget'
 
   export default {
-    name: 'Feature_1',
+    name: 'Feature_2',
     mixins: [widgetMixin],
     props: {
       defaultData: {

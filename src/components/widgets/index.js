@@ -1,5 +1,6 @@
 import Feature_1 from './Features/Feature_1'
 import Feature_2 from './Features/Feature_2'
+import Feature_3 from './Features/Feature_3'
 import Header from './Header/Header'
 import Footer from './Footer/Footer'
 import Kitchensink from './Content/Kitchensink'
@@ -31,6 +32,7 @@ export default {
   Testimonials: Testimonials,
   Feature_1: Feature_1,
   Feature_2: Feature_2,
+  Feature_3: Feature_3,
   Content: Content,
   ContentBasic: ContentBasic,
   ContentBasic2: ContentBasic2,

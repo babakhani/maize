@@ -92,6 +92,10 @@ export default [
     data: {}
   },
   {
+    name: 'Feature_3',
+    data: {}
+  },
+  {
     name: 'Gallery',
     data: {}
   }
