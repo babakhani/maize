@@ -1,5 +1,6 @@
 <template>
-  <div :class="{'container': !data.config.fullWidth}">
+  <div v-if="touchedData !== {}"
+       :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
     <div class="widget-block">
       <WidgetToolbox></WidgetToolbox>
       <div class="widget-block--name">
@@ -7,35 +8,46 @@
       </div>
       <BgEditable
         name="bg"
-        :editMode="editMode"
-        :styles="data.bg.styles">
-
+        v-if="touchedData.bg"
+        :partData="touchedData.bg">
         <section class="fdb-block">
           <div class="container">
             <div class="row">
               <div class="col text-center">
-                <h1>Froala Design Blocks</h1>
+                <text-editable tag="h1"
+                               name="mainTitle"
+                               :partData="touchedData.mainTitle">
+                </text-editable>
               </div>
             </div>
-
             <div class="row pt-4">
               <div class="col-6 col-md-3">
-                <img alt="image" class="img-fluid" src="/static/imgs/colors_wide_1.jpg">
+                <ImageEditable name="image1"
+                               cssClass="img-fluid"
+                               :partData="touchedData.image1">
+                </ImageEditable>
               </div>
               <div class="col-6 col-md-3">
-                <img alt="image" class="img-fluid" src="/static/imgs/colors_wide_2.jpg">
+                <ImageEditable name="image2"
+                               cssClass="img-fluid"
+                               :partData="touchedData.image2">
+                </ImageEditable>
               </div>
               <div class="col-6 col-md-3 mt-4 mt-md-0">
-                <img alt="image" class="img-fluid" src="/static/imgs/colors_wide_1.jpg">
+                <ImageEditable name="image3"
+                               cssClass="img-fluid"
+                               :partData="touchedData.image3">
+                </ImageEditable>
               </div>
               <div class="col-6 col-md-3 mt-4 mt-md-0">
-                <img alt="image" class="img-fluid" src="/static/imgs/colors_wide_2.jpg">
+                <ImageEditable name="image4"
+                               cssClass="img-fluid"
+                               :partData="touchedData.image4">
+                </ImageEditable>
               </div>
             </div>
           </div>
         </section>
-
-
       </BgEditable>
     </div>
   </div>
@@ -45,10 +57,10 @@
   import widgetMixin from '@/mixins/widget'
 
   export default {
-    name: 'ContentBasic10',
+    name: 'ContentBasic11',
     mixins: [widgetMixin],
     props: {
-      data: {
+      defaultData: {
         default () {
           return {
             // general widget config
@@ -60,14 +72,23 @@
             },
             mainTitle: {
               styles: {},
-              text: 'Content title'
+              text: this.faker.lorem.words(3),
             },
-            secondTitle: {
+            image1: {
               styles: {},
-              text: 'Link 2',
-              src: 'Lorem ipsum dolor sit amet, has sonet perpetua ex, ad lorem nulla verterem sed. Eos assum sonet ocurreret ad, at munere soluta euismod duo, id has dolorum omnesque iracundia. In usu legere laboramus. Ullum quidam causae cu sed, doming persius eu nec. Fugit definitionem in mea, ut nec equidem nostrum dissentiunt.\n'
-            }, image: {
-              styles: {}, src: '/static/imgs/colors_wide_1.jpg'
+              src: this.faker.img.big()
+            },
+            image2: {
+              styles: {},
+              src: this.faker.img.big()
+            },
+            image3: {
+              styles: {},
+              src: this.faker.img.big()
+            },
+            image4: {
+              styles: {},
+              src: this.faker.img.big()
             }
           }
         },

@@ -9,7 +9,7 @@
       <icon name="cog"></icon>
       <EditablePartToolbox @update="updateStyles"
                            :groups="['background', 'border', 'general', 'text']"
-                           :currentStyles="styles"
+                           :currentStyles="touchedData.styles"
                            v-if="editMode && toolboxVisible"
                            @hide="hideToolbox"></EditablePartToolbox>
     </button>
@@ -20,11 +20,11 @@
             @click="setPickVideoMode">
       <icon name="upload"></icon>
     </button>
-    <iframe :src="src"
+    <iframe :src="touchedData.src"
             allowfullscreen="true"
             webkitallowfullscreen="true"
             mozallowfullscreen="true"
-            :style="styles"
+            :style="touchedData.styles"
             @click.self="setPickVideoMode"
             :contenteditable="editMode"
             frameborder="0"></iframe>
@@ -43,12 +43,8 @@
           this.$store.dispatch('layout/setPickVideoMode', true)
           this.$store.dispatch('layout/setPickVideoType', 'embed')
           EventBus.$once('pickVideo', (imageSrc) => {
-            this.updateData({
-              name: this.name,
-              data: {
-                src: imageSrc
-              }
-            })
+            this.touchedData.src = imageSrc
+            this.updateWidget()
           })
         }
       },

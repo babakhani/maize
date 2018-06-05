@@ -4,16 +4,21 @@ import {EventBus} from '../events/event-bus'
 const Mixin = {
   components: {EditablePartToolbox},
   created () {
-    this.touchedStyle = this.text
-    this.touchedStyle = this.styles
   },
   mounted () {
-    this.touchedText = this.text
+    this.touchedData.styles = this.cssClass
+    this.touchedData = this.partData
+    this.touchedText = this.partData.text
     EventBus.$on('igotoeditmode', (uid) => {
       if (this._uid != uid) {
         this.toolboxVisible = false
       }
     })
+  },
+  computed: {
+    editMode () {
+      return !this.$store.state.layout.previewMode
+    }
   },
   methods: {
     toggleEditMode () {
@@ -27,38 +32,28 @@ const Mixin = {
     updateData (payload) {
       this.$parent.updateData(payload)
     },
-    updateWidget (payload) {
-      // this.$emit('update', payload)
-      this.$parent.updateData(payload)
+    updateWidget () {
+      console.log('updateWidget -------------')
+      console.log(this.touchedData)
+      this.$parent.updateData({
+        name: this.name,
+        data: this.touchedData
+      })
     },
     updatePastedText (payload) {
-      this.touchedText = payload
-      this.updateWidget({
-        name: this.name,
-        data: {
-          text: this.touchedText
-        }
-      })
+      this.touchedData.text = payload
+      this.updateWidget()
     },
     updateTextOnBlur () {
-      this.updateWidget({
-        name: this.name,
-        data: {
-          text: this.touchedText
-        }
-      })
+      this.touchedData.text = this.touchedText
+      this.updateWidget()
     },
     updateText (e) {
       this.touchedText = e.target.innerText
     },
     updateStyles (e) {
-      this.touchedStyle = e
-      this.updateWidget({
-        name: this.name,
-        data: {
-          styles: this.touchedStyle
-        }
-      })
+      this.touchedData.styles = e
+      this.updateWidget()
     },
     hideToolbox () {
       this.toolboxVisible = false
@@ -77,37 +72,34 @@ const Mixin = {
     return {
       updateTextTimeout: null,
       uniqeKey: null,
-      touchedStyle: {},
-      toolboxVisible: false
+      toolboxVisible: false,
+      src: null,
+      styles: {},
+      touchedData: {}
     }
   },
   props: {
-    cssClass: {
+    partData: {
       default: '',
+      required: true
+    },
+    cssClass: {
+      default: () => {
+        return {}
+      },
       required: false
     },
     text: {
       default: 'please replace me',
       required: false
     },
-    src: {
-      default: null,
-      require: false
+    name: {
+      default: '',
+      required: false
     },
     tag: {
       default: 'p',
       required: false
-    },
-    name: {
-      default: false
-    },
-    editMode: {
-      default: false
-    },
-    styles: {
-      default () {
-        return {}
-      }
     }
   }
 }

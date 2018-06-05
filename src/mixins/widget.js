@@ -12,7 +12,8 @@ const Mixin = {
   data () {
     return {
       editMode: true,
-      fullWidth: false
+      fullWidth: false,
+      touchedData: {},
     }
   },
   beforeCreate () {
@@ -20,12 +21,18 @@ const Mixin = {
       img: {
         big () {
           return '/static/imgs/colors_wide_1.jpg'
+        },
+        tall () {
+          return '/static/imgs/img_tall.png'
+        },
+        icon () {
+          return '/static/imgs/img_square_1.svg'
         }
       }
     })
   },
   mounted () {
-    this.data = this._.extend(this.data, this.widgetData)
+    this.touchedData = this._.extend(this.defaultData, this.widgetData)
   },
   computed: {
     previewMode () {
@@ -39,7 +46,7 @@ const Mixin = {
       }
     },
     widgetData () {
-      this.data = this._.extend(this.data, this.widgetData)
+      this.touchedData = this._.extend(this.defaultData, this.widgetData)
     }
   },
   props: {

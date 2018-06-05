@@ -1,5 +1,6 @@
 <template>
-  <div :class="{'container': !data.config.fullWidth}">
+  <div v-if="touchedData !== {}"
+       :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
     <div class="widget-block">
       <WidgetToolbox></WidgetToolbox>
       <div class="widget-block--name">
@@ -7,8 +8,8 @@
       </div>
       <BgEditable
         name="bg"
-        :editMode="editMode"
-        :styles="data.bg.styles">
+        v-if="touchedData.bg"
+        :partData="touchedData.bg">
         <section class="fdb-block fp-active"
                  data-block-type="contents"
                  data-id="2"
@@ -18,26 +19,19 @@
               <div class="col-12 col-md-6 col-lg-5">
                 <text-editable tag="h1"
                                name="mainTitle"
-                               :cssClass="''"
-                               :editMode="editMode"
-                               :styles="data.mainTitle.styles"
-                               :text="data.mainTitle.text">
+                               :partData="touchedData.mainTitle">
                 </text-editable>
                 <br>
                 <text-editable tag="p"
                                name="secondTitle"
-                               :cssClass="'text-h3'"
-                               :editMode="editMode"
-                               :styles="data.secondTitle.styles"
-                               :text="data.secondTitle.text">
+                               :partData="touchedData.secondTitle"
+                               :cssClass="'text-h3'">
                 </text-editable>
               </div>
               <div class="col-12 col-md-6 ml-md-auto mt-4 mt-md-0">
                 <ImageEditable name="image"
-                               :cssClass="'img-fluid'"
-                               :editMode="editMode"
-                               :styles="data.image.styles"
-                               :src="data.image.src">
+                               :partData="touchedData.image"
+                               :cssClass="'img-fluid'">
                 </ImageEditable>
               </div>
             </div>
@@ -49,12 +43,11 @@
 </template>
 <script>
   import widgetMixin from '@/mixins/widget'
-
   export default {
     name: 'Content',
     mixins: [widgetMixin],
     props: {
-      data: {
+      defaultData: {
         default () {
           return {
             // general widget config
@@ -72,7 +65,8 @@
               styles: {},
               text: this.faker.lorem.words(30),
               src: this.faker.internet.url(),
-            }, image: {
+            },
+            image: {
               styles: {},
               src: this.faker.img.big()
             }

@@ -9,7 +9,7 @@
       <icon name="cog"></icon>
       <EditablePartToolbox @update="updateStyles"
                            :groups="['background', 'border', 'general', 'text']"
-                           :currentStyles="styles"
+                           :currentStyles="touchedData.styles"
                            v-if="editMode && toolboxVisible"
                            @hide="hideToolbox"></EditablePartToolbox>
     </button>
@@ -21,12 +21,12 @@
       <icon name="upload"></icon>
     </button>
     <!--<input v-if="editMode" class="image&#45;&#45;editable" @change="imageUpload" type="file">-->
-    <img v-bind:style="styles"
+    <img v-bind:style="touchedData.styles"
          alt="image"
          @click="setPickVideoMode"
          class="img-fluid editable-image-img"
          :contenteditable="editMode"
-         :src="src">
+         :src="touchedData.src">
   </div>
 </template>
 <script>
@@ -42,12 +42,8 @@
           this.$store.dispatch('layout/setPickVideoMode', true)
           this.$store.dispatch('layout/setPickVideoType', 'thumb')
           EventBus.$once('pickVideo', (imageSrc) => {
-            this.updateData({
-              name: this.name,
-              data: {
-                src: imageSrc
-              }
-            })
+            this.touchedData.src = imageSrc
+            this.updateWidget()
           })
         }
       },
