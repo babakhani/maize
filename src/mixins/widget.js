@@ -33,6 +33,9 @@ const Mixin = {
         },
         rounded () {
           return '/static/imgs/img_round.svg'
+        },
+        logo () {
+          return '/static/imgs/img_logo.png'
         }
       }
     })

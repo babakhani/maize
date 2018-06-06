@@ -26,6 +26,12 @@ import Feature_25 from './Features/Feature_25'
 import Feature_26 from './Features/Feature_26'
 import Feature_27 from './Features/Feature_27'
 import Header from './Header/Header'
+import Header_1 from './Header/Header_1'
+import Header_2 from './Header/Header_2'
+// import Header_3 from './Header/Header_3'
+// import Header_4 from './Header/Header_4'
+// import Header_5 from './Header/Header_5'
+// import Header_6 from './Header/Header_6'
 import Footer from './Footer/Footer'
 import Kitchensink from './Content/Kitchensink'
 import Player from './Media/Player'
@@ -50,6 +56,12 @@ import Gallery from './Gallery/Gallery'
 
 export default {
   Header: Header,
+  Header_1: Header_1,
+  Header_2: Header_2,
+  // Header_3: Header_3,
+  // Header_4: Header_4,
+  // Header_5: Header_5,
+  // Header_6: Header_6,
   Footer: Footer,
   Player: Player,
   Kitchensink: Kitchensink,

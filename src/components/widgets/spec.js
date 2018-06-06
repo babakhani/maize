@@ -4,6 +4,30 @@ export default [
     data: {}
   },
   {
+    name: 'Header_1',
+    data: {}
+  },
+  {
+    name: 'Header_2',
+    data: {}
+  },
+  // {
+  //   name: 'Header_3',
+  //   data: {}
+  // },
+  // {
+  //   name: 'Header_4',
+  //   data: {}
+  // },
+  // {
+  //   name: 'Header_5',
+  //   data: {}
+  // },
+  // {
+  //   name: 'Header_6',
+  //   data: {}
+  // },
+  {
     name: 'Footer',
     data: {}
   },
