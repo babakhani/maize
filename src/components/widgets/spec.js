@@ -144,6 +144,54 @@ export default [
     data: {}
   },
   {
+    name: 'Feature_16',
+    data: {}
+  },
+  {
+    name: 'Feature_17',
+    data: {}
+  },
+  {
+    name: 'Feature_18',
+    data: {}
+  },
+  {
+    name: 'Feature_19',
+    data: {}
+  },
+  {
+    name: 'Feature_20',
+    data: {}
+  },
+  {
+    name: 'Feature_21',
+    data: {}
+  },
+  {
+    name: 'Feature_22',
+    data: {}
+  },
+  {
+    name: 'Feature_23',
+    data: {}
+  },
+  {
+    name: 'Feature_24',
+    data: {}
+  },
+  {
+    name: 'Feature_25',
+    data: {}
+  },
+  {
+    name: 'Feature_26',
+    data: {}
+  },
+  {
+    name: 'Feature_27',
+    data: {}
+  },
+  {
     name: 'Gallery',
     data: {}
   },
