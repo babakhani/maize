@@ -13,19 +13,16 @@
         <header>
           <div class="container text-center">
             <nav class="navbar">
-              <!--<a class="ml-auto mr-auto" href="https://www.froala.com">-->
-                <!--<img src="/static/imgs/img_logo.png" height="30" alt="image">-->
-              <!--</a>-->
               <!--TODO: fix nested component-->
-                <text-editable tag="a"
-                               cssClass="ml-auto mr-auto"
-                               name="header_link"
-                               :partData="touchedData.header_link">
+                <!--<text-editable tag="a"-->
+                               <!--cssClass="ml-auto mr-auto"-->
+                               <!--name="header_link"-->
+                               <!--:partData="touchedData.header_link">-->
 
+                <!--</text-editable>-->
                 <ImageEditable name="header_image"
                                :partData="touchedData.header_image">
                 </ImageEditable>
-                </text-editable>
             </nav>
           </div>
         </header>

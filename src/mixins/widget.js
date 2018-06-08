@@ -37,6 +37,11 @@ const Mixin = {
         logo () {
           return '/static/imgs/img_logo.png'
         }
+      },
+      footer: {
+        copyright () {
+          return '© 2018 Maize. All Rights Reserved'
+        },
       }
     })
   },

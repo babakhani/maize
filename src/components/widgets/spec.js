@@ -11,14 +11,14 @@ export default [
     name: 'Header_2',
     data: {}
   },
-  // {
-  //   name: 'Header_3',
-  //   data: {}
-  // },
-  // {
-  //   name: 'Header_4',
-  //   data: {}
-  // },
+  {
+    name: 'Header_3',
+    data: {}
+  },
+  {
+    name: 'Header_4',
+    data: {}
+  },
   // {
   //   name: 'Header_5',
   //   data: {}
@@ -28,7 +28,23 @@ export default [
   //   data: {}
   // },
   {
-    name: 'Footer',
+    name: 'Footer_1',
+    data: {}
+  },
+  {
+    name: 'Footer_2',
+    data: {}
+  },
+  {
+    name: 'Footer_3',
+    data: {}
+  },
+  {
+    name: 'Footer_4',
+    data: {}
+  },
+  {
+    name: 'Footer_5',
     data: {}
   },
   {
@@ -217,6 +233,10 @@ export default [
   },
   {
     name: 'Gallery',
+    data: {}
+  },
+  {
+    name: 'Form_1',
     data: {}
   },
 _

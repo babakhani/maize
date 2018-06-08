@@ -28,11 +28,15 @@ import Feature_27 from './Features/Feature_27'
 import Header from './Header/Header'
 import Header_1 from './Header/Header_1'
 import Header_2 from './Header/Header_2'
-// import Header_3 from './Header/Header_3'
-// import Header_4 from './Header/Header_4'
+import Header_3 from './Header/Header_3'
+import Header_4 from './Header/Header_4'
 // import Header_5 from './Header/Header_5'
 // import Header_6 from './Header/Header_6'
-import Footer from './Footer/Footer'
+import Footer_1 from './Footer/Footer_1'
+import Footer_2 from './Footer/Footer_2'
+import Footer_3 from './Footer/Footer_3'
+import Footer_4 from './Footer/Footer_4'
+import Footer_5 from  './Footer/Footer_5'
 import Kitchensink from './Content/Kitchensink'
 import Player from './Media/Player'
 import Testimonials from './Content/Testimonials'
@@ -53,16 +57,21 @@ import Content_13 from './Content/Content_13'
 import Content_14 from './Content/Content_14'
 import Content_15 from './Content/Content_15'
 import Gallery from './Gallery/Gallery'
+import Form_1 from  './Form/Form_1'
 
 export default {
   Header: Header,
   Header_1: Header_1,
   Header_2: Header_2,
-  // Header_3: Header_3,
-  // Header_4: Header_4,
+  Header_3: Header_3,
+  Header_4: Header_4,
   // Header_5: Header_5,
   // Header_6: Header_6,
-  Footer: Footer,
+  Footer_1: Footer_1,
+  Footer_2: Footer_2,
+  Footer_3: Footer_3,
+  Footer_4: Footer_4,
+  Footer_5: Footer_5,
   Player: Player,
   Kitchensink: Kitchensink,
   Testimonials: Testimonials,
@@ -109,5 +118,6 @@ export default {
   Content_13: Content_13,
   Content_14: Content_14,
   Content_15: Content_15,
-  Gallery: Gallery
+  Gallery: Gallery,
+  Form_1: Form_1,
 }
