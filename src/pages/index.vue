@@ -20,7 +20,7 @@
         </div>
       </AddWidget>
     </div>
-    <WidgetListModal></WidgetListModal>
+    <ModalWidgetList></ModalWidgetList>
     <ImagePickerModal></ImagePickerModal>
     <VideoPickerModal></VideoPickerModal>
     <LinkPickerModal></LinkPickerModal>

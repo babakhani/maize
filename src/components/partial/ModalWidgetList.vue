@@ -7,15 +7,22 @@
     size="lg"
     centered
     class="add-widget-modal">
-    <div v-for="item in widgetList"
-         class="add-widget-modal--widget-item"
-         :class="{'add-widget-modal--widget-item--selected': addWidgetList.indexOf(item) > -1}"
-         @click="updateAddList(item)">
-      {{item.name}}
-    </div>
+    <b-tabs card>
+      <template v-for="item in groupedWidgetList">
+        <b-tab v-if="item[0]"
+               :title="item[0]['group']"
+               active>
+          <div v-for="widget in item"
+               class="add-widget-modal--widget-item"
+               :class="{'add-widget-modal--widget-item--selected': addWidgetList.indexOf(widget) > -1}"
+               @click="updateAddList(widget)">
+            {{widget.name}}
+          </div>
+        </b-tab>
+      </template>
+    </b-tabs>
   </b-modal>
 </template>
-
 <script>
   export default {
     name: 'WidgetListModal',
@@ -44,8 +51,8 @@
       modalShowGlobalState () {
         return this.$store.state.layout.addWidgetMode
       },
-      widgetList () {
-        return this.$store.state.main.rawWidgetList
+      groupedWidgetList () {
+        return this._.groupBy(this.$store.state.main.rawWidgetList, 'group')
       }
     },
     data () {
