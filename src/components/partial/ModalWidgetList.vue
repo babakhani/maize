@@ -17,6 +17,7 @@
                :class="{'add-widget-modal--widget-item--selected': addWidgetList.indexOf(widget) > -1}"
                @click="updateAddList(widget)">
             {{widget.name}}
+            <span v-if="addWidgetList.indexOf(widget) > -1">{{addWidgetList.indexOf(widget) + 1}}</span>
           </div>
         </b-tab>
       </template>

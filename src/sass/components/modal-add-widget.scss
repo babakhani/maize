@@ -1,7 +1,13 @@
 .add-widget-modal {
-  .modal-content {
+  .modal-body {
     padding: 0;
-    border: 1px solid red;
+    .modal-content {
+      padding: 0;
+      border: 1px solid red;
+    }
+  }
+  footer {
+    padding: 15px !important;
   }
   .add-widget-modal--widget-item {
     width: 8em;
@@ -18,7 +24,20 @@
     }
 
     &.add-widget-modal--widget-item--selected {
+      position: relative;
       background: rgba(0, 0, 0, 0.3);
+      span {
+        position: absolute;
+        display: block;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        background: rgba(0, 0, 0, .6);
+        color: #fff;
+      }
     }
   }
 }
