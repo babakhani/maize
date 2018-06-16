@@ -1,12 +1,16 @@
+
 <template>
   <div v-if="touchedData !== {}"
        :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
     <div v-if="demoMode">
       <section class="fdb-block">
         <div class="container">
-          <div class="row justify-content-end">
-            <div class="col col-sm-10 col-md-8 text-left">
-              <p class="text-h3">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far <a href="https://www.froala.com">World of Grammar</a>.</p>
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-8 text-center">
+              <h1>Far far away, behind the word mountains, far from</h1>
+              <p class="mt-5">
+                <a class="btn" href="https://www.froala.com">Download</a>
+              </p>
             </div>
           </div>
         </div>
@@ -24,13 +28,19 @@
         :partData="touchedData.bg">
         <section class="fdb-block">
           <div class="container">
-            <div class="row justify-content-end">
-              <div class="col col-sm-10 col-md-8 text-left">
-                <text-editable tag="p"
-                               cssClass="text-h3"
-                               name="description"
-                               :partData="touchedData.description">
+            <div class="row justify-content-center">
+              <div class="col-12 col-md-8 text-center">
+                <text-editable tag="h1"
+                               name="mainTitle"
+                               :partData="touchedData.mainTitle">
                 </text-editable>
+                <p class="mt-5">
+                  <text-editable tag="a"
+                                 cssClass="btn"
+                                 name="action_link"
+                                 :partData="touchedData.action_link">
+                  </text-editable>
+                </p>
               </div>
             </div>
           </div>
@@ -44,7 +54,7 @@
   import widgetMixin from '@/mixins/widget'
 
   export default {
-    name: 'Content_5',
+    name: 'CallToAction_5',
     mixins: [widgetMixin],
     props: {
       defaultData: {
@@ -57,10 +67,14 @@
             bg: {
               styles: {}
             },
-            description: {
+            mainTitle: {
               styles: {},
-              text: this.faker.lorem.words(100),
-              src: this.faker.internet.url(),
+              text: this.faker.lorem.words(9)
+            },
+            action_link: {
+              styles: {},
+              text: this.faker.lorem.words(1),
+              src: this.faker.internet.url
             }
           }
         },

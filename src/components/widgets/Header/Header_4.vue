@@ -1,7 +1,54 @@
 <template>
   <div v-if="touchedData !== {}"
        :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode"> <h1>Demo Mode {{$options.name}}</h1> </div> <div v-else class="widget-block">
+    <div v-if="demoMode">
+      <header>
+        <div class="container">
+          <nav class="navbar navbar-expand-md">
+            <a class="navbar-brand" href="https://www.froala.com">
+              <img src="/static/imgs/img_logo.png" height="30" alt="image">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav1">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="https://www.froala.com">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://www.froala.com">Features</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://www.froala.com">Pricing</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://www.froala.com">Team</a>
+                </li>
+              </ul>
+
+              <ul class="navbar-nav justify-content-end d-none d-lg-flex ml-md-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="https://www.froala.com"><i class="fa fa-slack"></i></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://www.froala.com"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://www.froala.com"><i class="fa fa-github"></i></a>
+                </li>
+              </ul>
+
+              <a class="btn btn-empty ml-md-3" href="https://www.froala.com">Button</a>
+            </div>
+          </nav>
+        </div>
+      </header>
+    </div>
+    <div v-else
+         class="widget-block">
       <WidgetToolbox></WidgetToolbox>
       <div class="widget-block--name">
         {{$options.name}}

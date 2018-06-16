@@ -5,9 +5,13 @@
       <section class="fdb-block">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col col-md-8 text-center">
-              <h1>Froala Design Blocks</h1>
-              <p class="text-h3">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far <a href="https://www.froala.com">World of Grammar</a>.</p>
+            <div class="col-12 col-sm-8 col-md-6 col-lg-4 text-center">
+              <h3>
+                <strong>Right at the coast of the Semantics, a large language ocean. A small river named Duden.</strong>
+              </h3>
+              <p class="mt-5 mt-sm-4">
+                <a class="btn" href="https://www.froala.com">Download</a>
+              </p>
             </div>
           </div>
         </div>
@@ -26,17 +30,18 @@
         <section class="fdb-block">
           <div class="container">
             <div class="row justify-content-center">
-              <div class="col col-md-8 text-center">
-                <text-editable tag="h1"
+              <div class="col-12 col-sm-8 col-md-6 col-lg-4 text-center">
+                <text-editable tag="h3"
                                name="mainTitle"
                                :partData="touchedData.mainTitle">
                 </text-editable>
-                <br>
-                <text-editable tag="p"
-                               name="secondTitle"
-                               cssClass="text-h3"
-                               :partData="touchedData.secondTitle">
-                </text-editable>
+                <p class="mt-5 mt-sm-4">
+                  <text-editable tag="a"
+                                 cssClass="btn"
+                                 name="action_link"
+                                 :partData="touchedData.action_link">
+                  </text-editable>
+                </p>
               </div>
             </div>
           </div>
@@ -50,7 +55,7 @@
   import widgetMixin from '@/mixins/widget'
 
   export default {
-    name: 'Content_3',
+    name: 'CallToAction_3',
     mixins: [widgetMixin],
     props: {
       defaultData: {
@@ -65,12 +70,12 @@
             },
             mainTitle: {
               styles: {},
-              text: this.faker.company.companyName()
+              text: this.faker.lorem.words(15)
             },
-            secondTitle: {
+            action_link: {
               styles: {},
-              text: this.faker.lorem.words(30),
-              src: this.faker.internet.url(),
+              text: this.faker.lorem.words(1),
+              src: this.faker.internet.url
             }
           }
         },

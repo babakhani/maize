@@ -1,7 +1,52 @@
 <template>
   <div v-if="touchedData !== {}"
        :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode"> <h1>Demo Mode {{$options.name}}</h1> </div> <div v-else class="widget-block">
+    <div v-if="demoMode">
+      <section class="fdb-block pb-md-0">
+        <div class="container">
+          <div class="row text-right align-items-center">
+            <div class="col-7 col-md-4 m-auto">
+              <img alt="image" class="img-fluid br-b-0" src="/static/imgs/img_very_tall.png">
+            </div>
+
+            <div class="col-12 col-md-7 col-lg-5 m-auto text-left pt-5 pt-md-0">
+              <div class="row pb-lg-5">
+                <div class="col-3">
+                  <img alt="image" class="img-fluid" src="/static/imgs/img_round.svg">
+                </div>
+                <div class="col-9">
+                  <h3><strong>Feature Seven</strong></h3>
+                  <p>Even the all-powerful Pointing has no control about the blind texts.</p>
+                </div>
+              </div>
+
+              <div class="row pt-4 pt-md-5 pb-lg-5">
+                <div class="col-3">
+                  <img alt="image" class="img-fluid" src="/static/imgs/img_round.svg">
+                </div>
+                <div class="col-9">
+                  <h3><strong>Feature Seven</strong></h3>
+                  <p>Duden flows by their place far far away, behind the word mountains.</p>
+                </div>
+              </div>
+
+
+              <div class="row pt-4 pt-md-5">
+                <div class="col-3">
+                  <img alt="image" class="img-fluid" src="/static/imgs/img_round.svg">
+                </div>
+                <div class="col-9">
+                  <h3><strong>Feature Seven</strong></h3>
+                  <p>A small river named Duden flows by their place and supplies it.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div v-else
+         class="widget-block">
       <WidgetToolbox></WidgetToolbox>
       <div class="widget-block--name">
         {{$options.name}}
@@ -9,7 +54,7 @@
       <BgEditable
         name="bg"
         v-if="touchedData.bg"
-        :partData="touchedData.bg">
+        :partData="touchedData.bg">`1 q`
         <section class="fdb-block pb-md-0">
           <div class="container">
             <div class="row text-right align-items-center">

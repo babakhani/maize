@@ -36,7 +36,25 @@ const Mixin = {
         },
         logo () {
           return '/static/imgs/img_logo.png'
-        }
+        },
+        customer_1 () {
+          return '/static/imgs/customers/adobe.svg'
+        },
+        customer_2 () {
+          return '/static/imgs/customers/discovery.svg'
+        },
+        customer_3 () {
+          return '/static/imgs/customers/ebay.svg'
+        },
+        customer_4 () {
+          return '/static/imgs/customers/samsung.svg'
+        },
+        customer_5 () {
+          return '/static/imgs/customers/orange.svg'
+        },
+        customer_6 () {
+          return '/static/imgs/customers/salesforce.svg'
+        },
       },
       footer: {
         copyright () {

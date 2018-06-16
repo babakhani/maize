@@ -1,7 +1,23 @@
 <template>
   <div v-if="touchedData !== {}"
        :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode"> <h1>Demo Mode {{$options.name}}</h1> </div> <div v-else class="widget-block">
+    <div v-if="demoMode">
+      <section class="fdb-block">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-6 col-lg-5">
+              <h1>Design Blocks</h1>
+              <p class="text-h3">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            </div>
+            <div class="col-12 col-md-6 ml-md-auto mt-4 mt-md-0">
+              <img alt="image" class="img-fluid" src="/static/imgs/colors_wide_1.jpg">
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div v-else
+         class="widget-block">
       <WidgetToolbox></WidgetToolbox>
       <div class="widget-block--name">
         {{$options.name}}

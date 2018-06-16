@@ -1,7 +1,27 @@
 <template>
   <div v-if="touchedData !== {}"
        :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode"> <h1>Demo Mode {{$options.name}}</h1> </div> <div v-else class="widget-block">
+    <div v-if="demoMode">
+      <section class="fdb-block">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6 text-center">
+              <h1>Subscribe</h1>
+              <div class="input-group mt-4 mb-4">
+                <input type="text" class="form-control" placeholder="Enter your email address">
+                <span class="input-group-btn">
+              <button class="btn" type="button">Submit</button>
+            </span>
+              </div>
+
+              <p class="text-h4">Find us on <a href="https://www.froala.com">Facebook</a> and <a href="https://www.froala.com">Twitter</a>.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div v-else
+         class="widget-block">
       <WidgetToolbox></WidgetToolbox>
       <div class="widget-block--name">
         {{$options.name}}

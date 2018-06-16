@@ -5,6 +5,7 @@ import FormSpec from './Form/spec'
 import GallerySpec from './Gallery/spec'
 import HeaderSpec from './Header/spec'
 import MediaSpec from './Media/spec'
+import CallToActionSpec from './CallToAction/spec'
 export default [
   ...ContentSpec,
   ...FeaturesSpec,
@@ -12,5 +13,6 @@ export default [
   ...FormSpec,
   ...GallerySpec,
   ...HeaderSpec,
-  ...MediaSpec
+  ...MediaSpec,
+  ...CallToActionSpec
 ]

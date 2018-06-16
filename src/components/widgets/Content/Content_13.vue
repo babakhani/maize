@@ -1,7 +1,20 @@
 <template>
   <div v-if="touchedData !== {}"
        :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode"> <h1>Demo Mode {{$options.name}}</h1> </div> <div v-else class="widget-block">
+    <div v-if="demoMode">
+      <section class="fdb-block">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col col-md-8 text-center">
+              <img alt="image" class="fdb-icon mb-4" src="/static/imgs/img_square_1.svg"/>
+              <p class="text-h3">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div v-else
+         class="widget-block">
       <WidgetToolbox></WidgetToolbox>
       <div class="widget-block--name">
         {{$options.name}}

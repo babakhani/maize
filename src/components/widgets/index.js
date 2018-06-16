@@ -5,6 +5,7 @@ import Features from './Features/index'
 import Footer from './Footer/index'
 import Form from './Form/index'
 import Gallery from './Gallery/index'
+import CallToAction from './CallToAction/index'
 
 export default {
   ...Content,
@@ -13,5 +14,6 @@ export default {
   ...Form,
   ...Gallery,
   ...Header,
-  ...Media
+  ...Media,
+  ...CallToAction
 }

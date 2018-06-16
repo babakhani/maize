@@ -1,7 +1,39 @@
 <template>
   <div v-if="touchedData !== {}"
        :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode"> <h1>Demo Mode {{$options.name}}</h1> </div> <div v-else class="widget-block">
+    <div v-if="demoMode">
+      <footer class="fdb-block footer-small">
+        <div class="container">
+          <div class="row text-center align-items-center">
+            <div class="col-12 col-md-8">
+              <ul class="nav justify-content-center justify-content-md-start align-items-center">
+                <li class="nav-item">
+                  <a class="nav-link active" href="https://www.froala.com">
+                    <img alt="image" src="/static/imgs/img_logo.png" height="40">
+                  </a>
+                </li>
+                <li class="w-100 d-block d-sm-none"></li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://www.froala.com">Features</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://www.froala.com">Terms</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://www.froala.com">About</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-12 col-md-4 mt-4 mt-md-0 text-md-right">
+              &copy; 2013-2017 Froala
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <div v-else
+         class="widget-block">
       <WidgetToolbox></WidgetToolbox>
       <div class="widget-block--name">
         {{$options.name}}
@@ -16,7 +48,8 @@
               <div class="col-12 col-md-8">
                 <ul class="nav justify-content-center justify-content-md-start align-items-center">
                   <li class="nav-item">
-                    <a class="nav-link active" href="https://www.froala.com">
+                    <a class="nav-link active"
+                       href="https://www.froala.com">
                       <ImageEditable name="footer_image"
                                      :partData="touchedData.footer_image">
                       </ImageEditable>

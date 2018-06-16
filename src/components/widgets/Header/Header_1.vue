@@ -2,17 +2,17 @@
   <div v-if="touchedData !== {}"
        :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
     <div v-if="demoMode">
-
       <header>
         <div class="container">
           <nav class="navbar">
             <a href="https://www.froala.com">
-              <img src="/static/imgs/img_logo.png" height="30" alt="image">
+              <img src="/static/imgs/img_logo.png"
+                   height="30"
+                   alt="image">
             </a>
           </nav>
         </div>
       </header>
-
     </div>
     <div v-else
          class="widget-block">

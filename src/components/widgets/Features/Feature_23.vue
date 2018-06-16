@@ -1,7 +1,55 @@
 <template>
   <div v-if="touchedData !== {}"
        :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode"> <h1>Demo Mode {{$options.name}}</h1> </div> <div v-else class="widget-block">
+    <div v-if="demoMode">
+      <section class="fdb-block">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-10 col-lg-8 text-left">
+              <h1>Froala Design Blocks is simply ahead the word mountains</h1>
+              <p class="text-h3">Far far away, behind the word mountains, far from the countries Vokalia and
+                Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
+                Semantics, a large language ocean.</p>
+
+              <p class="text-h3"><a href="https://www.froala.com">Explore all features &gt;</a></p>
+            </div>
+          </div>
+
+          <div class="row text-center no-gutters pt-5">
+            <div class="col-12 col-md-10 col-lg-8">
+              <div class="row">
+                <div class="col-8 col-sm-5 col-md-2 m-auto">
+                  <img alt="image"
+                       class="img-fluid"
+                       src="/static/imgs/img_round.svg">
+                  <h4>Feature One</h4>
+                </div>
+                <div class="col-8 col-sm-5 col-md-2 m-auto pt-5 pt-sm-0">
+                  <img alt="image"
+                       class="img-fluid"
+                       src="/static/imgs/img_round.svg">
+                  <h4>Feature Two</h4>
+                </div>
+                <div class="col-8 col-sm-5 col-md-2 m-auto pt-5 pt-md-0">
+                  <img alt="image"
+                       class="img-fluid"
+                       src="/static/imgs/img_round.svg">
+                  <h4>Feature Three</h4>
+                </div>
+                <div class="col-8 col-sm-5 col-md-2 m-auto pt-5 pt-md-0">
+                  <img alt="image"
+                       class="img-fluid"
+                       src="/static/imgs/img_round.svg">
+                  <h4>Feature Four</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div v-else
+         class="widget-block">
       <WidgetToolbox></WidgetToolbox>
       <div class="widget-block--name">
         {{$options.name}}

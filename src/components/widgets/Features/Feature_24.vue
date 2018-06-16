@@ -1,7 +1,47 @@
 <template>
   <div v-if="touchedData !== {}"
        :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode"> <h1>Demo Mode {{$options.name}}</h1> </div> <div v-else class="widget-block">
+    <div v-if="demoMode">
+      <section class="fdb-block">
+        <div class="container">
+          <div class="row align-items-top">
+            <div class="col-12 col-md-6 col-xl-4 m-auto">
+              <h2>Learn more about the Froala Design Blocks you love</h2>
+            </div>
+
+            <div class="col-12 col-md-6 pt-5 pt-md-0">
+              <div class="row justify-content-left">
+                <div class="col-3 m-auto text-center">
+                  <img alt="image" class="fdb-icon" src="/static/imgs/img_round.svg">
+                  <p><a href="https://www.froala.com">One &gt;</a></p>
+                </div>
+                <div class="col-3 m-auto text-center">
+                  <img alt="image" class="fdb-icon" src="/static/imgs/img_round.svg">
+                  <p><a href="https://www.froala.com">Two &gt;</a></p>
+                </div>
+                <div class="col-3 m-auto text-center">
+                  <img alt="image" class="fdb-icon" src="/static/imgs/img_round.svg">
+                  <p><a href="https://www.froala.com">Three &gt;</a></p>
+                </div>
+              </div>
+
+              <div class="row justify-content-left mt-4 mt-xl-5">
+                <div class="col-3 m-auto text-center">
+                  <img alt="image" class="fdb-icon" src="/static/imgs/img_round.svg">
+                  <p><a href="https://www.froala.com">Four &gt;</a></p>
+                </div>
+                <div class="col-3 m-auto text-center">
+                  <img alt="image" class="fdb-icon" src="/static/imgs/img_round.svg">
+                  <p><a href="https://www.froala.com">Five &gt;</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div v-else
+         class="widget-block">
       <WidgetToolbox></WidgetToolbox>
       <div class="widget-block--name">
         {{$options.name}}

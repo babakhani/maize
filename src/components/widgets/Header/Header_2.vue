@@ -1,7 +1,19 @@
 <template>
   <div v-if="touchedData !== {}"
        :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode"> <h1>Demo Mode {{$options.name}}</h1> </div> <div v-else class="widget-block">
+    <div v-if="demoMode">
+      <header>
+        <div class="container text-center">
+          <nav class="navbar">
+            <a class="ml-auto mr-auto" href="https://www.froala.com">
+              <img src="/static/imgs/img_logo.png" height="30" alt="image">
+            </a>
+          </nav>
+        </div>
+      </header>
+    </div>
+    <div v-else
+         class="widget-block">
       <WidgetToolbox></WidgetToolbox>
       <div class="widget-block--name">
         {{$options.name}}
@@ -14,15 +26,15 @@
           <div class="container text-center">
             <nav class="navbar">
               <!--TODO: fix nested component-->
-                <!--<text-editable tag="a"-->
-                               <!--cssClass="ml-auto mr-auto"-->
-                               <!--name="header_link"-->
-                               <!--:partData="touchedData.header_link">-->
+              <!--<text-editable tag="a"-->
+              <!--cssClass="ml-auto mr-auto"-->
+              <!--name="header_link"-->
+              <!--:partData="touchedData.header_link">-->
 
-                <!--</text-editable>-->
-                <ImageEditable name="header_image"
-                               :partData="touchedData.header_image">
-                </ImageEditable>
+              <!--</text-editable>-->
+              <ImageEditable name="header_image"
+                             :partData="touchedData.header_image">
+              </ImageEditable>
             </nav>
           </div>
         </header>
@@ -49,7 +61,7 @@
             },
             header_image: {
               styles: {
-                  height: '30px',
+                height: '30px',
               },
               src: this.faker.img.logo()
             },
