@@ -6,18 +6,29 @@
       border: 1px solid red;
     }
   }
+
+  .widget-thumb-container {
+    width: 1440px;
+    height: 786px;
+    border: 0;
+    transform: scale(0.14);
+    transform-origin: 0 0;
+  }
+
   footer {
     padding: 15px !important;
   }
   .add-widget-modal--widget-item {
-    width: 8em;
-    height: 5em;
+    overflow: hidden;
+    width: 220px;
+    height: 15em;
     border: 1px solid #999;
     float: left;
     margin: 1em;
     line-height: 3em;
     text-align: center;
     cursor: pointer;
+    position: relative;
 
     &:hover {
       background: rgba(0, 0, 0, 0.1);

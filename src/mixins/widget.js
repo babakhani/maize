@@ -11,7 +11,7 @@ const Mixin = {
   name: 'EventBody',
   data () {
     return {
-      editMode: true,
+      editMode: false,
       fullWidth: false,
       touchedData: {},
     }
@@ -50,7 +50,11 @@ const Mixin = {
   },
   computed: {
     previewMode () {
-      return this.$store.state.main.previewMode
+      if (this.$store) {
+        return this.$store.state.main.previewMode
+      } else {
+        return null
+      }
     }
   },
   watch: {
@@ -74,6 +78,10 @@ const Mixin = {
     uniqeKey: {
       default: null,
       require: true
+    },
+    demoMode: {
+      default: false,
+      require: false
     }
   },
   methods: {

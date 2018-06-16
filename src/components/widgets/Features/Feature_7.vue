@@ -1,7 +1,29 @@
 <template>
   <div v-if="touchedData !== {}"
        :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div class="widget-block">
+    <div v-if="demoMode">
+
+      <section class="fdb-block">
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-12 col-sm-6 col-lg-5 col-xl-4 m-auto">
+              <img alt="image" class="fdb-icon" src="/static/imgs/img_round.svg">
+              <h3><strong>Feature 1</strong></h3>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</p>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-5 col-xl-4 m-auto pt-4 pt-sm-0">
+              <img alt="image" class="fdb-icon" src="/static/imgs/img_round.svg">
+              <h3><strong>Feature 2</strong></h3>
+              <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    <div v-else
+         class="widget-block">
       <WidgetToolbox></WidgetToolbox>
       <div class="widget-block--name">
         {{$options.name}}

@@ -16,7 +16,22 @@
                class="add-widget-modal--widget-item"
                :class="{'add-widget-modal--widget-item--selected': addWidgetList.indexOf(widget) > -1}"
                @click="updateAddList(widget)">
-            {{widget.name}}
+            <span>
+              {{widget.name}}
+            </span>
+            <Frame class="widget-thumb-container">
+            <FrameChild title="this is iframe title">
+              <link href="/static/lib/bootstrap.min.css"
+                    rel="stylesheet"
+                    crossorigin="anonymous">
+              <link rel="stylesheet"
+                    href="https://cdn0.froala.com/assets/design/blocks/builder-28d9f2585c6323df9cef7312bf1b67de.css">
+              <div :is="widget.name"
+                   :widgetData="widget.data"
+                   :demoMode="true"
+                   :uniqeKey="widget.uniqeId"></div>
+            </FrameChild>
+            </Frame>
             <span v-if="addWidgetList.indexOf(widget) > -1">{{addWidgetList.indexOf(widget) + 1}}</span>
           </div>
         </b-tab>
@@ -25,8 +40,12 @@
   </b-modal>
 </template>
 <script>
+  import Widgets from '../widgets'
+  import Frame from './Frame.vue'
+  import FrameChild from './FrameChild.vue'
   export default {
     name: 'WidgetListModal',
+    components: {...Widgets, Frame, FrameChild},
     methods: {
       updateAddList (itemName) {
         if (this.addWidgetList.indexOf(itemName) > -1) {
