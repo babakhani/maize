@@ -6,6 +6,7 @@ import GallerySpec from './Gallery/spec'
 import HeaderSpec from './Header/spec'
 import MediaSpec from './Media/spec'
 import CallToActionSpec from './CallToAction/spec'
+import ContactsSpec from './Contacts/spec'
 export default [
   ...ContentSpec,
   ...FeaturesSpec,
@@ -14,5 +15,6 @@ export default [
   ...GallerySpec,
   ...HeaderSpec,
   ...MediaSpec,
-  ...CallToActionSpec
+  ...CallToActionSpec,
+  ...ContactsSpec
 ]

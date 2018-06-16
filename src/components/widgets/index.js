@@ -6,6 +6,7 @@ import Footer from './Footer/index'
 import Form from './Form/index'
 import Gallery from './Gallery/index'
 import CallToAction from './CallToAction/index'
+import Contacts from './Contacts/index'
 
 export default {
   ...Content,
@@ -15,5 +16,6 @@ export default {
   ...Gallery,
   ...Header,
   ...Media,
-  ...CallToAction
+  ...CallToAction,
+  ...Contacts
 }
