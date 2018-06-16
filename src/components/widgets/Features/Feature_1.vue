@@ -2,7 +2,6 @@
   <div v-if="touchedData !== {}"
        :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
     <div v-if="demoMode">
-
       <section class="fdb-block">
         <div class="container">
           <div class="row text-center justify-content-sm-center no-gutters">
