@@ -6,37 +6,41 @@
     id="addWidgetModal"
     size="lg"
     centered
-    class="add-widget-modal">
-    <b-tabs card>
-      <template v-for="item in groupedWidgetList">
-        <b-tab v-if="item[0]"
-               :title="item[0]['group']"
-               active>
-          <div v-for="widget in item"
-               class="add-widget-modal--widget-item"
-               :class="{'add-widget-modal--widget-item--selected': addWidgetList.indexOf(widget) > -1}"
-               @click="updateAddList(widget)">
-            <span>
+    class="add-widget-modal"
+    title="Choose your widget:">
+    <b-card no-body>
+      <b-tabs card>
+        <template v-for="item in groupedWidgetList">
+          <b-tab v-if="item[0]"
+                 :title="item[0]['group']"
+                 class="row"
+                 active>
+            <div v-for="widget in item"
+                    class="add-widget-modal--widget-item col-3"
+                    :class="{'add-widget-modal--widget-item--selected': addWidgetList.indexOf(widget) > -1}"
+                    @click="updateAddList(widget)">
+            <span class="widget-name">
               {{widget.name}}
             </span>
-            <Frame class="widget-thumb-container">
-            <FrameChild title="this is iframe title">
-              <link href="/static/lib/bootstrap.min.css"
-                    rel="stylesheet"
-                    crossorigin="anonymous">
-              <link rel="stylesheet"
-                    href="https://cdn0.froala.com/assets/design/blocks/builder-28d9f2585c6323df9cef7312bf1b67de.css">
-              <div :is="widget.name"
-                   :widgetData="widget.data"
-                   :demoMode="true"
-                   :uniqeKey="widget.uniqeId"></div>
-            </FrameChild>
-            </Frame>
-            <span v-if="addWidgetList.indexOf(widget) > -1">{{addWidgetList.indexOf(widget) + 1}}</span>
-          </div>
-        </b-tab>
-      </template>
-    </b-tabs>
+              <Frame class="widget-thumb-container">
+              <FrameChild title="this is iframe title">
+                <link href="/static/lib/bootstrap.min.css"
+                      rel="stylesheet"
+                      crossorigin="anonymous">
+                <link rel="stylesheet"
+                      href="https://cdn0.froala.com/assets/design/blocks/builder-28d9f2585c6323df9cef7312bf1b67de.css">
+                <div :is="widget.name"
+                     :widgetData="widget.data"
+                     :demoMode="true"
+                     :uniqeKey="widget.uniqeId"></div>
+              </FrameChild>
+              </Frame>
+              <span class="widget-selected-num" v-if="addWidgetList.indexOf(widget) > -1">{{addWidgetList.indexOf(widget) + 1}}</span>
+            </div>
+          </b-tab>
+        </template>
+      </b-tabs>
+    </b-card>
   </b-modal>
 </template>
 <script>

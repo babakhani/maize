@@ -5,7 +5,12 @@ body {
   overflow-x: hidden;
   direction: ltr;
   background: #f5f5f5;
+  a {
+    color: #888 !important;
+    cursor: pointer;
+  }
   a:hover {
+    color: #666 !important;
     text-decoration: none;
   }
 }

@@ -1,34 +1,75 @@
 .add-widget-modal {
+  .tab-content {
+    .active {
+      display: flex;
+      justify-content: center;
+    }
+  }
   .modal-body {
+    min-height: 800px;
+    overflow: hidden;
     padding: 0;
-    .modal-content {
-      padding: 0;
-      border: 1px solid red;
+    .card {
+      border: 0 !important;
+    }
+  }
+  .modal-content {
+    padding: 0;
+    border: 0;
+    box-shadow: 0 0 1px 1px rgba(0,0,0,0.75);
+    .nav-tabs {
+      .nav-link {
+        &.active {
+          color: #000 !important;
+        }
+        &:hover {
+          color: #444 !important;
+        }
+      }
     }
   }
 
+  .modal-dialog {
+    min-width: 90%;
+  }
   .widget-thumb-container {
+    position: absolute;
     width: 1440px;
     height: 786px;
     border: 0;
-    transform: scale(0.14);
+    transform: scale(0.14) translate(-50% , -50%);
     transform-origin: 0 0;
+    top: 50%;
+    left: 50%;
+
   }
 
   footer {
     padding: 15px !important;
   }
   .add-widget-modal--widget-item {
+    display: inline-block;
     overflow: hidden;
-    width: 220px;
+    //width: 30%;
     height: 15em;
     border: 1px solid #999;
-    float: left;
+    background: #f8f8f8;
+    float: none;
     margin: 1em;
     line-height: 3em;
     text-align: center;
     cursor: pointer;
     position: relative;
+    &::before {
+      content: '';
+      background: transparent;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 9;
+    }
 
     &:hover {
       background: rgba(0, 0, 0, 0.1);
@@ -37,10 +78,14 @@
     &.add-widget-modal--widget-item--selected {
       position: relative;
       background: rgba(0, 0, 0, 0.3);
-      span {
+      .widget-name {
+        width: 100%;
+        top: 10%;
+      }
+      .widget-selected-num {
         position: absolute;
         display: block;
-        top: 70%;
+        top: 90%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 20px;
