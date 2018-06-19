@@ -1,6 +1,6 @@
 # maize
 
-> vue hawk feature event manufacturer
+> maize is landing page builder
 
 ## Build Setup
 
