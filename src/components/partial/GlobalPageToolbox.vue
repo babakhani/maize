@@ -17,7 +17,28 @@
             </a>
           </div>
 
-          <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav float-right ml-auto pr-0">
+            <li class="nav-item mr-lg-3">
+              <a v-b-tooltip.hover.bottom.small
+                 class="nav-link"
+                 :title="$t('export')"
+                 @click="exportPage">
+                <icon name="download"></icon>
+              </a>
+            </li>
+            <li class="nav-item mr-lg-3">
+              <a class="nav-link"
+                 :title="$t('preview_mode')"
+                 v-b-tooltip.hover.bottom.small
+                 href="#">
+                <label class="switch">
+                  <input @change="setPreviewMode"
+                         :checked="previewMode"
+                         type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+              </a>
+            </li>
             <li class="nav-item mr-lg-3">
               <a :title="$t('toolbox.settings')"
                  v-b-tooltip.hover.top.small
@@ -40,19 +61,6 @@
                  :title="$t('redo')"
                  @click="redo">
                 <icon name="redo"></icon>
-              </a>
-            </li>
-            <li class="nav-item mr-lg-3">
-              <a class="nav-link"
-                 :title="$t('preview_mode')"
-                 v-b-tooltip.hover.bottom.small
-                 href="#">
-                <label class="switch">
-                  <input @change="setPreviewMode"
-                         :checked="previewMode"
-                         type="checkbox">
-                  <span class="slider round"></span>
-                </label>
               </a>
             </li>
             <li class="nav-item mr-lg-3">
@@ -87,17 +95,15 @@
                 <icon name="language"></icon>
               </a>
             </li>
-
-            <li class="nav-item mr-lg-3">
-              <a v-b-tooltip.hover.bottom.small
-                 class="nav-link"
-                 :title="$t('export')"
-                 @click="exportPage">
-                <icon name="download"></icon>
-              </a>
-            </li>
-
           </ul>
+          <div class="nav-item float-left position-relative maize-brand">
+            <a :title="$t('add_widget')"
+               v-b-tooltip.hover.bottom.small
+               class="nav-link"
+               @click="goToAddWidgetMode">
+              <img class="position-absolute w-100 h-100" src="/static/imgs/customers/intel.svg">
+            </a>
+          </div>
         </div>
       </nav>
     </div>

@@ -54,7 +54,7 @@
       <BgEditable
         name="bg"
         v-if="touchedData.bg"
-        :partData="touchedData.bg">`1 q`
+        :partData="touchedData.bg">
         <section class="fdb-block pb-md-0">
           <div class="container">
             <div class="row text-right align-items-center">
