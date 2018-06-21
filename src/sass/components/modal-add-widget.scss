@@ -1,12 +1,14 @@
 .add-widget-modal {
   .tab-content {
-    .active {
-      display: flex;
+    .add-widget-modal--tab{
+    //  display: flex;
       justify-content: center;
+      max-height: 660px;
+      overflow: auto;
     }
   }
   .modal-body {
-    min-height: 800px;
+    min-height: 750px;
     overflow: hidden;
     padding: 0;
     .card {
