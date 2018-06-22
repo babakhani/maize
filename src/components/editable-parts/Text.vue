@@ -1,8 +1,10 @@
 <template>
   <div class="editable-text editable-part"
+       @mouseenter="mouseInElement"
+       @mouseleave="mouseLeaveElement"
        :class="{'editable-active': editMode}">
     <!--Min Slot-->
-    <button v-if="editMode"
+    <button v-if="editMode && showToolboxButton"
             class="btn btn-link editable-part--settings-btn"
             :title="$t('toolbox.settings')"
             v-b-tooltip.hover.bottom.small

@@ -1,7 +1,9 @@
 <template>
   <div class="editable-image editable-part"
+       @mouseenter="mouseInElement"
+       @mouseleave="mouseLeaveElement"
        @dblclick="setPickImageMode(true)">
-    <button v-if="editMode"
+    <button v-if="editMode && showToolboxButton"
             class="btn btn-link editable-part--settings-btn"
             :title="$t('toolbox.settings')"
             v-b-tooltip.hover.bottom.small
