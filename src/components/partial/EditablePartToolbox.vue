@@ -2,7 +2,8 @@
 <template>
   <v-popover
     trigger="manual"
-    offset="40"
+    placement="top"
+    offset="20"
     :open="true"
     :auto-hide="false">
     <template slot="popover">
