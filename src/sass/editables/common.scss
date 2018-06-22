@@ -11,6 +11,7 @@ $icon-size: 1.6em;
     .editable-part--upload-btn,
     .editable-part--settings-btn {
       background: red;
+      display: block;
     }
   }
 
@@ -34,8 +35,9 @@ $icon-size: 1.6em;
     width: $icon-size;
     height: $icon-size;
     border-radius: 100%;
-    top: .1em;
+    top: -2em;
     left: .1em;
+    display: none;
     svg{
       height: .8em;
       position: absolute;
@@ -44,6 +46,7 @@ $icon-size: 1.6em;
       transform: translate(-50%, -50%);
     }
   }
+
 
   .editable-part--upload-btn{
     top: 1.9em;

@@ -4,14 +4,13 @@
   display: inline-block;
 
   &.editable-active {
-    padding-left: 2em;
+    //padding-left: 2em;
     min-height: 2em !important;
     line-height: 2em;
     .widget-text-editable--toolbox {
       display: block;
     }
   }
-
   .editor-page-preview-mode & {
     padding-left: 0;
   }
