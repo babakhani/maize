@@ -426,7 +426,7 @@
             </button>
             <div class="dropdown-menu"
                  aria-labelledby="dropdownMenuButtonHeight">
-              <input @input="setWidth"
+              <input @input="setheight"
                      type="text"
                      v-model="styles['height']"/>
             </div>
