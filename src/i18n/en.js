@@ -42,7 +42,9 @@ export default {
     'opacity': 'Opacity',
     'close': 'Close',
     'bg_settings': 'Background Setting',
-    'settings': 'Setting'
+    'settings': 'Setting',
+    'padding': 'Padding',
+    'margin': 'Margin'
   },
   'modal': {
     'pick_link': 'Pick link',

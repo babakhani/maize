@@ -42,6 +42,8 @@ export default {
     'close': 'بستن',
     'bg_settings': 'تنظیمات پس زمینه',
     'settings': 'تنظیمات',
+    'padding': 'حاشیه داخلی',
+    'margin': 'حاشیه'
   },
   'modal': {
     'pick_link': 'انتخاب پیوند',
