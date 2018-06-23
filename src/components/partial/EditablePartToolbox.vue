@@ -361,20 +361,14 @@
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false">
-              <maizcon name=""></maizcon>
+              Padding
+              <!--<maizcon name=""></maizcon>-->
             </button>
             <div class="dropdown-menu"
                  aria-labelledby="dropdownMenuButtonPadding">
               <input @input="setPadding"
                      type="text"
                      v-model="styles['padding']"/>
-              <!--<br>-->
-              <!--<input @input="setPadding"-->
-                     <!--type="text"-->
-                     <!--min="0"-->
-                     <!--max="50"-->
-                     <!--:value="styles['padding']"-->
-                     <!--step="1">-->
             </div>
           </div>
 
@@ -387,13 +381,54 @@
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false">
-              <maizcon name=""></maizcon>
+              Margin
+              <!--<maizcon name=""></maizcon>-->
             </button>
             <div class="dropdown-menu"
                  aria-labelledby="dropdownMenuButtonMargin">
               <input @input="setMargin"
                      type="text"
                      v-model="styles['margin']"/>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <button :title="$t('toolbox.width')"
+                    v-b-tooltip.hover.top.small
+                    class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
+                    type="button"
+                    id="dropdownMenuButtonWidth"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false">
+              Width
+              <!--<maizcon name=""></maizcon>-->
+            </button>
+            <div class="dropdown-menu"
+                 aria-labelledby="dropdownMenuButtonWidth">
+              <input @input="setWidth"
+                     type="text"
+                     v-model="styles['width']"/>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <button :title="$t('toolbox.height')"
+                    v-b-tooltip.hover.top.small
+                    class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
+                    type="button"
+                    id="dropdownMenuButtonHeight"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false">
+              Height
+              <!--<maizcon name=""></maizcon>-->
+            </button>
+            <div class="dropdown-menu"
+                 aria-labelledby="dropdownMenuButtonHeight">
+              <input @input="setWidth"
+                     type="text"
+                     v-model="styles['height']"/>
             </div>
           </div>
         </div>
@@ -476,10 +511,12 @@
             'border-style': 'solid',
             'border-radius': '0',
             'opacity': '1',
-            'overflow': 'visible',
+            'overflow': 'hidden',
             'letter-spacing': 'normal',
             'padding': 'inherit',
-            'margin': 'inherit'
+            'margin': 'inherit',
+            'width': 'auto',
+            'height': 'auto'
           }
         }
       }
@@ -597,6 +634,14 @@
       },
       setMargin (e) {
         this.styles['margin'] = e.target.value
+        this.update()
+      },
+      setWidth (e) {
+        this.styles['width'] = e.target.value
+        this.update()
+      },
+      setheight (e) {
+        this.styles['height'] = e.target.value
         this.update()
       },
     }
