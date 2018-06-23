@@ -15,13 +15,35 @@
                            v-if="editMode && toolboxVisible"
                            @hide="hideToolbox"></EditablePartToolbox>
     </button>
-    <img :style="touchedData.styles"
+
+    <button v-if="editMode && showToolboxButton"
+            :title="$t('toolbox.link')"
+            v-b-tooltip.hover.top.small
+            @click="setPickLinkMode"
+            class="btn btn-link editable-part--link-btn">
+      <icon name="link"></icon>
+    </button>
+
+    <a v-if="touchedData.href"
+       :contenteditable="editMode"
+       :href="touchedData.href">
+      <img :style="touchedData.styles"
+           alt="image"
+           :class="cssClass"
+           :contenteditable="editMode"
+           @click="setPickImageMode"
+           class="img-fluid editable-image-img"
+           :src="touchedData.src">
+    </a>
+    <img v-else
+         :style="touchedData.styles"
          alt="image"
          :class="cssClass"
          :contenteditable="editMode"
          @click="setPickImageMode"
          class="img-fluid editable-image-img"
-         :src="touchedData.src">
+         :src="touchedData.src"
+    />
   </div>
 </template>
 
@@ -33,6 +55,16 @@
     name: 'ImageEditable',
     mixins: [EditablePartMixin],
     methods: {
+      setPickLinkMode () {
+
+        this.$store.dispatch('layout/setPickLinkMode', true)
+        EventBus.$once('pickLink', (linkHref) => {
+          this.touchedData.href = linkHref
+          this.updateWidget()
+        })
+
+
+      },
       setPickImageMode (noCheckState) {
         this.goToEditMode()
         if (this.editMode || noCheckState == true) {
@@ -49,6 +81,7 @@
           var reader = new FileReader();
           reader.onload = function (e) {
             $img.attr('src', e.target.result);
+            $img.attr('href',)
           }
           reader.readAsDataURL(e.target.files[0]);
         }

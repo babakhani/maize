@@ -9,7 +9,8 @@ $icon-size: 1.6em;
   &:hover{
     outline: 2px dashed #999;
     .editable-part--upload-btn,
-    .editable-part--settings-btn {
+    .editable-part--settings-btn,
+    .editable-part--link-btn{
       background: red;
       display: block;
     }
@@ -19,13 +20,15 @@ $icon-size: 1.6em;
     border: 0;
     outline: 0;
     .editable-part--upload-btn,
-    .editable-part--settings-btn {
+    .editable-part--settings-btn,
+    .editable-part--link-btn{
       display: none;
     }
   }
 
   .editable-part--upload-btn,
-  .editable-part--settings-btn {
+  .editable-part--settings-btn,
+  .editable-part--link-btn{
     background-color:rgba(0, 0, 0, .2);
     color: #fff;
     cursor: pointer;
@@ -45,6 +48,10 @@ $icon-size: 1.6em;
       left: 50%;
       transform: translate(-50%, -50%);
     }
+  }
+
+  .editable-part--link-btn {
+    left: 2em;
   }
 
 
