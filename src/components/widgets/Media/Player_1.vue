@@ -50,7 +50,7 @@
   import widgetMixin from '@/mixins/widget'
 
   export default {
-    name: 'Kitchensink',
+    name: 'player_1',
     mixins: [widgetMixin],
     props: {
       data: {
