@@ -438,7 +438,7 @@
     </div>
     <button :title="$t('toolbox.close')"
             v-b-tooltip.hover.top.small
-            @click="hide"
+            @click="hidePageSidebar"
             class="btn btn-sm btn-danger float-right widget-text-editable--toolbox--close">
       <icon name="times"></icon>
     </button>
@@ -507,6 +507,9 @@
       this.styles = this._.extend(this.styles, this.currentStyles)
     },
     methods: {
+      hidePageSidebar () {
+        this.$store.dispatch('layout/setPageSideBarIsActive', false)
+      },
       setPickLinkMode () {
         this.$emit('setPickLinkMode')
       },

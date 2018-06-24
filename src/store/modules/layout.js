@@ -9,10 +9,13 @@ export default {
     pickVideoMode: false,
     pickVideoType: false,
     pickLinkType: false,
-    settingsMode: false
+    settingsMode: false,
+    pageSideBarIsActive: false
   },
   mutations: {
-
+    setPageSideBarIsActive (state, payload) {
+      state.pageSideBarIsActive = payload
+    },
     setMobilePreviewMode (state, payload) {
       state.mobilePreviewMode = payload
       if (payload) {
@@ -51,6 +54,9 @@ export default {
     }
   },
   actions: {
+    setPageSideBarIsActive (context, payload) {
+      context.commit('setPageSideBarIsActive', payload)
+    },
     setMobilePreviewMode (context, payload) {
       context.commit('setMobilePreviewMode', payload)
     },

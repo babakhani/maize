@@ -14,8 +14,8 @@
 
     <!--</button>-->
 
-      <button type="button"
-              id="sidebarCollapse"
+      <button v-if="editMode" type="button"
+              @click="showPageSidebar"
               class="btn btn-link editable-part--settings-btn">
         <icon name="cog"></icon>
         <EditablePartToolbox @update="updateStyles"

@@ -22,6 +22,9 @@ const Mixin = {
     }
   },
   methods: {
+    showPageSidebar () {
+      this.$store.dispatch('layout/setPageSideBarIsActive', true)
+    },
     mouseLeaveElement (e) {
       clearTimeout(this.showToolboxButtonTimer)
       if (!this.toolboxVisible) {

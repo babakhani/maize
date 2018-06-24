@@ -4,8 +4,10 @@
        :class="{ 'editor-page-preview-mode': previewMode, 'editor-page-mobile-preview-mode': mobilePreviewMode, 'editor-page-tablet-preview-mode':tabletPreviewMode}">
     <!--<page-toolbox></page-toolbox>-->
     <global-page-toolbox></global-page-toolbox>
+
     <div class="wrapper">
       <nav id="sidebar"
+           :class="{'active': !pageSideBarIsActive}"
            class="editable-part-sidebar">
         <EditablePartSidebar></EditablePartSidebar>
       </nav>
@@ -44,29 +46,14 @@
   import ModalSettings from '../components/partial/ModalSettings'
   import EditablePartSidebar from '../components/partial/EditablePartSidebar'
 
-
-  $(document).ready(function () {
-    $("#sidebarCollapse").on("click", function () {
-      $("#sidebar").toggleClass("active");
-      $(this).toggleClass("active");
-    });
-  });
+  // $(document).ready(function () {
+  //   $("#sidebarCollapse").on("click", function () {
+  //     $("#sidebar").toggleClass("active");
+  //     $(this).toggleClass("active");
+  //   });
+  // });
   export default {
     name: 'Events',
-    data () {
-      return {
-        myArray: [
-          {
-            id: 1,
-            name: 'reza'
-          },
-          {
-            id: 2,
-            name: 'bita'
-          }
-        ]
-      }
-    },
     mixins: [editor],
     components: {
       LinkPickerModal,
@@ -77,6 +64,9 @@
       EditablePartSidebar
     },
     computed: {
+      pageSideBarIsActive() {
+        return this.$store.state.layout.pageSideBarIsActive
+      },
       previewMode () {
         return this.$store.state.layout.previewMode
       },

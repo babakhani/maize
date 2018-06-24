@@ -17,7 +17,7 @@
                            <!--@hide="hideToolbox">-->
       <!--</EditablePartToolbox>-->
     <!--</button>-->
-      <button type="button"
+      <button  v-if="editMode && showToolboxButton" type="button"
               id="sidebarCollapse"
               class="btn btn-link editable-part--settings-btn">
         <icon name="cog"></icon>

@@ -128,7 +128,7 @@ a, a:hover, a:focus {
     max-width: 250px;
     background: #7386D5;
     color: #fff;
-    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+    transition: all 200ms cubic-bezier(0.945, 0.020, 0.270, 0.665);
     transform-origin: bottom left;
 }
 
@@ -242,8 +242,8 @@ a.article, a.article:hover {
     margin: 0 auto;
     display: block;
     background: #555;
-    transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
-    transition-delay: 0.2s;
+    transition: all 100ms cubic-bezier(0.810, -0.330, 0.345, 1.375);
+    transition-delay: 100ms;
 }
 
 #sidebarCollapse span:first-of-type {
