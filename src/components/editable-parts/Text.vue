@@ -4,19 +4,28 @@
        @mouseleave="mouseLeaveElement"
        :class="{'editable-active': editMode}">
     <!--Min Slot-->
-    <button v-if="editMode && showToolboxButton"
-            class="btn btn-link editable-part--settings-btn"
-            :title="$t('toolbox.settings')"
-            v-b-tooltip.hover.bottom.small
-            @click="showToolbox">
-      <icon name="cog"></icon>
-      <EditablePartToolbox @update="updateStyles"
+    <!--<button v-if="editMode && showToolboxButton"-->
+            <!--class="btn btn-link editable-part&#45;&#45;settings-btn"-->
+            <!--:title="$t('toolbox.settings')"-->
+            <!--v-b-tooltip.hover.bottom.small-->
+            <!--@click="showToolbox">-->
+      <!--<icon name="cog"></icon>-->
+      <!--<EditablePartToolbox @update="updateStyles"-->
+                           <!--:currentStyles="touchedData.styles"-->
+                           <!--@setPickLinkMode="setPickLinkMode"-->
+                           <!--v-if="editMode && toolboxVisible"-->
+                           <!--@hide="hideToolbox">-->
+      <!--</EditablePartToolbox>-->
+    <!--</button>-->
+      <button type="button"
+              id="sidebarCollapse"
+              class="btn btn-link editable-part--settings-btn">
+        <icon name="cog"></icon>
+        <EditablePartToolbox @update="updateStyles"
                            :currentStyles="touchedData.styles"
-                           @setPickLinkMode="setPickLinkMode"
                            v-if="editMode && toolboxVisible"
-                           @hide="hideToolbox">
-      </EditablePartToolbox>
-    </button>
+                           @hide="hideToolbox"></EditablePartToolbox>
+      </button>
     <h1 v-bind:style="touchedData.styles"
         v-if="tag === 'h1'"
         :class="touchedData.cssClass"

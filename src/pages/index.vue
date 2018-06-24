@@ -1,24 +1,30 @@
 <template>
-  <div class="editor-page"
+  <div id="#page-content-wrapper"
+       class="editor-page"
        :class="{ 'editor-page-preview-mode': previewMode, 'editor-page-mobile-preview-mode': mobilePreviewMode, 'editor-page-tablet-preview-mode':tabletPreviewMode}">
     <!--<page-toolbox></page-toolbox>-->
     <global-page-toolbox></global-page-toolbox>
-    <div class="editor-page--plot-area">
-      <draggable v-model="currentWidgetList"
-                 :options="{handle:'.widget-drag-handle'}"
-                 @start="drag=true"
-                 @end="drag=false">
-        <div v-for="(widget, index) in currentWidgetList"
-             :key="widget.uniqeId">
-          <div :is="widget.name"
-               :widgetData="widget.data"
-               :uniqeKey="widget.uniqeId"></div>
-        </div>
-      </draggable>
-      <AddWidget>
-        <div class="blocks-area">
-        </div>
-      </AddWidget>
+    <div class="wrapper">
+      <nav id="sidebar"
+           class="editable-part-sidebar">
+        <EditablePartSidebar></EditablePartSidebar>
+      </nav>
+      <div id="content">
+        <draggable v-model="currentWidgetList"
+                   :options="{handle:'.widget-drag-handle'}"
+                   @start="drag=true"
+                   @end="drag=false">
+          <div v-for="(widget, index) in currentWidgetList"
+               :key="widget.uniqeId">
+            <div :is="widget.name"
+                 :widgetData="widget.data"
+                 :uniqeKey="widget.uniqeId"></div>
+          </div>
+        </draggable>
+        <AddWidget>
+          <div class="blocks-area"></div>
+        </AddWidget>
+      </div>
     </div>
     <ModalWidgetList></ModalWidgetList>
     <ImagePickerModal></ImagePickerModal>
@@ -27,6 +33,7 @@
     <ModalSettings></ModalSettings>
   </div>
 </template>
+
 <script>
   import editor from '../mixins/editorpage'
   import draggable from 'vuedraggable'
@@ -35,7 +42,15 @@
   import VideoPickerModal from '../components/partial/ModalVideoPicker'
   import LinkPickerModal from '../components/partial/ModalLinkPicker'
   import ModalSettings from '../components/partial/ModalSettings'
+  import EditablePartSidebar from '../components/partial/EditablePartSidebar'
 
+
+  $(document).ready(function () {
+    $("#sidebarCollapse").on("click", function () {
+      $("#sidebar").toggleClass("active");
+      $(this).toggleClass("active");
+    });
+  });
   export default {
     name: 'Events',
     data () {
@@ -58,7 +73,8 @@
       draggable,
       ImagePickerModal,
       VideoPickerModal,
-      ModalSettings
+      ModalSettings,
+      EditablePartSidebar
     },
     computed: {
       previewMode () {

@@ -1,5 +1,5 @@
 <template>
-  <div class="add-widget-box">
+  <div class="add-widget-box w-100">
     <!--TODO: bita fix class name-->
     <div class="add-widget-box--main container">
       <div class="add-widget-box--main--details">
