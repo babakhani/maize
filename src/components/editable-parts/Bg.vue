@@ -18,10 +18,14 @@
               @click="showPageSidebar"
               class="btn btn-link editable-part--settings-btn">
         <icon name="cog"></icon>
+
         <EditablePartToolbox @update="updateStyles"
                            :currentStyles="touchedData.styles"
                            v-if="editMode && toolboxVisible"
-                           @hide="hideToolbox"></EditablePartToolbox>
+                           @hide="hideToolbox">
+
+        </EditablePartToolbox>
+
       </button>
     <div v-bind:style="touchedData.styles">
       <slot></slot>

@@ -460,13 +460,18 @@
       'chrome-picker': Chrome,
       'photoshop-picker': Photoshop
     },
+    computed: {
+      currentStyles () {
+        return this.$store.state.layout.selectedItemProperties
+      }
+    },
+    watch: {
+      currentStyles () {
+        console.log('ediutable sidebar  ::: watch ::: currentStyles')
+        this.styles = this._.extend(this.styles, this.$store.state.layout.selectedItemProperties)
+      }
+    },
     props: {
-      currentStyles: {
-        default () {
-          return {}
-        },
-        required: true
-      },
       groups: {
         default () {
           return ['text', 'background', 'border', 'general']
@@ -515,7 +520,9 @@
       },
       update () {
         //  TODO: send only changed data to update methods
-        this.$emit('update', this.styles)
+        console.log('update ---------- >>>> ')
+        //this.$emit('update', this.styles)
+        this.$store.dispatch('layout/setSelectedItemProperties', this.styles)
       },
       hide () {
         this.$emit('hide')

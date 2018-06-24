@@ -10,9 +10,13 @@ export default {
     pickVideoType: false,
     pickLinkType: false,
     settingsMode: false,
-    pageSideBarIsActive: false
+    pageSideBarIsActive: false,
+    selectedItemProperties: {}
   },
   mutations: {
+    setSelectedItemProperties (state, payload) {
+      state.selectedItemProperties = payload
+    },
     setPageSideBarIsActive (state, payload) {
       state.pageSideBarIsActive = payload
     },
@@ -54,6 +58,9 @@ export default {
     }
   },
   actions: {
+    setSelectedItemProperties (context, payload) {
+      context.commit('setSelectedItemProperties', payload)
+    },
     setPageSideBarIsActive (context, payload) {
       context.commit('setPageSideBarIsActive', payload)
     },

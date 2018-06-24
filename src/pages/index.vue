@@ -7,6 +7,7 @@
 
     <div class="wrapper">
       <nav id="sidebar"
+           v-if="pageSideBarIsActive"
            :class="{'active': !pageSideBarIsActive}"
            class="editable-part-sidebar">
         <EditablePartSidebar></EditablePartSidebar>
@@ -46,12 +47,6 @@
   import ModalSettings from '../components/partial/ModalSettings'
   import EditablePartSidebar from '../components/partial/EditablePartSidebar'
 
-  // $(document).ready(function () {
-  //   $("#sidebarCollapse").on("click", function () {
-  //     $("#sidebar").toggleClass("active");
-  //     $(this).toggleClass("active");
-  //   });
-  // });
   export default {
     name: 'Events',
     mixins: [editor],
@@ -78,7 +73,6 @@
       },
       currentWidgetList: {
         get () {
-          console.log('currentWidgetList')
           return this.$store.state.main.currentWidgetList
         },
         set (value) {

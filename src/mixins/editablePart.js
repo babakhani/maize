@@ -3,7 +3,7 @@ import EditablePartSidebar from '../components/partial/EditablePartSidebar'
 import {EventBus} from '../events/event-bus'
 
 const Mixin = {
-  components: {EditablePartToolbox , EditablePartSidebar},
+  components: {EditablePartToolbox, EditablePartSidebar},
   created () {
   },
   mounted () {
@@ -19,11 +19,16 @@ const Mixin = {
   computed: {
     editMode () {
       return !this.$store.state.layout.previewMode
+    },
+    selectedItemProperties () {
+      return this.$store.state.layout.selectedItemProperties
     }
   },
   methods: {
     showPageSidebar () {
       this.$store.dispatch('layout/setPageSideBarIsActive', true)
+      this.$store.dispatch('layout/setSelectedItemProperties', this.touchedData.styles)
+      this.underEditModeProps = true
     },
     mouseLeaveElement (e) {
       clearTimeout(this.showToolboxButtonTimer)
@@ -43,16 +48,14 @@ const Mixin = {
       this.$parent.toggleEditMode()
     },
     goToEditMode () {
-      if (this.editMode === false)
+      if (this.editMode === false) {
         this.$parent.toggleEditMode()
-      // this.$emit('goToEditMode')
+      }
     },
     updateData (payload) {
       this.$parent.updateData(payload)
     },
     updateWidget () {
-      console.log('updateWidget -------------')
-      console.log(this.touchedData)
       this.$parent.updateData({
         name: this.name,
         data: this.touchedData
@@ -84,6 +87,12 @@ const Mixin = {
     }
   },
   watch: {
+    selectedItemProperties () {
+      console.log('editable part ::: watch ::: selectedItemProperties')
+      if (this.underEditModeProps) {
+        this.updateStyles(this.selectedItemProperties)
+      }
+    },
     text () {
       this.touchedText = this.text
     }
@@ -96,8 +105,8 @@ const Mixin = {
       showToolboxButtonTimer: null,
       toolboxVisible: false,
       src: null,
-      styles: {},
-      touchedData: {}
+      touchedData: {},
+      underEditModeProps: false
     }
   },
   props: {
