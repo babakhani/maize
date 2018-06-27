@@ -430,7 +430,7 @@
 
       <button :title="$t('toolbox.input-file')"
               v-b-tooltip.hover.top.small
-              class="btn btn-sm widget-text-editable--toolbox--button color-box-btn">
+              class="btn btn-sm widget-text-editable--toolbox--button input-file-btn">
         <maizcon name="upload-photo"></maizcon>
         <input type="file"/>
       </button>

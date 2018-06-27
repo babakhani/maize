@@ -16,7 +16,11 @@
     .widget-text-editable--sidebar {
       overflow: hidden;
       .widget-text-editable--toolbox--button {
+        overflow: hidden;
+        position: relative;
         padding: .5em;
+        -ms-text-align-last: right;
+        text-align: left;
         background: #e7dbdb;
         color: #bbb;
         border: 1px solid transparent;
@@ -35,6 +39,13 @@
         &.widget-text-editable--selected {
           border: 1px solid #bbb;
         }
+        &.input-file-btn {
+          input {
+            position: absolute;
+            opacity: 0;
+            top: 0;
+          }
+        }
       }
     }
     .sidebar-header {
@@ -45,8 +56,25 @@
       display: none;
     }
     .dropdown-menu {
-          padding: 0;
+      padding: 5px;
+      .vc-compact {
+        max-width: 240px;
+        width: auto;
+        min-width: 200px;
+      }
+      .dropdown-item {
+        background-color: transparent;
+        border: 1px solid transparent;
+        border-radius: .2rem;
+        &:hover {
+          border: 1px solid #b1b1b1;
+          //border-radius: .2rem;
         }
+        &.widget-text-editable--selected {
+          border: 1px solid #bbb;
+        }
+      }
+    }
   }
   /* --------------CONTENT STYLE------------------------- */
   #content {
