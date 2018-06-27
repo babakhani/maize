@@ -122,25 +122,25 @@
           <button title="align left"
                   @click="align('left')"
                   :class="{'widget-text-editable--selected': styles['text-align'] == 'left'}"
-                  class="btn btn-sm widget-text-editable--toolbox--button ">
+                  class="btn btn-sm widget-text-editable--toolbox--button dropdown-icon-button">
             <icon name="align-left"></icon>
           </button>
           <button title="align right"
                   @click="align('right')"
                   :class="{'widget-text-editable--selected': styles['text-align'] == 'right'}"
-                  class="btn btn-sm widget-text-editable--toolbox--button">
+                  class="btn btn-sm widget-text-editable--toolbox--button dropdown-icon-button">
             <icon name="align-right"></icon>
           </button>
           <button title="align center"
                   @click="align('center')"
                   :class="{'widget-text-editable--selected': styles['text-align'] == 'center'}"
-                  class="btn btn-sm widget-text-editable--toolbox--button">
+                  class="btn btn-sm widget-text-editable--toolbox--button dropdown-icon-button">
             <icon name="align-center"></icon>
           </button>
           <button title="align justify"
                   @click="align('justify')"
                   :class="{'widget-text-editable--selected': styles['text-align'] == 'justify'}"
-                  class="btn btn-sm widget-text-editable--toolbox--button">
+                  class="btn btn-sm widget-text-editable--toolbox--button dropdown-icon-button">
             <icon name="align-justify"></icon>
           </button>
         </div>
