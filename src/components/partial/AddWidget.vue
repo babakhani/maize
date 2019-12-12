@@ -1,5 +1,7 @@
 <template>
-  <div class="add-widget-box w-100 mx-0">
+  <div 
+    @click="goToAddWidgetMode"
+    class="add-widget-box w-100 mx-0">
     <!--TODO: bita fix class name-->
     <b-row class="justify-content-center">
       <b-col
@@ -9,7 +11,7 @@
         <b-card class="add-widget-box--main container">
           <div class="add-widget-box--main--details">
             <div class="center-center">
-              <button @click="goToAddWidgetMode"
+              <button 
                  class="btn btn-add-widget">
                 <icon name="plus"></icon>
               </button>
