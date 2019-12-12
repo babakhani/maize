@@ -12,31 +12,47 @@
       <b-tabs card>
         <template v-for="item in groupedWidgetList">
           <b-tab v-if="item[0]"
-                 :title="item[0]['group']"
-                 active>
-            <div class="row add-widget-modal--tab">
-              <div v-for="widget in item"
-                   class="add-widget-modal--widget-item col-3"
-                   :class="{'add-widget-modal--widget-item--selected': addWidgetList.indexOf(widget) > -1}"
-                   @click="updateAddList(widget)">
-            <span class="widget-name">
-              {{widget.name}}
-            </span>
-                <Frame class="widget-thumb-container">
-                <FrameChild title="this is iframe title">
-                  <link href="/static/lib/bootstrap.min.css"
-                        rel="stylesheet"
-                        crossorigin="anonymous">
-                  <link rel="stylesheet"
-                        href="https://cdn0.froala.com/assets/design/blocks/builder-28d9f2585c6323df9cef7312bf1b67de.css">
-                  <div :is="widget.name"
-                       :widgetData="widget.data"
-                       :demoMode="true"
-                       :uniqeKey="widget.uniqeId"></div>
-                </FrameChild>
-                </Frame>
-                <span class="widget-selected-num"
-                      v-if="addWidgetList.indexOf(widget) > -1">{{addWidgetList.indexOf(widget) + 1}}</span>
+              :title="item[0]['group']"
+              active>
+              <div class="row add-widget-modal--tab">
+                <div 
+                  v-for="widget in item"
+                  style="float-left"
+                  class="float-right"
+                  :class="{
+                    'col-12': item[0]['group'] === 'header',
+                    'col-3': item[0]['group'] !== 'header',
+                  }">
+                <div 
+                     class="add-widget-modal--widget-item"
+                     :class="{
+                       'add-widget-modal--widget-item--selected': addWidgetList.indexOf(widget) > -1
+                     }"
+                     @click="updateAddList(widget)">
+                  <span class="widget-name d-none">
+                    {{widget.name}}
+                  </span>
+                  <Frame 
+                  :style="{
+                    transform: `scale(${item[0]['group'] === 'header' ? 0.7 : 0.14}) translate(-50% , -50%)`,
+                    height: item[0]['group'] === 'header' ? '100px' : '768px'
+                  }"
+                  class="widget-thumb-container">
+                  <FrameChild title="this is iframe title">
+                    <link href="/static/lib/bootstrap.min.css"
+                          rel="stylesheet"
+                          crossorigin="anonymous">
+                    <link rel="stylesheet"
+                          href="https://cdn0.froala.com/assets/design/blocks/builder-28d9f2585c6323df9cef7312bf1b67de.css">
+                    <div :is="widget.name"
+                         :widgetData="widget.data"
+                         :demoMode="true"
+                         :uniqeKey="widget.uniqeId"></div>
+                  </FrameChild>
+                  </Frame>
+                  <span class="widget-selected-num"
+                        v-if="addWidgetList.indexOf(widget) > -1">{{addWidgetList.indexOf(widget) + 1}}</span>
+                </div>
               </div>
             </div>
           </b-tab>

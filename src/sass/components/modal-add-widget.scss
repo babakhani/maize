@@ -1,14 +1,14 @@
 .add-widget-modal {
   .tab-content {
     .add-widget-modal--tab {
-    //  display: flex;
-      justify-content: center;
-      max-height: 660px;
-      overflow: auto;
+      // display: flex;
+      //justify-content: center;
+      //max-height: 660px;
+      //overflow: auto;
     }
   }
   .modal-body {
-    min-height: 750px;
+    min-height: 550px;
     overflow: hidden;
     padding: 0;
     .card {
@@ -37,27 +37,23 @@
   .widget-thumb-container {
     position: absolute;
     width: 1440px;
-    height: 786px;
     border: 0;
-    transform: scale(0.14) translate(-50% , -50%);
     transform-origin: 0 0;
     top: 50%;
     left: 50%;
-
   }
 
   footer {
     padding: 15px !important;
   }
   .add-widget-modal--widget-item {
-    display: inline-block;
+    display: block;
     overflow: hidden;
     //width: 30%;
     height: 15em;
     border: 1px solid #999;
     background: #f8f8f8;
-    float: none;
-    margin: 1em;
+    margin-bottom: 1em;
     line-height: 3em;
     text-align: center;
     cursor: pointer;
