@@ -1,7 +1,9 @@
-export default [
-  {
-    name: 'Form_1',
-    group: 'form',
-    data: {}
-  }
-]
+export default {
+  title: 'Form',
+  group: 'form',
+  widgets: [
+    {
+      name: 'Form_1'
+    }
+  ]
+}

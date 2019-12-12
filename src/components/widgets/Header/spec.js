@@ -1,22 +1,19 @@
-export default [
-  {
-    name: 'Header_1',
-    group: 'header',
-    data: {}
-  },
-  {
-    name: 'Header_2',
-    group: 'header',
-    data: {}
-  },
-  {
-    name: 'Header_3',
-    group: 'header',
-    data: {}
-  },
-  {
-    name: 'Header_4',
-    group: 'header',
-    data: {}
-  },
-]
+export default {
+  title: 'Header',
+  group: 'header',
+  landspace: true,
+  widgets: [
+    {
+      name: 'Header_1'
+    },
+    {
+      name: 'Header_2'
+    },
+    {
+      name: 'Header_3'
+    },
+    {
+      name: 'Header_4'
+    }
+  ]
+}

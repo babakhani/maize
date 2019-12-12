@@ -8,13 +8,13 @@ import MediaSpec from './Media/spec'
 import CallToActionSpec from './CallToAction/spec'
 import ContactsSpec from './Contacts/spec'
 export default [
-  ...ContentSpec,
-  ...FeaturesSpec,
-  ...FooterSpec,
-  ...FormSpec,
-  ...GallerySpec,
-  ...HeaderSpec,
-  ...MediaSpec,
-  ...CallToActionSpec,
-  ...ContactsSpec
+  HeaderSpec,
+  CallToActionSpec,
+  FeaturesSpec,
+  ContentSpec,
+  FormSpec,
+  GallerySpec,
+  MediaSpec,
+  ContactsSpec,
+  FooterSpec
 ]
