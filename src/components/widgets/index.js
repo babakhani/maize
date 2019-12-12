@@ -9,13 +9,13 @@ import CallToAction from './CallToAction/index'
 import Contacts from './Contacts/index'
 
 export default {
-  ...Content,
+  ...Header,
+  ...CallToAction,
   ...Features,
-  ...Footer,
+  ...Media,
+  ...Content,
   ...Form,
   ...Gallery,
-  ...Header,
-  ...Media,
-  ...CallToAction,
-  ...Contacts
+  ...Contacts,
+  ...Footer
 }
