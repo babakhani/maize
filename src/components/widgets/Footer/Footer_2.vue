@@ -8,16 +8,16 @@
             <div class="col-12 col-md-8">
               <ul class="nav justify-content-center justify-content-md-start">
                 <li class="nav-item">
-                  <a class="nav-link active" href="https://www.froala.com">Home</a>
+                  <a class="nav-link active" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="https://www.froala.com">Features</a>
+                  <a class="nav-link" href="/">Features</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="https://www.froala.com">Terms</a>
+                  <a class="nav-link" href="/">Terms</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="https://www.froala.com">About</a>
+                  <a class="nav-link" href="/">About</a>
                 </li>
               </ul>
             </div>

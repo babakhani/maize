@@ -20,10 +20,10 @@
 
 
               <p class="text-h3 mt-5">
-                <strong>Email:</strong> <a href="https://www.froala.com">hello@website.com</a>
+                <strong>Email:</strong> <a href="/">hello@website.com</a>
               </p>
               <p class="text-h3">
-                <strong>Phone:</strong> <a href="https://www.froala.com">+44 123 123 1232</a>
+                <strong>Phone:</strong> <a  href="/">+44 123 123 1232</a>
               </p>
             </div>
 

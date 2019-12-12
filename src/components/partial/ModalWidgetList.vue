@@ -43,7 +43,7 @@
                           rel="stylesheet"
                           crossorigin="anonymous">
                     <link rel="stylesheet"
-                          href="https://cdn0.froala.com/assets/design/blocks/builder-28d9f2585c6323df9cef7312bf1b67de.css">
+                          href="/">
                     <div :is="widget.name"
                          :widgetData="widget.data"
                          :demoMode="true"

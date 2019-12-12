@@ -5,7 +5,7 @@
       <header>
         <div class="container text-center">
           <nav class="navbar">
-            <a class="ml-auto mr-auto" href="https://www.froala.com">
+            <a class="ml-auto mr-auto" href="/">
               <img src="/static/imgs/img_logo.png" height="30" alt="image">
             </a>
           </nav>

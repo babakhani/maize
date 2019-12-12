@@ -5,7 +5,7 @@
       <header>
         <div class="container">
           <nav class="navbar navbar-expand-md">
-            <a class="navbar-brand" href="https://www.froala.com">
+            <a class="navbar-brand" href="/">
               <img src="/static/imgs/img_logo.png" height="30" alt="image">
             </a>
 
@@ -16,32 +16,32 @@
             <div class="collapse navbar-collapse" id="navbarNav1">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="https://www.froala.com">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="https://www.froala.com">Features</a>
+                  <a class="nav-link" href="/">Features</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="https://www.froala.com">Pricing</a>
+                  <a class="nav-link" href="/">Pricing</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="https://www.froala.com">Team</a>
+                  <a class="nav-link" href="/">Team</a>
                 </li>
               </ul>
 
               <ul class="navbar-nav justify-content-end d-none d-lg-flex ml-md-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="https://www.froala.com"><i class="fa fa-slack"></i></a>
+                  <a class="nav-link" href="/"><i class="fa fa-slack"></i></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="https://www.froala.com"><i class="fa fa-twitter"></i></a>
+                  <a class="nav-link" href="/"><i class="fa fa-twitter"></i></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="https://www.froala.com"><i class="fa fa-github"></i></a>
+                  <a class="nav-link" href="/"><i class="fa fa-github"></i></a>
                 </li>
               </ul>
 
-              <a class="btn btn-empty ml-md-3" href="https://www.froala.com">Button</a>
+              <a class="btn btn-empty ml-md-3" href="/">Button</a>
             </div>
           </nav>
         </div>
@@ -61,7 +61,7 @@
           <div class="container">
             <nav class="navbar navbar-expand-md">
               <a class="navbar-brand"
-                 href="https://www.froala.com">
+                 href="/">
                 <!--<img src="/static/imgs/img_logo.png"-->
                 <!--height="30"-->
                 <!--alt="image">-->
@@ -86,7 +86,7 @@
                   <li class="nav-item active">
                     <!--TODO: fix nested and remove padding on styles-->
                     <!--<a class="nav-link"-->
-                    <!--href="https://www.froala.com">Home <span class="sr-only">(current)</span></a>-->
+                    <!--href="">Home <span class="sr-only">(current)</span></a>-->
                     <text-editable tag="a"
                                    cssClass="nav-link"
                                    name="header_link_1"
@@ -124,20 +124,20 @@
                 <!--<ul class="navbar-nav justify-content-end d-none d-lg-flex ml-md-auto">-->
                 <!--<li class="nav-item">-->
                 <!--<a class="nav-link"-->
-                <!--href="https://www.froala.com"><i class="fa fa-slack"></i></a>-->
+                <!--href=""><i class="fa fa-slack"></i></a>-->
                 <!--</li>-->
                 <!--<li class="nav-item">-->
                 <!--<a class="nav-link"-->
-                <!--href="https://www.froala.com"><i class="fa fa-twitter"></i></a>-->
+                <!--href=""><i class="fa fa-twitter"></i></a>-->
                 <!--</li>-->
                 <!--<li class="nav-item">-->
                 <!--<a class="nav-link"-->
-                <!--href="https://www.froala.com"><i class="fa fa-github"></i></a>-->
+                <!--href=""><i class="fa fa-github"></i></a>-->
                 <!--</li>-->
                 <!--</ul>-->
 
                 <a class="btn btn-empty ml-md-3"
-                   href="https://www.froala.com">Button</a>
+                   href="/">Button</a>
               </div>
             </nav>
           </div>

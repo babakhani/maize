@@ -9,7 +9,7 @@
             <div class="col-12 col-md-8 text-center">
               <h1>Far far away, behind the word mountains, far from</h1>
               <p class="mt-5">
-                <a class="btn" href="https://www.froala.com">Download</a>
+                <a class="btn" href="/">Download</a>
               </p>
             </div>
           </div>

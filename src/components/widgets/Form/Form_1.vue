@@ -14,7 +14,7 @@
             </span>
               </div>
 
-              <p class="text-h4">Find us on <a href="https://www.froala.com">Facebook</a> and <a href="https://www.froala.com">Twitter</a>.</p>
+              <p class="text-h4">Find us on <a href="/">Facebook</a> and <a href="/">Twitter</a>.</p>
             </div>
           </div>
         </div>

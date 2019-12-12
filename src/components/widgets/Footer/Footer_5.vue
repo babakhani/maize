@@ -8,26 +8,26 @@
             <div class="col-12 col-md-6">
               <ul class="nav justify-content-center justify-content-md-start">
                 <li class="nav-item">
-                  <a class="nav-link active" href="https://www.froala.com">Home</a>
+                  <a class="nav-link active" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="https://www.froala.com">Features</a>
+                  <a class="nav-link" href="/">Features</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="https://www.froala.com">Terms</a>
+                  <a class="nav-link" href="/">Terms</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="https://www.froala.com">About</a>
+                  <a class="nav-link" href="/">About</a>
                 </li>
               </ul>
             </div>
 
             <div class="col-12 col-md-6 mt-4 mt-md-0 text-center text-md-right">
-              <a href="https://www.froala.com"><i class="fa fa-twitter" aria-hidden="true"></i></a>&nbsp;&nbsp;
-              <a href="https://www.froala.com"><i class="fa fa-facebook" aria-hidden="true"></i></a>&nbsp;&nbsp;
-              <a href="https://www.froala.com"><i class="fa fa-instagram" aria-hidden="true"></i></a>&nbsp;&nbsp;
-              <a href="https://www.froala.com"><i class="fa fa-pinterest" aria-hidden="true"></i></a>&nbsp;&nbsp;
-              <a href="https://www.froala.com"><i class="fa fa-google" aria-hidden="true"></i></a>
+              <a href="/"><i class="fa fa-twitter" aria-hidden="true"></i></a>&nbsp;&nbsp;
+              <a href="/"><i class="fa fa-facebook" aria-hidden="true"></i></a>&nbsp;&nbsp;
+              <a href="/"><i class="fa fa-instagram" aria-hidden="true"></i></a>&nbsp;&nbsp;
+              <a href="/"><i class="fa fa-pinterest" aria-hidden="true"></i></a>&nbsp;&nbsp;
+              <a href="/"><i class="fa fa-google" aria-hidden="true"></i></a>
             </div>
           </div>
         </div>
@@ -84,11 +84,11 @@
               </div>
               <!--TODO: Do you want this??-->
               <!--<div class="col-12 col-md-6 mt-4 mt-md-0 text-center text-md-right">-->
-              <!--<a href="https://www.froala.com"><i class="fa fa-twitter" aria-hidden="true"></i></a>&nbsp;&nbsp;-->
-              <!--<a href="https://www.froala.com"><i class="fa fa-facebook" aria-hidden="true"></i></a>&nbsp;&nbsp;-->
-              <!--<a href="https://www.froala.com"><i class="fa fa-instagram" aria-hidden="true"></i></a>&nbsp;&nbsp;-->
-              <!--<a href="https://www.froala.com"><i class="fa fa-pinterest" aria-hidden="true"></i></a>&nbsp;&nbsp;-->
-              <!--<a href="https://www.froala.com"><i class="fa fa-google" aria-hidden="true"></i></a>-->
+              <!--<a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>&nbsp;&nbsp;-->
+              <!--<a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>&nbsp;&nbsp;-->
+              <!--<a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>&nbsp;&nbsp;-->
+              <!--<a href=""><i class="fa fa-pinterest" aria-hidden="true"></i></a>&nbsp;&nbsp;-->
+              <!--<a href=""><i class="fa fa-google" aria-hidden="true"></i></a>-->
               <!--</div>-->
             </div>
           </div>

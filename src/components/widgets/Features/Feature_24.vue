@@ -13,26 +13,26 @@
               <div class="row justify-content-left">
                 <div class="col-3 m-auto text-center">
                   <img alt="image" class="fdb-icon" src="/static/imgs/img_round.svg">
-                  <p><a href="https://www.froala.com">One &gt;</a></p>
+                  <p><a href="/">One &gt;</a></p>
                 </div>
                 <div class="col-3 m-auto text-center">
                   <img alt="image" class="fdb-icon" src="/static/imgs/img_round.svg">
-                  <p><a href="https://www.froala.com">Two &gt;</a></p>
+                  <p><a href="/">Two &gt;</a></p>
                 </div>
                 <div class="col-3 m-auto text-center">
                   <img alt="image" class="fdb-icon" src="/static/imgs/img_round.svg">
-                  <p><a href="https://www.froala.com">Three &gt;</a></p>
+                  <p><a href="/">Three &gt;</a></p>
                 </div>
               </div>
 
               <div class="row justify-content-left mt-4 mt-xl-5">
                 <div class="col-3 m-auto text-center">
                   <img alt="image" class="fdb-icon" src="/static/imgs/img_round.svg">
-                  <p><a href="https://www.froala.com">Four &gt;</a></p>
+                  <p><a href="/">Four &gt;</a></p>
                 </div>
                 <div class="col-3 m-auto text-center">
                   <img alt="image" class="fdb-icon" src="/static/imgs/img_round.svg">
-                  <p><a href="https://www.froala.com">Five &gt;</a></p>
+                  <p><a href="/">Five &gt;</a></p>
                 </div>
               </div>
             </div>

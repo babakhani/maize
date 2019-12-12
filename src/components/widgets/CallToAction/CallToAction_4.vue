@@ -11,7 +11,7 @@
                 Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts
               </p>
               <p class="mt-5 mt-sm-4">
-                <a class="btn" href="https://www.froala.com">Download</a>
+                <a class="btn" href="/">Download</a>
               </p>
             </div>
           </div>
