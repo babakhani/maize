@@ -3,21 +3,27 @@
   <header class="page-toolbox bg-dark rtl"
           data-block-type="headers"
           data-id="2">
-    <div class="container p-0">
       <nav class="navbar navbar-expand-lg px-0 py-3">
         <div class="collapse navbar-collapse"
              id="navbarNav13">
 
-          <div class="nav-item float-right">
-            <a :title="$t('add_widget')"
-               v-b-tooltip.hover.bottom.small
-               class="nav-link"
-               @click="goToAddWidgetMode">
-              <icon name="plus-square"></icon>
-            </a>
-          </div>
-
           <ul class="navbar-nav float-right ml-auto pr-0">
+            <li class="nav-item mr-lg-3">
+              <a :title="$t('toolbox.settings')"
+                 v-b-tooltip.hover.top.small
+                 class="nav-link"
+                 @click="goToSettingsMode">
+                <icon name="cog"></icon>
+              </a>
+            </li>
+            <li class="nav-item mr-lg-3">
+              <a :title="$t('add_widget')"
+                 v-b-tooltip.hover.bottom.small
+                 class="nav-link"
+                 @click="goToAddWidgetMode">
+                <icon name="plus-square"></icon>
+              </a>
+            </li>
             <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
@@ -40,14 +46,6 @@
               </a>
             </li>
             <li class="nav-item mr-lg-3">
-              <a :title="$t('toolbox.settings')"
-                 v-b-tooltip.hover.top.small
-                 class="nav-link"
-                 @click="goToSettingsMode">
-                <icon name="cog"></icon>
-              </a>
-            </li>
-            <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
                  :title="$t('undo')"
@@ -63,6 +61,7 @@
                 <icon name="redo"></icon>
               </a>
             </li>
+            <!--
             <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
@@ -87,6 +86,7 @@
                 <icon name="desktop"></icon>
               </a>
             </li>
+            -->
             <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
@@ -97,16 +97,18 @@
             </li>
           </ul>
           <div class="nav-item float-left position-relative maize-brand">
-            <a :title="$t('add_widget')"
+            <a class="navbar-brand" href="#">Maze</a>
+            <!--<a :title="$t('add_widget')"
                v-b-tooltip.hover.bottom.small
                class="nav-link"
                @click="goToAddWidgetMode">
-              <img class="position-absolute w-100 h-100" src="/static/imgs/customers/intel.svg">
+               Maze
+               <img class="position-absolute w-100 h-100"
+               src="/static/imgs/customers/intel.svg">-->
             </a>
           </div>
         </div>
       </nav>
-    </div>
   </header>
 </template>
 <script>

@@ -12,16 +12,19 @@
            class="editable-part-sidebar">
         <EditablePartSidebar></EditablePartSidebar>
       </nav>
-      <div id="content">
+      <div 
+        :class="{ 'px-4': !previewMode }"
+        class="w-100">
         <draggable v-model="currentWidgetList"
                    :options="{handle:'.widget-drag-handle'}"
                    @start="drag=true"
                    @end="drag=false">
           <div v-for="(widget, index) in currentWidgetList"
                :key="widget.uniqeId">
-            <div :is="widget.name"
+            <component :is="widget.name"
                  :widgetData="widget.data"
-                 :uniqeKey="widget.uniqeId"></div>
+                 :uniqeKey="widget.uniqeId">
+            </component>
           </div>
         </draggable>
         <AddWidget>
