@@ -21,21 +21,24 @@
                   class="float-right"
                   :class="{
                     'col-12': item.landspace,
-                    'col-4': !item.landspace
+                    'col-6': !item.landspace
                   }">
                 <div 
-                     class="add-widget-modal--widget-item"
-                     :class="{
-                       'add-widget-modal--widget-item--selected': addWidgetList.indexOf(widget) > -1
-                     }"
-                     @click="updateAddList(widget)">
-                  <span class="widget-name d-none">
+                  class="add-widget-modal--widget-item"
+                  :style="{
+                    height: item.landspace ? '10em' : '25em'
+                  }"
+                  :class="{
+                    'add-widget-modal--widget-item--selected': addWidgetList.indexOf(widget) > -1
+                  }"
+                  @click="updateAddList(widget)">
+                  <span class="widget-name">
                     {{widget.name}}
                   </span>
                   <Frame 
                   :style="{
-                    transform: `scale(${ item.landspace ? 0.9 : 0.2}) translate(-50% , -50%)`,
-                    height: item.landspace ? '100px' : '768px'
+                    transform: `scale(${ item.landspace ? 0.9 : 0.3}) translate(-50% , -50%)`,
+                    height: item.landspace ? '100px' : '800px'
                   }"
                   class="widget-thumb-container">
                   <FrameChild title="this is iframe title">
