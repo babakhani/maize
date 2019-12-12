@@ -13,8 +13,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "bootstrap": "^3.3.7",
-    "bootstrap-vue": "^2.0.0-rc.6",
+    "bootstrap-vue": "2.0.0-rc.6",
     "faker": "^4.1.0",
     "jquery": "^3.3.1",
     "lodash": "4.17.10",
