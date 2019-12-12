@@ -3,7 +3,7 @@ export default {
   'export': 'Export',
   'show_header': 'Show header',
   'preview_mode': 'Preview Mode',
-  'add_widget': 'Add widget, make fun!',
+  'add_widget': 'Add widget, Have fun!',
   'toolbox': {
     'edit': 'Edit',
     'delete': 'Delete',

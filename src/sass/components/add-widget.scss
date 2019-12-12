@@ -9,7 +9,8 @@
 
   // TODO: bita fix class name
   .add-widget-box--main {
-    min-height: 200px;
+    min-height: 400px;
+    //width: 400px;
     background: rgba(241, 29, 34, 0.05);
     border-radius: 4px;
     position: relative;
@@ -30,24 +31,28 @@
       }
 
       .btn-add-widget {
+        position: relative;
         cursor: pointer;
         width: 48px;
         height: 48px;
         background: #f11d22;
         border-radius: 100%;
-        font-size: 36px;
-        line-height: 34px;
         box-shadow: 0 2px 4px 0 rgba(241, 29, 34, 0.5);
         &:hover {
           border-color: #f11d22;
         }
-
+        .fa-icon {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50% );
+        }
       }
       .text-add-widget {
-        font-size: 14px;
+        font-size: 16px;
         color: #f11d22;
         margin-top: 15px;
-        font-weight: 500;
+        font-weight: normal;
       }
     }
   }
