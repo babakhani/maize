@@ -1,6 +1,5 @@
 <template>
   <div 
-    @click="goToAddWidgetMode"
     class="add-widget-box w-100 mx-0">
     <!--TODO: bita fix class name-->
     <b-row class="justify-content-center">
@@ -8,7 +7,9 @@
          cols="12"
          md="6"
          lg="4">
-        <b-card class="add-widget-box--main container">
+        <b-card
+        @click="goToAddWidgetMode"
+        class="add-widget-box--main container">
           <div class="add-widget-box--main--details">
             <div class="center-center">
               <button 

@@ -1,5 +1,4 @@
 .add-widget-box {
-  cursor: pointer;
   margin: 1em;
 
   // Preview Mode Styles
@@ -10,6 +9,7 @@
 
   // TODO: bita fix class name
   .add-widget-box--main {
+    cursor: pointer;
     min-height: 400px;
     background: rgba($primary-color, 0.05);
     border-radius: 4px;
