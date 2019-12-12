@@ -41,6 +41,7 @@
         <icon name="arrows-alt-h"></icon>
       </button>
     </transition>
+    <!--
     <transition name="fade">
       <button v-if="showTools"
               @click="$parent.toggleEditMode"
@@ -50,6 +51,7 @@
         <icon name="pencil-alt"></icon>
       </button>
     </transition>
+    -->
     <transition name="fade">
       <button v-if="showTools"
               @click="$parent.deleteWidget"
@@ -59,8 +61,6 @@
         <icon name="trash"></icon>
       </button>
     </transition>
-
-
 
   </div>
 </template>
