@@ -77,13 +77,19 @@ const Mixin = {
       this.updateWidget()
     },
     hideToolbox () {
+      console.log('hideToolbox')
       this.toolboxVisible = false
       this.showToolboxButton = false
     },
     showToolbox () {
-      clearTimeout(this.showToolboxButtonTimer)
-      this.toolboxVisible = true
-      EventBus.$emit('igotoeditmode', this._uid)
+      console.log('showToolbox')
+      if (this.toolboxVisible) {
+        this.hideToolbox()
+      } else {
+        clearTimeout(this.showToolboxButtonTimer)
+        this.toolboxVisible = true
+        EventBus.$emit('igotoeditmode', this._uid)
+      }
     }
   },
   watch: {

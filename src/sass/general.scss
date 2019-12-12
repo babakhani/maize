@@ -1,4 +1,8 @@
-
+html, body
+{
+    height: 100%;
+    overflow: auto;
+}
 body {
   font-family: 'IranSansFaNum', 'IranSans', tahoma, Arial, sans-serif;
   font-size: 12px;
@@ -21,6 +25,13 @@ body {
   border: 0;
   &:focus {
     box-shadow: none;
+  }
+}
+
+.no-outline {
+  outline: 0 !important;
+  &:hover {
+    outline: 0 !important;
   }
 }
 

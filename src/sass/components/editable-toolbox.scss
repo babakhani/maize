@@ -1,5 +1,12 @@
 .widget-text-editable--toolbox {
-  //outline: 2px solid red;
+  display: block;
+  font-size: 2rem !important;
+  z-index: 100000;
+  background: rgba(#333333, .9);
+  position: fixed !important;
+  bottom: 0px; 
+  left: 0px;
+  right: 0px;
   padding: 0;
   float: left;
   width: 100%;
@@ -7,7 +14,6 @@
   .editor-page-preview-mode & {
     visibility: hidden;
   }
-
   .widget-text-editable--toolbox--group {
     display: inline;
     clear: both;
@@ -31,7 +37,7 @@
       margin-top: 0;
       min-width: 2em;
       .dropdown-item {
-        padding: .25rem .75rem
+        padding: .25em .75em
       }
     }
   }
@@ -109,17 +115,22 @@
   }
   .widget-text-editable--toolbox--close {
     position: absolute;
-    top: 0;
-    right: -45px;
+    top: -16px;
+    right: -16px;
     cursor: pointer;
     border-radius: 100px;
     background-color: #000;
     z-index: 10;
-    width: 37px;
-    height: 37px;
+    width: 32px;
+    height: 32px;
+    &:hover {
+      background-color: $primary-color;
+    }
     svg {
-      margin-top: .43em;
-      margin-left: .1em;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 }

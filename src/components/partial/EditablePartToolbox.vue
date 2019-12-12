@@ -444,9 +444,7 @@
           </button>
 
         </div>
-        <button :title="$t('toolbox.close')"
-                v-b-tooltip.hover.top.small
-                @click="hide"
+        <button @click="hide"
                 class="btn btn-sm btn-danger float-right widget-text-editable--toolbox--close">
           <icon name="times"></icon>
         </button>
