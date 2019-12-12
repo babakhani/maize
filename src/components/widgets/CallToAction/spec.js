@@ -1,27 +1,21 @@
-export default [
-  {
-    name: 'CallToAction_1',
-    group: 'CallToAction',
-    data: {}
-  },
-  {
-    name: 'CallToAction_2',
-    group: 'CallToAction',
-    data: {}
-  },
-  {
-    name: 'CallToAction_3',
-    group: 'CallToAction',
-    data: {}
-  },
-  {
-    name: 'CallToAction_4',
-    group: 'CallToAction',
-    data: {}
-  },
-  {
-    name: 'CallToAction_5',
-    group: 'CallToAction',
-    data: {}
-  }
-]
+export default {
+  title: 'Call to Action',
+  group: 'calltoaction',
+  widgets: [
+    {
+      name: 'CallToAction_1'
+    },
+    {
+      name: 'CallToAction_2'
+    },
+    {
+      name: 'CallToAction_3'
+    },
+    {
+      name: 'CallToAction_4'
+    },
+    {
+      name: 'CallToAction_5'
+    }
+  ]
+}

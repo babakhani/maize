@@ -1,27 +1,22 @@
-export default [
-  {
-    name: 'Footer_1',
-    group: 'footer',
-    data: {}
-  },
-  {
-    name: 'Footer_2',
-    group: 'footer',
-    data: {}
-  },
-  {
-    name: 'Footer_3',
-    group: 'footer',
-    data: {}
-  },
-  {
-    name: 'Footer_4',
-    group: 'footer',
-    data: {}
-  },
-  {
-    name: 'Footer_5',
-    group: 'footer',
-    data: {}
-  }
-]
+export default {
+  title: 'Footer',
+  group: 'footer',
+  landspace: true,
+  widgets: [
+    {
+      name: 'Footer_1'
+    },
+    {
+      name: 'Footer_2'
+    },
+    {
+      name: 'Footer_3'
+    },
+    {
+      name: 'Footer_4'
+    },
+    {
+      name: 'Footer_5'
+    }
+  ]
+}

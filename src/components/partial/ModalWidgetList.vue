@@ -11,31 +11,34 @@
     <b-card no-body>
       <b-tabs card>
         <template v-for="item in groupedWidgetList">
-          <b-tab v-if="item[0]"
-              :title="item[0]['group']"
-              active>
+          <b-tab v-if="item"
+              :active="item.group === 'header'"
+              :title="item.title">
               <div class="row add-widget-modal--tab">
                 <div 
-                  v-for="widget in item"
+                  v-for="widget in item.widgets"
                   style="float-left"
                   class="float-right"
                   :class="{
-                    'col-12': item[0]['group'] === 'header',
-                    'col-3': item[0]['group'] !== 'header',
+                    'col-12': item.landspace,
+                    'col-6': !item.landspace
                   }">
                 <div 
-                     class="add-widget-modal--widget-item"
-                     :class="{
-                       'add-widget-modal--widget-item--selected': addWidgetList.indexOf(widget) > -1
-                     }"
-                     @click="updateAddList(widget)">
-                  <span class="widget-name d-none">
+                  class="add-widget-modal--widget-item"
+                  :style="{
+                    height: item.landspace ? '10em' : '25em'
+                  }"
+                  :class="{
+                    'add-widget-modal--widget-item--selected': addWidgetList.indexOf(widget) > -1
+                  }"
+                  @click="updateAddList(widget)">
+                  <span class="widget-name">
                     {{widget.name}}
                   </span>
                   <Frame 
                   :style="{
-                    transform: `scale(${item[0]['group'] === 'header' ? 0.7 : 0.14}) translate(-50% , -50%)`,
-                    height: item[0]['group'] === 'header' ? '100px' : '768px'
+                    transform: `scale(${ item.landspace ? 0.9 : 0.3}) translate(-50% , -50%)`,
+                    height: item.landspace ? '100px' : '800px'
                   }"
                   class="widget-thumb-container">
                   <FrameChild title="this is iframe title">
@@ -94,7 +97,7 @@
         return this.$store.state.layout.addWidgetMode
       },
       groupedWidgetList () {
-        return this._.groupBy(this.$store.state.main.rawWidgetList, 'group')
+        return this.$store.state.main.rawWidgetList
       }
     },
     data () {
