@@ -8,7 +8,7 @@
             <div class="col-12">
               <h1>There is a feature for everyone</h1>
               <p class="text-h3">
-                <a href="https://www.froala.com">See all features &gt;</a>
+                <a href="/">See all features &gt;</a>
               </p>
             </div>
           </div>

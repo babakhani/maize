@@ -5,7 +5,7 @@
       <header>
         <div class="container">
           <nav class="navbar">
-            <a href="https://www.froala.com">
+            <a href="/">
               <img src="/static/imgs/img_logo.png"
                    height="30"
                    alt="image">
@@ -28,7 +28,7 @@
           <div class="container">
             <nav class="navbar">
               <!--TODO: fix nested component-->
-              <a href="https://www.froala.com">
+              <a href="">
                 <ImageEditable name="header_image"
                                :partData="touchedData.header_image">
                 </ImageEditable>

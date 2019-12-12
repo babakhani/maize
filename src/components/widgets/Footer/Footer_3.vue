@@ -8,19 +8,19 @@
             <div class="col-12 col-md-8">
               <ul class="nav justify-content-center justify-content-md-start align-items-center">
                 <li class="nav-item">
-                  <a class="nav-link active" href="https://www.froala.com">
+                  <a class="nav-link active" href="/">
                     <img alt="image" src="/static/imgs/img_logo.png" height="40">
                   </a>
                 </li>
                 <li class="w-100 d-block d-sm-none"></li>
                 <li class="nav-item">
-                  <a class="nav-link" href="https://www.froala.com">Features</a>
+                  <a class="nav-link" href="/">Features</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="https://www.froala.com">Terms</a>
+                  <a class="nav-link" href="/">Terms</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="https://www.froala.com">About</a>
+                  <a class="nav-link" href="/">About</a>
                 </li>
               </ul>
             </div>
@@ -49,7 +49,7 @@
                 <ul class="nav justify-content-center justify-content-md-start align-items-center">
                   <li class="nav-item">
                     <a class="nav-link active"
-                       href="https://www.froala.com">
+                       href="/">
                       <ImageEditable name="footer_image"
                                      :partData="touchedData.footer_image">
                       </ImageEditable>

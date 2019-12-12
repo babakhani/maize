@@ -8,7 +8,7 @@
             <div class="col text-center">
               <h1>Froala Design Blocks</h1>
               <h2>Subtitle comes here.</h2>
-              <p class="text-h3"><a href="https://www.froala.com">Learn More &gt;</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.froala.com">Buy &gt;</a></p>
+              <p class="text-h3"><a href="/">Learn More &gt;</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/">Buy &gt;</a></p>
               <img alt="image" class="img-fluid mt-5" src="/static/imgs/colors_wide_1.jpg">
             </div>
           </div>

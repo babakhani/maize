@@ -11,7 +11,7 @@
                 Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
                 Semantics, a large language ocean.</p>
 
-              <p class="text-h3"><a href="https://www.froala.com">Explore all features &gt;</a></p>
+              <p class="text-h3"><a href="/">Explore all features &gt;</a></p>
             </div>
           </div>
 

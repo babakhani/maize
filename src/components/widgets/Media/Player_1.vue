@@ -68,7 +68,7 @@
                 width: '80%',
                 height: '300px'
               },
-              src: 'http://tamasha.com/embed/GmKVW'
+              src: ''
             },
             mainTitle: {
               styles: {},
