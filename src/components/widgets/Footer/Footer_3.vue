@@ -1,47 +1,7 @@
 <template>
-  <div v-if="touchedData !== {}"
-       :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode">
-      <footer class="fdb-block footer-small">
-        <div class="container">
-          <div class="row text-center align-items-center">
-            <div class="col-12 col-md-8">
-              <ul class="nav justify-content-center justify-content-md-start align-items-center">
-                <li class="nav-item">
-                  <a class="nav-link active" href="/">
-                    <img alt="image" src="/static/imgs/img_logo.png" height="40">
-                  </a>
-                </li>
-                <li class="w-100 d-block d-sm-none"></li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/">Features</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/">Terms</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/">About</a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="col-12 col-md-4 mt-4 mt-md-0 text-md-right">
-              &copy; 2013-2017 Froala
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
-    <div v-else
-         class="widget-block">
-      <WidgetToolbox></WidgetToolbox>
-      <div class="widget-block--name">
-        {{$options.name}}
-      </div>
-      <BgEditable
-        name="bg"
-        v-if="touchedData.bg"
-        :partData="touchedData.bg">
+  <div>
+      <WidgetToolbox/>
+      <BgEditable>
         <footer class="fdb-block footer-small">
           <div class="container">
             <div class="row text-center align-items-center">
@@ -51,49 +11,40 @@
                     <a class="nav-link active"
                        href="/">
                       <ImageEditable name="footer_image"
-                                     :partData="touchedData.footer_image">
-                      </ImageEditable>
+                                     :partData="touchedData.footer_image"/>
                     </a>
                   </li>
                   <li class="w-100 d-block d-sm-none"></li>
                   <li class="nav-item">
-                    <text-editable tag="a"
+                    <TextEditable tag="a"
                                    cssClass="nav-link"
                                    name="footer_link_1"
-                                   :partData="touchedData.footer_link_1">
-
-                    </text-editable>
+                                   :partData="touchedData.footer_link_1"/>
                   </li>
                   <li class="nav-item">
-                    <text-editable tag="a"
+                    <TextEditable tag="a"
                                    cssClass="nav-link"
                                    name="footer_link_2"
-                                   :partData="touchedData.footer_link_2">
-
-                    </text-editable>
+                                   :partData="touchedData.footer_link_2"/>
                   </li>
                   <li class="nav-item">
-                    <text-editable tag="a"
+                    <TextEditable tag="a"
                                    cssClass="nav-link"
                                    name="footer_link_3"
-                                   :partData="touchedData.footer_link_3">
-
-                    </text-editable>
+                                   :partData="touchedData.footer_link_3"/>
                   </li>
                 </ul>
               </div>
 
               <div class="col-12 col-md-4 mt-4 mt-md-0 text-md-right">
-                <text-editable tag="span"
+                <TextEditable tag="span"
                                name="footer_copyright"
-                               :partData="touchedData.footer_copyright">
-                </text-editable>
+                               :partData="touchedData.footer_copyright"/>
               </div>
             </div>
           </div>
         </footer>
       </BgEditable>
-    </div>
   </div>
 </template>
 <script>

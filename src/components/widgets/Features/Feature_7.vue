@@ -1,75 +1,38 @@
 <template>
-  <div v-if="touchedData !== {}"
-       :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode">
-
-      <section class="fdb-block">
-        <div class="container">
-          <div class="row text-center">
-            <div class="col-12 col-sm-6 col-lg-5 col-xl-4 m-auto">
-              <img alt="image" class="fdb-icon" src="/static/imgs/img_round.svg">
-              <h3><strong>Feature 1</strong></h3>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</p>
-            </div>
-
-            <div class="col-12 col-sm-6 col-lg-5 col-xl-4 m-auto pt-4 pt-sm-0">
-              <img alt="image" class="fdb-icon" src="/static/imgs/img_round.svg">
-              <h3><strong>Feature 2</strong></h3>
-              <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </div>
-    <div v-else
-         class="widget-block">
-      <WidgetToolbox></WidgetToolbox>
-      <div class="widget-block--name">
-        {{$options.name}}
-      </div>
-      <BgEditable
-        name="bg"
-        v-if="touchedData.bg"
-        :partData="touchedData.bg">
+  <div>
+      <WidgetToolbox/>
+      <BgEditable>
         <section class="fdb-block">
           <div class="container">
             <div class="row text-center">
               <div class="col-12 col-sm-6 col-lg-5 col-xl-4 m-auto">
                 <ImageEditable name="image_1"
                                cssClass="fdb-icon"
-                               :partData="touchedData.image_1">
-                </ImageEditable>
-                <text-editable tag="h3"
+                               :partData="touchedData.image_1"/>
+                <TextEditable tag="h3"
                                name="feature_1_title"
-                               :partData="touchedData.feature_1_title">
-                </text-editable>
+                               :partData="touchedData.feature_1_title"/>
                 <br/>
-                <text-editable tag="p"
+                <TextEditable tag="p"
                                name="feature_1_description"
-                               :partData="touchedData.feature_1_description">
-                </text-editable>
+                               :partData="touchedData.feature_1_description"/>
               </div>
               <div class="col-12 col-sm-6 col-lg-5 col-xl-4 m-auto pt-4 pt-sm-0">
                 <ImageEditable name="image_2"
                                cssClass="fdb-icon"
-                               :partData="touchedData.image_2">
-                </ImageEditable>
-                <text-editable tag="h3"
+                               :partData="touchedData.image_2"/>
+                <TextEditable tag="h3"
                                name="feature_2_title"
-                               :partData="touchedData.feature_2_title">
-                </text-editable>
+                               :partData="touchedData.feature_2_title"/>
                 <br/>
-                <text-editable tag="p"
+                <TextEditable tag="p"
                                name="feature_2_description"
-                               :partData="touchedData.feature_2_description">
-                </text-editable>
+                               :partData="touchedData.feature_2_description"/>
               </div>
             </div>
           </div>
         </section>
       </BgEditable>
-    </div>
   </div>
 </template>
 <script>

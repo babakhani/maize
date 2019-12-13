@@ -1,72 +1,18 @@
 <template>
-  <div v-if="touchedData !== {}"
-       :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode">
-      <section class="fdb-block">
-        <div class="container">
-          <div class="row text-center">
-            <div class="col-12">
-              <h1>There is a feature for everyone</h1>
-              <p class="text-h3">
-                <a href="/">See all features &gt;</a>
-              </p>
-            </div>
-          </div>
-
-          <div class="row text-center justify-content-center mt-5">
-            <div class="col-10 col-sm-3">
-              <img alt="image"
-                   class="img-fluid"
-                   src="/static/imgs/img_square_1.svg">
-              <h3><strong>Feature One</strong></h3>
-            </div>
-            <div class="col-10 col-sm-3 pt-5 pt-sm-0">
-              <img alt="image"
-                   class="img-fluid"
-                   src="/static/imgs/img_square_4.svg">
-              <h3><strong>Feature Two</strong></h3>
-            </div>
-
-            <div class="col-10 col-sm-3 pt-5 pt-sm-0">
-              <img alt="image"
-                   class="img-fluid"
-                   src="/static/imgs/img_square_2.svg">
-              <h3><strong>Feature Three</strong></h3>
-            </div>
-
-            <div class="col-10 col-sm-3 pt-5 pt-sm-0">
-              <img alt="image"
-                   class="img-fluid"
-                   src="/static/imgs/img_square_3.svg">
-              <h3><strong>Feature Four</strong></h3>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-    <div v-else
-         class="widget-block">
+  <div>
       <WidgetToolbox></WidgetToolbox>
-      <div class="widget-block--name">
-        {{$options.name}}
-      </div>
-      <BgEditable
-        name="bg"
-        v-if="touchedData.bg"
-        :partData="touchedData.bg">
+      <BgEditable>
         <section class="fdb-block">
           <div class="container">
             <div class="row text-center">
               <div class="col-12">
-                <text-editable tag="h1"
+                <TextEditable tag="h1"
                                name="mainTitle"
-                               :partData="touchedData.mainTitle">
-                </text-editable>
+                               :partData="touchedData.mainTitle"/>
                 <p class="text-h3">
-                  <text-editable tag="a"
+                  <TextEditable tag="a"
                                  name="main_link"
-                                 :partData="touchedData.main_link">
-                  </text-editable>
+                                 :partData="touchedData.main_link"/>
                 </p>
               </div>
             </div>
@@ -75,50 +21,41 @@
               <div class="col-10 col-sm-3">
                 <ImageEditable name="feature_image_1"
                                cssClass="img-fluid"
-                               :partData="touchedData.feature_image_1">
-                </ImageEditable>
-                <text-editable tag="h3"
+                               :partData="touchedData.feature_image_1"/>
+                <TextEditable tag="h3"
                                name="feature_1_title"
-                               :partData="touchedData.feature_1_title">
-                </text-editable>
+                               :partData="touchedData.feature_1_title"/>
               </div>
               <div class="col-10 col-sm-3 pt-5 pt-sm-0">
                 <ImageEditable name="feature_image_2"
                                cssClass="img-fluid"
-                               :partData="touchedData.feature_image_2">
-                </ImageEditable>
-                <text-editable tag="h3"
+                               :partData="touchedData.feature_image_2"/>
+                <TextEditable tag="h3"
                                name="feature_2_title"
-                               :partData="touchedData.feature_2_title">
-                </text-editable>
+                               :partData="touchedData.feature_2_title"/>
               </div>
 
               <div class="col-10 col-sm-3 pt-5 pt-sm-0">
                 <ImageEditable name="feature_image_3"
                                cssClass="img-fluid"
-                               :partData="touchedData.feature_image_3">
-                </ImageEditable>
-                <text-editable tag="h3"
+                               :partData="touchedData.feature_image_3"/>
+                <TextEditable tag="h3"
                                name="feature_3_title"
-                               :partData="touchedData.feature_3_title">
-                </text-editable>
+                               :partData="touchedData.feature_3_title"/>
               </div>
 
               <div class="col-10 col-sm-3 pt-5 pt-sm-0">
                 <ImageEditable name="feature_image_4"
                                cssClass="img-fluid"
-                               :partData="touchedData.feature_image_4">
-                </ImageEditable>
-                <text-editable tag="h3"
+                               :partData="touchedData.feature_image_4"/>
+                <TextEditable tag="h3"
                                name="feature_4_title"
-                               :partData="touchedData.feature_4_title">
-                </text-editable>
+                               :partData="touchedData.feature_4_title"/>
               </div>
             </div>
           </div>
         </section>
       </BgEditable>
-    </div>
   </div>
 </template>
 <script>

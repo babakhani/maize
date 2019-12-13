@@ -9,15 +9,13 @@
               <TextEditable 
                 tag="h3"
                 name="mainTitle"
-                :partData="touchedData.mainTitle">
-              </TextEditable>
+                :partData="touchedData.mainTitle"/>
               <p class="mt-5 mt-sm-4">
-                <text-editable 
+                <TextEditable 
                   tag="a"
                   cssClass="btn"
                   name="action_link"
-                  :partData="touchedData.action_link">
-                </text-editable>
+                  :partData="touchedData.action_link"/>
               </p>
             </div>
           </div>

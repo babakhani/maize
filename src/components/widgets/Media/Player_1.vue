@@ -1,27 +1,18 @@
 <template>
-  <div :class="{'container': !data.config.fullWidth}">
-    <div v-if="demoMode"><h1>Demo Mode {{$options.name}}</h1></div>
-    <div v-else
-         class="widget-block">
-      <WidgetToolbox></WidgetToolbox>
-      <div class="widget-block--name">
-        {{$options.name}}
-      </div>
-      <BgEditable
-        name="bg"
-        :editMode="editMode"
-        :styles="data.bg.styles">
+  <div>
+      <WidgetToolbox/>
+      <BgEditable>
         <section class="fdb-block">
           <div class="container">
             <div class="row">
               <div class="col-12">
                 <div class="row justify-content-center pb-5">
                   <div class="col-12 col-lg-8 text-center">
-                    <text-editable tag="h1"
+                    <TextEditable tag="h1"
                                    name="mainTitle"
                                    :editMode="editMode"
                                    :styles="data.mainTitle.styles"
-                                   :text="data.mainTitle.text"></text-editable>
+                                   :text="data.mainTitle.text"/>
 
                   </div>
                 </div>
@@ -31,18 +22,14 @@
                     <PlayerEditable name="player"
                                     :editMode="editMode"
                                     :styles="data.player.styles"
-                                    :src="data.player.src">
-
-                    </PlayerEditable>
+                                    :src="data.player.src"/>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
-
       </BgEditable>
-    </div>
   </div>
 </template>
 

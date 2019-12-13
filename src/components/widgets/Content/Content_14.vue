@@ -1,66 +1,34 @@
 <template>
-  <div v-if="touchedData !== {}"
-       :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode">
-      <section class="fdb-block">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-12 col-md-6 mb-4 mb-md-0">
-              <img alt="image" class="img-fluid" src="/static/imgs/colors_wide_1.jpg">
-            </div>
-            <div class="col-12 col-md-6 col-lg-5 ml-md-auto text-left">
-              <h1>Froala Blocks</h1>
-              <p class="text-h3">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-              <p><a class="btn btn-round mt-4" href="/">Download</a></p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-    <div v-else
-         class="widget-block">
-      <WidgetToolbox></WidgetToolbox>
-      <div class="widget-block--name">
-        {{$options.name}}
-      </div>
-      <BgEditable
-        name="bg"
-        v-if="touchedData.bg"
-        :partData="touchedData.bg">
-
+  <div>
+      <WidgetToolbox/>
+      <BgEditable>
         <section class="fdb-block">
           <div class="container">
             <div class="row align-items-center">
               <div class="col-12 col-md-6 mb-4 mb-md-0">
                 <ImageEditable name="image"
                                cssClass="img-fluid"
-                               :partData="touchedData.image">
-                </ImageEditable>
+                               :partData="touchedData.image"/>
               </div>
               <div class="col-12 col-md-6 col-lg-5 ml-md-auto text-left">
-                <text-editable tag="h1"
+                <TextEditable tag="h1"
                                name="mainTitle"
-                               :partData="touchedData.mainTitle">
-                </text-editable>
-                <text-editable tag="p"
+                               :partData="touchedData.mainTitle"/>
+                <TextEditable tag="p"
                                name="description"
                                cssClass="text-h3"
-                               :partData="touchedData.description">
-                </text-editable>
+                               :partData="touchedData.description"/>
                 <p>
-                  <text-editable tag="a"
+                  <TextEditable tag="a"
                                  name="link"
                                  cssClass="btn btn-round mt-4"
-                                 :partData="touchedData.link">
-                  </text-editable>
+                                 :partData="touchedData.link"/>
                 </p>
               </div>
             </div>
           </div>
         </section>
-
       </BgEditable>
-    </div>
   </div>
 </template>
 

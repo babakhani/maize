@@ -1,65 +1,17 @@
 <template>
-  <div v-if="touchedData !== {}"
-       :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode">
-      <section class="fdb-block">
-        <div class="container">
-          <div class="row justify-content-center pb-xl-5">
-            <div class="col-12 col-sm-11 text-center">
-              <h1>Froala Design Blocks</h1>
-              <img alt="image" class="img-fluid mt-5" src="/static/imgs/img_very_wide.svg">
-            </div>
-          </div>
-
-          <div class="row text-left justify-content-center pt-5">
-            <div class="col-12 col-md-6 col-lg-5 m-sm-auto">
-              <div class="row">
-                <div class="col-3">
-                  <img alt="image" class="img-fluid" src="/static/imgs/img_round.svg">
-                </div>
-                <div class="col-9">
-                  <h3><strong>Feature One</strong></h3>
-                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-5 m-sm-auto pt-3 pt-sm-5 pt-md-0">
-              <div class="row">
-                <div class="col-3">
-                  <img alt="image" class="img-fluid" src="/static/imgs/img_round.svg">
-                </div>
-                <div class="col-9">
-                  <h3><strong>Feature Two</strong></h3>
-                  <p>Separated they live in Bookmarksgrove, right at the coast of the Semantics, a large language ocean.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-    <div v-else
-         class="widget-block">
-      <WidgetToolbox></WidgetToolbox>
-      <div class="widget-block--name">
-        {{$options.name}}
-      </div>
-      <BgEditable
-        name="bg"
-        v-if="touchedData.bg"
-        :partData="touchedData.bg">
+  <div>
+      <WidgetToolbox/>
+      <BgEditable>
         <section class="fdb-block">
           <div class="container">
             <div class="row justify-content-center pb-xl-5">
               <div class="col-12 col-sm-11 text-center">
-                <text-editable tag="h1"
+                <TextEditable tag="h1"
                                name="mainTitle"
-                               :partData="touchedData.mainTitle">
-                </text-editable>
+                               :partData="touchedData.mainTitle"/>
                 <ImageEditable name="main_image"
                                cssClass="img-fluid mt-5"
-                               :partData="touchedData.main_image">
-                </ImageEditable>
+                               :partData="touchedData.main_image"/>
               </div>
             </div>
 
@@ -69,19 +21,16 @@
                   <div class="col-3">
                     <ImageEditable name="feature_image_1"
                                    cssClass="img-fluid"
-                                   :partData="touchedData.feature_image_1">
-                    </ImageEditable>
+                                   :partData="touchedData.feature_image_1"/>
                   </div>
                   <div class="col-9">
-                    <text-editable tag="h3"
+                    <TextEditable tag="h3"
                                    name="feature_1_title"
-                                   :partData="touchedData.feature_1_title">
-                    </text-editable>
+                                   :partData="touchedData.feature_1_title"/>
                     <br/>
-                    <text-editable tag="p"
+                    <TextEditable tag="p"
                                    name="feature_1_description"
-                                   :partData="touchedData.feature_1_description">
-                    </text-editable>
+                                   :partData="touchedData.feature_1_description"/>
                   </div>
                 </div>
               </div>
@@ -90,19 +39,16 @@
                   <div class="col-3">
                     <ImageEditable name="feature_image_2"
                                    cssClass="img-fluid"
-                                   :partData="touchedData.feature_image_2">
-                    </ImageEditable>
+                                   :partData="touchedData.feature_image_2"/>
                   </div>
                   <div class="col-9">
-                    <text-editable tag="h3"
+                    <TextEditable tag="h3"
                                    name="feature_2_title"
-                                   :partData="touchedData.feature_2_title">
-                    </text-editable>
+                                   :partData="touchedData.feature_2_title"/>
                     <br/>
-                    <text-editable tag="p"
+                    <TextEditable tag="p"
                                    name="feature_2_description"
-                                   :partData="touchedData.feature_2_description">
-                    </text-editable>
+                                   :partData="touchedData.feature_2_description"/>
                   </div>
                 </div>
               </div>
@@ -110,7 +56,6 @@
           </div>
         </section>
       </BgEditable>
-    </div>
   </div>
 </template>
 <script>

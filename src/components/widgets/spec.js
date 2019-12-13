@@ -13,8 +13,8 @@ export default [
   FeaturesSpec,
   ContentSpec,
   FormSpec,
-  GallerySpec,
-  MediaSpec,
+  // GallerySpec,
+  // MediaSpec,
   ContactsSpec,
   FooterSpec
 ]

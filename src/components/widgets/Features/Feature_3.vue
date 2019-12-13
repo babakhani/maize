@@ -1,128 +1,68 @@
 <template>
-  <div v-if="touchedData !== {}"
-       :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode">
-
-      <section class="fdb-block">
-        <div class="container">
-          <div class="row">
-            <div class="col-12 text-center">
-              <h1>Features</h1>
-            </div>
-          </div>
-
-          <div class="row text-left justify-content-center pt-5">
-            <div class="col-12 col-md-6 col-lg-5 m-auto">
-              <h3><strong>Feature One</strong></h3>
-
-              <p class="text-h3">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-            </div>
-            <div class="col-12 col-md-6 col-lg-5 m-auto pt-3 pt-md-0">
-              <h3><strong>Feature Two</strong></h3>
-
-              <p class="text-h3">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line.</p>
-            </div>
-          </div>
-
-          <div class="row text-left justify-content-center pt-lg-4">
-            <div class="col-12 col-md-6 col-lg-5 m-auto pt-3 pt-lg-0">
-              <h3><strong>Feature Three</strong></h3>
-
-              <p class="text-h3">On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times.</p>
-            </div>
-            <div class="col-12 col-md-6 col-lg-5 m-auto pt-3 pt-lg-0">
-              <h3><strong>Feature Four</strong></h3>
-
-              <p class="text-h3">A small river named Duden flows by their place far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </div>
-    <div v-else
-         class="widget-block">
-      <WidgetToolbox></WidgetToolbox>
-      <div class="widget-block--name">
-        {{$options.name}}
-      </div>
-      <BgEditable
-        name="bg"
-        v-if="touchedData.bg"
-        :partData="touchedData.bg">
-
+  <div>
+      <WidgetToolbox/>
+      <BgEditable>
         <section class="fdb-block">
           <div class="container">
             <div class="row">
               <div class="col-12 text-center">
-                <text-editable tag="h1"
+                <TextEditable tag="h1"
                                name="mainTitle"
-                               :partData="touchedData.mainTitle">
-                </text-editable>
+                               :partData="touchedData.mainTitle"/>
               </div>
             </div>
             <div class="row text-left justify-content-center pt-5">
               <div class="col-12 col-md-6 col-lg-5 m-auto">
                 <h3>
-                  <text-editable tag="strong"
+                  <TextEditable tag="strong"
                                  name="feature_1_title"
-                                 :partData="touchedData.feature_1_title">
-                  </text-editable>
+                                 :partData="touchedData.feature_1_title"/>
                 </h3>
-                <text-editable tag="p"
+                <TextEditable tag="p"
                                cssClass="text-h3"
                                name="feature_1_description"
-                               :partData="touchedData.feature_1_description">
-                </text-editable>
+                               :partData="touchedData.feature_1_description"/>
               </div>
               <div class="col-12 col-md-6 col-lg-5 m-auto pt-3 pt-md-0">
                 <h3>
-                  <text-editable tag="strong"
+                  <TextEditable tag="strong"
                                  name="feature_2_title"
-                                 :partData="touchedData.feature_2_title">
-                  </text-editable>
+                                 :partData="touchedData.feature_2_title"/>
                 </h3>
-                <text-editable tag="p"
+                <TextEditable tag="p"
                                cssClass="text-h3"
                                name="feature_2_description"
-                               :partData="touchedData.feature_2_description">
-                </text-editable>
+                               :partData="touchedData.feature_2_description"/>
               </div>
             </div>
 
             <div class="row text-left justify-content-center pt-lg-4">
               <div class="col-12 col-md-6 col-lg-5 m-auto pt-3 pt-lg-0">
                 <h3>
-                  <text-editable tag="strong"
+                  <TextEditable tag="strong"
                                  name="feature_3_title"
-                                 :partData="touchedData.feature_3_title">
-                  </text-editable>
+                                 :partData="touchedData.feature_3_title"/>
                 </h3>
-                <text-editable tag="p"
+                <TextEditable tag="p"
                                cssClass="text-h3"
                                name="feature_3_description"
-                               :partData="touchedData.feature_3_description">
-                </text-editable>
+                               :partData="touchedData.feature_3_description"/>
               </div>
               <div class="col-12 col-md-6 col-lg-5 m-auto pt-3 pt-lg-0">
                 <h3>
-                  <text-editable tag="strong"
+                  <TextEditable tag="strong"
                                  name="feature_3_title"
-                                 :partData="touchedData.feature_4_title">
-                  </text-editable>
+                                 :partData="touchedData.feature_4_title"/>
                 </h3>
-                <text-editable tag="p"
+                <TextEditable tag="p"
                                cssClass="text-h3"
                                name="feature_4_description"
-                               :partData="touchedData.feature_4_description">
-                </text-editable>
+                               :partData="touchedData.feature_4_description"/>
               </div>
             </div>
           </div>
         </section>
-
       </BgEditable>
-    </div>
   </div>
 </template>
 <script>

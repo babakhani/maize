@@ -1,81 +1,22 @@
 <template>
-  <div v-if="touchedData !== {}"
-       :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode">
-      <section class="fdb-block">
-        <div class="container">
-          <div class="row">
-            <div class="col-12 col-md-10 col-lg-8 text-left">
-              <h1>Froala Design Blocks is simply ahead the word mountains</h1>
-              <p class="text-h3">Far far away, behind the word mountains, far from the countries Vokalia and
-                Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
-                Semantics, a large language ocean.</p>
-
-              <p class="text-h3"><a href="/">Explore all features &gt;</a></p>
-            </div>
-          </div>
-
-          <div class="row text-center no-gutters pt-5">
-            <div class="col-12 col-md-10 col-lg-8">
-              <div class="row">
-                <div class="col-8 col-sm-5 col-md-2 m-auto">
-                  <img alt="image"
-                       class="img-fluid"
-                       src="/static/imgs/img_round.svg">
-                  <h4>Feature One</h4>
-                </div>
-                <div class="col-8 col-sm-5 col-md-2 m-auto pt-5 pt-sm-0">
-                  <img alt="image"
-                       class="img-fluid"
-                       src="/static/imgs/img_round.svg">
-                  <h4>Feature Two</h4>
-                </div>
-                <div class="col-8 col-sm-5 col-md-2 m-auto pt-5 pt-md-0">
-                  <img alt="image"
-                       class="img-fluid"
-                       src="/static/imgs/img_round.svg">
-                  <h4>Feature Three</h4>
-                </div>
-                <div class="col-8 col-sm-5 col-md-2 m-auto pt-5 pt-md-0">
-                  <img alt="image"
-                       class="img-fluid"
-                       src="/static/imgs/img_round.svg">
-                  <h4>Feature Four</h4>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-    <div v-else
-         class="widget-block">
-      <WidgetToolbox></WidgetToolbox>
-      <div class="widget-block--name">
-        {{$options.name}}
-      </div>
-      <BgEditable
-        name="bg"
-        v-if="touchedData.bg"
-        :partData="touchedData.bg">
+  <div>
+      <WidgetToolbox/>
+      <BgEditable>
         <section class="fdb-block">
           <div class="container">
             <div class="row">
               <div class="col-12 col-md-10 col-lg-8 text-left">
-                <text-editable tag="h1"
+                <TextEditable tag="h1"
                                name="mainTitle"
-                               :partData="touchedData.mainTitle">
-                </text-editable>
-                <text-editable tag="p"
+                               :partData="touchedData.mainTitle"/>
+                <TextEditable tag="p"
                                cssClass="text-h3"
                                name="main_description"
-                               :partData="touchedData.main_description">
-                </text-editable>
+                               :partData="touchedData.main_description"/>
                 <p class="text-h3">
-                  <text-editable tag="a"
+                  <TextEditable tag="a"
                                  name="main_link"
-                                 :partData="touchedData.feature_1_link">
-                  </text-editable>
+                                 :partData="touchedData.feature_1_link"/>
                 </p>
               </div>
             </div>
@@ -86,42 +27,34 @@
                   <div class="col-8 col-sm-5 col-md-2 m-auto">
                     <ImageEditable name="feature_image_1"
                                    cssClass="img-fluid"
-                                   :partData="touchedData.feature_image_1">
-                    </ImageEditable>
-                    <text-editable tag="h4"
+                                   :partData="touchedData.feature_image_1"/>
+                    <TextEditable tag="h4"
                                    name="feature_1_title"
-                                   :partData="touchedData.feature_1_title">
-                    </text-editable>
+                                   :partData="touchedData.feature_1_title"/>
                   </div>
                   <div class="col-8 col-sm-5 col-md-2 m-auto pt-5 pt-sm-0">
                     <ImageEditable name="feature_image_2"
                                    cssClass="img-fluid"
-                                   :partData="touchedData.feature_image_2">
-                    </ImageEditable>
-                    <text-editable tag="h4"
+                                   :partData="touchedData.feature_image_2"/>
+                    <TextEditable tag="h4"
                                    name="feature_2_title"
-                                   :partData="touchedData.feature_2_title">
-                    </text-editable>
+                                   :partData="touchedData.feature_2_title"/>
                   </div>
                   <div class="col-8 col-sm-5 col-md-2 m-auto pt-5 pt-md-0">
                     <ImageEditable name="feature_image_3"
                                    cssClass="img-fluid"
-                                   :partData="touchedData.feature_image_3">
-                    </ImageEditable>
-                    <text-editable tag="h4"
+                                   :partData="touchedData.feature_image_3"/>
+                    <TextEditable tag="h4"
                                    name="feature_3_title"
-                                   :partData="touchedData.feature_3_title">
-                    </text-editable>
+                                   :partData="touchedData.feature_3_title"/>
                   </div>
                   <div class="col-8 col-sm-5 col-md-2 m-auto pt-5 pt-md-0">
                     <ImageEditable name="feature_image_4"
                                    cssClass="img-fluid"
-                                   :partData="touchedData.feature_image_4">
-                    </ImageEditable>
-                    <text-editable tag="h4"
+                                   :partData="touchedData.feature_image_4"/>
+                    <TextEditable tag="h4"
                                    name="feature_4_title"
-                                   :partData="touchedData.feature_4_title">
-                    </text-editable>
+                                   :partData="touchedData.feature_4_title"/>
                   </div>
                 </div>
               </div>
@@ -129,7 +62,6 @@
           </div>
         </section>
       </BgEditable>
-    </div>
   </div>
 </template>
 <script>
