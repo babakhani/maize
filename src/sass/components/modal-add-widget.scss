@@ -110,9 +110,8 @@
       text-indent: 10px;
       height: 26px;
       line-height: 26px;
-      color: white;
-      background: rgba(0, 0, 0, 0.2);
-      text-shadow: 1px 1px 0px rgba(#000000, .3)
+      color: $gray-7;
+      text-shadow: 1px 1px 0px rgba($black, .1)
     }
 
     &.add-widget-modal--widget-item--selected {
