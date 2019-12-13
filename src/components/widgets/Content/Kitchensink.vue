@@ -9,7 +9,7 @@
         name="bg"
         :editMode="editMode"
         :styles="data.bg.styles">
-        <section class="fdb-block team-2">
+        <section class="mz-block team-2">
           <div class="container">
             <div class="row text-center">
 

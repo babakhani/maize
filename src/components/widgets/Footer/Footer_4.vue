@@ -2,7 +2,7 @@
   <div>
       <WidgetToolbox/>
       <BgEditable>
-        <footer class="fdb-block footer-small">
+        <footer class="mz-block footer-small">
           <div class="container">
             <div class="row text-center align-items-center">
               <div class="col-12 col-sm-6 col-md-4 text-sm-left">

@@ -1,13 +1,13 @@
 @import './mixins';
 @import './variables';
 
-.team-1.fdb-block {
+.team-1.mz-block {
   img {
     border-bottom: solid 5px $primary-color;
     @include border-radius(0 !important);
   }
 
-  .fdb-box {
+  .mz-box {
     padding: 0;
 
     .content {
@@ -16,13 +16,13 @@
   }
 }
 
-.team-2.fdb-block {
+.team-2.mz-block {
   img {
     @include border-radius(100% !important);
   }
 }
 
-.team-3.fdb-block {
+.team-3.mz-block {
   img {
     @include border-radius(100% !important);
     @include maize-box-shadow(1);

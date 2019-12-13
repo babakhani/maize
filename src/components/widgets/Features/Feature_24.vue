@@ -2,7 +2,7 @@
   <div>
       <WidgetToolbox/>
       <BgEditable>
-        <section class="fdb-block">
+        <section class="mz-block">
           <div class="container">
             <div class="row align-items-top">
               <div class="col-12 col-md-6 col-xl-4 m-auto">
@@ -15,7 +15,7 @@
                 <div class="row justify-content-left">
                   <div class="col-3 m-auto text-center">
                     <ImageEditable name="feature_image_1"
-                                   cssClass="fdb-icon"
+                                   cssClass="mz-icon"
                                    :partData="touchedData.feature_image_1"/>
                     <p>
                       <TextEditable tag="a"
@@ -25,7 +25,7 @@
                   </div>
                   <div class="col-3 m-auto text-center">
                     <ImageEditable name="feature_image_2"
-                                   cssClass="fdb-icon"
+                                   cssClass="mz-icon"
                                    :partData="touchedData.feature_image_2"/>
                     <TextEditable tag="a"
                                    name="feature_link_2"
@@ -33,7 +33,7 @@
                   </div>
                   <div class="col-3 m-auto text-center">
                     <ImageEditable name="feature_image_3"
-                                   cssClass="fdb-icon"
+                                   cssClass="mz-icon"
                                    :partData="touchedData.feature_image_3"/>
                     <TextEditable tag="a"
                                    name="feature_link_3"
@@ -44,7 +44,7 @@
                 <div class="row justify-content-left mt-4 mt-xl-5">
                   <div class="col-3 m-auto text-center">
                     <ImageEditable name="feature_image_4"
-                                   cssClass="fdb-icon"
+                                   cssClass="mz-icon"
                                    :partData="touchedData.feature_image_4"/>
                     <TextEditable tag="a"
                                    name="feature_link_4"
@@ -52,7 +52,7 @@
                   </div>
                   <div class="col-3 m-auto text-center">
                     <ImageEditable name="feature_image_5"
-                                   cssClass="fdb-icon"
+                                   cssClass="mz-icon"
                                    :partData="touchedData.feature_image_5"/>
                     <TextEditable tag="a"
                                    name="feature_link_5"

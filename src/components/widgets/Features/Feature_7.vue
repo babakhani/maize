@@ -2,12 +2,12 @@
   <div>
       <WidgetToolbox/>
       <BgEditable>
-        <section class="fdb-block">
+        <section class="mz-block">
           <div class="container">
             <div class="row text-center">
               <div class="col-12 col-sm-6 col-lg-5 col-xl-4 m-auto">
                 <ImageEditable name="image_1"
-                               cssClass="fdb-icon"
+                               cssClass="mz-icon"
                                :partData="touchedData.image_1"/>
                 <TextEditable tag="h3"
                                name="feature_1_title"
@@ -19,7 +19,7 @@
               </div>
               <div class="col-12 col-sm-6 col-lg-5 col-xl-4 m-auto pt-4 pt-sm-0">
                 <ImageEditable name="image_2"
-                               cssClass="fdb-icon"
+                               cssClass="mz-icon"
                                :partData="touchedData.image_2"/>
                 <TextEditable tag="h3"
                                name="feature_2_title"

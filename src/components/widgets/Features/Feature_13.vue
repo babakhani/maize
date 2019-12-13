@@ -2,12 +2,12 @@
   <div>
       <WidgetToolbox/>
       <BgEditable>
-        <section class="fdb-block pb-0">
+        <section class="mz-block pb-0">
           <div class="container">
             <div class="row text-lg-right align-items-center">
               <div class="col-12 col-sm-6 col-lg-3">
                 <ImageEditable name="feature_image_1"
-                               cssClass="fdb-icon"
+                               cssClass="mz-icon"
                                :partData="touchedData.feature_image_1"/>
                 <TextEditable tag="h4"
                                name="feature_1_title"
@@ -19,7 +19,7 @@
 
 
                 <ImageEditable name="feature_image_2"
-                               cssClass="fdb-icon mt-3 mt-xl-5"
+                               cssClass="mz-icon mt-3 mt-xl-5"
                                :partData="touchedData.feature_image_2"/>
                 <TextEditable tag="h4"
                                name="feature_2_title"
@@ -30,7 +30,7 @@
                                :partData="touchedData.feature_2_description"/>
 
                 <ImageEditable name="feature_image_3"
-                               cssClass="fdb-icon mt-3 mt-xl-5"
+                               cssClass="mz-icon mt-3 mt-xl-5"
                                :partData="touchedData.feature_image_3"/>
                 <TextEditable tag="h4"
                                name="feature_3_title"
@@ -43,7 +43,7 @@
 
               <div class="col-12 col-sm-6 col-lg-3 text-left pt-3 pt-sm-0 order-lg-12">
                 <ImageEditable name="feature_image_4"
-                               cssClass="fdb-icon"
+                               cssClass="mz-icon"
                                :partData="touchedData.feature_image_4"/>
                 <TextEditable tag="h4"
                                name="feature_4_title"
@@ -55,7 +55,7 @@
 
 
                 <ImageEditable name="feature_image_5"
-                               cssClass="fdb-icon mt-3 mt-xl-5"
+                               cssClass="mz-icon mt-3 mt-xl-5"
                                :partData="touchedData.feature_image_5"/>
                 <TextEditable tag="h4"
                                name="feature_5_title"
@@ -66,7 +66,7 @@
                                :partData="touchedData.feature_5_description"/>
 
                 <ImageEditable name="feature_image_6"
-                               cssClass="fdb-icon mt-3 mt-xl-5"
+                               cssClass="mz-icon mt-3 mt-xl-5"
                                :partData="touchedData.feature_image_6"/>
                 <TextEditable tag="h4"
                                name="feature_6_title"

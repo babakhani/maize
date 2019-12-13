@@ -2,12 +2,12 @@
   <div>
       <WidgetToolbox></WidgetToolbox>
       <BgEditable>
-        <section class="fdb-block pb-0">
+        <section class="mz-block pb-0">
           <div class="container">
             <div class="row align-items-center">
               <div class="col-12 col-md-6 col-lg-5">
                 <ImageEditable name="image"
-                               cssClass="fdb-icon"
+                               cssClass="mz-icon"
                                :partData="touchedData.image"/>
 
                 <TextEditable tag="h1"
