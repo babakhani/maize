@@ -48,7 +48,6 @@
         }
       },
       imageUpload (e) {
-        console.log('imageUpload')
         const $img = $(e.target).next('img')
         if (e.target.files && e.target.files[0]) {
           var reader = new FileReader();

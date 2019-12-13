@@ -37,9 +37,6 @@ export default {
       window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
     },
     updateItemOfCurrentWidgetList (state, payload = {key: null, name: 'null', data: {}}) {
-
-      console.log('updateItemOfCurrentWidgetList')
-
       const list = lodash.cloneDeep(state.currentWidgetList)
       // TODO: check this, it might raise cant read 0 of undefined
       let item = list.filter((n) => {

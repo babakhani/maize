@@ -467,7 +467,6 @@
     },
     watch: {
       currentStyles () {
-        console.log('ediutable sidebar  ::: watch ::: currentStyles')
         this.styles = this._.extend(this.styles, this.$store.state.layout.selectedItemProperties)
       }
     },
@@ -520,7 +519,6 @@
       },
       update () {
         //  TODO: send only changed data to update methods
-        console.log('update ---------- >>>> ')
         //this.$emit('update', this.styles)
         this.$store.dispatch('layout/setSelectedItemProperties', this.styles)
       },

@@ -77,12 +77,10 @@ const Mixin = {
       this.updateWidget()
     },
     hideToolbox () {
-      console.log('hideToolbox')
       this.toolboxVisible = false
       this.showToolboxButton = false
     },
     showToolbox () {
-      console.log('showToolbox')
       if (this.toolboxVisible) {
         this.hideToolbox()
       } else {
@@ -94,7 +92,6 @@ const Mixin = {
   },
   watch: {
     selectedItemProperties () {
-      console.log('editable part ::: watch ::: selectedItemProperties')
       if (this.underEditModeProps) {
         this.updateStyles(this.selectedItemProperties)
       }

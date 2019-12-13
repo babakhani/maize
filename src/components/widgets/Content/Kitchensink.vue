@@ -124,7 +124,6 @@
     name: 'Kitchensink',
     mixins: [widgetMixin],
     mounted () {
-      console.log(this.$children)
     },
     props: {
       data: {

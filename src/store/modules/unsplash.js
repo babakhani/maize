@@ -13,7 +13,6 @@ export default {
   },
   actions: {
     loadRandomImages (context, payload) {
-      console.log('loadRandomImages')
       context.commit('updateImageList', [
         {
           id: "pB-LHMP_vcY",

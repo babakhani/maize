@@ -37,7 +37,6 @@
     name: 'TeamWidget1',
     methods: {
       goToAddWidgetMode() {
-        console.log('goToAddWidgetMode')
         this.$store.dispatch('layout/setAddWidgetMode', true)
       }
     }

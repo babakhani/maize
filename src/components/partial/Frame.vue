@@ -7,14 +7,7 @@
   import Vue from 'vue'
   export default {
     name: 'frame',
-//    render(h) {
-//      return  h('iframe', {
-//        on: { load: this.renderChildren }
-//      })
-//    },
     beforeUpdate() {
-      console.log('beforeUpdate frame coponent')
-      //freezing to prevent unnessessary Reactifiation of vNodes
       this.iApp.children = Object.freeze(this.$slots.default)
     },
     mounted() {

@@ -98,9 +98,6 @@
         this.videoLoading = true
         axios.get(`http://nightlyapi.tamasha.com/api/v1/videos?query=${this.searchQuery}`)
           .then((response) => {
-            console.log('this.videoList================')
-            console.log(this.videoList)
-            console.log('================')
             this.videoList = response.data.data
             this.videoLoading = false
           })

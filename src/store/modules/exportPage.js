@@ -8,8 +8,6 @@ export default {
   },
   actions: {
     exportPage (context) {
-      console.log(context.rootState.main.currentWidgetList)
-      console.log(context.rootState.main.currentWidgetList)
       const data = JSON.stringify(context.rootState.main.currentWidgetList)
       const blob = new Blob([data], {type: 'text/plain'})
       const e = document.createEvent('MouseEvents'),
