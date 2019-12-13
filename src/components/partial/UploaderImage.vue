@@ -1,5 +1,5 @@
 <template>
-  <div class="upload-image-widget">
+  <div class="upload-image-widget p-3">
     <div v-if="src"
          class="upload-image-widget--box">
       <img alt="image"
