@@ -4,10 +4,10 @@
     trigger="manual"
     placement="top"
     offset="20"
-    :open="true"
-    @hide="$parent.hideToolbox()"
+    :open="toolboxVisible"
+    @hide="$emit('hidetoobox')"
     container="body"
-    :auto-hide="true">
+    :auto-hide="false">
     <template slot="popover">
       <div class="widget-text-editable--toolbox ">
         <div v-if="groups.indexOf('text') > -1"
@@ -460,6 +460,10 @@
       'photoshop-picker': Photoshop
     },
     props: {
+      toolboxVisible: {
+        default: true, 
+        required: false 
+      },
       currentStyles: {
         default () {
           return {}
