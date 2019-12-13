@@ -1,5 +1,7 @@
 <template>
-  <div class="widget-block--toolbox">
+  <div 
+    v-if="!$parent.demoMode"
+    class="widget-block--toolbox">
     <!--<button @click="showTools = !showTools"-->
             <!--title="Settings"-->
             <!--v-b-tooltip.hover.top-->
@@ -61,7 +63,9 @@
         <icon name="trash"></icon>
       </button>
     </transition>
-
+    <div class="widget-block--name">
+      {{ $parent.$options.name}}
+    </div>
   </div>
 </template>
 <script>

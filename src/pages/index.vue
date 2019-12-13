@@ -22,6 +22,8 @@
           <div v-for="(widget, index) in currentWidgetList"
                :key="widget.uniqeId">
             <component :is="widget.name"
+                 class="widget-block"
+                 :class="{'container': (widget.data && widget.data.config) ? widget.data.config.fullWidth : false }"
                  :widgetData="widget.data"
                  :uniqeKey="widget.uniqeId">
             </component>

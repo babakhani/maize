@@ -4,12 +4,12 @@ import {EventBus} from '../events/event-bus'
 
 const Mixin = {
   components: {EditablePartToolbox, EditablePartSidebar},
-  created () {
-  },
   mounted () {
     this.touchedData.styles = this.cssClass
-    this.touchedData = this.partData
-    this.touchedText = this.partData.text
+    if (this.partData) {
+      this.touchedData = this.partData
+      this.touchedText = this.partData.text
+    }
     EventBus.$on('igotoeditmode', (uid) => {
       if (this._uid != uid) {
         this.toolboxVisible = false
@@ -18,10 +18,10 @@ const Mixin = {
   },
   computed: {
     editMode () {
-      return !this.$store.state.layout.previewMode
+      return this.$store ? !this.$store.state.layout.previewMode : null
     },
     selectedItemProperties () {
-      return this.$store.state.layout.selectedItemProperties
+      return this.$store ? this.$store.state.layout.selectedItemProperties : null
     }
   },
   methods: {
@@ -101,6 +101,12 @@ const Mixin = {
     },
     text () {
       this.touchedText = this.text
+    },
+    partData () {
+      if (this.partData) {
+        this.touchedData = this.partData
+        this.touchedText = this.partData.text
+      }
     }
   },
   data () {

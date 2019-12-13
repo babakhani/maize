@@ -13,7 +13,7 @@ const Mixin = {
     return {
       editMode: false,
       fullWidth: false,
-      touchedData: {},
+      touchedData: {}
     }
   },
   beforeCreate () {
@@ -67,6 +67,9 @@ const Mixin = {
     this.touchedData = this._.extend(this.defaultData, this.widgetData)
   },
   computed: {
+    notFullWidth () {
+       return this.touchedData.config && !this.touchedData.config.fullWidth
+    },
     previewMode () {
       if (this.$store) {
         return this.$store.state.main.previewMode
@@ -116,10 +119,6 @@ const Mixin = {
       })
     },
     updateData (e = {name: null, data: null}) {
-
-      console.log('widget component')
-      console.log(' >>>>>> updateData')
-
       this.$store.dispatch('main/updateItemOfCurrentWidgetList', {
         key: this.uniqeKey, // id of this widget in cuurentWidgetList
         name: e.name, // name of editble part that his data must be update

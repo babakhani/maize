@@ -1,5 +1,6 @@
 <template>
-  <div class="editable-background"
+  <div 
+    class="editable-background"
        :class="{'edit-mode': editMode}">
     <button v-if="editMode"
             class="btn btn-link no-outline editable-part settings-btn"
@@ -24,6 +25,18 @@
 
   export default {
     name: 'BgEditable',
-    mixins: [EditablePartMixin]
+    mixins: [EditablePartMixin],
+    props: {
+      partData: {
+        default () {
+          return this.$parent.touchedData.bg
+        },
+        required: false
+      },
+      name: {
+        default: 'bg',
+        required: false
+      }
+    }
   }
 </script>
