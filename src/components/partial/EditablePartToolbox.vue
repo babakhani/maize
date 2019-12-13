@@ -5,7 +5,9 @@
     placement="top"
     offset="20"
     :open="true"
-    :auto-hide="false">
+    @hide="$parent.hideToolbox()"
+    container="body"
+    :auto-hide="true">
     <template slot="popover">
       <div class="widget-text-editable--toolbox ">
         <div v-if="groups.indexOf('text') > -1"

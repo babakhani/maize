@@ -1,9 +1,8 @@
 import EditablePartToolbox from '@/components/partial/EditablePartToolbox'
-import EditablePartSidebar from '../components/partial/EditablePartSidebar'
 import {EventBus} from '../events/event-bus'
 
 const Mixin = {
-  components: {EditablePartToolbox, EditablePartSidebar},
+  components: {EditablePartToolbox},
   mounted () {
     this.touchedData.styles = this.cssClass
     if (this.partData) {
