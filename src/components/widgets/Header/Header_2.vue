@@ -5,15 +5,9 @@
         <header>
           <div class="container text-center">
             <nav class="navbar">
-              <!--TODO: fix nested component-->
-              <!--<text-editable tag="a"-->
-              <!--cssClass="ml-auto mr-auto"-->
-              <!--name="header_link"-->
-              <!--:partData="touchedData.header_link">-->
-
-              <!--</text-editable>-->
-              <ImageEditable name="header_image"
-                             :partData="touchedData.header_image"/>
+              <ImageEditable 
+                name="header_image"
+                :partData="touchedData.header_image"/>
             </nav>
           </div>
         </header>

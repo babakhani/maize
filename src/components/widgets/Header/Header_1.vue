@@ -5,10 +5,8 @@
         <header>
           <div class="container">
             <nav class="navbar">
-              <a href="">
-                <ImageEditable name="header_image"
-                               :partData="touchedData.header_image"/>
-              </a>
+              <ImageEditable name="header_image"
+                :partData="touchedData.header_image"/>
             </nav>
           </div>
         </header>

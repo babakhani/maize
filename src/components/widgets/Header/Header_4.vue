@@ -5,14 +5,10 @@
         <header>
           <div class="container">
             <nav class="navbar navbar-expand-md">
-              <a class="navbar-brand"
-                 href="/">
-                <!--<img src="/static/imgs/img_logo.png"-->
-                <!--height="30"-->
-                <!--alt="image">-->
-                <ImageEditable name="header_image"
-                               :partData="touchedData.header_image"/>
-              </a>
+              <ImageEditable 
+                class="navbar-brand"
+                name="header_image"
+                :partData="touchedData.header_image"/>
               <!--TODO: fix button-->
               <button class="navbar-toggler"
                       type="button"
