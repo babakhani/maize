@@ -2,7 +2,7 @@
   <div>
       <WidgetToolbox/>
       <BgEditable>
-        <section class="fdb-block bg-dark">
+        <section class="mz-block bg-dark">
           <div class="container">
             <div class="row">
               <div class="col text-center">
@@ -14,7 +14,7 @@
             <div class="row-70"></div>
             <div class="row text-center justify-content-sm-center no-gutters">
               <div class="col-12 col-sm-10 col-md-8 col-lg-7 col-xl-3 m-auto">
-                <div class="fdb-box fdb-touch">
+                <div class="mz-box mz-touch">
                   <TextEditable tag="h2"
                                  name="feature_1_title"
                                  :partData="touchedData.feature_1_title"/>
@@ -29,7 +29,7 @@
                 </div>
               </div>
               <div class="col-12 col-sm-10 col-md-8 col-lg-7 col-xl-3 m-auto pt-5 pt-xl-0">
-                <div class="fdb-box fdb-touch">
+                <div class="mz-box mz-touch">
                   <TextEditable tag="h2"
                                  name="feature_2_title"
                                  :partData="touchedData.feature_2_title"/>
@@ -44,7 +44,7 @@
                 </div>
               </div>
               <div class="col-12 col-sm-10 col-md-8 col-lg-7 col-xl-3 m-auto pt-5 pt-xl-0">
-                <div class="fdb-box fdb-touch">
+                <div class="mz-box mz-touch">
                   <TextEditable tag="h2"
                                  name="feature_3_title"
                                  :partData="touchedData.feature_3_title"/>

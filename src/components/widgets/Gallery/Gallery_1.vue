@@ -2,7 +2,7 @@
   <div>
       <WidgetToolbox/>
       <BgEditable>
-        <section class="fdb-block fp-active"
+        <section class="mz-block fp-active"
                  data-block-type="contents"
                  data-id="1"
                  draggable="true">
