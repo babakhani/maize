@@ -38,17 +38,17 @@
           <icon class="upload-image-icon"
                 name="images"></icon>
         </template>
-        <!--<div class="row">-->
-        <!--<div class="col-12 text-center mb-4 image-picker-modal&#45;&#45;search-box">-->
-        <!--<b-form-input type="text"-->
-        <!--placeholder="Search Image here">-->
-
-        <!--</b-form-input>-->
-        <!--</div>-->
-        <!--</div>-->
+        <div class="row">
+          <div class="col-12 text-center mb-4 image-picker-modal&#45;&#45;search-box">
+            <b-form-input type="text"
+            placeholder="Search Image here">
+            </b-form-input>
+          </div>
+        </div>
         <div class="image-picker-modal--body ">
           <div class="row px-2 py-1">
             <div class="col-6 col-sm-6 col-md-3 col-xl-3 h-100 image-picker-modal--image-container"
+                 v-if="imageItem && imageItem.urls"
                  v-for="imageItem in randomImageList">
               <div class="image-picker-modal--image-thumb-box"
                    @click="pick(imageItem.urls.small)"
@@ -71,10 +71,6 @@
         </template>
         <UploadImage @chooseImage="chooseImage"></UploadImage>
       </b-tab>
-      <!--<b-tab title="Comming soon!!"-->
-      <!--disabled>-->
-      <!--<br>Disabled tab!-->
-      <!--</b-tab>-->
     </b-tabs>
   </b-modal>
 </template>
