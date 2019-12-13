@@ -60,13 +60,22 @@ export default {
   'settings': {
     'header': 'Site Settings',
     'tittle': 'Tittle',
+    'tittle-placeholder': 'Maize',
     'description': 'Description',
+    'description-placeholder': 'An awesome landing page',
     'type': 'Type',
+    'type-placeholder': 'e.g. Splash page',
     'twitter-account': 'Twitter account',
+    'twitter-placeholder': '@Example',
     'instagram-account': 'Instagram-account',
+    'instagram-placeholder': '@Example',
     'canonical': 'Canonical',
+    'canonical-placeholder': 'Canonical',
     'logo-url': 'Logo URL',
+    'logo-placeholder': 'http://www.example.com',
     'banner-url': 'Banner URL',
-    'banner-color': 'Banner color'
+    'banner-placeholder': 'http://www.example.com',
+    'banner-color': 'Banner color',
+    'color-placeholder': 'Choose a color'
   }
 }

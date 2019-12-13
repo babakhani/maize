@@ -21,51 +21,51 @@
           <div class="form-group">
             <label>{{ $t('settings.tittle') }}</label>
             <input type="text" id="tittle" class="form-control"
-              placeholder="Maize">
+              :placeholder="$t('settings.tittle-placeholder')">
           </div>
           <div class="form-group">
             <label>{{ $t('settings.description') }}</label>
             <input type="email" id="description" class="form-control"
-              placeholder="An awesome landing page">
+              :placeholder="$t('settings.description-placeholder')">
           </div>
           <div class="form-group">
             <label>{{ $t('settings.type') }}</label>
             <input type="text" id="type" class="form-control" 
-              placeholder="e.g. Splash page">
+              :placeholder="$t('settings.type-placeholder')">
           </div>
           <div class="form-group">
             <label>{{ $t('settings.twitter-account') }}</label>
             <input type="text" id="twitter" class="form-control"
-              placeholder="@example">
+              :placeholder="$t('settings.twitter-placeholder')">
           </div>
           <div class="form-group">
             <label>{{ $t('settings.instagram-account') }}</label>
             <input type="text" id="instagram" class="form-control"
-              placeholder="@example">
+              :placeholder="$t('settings.instagram-placeholder')">
           </div>
 
           <div class="form-group">
             <label>{{ $t('settings.canonical') }}</label>
             <input type="text" id="canonical" class="form-control"
-              placeholder="Canonical">
+              :placeholder="$t('settings.canonical-placeholder')">
           </div>
 
           <div class="form-group">
             <label>{{ $t('settings.logo-url') }}</label>
             <input type="text" id="logo" class="form-control"
-              placeholder="http://www.example.com">
+              :placeholder="$t('settings.logo-placeholder')">
           </div>
 
           <div class="form-group">
             <label>{{ $t('settings.banner-url') }}</label>
             <input type="text" id="banner" class="form-control"
-              placeholder="http://www.example.com">
+              :placeholder="$t('settings.banner-placeholder')">
           </div>
 
           <div class="form-group w-25">
             <label>{{ $t('settings.banner-color') }}</label>
             <input type="color" id="colorPicker" class="form-control"
-              Placeholder="Choose a color">
+              :placeholder="$t('settings.color-placeholder')">
           </div>
         </form>
       </div>
