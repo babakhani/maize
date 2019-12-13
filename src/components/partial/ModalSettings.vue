@@ -1,50 +1,75 @@
 <template>
   <b-modal
     @hidden="onHide"
-    @ok="onOk"
     v-model="showModal"
-    size="lg"
-    centered
-    class=""
-    id=""
+    class="site-settings-modal modal-box"
     title="Site Settings">
-    <form class="p-3" action="#!">
-      <p class="d-block m-1 mb-2 h6">Tittle</p>
-      <input type="text" id="tittle" class="d-inline form-control mb-3"
-      placeholder="Maize">
+    <template slot="modal-footer">
+      <button @click="onHide"
+              class="btn btn-link text-muted">
+        {{ $t('modal.cancel') }}
+      </button>
+      <button
+              @click="onOk"
+              class="btn btn-success">
+        {{ $t('modal.ok') }}
+      </button>
+    </template>
+    <div class="row" >
+      <div class="col-12 col-md-6">
+        <form action="#!">
+          <div class="form-group">
+            <label >Title</label>
+            <input type="text" id="tittle" class="form-control"
+              placeholder="Maize">
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <input type="email" id="description" class="form-control"
+              placeholder="An awesome landing page">
+          </div>
+          <div class="form-group">
+            <label>Type</label>
+            <input type="text" id="type" class="form-control" 
+              placeholder="e.g. Splash page">
+          </div>
+          <div class="form-group">
+            <label>Twitter account</label>
+            <input type="text" id="twitter" class="form-control"
+              placeholder="@example">
+          </div>
+          <div class="form-group">
+            <label>Instagram account</label>
+            <input type="text" id="instagram" class="form-control"
+              placeholder="@example">
+          </div>
 
-      <p class="d-block m-1 mb-2 h6">Description</p>
-      <input type="email" id="description" class="form-control mb-3"
-      placeholder="An awesome landing page">
+          <div class="form-group">
+            <label>Canonical</label>
+            <input type="text" id="canonical" class="form-control"
+              placeholder="Canonical">
+          </div>
 
-      <p class="d-block m-1 mb-2 h6">Type</p>
-      <input type="text" id="type" class="d-inline form-control mb-3" 
-      placeholder="e.g. Splash page">
+          <div class="form-group">
+            <label>Logo URL</label>
+            <input type="text" id="logo" class="form-control"
+              placeholder="http://www.example.com">
+          </div>
 
-      <p class="d-block m-1 mb-2 h6">Twitter account</p>
-      <input type="text" id="twitter" class="d-inline form-control mb-3"
-      placeholder="@Example">
+          <div class="form-group">
+            <label>Banner URL</label>
+            <input type="text" id="banner" class="form-control"
+              placeholder="http://www.example.com">
+          </div>
 
-      <p class="d-block m-1 mb-2 h6">Instagram account</p>
-      <input type="text" id="instagram" class="d-inline form-control mb-3"
-      placeholder="@Example">
-
-      <p class="d-block m-1 mb-2 h6">Canonical</p>
-      <input type="text" id="canonical" class="d-inline form-control mb-3"
-      placeholder="Canonical">
-
-      <p class="d-block m-1 mb-2 h6">Logo url</p>
-      <input type="text" id="logo" class="d-inline form-control mb-3"
-      placeholder="http://www.example.com">
-
-      <p class="d-block m-1 mb-2 h6">Banner url</p>
-      <input type="text" id="banner" class="d-inline form-control mb-3"
-      placeholder="http://www.example.com">
-
-      <p class="d-block m-1 mb-2 h6">Brand color</p>
-      <input type="color" id="colorPicker" class="p-0 w-5 form-control mb-3"
-      placeholder="Choose a color">
-    </form>
+          <div class="form-group w-25">
+            <label>Banner Color</label>
+            <input type="color" id="colorPicker" class="form-control"
+              Placeholder="Choose a color">
+          </div>
+        </form>
+      </div>
+    </div>
   </b-modal>
 </template>
 
@@ -62,10 +87,9 @@
         this.$store.dispatch('layout/setSettingsMode', false)
       },
       onOk (e) {
-        // e.preventDefault()
-        // this.onHide()
-        // EventBus.$emit('pickLink', this.pickedLinkSrc)
-        // return false
+        e.preventDefault()
+        this.onHide()
+        return false
       }
     },
     computed: {
