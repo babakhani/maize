@@ -5,36 +5,42 @@
     v-model="showModal"
     size="lg"
     centered
-    class="image-picker-modal modal-box"
-    title="Choose your pick:">
-    <h1> this is settings modal</h1>
+    class=" add-widget-box"
+    id="settings-padding"
+    title="Site Settings">
+    <!-- Default form contact -->
+    <form class="p-3" action="#!">
+      <p class="d-block m-1 mb-2 h6">Tittle</p>
+      <input type="text" id="tittle" class="d-inline form-control mb-3"
+      placeholder="Maize">
 
-    <!--<template slot="modal-footer">-->
-      <!--<button @click="onHide"-->
-              <!--class="btn btn-link text-muted">-->
-        <!--{{ $t('modal.cancel') }}-->
-      <!--</button>-->
-      <!--<button-->
-              <!--@click="onOk"-->
-              <!--class="btn btn-success">-->
-        <!--{{ $t('modal.ok') }}-->
-      <!--</button>-->
-    <!--</template>-->
+      <p class="d-block m-1 mb-2 h6">Description</p>
+      <input type="email" id="description" class="form-control mb-3"
+      placeholder="An awesome landing page">
 
-    <!--&lt;!&ndash;Start Modal Tab&ndash;&gt;-->
-    <!--<b-tabs card>-->
-      <!--<b-tab active>-->
-        <!--<template slot="title">-->
-          <!--<strong> {{ $t('modal.pick_link') }}</strong>-->
-          <!--<icon class="upload-image-icon"-->
-                <!--name="images"></icon>-->
-        <!--</template>-->
-        <!--<b-form-input type="text"-->
-                      <!--v-model="pickedLinkSrc" placeholder="Insert your link">-->
-        <!--</b-form-input>-->
-      <!--</b-tab>-->
-    <!--</b-tabs>-->
+      <p class="d-block m-1 mb-2 h6">Type</p>
+      <input type="text" id="type" class="d-inline form-control mb-3" placeholder="e.g. Splash page">
 
+      <p class="d-block m-1 mb-2 h6">Twitter account</p>
+      <input type="text" id="twitter" class="d-inline form-control mb-3"
+      placeholder="@Example">
+
+      <p class="d-block m-1 mb-2 h6">Instagram account</p>
+      <input type="text" id="instagram" class="d-inline form-control mb-3"
+      placeholder="@Example">
+
+      <p class="d-block m-1 mb-2 h6">Logo url</p>
+      <input type="text" id="logo" class="d-inline form-control mb-3"
+      placeholder="http://www.example.com">
+
+      <p class="d-block m-1 mb-2 h6">Banner url</p>
+      <input type="text" id="banner" class="d-inline form-control mb-3"
+      placeholder="http://www.example.com">
+
+      <p class="d-block m-1 mb-2 h6">Brand color</p>
+      <input type="color" id="colorPicker" name="brandColor" class="p-0 w-5 form-control mb-3"
+      placeholder="Choose a color">
+    </form>
   </b-modal>
 </template>
 
