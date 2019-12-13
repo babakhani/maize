@@ -25,15 +25,15 @@ const Mixin = {
   },
   methods: {
     mouseLeaveElement (e) {
-      clearTimeout(this.showToolboxButtonTimer)
+      clearTimeout(this.hideTooltipTimer)
       if (!this.toolboxVisible) {
-        this.showToolboxButtonTimer = setTimeout(() => {
+        this.hideTooltipTimer = setTimeout(() => {
           this.showToolboxButton = false
         }, 1000)
       }
     },
     mouseInElement (e) {
-      clearTimeout(this.showToolboxButtonTimer)
+      clearTimeout(this.hideTooltipTimer)
       if (!this.toolboxVisible) {
         this.showToolboxButton = true
       }
@@ -71,11 +71,12 @@ const Mixin = {
       this.updateWidget()
     },
     hideToolbox () {
+      console.log('hideToolbox')
       this.toolboxVisible = false
       this.showToolboxButton = false
     },
     showToolbox () {
-      clearTimeout(this.showToolboxButtonTimer)
+      console.log('showToolbox')
       this.toolboxVisible = true
       EventBus.$emit('igotoeditmode', this._uid)
     }
@@ -98,10 +99,10 @@ const Mixin = {
   },
   data () {
     return {
+      hideTooltipTimer: null,
       updateTextTimeout: null,
       uniqeKey: null,
       showToolboxButton: false,
-      showToolboxButtonTimer: null,
       toolboxVisible: false,
       src: null,
       touchedData: {},

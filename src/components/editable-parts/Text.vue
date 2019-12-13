@@ -10,10 +10,13 @@
             v-b-tooltip.hover.bottom.small
             @click="showToolbox">
       <icon name="cog"></icon>
-      <EditablePartToolbox @update="updateStyles"
-                           :currentStyles="touchedData.styles"
-                           @setPickLinkMode="setPickLinkMode"
-                           v-if="editMode && toolboxVisible">
+      <EditablePartToolbox 
+        :toolbox-visible="toolboxVisible"
+        :currentStyles="touchedData.styles"
+        @hide="hideToolbox"
+        @update="updateStyles"
+        @setPickLinkMode="setPickLinkMode"
+        v-if="editMode && toolboxVisible">
       </EditablePartToolbox>
     </button>
     <component 
