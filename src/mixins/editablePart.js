@@ -24,11 +24,6 @@ const Mixin = {
     }
   },
   methods: {
-    showPageSidebar () {
-      this.$store.dispatch('layout/setPageSideBarIsActive', true)
-      this.$store.dispatch('layout/setSelectedItemProperties', this.touchedData.styles)
-      this.underEditModeProps = true
-    },
     mouseLeaveElement (e) {
       clearTimeout(this.showToolboxButtonTimer)
       if (!this.toolboxVisible) {
@@ -76,10 +71,12 @@ const Mixin = {
       this.updateWidget()
     },
     hideToolbox () {
+      this.$root.$emit('bv::hide::tooltip')
       this.toolboxVisible = false
       this.showToolboxButton = false
     },
     showToolbox () {
+      this.$root.$emit('bv::hide::tooltip')
       if (this.toolboxVisible) {
         this.hideToolbox()
       } else {
