@@ -13,8 +13,7 @@
       <EditablePartToolbox @update="updateStyles"
                            :currentStyles="touchedData.styles"
                            @setPickLinkMode="setPickLinkMode"
-                           v-if="editMode && toolboxVisible"
-                           @hide="hideToolbox">
+                           v-if="editMode && toolboxVisible">
       </EditablePartToolbox>
     </button>
     <component 

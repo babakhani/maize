@@ -71,19 +71,13 @@ const Mixin = {
       this.updateWidget()
     },
     hideToolbox () {
-      this.$root.$emit('bv::hide::tooltip')
       this.toolboxVisible = false
       this.showToolboxButton = false
     },
     showToolbox () {
-      this.$root.$emit('bv::hide::tooltip')
-      if (this.toolboxVisible) {
-        this.hideToolbox()
-      } else {
-        clearTimeout(this.showToolboxButtonTimer)
-        this.toolboxVisible = true
-        EventBus.$emit('igotoeditmode', this._uid)
-      }
+      clearTimeout(this.showToolboxButtonTimer)
+      this.toolboxVisible = true
+      EventBus.$emit('igotoeditmode', this._uid)
     }
   },
   watch: {
