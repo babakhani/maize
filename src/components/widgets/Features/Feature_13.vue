@@ -78,9 +78,9 @@
               </div>
 
               <div class="col-7 col-sm-4 col-lg-4 m-auto pt-5 pt-lg-0 order-lg-1">
-                <ImageEditable name="feature_image_6"
+                <ImageEditable name="feature_image_7"
                                cssClass="img-fluid br-b-0"
-                               :partData="touchedData.feature_image_6"/>
+                               :partData="touchedData.feature_image_7"/>
               </div>
             </div>
           </div>
@@ -171,7 +171,8 @@
             },
             feature_image_6: {
               styles: {},
-              src: this.faker.img.tall()
+              src: this.faker.img.rounded()
+
             },
             feature_6_title: {
               styles: {},
@@ -181,7 +182,18 @@
               styles: {},
               text: this.faker.lorem.words(7),
             },
-
+            feature_image_7: {
+              styles: {},
+              src: this.faker.img.tall()
+            },
+            feature_7_title: {
+              styles: {},
+              text: this.faker.lorem.words(1),
+            },
+            feature_7_description: {
+              styles: {},
+              text: this.faker.lorem.words(7),
+            }
           }
         },
         require: false

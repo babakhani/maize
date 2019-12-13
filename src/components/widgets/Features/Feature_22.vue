@@ -64,22 +64,22 @@
               <div class="col-4 col-md-5">
                 <ImageEditable name="feature_image_3"
                                cssClass="img-fluid"
-                               :partData="touchedData.feature_image_2"/>
+                               :partData="touchedData.feature_image_3"/>
               </div>
 
               <div class="col-12 col-md-5 m-md-auto">
                 <TextEditable tag="h2"
-                               name="feature_2_title"
-                               :partData="touchedData.feature_2_title"/>
+                               name="feature_3_title"
+                               :partData="touchedData.feature_3_title"/>
                 <br/>
                 <TextEditable tag="p"
                                cssClass="text-h3"
-                               name="feature_2_description"
-                               :partData="touchedData.feature_2_description"/>
+                               name="feature_3_description"
+                               :partData="touchedData.feature_3_description"/>
                 <p>
                   <TextEditable tag="a"
-                                 name="feature_2_link"
-                                 :partData="touchedData.feature_2_link"/>
+                                 name="feature_3_link"
+                                 :partData="touchedData.feature_3_link"/>
                 </p>
               </div>
             </div>
