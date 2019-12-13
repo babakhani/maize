@@ -184,12 +184,15 @@
 
           <!--TODO: ask reza about direction-->
           <button title="direction"
+                  v-b-tooltip.hover.top.small
                   class="btn btn-sm widget-text-editable--toolbox--button"
                   @click="toggleDirection()">
             <icon v-if="styles.direction == 'ltr'"
             name="arrow-left"></icon>
             <icon v-if="styles.direction == 'rtl'"
             name="arrow-right"></icon>
+            <icon v-if="styles.direction == 'auto'"
+            name="arrow-left"></icon>
           </button>
           <div class="dropdown">
             <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
@@ -201,6 +204,9 @@
                     aria-haspopup="true"
                     aria-expanded="false">
               <maizcon name="back-color"></maizcon>
+              <div 
+                :style="{'background-color': styles['color']}"
+                class="color-indicator"></div>
             </button>
             <div class="dropdown-menu"
                  aria-labelledby="dropdownMenuButtonColor">
@@ -226,6 +232,9 @@
                     aria-haspopup="true"
                     aria-expanded="false">
               <maizcon name="color-fill"></maizcon>
+              <div 
+                :style="{'background-color': styles['background-color']}"
+                class="color-indicator"></div>
             </button>
             <div class="dropdown-menu"
                  aria-labelledby="dropdownMenuButtonBgColor">
@@ -301,6 +310,9 @@
                     aria-haspopup="true"
                     aria-expanded="false">
               <maizcon name="border-color"></maizcon>
+              <div 
+                :style="{'background-color': styles['border-color']}"
+                class="color-indicator"></div>
             </button>
             <div class="dropdown-menu"
                  aria-labelledby="dropdownMenuButtonBorderColor">

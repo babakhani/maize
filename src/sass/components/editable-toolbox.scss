@@ -14,6 +14,8 @@
   padding: 0;
   float: left;
   width: 100%;
+  padding: .1em;
+  width: 428px;
   // Preview Mode Styles
   .editor-page-preview-mode & {
     visibility: hidden;
@@ -30,6 +32,7 @@
   }
 
   .dropdown {
+    float: none;
     .dropdown-toggle::after {
       display: none;
     }
@@ -37,19 +40,70 @@
       margin: .5em;
       cursor: pointer;
     }
+
+    &.show .dropdown-toggle {
+      background: rgba($primary-color, 0.5);
+    }
+
     .dropdown-menu {
+      background: rgba(#000, 0.9);
       margin-top: 0;
       min-width: 2em;
       .dropdown-item {
         padding: .25em .75em
       }
+      label {
+        color: rgba(#fff, .6);
+        width: 90%;
+        padding: 0;
+        margin: 5% 5% 0 5%;
+      }
+      .vc-compact {
+         background: transparent;
+      }
+
+      input[type='number'],
+      input[type='text'] {
+        color: rgba(#fff, .05);
+        background: transparent;
+        border: 0;
+        color: #fff;
+        width: 90%;
+        padding: 0;
+        margin: 5% 5% 0 5%;
+      }
+
+      input[type='range'] {
+        width: 90%;
+        padding: 0;
+        margin: 5% 5% 0 5%;
+      }
+      .widget-text-editable--toolbox--button {
+        color: #999;
+      }
+      .widget-text-editable--selected {
+        color: #fff;
+        background: rgba($primary-color, 0.3);
+      }
+      a.dropdown-item {
+        color: rgba($white, .9) !important;
+      }
+      .dropdown-item {
+        &:hover {
+          background: rgba($primary-color, 0.3);
+        }
+        &:active {
+          background: rgba($primary-color, 0.5);
+        }
+      }
     }
   }
 
   .widget-text-editable--toolbox--button {
+    border: 1px solid rgba($primary-color, .2);
     width: 36px;
     height: 36px;
-    margin: .2em;
+    margin: 3px;
     float: left;
     padding: 9px;
     cursor: pointer;
@@ -57,7 +111,18 @@
     line-height: 10px;
     min-height: 40px;
     position: relative;
+
+    .color-indicator {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      bottom: 2px;
+      right: 2px;
+    }
+
     img {
+       width: 24px;
+       height: 22px;
        position: absolute;
        top: 50%;
        left: 50%;
@@ -82,49 +147,6 @@
     }
   }
 
-  .dropdown-menu {
-    background: rgba(#000, 0.9);
-    label {
-      color: rgba(#fff, .6);
-      width: 90%;
-      padding: 0;
-      margin: 5% 5% 0 5%;
-    }
-    .vc-compact {
-       background: transparent;
-    }
-
-    input[type='text'] {
-      color: rgba(#fff, .05);
-      background: transparent;
-      border: 0;
-      color: #fff;
-      width: 90%;
-      padding: 0;
-      margin: 5% 5% 0 5%;
-    }
-
-    input[type='range'] {
-      width: 90%;
-      padding: 0;
-      margin: 5% 5% 0 5%;
-    }
-    .widget-text-editable--toolbox--button {
-      color: #333;
-    }
-    .widget-text-editable--selected {
-      color: #fff;
-      background: rgba($primary-color, 0.3);
-    }
-    .dropdown-item {
-      &:hover {
-        background: rgba($primary-color, 0.3);
-      }
-      &:active {
-        background: rgba($primary-color, 0.5);
-      }
-    }
-  }
 
   input[type=color] {
     border: 0;
@@ -134,9 +156,6 @@
     margin: 0px;
   }
 
-  .dropdown {
-    float: none;
-  }
   button {
     img {
       border-radius: 0 !important;
