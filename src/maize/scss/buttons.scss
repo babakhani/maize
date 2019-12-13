@@ -57,7 +57,7 @@
   }
 
   &.btn-shadow {
-    @include froala-box-shadow($btn-shadow);
+    @include maize-box-shadow($btn-shadow);
   }
 
   &.btn-round {

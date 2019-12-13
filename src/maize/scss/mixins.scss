@@ -47,7 +47,7 @@
   filter: alpha(opacity=$opacity-ie); //IE8
 }
 
-@mixin froala-box-shadow ($level: 1, $direction: 1) {
+@mixin maize-box-shadow ($level: 1, $direction: 1) {
   $shadow: none;
 
   @if $level == 1 {
