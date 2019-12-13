@@ -56,5 +56,17 @@ export default {
     'or': 'OR',
     'choose_your_image': 'Choose your image',
     'random_image': 'Random Image'
+  },
+  'settings': {
+    'header': 'Site Settings',
+    'tittle': 'Tittle',
+    'description': 'Description',
+    'type': 'Type',
+    'twitter-account': 'Twitter account',
+    'instagram-account': 'Instagram-account',
+    'canonical': 'Canonical',
+    'logo-url': 'Logo URL',
+    'banner-url': 'Banner URL',
+    'banner-color': 'Banner color'
   }
 }
