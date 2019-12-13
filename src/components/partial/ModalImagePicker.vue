@@ -32,7 +32,7 @@
     <!--Start Modal Tab-->
     <b-tabs card>
 
-      <b-tab active>
+      <b-tab active class="py-2">
         <template slot="title">
           <strong> {{ $t('modal.random_image') }}</strong>
           <icon class="upload-image-icon"
@@ -47,7 +47,7 @@
         <!--</div>-->
         <!--</div>-->
         <div class="image-picker-modal--body ">
-          <div class="row">
+          <div class="row px-2 py-1">
             <div class="col-6 col-sm-6 col-md-3 col-xl-3 h-100 image-picker-modal--image-container"
                  v-for="imageItem in randomImageList">
               <div class="image-picker-modal--image-thumb-box"

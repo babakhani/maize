@@ -1,17 +1,31 @@
 .image-picker-modal {
+  .modal {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    padding: 1em;
+    margin: 0;
+    padding-left: 0;
+  }
   .modal-dialog {
-    max-width: 80% !important;
-    margin: 6.5em 10% !important;
-    height: 80%;
-    overflow: hidden;
-    .modal-body {
-      height: 90%;
-      padding: 0;
-      margin-bottom: 1em;
-    }
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    padding: 1em;
+    margin: 0;
     .modal-content {
       height: 100%;
     }
+  }
+  .tab-content {
+    overflow: auto;
+    height: calc(100vh - 200px);
   }
 
   .image-picker-modal--search-box {
@@ -20,7 +34,7 @@
 
   .image-picker-modal--image-container {
     display: block;
-    overflow: hidden;
+    //overflow: hidden;
     position: relative;
 
     &::before {
@@ -59,18 +73,12 @@
   }
 
   .modal-body {
-    text-align: center;
+     min-height: 550px;
     overflow: hidden;
-    //.image-picker-modal--img {
-    //  &:hover,
-    //  &:focus,
-    //  &:active {
-    //    outline: 2px solid rgba(250, 0, 0, 0.6);
-    //  }
-    //  &.image-picker-modal-selected {
-    //    border: 2px solid rgba(250, 0, 0, 0.6);
-    //  }
-    //}
+    padding: 0;
+    .card {
+      border: 0 !important;
+    }
     .tabs {
       height: 90%;
     }
@@ -79,7 +87,7 @@
     }
   }
   footer {
-    padding-right: 1.5em !important;
+    padding: 15px !important;
   }
   svg {
     &.upload-image-icon {
