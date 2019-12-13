@@ -2,22 +2,20 @@
   <div>
     <WidgetToolbox/>
     <BgEditable >
-      <section class="fdb-block">
+      <section class="mz-block">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-12 col-sm-8 col-md-6 col-lg-4 text-center">
               <TextEditable 
                 tag="h3"
                 name="mainTitle"
-                :partData="touchedData.mainTitle">
-              </TextEditable>
+                :partData="touchedData.mainTitle"/>
               <p class="mt-5 mt-sm-4">
-                <text-editable 
+                <TextEditable 
                   tag="a"
                   cssClass="btn"
                   name="action_link"
-                  :partData="touchedData.action_link">
-                </text-editable>
+                  :partData="touchedData.action_link"/>
               </p>
             </div>
           </div>

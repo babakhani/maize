@@ -23,8 +23,10 @@ class UndoRedoHistory {
     if (this.currentIndex + 1 < this.history.length) {
       this.history.splice(this.currentIndex + 1);
     }
-    this.history.push(state.main);
-    this.currentIndex++;
+    if (JSON.stringify(this.history[this.currentIndex]) !== JSON.stringify(state.main)) {
+      this.history.push(state.main);
+      this.currentIndex++;
+    }
   }
 
   undo () {

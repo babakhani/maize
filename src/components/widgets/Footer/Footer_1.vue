@@ -1,42 +1,20 @@
 <template>
-  <div v-if="touchedData !== {}"
-       :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode">
-      <footer class="fdb-block footer-small">
-        <div class="container">
-          <div class="row text-center">
-            <div class="col">
-              <p>&copy; 2017 Froala. All Rights Reserved</p>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
-    <div v-else
-         class="widget-block">
-      <WidgetToolbox></WidgetToolbox>
-      <div class="widget-block--name">
-        {{$options.name}}
-      </div>
-      <BgEditable
-        name="bg"
-        v-if="touchedData.bg"
-        :partData="touchedData.bg">
-        <footer class="fdb-block footer-small">
+  <div>
+      <WidgetToolbox/>
+      <BgEditable>
+        <footer class="mz-block footer-small">
           <div class="container">
             <div class="row text-center">
               <div class="col">
                 <!--TODO: Extend the text linke : &copy -->
-                <text-editable tag="p"
+                <TextEditable tag="p"
                                name="footer_copyright"
-                               :partData="touchedData.footer_copyright">
-                </text-editable>
+                               :partData="touchedData.footer_copyright"/>
               </div>
             </div>
           </div>
         </footer>
       </BgEditable>
-    </div>
   </div>
 </template>
 <script>

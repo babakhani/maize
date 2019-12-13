@@ -1,118 +1,60 @@
 <template>
-  <div v-if="touchedData !== {}"
-       :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode">
-
-      <section class="fdb-block bg-dark" style="background-image: url(./imgs/bg_0.svg)">
-        <div class="container">
-          <div class="row">
-            <div class="col text-center">
-              <h1>Froala Design Blocks</h1>
-            </div>
-          </div>
-
-          <div class="row-70"></div>
-
-          <div class="row text-center justify-content-sm-center no-gutters">
-            <div class="col-12 col-sm-10 col-md-8 col-lg-7 col-xl-3 m-auto">
-              <div class="fdb-box fdb-touch">
-                <h2>Feature 1</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-                <p class="mt-4"><a href="/">Learn More &gt;</a></p>
-              </div>
-            </div>
-            <div class="col-12 col-sm-10 col-md-8 col-lg-7 col-xl-3 m-auto pt-5 pt-xl-0">
-              <div class="fdb-box fdb-touch">
-                <h2>Feature 2</h2>
-                <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                <p class="mt-4"><a href="/">Learn More &gt;</a></p>
-              </div>
-            </div>
-            <div class="col-12 col-sm-10 col-md-8 col-lg-7 col-xl-3 m-auto pt-5 pt-xl-0">
-              <div class="fdb-box fdb-touch">
-                <h2>Feature 3</h2>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                <p class="mt-4"><a href="/">Learn More &gt;</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </div>
-    <div v-else
-         class="widget-block">
-      <WidgetToolbox></WidgetToolbox>
-      <div class="widget-block--name">
-        {{$options.name}}
-      </div>
-      <BgEditable
-        name="bg"
-        v-if="touchedData.bg"
-        :partData="touchedData.bg">
-        <section class="fdb-block bg-dark">
+  <div>
+      <WidgetToolbox/>
+      <BgEditable>
+        <section class="mz-block bg-dark">
           <div class="container">
             <div class="row">
               <div class="col text-center">
-                <text-editable tag="h1"
+                <TextEditable tag="h1"
                                name="mainTitle"
-                               :partData="touchedData.mainTitle">
-                </text-editable>
+                               :partData="touchedData.mainTitle"/>
               </div>
             </div>
             <div class="row-70"></div>
             <div class="row text-center justify-content-sm-center no-gutters">
               <div class="col-12 col-sm-10 col-md-8 col-lg-7 col-xl-3 m-auto">
-                <div class="fdb-box fdb-touch">
-                  <text-editable tag="h2"
+                <div class="mz-box mz-touch">
+                  <TextEditable tag="h2"
                                  name="feature_1_title"
-                                 :partData="touchedData.feature_1_title">
-                  </text-editable>
-                  <text-editable tag="p"
+                                 :partData="touchedData.feature_1_title"/>
+                  <TextEditable tag="p"
                                  name="feature_1_description"
-                                 :partData="touchedData.feature_1_description">
-                  </text-editable>
+                                 :partData="touchedData.feature_1_description"/>
                   <p class="mt-4">
-                    <text-editable tag="a"
+                    <TextEditable tag="a"
                                    name="feature_1_link"
-                                   :partData="touchedData.feature_1_link">
-                    </text-editable>
+                                   :partData="touchedData.feature_1_link"/>
                   </p>
                 </div>
               </div>
               <div class="col-12 col-sm-10 col-md-8 col-lg-7 col-xl-3 m-auto pt-5 pt-xl-0">
-                <div class="fdb-box fdb-touch">
-                  <text-editable tag="h2"
+                <div class="mz-box mz-touch">
+                  <TextEditable tag="h2"
                                  name="feature_2_title"
-                                 :partData="touchedData.feature_2_title">
-                  </text-editable>
-                  <text-editable tag="p"
+                                 :partData="touchedData.feature_2_title"/>
+                  <TextEditable tag="p"
                                  name="feature_2_description"
-                                 :partData="touchedData.feature_2_description">
-                  </text-editable>
+                                 :partData="touchedData.feature_2_description"/>
                   <p class="mt-4">
-                    <text-editable tag="a"
+                    <TextEditable tag="a"
                                    name="feature_2_link"
-                                   :partData="touchedData.feature_2_link">
-                    </text-editable>
+                                   :partData="touchedData.feature_2_link"/>
                   </p>
                 </div>
               </div>
               <div class="col-12 col-sm-10 col-md-8 col-lg-7 col-xl-3 m-auto pt-5 pt-xl-0">
-                <div class="fdb-box fdb-touch">
-                  <text-editable tag="h2"
+                <div class="mz-box mz-touch">
+                  <TextEditable tag="h2"
                                  name="feature_3_title"
-                                 :partData="touchedData.feature_3_title">
-                  </text-editable>
-                  <text-editable tag="p"
+                                 :partData="touchedData.feature_3_title"/>
+                  <TextEditable tag="p"
                                  name="feature_3_description"
-                                 :partData="touchedData.feature_3_description">
-                  </text-editable>
+                                 :partData="touchedData.feature_3_description"/>
                   <p class="mt-4">
-                    <text-editable tag="a"
+                    <TextEditable tag="a"
                                    name="feature_3_link"
-                                   :partData="touchedData.feature_3_link">
-                    </text-editable>
+                                   :partData="touchedData.feature_3_link"/>
                   </p>
                 </div>
               </div>
@@ -120,7 +62,6 @@
           </div>
         </section>
       </BgEditable>
-    </div>
   </div>
 </template>
 <script>

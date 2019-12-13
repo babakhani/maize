@@ -1,100 +1,42 @@
 <template>
-  <div v-if="touchedData !== {}"
-       :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode">
-      <footer class="fdb-block footer-small">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-12 col-md-6">
-              <ul class="nav justify-content-center justify-content-md-start">
-                <li class="nav-item">
-                  <a class="nav-link active" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/">Features</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/">Terms</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/">About</a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="col-12 col-md-6 mt-4 mt-md-0 text-center text-md-right">
-              <a href="/"><i class="fa fa-twitter" aria-hidden="true"></i></a>&nbsp;&nbsp;
-              <a href="/"><i class="fa fa-facebook" aria-hidden="true"></i></a>&nbsp;&nbsp;
-              <a href="/"><i class="fa fa-instagram" aria-hidden="true"></i></a>&nbsp;&nbsp;
-              <a href="/"><i class="fa fa-pinterest" aria-hidden="true"></i></a>&nbsp;&nbsp;
-              <a href="/"><i class="fa fa-google" aria-hidden="true"></i></a>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
-    <div v-else
-         class="widget-block">
-      <WidgetToolbox></WidgetToolbox>
-      <div class="widget-block--name">
-        {{$options.name}}
-      </div>
-      <BgEditable
-        name="bg"
-        v-if="touchedData.bg"
-        :partData="touchedData.bg">
-        <footer class="fdb-block footer-small">
+  <div>
+      <WidgetToolbox/>
+      <BgEditable>
+        <footer class="mz-block footer-small">
           <div class="container">
             <div class="row align-items-center">
               <div class="col-12 col-md-6">
                 <ul class="nav justify-content-center justify-content-md-start">
                   <li class="nav-item">
-                    <text-editable tag="a"
+                    <TextEditable tag="a"
                                    cssClass="nav-link active"
                                    name="footer_link_1"
-                                   :partData="touchedData.footer_link_1">
-
-                    </text-editable>
+                                   :partData="touchedData.footer_link_1"/>
                   </li>
                   <li class="nav-item">
-                    <text-editable tag="a"
+                    <TextEditable tag="a"
                                    cssClass="nav-link"
                                    name="footer_link_2"
-                                   :partData="touchedData.footer_link_2">
-
-                    </text-editable>
+                                   :partData="touchedData.footer_link_2"/>
                   </li>
                   <li class="nav-item">
-                    <text-editable tag="a"
+                    <TextEditable tag="a"
                                    cssClass="nav-link"
                                    name="footer_link_3"
-                                   :partData="touchedData.footer_link_3">
-
-                    </text-editable>
+                                   :partData="touchedData.footer_link_3"/>
                   </li>
                   <li class="nav-item">
-                    <text-editable tag="a"
+                    <TextEditable tag="a"
                                    cssClass="nav-link"
                                    name="footer_link_4"
-                                   :partData="touchedData.footer_link_4">
-
-                    </text-editable>
+                                   :partData="touchedData.footer_link_4"/>
                   </li>
                 </ul>
               </div>
-              <!--TODO: Do you want this??-->
-              <!--<div class="col-12 col-md-6 mt-4 mt-md-0 text-center text-md-right">-->
-              <!--<a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>&nbsp;&nbsp;-->
-              <!--<a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>&nbsp;&nbsp;-->
-              <!--<a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>&nbsp;&nbsp;-->
-              <!--<a href=""><i class="fa fa-pinterest" aria-hidden="true"></i></a>&nbsp;&nbsp;-->
-              <!--<a href=""><i class="fa fa-google" aria-hidden="true"></i></a>-->
-              <!--</div>-->
             </div>
           </div>
         </footer>
       </BgEditable>
-    </div>
   </div>
 </template>
 <script>

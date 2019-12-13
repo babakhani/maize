@@ -1,111 +1,56 @@
 <template>
-  <div v-if="touchedData !== {}"
-       :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode">
-      <section class="fdb-block">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-12 col-md-8 col-lg-6 m-md-auto ml-lg-0 mr-lg-auto">
-              <img alt="image" class="img-fluid" src="/static/imgs/colors_wide_1.jpg">
-            </div>
-            <div class="col-12 col-lg-6 col-xl-5 ml-sm-auto pt-5 pt-lg-0">
-              <h1>Design Blocks</h1>
-
-              <div class="row pt-4 pt-xl-5">
-                <div class="col-12 col-sm-6 col-xl-5">
-                  <h4><strong>Feature One</strong></h4>
-                  <p>Far far away, behind the word mountains</p>
-                </div>
-                <div class="col-12 col-sm-6 col-xl-5 m-auto pt-3 pt-sm-0">
-                  <h4><strong>Feature Two</strong></h4>
-                  <p>Separated they live in Bookmarksgrove</p>
-                </div>
-              </div>
-
-              <div class="row pt-3">
-                <div class="col-12 col-sm-6 col-xl-5">
-                  <h4><strong>Feature Three</strong></h4>
-                  <p>A small river named Duden flows by me</p>
-                </div>
-                <div class="col-12 col-sm-6 col-xl-5 m-auto pt-3 pt-sm-0">
-                  <h4><strong>Feature Four</strong></h4>
-                  <p>Separated they live in Bookmarksgrove</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-    <div v-else
-         class="widget-block">
-      <WidgetToolbox></WidgetToolbox>
-      <div class="widget-block--name">
-        {{$options.name}}
-      </div>
-      <BgEditable
-        name="bg"
-        v-if="touchedData.bg"
-        :partData="touchedData.bg">
-        <section class="fdb-block">
+  <div>
+      <WidgetToolbox/>
+      <BgEditable>
+        <section class="mz-block">
           <div class="container">
             <div class="row align-items-center">
               <div class="col-12 col-md-8 col-lg-6 m-md-auto ml-lg-0 mr-lg-auto">
                 <ImageEditable name="image"
                                cssClass="img-fluid"
-                               :partData="touchedData.image">
-                </ImageEditable>
+                               :partData="touchedData.image"/>
               </div>
               <div class="col-12 col-lg-6 col-xl-5 ml-sm-auto pt-5 pt-lg-0">
-                <text-editable tag="h1"
+                <TextEditable tag="h1"
                                name="mainTitle"
-                               :partData="touchedData.mainTitle">
-                </text-editable>
+                               :partData="touchedData.mainTitle"/>
 
                 <div class="row pt-4 pt-xl-5">
                   <div class="col-12 col-sm-6 col-xl-5">
-                    <text-editable tag="h4"
+                    <TextEditable tag="h4"
                                    name="feature_1_title"
-                                   :partData="touchedData.feature_1_title">
-                    </text-editable>
-                    <text-editable tag="p"
+                                   :partData="touchedData.feature_1_title"/>
+                    <TextEditable tag="p"
                                    name="feature_1_description"
-                                   :partData="touchedData.feature_1_description">
-                    </text-editable>
+                                   :partData="touchedData.feature_1_description"/>
 
                   </div>
                   <div class="col-12 col-sm-6 col-xl-5 m-auto pt-3 pt-sm-0">
-                    <text-editable tag="h4"
+                    <TextEditable tag="h4"
                                    name="feature_2_title"
-                                   :partData="touchedData.feature_2_title">
-                    </text-editable>
-                    <text-editable tag="p"
+                                   :partData="touchedData.feature_2_title"/>
+                    <TextEditable tag="p"
                                    name="feature_2_description"
-                                   :partData="touchedData.feature_2_description">
-                    </text-editable>
+                                   :partData="touchedData.feature_2_description"/>
                   </div>
                 </div>
 
                 <div class="row pt-3">
                   <div class="col-12 col-sm-6 col-xl-5">
-                    <text-editable tag="h4"
+                    <TextEditable tag="h4"
                                    name="feature_3_title"
-                                   :partData="touchedData.feature_3_title">
-                    </text-editable>
-                    <text-editable tag="p"
+                                   :partData="touchedData.feature_3_title"/>
+                    <TextEditable tag="p"
                                    name="feature_3_description"
-                                   :partData="touchedData.feature_3_description">
-                    </text-editable>
+                                   :partData="touchedData.feature_3_description"/>
                   </div>
                   <div class="col-12 col-sm-6 col-xl-5 m-auto pt-3 pt-sm-0">
-                    <text-editable tag="h4"
+                    <TextEditable tag="h4"
                                    name="feature_4_title"
-                                   :partData="touchedData.feature_4_title">
-                    </text-editable>
-                    <text-editable tag="p"
+                                   :partData="touchedData.feature_4_title"/>
+                    <TextEditable tag="p"
                                    name="feature_4_description"
-                                   :partData="touchedData.feature_4_description">
-                    </text-editable>
+                                   :partData="touchedData.feature_4_description"/>
                   </div>
                 </div>
               </div>
@@ -113,7 +58,6 @@
           </div>
         </section>
       </BgEditable>
-    </div>
   </div>
 </template>
 <script>

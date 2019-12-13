@@ -3,7 +3,7 @@
 @import './mixins';
 @import './variables';
 
-.fdb-block {
+.mz-block {
   font-family: 'Roboto', sans-serif;
   font-size: $font-size;
   line-height: $line-height;
@@ -17,7 +17,7 @@
   overflow: hidden;
   background-color: $white;
 
-  &.fdb-viewport {
+  &.mz-viewport {
     min-height: calc(100% - 2 * #{$block-padding});
 
     .container {
@@ -25,20 +25,20 @@
     }
   }
 
-  &.fdb-image-bg {
+  &.mz-image-bg {
     color: mix($black, $white, 5%);
   }
 
-  .fdb-box {
+  .mz-box {
     background: $white;
     color: $font-color;
     padding: 60px 40px;
     @include border-radius(4px);
-    @include froala-box-shadow(1);
+    @include maize-box-shadow(1);
     overflow: hidden;
   }
 
-  .fdb-touch {
+  .mz-touch {
     border-top: solid 5px $primary-color;
   }
 
@@ -100,12 +100,12 @@
     }
   }
 
-  img.fdb-icon {
+  img.mz-icon {
     width: auto;
     width: 60px;
   }
 
-  img.fdb-icon-round {
+  img.mz-icon-round {
     width: auto;
     width: 60px;
     @include border-radius(60px);
@@ -233,7 +233,7 @@ header + header {
 }
 
 .sl-1 {
-  @include froala-box-shadow(1);
+  @include maize-box-shadow(1);
   z-index: 2;
 }
 

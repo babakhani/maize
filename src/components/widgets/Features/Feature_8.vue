@@ -1,99 +1,49 @@
 <template>
-  <div v-if="touchedData !== {}"
-       :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode">
-
-
-      <section class="fdb-block">
-        <div class="container">
-          <div class="row text-center">
-            <div class="col-12">
-              <h1>Features</h1>
-              <img alt="image" class="img-fluid mt-5" src="/static/imgs/img_very_wide.svg">
-            </div>
-          </div>
-
-          <div class="row text-center justify-content-center mt-5">
-            <div class="col-12 col-sm-4 col-lg-3 m-md-auto">
-              <img alt="image" class="fdb-icon" src="/static/imgs/img_round.svg">
-              <h3><strong>Feature 1</strong></h3>
-            </div>
-
-            <div class="col-12 col-sm-4 col-lg-3 m-auto pt-4 pt-sm-0">
-              <img alt="image" class="fdb-icon" src="/static/imgs/img_round.svg">
-              <h3><strong>Feature 2</strong></h3>
-            </div>
-
-            <div class="col-12 col-sm-4 col-lg-3 m-auto pt-4 pt-sm-0">
-              <img alt="image" class="fdb-icon" src="/static/imgs/img_round.svg">
-              <h3><strong>Feature 3</strong></h3>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </div>
-    <div v-else
-         class="widget-block">
-      <WidgetToolbox></WidgetToolbox>
-      <div class="widget-block--name">
-        {{$options.name}}
-      </div>
-      <BgEditable
-        name="bg"
-        v-if="touchedData.bg"
-        :partData="touchedData.bg">
-        <section class="fdb-block">
+  <div>
+      <WidgetToolbox/>
+      <BgEditable>
+        <section class="mz-block">
           <div class="container">
             <div class="row text-center">
               <div class="col-12">
-                <text-editable tag="h1"
+                <TextEditable tag="h1"
                                name="mainTitle"
-                               :partData="touchedData.mainTitle">
-                </text-editable>
+                               :partData="touchedData.mainTitle"/>
                 <ImageEditable name="image"
                                cssClass="img-fluid mt-5"
-                               :partData="touchedData.image">
-                </ImageEditable>
+                               :partData="touchedData.image"/>
               </div>
             </div>
 
             <div class="row text-center justify-content-center mt-5">
               <div class="col-12 col-sm-4 col-lg-3 m-md-auto">
                 <ImageEditable name="feature_image_1"
-                               cssClass="fdb-icon"
-                               :partData="touchedData.feature_image_1">
-                </ImageEditable>
-                <text-editable tag="h4"
+                               cssClass="mz-icon"
+                               :partData="touchedData.feature_image_1"/>
+                <TextEditable tag="h4"
                                name="feature_1_title"
-                               :partData="touchedData.feature_1_title">
-                </text-editable>
+                               :partData="touchedData.feature_1_title"/>
               </div>
               <div class="col-12 col-sm-4 col-lg-3 m-auto pt-4 pt-sm-0">
                 <ImageEditable name="feature_image_2"
-                               cssClass="fdb-icon"
-                               :partData="touchedData.feature_image_2">
-                </ImageEditable>
-                <text-editable tag="h3"
+                               cssClass="mz-icon"
+                               :partData="touchedData.feature_image_2"/>
+                <TextEditable tag="h3"
                                name="feature_2_title"
-                               :partData="touchedData.feature_2_title">
-                </text-editable>
+                               :partData="touchedData.feature_2_title"/>
               </div>
               <div class="col-12 col-sm-4 col-lg-3 m-auto pt-4 pt-sm-0">
                 <ImageEditable name="feature_image_3"
-                               cssClass="fdb-icon"
-                               :partData="touchedData.feature_image_3">
-                </ImageEditable>
-                <text-editable tag="h3"
+                               cssClass="mz-icon"
+                               :partData="touchedData.feature_image_3"/>
+                <TextEditable tag="h3"
                                name="feature_3_title"
-                               :partData="touchedData.feature_3_title">
-                </text-editable>
+                               :partData="touchedData.feature_3_title"/>
               </div>
             </div>
           </div>
         </section>
       </BgEditable>
-    </div>
   </div>
 </template>
 <script>

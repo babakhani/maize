@@ -1,9 +1,13 @@
+.vue-popover-theme {
+  background: none !important;
+}
 .widget-text-editable--toolbox {
   display: block;
   font-size: 2rem !important;
   z-index: 100000;
-  background: rgba(#333333, .9);
+  background: rgba(#000000, .9);
   position: fixed !important;
+  border-radius: 6px;
   bottom: 0px; 
   left: 0px;
   right: 0px;
@@ -43,19 +47,24 @@
   }
 
   .widget-text-editable--toolbox--button {
+    width: 36px;
+    height: 36px;
+    margin: .2em;
     float: left;
-    height: 100%;
     padding: 9px;
     cursor: pointer;
     background: transparent;
     line-height: 10px;
     min-height: 40px;
+    position: relative;
     img {
-      color: red;
-      fill: red;
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
     }
     &.widget-text-editable--selected {
-      border: 1px solid #f1f1f1;
+      background: rgba($primary-color, 0.3);
     }
     &.color-box-btn {
       position: relative;
@@ -74,11 +83,46 @@
   }
 
   .dropdown-menu {
+    background: rgba(#000, 0.9);
+    label {
+      color: rgba(#fff, .6);
+      width: 90%;
+      padding: 0;
+      margin: 5% 5% 0 5%;
+    }
+    .vc-compact {
+       background: transparent;
+    }
+
+    input[type='text'] {
+      color: rgba(#fff, .05);
+      background: transparent;
+      border: 0;
+      color: #fff;
+      width: 90%;
+      padding: 0;
+      margin: 5% 5% 0 5%;
+    }
+
+    input[type='range'] {
+      width: 90%;
+      padding: 0;
+      margin: 5% 5% 0 5%;
+    }
     .widget-text-editable--toolbox--button {
       color: #333;
     }
     .widget-text-editable--selected {
-      border: 1px solid #333;
+      color: #fff;
+      background: rgba($primary-color, 0.3);
+    }
+    .dropdown-item {
+      &:hover {
+        background: rgba($primary-color, 0.3);
+      }
+      &:active {
+        background: rgba($primary-color, 0.5);
+      }
     }
   }
 

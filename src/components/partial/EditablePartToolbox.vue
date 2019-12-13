@@ -10,8 +10,7 @@
       <div class="widget-text-editable--toolbox ">
         <div v-if="groups.indexOf('text') > -1"
              class="widget-text-editable--toolbox--group">
-          <!--DropDown Example-->
-          <!--Font Size-->
+          <!--Font Family -->
           <div class="dropdown">
             <button :title="$t('toolbox.font-family')"
                     v-b-tooltip.hover.top.small
@@ -21,11 +20,7 @@
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false">
-              <!--<icon :style="{'width': styles['font-size']}"-->
-              <!--name="font"></icon>-->
-
               <maizcon name="font"></maizcon>
-
             </button>
             <div class="dropdown-menu"
                  aria-labelledby="dropdownMenuButtonFamily">
@@ -39,8 +34,8 @@
                  class="dropdown-item"
                  @click="setFontFamily('fantasy')">fantasy</a>
             </div>
-
           </div>
+          <!--Font Size -->
           <div class="dropdown">
             <button :title="$t('toolbox.font-size')"
                     v-b-tooltip.hover.top.small
@@ -50,11 +45,7 @@
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false">
-              <!--<icon :style="{'width': styles['font-size']}"-->
-              <!--name="font"></icon>-->
-
               <maizcon name="size"></maizcon>
-
             </button>
             <div class="dropdown-menu"
                  aria-labelledby="dropdownMenuButton">
@@ -73,12 +64,12 @@
               <a :class="{'widget-text-editable--selected': styles['font-size'] == '12px'}"
                  class="dropdown-item"
                  @click="setSize('12px')">{{$t('toolbox.x-small')}}</a>
-              <!--<a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '10px'}"-->
-              <!--class="dropdown-item"-->
-              <!--@click="setSize('10px')">{{$t('toolbox.xx-small')}}</a>-->
+              <a :class="{'widget-text-editable&#45;&#45;selected': styles['font-size'] == '10px'}"
+                 class="dropdown-item"
+                 @click="setSize('10px')">{{$t('toolbox.xx-small')}}</a>
             </div>
           </div>
-
+          <!-- Bold -->
           <button :title="$t('toolbox.bold')"
                   v-b-tooltip.hover.top.small
                   @click="toggleBold()"
@@ -86,7 +77,7 @@
                   class="btn btn-sm widget-text-editable--toolbox--button">
             <maizcon name="bold"></maizcon>
           </button>
-
+          <!-- UnderLine -->
           <button :title="$t('toolbox.underline')"
                   v-b-tooltip.hover.top.small
                   @click="toggleTextDecoration()"
@@ -109,7 +100,6 @@
             <maizcon name="link"></maizcon>
           </button>
 
-          <!--DropDown Example-->
           <!--Alignment-->
           <div class="dropdown">
             <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
@@ -120,9 +110,6 @@
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false">
-              <!--TODO: reza check it plz-->
-              <!--<maizcon v-if="styles['text-align'] != 'inherit'"-->
-              <!--:name="'align-'+ styles['text-align']"></maizcon>-->
               <maizcon name="align-center"></maizcon>
             </button>
             <div class="dropdown-menu"
@@ -187,7 +174,6 @@
             </div>
           </div>
 
-
           <button :class="{'widget-text-editable--selected': styles['text-indent'] != '0'}"
                   :title="$t('toolbox.indent')"
                   v-b-tooltip.hover.top.small
@@ -197,15 +183,14 @@
           </button>
 
           <!--TODO: ask reza about direction-->
-          <!--<button title="direction"-->
-          <!--@click="toggleDirection()"-->
-          <!--class="btn btn-sm widget-text-editable&#45;&#45;toolbox&#45;&#45;button">-->
-          <!--<icon v-if="styles.direction == 'ltr'"-->
-          <!--name="arrow-left"></icon>-->
-          <!--<icon v-if="styles.direction == 'rtl'"-->
-          <!--name="arrow-right"></icon>-->
-          <!--</button>-->
-
+          <button title="direction"
+                  class="btn btn-sm widget-text-editable--toolbox--button"
+                  @click="toggleDirection()">
+            <icon v-if="styles.direction == 'ltr'"
+            name="arrow-left"></icon>
+            <icon v-if="styles.direction == 'rtl'"
+            name="arrow-right"></icon>
+          </button>
           <div class="dropdown">
             <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                     :title="$t('toolbox.font-color')"
@@ -224,6 +209,11 @@
               </compact-picker>
             </div>
           </div>
+
+        </div>
+
+        <div v-if="groups.indexOf('border') > -1"
+             class="widget-text-editable--toolbox--group">
 
 
           <div class="dropdown">
@@ -245,10 +235,6 @@
             </div>
           </div>
 
-        </div>
-
-        <div v-if="groups.indexOf('border') > -1"
-             class="widget-text-editable--toolbox--group">
           <div class="dropdown">
             <button :title="$t('toolbox.border-width')"
                     v-b-tooltip.hover.top.small
@@ -353,46 +339,6 @@
         <div v-if="groups.indexOf('general') > -1"
              class="widget-text-editable--toolbox--group">
           <div class="dropdown">
-            <button :title="$t('toolbox.padding')"
-                    v-b-tooltip.hover.top.small
-                    class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
-                    type="button"
-                    id="dropdownMenuButtonPadding"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false">
-              Padding
-              <!--<maizcon name=""></maizcon>-->
-            </button>
-            <div class="dropdown-menu"
-                 aria-labelledby="dropdownMenuButtonPadding">
-              <input @input="setPadding"
-                     type="text"
-                     v-model="styles['padding']"/>
-            </div>
-          </div>
-
-          <div class="dropdown">
-            <button :title="$t('toolbox.margin')"
-                    v-b-tooltip.hover.top.small
-                    class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
-                    type="button"
-                    id="dropdownMenuButtonMargin"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false">
-              Margin
-              <!--<maizcon name=""></maizcon>-->
-            </button>
-            <div class="dropdown-menu"
-                 aria-labelledby="dropdownMenuButtonMargin">
-              <input @input="setMargin"
-                     type="text"
-                     v-model="styles['margin']"/>
-            </div>
-          </div>
-
-          <div class="dropdown">
             <button :title="$t('toolbox.width')"
                     v-b-tooltip.hover.top.small
                     class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
@@ -401,8 +347,7 @@
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false">
-              Width
-              <!--<maizcon name=""></maizcon>-->
+               <maizcon name="width"></maizcon>
             </button>
             <div class="dropdown-menu"
                  aria-labelledby="dropdownMenuButtonWidth">
@@ -421,8 +366,7 @@
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false">
-              Height
-              <!--<maizcon name=""></maizcon>-->
+               <maizcon name="height"></maizcon>
             </button>
             <div class="dropdown-menu"
                  aria-labelledby="dropdownMenuButtonHeight">
@@ -431,17 +375,31 @@
                      v-model="styles['height']"/>
             </div>
           </div>
-        </div>
 
-        <div v-if="groups.indexOf('background') > -1"
-             class="widget-text-editable--toolbox--group">
-
-          <button :title="$t('toolbox.input-file')"
-                  v-b-tooltip.hover.top.small
-                  class="btn btn-sm widget-text-editable--toolbox--button color-box-btn">
-            <maizcon name="upload-photo"></maizcon>
-            <input type="file"/>
-          </button>
+          <div class="dropdown">
+            <button :title="$t('toolbox.margin')"
+                    v-b-tooltip.hover.top.small
+                    class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
+                    type="button"
+                    id="dropdownMenuButtonMargin"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false">
+              <maizcon name="margin"></maizcon>
+            </button>
+            <div class="dropdown-menu"
+                 aria-labelledby="dropdownMenuButtonMargin">
+              <label> {{ $t('toolbox.margin') }} </label>       
+              <input @input="setMargin"
+                     type="text"
+                     v-model="styles['margin']"/>
+              <br/>       
+              <label> {{ $t('toolbox.padding') }} </label>       
+              <input @input="setPadding"
+                     type="text"
+                     v-model="styles['padding']"/>
+            </div>
+          </div>
 
         </div>
         <button @click="hide"
@@ -449,6 +407,17 @@
           <icon name="times"></icon>
         </button>
       </div>
+      <!--
+      <div v-if="groups.indexOf('background') > -1"
+           class="widget-text-editable--toolbox--group">
+        <button :title="$t('toolbox.input-file')"
+                v-b-tooltip.hover.top.small
+                class="btn btn-sm widget-text-editable--toolbox--button color-box-btn">
+          <maizcon name="upload-photo"></maizcon>
+          <input type="file"/>
+        </button>
+      </div>
+      -->
       <!--<div v-if="groups.indexOf('background') > -1"-->
       <!--class="widget-text-editable&#45;&#45;toolbox&#45;&#45;group">-->
 
@@ -500,7 +469,6 @@
             'text-align': 'inherit',
             'text-decoration': 'inherit',
             'white-space': 'inherit',
-
             'text-indent': '0',
             'background-color': 'transparent',
             'line-height': 'inherit',
@@ -641,7 +609,7 @@
       setheight (e) {
         this.styles['height'] = e.target.value
         this.update()
-      },
+      }
     }
   }
 </script>

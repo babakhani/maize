@@ -1,43 +1,14 @@
 <template>
-  <div v-if="touchedData !== {}"
-       :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode">
-      <section class="fdb-block">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-12 col-md-8 col-lg-6 text-center">
-              <h1>Subscribe</h1>
-              <div class="input-group mt-4 mb-4">
-                <input type="text" class="form-control" placeholder="Enter your email address">
-                <span class="input-group-btn">
-              <button class="btn" type="button">Submit</button>
-            </span>
-              </div>
-
-              <p class="text-h4">Find us on <a href="/">Facebook</a> and <a href="/">Twitter</a>.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-    <div v-else
-         class="widget-block">
-      <WidgetToolbox></WidgetToolbox>
-      <div class="widget-block--name">
-        {{$options.name}}
-      </div>
-      <BgEditable
-        name="bg"
-        v-if="touchedData.bg"
-        :partData="touchedData.bg">
-        <section class="fdb-block">
+  <div>
+      <WidgetToolbox/>
+      <BgEditable>
+        <section class="mz-block">
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-12 col-md-8 col-lg-6 text-center">
-                <text-editable tag="h1"
+                <TextEditable tag="h1"
                                name="mainTitle"
-                               :partData="touchedData.mainTitle">
-                </text-editable>
+                               :partData="touchedData.mainTitle"/>
                 <div class="input-group mt-4 mb-4">
                   <!--TODO: add input editable-->
                   <input type="text"
@@ -46,24 +17,21 @@
                   <span class="input-group-btn">
               <button class="btn"
                       type="button">
-                <text-editable tag="span"
+                <TextEditable tag="span"
                                name="form_description"
-                               :partData="touchedData.form_description">
-                  </text-editable>
+                               :partData="touchedData.form_description"/>
               </button>
             </span>
                 </div>
 
                 <p class="text-h4">Find us on
-                  <text-editable tag="a"
+                  <TextEditable tag="a"
                                  name="form_link_1"
-                                 :partData="touchedData.form_link_1">
-                  </text-editable>
+                                 :partData="touchedData.form_link_1"/>
                   and
-                  <text-editable tag="a"
+                  <TextEditable tag="a"
                                  name="form_link_2"
-                                 :partData="touchedData.form_link_2">
-                  </text-editable>
+                                 :partData="touchedData.form_link_2"/>
                   .
                 </p>
               </div>
@@ -71,7 +39,6 @@
           </div>
         </section>
       </BgEditable>
-    </div>
   </div>
 </template>
 

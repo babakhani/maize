@@ -1,175 +1,91 @@
 <template>
-  <div v-if="touchedData !== {}"
-       :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode">
-
-      <section class="fdb-block pb-0">
-        <div class="container">
-          <div class="row text-lg-right align-items-center">
-            <div class="col-12 col-sm-6 col-lg-3">
-              <img alt="image"
-                   class="fdb-icon"
-                   src="/static/imgs/img_round.svg">
-              <h4><strong>Feature One</strong></h4>
-              <p>Far far away, behind the word mountains is hope.</p>
-
-              <img alt="image"
-                   class="fdb-icon mt-3 mt-xl-5"
-                   src="/static/imgs/img_round.svg">
-              <h4><strong>Feature Two</strong></h4>
-              <p>On her way she met a copy of the Little Blind Text.</p>
-
-              <img alt="image"
-                   class="fdb-icon mt-3 mt-xl-5"
-                   src="/static/imgs/img_round.svg">
-              <h4><strong>Feature Three</strong></h4>
-              <p>Even the all-powerful has no control about the blind texts</p>
-            </div>
-
-            <div class="col-12 col-sm-6 col-lg-3 text-left pt-3 pt-sm-0 order-lg-12">
-              <img alt="image"
-                   class="fdb-icon"
-                   src="/static/imgs/img_round.svg">
-              <h4><strong>Feature Four</strong></h4>
-              <p>Duden flows by their place, behind the word mountains.</p>
-
-              <img alt="image"
-                   class="fdb-icon mt-3 mt-xl-5"
-                   src="/static/imgs/img_round.svg">
-              <h4><strong>Feature Five</strong></h4>
-              <p>Separated they live in Bookmark right at the coast</p>
-
-              <img alt="image"
-                   class="fdb-icon mt-3 mt-xl-5"
-                   src="/static/imgs/img_round.svg">
-              <h4><strong>Feature Six</strong></h4>
-              <p>A small river named Duden flows by their place and supplies it</p>
-            </div>
-
-            <div class="col-7 col-sm-4 col-lg-4 m-auto pt-5 pt-lg-0 order-lg-1">
-              <img alt="image"
-                   class="img-fluid br-b-0"
-                   src="/static/imgs/img_very_tall.png">
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </div>
-    <div v-else
-         class="widget-block">
-      <WidgetToolbox></WidgetToolbox>
-      <div class="widget-block--name">
-        {{$options.name}}
-      </div>
-      <BgEditable
-        name="bg"
-        v-if="touchedData.bg"
-        :partData="touchedData.bg">
-        <section class="fdb-block pb-0">
+  <div>
+      <WidgetToolbox/>
+      <BgEditable>
+        <section class="mz-block pb-0">
           <div class="container">
             <div class="row text-lg-right align-items-center">
               <div class="col-12 col-sm-6 col-lg-3">
                 <ImageEditable name="feature_image_1"
-                               cssClass="fdb-icon"
-                               :partData="touchedData.feature_image_1">
-                </ImageEditable>
-                <text-editable tag="h4"
+                               cssClass="mz-icon"
+                               :partData="touchedData.feature_image_1"/>
+                <TextEditable tag="h4"
                                name="feature_1_title"
-                               :partData="touchedData.feature_1_title">
-                </text-editable>
+                               :partData="touchedData.feature_1_title"/>
                 <br/>
-                <text-editable tag="p"
+                <TextEditable tag="p"
                                name="feature_1_description"
-                               :partData="touchedData.feature_1_description">
-                </text-editable>
+                               :partData="touchedData.feature_1_description"/>
 
 
                 <ImageEditable name="feature_image_2"
-                               cssClass="fdb-icon mt-3 mt-xl-5"
-                               :partData="touchedData.feature_image_2">
-                </ImageEditable>
-                <text-editable tag="h4"
+                               cssClass="mz-icon mt-3 mt-xl-5"
+                               :partData="touchedData.feature_image_2"/>
+                <TextEditable tag="h4"
                                name="feature_2_title"
-                               :partData="touchedData.feature_2_title">
-                </text-editable>
+                               :partData="touchedData.feature_2_title"/>
                 <br/>
-                <text-editable tag="p"
+                <TextEditable tag="p"
                                name="feature_2_description"
-                               :partData="touchedData.feature_2_description">
-                </text-editable>
+                               :partData="touchedData.feature_2_description"/>
 
                 <ImageEditable name="feature_image_3"
-                               cssClass="fdb-icon mt-3 mt-xl-5"
-                               :partData="touchedData.feature_image_3">
-                </ImageEditable>
-                <text-editable tag="h4"
+                               cssClass="mz-icon mt-3 mt-xl-5"
+                               :partData="touchedData.feature_image_3"/>
+                <TextEditable tag="h4"
                                name="feature_3_title"
-                               :partData="touchedData.feature_3_title">
-                </text-editable>
+                               :partData="touchedData.feature_3_title"/>
                 <br/>
-                <text-editable tag="p"
+                <TextEditable tag="p"
                                name="feature_3_description"
-                               :partData="touchedData.feature_3_description">
-                </text-editable>
+                               :partData="touchedData.feature_3_description"/>
               </div>
 
               <div class="col-12 col-sm-6 col-lg-3 text-left pt-3 pt-sm-0 order-lg-12">
                 <ImageEditable name="feature_image_4"
-                               cssClass="fdb-icon"
-                               :partData="touchedData.feature_image_4">
-                </ImageEditable>
-                <text-editable tag="h4"
+                               cssClass="mz-icon"
+                               :partData="touchedData.feature_image_4"/>
+                <TextEditable tag="h4"
                                name="feature_4_title"
-                               :partData="touchedData.feature_4_title">
-                </text-editable>
+                               :partData="touchedData.feature_4_title"/>
                 <br/>
-                <text-editable tag="p"
+                <TextEditable tag="p"
                                name="feature_4_description"
-                               :partData="touchedData.feature_4_description">
-                </text-editable>
+                               :partData="touchedData.feature_4_description"/>
 
 
                 <ImageEditable name="feature_image_5"
-                               cssClass="fdb-icon mt-3 mt-xl-5"
-                               :partData="touchedData.feature_image_5">
-                </ImageEditable>
-                <text-editable tag="h4"
+                               cssClass="mz-icon mt-3 mt-xl-5"
+                               :partData="touchedData.feature_image_5"/>
+                <TextEditable tag="h4"
                                name="feature_5_title"
-                               :partData="touchedData.feature_5_title">
-                </text-editable>
+                               :partData="touchedData.feature_5_title"/>
                 <br/>
-                <text-editable tag="p"
+                <TextEditable tag="p"
                                name="feature_5_description"
-                               :partData="touchedData.feature_5_description">
-                </text-editable>
+                               :partData="touchedData.feature_5_description"/>
 
                 <ImageEditable name="feature_image_6"
-                               cssClass="fdb-icon mt-3 mt-xl-5"
-                               :partData="touchedData.feature_image_6">
-                </ImageEditable>
-                <text-editable tag="h4"
+                               cssClass="mz-icon mt-3 mt-xl-5"
+                               :partData="touchedData.feature_image_6"/>
+                <TextEditable tag="h4"
                                name="feature_6_title"
-                               :partData="touchedData.feature_6_title">
-                </text-editable>
+                               :partData="touchedData.feature_6_title"/>
                 <br/>
-                <text-editable tag="p"
+                <TextEditable tag="p"
                                name="feature_6_description"
-                               :partData="touchedData.feature_6_description">
-                </text-editable>
+                               :partData="touchedData.feature_6_description"/>
               </div>
 
               <div class="col-7 col-sm-4 col-lg-4 m-auto pt-5 pt-lg-0 order-lg-1">
                 <ImageEditable name="feature_image_6"
                                cssClass="img-fluid br-b-0"
-                               :partData="touchedData.feature_image_6">
-                </ImageEditable>
+                               :partData="touchedData.feature_image_6"/>
               </div>
             </div>
           </div>
         </section>
       </BgEditable>
-    </div>
   </div>
 </template>
 <script>

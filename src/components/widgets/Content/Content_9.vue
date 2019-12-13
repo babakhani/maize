@@ -1,80 +1,38 @@
 <template>
-  <div v-if="touchedData !== {}"
-       :class="{'container': touchedData.config && !touchedData.config.fullWidth}">
-    <div v-if="demoMode">
-      <section class="fdb-block">
-        <div class="container">
-          <div class="row">
-            <div class="col text-center">
-              <h1>Froala Design Blocks</h1>
-            </div>
-          </div>
-
-          <div class="row pt-4">
-            <div class="col">
-              <img alt="image" class="img-fluid" src="/static/imgs/colors_wide_1.jpg">
-            </div>
-            <div class="col">
-              <img alt="image" class="img-fluid" src="/static/imgs/colors_wide_2.jpg">
-            </div>
-          </div>
-          <div class="row pt-4">
-            <div class="col">
-              <img alt="image" class="img-fluid" src="/static/imgs/colors_wide_1.jpg">
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-    <div v-else
-         class="widget-block">
-      <WidgetToolbox></WidgetToolbox>
-      <div class="widget-block--name">
-        {{$options.name}}
-      </div>
-      <BgEditable
-        name="bg"
-        v-if="touchedData.bg"
-        :partData="touchedData.bg">
-
-        <section class="fdb-block">
+  <div>
+      <WidgetToolbox/>
+      <BgEditable>
+        <section class="mz-block">
           <div class="container">
             <div class="row">
               <div class="col text-center">
-                <text-editable tag="h1"
+                <TextEditable tag="h1"
                                name="mainTitle"
-                               :partData="touchedData.mainTitle">
-                </text-editable>
+                               :partData="touchedData.mainTitle"/>
               </div>
             </div>
             <div class="row pt-4">
               <div class="col">
                 <ImageEditable name="image1"
                                cssClass="img-fluid"
-                               :partData="touchedData.image1">
-                </ImageEditable>
+                               :partData="touchedData.image1"/>
               </div>
               <div class="col">
                 <ImageEditable name="image2"
                                cssClass="img-fluid"
-                               :partData="touchedData.image2">
-                </ImageEditable>
+                               :partData="touchedData.image2"/>
               </div>
             </div>
             <div class="row pt-4">
               <div class="col">
                 <ImageEditable name="image3"
                                cssClass="img-fluid"
-                               :partData="touchedData.image3">
-                </ImageEditable>
+                               :partData="touchedData.image3"/>
               </div>
             </div>
           </div>
         </section>
-
-
       </BgEditable>
-    </div>
   </div>
 </template>
 
