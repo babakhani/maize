@@ -2,12 +2,6 @@
   <div 
     v-if="!$parent.demoMode"
     class="widget-block--toolbox">
-    <!--<button @click="showTools = !showTools"-->
-            <!--title="Settings"-->
-            <!--v-b-tooltip.hover.top-->
-            <!--class="btn btn-link widget-block&#45;&#45;toolbox-btn">-->
-      <!--<icon name="cog"></icon>-->
-    <!--</button>-->
     <transition name="fade">
       <button v-if="showTools"
               :title="$t('toolbox.drag')"
