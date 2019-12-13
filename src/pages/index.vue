@@ -10,7 +10,6 @@
            v-if="pageSideBarIsActive"
            :class="{'active': !pageSideBarIsActive}"
            class="editable-part-sidebar">
-        <EditablePartSidebar></EditablePartSidebar>
       </nav>
       <div 
         :class="{ 'px-4': !previewMode }"
@@ -50,7 +49,6 @@
   import VideoPickerModal from '../components/partial/ModalVideoPicker'
   import LinkPickerModal from '../components/partial/ModalLinkPicker'
   import ModalSettings from '../components/partial/ModalSettings'
-  import EditablePartSidebar from '../components/partial/EditablePartSidebar'
 
   export default {
     name: 'Events',
@@ -60,8 +58,7 @@
       draggable,
       ImagePickerModal,
       VideoPickerModal,
-      ModalSettings,
-      EditablePartSidebar
+      ModalSettings
     },
     computed: {
       pageSideBarIsActive() {

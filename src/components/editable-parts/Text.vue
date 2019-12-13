@@ -13,129 +13,23 @@
       <EditablePartToolbox @update="updateStyles"
                            :currentStyles="touchedData.styles"
                            @setPickLinkMode="setPickLinkMode"
-                           v-if="editMode && toolboxVisible"
-                           @hide="hideToolbox">
+                           v-if="editMode && toolboxVisible">
       </EditablePartToolbox>
     </button>
-    <h1 v-bind:style="touchedData.styles"
-        v-if="tag === 'h1'"
+    <component 
+        :is="tag"
+        v-bind:style="touchedData.styles"
         :class="touchedData.cssClass"
         :contenteditable="editMode"
+        :href="tag === 'a' ? touchedData.src : false"
+        :target="tag === 'a' ? '_blank' : false"
+        @focus="showToolbox"
         @focusout="updateTextOnBlur"
         @dblclick="goToEditMode"
         @paste="onPaste"
         @input="updateText">
-      {{touchedData.text}}
-    </h1>
-    <h2 v-bind:style="touchedData.styles"
-        v-if="tag === 'h2'"
-        :class="touchedData.cssClass"
-        :contenteditable="editMode"
-        @focusout="updateTextOnBlur"
-        @dblclick="goToEditMode"
-        @paste="onPaste"
-        @input="updateText">
-      {{touchedData.text}}
-    </h2>
-    <h3 v-bind:style="touchedData.styles"
-        v-if="tag === 'h3'"
-        :class="touchedData.cssClass"
-        @focusout="updateTextOnBlur"
-        :contenteditable="editMode"
-        @dblclick="goToEditMode"
-        @paste="onPaste"
-        @input="updateText">
-      {{touchedData.text}}
-    </h3>
-    <h4 v-bind:style="touchedData.styles"
-        v-if="tag === 'h4'"
-        :class="touchedData.cssClass"
-        @focusout="updateTextOnBlur"
-        :contenteditable="editMode"
-        @dblclick="goToEditMode"
-        @paste="onPaste"
-        @input="updateText">
-
-      {{touchedData.text}}
-    </h4>
-    <h5 v-bind:style="touchedData.styles"
-        v-if="tag === 'h5'"
-        :class="touchedData.cssClass"
-        @focusout="updateTextOnBlur"
-        :contenteditable="editMode"
-        @dblclick="goToEditMode"
-        @paste="onPaste"
-        @input="updateText">
-      {{touchedData.text}}
-    </h5>
-    <h6 v-bind:style="touchedData.styles"
-        v-if="tag === 'h6'"
-        :class="touchedData.cssClass"
-        @focusout="updateTextOnBlur"
-        :contenteditable="editMode"
-        @dblclick="goToEditMode"
-        @paste="onPaste"
-        @input="updateText">
-
-      {{touchedData.text}}
-    </h6>
-    <span v-bind:style="touchedData.styles"
-          v-if="tag === 'span'"
-          :class="touchedData.cssClass"
-          @focusout="updateTextOnBlur"
-          :contenteditable="editMode"
-          @dblclick="goToEditMode"
-          @paste="onPaste"
-          @input="updateText">
-
-    {{touchedData.text}}
-    </span>
-    <p v-bind:style="touchedData.styles"
-       v-if="tag === 'p'"
-       :class="touchedData.cssClass"
-       @focusout="updateTextOnBlur"
-       :contenteditable="editMode"
-       @dblclick="goToEditMode"
-       @paste="onPaste"
-       @input="updateText">
-      {{touchedData.text}}
-    </p>
-
-    <strong v-bind:style="touchedData.styles"
-            v-if="tag === 'strong'"
-            :class="touchedData.cssClass"
-            @focusout="updateTextOnBlur"
-            :contenteditable="editMode"
-            @dblclick="goToEditMode"
-            @paste="onPaste"
-            @input="updateText">
-      {{touchedData.text}}
-    </strong>
-
-    <em v-bind:style="touchedData.styles"
-        v-if="tag === 'em'"
-        :class="touchedData.cssClass"
-        @focusout="updateTextOnBlur"
-        :contenteditable="editMode"
-        @dblclick="goToEditMode"
-        @paste="onPaste"
-        @input="updateText">
-      {{touchedData.text}}
-    </em>
-
-    <a v-bind:style="touchedData.styles"
-       v-if="tag === 'a'"
-       :class="touchedData.cssClass"
-       :href="touchedData.src"
-       target="_blank"
-       @focusout="updateTextOnBlur"
-       :contenteditable="editMode"
-       @dblclick="goToEditMode"
-       @click.native="preventInEditMode"
-       @paste="onPaste"
-       @input="updateText">
-      {{touchedData.text}}
-    </a>
+        {{touchedData.text}}
+    </component>
   </div>
 </template>
 <script>

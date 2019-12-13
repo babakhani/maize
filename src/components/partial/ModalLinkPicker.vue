@@ -54,6 +54,7 @@
         e.preventDefault()
         this.onHide()
         EventBus.$emit('pickLink', this.pickedLinkSrc)
+        this.pickedLinkSrc = null
         return false
       }
     },

@@ -1,9 +1,8 @@
 import EditablePartToolbox from '@/components/partial/EditablePartToolbox'
-import EditablePartSidebar from '../components/partial/EditablePartSidebar'
 import {EventBus} from '../events/event-bus'
 
 const Mixin = {
-  components: {EditablePartToolbox, EditablePartSidebar},
+  components: {EditablePartToolbox},
   mounted () {
     this.touchedData.styles = this.cssClass
     if (this.partData) {
@@ -25,11 +24,6 @@ const Mixin = {
     }
   },
   methods: {
-    showPageSidebar () {
-      this.$store.dispatch('layout/setPageSideBarIsActive', true)
-      this.$store.dispatch('layout/setSelectedItemProperties', this.touchedData.styles)
-      this.underEditModeProps = true
-    },
     mouseLeaveElement (e) {
       clearTimeout(this.showToolboxButtonTimer)
       if (!this.toolboxVisible) {
@@ -81,13 +75,9 @@ const Mixin = {
       this.showToolboxButton = false
     },
     showToolbox () {
-      if (this.toolboxVisible) {
-        this.hideToolbox()
-      } else {
-        clearTimeout(this.showToolboxButtonTimer)
-        this.toolboxVisible = true
-        EventBus.$emit('igotoeditmode', this._uid)
-      }
+      clearTimeout(this.showToolboxButtonTimer)
+      this.toolboxVisible = true
+      EventBus.$emit('igotoeditmode', this._uid)
     }
   },
   watch: {

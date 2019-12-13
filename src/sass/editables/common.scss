@@ -2,17 +2,34 @@ $icon-size: 1.6em;
 
 .editable-part{
   min-height: 2em;
-  outline: 2px dashed rgba(#cfcfcf, .2);
+  outline: 2px dashed rgba($primary-color, .2);
   position: relative;
   cursor: pointer;
 
+  * {
+   &,
+   &:hover,
+   &:focus,
+   &:active {
+     outline: none !important;
+   }
+  }
+
+
   &:hover{
+     outline: 3px dashed rgba($primary-color, .4);
     .editable-part--upload-btn,
     .editable-part--settings-btn,
     .editable-part--link-btn{
       background: red;
       display: block;
     }
+  }
+
+  &:focus-within,
+  &:focus,
+  &:active{
+     outline: 3px dashed rgba($primary-color, .5) !important;
   }
 
   .editor-page-preview-mode & {
