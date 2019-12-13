@@ -5,8 +5,8 @@
     v-model="showModal"
     size="lg"
     centered
-    class=" add-widget-box"
-    id="settings-padding"
+    class=""
+    id=""
     title="Site Settings">
     <form class="p-3" action="#!">
       <p class="d-block m-1 mb-2 h6">Tittle</p>
