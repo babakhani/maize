@@ -55,6 +55,9 @@ export default {
     'drop_image': 'Drop Image here',
     'or': 'OR',
     'choose_your_image': 'Choose your image',
-    'random_image': 'Random Image'
+    'random_image': 'Random Image',
+    'link': {
+      'title': 'Insert your link:'
+    }
   }
 }
