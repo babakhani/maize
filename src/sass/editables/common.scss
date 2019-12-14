@@ -31,6 +31,9 @@ $icon-size: 1.6em;
   &:active{
      outline: 3px dashed rgba($primary-color, .5) !important;
   }
+  &.settings-btn {
+     outline: none !important;
+  }
 
   .editor-page-preview-mode & {
     border: 0;

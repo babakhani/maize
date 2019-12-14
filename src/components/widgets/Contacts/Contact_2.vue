@@ -2,7 +2,7 @@
   <div>
       <WidgetToolbox/>
       <BgEditable>
-        <section class="mz-block bg-dark" style="background-image: url(/static/imgs/bg_0.svg)">
+        <section class="mz-block">
           <div class="container">
             <div class="row text-center justify-content-center">
               <div class="col-12 col-md-8 col-lg-7">
