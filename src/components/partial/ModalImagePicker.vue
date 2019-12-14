@@ -15,7 +15,7 @@
       </button>
       <button v-if="imageUploadLoading"
               @click="onOk"
-              class="btn btn-success btn-loading">
+              class="btn btn-primary btn-loading">
         {{ $t('modal.ok') }}
         <div class="btn btn-hover">
           <icon class="fa fa-spin"
@@ -24,7 +24,7 @@
       </button>
       <button v-else
               @click="onOk"
-              class="btn btn-success">
+              class="btn btn-primary">
         {{ $t('modal.ok') }}
       </button>
     </template>
@@ -38,13 +38,14 @@
           <icon class="upload-image-icon"
                 name="images"></icon>
         </template>
-        <div class="row">
+        <!-- TODO: Uncomment after fix -->
+        <!--<div class="row">
           <div class="col-12 text-center mb-4 image-picker-modal&#45;&#45;search-box">
             <b-form-input type="text"
             placeholder="Search Image here">
             </b-form-input>
           </div>
-        </div>
+        </div>-->
         <div class="image-picker-modal--body ">
           <div class="row px-2 py-1">
             <div class="col-6 col-sm-6 col-md-3 col-xl-3 h-100 image-picker-modal--image-container"

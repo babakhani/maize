@@ -16,7 +16,7 @@
         @hide="hideToolbox"
         @update="updateStyles"
         @setPickLinkMode="setPickLinkMode"
-        v-if="editMode && toolboxVisible">
+        v-if="toolboxVisible">
       </EditablePartToolbox>
     </button>
     <component 

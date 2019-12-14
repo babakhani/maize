@@ -55,6 +55,7 @@ export default {
     'drop_image': 'Drop Image here',
     'or': 'OR',
     'choose_your_image': 'Choose your image',
+<<<<<<< HEAD
     'random_image': 'Random Image'
   },
   'settings': {
@@ -77,5 +78,11 @@ export default {
     'banner-placeholder': 'http://www.example.com',
     'banner-color': 'Banner color',
     'color-placeholder': 'Choose a color'
+=======
+    'random_image': 'Random Image',
+    'link': {
+      'title': 'Insert your link:'
+    }
+>>>>>>> 05c5f64aaf6985f1d791609ead48329af74bf45f
   }
 }

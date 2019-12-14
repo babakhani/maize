@@ -11,13 +11,12 @@ const Mixin = {
   name: 'EventBody',
   data () {
     return {
-      editMode: false,
       fullWidth: false,
       touchedData: {}
     }
   },
   beforeCreate () {
-    this.faker = $.extend(faker, {
+    this.faker = Object.assign(faker, {
       img: {
         big () {
           return '/static/imgs/colors_wide_1.jpg'
@@ -69,23 +68,11 @@ const Mixin = {
   computed: {
     notFullWidth () {
        return this.touchedData.config && !this.touchedData.config.fullWidth
-    },
-    previewMode () {
-      if (this.$store) {
-        return this.$store.state.main.previewMode
-      } else {
-        return null
-      }
     }
   },
   watch: {
-    previewMode () {
-      if (this.previewMode) {
-        this.editMode = false
-      }
-    },
     widgetData () {
-      this.touchedData = this._.extend(this.defaultData, this.widgetData)
+      this.touchedData = Object.assign(this.defaultData, this.widgetData)
     }
   },
   props: {
@@ -99,6 +86,10 @@ const Mixin = {
     uniqeKey: {
       default: null,
       require: true
+    },
+    editMode: {
+      default: false,
+      require: false
     },
     demoMode: {
       default: false,
@@ -136,19 +127,6 @@ const Mixin = {
     },
     deleteWidget () {
       this.$store.dispatch('main/removeFromCurrentWidgetList', this.uniqeKey)
-    },
-    toggleEditMode () {
-      this.editMode = !this.editMode
-    },
-    imageUpload (e) {
-      const $img = $(e.target).next('img')
-      if (e.target.files && e.target.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-          $img.attr('src', e.target.result);
-        }
-        reader.readAsDataURL(e.target.files[0]);
-      }
     }
   }
 }

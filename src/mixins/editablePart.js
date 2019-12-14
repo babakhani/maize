@@ -17,7 +17,7 @@ const Mixin = {
   },
   computed: {
     editMode () {
-      return this.$store ? !this.$store.state.layout.previewMode : null
+      return this.$store ? !this.$store.state.layout.previewMode : false
     },
     selectedItemProperties () {
       return this.$store ? this.$store.state.layout.selectedItemProperties : null
