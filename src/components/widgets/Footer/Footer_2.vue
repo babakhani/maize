@@ -60,7 +60,9 @@
               fullWidth: true
             },
             bg: {
-              styles: {}
+              styles: {
+                'background': '#000'
+              }
             },
             footer_copyright: {
               styles: {

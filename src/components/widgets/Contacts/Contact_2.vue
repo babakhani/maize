@@ -46,13 +46,13 @@
                   </div>
                   <div class="row mt-4">
                     <div class="col text-center">
-                      <button type="submit" class="btn">
+                      <b-button size="sm" variant="primary" type="submit">
                         <TextEditable 
                           tag="span"
                           name="contact_submit"
                           :partData="touchedData.contact_submit">
                         </TextEditable>
-                      </button>
+                      </b-button>
                     </div>
                   </div>
                 </form>
@@ -79,7 +79,10 @@
               fullWidth: true
             },
             bg: {
-              styles: {}
+              styles: {
+                'background': '#000',
+                'color': '#ccc'
+              }
             },
             mainTitle: {
               styles: {},

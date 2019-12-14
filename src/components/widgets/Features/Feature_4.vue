@@ -2,7 +2,7 @@
   <div>
       <WidgetToolbox/>
       <BgEditable>
-        <section class="mz-block bg-dark">
+        <section class="mz-block">
           <div class="container">
             <div class="row">
               <div class="col text-center">
@@ -79,7 +79,10 @@
               fullWidth: true
             },
             bg: {
-              styles: {}
+              styles: {
+                'background': '#000',
+                'color': '#ccc'
+              }
             },
             mainTitle: {
               styles: {},

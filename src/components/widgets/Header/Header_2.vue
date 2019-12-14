@@ -29,7 +29,9 @@
               fullWidth: true
             },
             bg: {
-              styles: {}
+              styles: {
+                'background': '#000'
+              }
             },
             header_image: {
               styles: {
