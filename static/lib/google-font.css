@@ -1,5 +1,11 @@
 /* cyrillic-ext */
 @font-face {
+  font-family: 'IRANYekan';
+  src: url('//db.onlinewebfonts.com/t/235b71a9b409e684e865eb4a996e925e.eot');
+  src: url('//db.onlinewebfonts.com/t/235b71a9b409e684e865eb4a996e925e.eot?#iefix') format('embedded-opentype'), url('//db.onlinewebfonts.com/t/235b71a9b409e684e865eb4a996e925e.woff2') format('woff2'), url('//db.onlinewebfonts.com/t/235b71a9b409e684e865eb4a996e925e.woff') format('woff'), url('//db.onlinewebfonts.com/t/235b71a9b409e684e865eb4a996e925e.ttf') format('truetype'), url('//db.onlinewebfonts.com/t/235b71a9b409e684e865eb4a996e925e.svg#IRANYekan') format('svg');
+}
+
+@font-face {
   font-family: 'Roboto';
   font-style: italic;
   font-weight: 100;
