@@ -10,7 +10,7 @@
       <EditablePartToolbox @update="updateStyles"
                            :groups="['background', 'border', 'general', 'text']"
                            :currentStyles="touchedData.styles"
-                           v-if="editMode && toolboxVisible"
+                           v-if="toolboxVisible"
                            @hide="hideToolbox"></EditablePartToolbox>
     </button>
     <button v-if="editMode"

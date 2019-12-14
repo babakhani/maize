@@ -23,6 +23,7 @@
             <component :is="widget.name"
                  class="widget-block"
                  :class="{'container': (widget.data && widget.data.config) ? widget.data.config.fullWidth : false }"
+                 :edit-mode="!$store.state.main.previewMode"
                  :widgetData="widget.data"
                  :uniqeKey="widget.uniqeId">
             </component>

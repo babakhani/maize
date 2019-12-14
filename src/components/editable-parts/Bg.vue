@@ -12,7 +12,7 @@
             :groups="['background', 'border', 'general']"
             @update="updateStyles"
             :currentStyles="touchedData.styles"
-            v-if="editMode && toolboxVisible"
+            v-if="toolboxVisible"
             @hide="hideToolbox"></EditablePartToolbox>
     </button>
     <div v-bind:style="touchedData.styles">

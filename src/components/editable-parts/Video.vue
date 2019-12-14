@@ -10,7 +10,7 @@
       <EditablePartToolbox @update="updateStyles"
                            :groups="['background', 'border', 'general', 'text']"
                            :currentStyles="touchedData.styles"
-                           v-if="editMode && toolboxVisible"
+                           v-if="toolboxVisible"
                            @hide="hideToolbox"></EditablePartToolbox>
     </button>
     <button v-if="editMode"
@@ -20,7 +20,6 @@
             @click="setPickVideoMode">
       <icon name="upload"></icon>
     </button>
-    <!--<input v-if="editMode" class="image&#45;&#45;editable" @change="imageUpload" type="file">-->
     <img v-bind:style="touchedData.styles"
          alt="image"
          @click="setPickVideoMode"
