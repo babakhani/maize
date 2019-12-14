@@ -19,9 +19,9 @@
       <div class="col-12 col-md-6">
         <form action="#!">
           <div class="form-group">
-            <label>{{ $t('settings.tittle') }}</label>
-            <input type="text" id="tittle" class="form-control"
-              :placeholder="$t('settings.tittle-placeholder')">
+            <label>{{ $t('settings.title') }}</label>
+            <input type="text" id="title" class="form-control"
+              :placeholder="$t('settings.title-placeholder')">
           </div>
           <div class="form-group">
             <label>{{ $t('settings.description') }}</label>
