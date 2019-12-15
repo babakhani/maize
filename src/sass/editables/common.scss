@@ -1,7 +1,7 @@
 $icon-size: 1.6em;
 
 .editable-part{
-  min-height: 2em;
+  //min-height: 2em;
   outline: 2px dashed rgba($primary-color, .2);
   position: relative;
   cursor: pointer;
@@ -30,6 +30,9 @@ $icon-size: 1.6em;
   &:focus,
   &:active{
      outline: 3px dashed rgba($primary-color, .5) !important;
+  }
+  &.settings-btn {
+     outline: none !important;
   }
 
   .editor-page-preview-mode & {
