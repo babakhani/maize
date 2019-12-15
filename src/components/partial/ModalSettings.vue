@@ -3,7 +3,7 @@
     @hidden="onHide"
     v-model="showModal"
     class="site-settings-modal modal-box"
-    title="Site Settings">
+    :title="$t('settings.header')">
     <template slot="modal-footer">
       <button @click="onHide"
               class="btn btn-link text-muted">
@@ -19,53 +19,53 @@
       <div class="col-12 col-md-6">
         <form action="#!">
           <div class="form-group">
-            <label >Title</label>
-            <input type="text" id="tittle" class="form-control"
-              placeholder="Maize">
+            <label>{{ $t('settings.title') }}</label>
+            <input type="text" id="title" class="form-control"
+              :placeholder="$t('settings.title-placeholder')">
           </div>
           <div class="form-group">
-            <label>Description</label>
+            <label>{{ $t('settings.description') }}</label>
             <input type="email" id="description" class="form-control"
-              placeholder="An awesome landing page">
+              :placeholder="$t('settings.description-placeholder')">
           </div>
           <div class="form-group">
-            <label>Type</label>
+            <label>{{ $t('settings.type') }}</label>
             <input type="text" id="type" class="form-control" 
-              placeholder="e.g. Splash page">
+              :placeholder="$t('settings.type-placeholder')">
           </div>
           <div class="form-group">
-            <label>Twitter account</label>
+            <label>{{ $t('settings.twitter-account') }}</label>
             <input type="text" id="twitter" class="form-control"
-              placeholder="@example">
+              :placeholder="$t('settings.twitter-placeholder')">
           </div>
           <div class="form-group">
-            <label>Instagram account</label>
+            <label>{{ $t('settings.instagram-account') }}</label>
             <input type="text" id="instagram" class="form-control"
-              placeholder="@example">
+              :placeholder="$t('settings.instagram-placeholder')">
           </div>
 
           <div class="form-group">
-            <label>Canonical</label>
+            <label>{{ $t('settings.canonical') }}</label>
             <input type="text" id="canonical" class="form-control"
-              placeholder="Canonical">
+              :placeholder="$t('settings.canonical-placeholder')">
           </div>
 
           <div class="form-group">
-            <label>Logo URL</label>
+            <label>{{ $t('settings.logo-url') }}</label>
             <input type="text" id="logo" class="form-control"
-              placeholder="http://www.example.com">
+              :placeholder="$t('settings.logo-placeholder')">
           </div>
 
           <div class="form-group">
-            <label>Banner URL</label>
+            <label>{{ $t('settings.banner-url') }}</label>
             <input type="text" id="banner" class="form-control"
-              placeholder="http://www.example.com">
+              :placeholder="$t('settings.banner-placeholder')">
           </div>
 
           <div class="form-group w-25">
-            <label>Banner Color</label>
+            <label>{{ $t('settings.banner-color') }}</label>
             <input type="color" id="colorPicker" class="form-control"
-              Placeholder="Choose a color">
+              :placeholder="$t('settings.color-placeholder')">
           </div>
         </form>
       </div>
