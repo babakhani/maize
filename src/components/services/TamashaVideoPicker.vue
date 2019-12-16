@@ -7,7 +7,7 @@
           <b-form-input v-model="searchQuery"
                         type="text"
                         @input="loadSearchResult"
-                        placeholder="$t('search_video_here')">
+                        :placeholder="$t('search_video_here')">
           </b-form-input>
           <b-input-group-append>
             <b-btn variant="search"
