@@ -44,7 +44,10 @@ export default {
     'bg_settings': 'Background Setting',
     'settings': 'Setting',
     'padding': 'Padding',
-    'margin': 'Margin'
+    'margin': 'Margin',
+    'height': 'Height',
+    'width': 'Width',
+    'direction':'Direction'
   },
   'modal': {
     'pick_link': 'Pick link',
@@ -80,5 +83,23 @@ export default {
     'banner-placeholder': 'http://www.example.com',
     'banner-color': 'Banner color',
     'color-placeholder': 'Choose a color'
-  }
+  },
+  'hello_from_modal': 'Hello from modal',
+  'monospace': 'monospace',
+  'serif': 'serif',
+  'fantasy': 'fantasy',
+  'none': 'none',
+  'solid': 'solid',
+  'dashed': 'dashed',
+  'double': 'double',
+  'dotted': 'dotted',
+  'choose_pic': 'Choose your picture:',
+  'choose_video': 'Choose your video:',
+  'choose_widget': 'Choose your widget:',
+  'loading': 'loading...',
+  'bootstrap-vue': 'Bootstrap Vue',
+  'maize': 'Maize',
+  'insert_link': 'Insert your link',
+  'tamasha': 'Tamasha',
+  'search_video_here': 'Search video here'
 }

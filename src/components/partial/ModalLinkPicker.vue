@@ -29,7 +29,8 @@
                 name="images"></icon>
         </template>
         <b-form-input type="text"
-                      v-model="pickedLinkSrc" placeholder="Insert your link">
+                      v-model="pickedLinkSrc" 
+                      :placeholder="$t('insert_link')">
         </b-form-input>
       </b-tab>
     </b-tabs>

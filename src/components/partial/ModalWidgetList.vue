@@ -7,7 +7,7 @@
     size="lg"
     centered
     class="add-widget-modal"
-    title="Choose your widget:">
+    :title=" $t('choose_widget')">
     <b-card no-body>
       <b-tabs card>
         <template v-for="item in groupedWidgetList">

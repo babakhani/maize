@@ -43,7 +43,10 @@ export default {
     'bg_settings': 'تنظیمات پس زمینه',
     'settings': 'تنظیمات',
     'padding': 'حاشیه داخلی',
-    'margin': 'حاشیه'
+    'margin': 'حاشیه',
+    'height': 'ارتفاع',
+    'width': 'عرض',
+    'direction':'جهت'
   },
   'modal': {
     'pick_link': 'انتخاب پیوند',
@@ -54,6 +57,48 @@ export default {
     'drop_image': 'تصویر خود را اینجا رها کنید',
     'or': 'یا',
     'choose_your_image': 'انتخاب کنید',
-    'random_image': 'تصاویر تصادفی'
-  }
+    'random_image': 'تصاویر تصادفی',
+    'link': {
+      'title': 'پیوند خود را وارد کنید:'
+    }
+  },
+  'settings': {
+    'header': 'تنظیمات سایت',
+    'title': 'عنوان',
+    'title-placeholder': 'Maize',
+    'description': 'شرح',
+    'description-placeholder': 'An awesome landing page',
+    'type': 'نوع',
+    'type-placeholder': 'e.g. Splash page',
+    'twitter-account': 'حساب توییتر',
+    'twitter-placeholder': '@Example',
+    'instagram-account': 'حساب اینستاگرام',
+    'instagram-placeholder': '@Example',
+    'canonical': 'آدرس سایت',
+    'canonical-placeholder': 'Canonical',
+    'logo-url': 'آدرس لوگو',
+    'logo-placeholder': 'http://www.example.com',
+    'banner-url': 'آدرس بنر',
+    'banner-placeholder': 'http://www.example.com',
+    'banner-color': 'رنگ بنر',
+    'color-placeholder': ':یک رنگ را انتخاب کنید'
+  },
+  'hello_from_modal': 'Hello from modal',
+  'monospace': 'monospace',
+  'serif': 'serif',
+  'fantasy': 'fantasy',
+  'none': 'none',
+  'solid': 'solid',
+  'dashed': 'dashed',
+  'double': 'double',
+  'dotted': 'dotted',
+  'choose_pic': ':تصویر خود را انتخاب کنید',
+  'choose_video': ':ویدیوی خود را انتخاب کنید',
+  'choose_widget': ':ویجت خود را انتخاب کنید',
+  'loading': '...بارگذاری',
+  'bootstrap-vue': 'یوت استرپ-ویو',
+  'maize': 'Maize',
+  'insert_link': ':پیوند خود را وارد کنید',
+  'tamasha': 'تماشا',
+  'search_video_here': ':اینجا فیلم را جستجو کنید'
 }

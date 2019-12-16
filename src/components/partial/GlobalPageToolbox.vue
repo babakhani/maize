@@ -48,7 +48,7 @@
             <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
-                 :title="$t('undo')"
+                 :title="$t('toolbox.undo')"
                  @click="undo">
                 <icon name="undo"></icon>
               </a>
@@ -56,7 +56,7 @@
             <li class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
-                 :title="$t('redo')"
+                 :title="$t('toolbox.redo')"
                  @click="redo">
                 <icon name="redo"></icon>
               </a>
@@ -97,7 +97,7 @@
             </li>
           </ul>
           <div class="nav-item float-left position-relative maize-brand">
-            <a class="navbar-brand" href="#">Maze</a>
+            <a class="navbar-brand" href="#">{{ $t('maize') }}</a>
             <!--<a :title="$t('add_widget')"
                v-b-tooltip.hover.bottom.small
                class="nav-link"

@@ -7,7 +7,7 @@
           <b-form-input v-model="searchQuery"
                         type="text"
                         @input="loadSearchResult"
-                        placeholder="Search video here">
+                        placeholder="$t('search_video_here')">
           </b-form-input>
           <b-input-group-append>
             <b-btn variant="search"
@@ -24,7 +24,7 @@
         <div v-if="videoLoading"
              class="video-loading">
 
-          <h1 class="video-loading--text">loading...</h1>
+          <h1 class="video-loading--text"> {{ $t('loading') }}</h1>
 
         </div>
         <div class="image-picker-modal--body p-3">

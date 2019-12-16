@@ -28,13 +28,13 @@
                  aria-labelledby="dropdownMenuButtonFamily">
               <a :class="{'widget-text-editable--selected': styles['font-family'] == 'monospace'}"
                  class="dropdown-item"
-                 @click="setFontFamily('monospace')">monospace</a>
+                 @click="setFontFamily('monospace')"> {{ $t('monospace') }}</a>
               <a :class="{'widget-text-editable--selected': styles['font-family'] == 'serif'}"
                  class="dropdown-item"
-                 @click="setFontFamily('serif')">serif</a>
+                 @click="setFontFamily('serif')">{{ $t('serif') }}</a>
               <a :class="{'widget-text-editable--selected': styles['font-family'] == 'fantasy'}"
                  class="dropdown-item"
-                 @click="setFontFamily('fantasy')">fantasy</a>
+                 @click="setFontFamily('fantasy')">{{ $t('fantasy') }}</a>
             </div>
           </div>
           <!--Font Size -->
@@ -185,7 +185,7 @@
           </button>
 
           <!--TODO: ask reza about direction-->
-          <button title="direction"
+          <button :title="$t('toolbox.direction')"
                   v-b-tooltip.hover.top.small
                   class="btn btn-sm widget-text-editable--toolbox--button"
                   @click="toggleDirection()">
@@ -286,19 +286,19 @@
                  aria-labelledby="dropdownMenuButton6">
               <a :class="{'widget-text-editable--selected': styles['border-style'] == 'none'}"
                  class="dropdown-item"
-                 @click="setBorderStyle('none')">none</a>
+                 @click="setBorderStyle('none')">{{ $t('none') }}</a>
               <a :class="{'widget-text-editable--selected': styles['border-style'] == 'solid'}"
                  class="dropdown-item"
-                 @click="setBorderStyle('solid')">solid</a>
+                 @click="setBorderStyle('solid')">{{ $t('solid') }}</a>
               <a :class="{'widget-text-editable--selected': styles['border-style'] == 'dashed'}"
                  class="dropdown-item"
-                 @click="setBorderStyle('dashed')">dashed</a>
+                 @click="setBorderStyle('dashed')">{{ $t('dashed') }}</a>
               <a :class="{'widget-text-editable--selected': styles['border-style'] == 'double'}"
                  class="dropdown-item"
-                 @click="setBorderStyle('double')">double</a>
+                 @click="setBorderStyle('double')">{{ $t('double') }}</a>
               <a :class="{'widget-text-editable--selected': styles['border-style'] == 'dotted'}"
                  class="dropdown-item"
-                 @click="setBorderStyle('dotted')">dotted</a>
+                 @click="setBorderStyle('dotted')">{{ $t('dotted') }}</a>
             </div>
           </div>
 

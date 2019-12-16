@@ -6,7 +6,7 @@
     size="lg"
     centered
     class="image-picker-modal"
-    title="Choose your pick:">
+    :title="$t('choose_pic')">
 
     <template slot="modal-footer">
       <button @click="onHide"
