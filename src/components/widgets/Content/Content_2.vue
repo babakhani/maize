@@ -6,10 +6,15 @@
           <div class="container">
             <div class="row justify-content-center">
               <div class="col col-md-8 text-center">
-                <TextEditable tag="p"
+                <TextEditable tag="h3"
                                name="mainTitle"
                                cssClass="text-h3"
                                :partData="touchedData.mainTitle"/>
+                </br>
+                <TextEditable tag="p"
+                               cssClass="text-h3"
+                               name="description"
+                               :partData="touchedData.description"/>
               </div>
             </div>
           </div>
@@ -36,7 +41,12 @@
             },
             mainTitle: {
               styles: {},
-              text: this.faker.company.companyName()
+              text: this.faker.lorem.words(3),
+            },
+            description: {
+              styles: {},
+              text: this.faker.lorem.words(100),
+              src: this.faker.internet.url(),
             },
             secondTitle: {
               styles: {},
