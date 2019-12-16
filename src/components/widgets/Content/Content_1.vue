@@ -5,11 +5,9 @@
         <section class="mz-block">
           <div class="container">
             <div class="row justify-content-center">
-              <div class="col col-md-8 text-center">
                 <TextEditable tag="h1"
                                name="mainTitle"
                                :partData="touchedData.mainTitle"/>
-              </div>
             </div>
           </div>
         </section>
@@ -35,7 +33,7 @@
             },
             mainTitle: {
               styles: {},
-              text: this.faker.company.companyName()
+              text: this.faker.lorem.words(3),
             },
           }
         },
