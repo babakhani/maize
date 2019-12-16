@@ -23,8 +23,8 @@
           </div>
           <!-- Modal Component -->
           <b-modal id="modal1"
-            title="Bootstrap-Vue">
-            <p class="my-4">Hello from modal!</p>
+            :title="$t('bootstrap-vue')">
+            <p class="my-4">{{ $t('hello_from_modal') }}</p>
           </b-modal>
         </b-card>
       </b-col>

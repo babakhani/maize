@@ -6,7 +6,7 @@
     size="lg"
     centered
     class="video-picker-modal"
-    title="Choose your video:">
+    :title=" $t('choose_video')">
     <template slot="modal-footer">
       <button @click="onHide"
               class="btn btn-link text-muted">
@@ -33,7 +33,7 @@
       <b-tab active>
         <template slot="title">
           <!--TODO: i18n-->
-          <strong>Tamasha</strong>
+          <strong> {{ $t('tamasha') }}</strong>
           <icon name="images"></icon>
         </template>
         <TamashaVideoPicker :sourceType="pickVideoType" @pickAndHide="pickAndHide" @pick="pick"></TamashaVideoPicker>
