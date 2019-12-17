@@ -4,8 +4,7 @@
       <BgEditable>
         <section class="mz-block">
           <div class="container">
-            <div class="row justify-content-center">
-              <div class="col col-md-8 text-center">
+            <div class="row">
                 <TextEditable tag="h1"
                                name="mainTitle"
                                :partData="touchedData.mainTitle"/>
@@ -14,7 +13,6 @@
                                name="secondTitle"
                                cssClass="text-h3"
                                :partData="touchedData.secondTitle"/>
-              </div>
             </div>
           </div>
         </section>
@@ -45,7 +43,7 @@
             },
             secondTitle: {
               styles: {},
-              text: this.faker.lorem.words(30),
+              text: this.faker.lorem.paragraphs(5),
               src: this.faker.internet.url(),
             }
           }
