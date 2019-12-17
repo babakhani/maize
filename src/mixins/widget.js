@@ -19,7 +19,7 @@ const Mixin = {
     this.faker = Object.assign(faker, {
       img: {
         big () {
-          return '/static/imgs/colors_wide_1.jpg'
+          return '/static/imgs/img_wide.png'
         },
         tall () {
           return '/static/imgs/img_tall.png'
@@ -31,7 +31,7 @@ const Mixin = {
           return '/static/imgs/img_very_wide.svg'
         },
         rounded () {
-          return '/static/imgs/img_round.svg'
+          return '/static/imgs/img_round.png'
         },
         logo () {
           return '/static/imgs/img_logo.png'

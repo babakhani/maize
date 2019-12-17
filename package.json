@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "vue hawk feature event manufacturer ",
   "author": "bitaedalati <bita.edalati@gmail.com>",
+  "main": "./src/components/widgets/index.js",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --public --config build/webpack.dev.conf.js",

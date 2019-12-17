@@ -20,6 +20,7 @@
       </EditablePartToolbox>
     </button>
     <component 
+        v-if="toolboxVisible"
         :is="tag"
         v-bind:style="touchedData.styles"
         :class="touchedData.cssClass"
@@ -32,6 +33,21 @@
         @paste="onPaste"
         @input="updateText">
         {{touchedData.text}}
+    </component>
+    <component
+        v-if="!toolboxVisible"
+        :is="tag"
+        v-bind:style="touchedData.styles"
+        :class="touchedData.cssClass"
+        :contenteditable="editMode"
+        :href="tag === 'a' ? touchedData.src : false"
+        :target="tag === 'a' ? '_blank' : false"
+        v-html="touchedData.text"
+        @focus="showToolbox"
+        @focusout="updateTextOnBlur"
+        @dblclick="goToEditMode"
+        @paste="onPaste"
+        @input="updateText">
     </component>
   </div>
 </template>
