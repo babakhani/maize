@@ -17,7 +17,15 @@ const Mixin = {
   },
   beforeCreate () {
     this.faker = Object.assign(faker, {
+      icon: {
+        normal (name = 'fa-tree', color = '333', width = 48, height = 48) {
+          return `https://imgplaceholder.com/${width}x${height}/transparent/${color}/${name}`
+        }
+      },
       img: {
+        size (width = 300, height = 300) {
+          return `https://picsum.photos/${width}/${height}`
+        },
         big () {
           return '/static/imgs/img_wide.png'
         },

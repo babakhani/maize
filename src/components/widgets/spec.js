@@ -7,6 +7,7 @@ import HeaderSpec from './Header/spec'
 import MediaSpec from './Media/spec'
 import CallToActionSpec from './CallToAction/spec'
 import ContactsSpec from './Contacts/spec'
+import Kitchen from './Kitchen/spec'
 export default [
   HeaderSpec,
   CallToActionSpec,
@@ -16,5 +17,6 @@ export default [
   // GallerySpec,
   // MediaSpec,
   ContactsSpec,
-  FooterSpec
+  FooterSpec,
+  Kitchen
 ]

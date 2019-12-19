@@ -49,16 +49,17 @@
         <div class="image-picker-modal--body ">
           <div class="row px-2 py-1">
             <div class="col-6 col-sm-6 col-md-3 col-xl-3 h-100 image-picker-modal--image-container"
-                 v-if="imageItem && imageItem.urls"
                  v-for="imageItem in randomImageList">
-              <div class="image-picker-modal--image-thumb-box"
-                   @click="pick(imageItem.urls.small)"
-                   @dblclick="pickAndHide(imageItem.urls.small)"
-                   :class="{'image-picker-modal-selected' : pickedImageSrc == imageItem.urls.small }">
-                <img
-                  class="image-picker-modal--img p-2"
-                  :src="imageItem.urls.small">
-              </div>
+                <pre>{{ imageItem }} </pre>
+                <div 
+                 class="image-picker-modal--image-thumb-box"
+                 @click="pick(imageItem.download_url)"
+                 @dblclick="pickAndHide(imageItem.download_url)"
+                 :class="{'image-picker-modal-selected' : pickedImageSrc == imageItem.download_url }">
+                  <img
+                    class="image-picker-modal--img p-2"
+                    :src="imageItem.download_url">
+                </div>
             </div>
           </div>
         </div>
