@@ -19,7 +19,7 @@
               </TextEditable>
               <p class="mt-5 mt-sm-4">
                 <TextEditable tag="a"
-                  cssClass="btn"
+                  cssClass="btn btn-primary px-3"
                   name="action_link"
                   :partData="touchedData.action_link">
                 </TextEditable>
