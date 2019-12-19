@@ -2,20 +2,24 @@
   <div>
     <WidgetToolbox/>
     <BgEditable >
-      <section class="mz-block">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-12 col-sm-8 col-md-6 col-lg-4 text-center">
+      <section class="mz-block py-0">
+        <div class="container py-5 my-5">
+          <div class="row justify-content-center py-5">
+            <div class="col-12 col-md-10 col-lg-8 text-center">
               <TextEditable 
-                tag="h3"
+                tag="h1"
                 name="mainTitle"
                 :partData="touchedData.mainTitle"/>
-              <p class="mt-5 mt-sm-4">
-                <TextEditable 
-                  tag="a"
-                  cssClass="btn"
-                  name="action_link"
-                  :partData="touchedData.action_link"/>
+              <TextEditable 
+                tag="p"
+                name="description"
+                :partData="touchedData.description"/>
+              <p class="mt-4">
+              <TextEditable 
+                 tag="a"
+                 cssClass="btn btn-primary"
+                 name="action_link"
+                 :partData="touchedData.action_link"/>
               </p>
             </div>
           </div>
@@ -44,11 +48,15 @@
             },
             mainTitle: {
               styles: {},
-              text: this.faker.lorem.words(15)
+              text: this.faker.lorem.words(3)
+            },
+            description: {
+              styles: {},
+              text: this.faker.lorem.words(55)
             },
             action_link: {
               styles: {},
-              text: this.faker.lorem.words(1),
+              text: this.faker.lorem.words(2),
               src: this.faker.internet.url
             }
           }
