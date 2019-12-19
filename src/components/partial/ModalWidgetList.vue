@@ -20,28 +20,29 @@
           :active="item.group === 'header'"
           :title="item.title">
             <div 
-              class="row add-widget-modal--tab">
+              class="card-columns">
               <div 
-                 ref="column"
                  v-for="widget in item.widgets"
-                 class="float-left col-6">
+                 class="card mt-1">
                 <div 
+                 ref="column"
                  class="add-widget-modal--widget-item"
                  :style="{
-                          height: widget.height ? `${widget.height }px`  : '650px'
+                          height: widget.height ? `${widget.height * sanitizedScale}px`  : '650px'
                           }"
                  :class="{
                           'add-widget-modal--widget-item--selected': addWidgetList.indexOf(widget) > -1
                           }"
                  @click="updateAddList(widget)">
-                  <span class="widget-name">
+                  <span 
+                    class="widget-name">
                     {{widget.name}}
                   </span>
                   <Frame 
                         :style="{
                                  width: '1366px',
                                  transform: `scale(${sanitizedScale}) translate(-50% , -50%)`,
-                                 height: widget.height ? `${widget.height / sanitizedScale}px`  : '650px'
+                                 height: widget.height ? `${widget.height}px`  : '650px'
                                  }"
                         class="widget-thumb-container">
                   <FrameChild 
@@ -49,6 +50,8 @@
                   <link href="/lib/bootstrap.min.css"
                         rel="stylesheet"
                         crossorigin="anonymous">
+                  <link rel="stylesheet"
+                        href="/lib/maize_blocks.min.css">
                   <component :is="widget.name"
                         :widgetData="widget.data"
                         :demoMode="true"

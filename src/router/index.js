@@ -1,15 +1,22 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Events from '@/pages/index'
+import Home from '@/pages/index'
+import Widgets from '@/pages/widgets'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
-      name: 'Events',
-      component: Events
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/widgets',
+      name: 'Widgets',
+      component: Widgets
     }
   ]
 })

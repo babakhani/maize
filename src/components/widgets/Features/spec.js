@@ -4,138 +4,111 @@ export default {
   widgets: [
     {
       name: 'Feature_1',
-      group: 'feature',
-      data: {}
+      height: 500
     },
     {
       name: 'Feature_2',
-      group: 'feature',
-      data: {}
+      height: 500
     },
     {
       name: 'Feature_3',
-      group: 'feature',
-      data: {}
+      height: 550
     },
     {
       name: 'Feature_4',
-      group: 'feature',
-      data: {}
+      height: 600
     },
     {
       name: 'Feature_5',
-      group: 'feature',
-      data: {}
+      height: 500
     },
     {
       name: 'Feature_6',
-      group: 'feature',
-      data: {}
+      height: 500
     },
     {
       name: 'Feature_7',
-      group: 'feature',
-      data: {}
+      height: 280
     },
     {
       name: 'Feature_8',
-      group: 'feature',
-      data: {}
+      height: 760
     },
     {
       name: 'Feature_9',
-      group: 'feature',
-      data: {}
+      height: 500
     },
     {
       name: 'Feature_10',
-      group: 'feature',
-      data: {}
+      height: 500
     },
     {
       name: 'Feature_11',
-      group: 'feature',
-      data: {}
+      height: 700
     },
     {
       name: 'Feature_12',
-      group: 'feature',
-      data: {}
+      height: 550
     },
     {
       name: 'Feature_13',
-      group: 'feature',
-      data: {}
+      height: 800
     },
     {
       name: 'Feature_14',
-      group: 'feature',
-      data: {}
+      height: 700
     },
     {
       name: 'Feature_15',
-      group: 'feature',
-      data: {}
+      height: 630
     },
     {
       name: 'Feature_16',
-      group: 'feature',
-      data: {}
+      height: 880 
     },
     {
       name: 'Feature_17',
-      group: 'feature',
-      data: {}
+      height: 950
     },
     {
       name: 'Feature_18',
-      group: 'feature',
-      data: {}
+      height: 1000
     },
     {
       name: 'Feature_19',
-      group: 'feature',
-      data: {}
+      height: 500
     },
     {
       name: 'Feature_20',
-      group: 'feature',
-      data: {}
+      height: 1000
     },
     {
       name: 'Feature_21',
-      group: 'feature',
-      data: {}
+      height: 400
     },
     {
       name: 'Feature_22',
-      group: 'feature',
-      data: {}
+      height: 1250
     },
     {
       name: 'Feature_23',
-      group: 'feature',
-      data: {}
+      height: 590
     },
     {
       name: 'Feature_24',
-      group: 'feature',
-      data: {}
+      height: 320
     },
     {
       name: 'Feature_25',
-      group: 'feature',
-      data: {}
+      height: 350
     },
     {
       name: 'Feature_26',
-      group: 'feature',
-      data: {}
+      height: 620
     },
     {
       name: 'Feature_27',
-      group: 'feature',
-      data: {}
+      height: 800
     }
   ]
 }

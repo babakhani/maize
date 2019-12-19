@@ -12,15 +12,15 @@ export default {
     },
     {
       name: 'CallToAction_3',
-      height: 150
+      height: 280
     },
     {
       name: 'CallToAction_4',
-      height: 300
+      height: 650
     },
     {
       name: 'CallToAction_5',
-      height: 300
+      height: 220
     }
   ]
 }

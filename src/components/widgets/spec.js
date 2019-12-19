@@ -13,10 +13,10 @@ export default [
   CallToActionSpec,
   FeaturesSpec,
   ContentSpec,
-  FormSpec,
-  // GallerySpec,
-  // MediaSpec,
-  ContactsSpec,
-  FooterSpec,
-  Kitchen
+  // FormSpec,
+  // // GallerySpec,
+  // // MediaSpec,
+  // ContactsSpec,
+  // FooterSpec,
+  // Kitchen
 ]
