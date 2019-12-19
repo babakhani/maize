@@ -1,7 +1,7 @@
 <script>
   import Vue from 'vue'
   export default {
-    template: `<div class="pt-3">
+    template: `<div>
       <slot/>
     </div>`,
     props: ['title'],

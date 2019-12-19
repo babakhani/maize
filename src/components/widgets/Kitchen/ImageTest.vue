@@ -6,26 +6,25 @@
         <div class="container w-100">
           <div  class="row">
           <header class="col-12">
-              <nav class="navbar">
-                <h1> Sample </h1>
-                <ImageEditable name="header_image"
-                               :partData="touchedData.header_image"/>
-              </nav>
-            <ImageEditable name="sample_img"
-                           class="float-left"
-                           :partData="{src: faker.icon.normal()}"/>
-            <ImageEditable name="sample_img"
-                           class="float-left"
-                           :partData="{src: faker.icon.normal('fa-instagram')}"/>
-            <ImageEditable name="sample_img"
-                           class="float-left"
-                           :partData="{src: faker.icon.normal('fa-facebook')}"/>
-            <ImageEditable name="sample_img"
-                           class="float-left"
-                           :partData="{src: faker.icon.normal('fa-twitter')}"/>
-            <ImageEditable name="sample_img"
-                           class="float-left"
-                           :partData="{src: faker.icon.normal('fa-battery-4', '26f')}"/>
+            <nav class="navbar">
+              <ImageEditable name="header_image"
+                             :partData="touchedData.header_image"/>
+              <ImageEditable name="sample_img"
+                             class="float-left"
+                             :partData="{src: faker.icon.normal()}"/>
+              <ImageEditable name="sample_img"
+                             class="float-left"
+                             :partData="{src: faker.icon.normal('fa-instagram')}"/>
+              <ImageEditable name="sample_img"
+                             class="float-left"
+                             :partData="{src: faker.icon.normal('fa-facebook')}"/>
+              <ImageEditable name="sample_img"
+                             class="float-left"
+                             :partData="{src: faker.icon.normal('fa-twitter')}"/>
+              <ImageEditable name="sample_img"
+                             class="float-left"
+                             :partData="{src: faker.icon.normal('fa-battery-4', '26f')}"/>
+            </nav>
               <!--
             <ImageEditable name="sample_img"
                            class="float-left"

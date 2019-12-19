@@ -3,19 +3,24 @@ export default {
   group: 'calltoaction',
   widgets: [
     {
-      name: 'CallToAction_1'
+      name: 'CallToAction_1',
+      height: 150
     },
     {
-      name: 'CallToAction_2'
+      name: 'CallToAction_2',
+      height: 250
     },
     {
-      name: 'CallToAction_3'
+      name: 'CallToAction_3',
+      height: 150
     },
     {
-      name: 'CallToAction_4'
+      name: 'CallToAction_4',
+      height: 300
     },
     {
-      name: 'CallToAction_5'
+      name: 'CallToAction_5',
+      height: 300
     }
   ]
 }

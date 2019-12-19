@@ -4,16 +4,20 @@ export default {
   landspace: true,
   widgets: [
     {
-      name: 'Header_1'
+      name: 'Header_1',
+      height: 46
     },
     {
-      name: 'Header_2'
+      name: 'Header_2',
+      height: 46
     },
     {
-      name: 'Header_3'
+      name: 'Header_3',
+      height: 46
     },
     {
-      name: 'Header_4'
+      name: 'Header_4',
+      height: 46
     }
   ]
 }
