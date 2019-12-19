@@ -16,13 +16,15 @@
       this.$nextTick(() => {
         const doc = this.$el.ownerDocument
         const win = doc.defaultView
-        win.addEventListener('resize', this.log)
+        if (win) 
+          win.addEventListener('resize', this.log)
       })
     },
     beforeDestroy() {
       const doc = this.$el.ownerDocument
       const win = doc.defaultView
-      win.removeEventListener('resize', this.log)
+      if (win) 
+        win.removeEventListener('resize', this.log)
     }
   }
 </script>

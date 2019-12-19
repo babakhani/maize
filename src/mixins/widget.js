@@ -27,46 +27,46 @@ const Mixin = {
           return `https://picsum.photos/${width}/${height}`
         },
         big () {
-          return '/static/imgs/img_wide.png'
+          return '/imgs/img_wide.png'
         },
         tall () {
-          return '/static/imgs/img_tall.png'
+          return '/imgs/img_tall.png'
         },
         icon () {
-          return '/static/imgs/img_square_1.svg'
+          return '/imgs/img_square_1.svg'
         },
         wide () {
-          return '/static/imgs/img_very_wide.svg'
+          return '/imgs/img_very_wide.svg'
         },
         rounded () {
-          return '/static/imgs/img_round.png'
+          return '/imgs/img_round.png'
         },
         logo () {
-          return '/static/imgs/img_logo.png'
+          return '/imgs/img_logo.png'
         },
         customer_1 () {
-          return '/static/imgs/customers/adobe.svg'
+          return '/imgs/customers/adobe.svg'
         },
         customer_2 () {
-          return '/static/imgs/customers/discovery.svg'
+          return '/imgs/customers/discovery.svg'
         },
         customer_3 () {
-          return '/static/imgs/customers/ebay.svg'
+          return '/imgs/customers/ebay.svg'
         },
         customer_4 () {
-          return '/static/imgs/customers/samsung.svg'
+          return '/imgs/customers/samsung.svg'
         },
         customer_5 () {
-          return '/static/imgs/customers/orange.svg'
+          return '/imgs/customers/orange.svg'
         },
         customer_6 () {
-          return '/static/imgs/customers/salesforce.svg'
-        },
+          return '/imgs/customers/salesforce.svg'
+        }
       },
       footer: {
         copyright () {
           return '© 2018 Maize. All Rights Reserved'
-        },
+        }
       }
     })
   },

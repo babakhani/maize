@@ -12,11 +12,15 @@
       v-if="showModal"
       no-body>
       <b-tabs card>
-        <template v-for="item in groupedWidgetList">
-          <b-tab v-if="item"
-                 :active="item.group === 'header'"
-                 :title="item.title">
-            <div class="row add-widget-modal--tab">
+        <template 
+          v-model="currentTab"
+          v-for="(item, index) in groupedWidgetList">
+          <b-tab 
+          :lazy="true"
+          :active="item.group === 'header'"
+          :title="item.title">
+            <div 
+              class="row add-widget-modal--tab">
               <div 
                  ref="column"
                  v-for="widget in item.widgets"
@@ -41,17 +45,14 @@
                                  }"
                         class="widget-thumb-container">
                   <FrameChild 
-
                         title="this is iframe title">
-                  <link href="/static/lib/bootstrap.min.css"
+                  <link href="/lib/bootstrap.min.css"
                         rel="stylesheet"
                         crossorigin="anonymous">
-                  <link rel="stylesheet"
-                        href="/">
-                  <div :is="widget.name"
+                  <component :is="widget.name"
                         :widgetData="widget.data"
                         :demoMode="true"
-                        :uniqeKey="widget.uniqeId"></div>
+                        :uniqeKey="widget.uniqeId"></component>
                   </FrameChild>
                   </Frame>
                   <span class="widget-selected-num"
@@ -120,8 +121,14 @@ export default {
       return this.$store.state.main.rawWidgetList
     }
   },
+  mounted () {
+    setTimeout( () => {
+      this.$forceUpdate()
+    }, 100)
+  },
   data () {
     return {
+      currentTab: 1,
       scale2: 1,
       width: 1366,
       showModal: false,

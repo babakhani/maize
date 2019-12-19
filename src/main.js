@@ -11,7 +11,6 @@ import BootstrapVue from 'bootstrap-vue'
 import VueLodash from 'vue-lodash'
 import VTooltip from 'v-tooltip'
 const options = { name: '_' } // customize the way you want to call it
-
 Vue.use(VueLodash, options) /
 Vue.use(VTooltip)
 Vue.use(BootstrapVue);
