@@ -14,9 +14,9 @@ export default [
   FeaturesSpec,
   ContentSpec,
   // FormSpec,
-  // // GallerySpec,
-  // // MediaSpec,
-  // ContactsSpec,
-  // FooterSpec,
-  // Kitchen
+  // // // GallerySpec,
+  // // // MediaSpec,
+  ContactsSpec,
+  FooterSpec,
+  Kitchen
 ]

@@ -8,7 +8,9 @@ import Vue from 'vue'
 export default {
   name: 'frame',
   beforeUpdate() {
-    this.iApp.children = Object.freeze(this.$slots.default)
+    if (this.iApp) {
+      this.iApp.children = Object.freeze(this.$slots.default)
+    }
   },
   mounted() {
     setTimeout( () => {
