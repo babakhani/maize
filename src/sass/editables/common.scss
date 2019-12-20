@@ -32,7 +32,10 @@ $icon-size: 1.6em;
      outline: 3px dashed rgba($primary-color, .5) !important;
   }
   &.settings-btn {
-     outline: none !important;
+    outline: none !important;
+    &:hover {
+      background: transparent !important;
+    }
   }
 
   .editor-page-preview-mode & {
