@@ -66,6 +66,24 @@ button {
     outline: none;
   }
 }
+.btn-outline-success {
+  &:hover,
+  &:active,
+  &:focus {
+     background: none !important;
+     text-decoration: none !important;
+  }
+  &:hover {
+     color: $gray-5 !important;
+  }
+  &:active,
+  &:focus {
+     color: darken($gray-5, 7) !important;
+  }
+  &:active:focus {
+    box-shadow: none !important;
+  }
+}
 
 .main-body {
   min-height: 35em;
