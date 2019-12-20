@@ -127,14 +127,13 @@ footer {
     box-shadow: 0 0 0px 2px rgba($primary-color, 0.6);
     .widget-selected-num {
       position: absolute;
-      border-radius: 100px;
       display: block;
-      top: 2em;
-      left: 2em;
-      transform: translate(-50%, -50%);
+      text-align: center;
+      top: 0;
+      left: 0;
       width: 24px;
       height: 24px;
-      line-height: 26px;
+      line-height: 24px;
       background: rgba($primary-color, .8);
       color: #fff;
     }
