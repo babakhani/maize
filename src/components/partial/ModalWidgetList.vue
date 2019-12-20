@@ -8,18 +8,31 @@
     centered
     class="add-widget-modal"
     :title=" $t('choose_widget')">
-    <b-card 
+    <template slot="modal-footer">
+      <b-button
+        @click="onHide"
+        variant="outline-success"
+        class="btn-link text-muted">
+        {{ $t('modal.cancel') }}
+      </b-button>
+      <b-button
+        variant="success"
+        @click="onOk">
+        {{ $t('modal.ok') }}
+      </b-button>
+    </template>
+    <b-card
       v-if="showModal"
       no-body>
       <b-tabs card>
-        <template 
+        <template
           v-model="currentTab"
           v-for="(item, index) in groupedWidgetList">
-          <b-tab 
+          <b-tab
           :lazy="true"
           :active="item.group === 'header'"
           :title="item.title">
-          <WidgetList 
+          <WidgetList
           @updateAddList="updateAddList"
           :add-widget-list="addWidgetList"
           :widget-list="item.widgets" />
@@ -36,7 +49,7 @@ import FrameChild from './FrameChild.vue'
 import WidgetList from './WidgetList'
 export default {
   name: 'WidgetListModal',
-  components: {...Widgets, Frame, FrameChild, WidgetList},
+  components: { ...Widgets, Frame, FrameChild, WidgetList },
   methods: {
     updateAddList (itemName) {
       let widgetList = this.addWidgetList
@@ -58,6 +71,7 @@ export default {
     onOk () {
       // TODO: complete this
       this.$store.dispatch('main/addToCurrentWidgetList', this.addWidgetList)
+      this.onHide()
     }
   },
   computed: {
