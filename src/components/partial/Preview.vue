@@ -1,6 +1,7 @@
 <template>
   <div class="preview">
     <Frame 
+       ref="frame"
        :style="{
          width: `${previewSize}`,
        }"
@@ -32,7 +33,28 @@ import FrameChild from './FrameChild.vue'
 export default {
   name: 'Preview',
   components: {...Widgets, Frame, FrameChild},
+  mounted () {
+    setTimeout(() => {
+      if (this.$refs.frame) {
+        let frameContent = this.$refs.frame.$el.contentDocument || this.$refs.frame.contentWindow.document
+        console.log(frameContent.documentElement.innerHTML)
+        this.download('index.html', frameContent.documentElement.innerHTML)
+      }
+    }, 1000)
+  },
   methods: {
+    download(filename, text) {
+      var element = document.createElement('a');
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+      element.setAttribute('download', filename);
+
+      element.style.display = 'none';
+      document.body.appendChild(element);
+
+      element.click();
+
+      document.body.removeChild(element);
+    }
   },
   computed: {
     previewSize () {
