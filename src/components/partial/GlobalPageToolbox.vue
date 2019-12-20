@@ -9,30 +9,6 @@
 
           <ul class="navbar-nav float-right ml-auto pr-0">
             <li class="nav-item mr-lg-3">
-              <a :title="$t('toolbox.settings')"
-                 v-b-tooltip.hover.top.small
-                 class="nav-link"
-                 @click="goToSettingsMode">
-                <icon name="cog"></icon>
-              </a>
-            </li>
-            <li class="nav-item mr-lg-3">
-              <a :title="$t('add_widget')"
-                 v-b-tooltip.hover.bottom.small
-                 class="nav-link"
-                 @click="goToAddWidgetMode">
-                <icon name="plus-square"></icon>
-              </a>
-            </li>
-            <li class="nav-item mr-lg-3">
-              <a v-b-tooltip.hover.bottom.small
-                 class="nav-link"
-                 :title="$t('export')"
-                 @click="exportPage">
-                <icon name="download"></icon>
-              </a>
-            </li>
-            <li class="nav-item mr-lg-3">
               <a class="nav-link"
                  :title="$t('preview_mode')"
                  v-b-tooltip.hover.bottom.small
@@ -45,7 +21,39 @@
                 </label>
               </a>
             </li>
-            <li class="nav-item mr-lg-3">
+            <li 
+              v-if="!previewMode"
+              class="nav-item mr-lg-3">
+              <a :title="$t('toolbox.settings')"
+                 v-b-tooltip.hover.top.small
+                 class="nav-link"
+                 @click="goToSettingsMode">
+                <icon name="cog"></icon>
+              </a>
+            </li>
+            <li 
+              v-if="!previewMode"
+              class="nav-item mr-lg-3">
+              <a :title="$t('add_widget')"
+                 v-b-tooltip.hover.bottom.small
+                 class="nav-link"
+                 @click="goToAddWidgetMode">
+                <icon name="plus-square"></icon>
+              </a>
+            </li>
+            <li 
+              v-if="previewMode"
+              class="nav-item mr-lg-3">
+              <a v-b-tooltip.hover.bottom.small
+                 class="nav-link"
+                 :title="$t('export')"
+                 @click="exportPage">
+                <icon name="download"></icon>
+              </a>
+            </li>
+            <li 
+              v-if="!previewMode"
+              class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
                  :title="$t('toolbox.undo')"
@@ -53,7 +61,9 @@
                 <icon name="undo"></icon>
               </a>
             </li>
-            <li class="nav-item mr-lg-3">
+            <li 
+              v-if="!previewMode"
+              class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
                  :title="$t('toolbox.redo')"
@@ -61,8 +71,9 @@
                 <icon name="redo"></icon>
               </a>
             </li>
-            <!--
-            <li class="nav-item mr-lg-3">
+            <li 
+              v-if="previewMode"
+              class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
                  :title="$t('mobile')"
@@ -70,7 +81,9 @@
                 <icon name="mobile-alt"></icon>
               </a>
             </li>
-            <li class="nav-item mr-lg-3">
+            <li 
+              v-if="previewMode"
+              class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
                  :title="$t('tablet')"
@@ -78,7 +91,9 @@
                 <icon name="tablet-alt"></icon>
               </a>
             </li>
-            <li class="nav-item mr-lg-3">
+            <li 
+              v-if="previewMode"
+              class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
                  :title="$t('desktop')"
@@ -86,8 +101,8 @@
                 <icon name="desktop"></icon>
               </a>
             </li>
-            -->
-            <li class="nav-item mr-lg-3">
+            <li 
+              class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
                  :title="$t('language')"

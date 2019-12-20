@@ -13,6 +13,11 @@ export default {
     pageSideBarIsActive: false,
     selectedItemProperties: {}
   },
+  getters: {
+    previewSize (state) {
+      return state.mobilePreviewMode ? 366 : state.tabletPreviewMode ? 724 : 1366
+    }
+  },
   mutations: {
     setSelectedItemProperties (state, payload) {
       state.selectedItemProperties = payload

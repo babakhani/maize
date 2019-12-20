@@ -5,40 +5,45 @@
     <!--<page-toolbox></page-toolbox>-->
     <global-page-toolbox></global-page-toolbox>
 
-    <div class="wrapper">
-      <nav id="sidebar"
-           v-if="pageSideBarIsActive"
-           :class="{'active': !pageSideBarIsActive}"
-           class="editable-part-sidebar">
-      </nav>
-      <div 
-        :class="{ 'px-4': !previewMode }"
-        class="w-100">
-        <draggable v-model="currentWidgetList"
-                   :options="{handle:'.widget-drag-handle'}"
-                   @start="drag=true"
-                   @end="drag=false">
+    <template v-if="previewMode">
+      <Preview />
+    </template>
+    <template v-else>
+      <div class="wrapper">
+        <nav id="sidebar"
+             v-if="pageSideBarIsActive"
+             :class="{'active': !pageSideBarIsActive}"
+             class="editable-part-sidebar">
+        </nav>
+        <div 
+             :class="{ 'px-4': !previewMode }"
+             class="w-100">
+          <draggable v-model="currentWidgetList"
+                     :options="{handle:'.widget-drag-handle'}"
+                     @start="drag=true"
+                     @end="drag=false">
           <div v-for="(widget, index) in currentWidgetList"
                :key="widget.uniqeId">
             <component :is="widget.name"
-                 class="widget-block"
-                 :class="{'container': (widget.data && widget.data.config) ? widget.data.config.fullWidth : false }"
-                 :edit-mode="!$store.state.main.previewMode"
-                 :widgetData="widget.data"
-                 :uniqeKey="widget.uniqeId">
+               class="widget-block"
+               :class="{'container': (widget.data && widget.data.config) ? widget.data.config.fullWidth : false }"
+               :edit-mode="!$store.state.main.previewMode"
+               :widgetData="widget.data"
+               :uniqeKey="widget.uniqeId">
             </component>
           </div>
-        </draggable>
-        <AddWidget>
+          </draggable>
+          <AddWidget>
           <div class="blocks-area"></div>
-        </AddWidget>
+          </AddWidget>
+        </div>
       </div>
-    </div>
-    <ModalWidgetList></ModalWidgetList>
-    <ImagePickerModal></ImagePickerModal>
-    <VideoPickerModal></VideoPickerModal>
-    <LinkPickerModal></LinkPickerModal>
-    <ModalSettings></ModalSettings>
+      <ModalWidgetList></ModalWidgetList>
+      <ImagePickerModal></ImagePickerModal>
+      <VideoPickerModal></VideoPickerModal>
+      <LinkPickerModal></LinkPickerModal>
+      <ModalSettings></ModalSettings>
+    </template>
   </div>
 </template>
 
@@ -50,11 +55,13 @@
   import VideoPickerModal from '../components/partial/ModalVideoPicker'
   import LinkPickerModal from '../components/partial/ModalLinkPicker'
   import ModalSettings from '../components/partial/ModalSettings'
+  import Preview from '../components/partial/Preview'
 
   export default {
     name: 'Events',
     mixins: [editor],
     components: {
+      Preview,
       LinkPickerModal,
       draggable,
       ImagePickerModal,
