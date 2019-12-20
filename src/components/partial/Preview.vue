@@ -2,7 +2,7 @@
   <div class="preview">
     <Frame 
        :style="{
-         width: `${previewSize}px`,
+         width: `${previewSize}`,
        }"
        class="preview-frame">
     <FrameChild 
@@ -36,7 +36,13 @@ export default {
   },
   computed: {
     previewSize () {
-      return this.$store.getters['layout/previewSize']
+      let out = this.$store.getters['layout/previewSize']
+      if (out == 1366) {
+         out = '100%'
+      } else {
+         out = `${out}px`
+      }
+      return out
     },
     currentWidgetList: {
       get () {
