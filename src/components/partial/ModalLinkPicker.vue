@@ -7,19 +7,19 @@
     centered
     class="image-picker-modal modal-box"
     :title="$t('modal.link.title')">
-
     <template slot="modal-footer">
-      <button @click="onHide"
-              class="btn btn-link text-muted">
+      <b-button
+              @click="onHide"
+              variant="outline-success"
+              class="btn-link text-muted">
         {{ $t('modal.cancel') }}
-      </button>
-      <button
-              @click="onOk"
-              class="btn btn-success">
+      </b-button>
+      <b-button
+              variant="success"
+              @click="onOk">
         {{ $t('modal.ok') }}
-      </button>
+      </b-button>
     </template>
-
     <!--Start Modal Tab-->
     <b-tabs card>
       <b-tab active>
@@ -29,7 +29,7 @@
                 name="images"></icon>
         </template>
         <b-form-input type="text"
-                      v-model="pickedLinkSrc" 
+                      v-model="pickedLinkSrc"
                       :placeholder="$t('insert_link')">
         </b-form-input>
       </b-tab>
@@ -39,43 +39,42 @@
 </template>
 
 <script>
-  import {EventBus} from '../../events/event-bus'
-  import UploadImage from './UploaderImage.vue'
-  import ImageSaver from '../../service/image-saver'
+import { EventBus } from '../../events/event-bus'
+import UploadImage from './UploaderImage.vue'
+import ImageSaver from '../../service/image-saver'
 
-
-  export default {
-    name: 'LinkPickerModal',
-    components: {UploadImage},
-    methods: {
-      onHide () {
-        this.$store.dispatch('layout/setPickLinkMode', false)
-      },
-      onOk (e) {
-        e.preventDefault()
-        this.onHide()
-        EventBus.$emit('pickLink', this.pickedLinkSrc)
-        this.pickedLinkSrc = null
-        return false
-      }
+export default {
+  name: 'LinkPickerModal',
+  components: { UploadImage },
+  methods: {
+    onHide () {
+      this.$store.dispatch('layout/setPickLinkMode', false)
     },
-    computed: {
-      randomImageList () {
-        return this.$store.state.unsplash.imageList
-      },
-      showModal: {
-        get () {
-          return this.$store.state.layout.pickLinkType
-        },
-        set (value) {
-          this.$store.dispatch('layout/setPickLinkMode', value)
-        }
-      }
+    onOk (e) {
+      e.preventDefault()
+      this.onHide()
+      EventBus.$emit('pickLink', this.pickedLinkSrc)
+      this.pickedLinkSrc = null
+      return false
+    }
+  },
+  computed: {
+    randomImageList () {
+      return this.$store.state.unsplash.imageList
     },
-    data () {
-      return {
-        pickedLinkSrc: null
+    showModal: {
+      get () {
+        return this.$store.state.layout.pickLinkType
+      },
+      set (value) {
+        this.$store.dispatch('layout/setPickLinkMode', value)
       }
     }
+  },
+  data () {
+    return {
+      pickedLinkSrc: null
+    }
   }
+}
 </script>

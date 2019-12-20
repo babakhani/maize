@@ -5,6 +5,9 @@
     border-top: 0;
     .editable-part--settings-btn {
       display: none;
+      &:hover {
+        background: transparent;
+      }
     }
   }
 }

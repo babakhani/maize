@@ -9,24 +9,27 @@
     :title="$t('choose_pic')">
 
     <template slot="modal-footer">
-      <button @click="onHide"
-              class="btn btn-link text-muted">
+      <b-button
+        @click="onHide"
+        variant="outline-success"
+        class="btn-link text-muted">
         {{ $t('modal.cancel') }}
-      </button>
-      <button v-if="imageUploadLoading"
+      </b-button>
+      <b-button v-if="imageUploadLoading"
               @click="onOk"
-              class="btn btn-primary btn-loading">
+              variant="success"
+              class="btn-loading">
         {{ $t('modal.ok') }}
         <div class="btn btn-hover">
           <icon class="fa fa-spin"
                 name="spinner"></icon>
         </div>
-      </button>
-      <button v-else
+      </b-button>
+      <b-button v-else
               @click="onOk"
-              class="btn btn-primary">
+              variant="success">
         {{ $t('modal.ok') }}
-      </button>
+      </b-button>
     </template>
 
     <!--Start Modal Tab-->
@@ -51,7 +54,7 @@
             <div class="col-6 col-sm-6 col-md-3 col-xl-3 h-100 image-picker-modal--image-container"
                  v-for="imageItem in randomImageList">
                 <pre>{{ imageItem }} </pre>
-                <div 
+                <div
                  class="image-picker-modal--image-thumb-box"
                  @click="pick(imageItem.download_url)"
                  @dblclick="pickAndHide(imageItem.download_url)"
@@ -78,65 +81,65 @@
 </template>
 
 <script>
-  import {EventBus} from '../../events/event-bus'
-  import UploadImage from './UploaderImage.vue'
-  import ImageSaver from '../../service/image-saver'
+import { EventBus } from '../../events/event-bus'
+import UploadImage from './UploaderImage.vue'
+import ImageSaver from '../../service/image-saver'
 
-  export default {
-    name: 'ImagePickerModal',
-    components: {UploadImage},
-    mounted () {
-      this.$store.dispatch('unsplash/loadRandomImages')
+export default {
+  name: 'ImagePickerModal',
+  components: { UploadImage },
+  mounted () {
+    this.$store.dispatch('unsplash/loadRandomImages')
+  },
+  methods: {
+    chooseImage (imageSrc) {
+      this.pickedImageSrc = imageSrc
     },
-    methods: {
-      chooseImage (imageSrc) {
-        this.pickedImageSrc = imageSrc
-      },
-      pickAndHide (imageSrc) {
+    pickAndHide (imageSrc) {
+      this.onHide()
+      this.pickedImageSrc = imageSrc
+      if (this.pickedImageSrc) {
+        EventBus.$emit('pickImage', this.pickedImageSrc)
+      }
+    },
+    onHide () {
+      this.$store.dispatch('layout/setPickImageMode', false)
+    },
+    onOk (e) {
+      this.imageUploadLoading = true
+      e.preventDefault()
+      // This is promise example and use image uploader service
+      ImageSaver(this.pickedImageSrc).then((imageSrc) => {
         this.onHide()
-        this.pickedImageSrc = imageSrc
-        if (this.pickedImageSrc) {
-          EventBus.$emit('pickImage', this.pickedImageSrc)
-        }
-      },
-      onHide () {
-        this.$store.dispatch('layout/setPickImageMode', false)
-      },
-      onOk (e) {
-        this.imageUploadLoading = true
-        e.preventDefault()
-        // This is promise example and use image uploader service
-        ImageSaver(this.pickedImageSrc).then((imageSrc) => {
-          this.onHide()
-          EventBus.$emit('pickImage', imageSrc)
-          this.imageUploadLoading = false
-        }).catch(() => {
-          this.imageUploadLoading = false
-        })
-        return false
-      },
-      pick (imageSrc) {
-        this.pickedImageSrc = imageSrc
-      }
+        EventBus.$emit('pickImage', imageSrc)
+        this.imageUploadLoading = false
+      }).catch(() => {
+        this.imageUploadLoading = false
+      })
+      return false
     },
-    computed: {
-      randomImageList () {
-        return this.$store.state.unsplash.imageList
-      },
-      showModal: {
-        get () {
-          return this.$store.state.layout.pickImageMode
-        },
-        set (value) {
-          this.$store.dispatch('layout/setPickImageMode', value)
-        }
-      }
+    pick (imageSrc) {
+      this.pickedImageSrc = imageSrc
+    }
+  },
+  computed: {
+    randomImageList () {
+      return this.$store.state.unsplash.imageList
     },
-    data () {
-      return {
-        imageUploadLoading: false,
-        pickedImageSrc: null
+    showModal: {
+      get () {
+        return this.$store.state.layout.pickImageMode
+      },
+      set (value) {
+        this.$store.dispatch('layout/setPickImageMode', value)
       }
     }
+  },
+  data () {
+    return {
+      imageUploadLoading: false,
+      pickedImageSrc: null
+    }
   }
+}
 </script>
