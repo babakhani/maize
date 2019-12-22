@@ -5,6 +5,7 @@
        :style="{
          width: `${previewSize}`,
        }"
+       :class="previewMode"
        class="preview-frame">
     <FrameChild>
     <component 
@@ -52,6 +53,9 @@ export default {
     }
   },
   computed: {
+    previewMode () {
+      return this.$store.getters['layout/previewMode']
+    },
     previewSize () {
       let out = this.$store.getters['layout/previewSize']
       if (out == 1366) {

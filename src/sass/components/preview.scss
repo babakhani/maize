@@ -1,5 +1,4 @@
 .preview {
-  padding: 1em 0;
   background: #f1f1f1;
 }
 .preview-frame {
@@ -9,5 +8,8 @@
   float: none;
   margin: 0 auto;
   width: 100%;
-  height: calc(100vh - 90px);
+  height: calc(100vh - 68px);
+  &.desktop {
+    height: calc(100vh - 68px);
+  }
 }

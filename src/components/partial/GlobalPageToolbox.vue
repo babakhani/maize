@@ -151,14 +151,13 @@ export default {
       this.$store.dispatch('layout/setPreviewMode', e.target.checked)
     },
     setMobilePreviewMode () {
-      this.$store.dispatch('layout/setMobilePreviewMode', !this.mobilePreviewMode)
+      this.$store.dispatch('layout/setPreviewModeSize', 'phone')
     },
     setTabletPreviewMode () {
-      this.$store.dispatch('layout/setTabletPreviewMode', !this.tabletPreviewMode)
+      this.$store.dispatch('layout/setPreviewModeSize', 'tablet')
     },
     setDesktopPreviewMode () {
-      this.$store.dispatch('layout/setMobilePreviewMode', false)
-      this.$store.dispatch('layout/setTabletPreviewMode', false)
+      this.$store.dispatch('layout/setPreviewModeSize', 'desktop')
     },
     gotToAddWidgetMode () {
       this.$store.dispatch('layout/setAddWidgetMode', true)

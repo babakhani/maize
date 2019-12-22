@@ -1,10 +1,9 @@
 export default {
   namespaced: true,
   state: {
-    mobilePreviewMode: false,
+    previewModeSize: 'desktop',
     previewMode: false,
     addWidgetMode: false,
-    tabletPreviewMode: false,
     pickImageMode: false,
     pickVideoMode: false,
     pickVideoType: false,
@@ -14,28 +13,22 @@ export default {
     selectedItemProperties: {}
   },
   getters: {
+    previewMode (state) {
+      return state.previewModeSize
+    },
     previewSize (state) {
-      return state.mobilePreviewMode ? 366 : state.tabletPreviewMode ? 724 : 1366
+      return state.previewModeSize == 'phone' ? 366 : state.previewModeSize == 'tablet' ? 724 : 1366
     }
   },
   mutations: {
+    setPreviewModeSize (state, payload) {
+      state.previewModeSize = payload
+    },
     setSelectedItemProperties (state, payload) {
       state.selectedItemProperties = payload
     },
     setPageSideBarIsActive (state, payload) {
       state.pageSideBarIsActive = payload
-    },
-    setMobilePreviewMode (state, payload) {
-      state.mobilePreviewMode = payload
-      if (payload) {
-        state.tabletPreviewMode = false
-      }
-    },
-    setTabletPreviewMode (state, payload) {
-      state.tabletPreviewMode = payload
-      if (payload) {
-        state.mobilePreviewMode = false
-      }
     },
     setPreviewMode (state, payload) {
       state.previewMode = payload
@@ -63,6 +56,9 @@ export default {
     }
   },
   actions: {
+    setPreviewModeSize (context, payload) {
+      context.commit('setPreviewModeSize', payload)
+    },
     setSelectedItemProperties (context, payload) {
       context.commit('setSelectedItemProperties', payload)
     },
