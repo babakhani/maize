@@ -1,5 +1,6 @@
 <template>
   <iframe src=""
+          @load="$emit('onload', $event)"
           frameborder="0"></iframe>
 </template>
 

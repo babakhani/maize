@@ -1,19 +1,3 @@
-.btn{padding:9px 26px;background-color:#528bff;color:#fff;display:inline-block;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;text-decoration:none;border:solid 2px #528bff;border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px}
-.btn.btn-empty{background-color:transparent;color:#528bff}
-.btn:hover{color:#fff;background-color:#1f69ff;border-color:#1f69ff}
-.btn.btn-black{color:#fff;background-color:#000;border-color:#000}
-.btn.btn-black.btn-empty{background-color:transparent;color:#000}
-.btn.btn-black:hover{color:#fff;background-color:#0d0d0d;border-color:#0d0d0d}
-.btn.btn-white{color:#000;background-color:#fff;border-color:#fff}
-.btn.btn-white.btn-empty{background-color:transparent;color:#fff}
-.btn.btn-white:hover{color:#000;background-color:#dedede;border-color:#dedede}
-.btn.btn-shadow{-webkit-box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);-moz-box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24)}
-.btn.btn-round{border-radius:20px;-moz-border-radius:20px;-webkit-border-radius:20px;min-width:150px}
-.team-1.mz-block img{border-bottom:solid 5px #528bff;border-radius:0!important;-moz-border-radius:0!important;-webkit-border-radius:0!important}
-.team-1.mz-block .mz-box{padding:0}
-.team-1.mz-block .mz-box .content{padding:20px}
-.team-2.mz-block img{border-radius:100%!important;-moz-border-radius:100%!important;-webkit-border-radius:100%!important}
-.team-3.mz-block img{border-radius:100%!important;-moz-border-radius:100%!important;-webkit-border-radius:100%!important;-webkit-box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);-moz-box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24)}
 .mz-block{font-family:Roboto,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizelegibility;padding:100px 0;color:#444;position:relative;background-size:cover;background-position:center;overflow:hidden;}
 .mz-block.mz-viewport{min-height:calc(100% - 2 * 100px)}
 .mz-block.mz-viewport .container{min-height:calc(100% - 2 * 100px)}

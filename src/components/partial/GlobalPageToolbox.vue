@@ -101,15 +101,15 @@
                 <icon name="desktop"></icon>
               </a>
             </li>
-            <li 
-              class="nav-item mr-lg-3">
-              <a v-b-tooltip.hover.bottom.small
-                 class="nav-link"
-                 :title="$t('language')"
-                 @click="toggleLanguage">
-                <icon name="language"></icon>
-              </a>
-            </li>
+            <!--<li -->
+              <!--class="nav-item mr-lg-3">-->
+              <!--<a v-b-tooltip.hover.bottom.small-->
+                 <!--class="nav-link"-->
+                 <!--:title="$t('language')"-->
+                 <!--@click="toggleLanguage">-->
+                <!--<icon name="language"></icon>-->
+              <!--</a>-->
+            <!--</li>-->
           </ul>
           <div class="nav-item float-left position-relative maize-brand">
             <a class="navbar-brand" href="#">{{ $t('maize') }}</a>

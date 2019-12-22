@@ -36,7 +36,6 @@
           <strong> {{ $t('tamasha') }}</strong>
           <icon name="images"></icon>
         </template>
-        <TamashaVideoPicker :sourceType="pickVideoType" @pickAndHide="pickAndHide" @pick="pick"></TamashaVideoPicker>
       </b-tab>
 
       <!--<b-tab >-->
@@ -68,10 +67,8 @@
   import {EventBus} from '../../events/event-bus'
   import ImageSaver from '../../service/image-saver'
 
-  import TamashaVideoPicker from '../services/TamashaVideoPicker'
   export default {
     name: 'VideoPickerModal',
-    components: { TamashaVideoPicker },
     methods: {
       chooseImage (imageSrc) {
         this.pickedVideoSrc = imageSrc
