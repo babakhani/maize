@@ -39,7 +39,8 @@ export default {
     down () {
       if (this.$refs && this.$refs.frame) {
         let frameContent = this.$refs.frame.$el.contentDocument || this.$refs.frame.contentWindow.document
-        this.download('index.html', frameContent.documentElement.innerHTML)
+        let html = `<!DOCTYPE html><html lang="${this.$store.getters['main/settings'].language}" prefix="og: http://ogp.me/ns#">${frameContent.documentElement.innerHTML}</html>`
+        this.download('index.html', html)
       }
     },
     download(filename, text) {

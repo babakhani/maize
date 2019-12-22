@@ -101,16 +101,6 @@
                   class="form-control"
                   :placeholder="$t('settings.canonical-placeholder')">
               </div>
-              <div class="form-group">
-                <label>{{ $t('settings.image') }}</label>
-                <input 
-                  v-model="siteSettings.image"
-                  type="text" 
-                  id="logo" 
-                  class="form-control"
-                  :placeholder="$t('settings.image')">
-              </div>
-
               <div class="form-group w-25">
                 <label>{{ $t('settings.color') }}</label>
                 <input 
