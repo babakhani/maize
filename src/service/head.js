@@ -8,11 +8,8 @@ export default (settings) => { return `
   <meta http-equiv="content-language" content="${settings.language}"/>
   <base href="${settings.baseURL}" target="_blank">
   <link rel="canonical" href="${settings.canonical}"/>
-
   <meta name="robots" content="index,follow"/>
-
   <meta name="theme-color" content="${settings.color}">
-
   <link rel="next" href="${settings.nextURL}"/>
   <!-- Semantic META -->
   <meta property="description" content="${settings.description}">
@@ -26,7 +23,6 @@ export default (settings) => { return `
   <meta property="og:image:height" content="${settings.imageHeight}">
   <meta property="og:image:type" content="${settings.imageType}">
   <meta property="fb:app_id" content="${settings.facebookAppID}">
-
   <!-- Twitter -->
   <meta name="twitter:card" content="${settings.twitterCard}">
   <meta name="twitter:site" content="${settings.twitterAccount}">
@@ -42,9 +38,7 @@ export default (settings) => { return `
         "logo": "${settings.image}"
     }
   </script>
-
   <meta name="format-detection" content="telephone=no">
-
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         rel="stylesheet"
         crossorigin="anonymous">

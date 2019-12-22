@@ -14,7 +14,7 @@
 .team-1.mz-block .mz-box .content{padding:20px}
 .team-2.mz-block img{border-radius:100%!important;-moz-border-radius:100%!important;-webkit-border-radius:100%!important}
 .team-3.mz-block img{border-radius:100%!important;-moz-border-radius:100%!important;-webkit-border-radius:100%!important;-webkit-box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);-moz-box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24)}
-.mz-block{font-family:Roboto,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizelegibility;padding:100px 0;color:#444;position:relative;background-size:cover;background-position:center;overflow:hidden;background-color:#fff}
+.mz-block{font-family:Roboto,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizelegibility;padding:100px 0;color:#444;position:relative;background-size:cover;background-position:center;overflow:hidden;}
 .mz-block.mz-viewport{min-height:calc(100% - 2 * 100px)}
 .mz-block.mz-viewport .container{min-height:calc(100% - 2 * 100px)}
 .mz-block.mz-image-bg{color:#f2f2f2}
