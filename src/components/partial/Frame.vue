@@ -23,7 +23,7 @@ export default {
       const children = this.$slots.default
       const body = this.$el.contentDocument.body
       const head = this.$el.contentDocument.head
-      head.innerHTML = Head
+      head.innerHTML = Head(this.$store.getters['main/settings'])
       const el = document.createElement('DIV') // we will mount or nested app to this element
       body.appendChild(el)
       const iApp = new Vue({

@@ -1,51 +1,45 @@
-export default `
-  <title> Maize </title>
-  <meta name="description" content=""/>
+export default (settings) => { return `
+  <title> ${settings.title} </title>
+  <meta name="description" content="${settings.description}"/>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-  <meta http-equiv="content-language" content="fa"/>
   <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <base href="https://raw.githubusercontent.com/babakhani/maize/master/public/" target="_blank">
-  <link rel="canonical" href=""/>
+  <meta http-equiv="content-language" content="${settings.language}"/>
+  <base href="${settings.baseURL}" target="_blank">
+  <link rel="canonical" href="${settings.canonical}"/>
 
   <meta name="robots" content="index,follow"/>
 
+  <meta name="theme-color" content="${settings.color}">
+
+  <link rel="next" href="${settings.nextURL}"/>
   <!-- Semantic META -->
-  <meta property="description" content="">
-  <meta property="og:url" content="">
-  <meta property="og:title" content="">
-  <meta property="og:site_name" content="">
-  <meta property="og:description" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:secure_url" content="">
-  <meta property="og:image:width" content="">
-  <meta property="og:image:height" content="">
-  <meta property="og:image:type" content="">
-  <meta property="fb:app_id" content="">
+  <meta property="description" content="${settings.description}">
+  <meta property="og:url" content="${settings.canonical}">
+  <meta property="og:title" content="${settings.title}">
+  <meta property="og:description" content="${settings.description}">
+  <meta property="og:site_name" content="${settings.name}">
+  <meta property="og:image" content="${settings.image}">
+  <meta property="og:image:secure_url" content="${settings.secureURL}">
+  <meta property="og:image:width" content="${settings.imageWidth}">
+  <meta property="og:image:height" content="${settings.imageHeight}">
+  <meta property="og:image:type" content="${settings.imageType}">
+  <meta property="fb:app_id" content="${settings.facebookAppID}">
 
   <!-- Twitter -->
-  <meta name="twitter:card" content="">
-  <meta name="twitter:site" content="">
-  <meta name="twitter:title" content="">
-  <meta name="twitter:description" content="">
-  <meta name="twitter:image" content="">
+  <meta name="twitter:card" content="${settings.twitterCard}">
+  <meta name="twitter:site" content="${settings.twitterAccount}">
+  <meta name="twitter:title" content="${settings.title}">
+  <meta name="twitter:description" content="${settings.description}">
+  <meta name="twitter:image" content="${settings.image}">
   <script type="application/ld+json">
     {
-        "@context": "",
-        "@type": "",
-        "url": "",
-        "name": "",
-        "logo": "",
-        "sameAs": [
-                    "",
-                    ""
-                ],
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "",
-            "query-input": ""
-        }
+        "@context": "http://schema.org",
+        "@type": "${settings.type}",
+        "url": "${settings.canonical}",
+        "name": "${settings.name}",
+        "logo": "${settings.image}"
     }
   </script>
 
@@ -72,4 +66,4 @@ export default `
         type="text/javascript" 
         crossorigin="anonymous"
         src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-`
+`}

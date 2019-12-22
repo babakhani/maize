@@ -4,10 +4,37 @@ import rawWidgetList from '../../components/widgets/spec'
 export default {
   namespaced: true,
   state: {
+    settings: window.localStorage.getItem('settings') ? JSON.parse(window.localStorage.getItem('settings')) : {
+      title: 'Maize',
+      description: 'Example description',
+      language: 'en',
+      baseURL: 'https://raw.githubusercontent.com/babakhani/maize/master/public/',
+      canonical: '/',
+      nextURL: '',
+      image: '',
+      imageWidth: '',
+      imageHeight: '',
+      imageType: '',
+      secureURL: '',
+      facebookAppID: '',
+      twitterAccount: '',
+      twitterCard: 'summary',
+      type: 'Organization',
+      color: '#fff'
+    },
     currentWidgetList: window.localStorage.getItem('page') ? JSON.parse(window.localStorage.getItem('page')).data : [],
     rawWidgetList: rawWidgetList
   },
+  getters: {
+    settings (state) {
+      return state.settings
+    }
+  },
   mutations: {
+    updateSettings (state, payload) {
+      state.settings = payload
+      window.localStorage.setItem('settings', JSON.stringify(state.settings))
+    },
     moveWidget (state, payload) {
       // TODO: do better
       function arrayMove (x, from, to) {
@@ -77,6 +104,9 @@ export default {
     }
   },
   actions: {
+    updateSettings (context, payload) {
+      context.commit('updateSettings', payload)
+    },
     moveWidget (context, payload = {direction: null, key: null}) {
       context.commit('moveWidget', payload)
     },

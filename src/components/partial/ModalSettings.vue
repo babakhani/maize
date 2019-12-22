@@ -17,61 +17,186 @@
         {{ $t('modal.ok') }}
       </b-button>
     </template>
-    <div class="row" >
-      <div class="col-12 col-md-6">
-        <form action="#!">
-          <div class="form-group">
-            <label>{{ $t('settings.title') }}</label>
-            <input type="text" id="title" class="form-control"
-              :placeholder="$t('settings.title-placeholder')">
-          </div>
-          <div class="form-group">
-            <label>{{ $t('settings.description') }}</label>
-            <input type="email" id="description" class="form-control"
-              :placeholder="$t('settings.description-placeholder')">
-          </div>
-          <div class="form-group">
-            <label>{{ $t('settings.type') }}</label>
-            <input type="text" id="type" class="form-control"
-              :placeholder="$t('settings.type-placeholder')">
-          </div>
-          <div class="form-group">
-            <label>{{ $t('settings.twitter-account') }}</label>
-            <input type="text" id="twitter" class="form-control"
-              :placeholder="$t('settings.twitter-placeholder')">
-          </div>
-          <div class="form-group">
-            <label>{{ $t('settings.instagram-account') }}</label>
-            <input type="text" id="instagram" class="form-control"
-              :placeholder="$t('settings.instagram-placeholder')">
-          </div>
+    <b-tabs 
+      v-if="siteSettings"
+      card>
+      <b-tab active>
+        <template slot="title">
+          <icon class="upload-image-icon"
+                name="link"></icon>
+          <strong> {{ $t('settings.header') }}</strong>
+        </template>
+        <div class="row" >
+          <div class="col-12 col-md-6">
+            <form action="#!">
+              <div class="form-group">
+                <label>{{ $t('settings.name') }}</label>
+                <input 
+                   v-model="siteSettings.name"
+                   type="text" 
+                   id="title" 
+                   class="form-control"
+                  :placeholder="$t('settings.name-placeholder')">
+              </div>
+              <div class="form-group">
+                <label>{{ $t('settings.title') }}</label>
+                <input 
+                   v-model="siteSettings.title"
+                   type="text" 
+                   id="title" 
+                   class="form-control"
+                  :placeholder="$t('settings.title-placeholder')">
+              </div>
+              <div class="form-group">
+                <label>{{ $t('settings.description') }}</label>
+                <input 
+                  v-model="siteSettings.description"
+                  type="email" 
+                  id="description" 
+                  class="form-control"
+                  :placeholder="$t('settings.description-placeholder')">
+              </div>
+              <div class="form-group">
+                <label>{{ $t('settings.language') }}</label>
+                <input 
+                   v-model="siteSettings.language"
+                   type="text" 
+                   id="title" 
+                   class="form-control"
+                  :placeholder="$t('settings.language-placeholder')">
+              </div>
+              <div class="form-group">
+                <label>{{ $t('settings.secureURL') }}</label>
+                <input 
+                   v-model="siteSettings.secureURL"
+                   type="text" 
+                   id="title" 
+                   class="form-control"
+                  :placeholder="$t('settings.secureURL-placeholder')">
+              </div>
+              <div class="form-group">
+                <label>{{ $t('settings.baseURL') }}</label>
+                <input 
+                   v-model="siteSettings.baseURL"
+                   type="text" 
+                   id="title" 
+                   class="form-control"
+                  :placeholder="$t('settings.baseURL-placeholder')">
+              </div>
+              <div class="form-group">
+                <label>{{ $t('settings.type') }}</label>
+                <input 
+                  v-model="siteSettings.type"
+                  type="text" 
+                  id="type" 
+                  class="form-control"
+                  :placeholder="$t('settings.type-placeholder')">
+              </div>
+              <div class="form-group">
+                <label>{{ $t('settings.canonical') }}</label>
+                <input 
+                  v-model="siteSettings.canonical"
+                  type="text" 
+                  id="canonical" 
+                  class="form-control"
+                  :placeholder="$t('settings.canonical-placeholder')">
+              </div>
+              <div class="form-group">
+                <label>{{ $t('settings.image') }}</label>
+                <input 
+                  v-model="siteSettings.image"
+                  type="text" 
+                  id="logo" 
+                  class="form-control"
+                  :placeholder="$t('settings.image')">
+              </div>
 
-          <div class="form-group">
-            <label>{{ $t('settings.canonical') }}</label>
-            <input type="text" id="canonical" class="form-control"
-              :placeholder="$t('settings.canonical-placeholder')">
+              <div class="form-group w-25">
+                <label>{{ $t('settings.color') }}</label>
+                <input 
+                  v-model="siteSettings.color"
+                  type="color" 
+                  id="colorPicker" 
+                  class="form-control"
+                  :placeholder="$t('settings.color-placeholder')">
+              </div>
+              <div class="form-group">
+                <label>{{ $t('settings.nextURL') }}</label>
+                <input 
+                   v-model="siteSettings.nextURL"
+                   type="text" 
+                   id="title" 
+                   class="form-control"
+                  :placeholder="$t('settings.nextURL-placeholder')">
+              </div>
+              <div class="form-group">
+                <label>{{ $t('settings.image') }}</label>
+                <input 
+                   v-model="siteSettings.image"
+                   type="text" 
+                   id="title" 
+                   class="form-control"
+                  :placeholder="$t('settings.image-placeholder')">
+              </div>
+              <div class="form-group">
+                <label>{{ $t('settings.imageWidth') }}</label>
+                <input 
+                   v-model="siteSettings.imageWidth"
+                   type="text" 
+                   id="title" 
+                   class="form-control"
+                  :placeholder="$t('settings.imageWidth-placeholder')">
+              </div>
+              <div class="form-group">
+                <label>{{ $t('settings.imageHeight') }}</label>
+                <input 
+                   v-model="siteSettings.imageHeight"
+                   type="text" 
+                   id="title" 
+                   class="form-control"
+                  :placeholder="$t('settings.imageHeight-placeholder')">
+              </div>
+              <div class="form-group">
+                <label>{{ $t('settings.imageType') }}</label>
+                <input 
+                   v-model="siteSettings.imageType"
+                   type="text" 
+                   id="title" 
+                   class="form-control"
+                  :placeholder="$t('settings.imageType-placeholder')">
+              </div>
+              <div class="form-group">
+                <label>{{ $t('settings.facebookAppID') }}</label>
+                <input 
+                   v-model="siteSettings.facebookAppID"
+                   type="text" 
+                   id="title" 
+                   class="form-control"
+                  :placeholder="$t('settings.facebookAppID-placeholder')">
+              </div>
+              <div class="form-group">
+                <label>{{ $t('settings.twitterAccount') }}</label>
+                <input 
+                   v-model="siteSettings.twitterAccount"
+                   type="text" 
+                   id="title" 
+                   class="form-control"
+                  :placeholder="$t('settings.twitterAccount-placeholder')">
+              </div>
+              <div class="form-group">
+                <label>{{ $t('settings.twitterCard') }}</label>
+                <input 
+                   v-model="siteSettings.twitterCard"
+                   type="text" 
+                   id="title" 
+                   class="form-control"
+                  :placeholder="$t('settings.twitterCard-placeholder')">
+              </div>
+            </form>
           </div>
-
-          <div class="form-group">
-            <label>{{ $t('settings.logo-url') }}</label>
-            <input type="text" id="logo" class="form-control"
-              :placeholder="$t('settings.logo-placeholder')">
-          </div>
-
-          <div class="form-group">
-            <label>{{ $t('settings.banner-url') }}</label>
-            <input type="text" id="banner" class="form-control"
-              :placeholder="$t('settings.banner-placeholder')">
-          </div>
-
-          <div class="form-group w-25">
-            <label>{{ $t('settings.banner-color') }}</label>
-            <input type="color" id="colorPicker" class="form-control"
-              :placeholder="$t('settings.color-placeholder')">
-          </div>
-        </form>
-      </div>
-    </div>
+        </div>
+      </b-tab>
+    </b-tabs>
   </b-modal>
 </template>
 
@@ -83,6 +208,14 @@ import ImageSaver from '../../service/image-saver'
 export default {
   name: 'ModalSettings',
   components: { UploadImage },
+  data () {
+    return {
+      siteSettings: {
+        title: 'Main'
+      },
+      pickedLinkSrc: null
+    }
+  },
   methods: {
     onHide () {
       this.$store.dispatch('layout/setSettingsMode', false)
@@ -90,8 +223,13 @@ export default {
     onOk (e) {
       e.preventDefault()
       this.onHide()
+      this.$store.dispatch('main/updateSettings', this.siteSettings)
       return false
     }
+  },
+  mounted () {
+    this.siteSettings = this._.cloneDeep(this.$store.getters['main/settings'])
+    console.log()
   },
   computed: {
     randomImageList () {
@@ -104,11 +242,6 @@ export default {
       set (value) {
         this.$store.dispatch('layout/setSettingsMode', value)
       }
-    }
-  },
-  data () {
-    return {
-      pickedLinkSrc: null
     }
   }
 }

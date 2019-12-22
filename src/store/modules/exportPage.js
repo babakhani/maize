@@ -2,10 +2,6 @@ import i18n from '@/i18n'
 
 export default {
   namespaced: true,
-  state: {
-  },
-  mutations: {
-  },
   actions: {
     exportPage (context) {
       const data = JSON.stringify(context.rootState.main.currentWidgetList)

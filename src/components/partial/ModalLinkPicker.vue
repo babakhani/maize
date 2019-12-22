@@ -24,9 +24,9 @@
     <b-tabs card>
       <b-tab active>
         <template slot="title">
-          <strong> {{ $t('modal.pick_link') }}</strong>
           <icon class="upload-image-icon"
                 name="images"></icon>
+          <strong> {{ $t('modal.pick_link') }}</strong>
         </template>
         <b-form-input type="text"
                       v-model="pickedLinkSrc"
