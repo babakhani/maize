@@ -27,40 +27,40 @@ const Mixin = {
           return `https://picsum.photos/${width}/${height}`
         },
         big () {
-          return '/imgs/img_wide.png'
+          return 'imgs/img_wide.png'
         },
         tall () {
-          return '/imgs/img_tall.png'
+          return 'imgs/img_tall.png'
         },
         icon () {
-          return '/imgs/img_square_1.svg'
+          return 'imgs/img_square_1.svg'
         },
         wide () {
-          return '/imgs/img_very_wide.svg'
+          return 'imgs/img_very_wide.svg'
         },
         rounded () {
-          return '/imgs/img_round.png'
+          return 'imgs/img_round.png'
         },
         logo () {
-          return '/imgs/img_logo.png'
+          return 'imgs/img_logo.png'
         },
         customer_1 () {
-          return '/imgs/customers/adobe.svg'
+          return 'imgs/customers/adobe.svg'
         },
         customer_2 () {
-          return '/imgs/customers/discovery.svg'
+          return 'imgs/customers/discovery.svg'
         },
         customer_3 () {
-          return '/imgs/customers/ebay.svg'
+          return 'imgs/customers/ebay.svg'
         },
         customer_4 () {
-          return '/imgs/customers/samsung.svg'
+          return 'imgs/customers/samsung.svg'
         },
         customer_5 () {
-          return '/imgs/customers/orange.svg'
+          return 'imgs/customers/orange.svg'
         },
         customer_6 () {
-          return '/imgs/customers/salesforce.svg'
+          return 'imgs/customers/salesforce.svg'
         }
       },
       footer: {

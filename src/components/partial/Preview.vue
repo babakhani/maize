@@ -6,13 +6,7 @@
          width: `${previewSize}`,
        }"
        class="preview-frame">
-    <FrameChild 
-       title="this is iframe title">
-    <link href="/lib/bootstrap.min.css"
-          rel="stylesheet"
-          crossorigin="anonymous">
-    <link rel="stylesheet"
-          href="/lib/maize_blocks.min.css">
+    <FrameChild>
     <component 
           v-for="widget in currentWidgetList"
           :key="widget.uniqeId"
@@ -30,29 +24,30 @@
 import Widgets from '../widgets'
 import Frame from './Frame.vue'
 import FrameChild from './FrameChild.vue'
+import {EventBus} from '@/events/event-bus.js'
 export default {
   name: 'Preview',
   components: {...Widgets, Frame, FrameChild},
   mounted () {
-    setTimeout(() => {
-      if (this.$refs.frame) {
-        let frameContent = this.$refs.frame.$el.contentDocument || this.$refs.frame.contentWindow.document
-        console.log(frameContent.documentElement.innerHTML)
-        this.download('index.html', frameContent.documentElement.innerHTML)
-      }
-    }, 1000)
+    let that = this
+    EventBus.$on('downloadHtml', event => {
+       that.down()
+    })
   },
   methods: {
+    down () {
+      if (this.$refs && this.$refs.frame) {
+        let frameContent = this.$refs.frame.$el.contentDocument || this.$refs.frame.contentWindow.document
+        this.download('index.html', frameContent.documentElement.innerHTML)
+      }
+    },
     download(filename, text) {
       var element = document.createElement('a');
       element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
       element.setAttribute('download', filename);
-
       element.style.display = 'none';
       document.body.appendChild(element);
-
       element.click();
-
       document.body.removeChild(element);
     }
   },

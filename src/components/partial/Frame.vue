@@ -5,6 +5,7 @@
 
 <script>
 import Vue from 'vue'
+import Head from "../../service/head"
 export default {
   name: 'frame',
   beforeUpdate() {
@@ -22,14 +23,7 @@ export default {
       const children = this.$slots.default
       const body = this.$el.contentDocument.body
       const head = this.$el.contentDocument.head
-      console.log('frame head')
-      console.log(head)
-      head.innerHTML = `
-<meta charset="utf-8">
-<title>maize</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-`
+      head.innerHTML = Head
       const el = document.createElement('DIV') // we will mount or nested app to this element
       body.appendChild(el)
       const iApp = new Vue({
@@ -38,7 +32,7 @@ export default {
         data: { children: Object.freeze(children) },
         render(h) {
           return h('div', this.children)
-        },
+        }
       })
       iApp.$mount(el) // mount into iframe
       this.iApp = iApp // cache instance for later updates

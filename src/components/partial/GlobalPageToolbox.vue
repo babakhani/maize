@@ -127,64 +127,66 @@
   </header>
 </template>
 <script>
-  export default {
-    name: 'PageToolbax',
-    methods: {
-      goToAddWidgetMode () {
-        this.$store.dispatch('layout/setAddWidgetMode', true)
-      },
-      toggleLanguage () {
-        if (this.currentLocale == 'fa') {
-          this.$store.dispatch('locale/changeLang', 'en')
-        } else {
-          this.$store.dispatch('locale/changeLang', 'fa')
-        }
-      },
-      undo () {
-        this.$store.dispatch('undo')
-      },
-      redo () {
-        this.$store.dispatch('redo')
-      },
-      setPreviewMode (e) {
-        this.$store.dispatch('layout/setPreviewMode', e.target.checked)
-      },
-      setMobilePreviewMode () {
-        this.$store.dispatch('layout/setMobilePreviewMode', !this.mobilePreviewMode)
-      },
-      setTabletPreviewMode () {
-        this.$store.dispatch('layout/setTabletPreviewMode', !this.tabletPreviewMode)
-      },
-      setDesktopPreviewMode () {
-        this.$store.dispatch('layout/setMobilePreviewMode', false)
-        this.$store.dispatch('layout/setTabletPreviewMode', false)
-      },
-      gotToAddWidgetMode () {
-        this.$store.dispatch('layout/setAddWidgetMode', true)
-      },
-      exportPage () {
-        this.$store.dispatch('exportPage/exportPage', true)
-      },
-      goToSettingsMode () {
-        this.$store.dispatch('layout/setSettingsMode', true)
+import {EventBus} from '@/events/event-bus.js'
+export default {
+  name: 'PageToolbax',
+  methods: {
+    goToAddWidgetMode () {
+      this.$store.dispatch('layout/setAddWidgetMode', true)
+    },
+    toggleLanguage () {
+      if (this.currentLocale == 'fa') {
+        this.$store.dispatch('locale/changeLang', 'en')
+      } else {
+        this.$store.dispatch('locale/changeLang', 'fa')
       }
     },
-    computed: {
-      currentLocale () {
-        return this.$store.state.locale.currentLocale
-      },
-      previewMode () {
-        return this.$store.state.layout.previewMode
-      },
-      mobilePreviewMode () {
-        return this.$store.state.layout.mobilePreviewMode
-      },
-      tabletPreviewMode () {
-        return this.$store.state.layout.tabletPreviewMode
-      },
-      autosaveStatus: function () {
-        return this.status;
-      }
+    undo () {
+      this.$store.dispatch('undo')
+    },
+    redo () {
+      this.$store.dispatch('redo')
+    },
+    setPreviewMode (e) {
+      this.$store.dispatch('layout/setPreviewMode', e.target.checked)
+    },
+    setMobilePreviewMode () {
+      this.$store.dispatch('layout/setMobilePreviewMode', !this.mobilePreviewMode)
+    },
+    setTabletPreviewMode () {
+      this.$store.dispatch('layout/setTabletPreviewMode', !this.tabletPreviewMode)
+    },
+    setDesktopPreviewMode () {
+      this.$store.dispatch('layout/setMobilePreviewMode', false)
+      this.$store.dispatch('layout/setTabletPreviewMode', false)
+    },
+    gotToAddWidgetMode () {
+      this.$store.dispatch('layout/setAddWidgetMode', true)
+    },
+    exportPage () {
+      // this.$store.dispatch('exportPage/exportPage', true)
+      EventBus.$emit('downloadHtml')
+    },
+    goToSettingsMode () {
+      this.$store.dispatch('layout/setSettingsMode', true)
+    }
+  },
+  computed: {
+    currentLocale () {
+      return this.$store.state.locale.currentLocale
+    },
+    previewMode () {
+      return this.$store.state.layout.previewMode
+    },
+    mobilePreviewMode () {
+      return this.$store.state.layout.mobilePreviewMode
+    },
+    tabletPreviewMode () {
+      return this.$store.state.layout.tabletPreviewMode
+    },
+    autosaveStatus: function () {
+      return this.status;
     }
   }
+}
 </script>
