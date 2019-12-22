@@ -45,6 +45,9 @@ export default (settings) => { return `
   <link rel="stylesheet"
         crossorigin="anonymous"
         href="https://gitcdn.link/repo/babakhani/maize/master/public/lib/maize_blocks.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" 
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" 
+        crossorigin="anonymous">
   <script 
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         type="text/javascript" 
