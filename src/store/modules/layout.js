@@ -8,6 +8,7 @@ export default {
     pickVideoMode: false,
     pickVideoType: false,
     pickLinkType: false,
+    pickLinkCurrent: '',
     settingsMode: false,
     pageSideBarIsActive: false,
     selectedItemProperties: {}
@@ -51,6 +52,9 @@ export default {
     setPickLinkMode (state, payload) {
       state.pickLinkType = payload
     },
+    setPickLinkCurrent (state, payload) {
+      state.pickLinkCurrent = payload
+    },
     setSettingsMode (state, payload) {
       state.settingsMode = payload
     }
@@ -64,9 +68,6 @@ export default {
     },
     setPageSideBarIsActive (context, payload) {
       context.commit('setPageSideBarIsActive', payload)
-    },
-    setMobilePreviewMode (context, payload) {
-      context.commit('setMobilePreviewMode', payload)
     },
     setTabletPreviewMode (context, payload) {
       context.commit('setTabletPreviewMode', payload)
@@ -88,6 +89,9 @@ export default {
     },
     setPickLinkMode (context, payload) {
       context.commit('setPickLinkMode', payload)
+    },
+    setPickLinkCurrent (context, payload) {
+      context.commit('setPickLinkCurrent', payload)
     },
     setSettingsMode (context, payload) {
       context.commit('setSettingsMode', payload)

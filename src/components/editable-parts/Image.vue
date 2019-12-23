@@ -56,14 +56,14 @@
     mixins: [EditablePartMixin],
     methods: {
       setPickLinkMode () {
-
+        if (this.touchedData.href) {
+          this.$store.dispatch('layout/setPickLinkCurrent', this.touchedData.href)
+        }
         this.$store.dispatch('layout/setPickLinkMode', true)
         EventBus.$once('pickLink', (linkHref) => {
           this.touchedData.href = linkHref
           this.updateWidget()
         })
-
-
       },
       setPickImageMode (noCheckState) {
         this.goToEditMode()

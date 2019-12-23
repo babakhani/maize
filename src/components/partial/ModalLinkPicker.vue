@@ -29,7 +29,7 @@
           <strong> {{ $t('modal.pick_link') }}</strong>
         </template>
         <b-form-input type="text"
-                      v-model="pickedLinkSrc"
+                      v-model="pickLinkCurrent"
                       :placeholder="$t('insert_link')">
         </b-form-input>
       </b-tab>
@@ -52,15 +52,22 @@ export default {
     },
     onOk (e) {
       e.preventDefault()
+      EventBus.$emit('pickLink', this.pickLinkCurrent)
       this.onHide()
-      EventBus.$emit('pickLink', this.pickedLinkSrc)
-      this.pickedLinkSrc = null
       return false
     }
   },
   computed: {
     randomImageList () {
       return this.$store.state.unsplash.imageList
+    },
+    pickLinkCurrent: {
+      get () {
+        return this.$store.state.layout.pickLinkCurrent
+      },
+      set (value) {
+        this.$store.dispatch('layout/setPickLinkCurrent', value)
+      }
     },
     showModal: {
       get () {
@@ -69,11 +76,6 @@ export default {
       set (value) {
         this.$store.dispatch('layout/setPickLinkMode', value)
       }
-    }
-  },
-  data () {
-    return {
-      pickedLinkSrc: null
     }
   }
 }
