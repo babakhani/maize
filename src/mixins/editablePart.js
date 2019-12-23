@@ -39,7 +39,9 @@ const Mixin = {
       }
     },
     toggleEditMode () {
-      this.$parent.toggleEditMode()
+      if (this.$parent.toggleEditMode) {
+        this.$parent.toggleEditMode()
+      }
     },
     goToEditMode () {
       if (this.editMode === false) {

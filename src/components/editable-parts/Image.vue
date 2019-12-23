@@ -1,8 +1,7 @@
 <template>
   <div class="editable-image editable-part"
        @mouseenter="mouseInElement"
-       @mouseleave="mouseLeaveElement"
-       @dblclick="setPickImageMode(true)">
+       @mouseleave="mouseLeaveElement">
     <button v-if="editMode && showToolboxButton"
             class="btn btn-link editable-part--settings-btn"
             :title="$t('toolbox.settings')"
@@ -68,11 +67,13 @@
       setPickImageMode (noCheckState) {
         this.goToEditMode()
         if (this.editMode || noCheckState == true) {
-          this.$store.dispatch('layout/setPickImageMode', true)
-          EventBus.$once('pickImage', (imageSrc) => {
-            this.touchedData.src = imageSrc
-            this.updateWidget()
-          })
+          if (this.$store) {
+            this.$store.dispatch('layout/setPickImageMode', true)
+            EventBus.$once('pickImage', (imageSrc) => {
+              this.touchedData.src = imageSrc
+              this.updateWidget()
+            })
+          }
         }
       },
       imageUpload (e) {

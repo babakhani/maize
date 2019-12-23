@@ -9,6 +9,7 @@
        class="preview-frame">
     <FrameChild>
     <component 
+          :id="widget.uniqeId"
           v-for="widget in currentWidgetList"
           :key="widget.uniqeId"
           ref="widegtContainer"

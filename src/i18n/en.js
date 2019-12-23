@@ -64,6 +64,8 @@ export default {
     }
   },
   'settings': {
+    'url': 'URL',
+    'page_sections': 'Link To Page Sections',
     'name': 'Name',
     'name-placeholder': 'ex: Maize',
     'title': 'Title',

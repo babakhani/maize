@@ -28,13 +28,22 @@
                 name="images"></icon>
           <strong> {{ $t('modal.pick_link') }}</strong>
         </template>
-        <b-form-input type="text"
-                      v-model="pickLinkCurrent"
-                      :placeholder="$t('insert_link')">
-        </b-form-input>
+        <div class="form-group">
+          <label>{{ $t('settings.url') }}</label>
+          <b-form-input type="text"
+                        v-model="pickLinkCurrent"
+                        :placeholder="$t('insert_link')">
+          </b-form-input>
+        </div>
+        <div class="form-group">
+          <label>{{ $t('settings.page_sections') }}</label>
+          <b-form-select v-model="pickLinkCurrent" class="mb-3">
+            <option v-for="widget in currentWidgetList"
+                    :value="`#${widget.uniqeId}`">{{ widget.uniqeId }}</option> 
+          </b-form-select>
+        </div>
       </b-tab>
     </b-tabs>
-
   </b-modal>
 </template>
 
@@ -46,6 +55,11 @@ import ImageSaver from '../../service/image-saver'
 export default {
   name: 'LinkPickerModal',
   components: { UploadImage },
+  data () {
+    return {
+      innerLink: null
+    }
+  },
   methods: {
     onHide () {
       this.$store.dispatch('layout/setPickLinkMode', false)
@@ -67,6 +81,14 @@ export default {
       },
       set (value) {
         this.$store.dispatch('layout/setPickLinkCurrent', value)
+      }
+    },
+    currentWidgetList: {
+      get () {
+        return this.$store.state.main.currentWidgetList
+      },
+      set (value) {
+        this.$store.dispatch('main/sortCurrentWidgetList', value)
       }
     },
     showModal: {
