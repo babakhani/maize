@@ -11,6 +11,7 @@
             @click="showToolbox">
       <icon name="cog"></icon>
       <EditablePartToolbox 
+        :visibile-link-selector="tag === 'a'"
         :toolbox-visible="toolboxVisible"
         :currentStyles="touchedData.styles"
         @hide="hideToolbox"
@@ -25,7 +26,7 @@
         v-bind:style="touchedData.styles"
         :class="touchedData.cssClass"
         :contenteditable="editMode"
-        :href="tag === 'a' ? touchedData.src : false"
+        :href="tag === 'a' ? touchedData.href : false"
         :target="tag === 'a' ? '_blank' : false"
         @focus="showToolbox"
         @focusout="updateTextOnBlur"
@@ -40,7 +41,7 @@
         v-bind:style="touchedData.styles"
         :class="touchedData.cssClass"
         :contenteditable="editMode"
-        :href="tag === 'a' ? touchedData.src : false"
+        :href="tag === 'a' ? touchedData.href : false"
         :target="tag === 'a' ? '_blank' : false"
         v-html="touchedData.text"
         @focus="showToolbox"
@@ -73,9 +74,12 @@
       setPickLinkMode () {
         this.goToEditMode()
         if (this.editMode || noCheckState == true) {
+          if (this.touchedData.href) {
+            this.$store.dispatch('layout/setPickLinkCurrent', this.touchedData.href)
+          }
           this.$store.dispatch('layout/setPickLinkMode', true)
           EventBus.$once('pickLink', (linkSrc) => {
-            this.touchedData.src = linkSrc
+            this.touchedData.href = linkSrc
             this.updateWidget()
           })
         }

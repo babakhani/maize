@@ -104,7 +104,7 @@
                 'line-height': '2em'
               },
               text: this.faker.lorem.words(1),
-              src: this.faker.internet.url
+              href: this.faker.internet.url()
             },
             header_link_2: {
               styles: {
@@ -112,7 +112,7 @@
                 'line-height': '2em'
               },
               text: this.faker.lorem.words(1),
-              src: this.faker.internet.url
+              href: this.faker.internet.url()
             },
             header_link_3: {
               styles: {
@@ -120,7 +120,7 @@
                 'line-height': '2em'
               },
               text: this.faker.lorem.words(1),
-              src: this.faker.internet.url
+              href: this.faker.internet.url()
             },
             header_link_4: {
               styles: {
@@ -128,7 +128,7 @@
                 'line-height': '2em'
               },
               text: this.faker.lorem.words(1),
-              src: this.faker.internet.url
+              href: this.faker.internet.url()
             },
             header_social_link_1: {
               styles: {
@@ -136,7 +136,7 @@
                 'line-height': '2em'
               },
               text: '<i class="fab fa-slack"></i>',
-              src: this.faker.internet.url
+              href: this.faker.internet.url()
             },
             header_social_link_2: {
               styles: {
@@ -144,7 +144,7 @@
                 'line-height': '2em'
               },
               text: '<i class="fab fa-github"></i>',
-              src: this.faker.internet.url
+              href: this.faker.internet.url()
             },
             header_social_link_3: {
               styles: {
@@ -152,7 +152,7 @@
                 'line-height': '2em'
               },
               text: '<i class="fab fa-twitter"></i>',
-              src: this.faker.internet.url
+              href: this.faker.internet.url()
             }
           }
         },

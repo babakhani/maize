@@ -94,8 +94,8 @@
                   class="btn btn-sm widget-text-editable--toolbox--button">
             <maizcon name="strikethrough"></maizcon>
           </button>
-
           <button :title="$t('toolbox.link')"
+                  v-if="visibileLinkSelector"
                   v-b-tooltip.hover.top.small
                   @click="setPickLinkMode"
                   class="btn btn-sm widget-text-editable--toolbox--button">
@@ -461,6 +461,10 @@
     },
     props: {
       toolboxVisible: {
+        default: true, 
+        required: false 
+      },
+      visibileLinkSelector: {
         default: true, 
         required: false 
       },
