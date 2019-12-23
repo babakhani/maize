@@ -27,19 +27,19 @@ const Mixin = {
           return `https://picsum.photos/${width}/${height}`
         },
         big () {
-          return 'imgs/img_wide.png'
+          return 'imgs/wide.jpg'
         },
         tall () {
-          return 'imgs/img_tall.png'
+          return 'imgs/tall.jpg'
         },
         icon () {
           return 'imgs/img_square_1.svg'
         },
         wide () {
-          return 'imgs/img_very_wide.svg'
+          return 'imgs/wider.jpg'
         },
         rounded () {
-          return 'imgs/img_round.png'
+          return 'imgs/img_circle_300.png'
         },
         logo () {
           return 'imgs/img_logo.png'
