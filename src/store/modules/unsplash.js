@@ -14,7 +14,7 @@ export default {
   actions: {
     loadRandomImages (context, payload) {
       axios
-        .get('https://picsum.photos/v2/list?page=2&limit=20')
+        .get('https://picsum.photos/v2/list?page=1&limit=10')
         .then((response) => {
           context.commit('updateImageList', response.data)
       })

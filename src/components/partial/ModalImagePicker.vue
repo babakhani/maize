@@ -37,30 +37,21 @@
 
       <b-tab active class="py-2">
         <template slot="title">
-          <strong> {{ $t('modal.random_image') }}</strong>
           <icon class="upload-image-icon"
                 name="images"></icon>
+          <strong> {{ $t('modal.random_image') }}</strong>
         </template>
-        <!-- TODO: Uncomment after fix -->
-        <!--<div class="row">
-          <div class="col-12 text-center mb-4 image-picker-modal&#45;&#45;search-box">
-            <b-form-input type="text"
-            placeholder="Search Image here">
-            </b-form-input>
-          </div>
-        </div>-->
         <div class="image-picker-modal--body ">
           <div class="row px-2 py-1">
             <div class="col-6 col-sm-6 col-md-3 col-xl-3 h-100 image-picker-modal--image-container"
                  v-for="imageItem in randomImageList">
-                <pre>{{ imageItem }} </pre>
                 <div
                  class="image-picker-modal--image-thumb-box"
                  @click="pick(imageItem.download_url)"
                  @dblclick="pickAndHide(imageItem.download_url)"
                  :class="{'image-picker-modal-selected' : pickedImageSrc == imageItem.download_url }">
                   <img
-                    class="image-picker-modal--img p-2"
+                    class="image-picker-modal--img p-2 w-100"
                     :src="imageItem.download_url">
                 </div>
             </div>
@@ -70,9 +61,9 @@
       <b-tab class="h-100"
              title="Upload">
         <template slot="title">
-          <strong> {{ $t('modal.upload') }}</strong>
           <icon class="upload-image-icon"
                 name="upload"></icon>
+          <strong> {{ $t('modal.upload') }}</strong>
         </template>
         <UploadImage @chooseImage="chooseImage"></UploadImage>
       </b-tab>

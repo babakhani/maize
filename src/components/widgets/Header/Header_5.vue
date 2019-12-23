@@ -21,7 +21,7 @@
                </button>
                <div class="collapse navbar-collapse" id="navbarNav1">
                  <ul class="navbar-nav mr-auto">
-                   <li class="nav-item active">
+                   <li class="nav-item">
                      <TextEditable tag="a"
                                    cssClass="nav-link"
                                    name="header_link_1"
@@ -30,19 +30,19 @@
                    <li class="nav-item">
                      <TextEditable tag="a"
                                    cssClass="nav-link"
-                                   name="header_link_1"
+                                   name="header_link_2"
                                    :partData="touchedData.header_link_2"/>
                    </li>
                    <li class="nav-item">
                      <TextEditable tag="a"
                                    cssClass="nav-link"
-                                   name="header_link_1"
+                                   name="header_link_3"
                                    :partData="touchedData.header_link_3"/>
                    </li>
                    <li class="nav-item">
                      <TextEditable tag="a"
                                    cssClass="nav-link"
-                                   name="header_link_1"
+                                   name="header_link_4"
                                    :partData="touchedData.header_link_4"/>
                    </li>
                  </ul>
