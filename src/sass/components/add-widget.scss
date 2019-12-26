@@ -40,11 +40,11 @@
         cursor: pointer;
         width: 48px;
         height: 48px;
-        background: #f11d22;
+        background: $primary-color;
         border-radius: 100%;
-        box-shadow: 0 2px 4px 0 rgba(241, 29, 34, 0.5);
+        box-shadow: 0 2px 4px 0 rgba($primary-color, 0.5);
         &:hover {
-          border-color: #f11d22;
+          border-color: $primary-color;
         }
         .fa-icon {
           position: absolute;
@@ -56,7 +56,7 @@
       }
       .text-add-widget {
         font-size: 16px;
-        color: #f11d22;
+        border-color: $primary-color;
         margin-top: 15px;
         font-weight: normal;
       }
