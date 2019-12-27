@@ -35,8 +35,10 @@
                          :style="{'background-color': styles['color']}"
                          class="color-indicator"></div>
               </button>
-              <div class="dropdown-menu"
-                   aria-labelledby="dropdownMenuButtonColor">
+              <div 
+                 @click="(e) => {e.stopPropagation()}"
+                 class="dropdown-menu"
+                 aria-labelledby="dropdownMenuButtonColor">
                 <color-picker :value="styles['color']"
                    @input="updateColor">
                 </color-picker>
@@ -633,13 +635,14 @@
           this.styles['font-weight'] = 'bold'
         }
         this.update()
+        this.$forceUpdate()
       },
       updateColor (e) {
-        this.styles['color'] = e.hex
+        this.styles['color'] = `rgba(${e.rgba.r},${e.rgba.g},${e.rgba.b},${e.rgba.a})`
         this.update()
       },
       updateBgColor (e) {
-        this.styles['background-color'] = e.hex
+        this.styles['background-color'] = `rgba(${e.rgba.r},${e.rgba.g},${e.rgba.b},${e.rgba.a})`
         this.update()
       },
       align (direction) {
@@ -704,7 +707,7 @@
         this.update()
       },
       updateBorderColor (e) {
-        this.styles['border-color'] = e.hex
+        this.styles['border-color'] = `rgba(${e.rgba.r},${e.rgba.g},${e.rgba.b},${e.rgba.a})`
         this.update()
       },
       borderWidth (e) {
