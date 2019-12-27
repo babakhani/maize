@@ -3,17 +3,17 @@
 }
 .widget-text-editable--toolbox {
   position: fixed;
+  z-index: 100;
   width: 100%;
   bottom: 0;
   display: block;
-  font-size: 2rem !important;
-  z-index: 100000;
-  background: rgba(#000000, .9);
+  font-size: 1rem !important;
+  background: rgba($black, .95);
   position: fixed !important;
   border-radius: 0;
-  bottom: 0px; 
-  left: 0px;
-  right: 0px;
+  bottom: 0; 
+  left: 0;
+  right: 0;
   padding: 0;
   float: left;
   width: 100%;
@@ -30,10 +30,10 @@
   .widget-text-editable--toolbox--group-separator {
     display: inline;
     float: left;
-    height: 1em;
+    height: 2.9em;
     margin: .3em .3em;
     width: 1px;
-    background: rgba($white, 0.3);
+    background: rgba($primary-color, 0.6);
   }
 
   .dropdown,
@@ -56,14 +56,14 @@
     }
 
     .dropdown-menu {
-      background: rgba(#000, 0.9);
-      margin-top: 0;
-      min-width: 2em;
+      z-index: 100000;
+      background: rgba($black, 0.9);
+      min-width: 4em;
       .dropdown-item {
         padding: .25em .75em
       }
       label {
-        color: rgba(#fff, .6);
+        color: rgba($white, .6);
         width: 90%;
         padding: 0;
         margin: 5% 5% 0 5%;
@@ -74,13 +74,13 @@
 
       input[type='number'],
       input[type='text'] {
-        color: rgba(#fff, .05);
-        background: transparent;
+        color: rgba($white, .05);
+        background: rgba($white, .05);
         border: 0;
-        color: #fff;
+        color: $white;
         width: 90%;
         padding: 0;
-        margin: 5% 5% 0 5%;
+        margin: 0 5% 0 5%;
       }
 
       input[type='range'] {
@@ -112,17 +112,15 @@
   .widget-text-editable--toolbox--button {
     color: $white;
     border: 1px solid rgba($primary-color, .2);
-    width: 36px;
-    height: 36px;
+    width: 3em;
+    height: 3em;
     margin: 3px;
     float: left;
     padding: 9px;
     cursor: pointer;
     background: transparent;
-    line-height: 10px;
-    min-height: 40px;
     position: relative;
-
+    font-size: inherit;
     .color-indicator {
       position: absolute;
       width: 6px;

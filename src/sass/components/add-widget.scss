@@ -9,10 +9,11 @@
 
   // TODO: bita fix class name
   .add-widget-box--main {
+    border-radius: 100%;
+    width: 20em;
+    height: 20em;
     cursor: pointer;
-    min-height: 400px;
-    background: rgba($primary-color, 0.05);
-    border-radius: 4px;
+    background: rgba($primary-color, 0.02);
     position: relative;
 
     &:hover {
@@ -20,8 +21,6 @@
     }
 
     .add-widget-box--main--details {
-      border: 2px dashed rgba($primary-color, 0.2);
-      border-radius: 4px;
       text-align: center;
       top: 2em;
       left: 2em;
@@ -38,11 +37,12 @@
       .btn-add-widget {
         position: relative;
         cursor: pointer;
-        width: 48px;
-        height: 48px;
-        background: $primary-color;
+        width: 1.5em;
+        height: 1.5em;
+        border: 2px solid $primary-color;
         border-radius: 100%;
         box-shadow: 0 2px 4px 0 rgba($primary-color, 0.5);
+        font-size: 5em;
         &:hover {
           border-color: $primary-color;
         }
@@ -51,7 +51,7 @@
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50% );
-          color: $white;
+          color: $primary-color;
         }
       }
       .text-add-widget {
