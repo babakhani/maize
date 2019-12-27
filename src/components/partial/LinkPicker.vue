@@ -9,13 +9,17 @@
       <div class="form-group">
         <label>{{ $t('settings.url') }}</label>
         <b-form-input type="text"
-                      v-model="pickLinkCurrent"
+                      v-model="pickLink"
+                      @input="updatePreData"
                       :placeholder="$t('insert_link')">
         </b-form-input>
       </div>
       <div class="form-group">
         <label>{{ $t('settings.page_sections') }}</label>
-        <b-form-select v-model="pickLinkCurrent" class="mb-3">
+        <b-form-select 
+          @change="updatePreData"
+          v-model="pickLink" 
+          class="mb-3">
           <option v-for="widget in currentWidgetList"
                   :value="`#${widget.uniqeId}`">{{ widget.uniqeId }}</option> 
         </b-form-select>
@@ -26,50 +30,31 @@
 
 <script>
 import { EventBus } from '../../events/event-bus'
-import UploadImage from './UploaderImage.vue'
 
 export default {
   name: 'LinkPickerModal',
   data () {
     return {
-      innerLink: null
+      pickLink: null
+    }
+  },
+  mounted () {
+    this.pickLink = this.value
+  },
+  props: {
+    value: {
+      type: [Object, Boolean, Array, String],
+      required: false
     }
   },
   methods: {
-    onHide () {
-      this.$store.dispatch('layout/setPickLinkMode', false)
-    },
-    onOk (e) {
-      e.preventDefault()
-      EventBus.$emit('pickLink', this.pickLinkCurrent)
-      this.onHide()
-      return false
+    updatePreData () {
+      this.$emit('input', this.pickLink)
     }
   },
   computed: {
-    pickLinkCurrent: {
-      get () {
-        return this.$store.state.layout.pickLinkCurrent
-      },
-      set (value) {
-        this.$store.dispatch('layout/setPickLinkCurrent', value)
-      }
-    },
-    currentWidgetList: {
-      get () {
+    currentWidgetList () {
         return this.$store.state.main.currentWidgetList
-      },
-      set (value) {
-        this.$store.dispatch('main/sortCurrentWidgetList', value)
-      }
-    },
-    showModal: {
-      get () {
-        return this.$store.state.layout.pickLinkType
-      },
-      set (value) {
-        this.$store.dispatch('layout/setPickLinkMode', value)
-      }
     }
   }
 }

@@ -18,52 +18,55 @@
       </b-button>
     </template>
     <LinkPicker
-        @pick="pick()"
-        @pickandhide="onHide"
-        v-if="modalName == 'link'"
-        :pre-data="preData" />
-    <IconSelector 
-        @pick="pick()"
-        @pickandhide="onHide"
+        v-model="widgetData.href"
+        v-if="modalName == 'link'" />
+    <ImagePicker
+        v-model="widgetData.src"
+        v-if="modalName == 'image'"
+        @hide="hide" />
+    <IconPicker 
+        v-model="widgetData.iconName"
         v-if="modalName == 'icon'"
-        :pre-data="preData" />
+        @hide="hide" />
   </b-modal>
 </template>
 
 <script>
 import { EventBus } from '../../events/event-bus'
-import IconSelector from './IconSelector'
+import IconPicker from './IconPicker'
 import LinkPicker from './LinkPicker'
+import ImagePicker from './ImagePicker'
 
 export default {
   name: 'ModalSettings',
-  data () { return { } },
+  data () { return { modalData: null } },
   components: {
-    IconSelector,
+    ImagePicker,
+    IconPicker,
     LinkPicker
   },
   methods: {
-    pick () {
-      console.log('modal pick method')
+    hide () {
+      EventBus.$emit('UPDATE_WIDGET_DATA', this.widgetData)
+      this.showModal = false
     },
     onHide () {
       this.$store.dispatch('layout/hideModalView')
+      //EventBus.$emit('UPDATE_WIDGET_DATA', this.widgetData)
     },
     onOk (e) {
+      EventBus.$emit('UPDATE_WIDGET_DATA', this.widgetData)
       e.preventDefault()
       this.onHide()
       return false
     }
   },
-  mounted () {
-    console.log()
-  },
   computed: {
     modalName () {
       return this.$store.state.layout.modalName
     },
-    preData () {
-      return this.$store.state.layout.modalDefaultData
+    widgetData () {
+      return this._.cloneDeep(this.$store.state.layout.modalDefaultData)
     },
     showModal: {
       get () {

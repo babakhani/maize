@@ -77,8 +77,8 @@ const Mixin = {
       this.toolboxVisible = false
       this.showToolboxButton = false
     },
-    showToolbox () {
-      console.log('showToolbox')
+    showToolbox (e) {
+      e.preventDefault()
       this.toolboxVisible = true
       EventBus.$emit('igotoeditmode', this._uid)
     }

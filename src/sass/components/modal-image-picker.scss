@@ -1,108 +1,58 @@
-.image-picker-modal {
-  .modal {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    bottom: 0;
-    position: absolute;
-    padding: 1em;
-    margin: 0;
-    padding-left: 0;
-  }
-  .modal-dialog {
+.image-picker--image-container {
+  display: block;
+  //overflow: hidden;
+  position: relative;
+
+  .image-picker--image-thumb-box {
     display: block;
-    width: 100% !important;
-    max-width: 100% !important;
-    height: 100%;
-    top: 0;
-    bottom: 0;
-    position: absolute;
-    padding: 1em;
-    margin: 0;
-    .modal-content {
-      height: 100%;
+    &.selected {
+      outline: 2px solid rgba($primary-color, 0.6);
     }
+
+    &:hover,
+    &:focus,
+    &:active {
+      outline: 2px solid rgba($primary-color, 0.6);
+    }
+
+    img {
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}
+
+.modal-body {
+  overflow: hidden;
+  padding: 0;
+  .card {
+    border: 0 !important;
+  }
+  .tabs {
+    height: 90%;
   }
   .tab-content {
-    overflow: auto;
-    height: calc(100vh - 200px);
+    height: 100%;
   }
-
-  .image-picker-modal--search-box {
-    //margin-bottom: 2em;
+}
+footer {
+  padding: 15px !important;
+}
+svg {
+  &.upload-image-icon {
+    height: 1em;
   }
-
-  .image-picker-modal--image-container {
-    display: block;
-    //overflow: hidden;
-    position: relative;
-
-    &::before {
-      content: " ";
-      display: block;
-      width: 100%;
-      padding-top: 75%; /* initial ratio of 1:1*/
-    }
-
-    .image-picker-modal--image-thumb-box {
-      position: absolute;
-      top: .5em;
-      bottom: .5em;
-      right: .5em;
-      left: .5em;
-      background: #f7f7f7;
-      &.image-picker-modal-selected {
-        outline: 2px solid rgba(40, 167, 70, 0.6);
-      }
-
-      &:hover,
-      &:focus,
-      &:active {
-        outline: 2px solid rgba(250, 0, 0, 0.6);
-      }
-
-      img {
-        position: absolute;
-        max-width: 100%;
-        max-height: 100%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-    }
+}
+.nav-link {
+  line-height: 24px;
+  color: #777;
+  &:hover {
+    //border: 0 !important;
   }
-
-  .modal-body {
-    overflow: hidden;
-    padding: 0;
-    .card {
-      border: 0 !important;
-    }
-    .tabs {
-      height: 90%;
-    }
-    .tab-content {
-      height: 100%;
-    }
-  }
-  footer {
-    padding: 15px !important;
-  }
-  svg {
-    &.upload-image-icon {
-      height: 1em;
-    }
-  }
-  .nav-link {
+  &.active {
     line-height: 24px;
-    color: #777;
-    &:hover {
-      //border: 0 !important;
-    }
-    &.active {
-      line-height: 24px;
-      color: #333;
-    }
-
+    color: #333;
   }
+
 }

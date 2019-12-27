@@ -47,21 +47,21 @@
                    </li>
                  </ul>
                  <ul class="navbar-nav justify-content-end d-none d-lg-flex ml-md-auto">
-                   <li class="nav-item">
+                   <li class="nav-item ml-3">
                      <IconEditable 
-                        cssClass="nav-link p-1"
+                        cssClass="nav-link"
                         name="header_social_link_1"
                         :partData="touchedData.header_social_link_1"/>
                    </li>
-                   <li class="nav-item">
+                   <li class="nav-item ml-3">
                      <IconEditable 
-                        cssClass="nav-link p-1"
+                        cssClass="nav-link"
                         name="header_social_link_2"
                         :partData="touchedData.header_social_link_2"/>
                    </li>
-                   <li class="nav-item">
+                   <li class="nav-item ml-3">
                      <IconEditable 
-                        cssClass="nav-link p-1"
+                        cssClass="nav-link"
                         name="header_social_link_3"
                         :partData="touchedData.header_social_link_3"/>
                    </li>

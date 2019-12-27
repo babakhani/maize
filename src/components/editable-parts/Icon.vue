@@ -18,13 +18,15 @@
 
     <button v-if="editMode && showToolboxButton"
             :title="$t('toolbox.link')"
+            @click="openSelectorLink"
             v-b-tooltip.hover.top.small
-            @click="openSelector"
             class="btn btn-link editable-part--link-btn">
       <icon name="link"></icon>
     </button>
 
-    <a v-if="touchedData.href"
+    <a 
+       @click="openSelectorIcon"
+       v-if="touchedData.href"
        :class="touchedData.cssClass"
        :href="touchedData.href">
       <i 
@@ -32,6 +34,7 @@
       </i>
     </a>
     <span
+      @click="openSelectorIcon"
       v-else
       :class="touchedData.cssClass">
       <i 
@@ -49,17 +52,29 @@
     name: 'ImageEditable',
     mixins: [EditablePartMixin],
     methods: {
-      openSelector () {
+      openSelectorLink (e) {
+        e.preventDefault()
         this.$store.dispatch('layout/setModalView', {
-          name: 'icon',
-          data: {
-            iconName: this.touchedData.iconName
-          }
+          name: 'link',
+          data: this.touchedData
         })
-        EventBus.$once('pickIcon', (iconName) => {
-          this.touchedData.iconName = iconName
+        EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
+          this.touchedData = widgetData
           this.updateWidget()
         })
+        return false
+      },
+      openSelectorIcon (e) {
+        e.preventDefault()
+        this.$store.dispatch('layout/setModalView', {
+          name: 'icon',
+          data: this.touchedData
+        })
+        EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
+          this.touchedData = widgetData
+          this.updateWidget()
+        })
+        return false
       }
     }
   }

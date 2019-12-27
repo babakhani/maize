@@ -40,9 +40,6 @@
       </div>
       <Modal> </Modal>
       <ModalWidgetList></ModalWidgetList>
-      <ImagePickerModal></ImagePickerModal>
-      <VideoPickerModal></VideoPickerModal>
-      <LinkPickerModal></LinkPickerModal>
       <ModalSettings></ModalSettings>
     </template>
   </div>
@@ -51,26 +48,17 @@
 <script>
   import editor from '../mixins/editorpage'
   import draggable from 'vuedraggable'
-  // TODO: move to mixin
-  import ImagePickerModal from '../components/partial/ModalImagePicker'
-  import VideoPickerModal from '../components/partial/ModalVideoPicker'
-  import LinkPickerModal from '../components/partial/ModalLinkPicker'
   import ModalSettings from '../components/partial/ModalSettings'
   import Preview from '../components/partial/Preview'
   import Modal from '../components/partial/Modal'
-  import IconSelector from '../components/partial/IconSelector'
 
   export default {
-    name: 'Events',
+    name: 'EditorPage',
     mixins: [editor],
     components: {
-      IconSelector,
       Modal,
       Preview,
-      LinkPickerModal,
       draggable,
-      ImagePickerModal,
-      VideoPickerModal,
       ModalSettings
     },
     computed: {

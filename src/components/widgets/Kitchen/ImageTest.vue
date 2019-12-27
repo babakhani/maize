@@ -25,23 +25,20 @@
                              class="float-left"
                              :partData="{src: faker.icon.normal('fa-battery-4', '26f')}"/>
             </nav>
-              <!--
-            <ImageEditable name="sample_img"
-                           class="float-left"
-                           :partData="{src: faker.img.size(300, 300)}"/>
-            <ImageEditable name="sample_img"
-                           class="float-left"
-                           :partData="{src: faker.img.size(600, 300)}"/>
-            <ImageEditable name="sample_img"
-                           class="float-left"
-                           :partData="{src: faker.img.size(120, 300)}"/>
-            <ImageEditable name="sample_img"
-                           class="float-left"
-                           :partData="{src: faker.img.size(200, 200)}"/>
-            <ImageEditable name="sample_img"
-                           class="float-left"
-                           :partData="touchedData.sample_img"/>
-              -->
+            <IconEditable 
+               cssClass="nav-link p-1 mt-5"
+               name="header_social_link_1"
+               :partData="touchedData.header_social_link_1"/>
+            <br/>
+            <IconEditable 
+               cssClass="nav-link p-1 mt-5"
+               name="header_social_link_2"
+               :partData="touchedData.header_social_link_2"/>
+            <br/>
+            <IconEditable 
+               cssClass="nav-link p-1 mt-5"
+               name="header_social_link_3"
+               :partData="touchedData.header_social_link_3"/>
           </header>
         </div>
         </div>
@@ -75,6 +72,33 @@
               },
               src: this.faker.img.logo()
             },
+            header_social_link_1: {
+              styles: {
+                padding: '1em',
+                'line-height': '2em'
+              },
+              iconName: 'fab fa-github',
+              text: '<i class="fab fa-slack"></i>',
+              href: this.faker.internet.url()
+            },
+            header_social_link_2: {
+              styles: {
+                padding: '1em',
+                'line-height': '2em'
+              },
+              iconName: 'fab fa-instagram',
+              text: '<i class="fab fa-github"></i>',
+              href: this.faker.internet.url()
+            },
+            header_social_link_3: {
+              styles: {
+                padding: '1em',
+                'line-height': '2em'
+              },
+              iconName: 'fab fa-twitter',
+              text: '<i class="fab fa-twitter"></i>',
+              href: this.faker.internet.url()
+            }
           }
         },
         require: false

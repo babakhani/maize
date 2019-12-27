@@ -24,6 +24,7 @@
     </button>
 
     <a v-if="touchedData.href"
+       @click="setPickImageMode"
        :contenteditable="editMode"
        :href="touchedData.href">
       <img :style="touchedData.styles"
@@ -54,38 +55,29 @@
     name: 'ImageEditable',
     mixins: [EditablePartMixin],
     methods: {
-      setPickLinkMode () {
-        if (this.touchedData.href) {
-          this.$store.dispatch('layout/setPickLinkCurrent', this.touchedData.href)
-        }
-        this.$store.dispatch('layout/setPickLinkMode', true)
-        EventBus.$once('pickLink', (linkHref) => {
-          this.touchedData.href = linkHref
+      setPickLinkMode (e) {
+        e.preventDefault()
+        this.$store.dispatch('layout/setModalView', {
+          name: 'link',
+          data: this.touchedData
+        })
+        EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
+          this.touchedData = widgetData
           this.updateWidget()
         })
+        return false 
       },
-      setPickImageMode (noCheckState) {
-        this.goToEditMode()
-        if (this.editMode || noCheckState == true) {
-          if (this.$store) {
-            this.$store.dispatch('layout/setPickImageMode', true)
-            EventBus.$once('pickImage', (imageSrc) => {
-              this.touchedData.src = imageSrc
-              this.updateWidget()
-            })
-          }
-        }
-      },
-      imageUpload (e) {
-        const $img = $(e.target).next('img')
-        if (e.target.files && e.target.files[0]) {
-          var reader = new FileReader();
-          reader.onload = function (e) {
-            $img.attr('src', e.target.result);
-            $img.attr('href',)
-          }
-          reader.readAsDataURL(e.target.files[0]);
-        }
+      setPickImageMode (e) {
+        e.preventDefault()
+        this.$store.dispatch('layout/setModalView', {
+          name: 'image',
+          data: this.touchedData
+        })
+        EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
+          this.touchedData = widgetData
+          this.updateWidget()
+        })
+        return false 
       }
     }
   }
