@@ -4,6 +4,7 @@
     class="widget-block--toolbox">
     <transition name="fade">
       <button v-if="showTools"
+              tabindex="-1"
               :title="$t('toolbox.drag')"
               v-b-tooltip.hover.top
               class="btn btn-link widget-block--toolbox-btn widget-drag-handle">
@@ -12,6 +13,7 @@
     </transition>
     <transition name="fade">
       <button v-if="showTools"
+              tabindex="-1"
               @click="$parent.moveUp"
               :title="$t('toolbox.move_up')"
               v-b-tooltip.hover.top
@@ -21,6 +23,7 @@
     </transition>
     <transition name="fade">
       <button v-if="showTools"
+              tabindex="-1"
               @click="$parent.moveDown"
               :title="$t('toolbox.move_down')"
               v-b-tooltip.hover.top
@@ -30,6 +33,7 @@
     </transition>
     <transition name="fade">
       <button v-if="showTools"
+              tabindex="-1"
               @click="$parent.toggleFullWidth"
               :title="$t('toolbox.full_width')"
               v-b-tooltip.hover.top
@@ -50,6 +54,7 @@
     -->
     <transition name="fade">
       <button v-if="showTools"
+              tabindex="-1"
               @click="$parent.deleteWidget"
               :title="$t('toolbox.delete')"
               v-b-tooltip.hover.top

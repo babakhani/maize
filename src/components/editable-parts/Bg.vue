@@ -9,7 +9,7 @@
             @click="showToolbox">
       <icon name="cog"></icon>
       <EditablePartToolbox 
-            :groups="['background-image', 'background', 'border', 'general']"
+            :groups="['backgroundimage', 'background', 'border', 'general']"
             @update="updateStyles"
             :currentStyles="touchedData.styles"
             v-if="toolboxVisible"

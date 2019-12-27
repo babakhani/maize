@@ -5,17 +5,17 @@ export default {
   namespaced: true,
   state: {
     imageList: [
-      'https://picsum.photos/id/1/200/300',
-      'https://picsum.photos/id/2/200/300',
-      'https://picsum.photos/id/3/200/300',
-      'https://picsum.photos/id/4/200/300',
-      'https://picsum.photos/id/5/200/300',
-      'https://picsum.photos/id/6/200/300',
-      'https://picsum.photos/id/7/200/300',
-      'https://picsum.photos/id/8/200/300',
-      'https://picsum.photos/id/9/200/300',
-      'https://picsum.photos/id/10/200/300',
-      'https://picsum.photos/id/11/200/300',
+      'https://picsum.photos/id/1/700/300',
+      'https://picsum.photos/id/2/700/300',
+      'https://picsum.photos/id/3/700/300',
+      'https://picsum.photos/id/4/700/300',
+      'https://picsum.photos/id/5/700/300',
+      'https://picsum.photos/id/6/700/300',
+      'https://picsum.photos/id/7/700/300',
+      'https://picsum.photos/id/8/700/300',
+      'https://picsum.photos/id/9/700/300',
+      'https://picsum.photos/id/10/700/300',
+      'https://picsum.photos/id/11/700/300',
     ]
   },
   mutations: {
