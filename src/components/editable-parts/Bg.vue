@@ -3,12 +3,14 @@
     class="editable-background"
        :class="{'edit-mode': editMode}">
     <button v-if="editMode"
+            ref="setting"
             class="btn btn-link no-outline editable-part settings-btn"
             :title="$t('toolbox.bg_settings')"
             v-b-tooltip.hover.bottom.small
             @click="showToolbox">
       <icon name="cog"></icon>
       <EditablePartToolbox 
+            :target="$refs.setting"
             :groups="['backgroundimage', 'background', 'border', 'general']"
             @update="updateStyles"
             :currentStyles="touchedData.styles"

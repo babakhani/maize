@@ -41,16 +41,16 @@
           </div>
           <!--Font Family -->
           <div 
-             v-if="groups.indexOf('icon') < 0" 
-             class="dropdown">
+                 v-if="groups.indexOf('icon') < 0" 
+                 class="dropdown">
             <button :title="$t('toolbox.font-family')"
-             v-b-tooltip.hover.top.small
-             class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
-             type="button"
-             id="dropdownMenuButtonFamily"
-             data-toggle="dropdown"
-             aria-haspopup="true"
-             aria-expanded="false">
+                 v-b-tooltip.hover.top.small
+                 class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
+                 type="button"
+                 id="dropdownMenuButtonFamily"
+                 data-toggle="dropdown"
+                 aria-haspopup="true"
+                 aria-expanded="false">
               <maizcon name="font"></maizcon>
             </button>
             <div class="dropdown-menu"
@@ -340,68 +340,68 @@
         <!-- General Settings -->
         <!-- ---------------------------------------------------------------------------- -->
         <div 
-          v-if="groups.indexOf('general') > -1"
-          class="widget-text-editable--toolbox--group">
+                     v-if="groups.indexOf('general') > -1"
+                     class="widget-text-editable--toolbox--group">
           <div class="dropdown">
             <button :title="$t('toolbox.width')"
                v-b-tooltip.hover.top.small
                class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
-                    type="button"
-                    id="dropdownMenuButtonWidth"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false">
-               <maizcon name="width"></maizcon>
+               type="button"
+               id="dropdownMenuButtonWidth"
+               data-toggle="dropdown"
+               aria-haspopup="true"
+               aria-expanded="false">
+              <maizcon name="width"></maizcon>
             </button>
             <div class="dropdown-menu"
                  aria-labelledby="dropdownMenuButtonWidth">
               <input @input="setWidth"
-                     type="text"
-                     v-model="styles['width']"/>
+                 type="text"
+                 v-model="styles['width']"/>
             </div>
           </div>
 
           <div class="dropdown">
             <button :title="$t('toolbox.height')"
-                    v-b-tooltip.hover.top.small
-                    class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
-                    type="button"
-                    id="dropdownMenuButtonHeight"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false">
-               <maizcon name="height"></maizcon>
+               v-b-tooltip.hover.top.small
+               class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
+               type="button"
+               id="dropdownMenuButtonHeight"
+               data-toggle="dropdown"
+               aria-haspopup="true"
+               aria-expanded="false">
+              <maizcon name="height"></maizcon>
             </button>
             <div class="dropdown-menu"
                  aria-labelledby="dropdownMenuButtonHeight">
               <input @input="setheight"
-                     type="text"
-                     v-model="styles['height']"/>
+                 type="text"
+                 v-model="styles['height']"/>
             </div>
           </div>
 
           <div class="dropdown">
             <button :title="$t('toolbox.margin')"
-                    v-b-tooltip.hover.top.small
-                    class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
-                    type="button"
-                    id="dropdownMenuButtonMargin"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false">
+               v-b-tooltip.hover.top.small
+               class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
+               type="button"
+               id="dropdownMenuButtonMargin"
+               data-toggle="dropdown"
+               aria-haspopup="true"
+               aria-expanded="false">
               <maizcon name="margin"></maizcon>
             </button>
             <div class="dropdown-menu"
                  aria-labelledby="dropdownMenuButtonMargin">
               <label> {{ $t('toolbox.margin') }} </label>       
               <input @input="setMargin"
-                     type="text"
-                     v-model="styles['margin']"/>
+                 type="text"
+                 v-model="styles['margin']"/>
               <br/>       
               <label> {{ $t('toolbox.padding') }} </label>       
               <input @input="setPadding"
-                     type="text"
-                     v-model="styles['padding']"/>
+                 type="text"
+                 v-model="styles['padding']"/>
             </div>
           </div>
         </div>
@@ -409,8 +409,8 @@
         <!-- Background Settings -->
         <!-- ---------------------------------------------------------------------------- -->
         <div 
-          v-if="groups.indexOf('background') > -1"
-          class="widget-text-editable--toolbox--group">
+                 v-if="groups.indexOf('background') > -1"
+                 class="widget-text-editable--toolbox--group">
           <div class="dropdown">
             <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                     :title="$t('toolbox.bg-color')"
@@ -434,84 +434,84 @@
           </div>
           <template
             v-if="groups.indexOf('backgroundimage') > -1">
-          <div class="dropdown">
-            <button :title="$t('toolbox.background_size')"
-               v-b-tooltip.hover.top.small
-               class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
-                    type="button"
-                    id="dropdownMenuButtonWidth"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false">
-               <maizcon name="size"></maizcon>
-            </button>
-            <div class="dropdown-menu"
-                 aria-labelledby="dropdownMenuButtonFamily">
-              <a :class="{'widget-text-editable--selected': styles['background-size'] == 'cover'}"
-                 class="dropdown-item"
-                 @click="setBgSize('cover')"> {{ $t('cover') }}</a>
-              <a :class="{'widget-text-editable--selected': styles['background-size'] == 'contain'}"
-                 class="dropdown-item"
-                 @click="setBgSize('contain')">{{ $t('contain') }}</a>
-              <a :class="{'widget-text-editable--selected': styles['background-size'] == 'auto'}"
-                 class="dropdown-item"
-                 @click="setBgSize('auto')">{{ $t('auto') }}</a>
+            <div class="dropdown">
+              <button :title="$t('toolbox.background_size')"
+                 v-b-tooltip.hover.top.small
+                 class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
+                 type="button"
+                 id="dropdownMenuButtonWidth"
+                 data-toggle="dropdown"
+                 aria-haspopup="true"
+                 aria-expanded="false">
+                <maizcon name="size"></maizcon>
+              </button>
+              <div class="dropdown-menu"
+                   aria-labelledby="dropdownMenuButtonFamily">
+                <a :class="{'widget-text-editable--selected': styles['background-size'] == 'cover'}"
+                   class="dropdown-item"
+                   @click="setBgSize('cover')"> {{ $t('cover') }}</a>
+                <a :class="{'widget-text-editable--selected': styles['background-size'] == 'contain'}"
+                   class="dropdown-item"
+                   @click="setBgSize('contain')">{{ $t('contain') }}</a>
+                <a :class="{'widget-text-editable--selected': styles['background-size'] == 'auto'}"
+                   class="dropdown-item"
+                   @click="setBgSize('auto')">{{ $t('auto') }}</a>
+              </div>
             </div>
-          </div>
-          <div class="dropdown">
-            <button :title="$t('toolbox.background_repeat')"
-               v-b-tooltip.hover.top.small
-               class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
-                    type="button"
-                    id="dropdownMenuButtonWidth"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false">
-               <maizcon name="size"></maizcon>
-            </button>
-            <div class="dropdown-menu"
-                 aria-labelledby="dropdownMenuButtonFamily">
-              <a :class="{'widget-text-editable--selected': styles['background-size'] == 'no-repeat'}"
-                 class="dropdown-item"
-                 @click="setBgRepeat('no-repeat')"> {{ $t('no-repeat') }}</a>
-              <a :class="{'widget-text-editable--selected': styles['background-size'] == 'repeat-x'}"
-                 class="dropdown-item"
-                 @click="setBgRepeat('repeat-x')">{{ $t('repeat-x') }}</a>
-              <a :class="{'widget-text-editable--selected': styles['background-size'] == 'repeat-y'}"
-                 class="dropdown-item"
-                 @click="setBgRepeat('repeat-y')">{{ $t('repeat-y') }}</a>
+            <div class="dropdown">
+              <button :title="$t('toolbox.background_repeat')"
+                 v-b-tooltip.hover.top.small
+                 class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
+                 type="button"
+                 id="dropdownMenuButtonWidth"
+                 data-toggle="dropdown"
+                 aria-haspopup="true"
+                 aria-expanded="false">
+                <maizcon name="size"></maizcon>
+              </button>
+              <div class="dropdown-menu"
+                   aria-labelledby="dropdownMenuButtonFamily">
+                <a :class="{'widget-text-editable--selected': styles['background-size'] == 'no-repeat'}"
+                   class="dropdown-item"
+                   @click="setBgRepeat('no-repeat')"> {{ $t('no-repeat') }}</a>
+                <a :class="{'widget-text-editable--selected': styles['background-size'] == 'repeat-x'}"
+                   class="dropdown-item"
+                   @click="setBgRepeat('repeat-x')">{{ $t('repeat-x') }}</a>
+                <a :class="{'widget-text-editable--selected': styles['background-size'] == 'repeat-y'}"
+                   class="dropdown-item"
+                   @click="setBgRepeat('repeat-y')">{{ $t('repeat-y') }}</a>
+              </div>
             </div>
-          </div>
-          <div class="dropdown">
-            <button :title="$t('toolbox.background_position')"
-               v-b-tooltip.hover.top.small
-               class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
-                    type="button"
-                    id="dropdownMenuButtonWidth"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false">
-               <maizcon name="size"></maizcon>
-            </button>
-            <div class="dropdown-menu"
-                 aria-labelledby="dropdownMenuButtonFamily">
-              <input @input="setBackgroundPosition"
-                     type="text"
-                     v-model="styles['background-position']"/>
-              <br/>       
+            <div class="dropdown">
+              <button :title="$t('toolbox.background_position')"
+                 v-b-tooltip.hover.top.small
+                 class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
+                 type="button"
+                 id="dropdownMenuButtonWidth"
+                 data-toggle="dropdown"
+                 aria-haspopup="true"
+                 aria-expanded="false">
+                <maizcon name="size"></maizcon>
+              </button>
+              <div class="dropdown-menu"
+                   aria-labelledby="dropdownMenuButtonFamily">
+                <input @input="setBackgroundPosition"
+                   type="text"
+                   v-model="styles['background-position']"/>
+                <br/>       
+              </div>
             </div>
-          </div>
-          <button :title="$t('toolbox.background_image')"
-                     v-b-tooltip.hover.top.small
-                     class="btn btn-sm widget-text-editable--toolbox--button"
-                     @click="pickBackgroundImage">
-            <icon name="image"></icon>
-          </button>
+            <button :title="$t('toolbox.background_image')"
+                   v-b-tooltip.hover.top.small
+                   class="btn btn-sm widget-text-editable--toolbox--button"
+                   @click="pickBackgroundImage">
+              <icon name="image"></icon>
+            </button>
           </template>
         </div>
 
         <button @click="hide"
-                class="btn btn-sm btn-danger float-right widget-text-editable--toolbox--close">
+                    class="btn btn-sm btn-danger float-right widget-text-editable--toolbox--close">
           <icon name="times"></icon>
         </button>
       </div>
@@ -535,6 +535,10 @@
       'photoshop-picker': Photoshop
     },
     props: {
+      target: {
+        default: false, 
+        required: false 
+      },
       toolboxVisible: {
         default: true, 
         required: false 
