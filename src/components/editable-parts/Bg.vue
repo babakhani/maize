@@ -1,22 +1,23 @@
 <template>
   <div 
-    class="editable-background"
-       :class="{'edit-mode': editMode}">
+    class="editable-part editable-background"
+    @keydown.esc="hideToolbox()"
+    :class="{
+    'editable-active': editMode,
+    'under-edit': toolboxVisible}">
     <button v-if="editMode"
-            ref="setting"
             class="btn btn-link no-outline editable-part settings-btn"
             :title="$t('toolbox.bg_settings')"
             v-b-tooltip.hover.bottom.small
             @click="showToolbox">
       <icon name="cog"></icon>
-      <EditablePartToolbox 
-            :target="$refs.setting"
-            :groups="['backgroundimage', 'background', 'border', 'general']"
-            @update="updateStyles"
-            :currentStyles="touchedData.styles"
-            v-if="toolboxVisible"
-            @hide="hideToolbox"></EditablePartToolbox>
     </button>
+    <EditablePartToolbox 
+          :groups="['backgroundimage', 'background', 'border', 'general']"
+          @update="updateStyles"
+          :currentStyles="touchedData.styles"
+          v-if="toolboxVisible"
+          @hide="hideToolbox"></EditablePartToolbox>
     <div v-bind:style="touchedData.styles">
       <slot></slot>
     </div>

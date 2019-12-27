@@ -1,8 +1,6 @@
 $icon-size: 1.6em;
 
 .editable-part{
-  //min-height: 2em;
-  outline: 2px dashed rgba($primary-color, .1);
   position: relative;
   cursor: pointer;
 
@@ -14,10 +12,13 @@ $icon-size: 1.6em;
      outline: none !important;
    }
   }
-
+  
+  &.under-edit {
+     outline: 3px dashed rgba($primary-color, .6) !important;
+  }
 
   &:hover{
-     outline: 3px dashed rgba($primary-color, .4);
+     outline: 3px dashed rgba($primary-color, .4) !important;
     .editable-part--upload-btn,
     .editable-part--settings-btn,
     .editable-part--link-btn{
@@ -60,7 +61,7 @@ $icon-size: 1.6em;
     width: $icon-size;
     height: $icon-size;
     border-radius: 100%;
-    top: -2em;
+    top: .1em;
     left: .1em;
     //display: none;
     svg{

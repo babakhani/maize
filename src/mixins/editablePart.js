@@ -24,6 +24,11 @@ const Mixin = {
     }
   },
   methods: {
+    onblur () {
+      console.log('onblur ***************')
+      this.showToolboxButton = false
+      this.toolboxVisible = false
+    },
     mouseLeaveElement (e) {
       clearTimeout(this.hideTooltipTimer)
       if (!this.toolboxVisible) {
@@ -73,14 +78,21 @@ const Mixin = {
       this.updateWidget()
     },
     hideToolbox () {
-      console.log('hideToolbox')
+      clearTimeout(this.hideTooltipTimer)
       this.toolboxVisible = false
       this.showToolboxButton = false
+    },
+    hideOnEscape (e) {
+      if (e.code === 'Escape') {
+        this.hideToolbox()
+        document.removeEventListener('keyup', this.hideOnEscape)
+      }
     },
     showToolbox (e) {
       e.preventDefault()
       this.toolboxVisible = true
       EventBus.$emit('igotoeditmode', this._uid)
+      document.addEventListener('keyup', this.hideOnEscape)
     }
   },
   watch: {

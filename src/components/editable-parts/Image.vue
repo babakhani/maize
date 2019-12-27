@@ -1,7 +1,11 @@
 <template>
   <div class="editable-image editable-part"
        @mouseenter="mouseInElement"
-       @mouseleave="mouseLeaveElement">
+       @mouseleave="mouseLeaveElement"
+       @keydown.esc="hideToolbox()"
+       :class="{
+       'editable-active': editMode,
+       'under-edit': toolboxVisible}">
     <button v-if="editMode && showToolboxButton"
             class="btn btn-link editable-part--settings-btn"
             :title="$t('toolbox.settings')"

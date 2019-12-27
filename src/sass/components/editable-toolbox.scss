@@ -2,12 +2,15 @@
   background: none !important;
 }
 .widget-text-editable--toolbox {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
   display: block;
   font-size: 2rem !important;
   z-index: 100000;
   background: rgba(#000000, .9);
   position: fixed !important;
-  border-radius: 6px;
+  border-radius: 0;
   bottom: 0px; 
   left: 0px;
   right: 0px;
@@ -15,13 +18,12 @@
   float: left;
   width: 100%;
   padding: .1em;
-  width: 428px;
   // Preview Mode Styles
   .editor-page-preview-mode & {
     visibility: hidden;
   }
   .widget-text-editable--toolbox--group {
-    display: block;
+    display: inline;
     clear: both;
     position: relative;
   }
@@ -179,10 +181,9 @@
   }
   .widget-text-editable--toolbox--close {
     position: absolute;
-    top: -16px;
-    right: -16px;
+    top: 10px;
+    right: 10px;
     cursor: pointer;
-    border-radius: 100px;
     background-color: #000;
     z-index: 10;
     width: 32px;

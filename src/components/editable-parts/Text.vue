@@ -2,24 +2,20 @@
   <div class="editable-text editable-part"
        @mouseenter="mouseInElement"
        @mouseleave="mouseLeaveElement"
-       :class="{'editable-active': editMode}">
+       @keydown.esc="updateTextOnBlur();hideToolbox()"
+       :class="{
+       'editable-active': editMode,
+       'under-edit': toolboxVisible}">
     <!--Min Slot-->
-    <button v-if="editMode && showToolboxButton"
-            class="btn btn-link editable-part--settings-btn"
-            :title="$t('toolbox.settings')"
-            v-b-tooltip.hover.bottom.small
-            @click="showToolbox">
-      <icon name="cog"></icon>
-      <EditablePartToolbox 
-        :visibile-link-selector="tag === 'a'"
-        :toolbox-visible="toolboxVisible"
-        :currentStyles="touchedData.styles"
-        :editableData="touchedData"    
-        @hide="hideToolbox"
-        @update="updateStyles"
-        v-if="toolboxVisible">
-      </EditablePartToolbox>
-    </button>
+    <EditablePartToolbox 
+      :visibile-link-selector="tag === 'a'"
+      :toolbox-visible="toolboxVisible"
+      :currentStyles="touchedData.styles"
+      :editableData="touchedData"    
+      @hide="hideToolbox"
+      @update="updateStyles"
+      v-if="toolboxVisible">
+    </EditablePartToolbox>
     <component 
         v-if="toolboxVisible"
         :is="tag"

@@ -1,15 +1,6 @@
 <!-- Fixed navbar -->
 <template>
-  <v-popover
-    trigger="manual"
-    placement="top"
-    offset="20"
-    :open="toolboxVisible"
-    @hide="$emit('hidetoobox')"
-    container="body"
-    :auto-hide="false">
-    <template slot="popover">
-      <div class="widget-text-editable--toolbox">
+  <div class="widget-text-editable--toolbox">
         <div v-if="groups.indexOf('text') > -1"
              class="widget-text-editable--toolbox--group">
         </div>
@@ -34,9 +25,9 @@
             </button>
             <div class="dropdown-menu"
                  aria-labelledby="dropdownMenuButtonColor">
-              <compact-picker :value="styles['color']"
+              <color-picker :value="styles['color']"
                  @input="updateColor">
-              </compact-picker>
+              </color-picker>
             </div>
           </div>
           <!--Font Family -->
@@ -248,9 +239,9 @@
             </button>
             <div class="dropdown-menu"
                  aria-labelledby="dropdownMenuButtonBorderColor">
-              <compact-picker :value="styles['border-color']"
+              <color-picker :value="styles['border-color']"
                  @input="updateBorderColor">
-              </compact-picker>
+              </color-picker>
             </div>
           </div>
 
@@ -427,9 +418,9 @@
             </button>
             <div class="dropdown-menu"
                  aria-labelledby="dropdownMenuButtonBgColor">
-              <compact-picker :value="styles['background-color']"
+              <color-picker :value="styles['background-color']"
                  @input="updateBgColor">
-              </compact-picker>
+              </color-picker>
             </div>
           </div>
           <template
@@ -515,8 +506,6 @@
           <icon name="times"></icon>
         </button>
       </div>
-    </template>
-  </v-popover>
 </template>
 <script>
   import maizcon from '../partial/MaizeCon.vue'
@@ -526,7 +515,7 @@
     name: 'EditablePartToolbox',
     components: {
       'maizcon': maizcon,
-      'material-picker': Material,
+      'color-picker': Sketch,
       'compact-picker': Compact,
       'swatches-picker': Swatches,
       'slider-picker': Slider,
@@ -537,10 +526,6 @@
     props: {
       target: {
         default: false, 
-        required: false 
-      },
-      toolboxVisible: {
-        default: true, 
         required: false 
       },
       visibileLinkSelector: {

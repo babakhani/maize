@@ -4,6 +4,20 @@
   border-radius: 6px;
   border-top: 1px solid rgba(#cfcfcf, 0.2);
   background: $white;
+  &.under-edit {
+     outline-offset: -3px;
+     outline: 3px dashed rgba($primary-color, .6) !important;
+  }
+  &,
+  &:hover,
+  &:focus,
+  &:hover {
+    outline: none !important;
+    &.under-edit {
+      outline-offset: -3px;
+      outline: 3px dashed rgba($primary-color, .6) !important;
+    }
+  }
   .settings-btn {
     position: absolute;
     height: 3em;
