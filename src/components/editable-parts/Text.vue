@@ -12,6 +12,7 @@
       :toolbox-visible="toolboxVisible"
       :currentStyles="touchedData.styles"
       :editableData="touchedData"    
+      @updatewidget="updateEditableData"
       @hide="hideToolbox"
       @update="updateStyles"
       v-if="toolboxVisible">

@@ -4,6 +4,16 @@
         <div v-if="groups.indexOf('text') > -1"
              class="widget-text-editable--toolbox--group">
         </div>
+        <template
+          v-if="visibileLinkSelector">
+          <button :title="$t('toolbox.link')"
+            v-b-tooltip.hover.top.small
+            @click="setPickLinkMode"
+            class="btn btn-sm widget-text-editable--toolbox--button">
+            <maizcon name="link"></maizcon>
+          </button>
+          <div class="widget-text-editable--toolbox--group-separator"></div>
+        </template>
         <!-- Text Settings -->
         <!-- ---------------------------------------------------------------------------- -->
         <div v-if="groups.indexOf('text') > -1"
@@ -114,13 +124,6 @@
                      class="btn btn-sm widget-text-editable--toolbox--button">
             <maizcon name="strikethrough"></maizcon>
           </button>
-          <button :title="$t('toolbox.link')"
-                     v-if="visibileLinkSelector"
-                     v-b-tooltip.hover.top.small
-                     @click="setPickLinkMode"
-                     class="btn btn-sm widget-text-editable--toolbox--button">
-            <maizcon name="link"></maizcon>
-          </button>
 
           <!--Alignment-->
           <div class="dropdown">
@@ -218,6 +221,7 @@
           </button>
         </div>
 
+        <div class="widget-text-editable--toolbox--group-separator"></div>
         <!-- Border Settings -->
         <!-- ---------------------------------------------------------------------------- -->
         <div v-if="groups.indexOf('border') > -1"
@@ -328,6 +332,7 @@
           </div>
         </div>
 
+        <div class="widget-text-editable--toolbox--group-separator"></div>
         <!-- General Settings -->
         <!-- ---------------------------------------------------------------------------- -->
         <div 
@@ -397,6 +402,7 @@
           </div>
         </div>
 
+        <div class="widget-text-editable--toolbox--group-separator"></div>
         <!-- Background Settings -->
         <!-- ---------------------------------------------------------------------------- -->
         <div 
@@ -529,7 +535,7 @@
         required: false 
       },
       visibileLinkSelector: {
-        default: true, 
+        default: false, 
         required: false 
       },
       currentStyles: {
@@ -605,8 +611,7 @@
           data: this.editableData
         })
         EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
-          this.editableData = widgetData
-          this.updateWidget()
+          this.$emit('updatewidget', widgetData)
         })
         return false 
       },

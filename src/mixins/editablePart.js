@@ -16,6 +16,9 @@ const Mixin = {
     })
   },
   computed: {
+    linkable () {
+      return this.touchedData && typeof(this.touchedData.href) !== 'undefined' && this.touchedData.href
+    },
     editMode () {
       return this.$store ? !this.$store.state.layout.previewMode : false
     },
@@ -25,7 +28,6 @@ const Mixin = {
   },
   methods: {
     onblur () {
-      console.log('onblur ***************')
       this.showToolboxButton = false
       this.toolboxVisible = false
     },
@@ -75,6 +77,10 @@ const Mixin = {
     },
     updateStyles (e) {
       this.touchedData.styles = e
+      this.updateWidget()
+    },
+    updateEditableData (e) {
+      this.touchedData = e
       this.updateWidget()
     },
     hideToolbox () {

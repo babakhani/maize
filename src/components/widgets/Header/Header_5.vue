@@ -5,10 +5,8 @@
          <header>
            <div class="container">
              <nav class="navbar navbar-expand-md">
-               <a class="navbar-brand" href="">
-                 <ImageEditable name="logo"
-                   :partData="touchedData.logo"/>
-               </a>
+               <ImageEditable name="logo"
+                 :partData="touchedData.logo"/>
                <button 
                  class="navbar-toggler" 
                  type="button" 
@@ -95,6 +93,7 @@
               styles: {
                 height: '30px'
               },
+              href: '#',
               src: this.faker.img.logo()
             },
             //TODO: fix padding style

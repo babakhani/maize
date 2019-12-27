@@ -27,6 +27,14 @@
     clear: both;
     position: relative;
   }
+  .widget-text-editable--toolbox--group-separator {
+    display: inline;
+    float: left;
+    height: 1em;
+    margin: .3em .3em;
+    width: 1px;
+    background: rgba($white, 0.3);
+  }
 
   .dropdown,
   .input-group {

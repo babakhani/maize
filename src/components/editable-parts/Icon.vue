@@ -12,22 +12,16 @@
             v-b-tooltip.hover.bottom.small
             @click="showToolbox">
       <icon name="cog"></icon>
-      <EditablePartToolbox 
+    </button>
+    <EditablePartToolbox 
+            :visibile-link-selector="linkable"
             @update="updateStyles"
+            @updatewidget="updateEditableData"
             :groups="['icon', 'text', 'background', 'border', 'general']"
             :currentStyles="touchedData.styles"
+            :editableData="touchedData"
             v-if="toolboxVisible"
             @hide="hideToolbox"></EditablePartToolbox>
-    </button>
-
-    <button v-if="editMode && showToolboxButton"
-            :title="$t('toolbox.link')"
-            @click="openSelectorLink"
-            v-b-tooltip.hover.top.small
-            class="btn btn-link editable-part--link-btn">
-      <icon name="link"></icon>
-    </button>
-
     <a 
        @click="openSelectorIcon"
        v-if="touchedData.href"
