@@ -3,7 +3,7 @@
   <header class="page-toolbox bg-dark rtl"
           data-block-type="headers"
           data-id="2">
-      <nav class="navbar navbar-expand-lg px-0 py-3">
+      <nav class="navbar navbar-expand-lg">
         <div class="collapse navbar-collapse"
              id="navbarNav13">
 

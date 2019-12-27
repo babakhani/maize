@@ -1,6 +1,15 @@
 
 .editable-background {
-  border-top: 2px dashed #cfcfcf;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, .1);
+  border-radius: 6px;
+  border-top: 1px solid rgba(#cfcfcf, 0.2);
+  background: $white;
+  .settings-btn {
+    position: absolute;
+    height: 3em;
+    width: 3em;
+    z-index: 1000;
+  }
   .editor-page-preview-mode & {
     border-top: 0;
     .editable-part--settings-btn {

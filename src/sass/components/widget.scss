@@ -1,13 +1,9 @@
 .widget-block {
   display: block;
   position: relative;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .3);
-  border-radius: 6px;
   width: 100%;
   padding-top: 3em;
   margin-top: 2em;
-  //margin-bottom: 3em;
-  background: $white;
 
   .widget-block--name{
     display: block;
@@ -46,6 +42,7 @@
     left: 0;
     bottom: 0;
     z-index: 10;
+    background: transparent;
     
     .widget-block--toolbox-btn {
       float: right;
