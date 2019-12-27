@@ -9,11 +9,13 @@
     container="body"
     :auto-hide="false">
     <template slot="popover">
-      <div class="widget-text-editable--toolbox ">
+      <div class="widget-text-editable--toolbox">
         <div v-if="groups.indexOf('text') > -1"
              class="widget-text-editable--toolbox--group">
           <!--Font Family -->
-          <div class="dropdown">
+          <div 
+             v-if="groups.indexOf('icon') < 0" 
+             class="dropdown">
             <button :title="$t('toolbox.font-family')"
                     v-b-tooltip.hover.top.small
                     class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
@@ -487,7 +489,7 @@
             'direction': 'auto',
             'font-size': null,
             'font-weight': 'inherit',
-            'font-family': 'inherit',
+            'font-family': null,
             'text-align': 'inherit',
             'text-decoration': 'inherit',
             'white-space': 'inherit',

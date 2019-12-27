@@ -10,7 +10,7 @@
       <icon name="cog"></icon>
       <EditablePartToolbox 
             @update="updateStyles"
-            :groups="['background', 'border', 'general']"
+            :groups="['icon', 'text', 'background', 'border', 'general']"
             :currentStyles="touchedData.styles"
             v-if="toolboxVisible"
             @hide="hideToolbox"></EditablePartToolbox>
@@ -30,7 +30,8 @@
        :class="touchedData.cssClass"
        :href="touchedData.href">
       <i 
-        :class="touchedData.iconName" >
+       :style="touchedData.styles"
+       :class="touchedData.iconName" >
       </i>
     </a>
     <span
@@ -38,7 +39,8 @@
       v-else
       :class="touchedData.cssClass">
       <i 
-      :class="touchedData.iconName" >
+       :style="touchedData.styles"
+       :class="touchedData.iconName" >
       </i>
     </span>
   </div>
