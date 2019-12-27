@@ -61,7 +61,12 @@
               fullWidth: true
             },
             bg: {
-              styles: {}
+              styles: {
+                'background-position': 'center center',
+                'background-size': 'cover',
+                'background-repeat': 'no-repeat',
+                'background-image': `url('${this.faker.img.size(100, 200)}')`,
+              }
             },
             sample_img: {
               src: this.faker.img.size(1800, 700)

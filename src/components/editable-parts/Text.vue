@@ -14,9 +14,9 @@
         :visibile-link-selector="tag === 'a'"
         :toolbox-visible="toolboxVisible"
         :currentStyles="touchedData.styles"
+        :editableData="touchedData"    
         @hide="hideToolbox"
         @update="updateStyles"
-        @setPickLinkMode="setPickLinkMode"
         v-if="toolboxVisible">
       </EditablePartToolbox>
     </button>
@@ -69,19 +69,6 @@
         if (this.editMode) {
           e.preventDefault()
           return false
-        }
-      },
-      setPickLinkMode () {
-        this.goToEditMode()
-        if (this.editMode || noCheckState == true) {
-          if (this.touchedData.href) {
-            this.$store.dispatch('layout/setPickLinkCurrent', this.touchedData.href)
-          }
-          this.$store.dispatch('layout/setPickLinkMode', true)
-          EventBus.$once('pickLink', (linkSrc) => {
-            this.touchedData.href = linkSrc
-            this.updateWidget()
-          })
         }
       },
       /**
