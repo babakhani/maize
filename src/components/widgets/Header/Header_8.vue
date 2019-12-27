@@ -76,97 +76,97 @@
   </div>
 </template>
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'Header_8',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
+export default {
+  name: 'Header_8',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          logo: {
+            styles: {
+              height: '30px'
             },
-            bg: {
-              styles: {}
+            src: this.faker.img.logo()
+          },
+          // TODO: fix padding style
+          header_link_1: {
+            styles: {
+              padding: '1em',
+              'line-height': '2em'
             },
-            logo: {
-              styles: {
-                height: '30px'
-              },
-              src: this.faker.img.logo()
+            text: this.faker.lorem.words(1),
+            src: this.faker.internet.url
+          },
+          header_link_2: {
+            styles: {
+              padding: '1em',
+              'line-height': '2em'
             },
-            //TODO: fix padding style
-            header_link_1: {
-              styles: {
-                padding: '1em',
-                'line-height': '2em'
-              },
-              text: this.faker.lorem.words(1),
-              src: this.faker.internet.url
+            text: this.faker.lorem.words(1),
+            src: this.faker.internet.url
+          },
+          header_link_3: {
+            styles: {
+              padding: '1em',
+              'line-height': '2em'
             },
-            header_link_2: {
-              styles: {
-                padding: '1em',
-                'line-height': '2em'
-              },
-              text: this.faker.lorem.words(1),
-              src: this.faker.internet.url
+            text: this.faker.lorem.words(1),
+            src: this.faker.internet.url
+          },
+          header_link_4: {
+            styles: {
+              padding: '1em',
+              'line-height': '2em'
             },
-            header_link_3: {
-              styles: {
-                padding: '1em',
-                'line-height': '2em'
-              },
-              text: this.faker.lorem.words(1),
-              src: this.faker.internet.url
+            text: this.faker.lorem.words(1),
+            src: this.faker.internet.url
+          },
+          header_social_link_1: {
+            styles: {
+              padding: '1em',
+              'line-height': '2em'
             },
-            header_link_4: {
-              styles: {
-                padding: '1em',
-                'line-height': '2em'
-              },
-              text: this.faker.lorem.words(1),
-              src: this.faker.internet.url
+            text: '<i class="fab fa-slack"></i>',
+            src: this.faker.internet.url
+          },
+          header_social_link_2: {
+            styles: {
+              padding: '1em',
+              'line-height': '2em'
             },
-            header_social_link_1: {
-              styles: {
-                padding: '1em',
-                'line-height': '2em'
-              },
-              text: '<i class="fab fa-slack"></i>',
-              src: this.faker.internet.url
+            text: '<i class="fab fa-github"></i>',
+            src: this.faker.internet.url
+          },
+          header_social_link_3: {
+            styles: {
+              padding: '1em',
+              'line-height': '2em'
             },
-            header_social_link_2: {
-              styles: {
-                padding: '1em',
-                'line-height': '2em'
-              },
-              text: '<i class="fab fa-github"></i>',
-              src: this.faker.internet.url
+            text: '<i class="fab fa-twitter"></i>',
+            src: this.faker.internet.url
+          },
+          header_social_link_4: {
+            styles: {
+              padding: '1em',
+              'line-height': '2em'
             },
-            header_social_link_3: {
-              styles: {
-                padding: '1em',
-                'line-height': '2em'
-              },
-              text: '<i class="fab fa-twitter"></i>',
-              src: this.faker.internet.url
-            },
-            header_social_link_4: {
-              styles: {
-                padding: '1em',
-                'line-height': '2em'
-              },
-              text: '<i class="fab fa-google"></i>',
-              src: this.faker.internet.url
-            }
+            text: '<i class="fab fa-google"></i>',
+            src: this.faker.internet.url
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>
