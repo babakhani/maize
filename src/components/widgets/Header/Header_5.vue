@@ -131,28 +131,19 @@
               href: this.faker.internet.url()
             },
             header_social_link_1: {
-              styles: {
-                padding: '1em',
-                'line-height': '2em'
-              },
+              styles: {},
               iconName: 'fab fa-github',
               text: '<i class="fab fa-slack"></i>',
               href: this.faker.internet.url()
             },
             header_social_link_2: {
-              styles: {
-                padding: '1em',
-                'line-height': '2em'
-              },
+              styles: {},
               iconName: 'fab fa-instagram',
               text: '<i class="fab fa-github"></i>',
               href: this.faker.internet.url()
             },
             header_social_link_3: {
-              styles: {
-                padding: '1em',
-                'line-height': '2em'
-              },
+              styles: {},
               iconName: 'fab fa-twitter',
               text: '<i class="fab fa-twitter"></i>',
               href: this.faker.internet.url()

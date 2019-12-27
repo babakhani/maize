@@ -503,8 +503,6 @@
             'opacity': '1',
             'overflow': 'visible',
             'letter-spacing': 'normal',
-            'padding': 'inherit',
-            'margin': 'inherit',
             'width': 'auto',
             'height': 'auto'
           }
