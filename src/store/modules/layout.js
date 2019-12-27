@@ -1,6 +1,10 @@
 export default {
   namespaced: true,
   state: {
+    modalIsVisible: false,
+    modalName: '',
+    modalDefaultData: {},
+
     previewModeSize: 'desktop',
     previewMode: false,
     addWidgetMode: false,
@@ -22,6 +26,16 @@ export default {
     }
   },
   mutations: {
+    setModalView (state, payload) {
+      state.modalIsVisible = true
+      state.modalName = payload.name
+      state.modalDefaultData = payload.data
+    },
+    hideModalView (state, payload) {
+      state.modalIsVisible = false
+      state.modalName = ''
+      state.modalDefaultData = {}
+    },
     setPreviewModeSize (state, payload) {
       state.previewModeSize = payload
     },
@@ -60,6 +74,12 @@ export default {
     }
   },
   actions: {
+    setModalView (context, payload) {
+      context.commit('setModalView', payload)
+    },
+    hideModalView (context, payload) {
+      context.commit('hideModalView', payload)
+    },
     setPreviewModeSize (context, payload) {
       context.commit('setPreviewModeSize', payload)
     },

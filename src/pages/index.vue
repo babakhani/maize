@@ -38,6 +38,7 @@
           </AddWidget>
         </div>
       </div>
+      <Modal> </Modal>
       <ModalWidgetList></ModalWidgetList>
       <ImagePickerModal></ImagePickerModal>
       <VideoPickerModal></VideoPickerModal>
@@ -56,11 +57,15 @@
   import LinkPickerModal from '../components/partial/ModalLinkPicker'
   import ModalSettings from '../components/partial/ModalSettings'
   import Preview from '../components/partial/Preview'
+  import Modal from '../components/partial/Modal'
+  import IconSelector from '../components/partial/IconSelector'
 
   export default {
     name: 'Events',
     mixins: [editor],
     components: {
+      IconSelector,
+      Modal,
       Preview,
       LinkPickerModal,
       draggable,
@@ -69,6 +74,12 @@
       ModalSettings
     },
     computed: {
+      modalName () {
+        return this.$store.state.layout.modalName
+      },
+      preData () {
+        return this.$store.state.layout.modalDefaultData
+      },
       pageSideBarIsActive() {
         return this.$store.state.layout.pageSideBarIsActive
       },

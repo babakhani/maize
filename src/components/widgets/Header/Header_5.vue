@@ -48,22 +48,22 @@
                  </ul>
                  <ul class="navbar-nav justify-content-end d-none d-lg-flex ml-md-auto">
                    <li class="nav-item">
-                     <TextEditable tag="a"
-                                   cssClass="nav-link"
-                                   name="header_social_link_1"
-                                   :partData="touchedData.header_social_link_1"/>
+                     <IconEditable 
+                        cssClass="nav-link p-1"
+                        name="header_social_link_1"
+                        :partData="touchedData.header_social_link_1"/>
                    </li>
                    <li class="nav-item">
-                     <TextEditable tag="a"
-                                   cssClass="nav-link"
-                                   name="header_social_link_2"
-                                   :partData="touchedData.header_social_link_2"/>
+                     <IconEditable 
+                        cssClass="nav-link p-1"
+                        name="header_social_link_2"
+                        :partData="touchedData.header_social_link_2"/>
                    </li>
                    <li class="nav-item">
-                     <TextEditable tag="a"
-                                   cssClass="nav-link"
-                                   name="header_social_link_3"
-                                   :partData="touchedData.header_social_link_3"/>
+                     <IconEditable 
+                        cssClass="nav-link p-1"
+                        name="header_social_link_3"
+                        :partData="touchedData.header_social_link_3"/>
                    </li>
                  </ul>
                  <a class="btn btn-outline-primary ml-md-3" href="">Button</a>
@@ -135,6 +135,7 @@
                 padding: '1em',
                 'line-height': '2em'
               },
+              iconName: 'fab fa-github',
               text: '<i class="fab fa-slack"></i>',
               href: this.faker.internet.url()
             },
@@ -143,6 +144,7 @@
                 padding: '1em',
                 'line-height': '2em'
               },
+              iconName: 'fab fa-instagram',
               text: '<i class="fab fa-github"></i>',
               href: this.faker.internet.url()
             },
@@ -151,6 +153,7 @@
                 padding: '1em',
                 'line-height': '2em'
               },
+              iconName: 'fab fa-twitter',
               text: '<i class="fab fa-twitter"></i>',
               href: this.faker.internet.url()
             }
