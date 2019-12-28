@@ -1,6 +1,8 @@
 .add-widget-box {
   margin: 1em;
-
+  .add-widget-box--card {
+    margin-bottom: 5.5em;
+  }
   // Preview Mode Styles
   .editor-page-preview-mode & {
     display: none;

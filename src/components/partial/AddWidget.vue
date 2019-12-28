@@ -2,7 +2,7 @@
   <div 
     class="add-widget-box w-100 mx-0">
     <!--TODO: bita fix class name-->
-    <b-row class="justify-content-center">
+    <b-row class="justify-content-center add-widget-box--card">
       <b-col
          cols="12"
          md="6"
