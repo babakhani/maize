@@ -21,9 +21,16 @@
         </div>
       </div>
     </b-tab>
+    <b-tab active class="py-2">
+      <template slot="title">
+        <icon class="upload-image-icon"
+              name="images"></icon>
+        <strong> {{ $t('modal.upload') }}</strong>
+      </template>
+      <UploadImage @chooseImage="chooseImage"></UploadImage>
+    </b-tab>
   </b-tabs>
 </template>
-
 <script>
 import { EventBus } from '../../events/event-bus'
 import UploadImage from './UploaderImage.vue'
@@ -47,6 +54,9 @@ export default {
     }
   },
   methods: {
+    chooseImage (e) {
+      this.pickAndHide(e)
+    },
     pickAndHide (pickedImageSrc) {
       this.pickedImageSrc = pickedImageSrc
       this.$emit('input', pickedImageSrc)
