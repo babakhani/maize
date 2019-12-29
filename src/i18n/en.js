@@ -6,6 +6,7 @@ export default {
   'add_widget': 'Add widget, Have fun!',
   'toolbox': {
     'edit': 'Edit',
+    'preview': 'Preview',
     'delete': 'Delete',
     'full_width': 'Toggle Full Width',
     'move_up': 'Move Up',
