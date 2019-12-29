@@ -117,7 +117,10 @@
             <!--</li>-->
           </ul>
           <div class="nav-item float-left position-relative maize-brand">
-            <a class="navbar-brand" href="#">{{ $t('maize') }}</a>
+            <!--<a class="navbar-brand" href="#">{{ $t('maize') }}</a>-->
+            <a class="navbar-brand" href="#">
+              <img src="imgs/img_logo.png" style="height: 32px;" />
+            </a>
             <!--<a :title="$t('add_widget')"
                v-b-tooltip.hover.bottom.small
                class="nav-link"
