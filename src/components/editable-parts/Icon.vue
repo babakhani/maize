@@ -3,16 +3,11 @@
        @mouseenter="mouseInElement"
        @mouseleave="mouseLeaveElement"
        @keydown.esc="hideToolbox()"
+       @click="showToolbox"
+       @dblclick="openSelectorIcon"
        :class="{
        'editable-active': editMode,
        'under-edit': toolboxVisible}">
-    <button v-if="editMode && showToolboxButton"
-            class="btn btn-link editable-part--settings-btn"
-            :title="$t('toolbox.settings')"
-            v-b-tooltip.hover.bottom.small
-            @click="showToolbox">
-      <icon name="cog"></icon>
-    </button>
     <EditablePartToolbox 
             :visibile-link-selector="linkable"
             @update="updateStyles"
@@ -23,7 +18,6 @@
             v-if="toolboxVisible"
             @hide="hideToolbox"></EditablePartToolbox>
     <a 
-       @click="openSelectorIcon"
        v-if="touchedData.href"
        :class="touchedData.cssClass"
        :href="touchedData.href">
@@ -33,7 +27,6 @@
       </i>
     </a>
     <span
-      @click="openSelectorIcon"
       v-else
       :class="touchedData.cssClass">
       <i 

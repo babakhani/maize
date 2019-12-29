@@ -3,16 +3,11 @@
        @mouseenter="mouseInElement"
        @mouseleave="mouseLeaveElement"
        @keydown.esc="hideToolbox()"
+       @click="showToolbox"
+       @dblclick="setPickImageMode"
        :class="{
        'editable-active': editMode,
        'under-edit': toolboxVisible}">
-    <button v-if="editMode && showToolboxButton"
-            class="btn btn-link editable-part--settings-btn"
-            :title="$t('toolbox.settings')"
-            v-b-tooltip.hover.bottom.small
-            @click="showToolbox">
-      <icon name="cog"></icon>
-    </button>
     <EditablePartToolbox 
             :visibile-link-selector="linkable"
             @update="updateStyles"
@@ -31,7 +26,6 @@
            alt="image"
            :class="cssClass"
            :contenteditable="editMode"
-           @click="setPickImageMode"
            class="img-fluid editable-image-img"
            :src="touchedData.src">
     </a>
@@ -40,7 +34,6 @@
          alt="image"
          :class="cssClass"
          :contenteditable="editMode"
-         @click="setPickImageMode"
          class="img-fluid editable-image-img"
          :src="touchedData.src"
     />
