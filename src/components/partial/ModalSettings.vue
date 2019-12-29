@@ -107,8 +107,7 @@
                   v-model="siteSettings.color"
                   type="color" 
                   id="colorPicker" 
-                  class="form-control"
-                  :placeholder="$t('settings.color-placeholder')">
+                  class="form-control">
               </div>
               <div class="form-group">
                 <label>{{ $t('settings.nextURL') }}</label>

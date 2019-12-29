@@ -81,7 +81,7 @@
               class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
-                 :title="$t('mobile')"
+                 :title="$t('toolbox.mobile')"
                  @click="setMobilePreviewMode">
                 <icon name="mobile-alt"></icon>
               </a>
@@ -91,7 +91,7 @@
               class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
-                 :title="$t('tablet')"
+                 :title="$t('toolbox.tablet')"
                  @click="setTabletPreviewMode">
                 <icon name="tablet-alt"></icon>
               </a>
@@ -101,7 +101,7 @@
               class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
-                 :title="$t('desktop')"
+                 :title="$t('toolbox.desktop')"
                  @click="setDesktopPreviewMode">
                 <icon name="desktop"></icon>
               </a>
