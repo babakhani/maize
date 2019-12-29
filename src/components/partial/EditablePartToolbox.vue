@@ -453,13 +453,13 @@
                    aria-labelledby="dropdownMenuButtonFamily">
                 <a :class="{'widget-text-editable--selected': styles['background-size'] == 'cover'}"
                    class="dropdown-item"
-                   @click="setBgSize('cover')"> {{ $t('cover') }}</a>
+                   @click="setBgSize('cover')"> {{ $t('toolbox.cover') }}</a>
                 <a :class="{'widget-text-editable--selected': styles['background-size'] == 'contain'}"
                    class="dropdown-item"
-                   @click="setBgSize('contain')">{{ $t('contain') }}</a>
+                   @click="setBgSize('contain')">{{ $t('toolbox.contain') }}</a>
                 <a :class="{'widget-text-editable--selected': styles['background-size'] == 'auto'}"
                    class="dropdown-item"
-                   @click="setBgSize('auto')">{{ $t('auto') }}</a>
+                   @click="setBgSize('auto')">{{ $t('toolbox.auto') }}</a>
               </div>
             </div>
             <div class="dropdown">
@@ -477,13 +477,13 @@
                    aria-labelledby="dropdownMenuButtonFamily">
                 <a :class="{'widget-text-editable--selected': styles['background-size'] == 'no-repeat'}"
                    class="dropdown-item"
-                   @click="setBgRepeat('no-repeat')"> {{ $t('no-repeat') }}</a>
+                   @click="setBgRepeat('no-repeat')"> {{ $t('toolbox.no-repeat') }}</a>
                 <a :class="{'widget-text-editable--selected': styles['background-size'] == 'repeat-x'}"
                    class="dropdown-item"
-                   @click="setBgRepeat('repeat-x')">{{ $t('repeat-x') }}</a>
+                   @click="setBgRepeat('repeat-x')">{{ $t('toolbox.repeat-x') }}</a>
                 <a :class="{'widget-text-editable--selected': styles['background-size'] == 'repeat-y'}"
                    class="dropdown-item"
-                   @click="setBgRepeat('repeat-y')">{{ $t('repeat-y') }}</a>
+                   @click="setBgRepeat('repeat-y')">{{ $t('toolbox.repeat-y') }}</a>
               </div>
             </div>
             <div class="dropdown">
