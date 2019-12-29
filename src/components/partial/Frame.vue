@@ -22,6 +22,7 @@ export default {
   methods: {
     renderChildren() {
       const children = this.$slots.default
+      if (this.$el.contentDocument) {
       const body = this.$el.contentDocument.body
       const head = this.$el.contentDocument.head
       head.innerHTML = Head(this.$store.getters['main/settings'])
@@ -37,6 +38,7 @@ export default {
       })
       iApp.$mount(el) // mount into iframe
       this.iApp = iApp // cache instance for later updates
+      }
     }
   }
 }

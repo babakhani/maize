@@ -17,6 +17,7 @@ const Mixin = {
     }
   },
   beforeCreate () {
+    let base = 'https://raw.githubusercontent.com/babakhani/maize/master/public'
     this.faker = Object.assign(faker, {
       icon: {
         normal (name = 'fa-tree', color = '333', width = 48, height = 48) {
@@ -28,40 +29,40 @@ const Mixin = {
           return `https://picsum.photos/${width}/${height}`
         },
         big () {
-          return 'imgs/wide.jpg'
+          return `${base}/imgs/wide.jpg`
         },
         tall () {
-          return 'imgs/tall.jpg'
+          return `${base}/imgs/tall.jpg`
         },
         icon () {
-          return 'imgs/img_square_1.svg'
+          return `${base}/imgs/img_square_1.svg`
         },
         wide () {
-          return 'imgs/wider.jpg'
+          return `${base}/imgs/wider.jpg`
         },
         rounded () {
-          return 'imgs/img_circle_300.png'
+          return `${base}/imgs/img_circle_300.png`
         },
         logo () {
-          return 'imgs/img_logo.png'
+          return `${base}/imgs/img_logo.png`
         },
         customer_1 () {
-          return 'imgs/customers/adobe.svg'
+          return `${base}/imgs/customers/adobe.svg`
         },
         customer_2 () {
-          return 'imgs/customers/discovery.svg'
+          return `${base}/imgs/customers/discovery.svg`
         },
         customer_3 () {
-          return 'imgs/customers/ebay.svg'
+          return `${base}/imgs/customers/ebay.svg`
         },
         customer_4 () {
-          return 'imgs/customers/samsung.svg'
+          return `${base}/imgs/customers/samsung.svg`
         },
         customer_5 () {
-          return 'imgs/customers/orange.svg'
+          return `${base}/imgs/customers/orange.svg`
         },
         customer_6 () {
-          return 'imgs/customers/salesforce.svg'
+          return `${base}/imgs/customers/salesforce.svg`
         }
       },
       footer: {
