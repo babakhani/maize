@@ -9,16 +9,21 @@
 
           <ul class="navbar-nav float-right ml-auto pr-0">
             <li class="nav-item mr-lg-3">
-              <a class="nav-link"
-                 :title="$t('preview_mode')"
+              <a class="nav-link pl-0"
+                 :title="previewMode ? $t('preview_mode') : $t('toolbox.edit')"
+                 @click="setPreviewMode"
                  v-b-tooltip.hover.bottom.small
                  href="#">
-                <label class="switch">
-                  <input @change="setPreviewMode"
-                         :checked="previewMode"
-                         type="checkbox">
-                  <span class="slider round"></span>
-                </label>
+                <b-form-checkbox
+                 v-model="checked"
+                 name="check-button"
+                 switch
+                 size="lg"
+                 @change="setPreviewMode">
+                  <span>
+                    {{ previewMode ? $t('toolbox.preview') : $t('toolbox.edit') }}
+                  </span>
+                </b-form-checkbox>
               </a>
             </li>
             <li 
@@ -130,6 +135,11 @@
 import {EventBus} from '@/events/event-bus.js'
 export default {
   name: 'PageToolbax',
+  data() {
+    return {
+      checked: false
+    }
+  },
   methods: {
     goToAddWidgetMode () {
       this.$store.dispatch('layout/setAddWidgetMode', true)
@@ -148,7 +158,9 @@ export default {
       this.$store.dispatch('redo')
     },
     setPreviewMode (e) {
-      this.$store.dispatch('layout/setPreviewMode', e.target.checked)
+      this.checked= !this.checked
+      this.$store.dispatch('layout/setPreviewMode', this.checked)
+      this.checked
     },
     setMobilePreviewMode () {
       this.$store.dispatch('layout/setPreviewModeSize', 'phone')

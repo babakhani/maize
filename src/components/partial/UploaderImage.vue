@@ -1,12 +1,12 @@
 <template>
-  <div class="upload-image-widget p-3">
+  <div class="upload-image-widget p-5 m-2">
     <div v-if="src"
          class="upload-image-widget--box">
       <img alt="image"
            class="upload-image-widget--box--image"
            :src='src'>
     </div>
-    <div class="upload-image-widget--empty-state" v-else>
+    <div class="" v-else>
       <h1>
         <icon class="upload-image-widget--icon"
               size="lg"
