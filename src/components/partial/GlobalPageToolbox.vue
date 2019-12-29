@@ -10,7 +10,7 @@
           <ul class="navbar-nav float-right ml-auto pr-0">
             <li class="nav-item mr-lg-3">
               <a class="nav-link pl-0"
-                 :title="previewMode ? $t('preview_mode') : $t('toolbox.edit')"
+                 :title="previewMode ? $t('toolbox.edit') : $t('preview_mode')"
                  @click="setPreviewMode"
                  v-b-tooltip.hover.bottom.small
                  href="#">
@@ -21,7 +21,7 @@
                  size="lg"
                  @change="setPreviewMode">
                   <span>
-                    {{ previewMode ? $t('toolbox.preview') : $t('toolbox.edit') }}
+                    {{ previewMode ? $t('toolbox.edit') : $t('toolbox.preview') }}
                   </span>
                 </b-form-checkbox>
               </a>
