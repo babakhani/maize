@@ -15,8 +15,9 @@
     width: 20em;
     height: 20em;
     cursor: pointer;
-    background: rgba($primary-color, 0.02);
+    background: transparent;
     position: relative;
+    border: 0;
 
     &:hover {
       background: rgba($primary-color, 0.07);
