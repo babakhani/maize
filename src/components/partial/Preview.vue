@@ -11,6 +11,7 @@
     <component 
           :id="widget.uniqeId"
           v-for="widget in currentWidgetList"
+          :class="{'container': (widget.data && widget.data.config) ? widget.data.config.fullWidth : false }"
           :key="widget.uniqeId"
           ref="widegtContainer"
           :is="widget.name"

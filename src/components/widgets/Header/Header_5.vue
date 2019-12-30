@@ -3,7 +3,6 @@
       <WidgetToolbox/>
       <BgEditable>
          <header>
-           <div class="container">
              <nav class="navbar navbar-expand-md">
                <ImageEditable name="logo"
                  :partData="touchedData.logo"/>
@@ -67,7 +66,6 @@
                  <a class="btn btn-outline-primary ml-md-3" href="">Button</a>
                </div>
              </nav>
-           </div>
          </header>
       </BgEditable>
   </div>
