@@ -5,7 +5,7 @@
     <header class="bg-dark">
       <div class="container">
         <nav class="navbar navbar-expand-md no-gutters">
-          <div class="col-2 text-left">
+          <div class="col-4 col-sm-2 text-center ">
             <ImageEditable name="logo"
                            :partData="touchedData.logo"/>
           </div>
@@ -44,26 +44,26 @@
           </div>
 
           <ul class="navbar-nav col-2 justify-content-end d-none d-md-flex">
-            <li class="nav-item">
-              <TextEditable tag="a"
-                            cssClass="nav-link"
-                            name="header_social_link_1"
-                            :partData="touchedData.header_social_link_1"/>
+            <li class="nav-item ml-3">
+              <IconEditable
+                cssClass="nav-link"
+                name="header_social_link_1"
+                :partData="touchedData.header_social_link_1"/>
             </li>
-            <li class="nav-item">
-              <TextEditable tag="a"
+            <li class="nav-item ml-3">
+              <IconEditable
                             cssClass="nav-link"
                             name="header_social_link_2"
                             :partData="touchedData.header_social_link_2"/>
             </li>
-            <li class="nav-item">
-              <TextEditable tag="a"
+            <li class="nav-item ml-3">
+              <IconEditable
                             cssClass="nav-link"
                             name="header_social_link_3"
                             :partData="touchedData.header_social_link_3"/>
             </li>
-            <li class="nav-item">
-              <TextEditable tag="a"
+            <li class="nav-item ml-3">
+              <IconEditable
                             cssClass="nav-link"
                             name="header_social_link_4"
                             :partData="touchedData.header_social_link_4"/>
@@ -132,36 +132,28 @@ export default {
             src: this.faker.internet.url
           },
           header_social_link_1: {
-            styles: {
-              padding: '1em',
-              'line-height': '2em'
-            },
+            styles: {},
+            iconName: 'fab fa-github',
             text: '<i class="fab fa-slack"></i>',
-            src: this.faker.internet.url
+            href: this.faker.internet.url()
           },
           header_social_link_2: {
-            styles: {
-              padding: '1em',
-              'line-height': '2em'
-            },
-            text: '<i class="fab fa-github"></i>',
-            src: this.faker.internet.url
+            styles: {},
+            iconName: 'fab fa-instagram',
+            text: '<i class="fab fa-instagram"></i>',
+            href: this.faker.internet.url()
           },
           header_social_link_3: {
-            styles: {
-              padding: '1em',
-              'line-height': '2em'
-            },
+            styles: {},
+            iconName: 'fab fa-twitter',
             text: '<i class="fab fa-twitter"></i>',
-            src: this.faker.internet.url
+            href: this.faker.internet.url()
           },
           header_social_link_4: {
-            styles: {
-              padding: '1em',
-              'line-height': '2em'
-            },
+            styles: {},
+            iconName: 'fab fa-google',
             text: '<i class="fab fa-google"></i>',
-            src: this.faker.internet.url
+            href: this.faker.internet.url()
           }
         }
       },
