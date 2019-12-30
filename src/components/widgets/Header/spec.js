@@ -40,7 +40,11 @@ export default {
       height: 46
     },
     {
-      name: 'Header_10',
+      name: 'header_10',
+      height: 46
+    },
+    {
+      name: 'header_11',
       height: 46
     }
   ]
