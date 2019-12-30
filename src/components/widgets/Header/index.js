@@ -6,6 +6,8 @@ import Header_5 from './Header_5'
 import Header_6 from './Header_6'
 import Header_7 from './Header_7'
 import Header_8 from './Header_8'
+import Header_9 from './Header_9'
+import Header_10 from './Header_10'
 
 export default {
   Header_1: Header_1,
@@ -15,5 +17,7 @@ export default {
   Header_5: Header_5,
   Header_6: Header_6,
   Header_7: Header_7,
-  Header_8: Header_8
+  Header_8: Header_8,
+  Header_9: Header_9,
+  Header_10: Header_10
 }
