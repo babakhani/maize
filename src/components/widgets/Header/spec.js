@@ -50,6 +50,10 @@ export default {
     {
       name: 'header_12',
       height: 46
+    },
+    {
+      name: 'header_13',
+      height: 46
     }
   ]
 }
