@@ -2,19 +2,18 @@
   <div>
     <WidgetToolbox/>
     <BgEditable>
-    <header class="bg-dark">
+    <header>
       <div class="container">
         <nav class="navbar navbar-expand-md no-gutters">
-          <div class="col-4 col-sm-2 text-center ">
+          <div class="col-3 text-left">
             <ImageEditable name="logo"
                            :partData="touchedData.logo"/>
           </div>
-
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse-2" aria-controls="navbarNav7" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <div class="collapse navbar-collapse justify-content-center col-md-8" id="navbarNav4">
+          <div class="collapse navbar-collapse navbar-collapse-2 justify-content-center col-md-6" id="navbarNav7">
             <ul class="navbar-nav justify-content-center">
               <li class="nav-item active">
                 <TextEditable tag="a"
@@ -40,35 +39,24 @@
                               name="header_link_4"
                               :partData="touchedData.header_link_4"/>
               </li>
+              <li class="nav-item">
+                <TextEditable tag="a"
+                              cssClass="nav-link"
+                              name="header_link_5"
+                              :partData="touchedData.header_link_5"/>
+              </li>
             </ul>
           </div>
 
-          <ul class="navbar-nav col-2 justify-content-end d-none d-md-flex">
-            <li class="nav-item ml-3">
-              <IconEditable
-                cssClass="nav-link"
-                name="header_social_link_1"
-                :partData="touchedData.header_social_link_1"/>
-            </li>
-            <li class="nav-item ml-3">
-              <IconEditable
-                            cssClass="nav-link"
-                            name="header_social_link_2"
-                            :partData="touchedData.header_social_link_2"/>
-            </li>
-            <li class="nav-item ml-3">
-              <IconEditable
-                            cssClass="nav-link"
-                            name="header_social_link_3"
-                            :partData="touchedData.header_social_link_3"/>
-            </li>
-            <li class="nav-item ml-3">
-              <IconEditable
-                            cssClass="nav-link"
-                            name="header_social_link_4"
-                            :partData="touchedData.header_social_link_4"/>
-            </li>
-          </ul>
+          <div class="collapse navbar-collapse navbar-collapse-2">
+            <ul class="navbar-nav ml-auto justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link" href="">Log In</a>
+              </li>
+            </ul>
+
+            <a class="btn text-white btn-primary ml-md-3" href="">Register</a>
+          </div>
         </nav>
       </div>
     </header>
@@ -79,7 +67,7 @@
 import widgetMixin from '@/mixins/widget'
 
 export default {
-  name: 'Header_8',
+  name: 'Header_9',
   mixins: [widgetMixin],
   props: {
     defaultData: {
@@ -131,29 +119,13 @@ export default {
             text: this.faker.lorem.words(1),
             src: this.faker.internet.url
           },
-          header_social_link_1: {
-            styles: {},
-            iconName: 'fab fa-github',
-            text: '<i class="fab fa-slack"></i>',
-            href: this.faker.internet.url()
-          },
-          header_social_link_2: {
-            styles: {},
-            iconName: 'fab fa-instagram',
-            text: '<i class="fab fa-instagram"></i>',
-            href: this.faker.internet.url()
-          },
-          header_social_link_3: {
-            styles: {},
-            iconName: 'fab fa-twitter',
-            text: '<i class="fab fa-twitter"></i>',
-            href: this.faker.internet.url()
-          },
-          header_social_link_4: {
-            styles: {},
-            iconName: 'fab fa-google',
-            text: '<i class="fab fa-google"></i>',
-            href: this.faker.internet.url()
+          header_link_5: {
+            styles: {
+              padding: '1em',
+              'line-height': '2em'
+            },
+            text: this.faker.lorem.words(1),
+            src: this.faker.internet.url
           }
         }
       },

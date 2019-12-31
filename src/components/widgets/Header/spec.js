@@ -34,6 +34,26 @@ export default {
     {
       name: 'Header_8',
       height: 46
+    },
+    {
+      name: 'Header_9',
+      height: 46
+    },
+    {
+      name: 'header_10',
+      height: 46
+    },
+    {
+      name: 'header_11',
+      height: 46
+    },
+    {
+      name: 'header_12',
+      height: 46
+    },
+    {
+      name: 'header_13',
+      height: 46
     }
   ]
 }
