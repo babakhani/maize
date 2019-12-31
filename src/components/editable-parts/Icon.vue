@@ -9,6 +9,7 @@
        'editable-active': editMode,
        'under-edit': toolboxVisible}">
     <EditablePartToolbox 
+            :visibile-icon-selector="true"
             :visibile-link-selector="linkable"
             @update="updateStyles"
             @updatewidget="updateEditableData"

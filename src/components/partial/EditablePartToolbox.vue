@@ -5,6 +5,28 @@
              class="widget-text-editable--toolbox--group">
         </div>
         <template
+          v-if="visibileImageSelector">
+          <button :title="$t('toolbox.icon_picker')"
+            v-b-tooltip.hover.top.small
+            @click="pickImage"
+            class="btn btn-sm widget-text-editable--toolbox--button">
+            <icon name="image"></icon>
+          </button>
+          <div class="widget-text-editable--toolbox--group-separator"></div>
+        </template>
+
+        <template
+          v-if="visibileIconSelector">
+          <button :title="$t('toolbox.icon_picker')"
+            v-b-tooltip.hover.top.small
+            @click="pickIcon"
+            class="btn btn-sm widget-text-editable--toolbox--button">
+            <maizcon name="shuffle"></maizcon>
+          </button>
+          <div class="widget-text-editable--toolbox--group-separator"></div>
+        </template>
+
+        <template
           v-if="visibileLinkSelector">
           <button :title="$t('toolbox.link')"
             v-b-tooltip.hover.top.small
@@ -413,8 +435,8 @@
         <!-- Background Settings -->
         <!-- ---------------------------------------------------------------------------- -->
         <div 
-                 v-if="groups.indexOf('background') > -1"
-                 class="widget-text-editable--toolbox--group">
+               v-if="groups.indexOf('background') > -1"
+               class="widget-text-editable--toolbox--group">
           <div class="dropdown">
             <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                     :title="$t('toolbox.bg-color')"
@@ -541,6 +563,14 @@
         default: false, 
         required: false 
       },
+      visibileImageSelector: {
+        default: false, 
+        required: false 
+      },
+      visibileIconSelector: {
+        default: false, 
+        required: false 
+      },
       visibileLinkSelector: {
         default: false, 
         required: false 
@@ -596,6 +626,26 @@
       this.styles = this._.extend(this.styles, this.currentStyles)
     },
     methods: {
+      pickImage () {
+        this.$store.dispatch('layout/setModalView', {
+          name: 'image',
+          data: this.editableData
+        })
+        EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
+          this.$emit('updatewidget', widgetData)
+        })
+        return false 
+      },
+      pickIcon () {
+        this.$store.dispatch('layout/setModalView', {
+          name: 'icon',
+          data: this.editableData
+        })
+        EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
+          this.$emit('updatewidget', widgetData)
+        })
+        return false
+      },
       pickBackgroundImage () {
         this.$store.dispatch('layout/setModalView', {
           name: 'image',
@@ -604,8 +654,6 @@
           }
         })
         EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
-          console.log('UPDATE_WIDGET_DATA')
-          console.log(widgetData)
           this.styles['background-image'] = `url('${widgetData.src}')`
           this.update()
         })
@@ -625,8 +673,12 @@
         //  TODO: send only changed data to update methods
         this.$emit('update', this.styles)
       },
-      hide () {
-        this.$emit('hide')
+      hide (e) {
+        e.preventDefault()
+        setTimeout(() => {
+          this.$emit('hide')
+        }, 100)
+        return false
       },
       toggleBold () {
         if (this.styles['font-weight'] == 'bold') {

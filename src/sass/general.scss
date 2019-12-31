@@ -9,26 +9,6 @@ body {
   overflow-x: hidden;
   direction: ltr;
   background: rgba(#ccc, 0.3);
-  a {
-    color: #888 !important;
-    cursor: pointer;
-  }
-  a:hover {
-    color: #666 !important;
-    text-decoration: none;
-  }
-}
-header {
-  background: transparent !important;
-}
-
-.btn,
-.input {
-  cursor: pointer !important;
-  border: 0;
-  &:focus {
-    box-shadow: none;
-  }
 }
 
 .no-outline {
@@ -36,60 +16,6 @@ header {
   &:hover {
     outline: 0 !important;
   }
-}
-
-.btn-loading {
-  position: relative;
-  //border: 1px solid #28a746
-  .btn-hover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 6px 12px;
-    font-size: 16px;
-  }
-  .fa-spin {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    height: 1.5em;
-    animation: fa-spin 2s 0s infinite linear;
-  }
-}
-
-button {
-  &:focus {
-    border: 0;
-    outline: none;
-  }
-}
-.btn-outline-success {
-  &:hover,
-  &:active,
-  &:focus {
-     background: none !important;
-     text-decoration: none !important;
-  }
-  &:hover {
-     color: $gray-5 !important;
-  }
-  &:active,
-  &:focus {
-     color: darken($gray-5, 7) !important;
-  }
-  &:active:focus {
-    box-shadow: none !important;
-  }
-}
-
-.main-body {
-  min-height: 35em;
-  padding: 3%;
-  background: rgba(251, 124, 130, 0.1);
 }
 
 .rtl {

@@ -4,7 +4,8 @@
       <BgEditable>
          <header>
              <nav class="navbar navbar-expand-md">
-               <ImageEditable name="logo"
+               <ImageEditable 
+                  name="logo"
                  :partData="touchedData.logo"/>
                <button 
                  class="navbar-toggler" 

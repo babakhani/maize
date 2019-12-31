@@ -9,6 +9,7 @@
        'editable-active': editMode,
        'under-edit': toolboxVisible}">
     <EditablePartToolbox 
+            :visibile-image-selector="true"
             :visibile-link-selector="linkable"
             @update="updateStyles"
             @updatewidget="updateEditableData"
@@ -19,7 +20,6 @@
             @hide="hideToolbox"></EditablePartToolbox>
 
     <a v-if="touchedData.href"
-       @click="setPickImageMode"
        :contenteditable="editMode"
        :href="touchedData.href">
       <img :style="touchedData.styles"

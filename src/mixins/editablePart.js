@@ -4,11 +4,12 @@ import {EventBus} from '../events/event-bus'
 const Mixin = {
   components: {EditablePartToolbox},
   mounted () {
+    this.touchedData.cssClass = this.cssClass
     if (this.partData) {
       this.touchedData = this.partData
       this.touchedText = this.partData.text
+      this.touchedData.cssClass = this.cssClass
     }
-    this.touchedData.cssClass = this.cssClass
     EventBus.$on('igotoeditmode', (uid) => {
       if (this._uid != uid) {
         this.toolboxVisible = false
