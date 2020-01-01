@@ -9,7 +9,8 @@
        ref="column"
        class="add-widget-modal--widget-item mb-0"
        :style="{ 
-                height: heightList[index] ? `${heightList[index] * sanitizedScale}px`  : `${ widget.height ?  widget.height : 300 }px`
+                height: heightList[index] ? `${heightList[index] * sanitizedScale}px`  : `${
+                widget.height ?  widget.height : 100 }px`
                 }"
        :class="{
                 'add-widget-modal--widget-item--selected': addWidgetList.indexOf(widget) > -1
@@ -25,7 +26,7 @@
           :style="{
                    width: `${widthFrame}px`,
                    transform: `scale(${sanitizedScale}) translate(-50% , -50%)`,
-                   height: heightList[index] ? `${heightList[index]}px`  : `${ widget.height ?  widget.height : 300 }px`
+                   height: heightList[index] ? `${heightList[index]}px`  : `${ widget.height ?  widget.height : 100 }px`
                    }"
           class="widget-thumb-container">
         <FrameChild 
@@ -90,7 +91,7 @@ export default {
           this.$refs.widegtContainer.forEach((widgetItem, index) => {
              this.heightList.push(widgetItem.$el.clientHeight)
           })
-        }, 500)
+        }, 1500)
         this.heightSetup = false
       }
     })
