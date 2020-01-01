@@ -8,8 +8,8 @@
              id="navbarNav13">
 
           <ul class="navbar-nav float-right ml-auto pr-0">
-            <li class="nav-item mr-lg-3">
-              <a class="nav-link pl-0"
+            <li class="nav-item mr-lg-3 pr-0">
+              <a class="nav-link px-0"
                  :title="previewMode ? $t('toolbox.edit') : $t('preview_mode')"
                  @click="setPreviewMode"
                  v-b-tooltip.hover.bottom.small
