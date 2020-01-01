@@ -66,7 +66,7 @@
         color: rgba($white, .6);
         width: 90%;
         padding: 0;
-        margin: 5% 5% 0 5%;
+        margin: 0 5%;
       }
       .vc-compact {
          background: transparent;
@@ -80,6 +80,7 @@
         color: $white;
         width: 90%;
         padding: 0;
+        padding-left: .3em;
         margin: 0 5% 0 5%;
       }
 
@@ -106,6 +107,18 @@
           background: rgba($primary-color, 0.5);
         }
       }
+     &.dropdown-menu--margin {
+       padding-top:  .25em;
+       max-width: 10em;
+       input {
+         width: 4em;
+        padding-left: .3em;
+         margin: auto;
+       }
+       .dropdown-input--even {
+         margin-left: 2.5%
+       }
+     }
     }
   }
 
