@@ -52,7 +52,7 @@ export default {
     },
     onHide () {
       this.$store.dispatch('layout/hideModalView')
-      //EventBus.$emit('UPDATE_WIDGET_DATA', this.widgetData)
+      EventBus.$emit('UPDATE_WIDGET_DATA', this.widgetData)
     },
     onOk (e) {
       EventBus.$emit('UPDATE_WIDGET_DATA', this.widgetData)

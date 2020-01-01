@@ -648,11 +648,18 @@
         })
         return false
       },
+      getBgURL () {
+        let out = null
+        if (this.styles['background-image']) {
+          out = this.styles['background-image'].match(/\((.*?)\)/)[1].replace(/('|")/g,'')
+        }
+        return out
+      },
       pickBackgroundImage () {
         this.$store.dispatch('layout/setModalView', {
           name: 'image',
           data: {
-            src: null
+            src: this.getBgURL()
           }
         })
         EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
