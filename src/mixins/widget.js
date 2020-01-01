@@ -3,12 +3,13 @@ import TextEditable from '@/components/editable-parts/Text.vue'
 import ImageEditable from '@/components/editable-parts/Image.vue'
 import VideoEditable from '@/components/editable-parts/Video.vue'
 import BgEditable from '@/components/editable-parts/Bg.vue'
+import ButtonEditable from '@/components/editable-parts/Button.vue'
 import PlayerEditable from '@/components/editable-parts/Player.vue'
 import WidgetToolbox from '../components/partial/WidgetToolbox'
 import faker from 'faker'
 
 const Mixin = {
-  components: {IconEditable, TextEditable, ImageEditable, BgEditable, WidgetToolbox, VideoEditable, PlayerEditable},
+  components: {ButtonEditable ,IconEditable, TextEditable, ImageEditable, BgEditable, WidgetToolbox, VideoEditable, PlayerEditable},
   name: 'EventBody',
   data () {
     return {

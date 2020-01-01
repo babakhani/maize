@@ -11,7 +11,7 @@ const Mixin = {
       this.touchedData.cssClass = this.cssClass
     }
     EventBus.$on('igotoeditmode', (uid) => {
-      if (this._uid != uid) {
+      if (this._uid !== uid) {
         this.toolboxVisible = false
       }
     })
