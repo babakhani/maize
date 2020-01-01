@@ -4,12 +4,13 @@ import ImageEditable from '@/components/editable-parts/Image.vue'
 import VideoEditable from '@/components/editable-parts/Video.vue'
 import BgEditable from '@/components/editable-parts/Bg.vue'
 import ButtonEditable from '@/components/editable-parts/Button.vue'
+import MapEditable from '@/components/editable-parts/Map.vue'
 import PlayerEditable from '@/components/editable-parts/Player.vue'
-import WidgetToolbox from '../components/partial/WidgetToolbox'
+import WidgetToolbox from '@/components/partial/WidgetToolbox'
 import faker from 'faker'
 
 const Mixin = {
-  components: {ButtonEditable ,IconEditable, TextEditable, ImageEditable, BgEditable, WidgetToolbox, VideoEditable, PlayerEditable},
+  components: {MapEditable, ButtonEditable ,IconEditable, TextEditable, ImageEditable, BgEditable, WidgetToolbox, VideoEditable, PlayerEditable},
   name: 'EventBody',
   data () {
     return {
@@ -99,10 +100,6 @@ const Mixin = {
       require: true
     },
     editMode: {
-      default: false,
-      require: false
-    },
-    demoMode: {
       default: false,
       require: false
     }

@@ -112,6 +112,9 @@ export default {
     'meta': 'Meta Tags',
     'header': 'Site Settings'
   },
+  'messages': {
+    'google_map_iframe_extract': 'Google map embed iframe source will be extract from <iframe src=".... />'
+  },
   'hello_from_modal': 'Hello from modal',
   'monospace': 'monospace',
   'serif': 'serif',

@@ -17,6 +17,9 @@
         {{ $t('modal.ok') }}
       </b-button>
     </template>
+    <MapPicker
+        v-model="widgetData.frameSrc"
+        v-if="modalName == 'map'" />
     <LinkPicker
         v-model="widgetData.href"
         v-if="modalName == 'link'" />
@@ -36,11 +39,13 @@ import { EventBus } from '../../events/event-bus'
 import IconPicker from './IconPicker'
 import LinkPicker from './LinkPicker'
 import ImagePicker from './ImagePicker'
+import MapPicker from './MapPicker'
 
 export default {
   name: 'ModalSettings',
   data () { return { modalData: null } },
   components: {
+    MapPicker,
     ImagePicker,
     IconPicker,
     LinkPicker

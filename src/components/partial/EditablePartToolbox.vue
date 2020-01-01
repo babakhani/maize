@@ -41,8 +41,8 @@
         <!-- Background Settings -->
         <!-- ---------------------------------------------------------------------------- -->
         <div 
-               v-if="groups.indexOf('background') > -1"
-               class="widget-text-editable--toolbox--group">
+          v-if="groups.indexOf('background') > -1"
+          class="widget-text-editable--toolbox--group">
           <div class="dropdown">
             <button class="btn btn-sm dropdown-toggle widget-text-editable--toolbox--button"
                     :title="$t('toolbox.bg-color')"

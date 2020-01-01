@@ -17,15 +17,14 @@
       @update="updateStyles"
       v-if="toolboxVisible">
     </EditablePartToolbox>
-    <pre> {{ touchedData.cssClass }} </pre>
     <button 
         v-bind:style="touchedData.styles"
         :class="cssClass"
         :contenteditable="editMode"
         :href="tag === 'a' ? touchedData.href : false"
         :target="tag === 'a' ? '_blank' : false"
+        :type="type"
         @focus="showToolbox"
-        @click="(e) => e.preventDefault()"
         @focusout="updateTextOnBlur"
         @dblclick="goToEditMode"
         @paste="onPaste"
@@ -44,6 +43,12 @@
     data () {
       return {
         touchedText: null
+      }
+    },
+    props: {
+      type: {
+        required: false,
+        default: 'button'
       }
     },
     methods: {
