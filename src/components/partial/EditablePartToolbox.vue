@@ -531,18 +531,31 @@
                 <maizcon name="margin"></maizcon>
               </button>
               <div 
-                 class="dropdown-menu"
+                 class="dropdown-menu dropdown-menu--margin"
                  @click="(e) => {e.stopPropagation()}"
                  aria-labelledby="dropdownMenuButtonMargin">
                 <label> {{ $t('toolbox.margin') }} </label>       
+                <b-row class="m-0 mb-2 w-100">
                 <input @input="setMargin"
-                   type="text"
+                   type="number"
+                   class="dropdown-input--odd"
                    v-model="styles['margin']"/>
-                <br/>       
+                <input @input="setMargin"
+                   type="number"
+                   class="dropdown-input--even"
+                   v-model="styles['margin']"/>
+                </b-row>
+                <b-row class="m-0 mb-1 w-100">
                 <label> {{ $t('toolbox.padding') }} </label>       
                 <input @input="setPadding"
-                   type="text"
+                   type="number"
+                   class="dropdown-input--odd"
                    v-model="styles['padding']"/>
+                <input @input="setPadding"
+                   type="number"
+                   class="dropdown-input--even"
+                   v-model="styles['padding']"/>
+                </b-row>
               </div>
             </div>
           </div>
