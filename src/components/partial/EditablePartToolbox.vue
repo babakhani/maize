@@ -57,7 +57,9 @@
                        :style="{'background-color': styles['background-color']}"
                        class="color-indicator"></div>
             </button>
-            <div class="dropdown-menu"
+            <div 
+                 @click="(e) => {e.stopPropagation()}"
+                 class="dropdown-menu"
                  aria-labelledby="dropdownMenuButtonBgColor">
               <color-picker :value="styles['background-color']"
                  @input="updateBgColor">
@@ -376,6 +378,7 @@
                          class="color-indicator"></div>
               </button>
               <div class="dropdown-menu"
+                   @click="(e) => {e.stopPropagation()}"
                    aria-labelledby="dropdownMenuButtonBorderColor">
                 <color-picker :value="styles['border-color']"
                    @input="updateBorderColor">
@@ -396,15 +399,20 @@
               </button>
               <div class="dropdown-menu"
                    aria-labelledby="dropdownMenuButton5">
-                <input type="text"
-                       v-model="styles['border-width']"/>
+                <b-input-group size="sm" append="px">
+                  <b-form-input
+                    type="number"
+                    @change="setBorderWidth"
+                    v-model="defaultStyles.borderWidth" >
+                  </b-form-input>
+                </b-input-group>
                 <br>
-                <input @input="borderWidth"
+                <input @input="setBorderWidth"
                        type="range"
                        min="0"
                        max="10"
-                       :value="styles['border-width']"
-                       step="1">
+                       step="1"
+                       v-model="defaultStyles.borderWidth"/>
               </div>
             </div>
 
@@ -522,8 +530,10 @@
                  aria-expanded="false">
                 <maizcon name="margin"></maizcon>
               </button>
-              <div class="dropdown-menu"
-                   aria-labelledby="dropdownMenuButtonMargin">
+              <div 
+                 class="dropdown-menu"
+                 @click="(e) => {e.stopPropagation()}"
+                 aria-labelledby="dropdownMenuButtonMargin">
                 <label> {{ $t('toolbox.margin') }} </label>       
                 <input @input="setMargin"
                    type="text"
@@ -547,10 +557,12 @@
 <script>
   import maizcon from '../partial/MaizeCon.vue'
   import {EventBus} from '../../events/event-bus'
+  import CssInput from './CssInput'
   import {Material, Compact, Swatches, Slider, Sketch, Chrome, Photoshop} from 'vue-color'
   export default {
     name: 'EditablePartToolbox',
     components: {
+      CssInput,
       'maizcon': maizcon,
       'color-picker': Sketch,
       'compact-picker': Compact,
@@ -559,6 +571,13 @@
       'sketch-picker': Sketch,
       'chrome-picker': Chrome,
       'photoshop-picker': Photoshop
+    },
+    data () {
+      return {
+        defaultStyles: {
+          borderWidth: this.styles['border-width'] ? this.styles['border-width'] : 0
+        }
+      }
     },
     props: {
       target: {
@@ -681,6 +700,7 @@
       update () {
         //  TODO: send only changed data to update methods
         this.$emit('update', this.styles)
+        this.$forceUpdate()
       },
       hide (e) {
         e.preventDefault()
@@ -696,7 +716,6 @@
           this.styles['font-weight'] = 'bold'
         }
         this.update()
-        this.$forceUpdate()
       },
       updateColor (e) {
         this.styles['color'] = `rgba(${e.rgba.r},${e.rgba.g},${e.rgba.b},${e.rgba.a})`
@@ -771,8 +790,8 @@
         this.styles['border-color'] = `rgba(${e.rgba.r},${e.rgba.g},${e.rgba.b},${e.rgba.a})`
         this.update()
       },
-      borderWidth (e) {
-        this.styles['border-width'] = e.target.value + 'px'
+      setBorderWidth (e) {
+        this.styles['border-width'] = this.defaultStyles.borderWidth + 'px'
         this.update()
       },
       setBorderStyle (style) {
