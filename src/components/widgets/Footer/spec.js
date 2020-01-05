@@ -17,6 +17,21 @@ export default {
     },
     {
       name: 'Footer_5'
+    },
+    {
+      name: 'Footer_6'
+    },
+    {
+      name: 'Footer_7'
+    },
+    {
+      name: 'Footer_8'
+    },
+    {
+      name: 'Footer_9'
+    },
+    {
+      name: 'Footer_10'
     }
   ]
 }
