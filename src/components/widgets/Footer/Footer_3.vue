@@ -51,7 +51,7 @@
   import widgetMixin from '@/mixins/widget'
 
   export default {
-    name: 'Footer_4',
+    name: 'Footer_3',
     mixins: [widgetMixin],
     props: {
       defaultData: {
