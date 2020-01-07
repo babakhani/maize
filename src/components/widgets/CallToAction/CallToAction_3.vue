@@ -5,7 +5,7 @@
       <section class="mz-block py-0">
         <div class="container">
           <div class="row justify-content-center py-5">
-            <div class="col-12 col-md-10 col-lg-8 text-center">
+            <div class="col-12 col-md-10 col-lg-8 text-left">
               <TextEditable 
                 tag="h1"
                 name="mainTitle"

@@ -21,6 +21,18 @@ export default {
     {
       name: 'CallToAction_5',
       height: 220
+    },
+    {
+      name: 'CallToAction_6',
+      height: 340
+    },
+    {
+      name: 'CallToAction_7',
+      height: 340
+    },
+    {
+      name: 'CallToAction_8',
+      height: 340
     }
   ]
 }
