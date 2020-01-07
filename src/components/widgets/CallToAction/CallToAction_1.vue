@@ -51,7 +51,7 @@
             },
             action_link: {
               styles: {},
-              text: this.faker.lorem.words(1),
+              text: this.faker.lorem.words(2),
               src: this.faker.internet.url
             }
           }
