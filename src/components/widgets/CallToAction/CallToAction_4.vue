@@ -32,28 +32,34 @@
                 :partData="touchedData.description_business"/>
             </div>
           </div>
-          <div class="row">
+          <b-row class="justify-content-center">
             <div class="col-12 text-center">
               <ImageEditable name="customer_logo_1"
-                cssClass="ml-3 mr-3 mb-2 mt-2"
+                cssClass="mx-2 my-2"
+                class="d-inline-block"
                 :partData="touchedData.customer_logo_1"/>
               <ImageEditable name="customer_logo_2"
-                cssClass="ml-3 mr-3 mb-2 mt-2"
+                cssClass="mx-2 my-2"
+                class="d-inline-block"
                 :partData="touchedData.customer_logo_2"/>
               <ImageEditable name="customer_logo_3"
-                cssClass="ml-3 mr-3 mb-2 mt-2"
+                cssClass="mx-2 my-2"
+                class="d-inline-block"
                 :partData="touchedData.customer_logo_3"/>
               <ImageEditable name="customer_logo_4"
-                cssClass="ml-3 mr-3 mb-2 mt-2"
+                cssClass="mx-2 my-2"
+                class="d-inline-block"
                 :partData="touchedData.customer_logo_4"/>
               <ImageEditable name="customer_logo_5"
-                cssClass="ml-3 mr-3 mb-2 mt-2"
+                cssClass="mx-2 my-2"
+                class="d-inline-block"
                 :partData="touchedData.customer_logo_5"/>
               <ImageEditable name="customer_logo_6"
-                cssClass="ml-3 mr-3 mb-2 mt-2"
+                cssClass="mx-2 my-2"
+                class="d-inline-block"
                 :partData="touchedData.customer_logo_6"/>
             </div>
-          </div>
+          </b-row>
         </div>
       </section>
     </BgEditable>
@@ -87,46 +93,46 @@
             },
             action_link: {
               styles: {},
-              text: this.faker.lorem.words(2),
+              text: this.faker.lorem.words(3),
               src: this.faker.internet.url
             },
             description_business: {
               styles: {},
-              text: this.faker.lorem.words(10)
+              text: this.faker.lorem.words(8)
             },
             customer_logo_1: {
               styles: {
-                height: '30px'
+                height: '50px'
               },
               src: this.faker.img.customer_1()
             },
             customer_logo_2: {
               styles: {
-                height: '30px'
+                height: '50px'
               },
               src: this.faker.img.customer_2()
             },
             customer_logo_3: {
               styles: {
-                height: '30px'
+                height: '50px'
               },
               src: this.faker.img.customer_3()
             },
             customer_logo_4: {
               styles: {
-                height: '30px'
+                height: '50px'
               },
               src: this.faker.img.customer_4()
             },
             customer_logo_5: {
               styles: {
-                height: '30px'
+                height: '50px'
               },
               src: this.faker.img.customer_5()
             },
             customer_logo_6: {
               styles: {
-                height: '30px'
+                height: '50px'
               },
               src: this.faker.img.customer_6()
             }
