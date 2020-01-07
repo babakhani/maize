@@ -38,7 +38,7 @@
                  :partData="touchedData.action_link_1"/>
               </p>
             </div>
-            <div class="col-12 col-sm-10 col-md-6 col-lg-4 m-sm-auto mb-3">
+            <div class="col-12 col-sm-10 col-md-6 col-lg-4 mx-sm-auto mb-3">
               <p>
               <ImageEditable
                  name="image_2"
