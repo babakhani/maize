@@ -88,10 +88,23 @@ export default {
     this.$nextTick(function () {
       if (this.$refs.widegtContainer && this.heightSetup) {
         setTimeout( () => {
+          this.heightList = []
+          this.$refs.widegtContainer.forEach((widgetItem, index) => {
+             this.heightList.push(widgetItem.$el.clientHeight)
+          })
+        }, 300)
+        setTimeout( () => {
+          this.heightList = []
           this.$refs.widegtContainer.forEach((widgetItem, index) => {
              this.heightList.push(widgetItem.$el.clientHeight)
           })
         }, 1500)
+        setTimeout( () => {
+          this.heightList = []
+          this.$refs.widegtContainer.forEach((widgetItem, index) => {
+             this.heightList.push(widgetItem.$el.clientHeight)
+          })
+        }, 3000)
         this.heightSetup = false
       }
     })
