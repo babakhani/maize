@@ -98,7 +98,7 @@ export default {
   },
   computed: {
     getDefaultTabIndex () {
-     return this.pickedImageSrc.indexOf('imgur.com') >= 0 ? 1 : 0
+     return (this.pickedImageSrc && this.pickedImageSrc.indexOf('imgur.com')) >= 0 ? 1 : 0
     },
     randomImageList () {
       return this.$store.state.unsplash.imageList

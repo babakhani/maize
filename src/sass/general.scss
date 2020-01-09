@@ -11,6 +11,10 @@ body {
   background: rgba(#ccc, 0.3);
 }
 
+.pointer {
+  cursor: pointer !important;
+}
+
 .no-outline {
   outline: 0 !important;
   &:hover {

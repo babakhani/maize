@@ -6,6 +6,7 @@
 
 <script>
 import Vue from 'vue'
+import i18n from '@/i18n'
 import Head from "../../service/head"
 export default {
   name: 'frame',
@@ -31,6 +32,7 @@ export default {
       const iApp = new Vue({
         name: 'iApp',
         //freezing to prevent unnessessary Reactifiation of vNodes
+        i18n,
         data: { children: Object.freeze(children) },
         render(h) {
           return h('div', this.children)

@@ -99,6 +99,10 @@ const Mixin = {
       default: null,
       require: true
     },
+    demoMode: {
+      default: false,
+      require: false
+    },
     editMode: {
       default: false,
       require: false
