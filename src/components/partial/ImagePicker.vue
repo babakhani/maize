@@ -2,31 +2,31 @@
   <div>
     <div class="row px-2 py-1">
       <div class="col-12">
-        <b-input-group 
-          size="md" 
+        <b-input-group
+          size="md"
           class="w-100 my-3" >
-          <b-form-input 
+          <b-form-input
             v-model="pickedImageSrc"></b-form-input>
           <b-input-group-append>
-            <b-button 
+            <b-button
             variant="outline-primary"
             @click="pickAndHide(pickedImageSrc)">
-              {{ $t('load_url') }} 
+              {{ $t('load_url') }}
             </b-button>
-            <b-button 
+            <b-button
             variant="danger"
             @click="pickAndHide(null)">
-              {{ $t('delete') }} 
+              {{ $t('delete') }}
             </b-button>
           </b-input-group-append>
         </b-input-group>
       </div>
     </div>
-    <b-tabs 
-      class="mazie-tabs"      
+    <b-tabs
+      class="mazie-tabs"
       v-model="getDefaultTabIndex"
       card>
-      <b-tab  
+      <b-tab
         class="py-2">
         <template slot="title">
           <icon class="upload-image-icon"
@@ -35,6 +35,7 @@
         </template>
         <div class="row px-2 py-1">
           <div class="col-6 col-sm-6 col-md-3 col-xl-3 mb-3 image-picker--image-container"
+               :key="imageItem"
                v-for="imageItem in randomImageList">
             <div
               class="image-picker--image-thumb-box"
@@ -48,7 +49,7 @@
           </div>
         </div>
       </b-tab>
-      <b-tab 
+      <b-tab
         class="py-2">
         <template slot="title">
           <icon class="upload-image-icon"
@@ -61,9 +62,7 @@
   </div>
 </template>
 <script>
-import { EventBus } from '../../events/event-bus'
 import UploadImage from './UploaderImage.vue'
-import ImageSaver from '../../service/image-saver'
 
 export default {
   name: 'ImagePickerModal',
@@ -97,12 +96,17 @@ export default {
     }
   },
   computed: {
-    getDefaultTabIndex () {
-     return (this.pickedImageSrc && this.pickedImageSrc.indexOf('imgur.com')) >= 0 ? 1 : 0
+    getDefaultTabIndex: {
+      set () {
+
+      },
+      get () {
+        return (this.pickedImageSrc && this.pickedImageSrc.indexOf('imgur.com')) >= 0 ? 1 : 0
+      }
     },
     randomImageList () {
       return this.$store.state.unsplash.imageList
     }
-  },
+  }
 }
 </script>

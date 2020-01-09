@@ -2,11 +2,10 @@
   background: none !important;
 }
 .widget-text-editable--toolbox {
-  position: fixed;
   z-index: 100;
   width: 100%;
   bottom: 0;
-  display: block;
+  display: block !important;
   font-size: 1rem !important;
   background: rgba($black, .95);
   position: fixed !important;
@@ -23,12 +22,11 @@
     visibility: hidden;
   }
   .widget-text-editable--toolbox--group {
-    display: inline;
-    clear: both;
+    display: block;
     position: relative;
   }
   .widget-text-editable--toolbox--group-separator {
-    display: inline;
+    display: block;
     float: left;
     height: 2.9em;
     margin: .3em .3em;
@@ -36,13 +34,17 @@
     background: rgba($primary-color, 0.6);
   }
 
-  .dropdown,
-  .input-group {
-    float: left;
+  .b-dropdown-text{
+     padding-top: 0;
+     padding-right: 0;
+     padding-left: 0;
+     margin-right: 0;
+     margin-left: 0;
   }
 
   .dropdown {
-    float: none;
+    margin: 0;
+    float: left;
     .dropdown-toggle::after {
       display: none;
     }
@@ -79,6 +81,7 @@
         border: 0;
         color: $white;
         width: 90%;
+        min-width: 120px;
         padding: 0;
         padding-left: .3em;
         margin: 0 5% 0 5%;
@@ -122,7 +125,8 @@
     }
   }
 
-  .widget-text-editable--toolbox--button {
+  .widget-text-editable--toolbox--button,
+  .dropdown-toggle {
     color: $white;
     border: 1px solid rgba($primary-color, .2);
     width: 3em;
