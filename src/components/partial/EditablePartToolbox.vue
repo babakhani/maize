@@ -57,7 +57,8 @@
               <div
                 @click="(e) => {e.stopPropagation()}"
                 aria-labelledby="dropdownMenuButtonBgColor">
-                <color-picker :value="styles['background-color']"
+                <color-picker
+                :value="styles['background-color']"
                 @input="updateBgColor">
                 </color-picker>
               </div>
@@ -376,8 +377,7 @@
                     v-model="defaultStyles.borderWidth" >
                   </b-form-input>
                 </b-input-group>
-                <br>
-                <input @input="setBorderWidth"
+                <b-form-input @input="setBorderWidth"
                     type="range"
                     min="0"
                     max="10"
@@ -471,7 +471,7 @@
               </template>
               <b-dropdown-form>
                 <b-form-group >
-                  <input @input="setWidth"
+                  <input @input="setHeight"
                          type="text"
                          v-model="styles['height']"/>
                 </b-form-group >
@@ -488,31 +488,33 @@
               </template>
               <b-dropdwon-form>
                 <div
-                         class="dropdown-menu--margin"
-                         @click="(e) => {e.stopPropagation()}"
-                         aria-labelledby="dropdownMenuButtonMargin">
-                         <label> {{ $t('toolbox.margin') }} </label>
-                         <b-row class="m-0 mb-2 w-100">
-                           <input @input="setMargin"
-                                type="number"
-                                class="dropdown-input--odd"
-                                v-model="styles['margin']"/>
-                           <input @input="setMargin"
-                                type="number"
-                                class="dropdown-input--even mt-2"
-                                v-model="styles['margin']"/>
-                         </b-row>
-                         <b-row class="m-0 mb-1 w-100">
-                           <label> {{ $t('toolbox.padding') }} </label>
-                           <input @input="setPadding"
-                                type="number"
-                                class="dropdown-input--odd"
-                                v-model="styles['padding']"/>
-                           <input @input="setPadding"
-                                type="number"
-                                class="dropdown-input--even mt-2"
-                                v-model="styles['padding']"/>
-                         </b-row>
+                  class="dropdown-menu--margin"
+                  @click="(e) => {e.stopPropagation()}"
+                  aria-labelledby="dropdownMenuButtonMargin">
+                  <label> {{ $t('toolbox.padding') }} </label>
+                  <input
+                       @input="setPaddingY"
+                       type="text"
+                       class="dropdown-input--even"
+                       v-model="styles['padding-top']"/>
+                  <label> {{ $t('toolbox.padding') }} </label>
+                  <input
+                       @input="setPaddingX"
+                       type="text"
+                       class="dropdown-input--odd mt-2"
+                       v-model="styles['padding-right']"/>
+                  <label> {{ $t('toolbox.margin') }} </label>
+                  <input
+                       @input="setMarginY"
+                       type="text"
+                       class="dropdown-input--even mt-2"
+                       v-model="styles['margin-top']"/>
+                  <label> {{ $t('toolbox.margin') }} </label>
+                  <input
+                       @input="setMarginX"
+                       type="text"
+                       class="dropdown-input--odd"
+                       v-model="styles['margin-right']"/>
                 </div>
               </b-dropdwon-form>
             </b-dropdown>
@@ -690,11 +692,23 @@ export default {
       this.update()
     },
     updateColor (e) {
-      this.styles['color'] = `rgba(${e.rgba.r},${e.rgba.g},${e.rgba.b},${e.rgba.a})`
+      if (this.firstTimeUpdateColor) {
+        this.styles['color'] = `rgba(${e.rgba.r},${e.rgba.g},${e.rgba.b},${e.rgba.a})`
+      } else {
+        e.rgba.a = 1
+        this.styles['color'] = `rgba(${e.rgba.r},${e.rgba.g},${e.rgba.b},${e.rgba.a})`
+        this.firstTimeUpdateColor = true
+      }
       this.update()
     },
     updateBgColor (e) {
-      this.styles['background-color'] = `rgba(${e.rgba.r},${e.rgba.g},${e.rgba.b},${e.rgba.a})`
+      if (this.firstTimeUpdateBgColor) {
+        this.styles['background-color'] = `rgba(${e.rgba.r},${e.rgba.g},${e.rgba.b},${e.rgba.a})`
+      } else {
+        e.rgba.a = 1
+        this.styles['background-color'] = `rgba(${e.rgba.r},${e.rgba.g},${e.rgba.b},${e.rgba.a})`
+        this.firstTimeUpdateBgColor = true
+      }
       this.update()
     },
     align (direction) {
@@ -759,7 +773,13 @@ export default {
       this.update()
     },
     updateBorderColor (e) {
-      this.styles['border-color'] = `rgba(${e.rgba.r},${e.rgba.g},${e.rgba.b},${e.rgba.a})`
+      if (this.firstTimeUpdateBorderColor) {
+        this.styles['border-color'] = `rgba(${e.rgba.r},${e.rgba.g},${e.rgba.b},${e.rgba.a})`
+      } else {
+        e.rgba.a = 1
+        this.styles['border-color'] = `rgba(${e.rgba.r},${e.rgba.g},${e.rgba.b},${e.rgba.a})`
+        this.firstTimeUpdateBorderColor = true
+      }
       this.update()
     },
     setBorderWidth (e) {
@@ -774,19 +794,51 @@ export default {
       this.styles['letter-spacing'] = e.target.value + 'px'
       this.update()
     },
-    setPadding (e) {
-      this.styles['padding'] = e.target.value
+    setPaddingY (e) {
+      if (e.target.value === '') {
+        delete this.styles['padding-top']
+        delete this.styles['padding-bottom']
+      } else {
+        this.styles['padding-top'] = e.target.value
+        this.styles['padding-bottom'] = e.target.value
+      }
       this.update()
     },
-    setMargin (e) {
-      this.styles['margin'] = e.target.value
+    setPaddingX (e) {
+      if (e.target.value === '') {
+        delete this.styles['padding-right']
+        delete this.styles['padding-left']
+      } else {
+        this.styles['padding-right'] = e.target.value
+        this.styles['padding-left'] = e.target.value
+      }
+      this.update()
+    },
+    setMarginX (e) {
+      if (e.target.value === '') {
+        delete this.styles['margin-right']
+        delete this.styles['margin-left']
+      } else {
+        this.styles['margin-left'] = e.target.value
+        this.styles['margin-right'] = e.target.value
+      }
+      this.update()
+    },
+    setMarginY (e) {
+      if (e.target.value === '') {
+        delete this.styles['margin-top']
+        delete this.styles['margin-bottom']
+      } else {
+        this.styles['margin-top'] = e.target.value
+        this.styles['margin-bottom'] = e.target.value
+      }
       this.update()
     },
     setWidth (e) {
       this.styles['width'] = e.target.value
       this.update()
     },
-    setheight (e) {
+    setHeight (e) {
       this.styles['height'] = e.target.value
       this.update()
     },

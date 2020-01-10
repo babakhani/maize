@@ -48,6 +48,11 @@
     .dropdown-toggle::after {
       display: none;
     }
+    
+    .input-group {
+      width: 120px;
+    }
+
     input[type='range'] {
       margin: .5em;
       cursor: pointer;
