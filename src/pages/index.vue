@@ -14,27 +14,34 @@
              v-if="pageSideBarIsActive"
              :class="{'active': !pageSideBarIsActive}"
              class="editable-part-sidebar w-25">
-          <b-dropdown
-            :text="groupedWidgetList[currentListIndex].title"
-            size="sm"
-            variant="outline-primary"
-            class="w-100 mb-3">
-            <b-dropdown-item
-              value="index"
-              class="w-100"
-              @click="currentListIndex = index"
-              :key="index"
-             v-for="(item, index) in groupedWidgetList" >
-             {{ item.title }}
-            </b-dropdown-item>
-          </b-dropdown>
-             <div
-             v-for="(item, index) in groupedWidgetList"
-             :key="index">
-               <WidgetList
-                 v-if="index == currentListIndex"
-                 :widget-list="item.widgets" />
-             </div>
+          <b-button-group size="sm" class="w-100 mb-3">
+            <b-dropdown
+              :text="groupedWidgetList[currentListIndex].title"
+              variant="outline-primary"
+              class="w-100">
+              <b-dropdown-item
+                value="index"
+                class="w-100"
+                @click="currentListIndex = index"
+                :key="index"
+                v-for="(item, index) in groupedWidgetList" >
+                {{ item.title }}
+              </b-dropdown-item>
+            </b-dropdown>
+            <!--<b-button -->
+              <!--variant="outline-danger"-->
+              <!--@click="hideSidebar"-->
+              <!--class="btn-sm" >-->
+              <!--<icon name="times" />-->
+            <!--</b-button>-->
+          </b-button-group>
+          <div
+            v-for="(item, index) in groupedWidgetList"
+            :key="index">
+            <WidgetList
+              v-if="index == currentListIndex"
+              :widget-list="item.widgets" />
+          </div>
         </nav>
         <div
           :class="{
@@ -95,6 +102,11 @@ export default {
   data () {
     return {
       currentListIndex: 0
+    }
+  },
+  methods: {
+    hideSidebar () {
+      this.$store.dispatch('layout/setPageSideBarIsActive', false)
     }
   },
   computed: {
