@@ -7,7 +7,7 @@
     <template slot="modal-footer">
       <b-button
         @click="onHide"
-        variant="outline-success"
+        variant="outline-link"
         class="btn btn-link text-muted">
         {{ $t('modal.cancel') }}
       </b-button>
@@ -17,7 +17,7 @@
         {{ $t('modal.ok') }}
       </b-button>
     </template>
-    <b-tabs 
+    <b-tabs
       v-if="siteSettings"
       card>
       <b-tab active>
@@ -29,153 +29,153 @@
             <form action="#!">
               <div class="form-group">
                 <label>{{ $t('settings.name') }}</label>
-                <input 
+                <input
                    v-model="siteSettings.name"
-                   type="text" 
-                   id="title" 
+                   type="text"
+                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.name-placeholder')">
               </div>
               <div class="form-group">
                 <label>{{ $t('settings.title') }}</label>
-                <input 
+                <input
                    v-model="siteSettings.title"
-                   type="text" 
-                   id="title" 
+                   type="text"
+                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.title-placeholder')">
               </div>
               <div class="form-group">
                 <label>{{ $t('settings.description') }}</label>
-                <input 
+                <input
                   v-model="siteSettings.description"
-                  type="email" 
-                  id="description" 
+                  type="email"
+                  id="description"
                   class="form-control"
                   :placeholder="$t('settings.description-placeholder')">
               </div>
               <div class="form-group">
                 <label>{{ $t('settings.language') }}</label>
-                <input 
+                <input
                    v-model="siteSettings.language"
-                   type="text" 
-                   id="title" 
+                   type="text"
+                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.language-placeholder')">
               </div>
               <div class="form-group">
                 <label>{{ $t('settings.secureURL') }}</label>
-                <input 
+                <input
                    v-model="siteSettings.secureURL"
-                   type="text" 
-                   id="title" 
+                   type="text"
+                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.secureURL-placeholder')">
               </div>
               <div class="form-group">
                 <label>{{ $t('settings.baseURL') }}</label>
-                <input 
+                <input
                    v-model="siteSettings.baseURL"
-                   type="text" 
-                   id="title" 
+                   type="text"
+                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.baseURL-placeholder')">
               </div>
               <div class="form-group">
                 <label>{{ $t('settings.type') }}</label>
-                <input 
+                <input
                   v-model="siteSettings.type"
-                  type="text" 
-                  id="type" 
+                  type="text"
+                  id="type"
                   class="form-control"
                   :placeholder="$t('settings.type-placeholder')">
               </div>
               <div class="form-group">
                 <label>{{ $t('settings.canonical') }}</label>
-                <input 
+                <input
                   v-model="siteSettings.canonical"
-                  type="text" 
-                  id="canonical" 
+                  type="text"
+                  id="canonical"
                   class="form-control"
                   :placeholder="$t('settings.canonical-placeholder')">
               </div>
               <div class="form-group w-25">
                 <label>{{ $t('settings.color') }}</label>
-                <input 
+                <input
                   v-model="siteSettings.color"
-                  type="color" 
-                  id="colorPicker" 
+                  type="color"
+                  id="colorPicker"
                   class="form-control">
               </div>
               <div class="form-group">
                 <label>{{ $t('settings.nextURL') }}</label>
-                <input 
+                <input
                    v-model="siteSettings.nextURL"
-                   type="text" 
-                   id="title" 
+                   type="text"
+                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.nextURL-placeholder')">
               </div>
               <div class="form-group">
                 <label>{{ $t('settings.image') }}</label>
-                <input 
+                <input
                    v-model="siteSettings.image"
-                   type="text" 
-                   id="title" 
+                   type="text"
+                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.image-placeholder')">
               </div>
               <div class="form-group">
                 <label>{{ $t('settings.imageWidth') }}</label>
-                <input 
+                <input
                    v-model="siteSettings.imageWidth"
-                   type="text" 
-                   id="title" 
+                   type="text"
+                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.imageWidth-placeholder')">
               </div>
               <div class="form-group">
                 <label>{{ $t('settings.imageHeight') }}</label>
-                <input 
+                <input
                    v-model="siteSettings.imageHeight"
-                   type="text" 
-                   id="title" 
+                   type="text"
+                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.imageHeight-placeholder')">
               </div>
               <div class="form-group">
                 <label>{{ $t('settings.imageType') }}</label>
-                <input 
+                <input
                    v-model="siteSettings.imageType"
-                   type="text" 
-                   id="title" 
+                   type="text"
+                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.imageType-placeholder')">
               </div>
               <div class="form-group">
                 <label>{{ $t('settings.facebookAppID') }}</label>
-                <input 
+                <input
                    v-model="siteSettings.facebookAppID"
-                   type="text" 
-                   id="title" 
+                   type="text"
+                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.facebookAppID-placeholder')">
               </div>
               <div class="form-group">
                 <label>{{ $t('settings.twitterAccount') }}</label>
-                <input 
+                <input
                    v-model="siteSettings.twitterAccount"
-                   type="text" 
-                   id="title" 
+                   type="text"
+                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.twitterAccount-placeholder')">
               </div>
               <div class="form-group">
                 <label>{{ $t('settings.twitterCard') }}</label>
-                <input 
+                <input
                    v-model="siteSettings.twitterCard"
-                   type="text" 
-                   id="title" 
+                   type="text"
+                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.twitterCard-placeholder')">
               </div>
@@ -184,7 +184,6 @@
         </div>
       </b-tab>
 
-
       <b-tab>
         <template slot="title">
           <strong> {{ $t('settings.contact-info') }}</strong>
@@ -192,8 +191,8 @@
         <b-form-group
           :label="$t('settings.contact-address')"
           >
-          <b-form-textarea 
-          v-model="siteSettings.contactAddress" 
+          <b-form-textarea
+          v-model="siteSettings.contactAddress"
           :placeholder="$t('settings.contact-address-placeholder')"
           trim>
           </b-form-textarea>
@@ -203,7 +202,7 @@
           >
           <b-form-input
             type="email"
-            v-model="siteSettings.contactMail" 
+            v-model="siteSettings.contactMail"
             :placeholder="$t('settings.contact-mail-placeholder')"
             trim>
           </b-form-input>
@@ -213,7 +212,7 @@
           >
           <b-form-input
             type="tel"
-            v-model="siteSettings.contactPhone1" 
+            v-model="siteSettings.contactPhone1"
             :placeholder="$t('settings.contact-phone-placeholder')"
             trim>
           </b-form-input>
@@ -223,7 +222,7 @@
           >
           <b-form-input
             type="tel"
-            v-model="siteSettings.contactPhone2" 
+            v-model="siteSettings.contactPhone2"
             :placeholder="$t('settings.contact-phone-placeholder')"
             trim>
           </b-form-input>
@@ -233,7 +232,7 @@
           >
           <b-form-input
             type="tel"
-            v-model="siteSettings.contactFax" 
+            v-model="siteSettings.contactFax"
             :placeholder="$t('settings.contact-fax-placeholder')"
             trim>
           </b-form-input>

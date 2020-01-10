@@ -12,7 +12,7 @@
     <template slot="modal-footer">
       <b-button
         @click="onHide"
-        variant="outline-success"
+        variant="outline-link"
         class="btn-link text-muted">
         {{ $t('modal.cancel') }}
       </b-button>
