@@ -686,7 +686,9 @@ export default {
         data: this.editableData
       })
       EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
-        this.$emit('updatewidget', widgetData)
+        if (widgetData && widgetData.src) {
+          this.$emit('updatewidget', widgetData)
+        }
       })
       return false
     },

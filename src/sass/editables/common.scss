@@ -13,12 +13,14 @@ $icon-size: 1.6em;
    }
   }
   
-  &.under-edit {
-     outline: 3px dashed rgba($primary-color, .6) !important;
+  &.under-edit,
+  &.under-edit:hover {
+     transition: 100ms all linear;
+     outline: 5px dashed rgba($primary-color, .6) !important;
   }
 
   &:hover{
-     outline: 3px dashed rgba($primary-color, .4) !important;
+     outline: 2px dashed rgba($primary-color, .4) !important;
     .editable-part--upload-btn,
     .editable-part--settings-btn,
     .editable-part--link-btn{
@@ -27,11 +29,6 @@ $icon-size: 1.6em;
     }
   }
 
-  &:focus-within,
-  &:focus,
-  &:active{
-     outline: 3px dashed rgba($primary-color, .5) !important;
-  }
   &.settings-btn {
     z-index: 50 !important;
     outline: none !important;
@@ -53,8 +50,8 @@ $icon-size: 1.6em;
   .editable-part--upload-btn,
   .editable-part--settings-btn,
   .editable-part--link-btn{
-    background-color:rgba(0, 0, 0, .2);
-    color: #fff;
+    background-color: rgba($black, .2);
+    color: $white;
     cursor: pointer;
     position: absolute;
     padding: .25em;
