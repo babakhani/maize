@@ -108,7 +108,7 @@
             // general widget config
             config: {
               fullWidth: true,
-              email: this.faker.internet.email(2)
+              email: this.siteSettings.contactMail
             },
             bg: {
               styles: {}
@@ -126,7 +126,7 @@
             },
             contact_description_subtitle: {
               styles: {},
-              text: this.faker.lorem.words(10),
+              text: this.siteSettings.contactAddress,
             },
             contact_email_key: {
               styles: {},
@@ -134,7 +134,7 @@
             },
             contact_email_value: {
               styles: {},
-              text: this.faker.internet.email(),
+              text: this.siteSettings.contactMail,
             },
             contact_phone_key: {
               styles: {},
@@ -142,7 +142,7 @@
             },
             contact_phone_value: {
               styles: {},
-              text: this.faker.phone.phoneNumber(),
+              text: this.siteSettings.contactPhone1,
             },
             contact_submit: {
               styles: {},

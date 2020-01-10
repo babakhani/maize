@@ -8,6 +8,7 @@ import MapEditable from '@/components/editable-parts/Map.vue'
 import PlayerEditable from '@/components/editable-parts/Player.vue'
 import WidgetToolbox from '@/components/partial/WidgetToolbox'
 import faker from 'faker'
+import Store from '@/store'
 
 const Mixin = {
   components: {MapEditable, ButtonEditable ,IconEditable, TextEditable, ImageEditable, BgEditable, WidgetToolbox, VideoEditable, PlayerEditable},
@@ -20,6 +21,9 @@ const Mixin = {
   },
   beforeCreate () {
     let base = 'https://raw.githubusercontent.com/babakhani/maize/master/public'
+    if (Store) {
+      this.siteSettings = Store.getters['main/settings']
+    }
     this.faker = Object.assign(faker, {
       icon: {
         normal (name = 'fa-tree', color = '333', width = 48, height = 48) {

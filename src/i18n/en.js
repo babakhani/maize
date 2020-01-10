@@ -74,6 +74,16 @@ export default {
     }
   },
   'settings': {
+    'contact-address': 'Address',
+    'contact-phone': 'Phone',
+    'contact-mail': 'Email',
+    'contact-fax': 'Fax',
+    'ga': 'Google Analytics',
+    'hotjar': 'Hotjar',
+    'ga-placeholder': 'Import Your Google Analytics Script',
+    'hotjar-placeholder': 'Import Your Hotjar Script',
+    'contact-info': 'Contact Info',
+    'monitoring': 'Monitoring',
     'url': 'URL',
     'page_sections': 'Link To Page Sections',
     'name': 'Name',
