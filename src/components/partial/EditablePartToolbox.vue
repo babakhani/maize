@@ -412,6 +412,16 @@
                    @click="setBorderStyle('dotted')">{{ $t('dotted') }}</b-dropdown-item>
             </b-dropdown>
 
+          </div>
+          <div class="widget-text-editable--toolbox--group-separator"></div>
+        </template>
+
+        <!-- General Settings -->
+        <!-- ---------------------------------------------------------------------------- -->
+        <template
+          v-if="groups.indexOf('general') > -1">
+          <div class="widget-text-editable--toolbox--group">
+
             <b-dropdown
                :title="$t('toolbox.opacity')"
                v-b-tooltip.hover.top.small
@@ -434,15 +444,6 @@
                 </b-form-group >
               </b-dropdown-form>
             </b-dropdown>
-          </div>
-          <div class="widget-text-editable--toolbox--group-separator"></div>
-        </template>
-
-        <!-- General Settings -->
-        <!-- ---------------------------------------------------------------------------- -->
-        <template
-          v-if="groups.indexOf('general') > -1">
-          <div class="widget-text-editable--toolbox--group">
 
             <b-dropdown
                :title="$t('toolbox.width')"

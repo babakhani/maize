@@ -1,4 +1,5 @@
-export default (settings) => { return `
+export default (settings) => {
+  return `
   <title> ${settings.title} </title>
   <meta name="description" content="${settings.description}"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -64,4 +65,7 @@ export default (settings) => { return `
         type="text/javascript" 
         crossorigin="anonymous"
         src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-`}
+  ${settings.hotjarScript}
+  ${settings.gaScript}
+`
+}
