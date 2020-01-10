@@ -494,7 +494,7 @@
                size="sm"
                class="">
               <template v-slot:button-content>
-                <icon name="circle"></icon>
+                <icon name="circle-notch"></icon>
               </template>
               <div class="px-2">
                 <CssInput
@@ -694,7 +694,9 @@ export default {
         data: this.editableData
       })
       EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
-        this.$emit('updatewidget', widgetData)
+        if (widgetData && widgetData.iconName) {
+          this.$emit('updatewidget', widgetData)
+        }
       })
       return false
     },
