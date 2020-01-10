@@ -64,6 +64,7 @@ export default {
     'cover': 'Cover',
     'contain': 'Contain',
     'auto': 'Auto',
+    'repeat': 'repeat',
     'no-repeat': 'no-repeat',
     'repeat-x': 'repeat-x',
     'repeat-y': 'repeat-y'

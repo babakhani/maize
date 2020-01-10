@@ -157,6 +157,13 @@
     background: transparent;
     position: relative;
     font-size: inherit;
+    svg {
+      &,
+      g,
+      path {
+        fill: #bbb !important;
+      }
+    }
     .color-indicator {
       position: absolute;
       width: .5em;
@@ -246,7 +253,12 @@
         color: $white;
       }
       .vc-input__input {
-        padding: 4px 0 3px 2px;
+        color: rgba($white, .05);
+        background: rgba($white, .1);
+        border: 0 !important;
+        box-shadow: none !important;
+        color: $white;
+        padding: 4px 0 3px 2px !important;
       }
     }
     .vc-sketch-active-color {

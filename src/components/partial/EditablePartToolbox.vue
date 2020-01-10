@@ -99,69 +99,64 @@
             size="sm"
             class="">
               <template v-slot:button-content>
-                <maizcon name="size"></maizcon>
+                <maizcon name="resize"></maizcon>
               </template>
               <b-dropdown-item
                 :class="{'widget-text-editable--selected': styles['background-size'] === 'cover'}"
-                class="dropdown-item"
                 @click="setBgSize('cover')"> {{ $t('toolbox.cover') }}
               </b-dropdown-item>
               <b-dropdown-item
                 :class="{'widget-text-editable--selected': styles['background-size'] === 'contain'}"
-                class="dropdown-item"
                 @click="setBgSize('contain')">
                 {{ $t('toolbox.contain') }}
               </b-dropdown-item>
               <b-dropdown-item
                 :class="{'widget-text-editable--selected': styles['background-size'] === 'auto'}"
-                class="dropdown-item"
                 @click="setBgSize('auto')">{{ $t('toolbox.auto') }}
               </b-dropdown-item>
             </b-dropdown>
 
             <b-dropdown
-            :title="$t('toolbox.background_size')"
+            :title="$t('toolbox.background_repeat')"
             v-b-tooltip.hover.top.small
             size="sm"
             class="">
               <template v-slot:button-content>
-                <maizcon name="size"></maizcon>
+                <maizcon name="tile"></maizcon>
               </template>
               <b-dropdown-item
-                         :class="{'widget-text-editable--selected': styles['background-size'] === 'no-repeat'}"
-                         class="dropdown-item"
+                         :class="{'widget-text-editable--selected': styles['background-repeat'] === 'no-repeat'}"
                          @click="setBgRepeat('no-repeat')">
                 {{ $t('toolbox.no-repeat') }}
               </b-dropdown-item>
               <b-dropdown-item
-                         :class="{'widget-text-editable--selected': styles['background-size'] === 'no-repeat'}"
-                         class="dropdown-item"
+                         :class="{'widget-text-editable--selected': styles['background-repeat'] === 'repeat'}"
                          @click="setBgRepeat('repeat')">
                 {{ $t('toolbox.repeat') }}
               </b-dropdown-item>
               <b-dropdown-item
-                         :class="{'widget-text-editable--selected': styles['background-size'] === 'no-repeat'}"
-                         class="dropdown-item"
+                         :class="{'widget-text-editable--selected': styles['background-repeat'] ===
+                                 'repeat-x'}"
                          @click="setBgRepeat('repeat-x')">
                 {{ $t('toolbox.repeat-x') }}
               </b-dropdown-item>
               <b-dropdown-item
-                         :class="{'widget-text-editable--selected': styles['background-size'] === 'no-repeat'}"
-                         class="dropdown-item"
+                         :class="{'widget-text-editable--selected': styles['background-repeat'] ===
+                                 'repeat-y'}"
                          @click="setBgRepeat('repeat-y')">
                 {{ $t('toolbox.repeat-y') }}
               </b-dropdown-item>
             </b-dropdown>
 
             <b-dropdown
-            :title="$t('toolbox.background_size')"
+            :title="$t('toolbox.background_position')"
             v-b-tooltip.hover.top.small
             size="sm"
             class="">
               <template v-slot:button-content>
-                <maizcon name="size"></maizcon>
+                <maizcon name="bg-size"></maizcon>
               </template>
-              <b-dropdown-form style="width: 400px">
+              <div class="px-2" style="width: 320px">
                 <b-form-group>
                   <label> {{ $t('toolbox.background_postion_x') }} </label>
                   <CssInput
@@ -176,7 +171,7 @@
                          v-model="backgroundPositionY"
                          @change="setBackgroundPositionY" />
                   </b-form-group>
-              </b-dropdown-form>
+              </div>
             </b-dropdown>
 
             <button :title="$t('toolbox.background_image')"
@@ -375,10 +370,10 @@
                        @click="setDirection('auto')">AUTO</b-dropdown-item>
               <b-dropdown-item
                        :class="{'widget-text-editable--selected': styles['direction'] === 'rtl'}"
-                       @click="setDirection('auto')">RTL</b-dropdown-item>
+                       @click="setDirection('rtl')">RTL</b-dropdown-item>
               <b-dropdown-item
                        :class="{'widget-text-editable--selected': styles['direction'] === 'ltr'}"
-                       @click="setDirection('auto')">LTR</b-dropdown-item>
+                       @click="setDirection('ltr')">LTR</b-dropdown-item>
             </b-dropdown>
           </div>
         </template>
@@ -423,12 +418,12 @@
               <template v-slot:button-content>
                 <maizcon name="border"></maizcon>
               </template>
-              <b-dropdown-form>
+              <div class="px-2">
                 <CssInput
                     :units="['px']"
                     v-model="styles['border-width']"
                     @change="setBorderWidth" />
-              </b-dropdown-form>
+              </div>
             </b-dropdown>
 
             <b-dropdown
@@ -480,8 +475,7 @@
               <template v-slot:button-content>
                 <maizcon name="opacity"></maizcon>
               </template>
-              <b-dropdown-form>
-                <b-form-group class="mb-0" >
+              <div class="px-2">
                   <CssInput
                   :units="[]"
                   :nounit="true"
@@ -491,8 +485,7 @@
                   :range="true"
                   v-model="styles['opacity']"
                   @change="setOpacityColor" />
-                </b-form-group >
-              </b-dropdown-form>
+              </div>
             </b-dropdown>
 
             <b-dropdown
@@ -503,12 +496,12 @@
               <template v-slot:button-content>
                 <icon name="circle"></icon>
               </template>
-              <b-dropdown-form>
+              <div class="px-2">
                 <CssInput
                     :units="['px', '%']"
                     v-model="styles['border-radius']"
                     @change="setBorderRadius" />
-              </b-dropdown-form>
+              </div>
             </b-dropdown>
 
             <b-dropdown
@@ -519,12 +512,12 @@
               <template v-slot:button-content>
                 <maizcon name="width"></maizcon>
               </template>
-              <b-dropdown-form>
+              <div class="px-2">
                 <CssInput
                     :units="['px', '%']"
                     v-model="styles['width']"
                     @change="setWidth" />
-              </b-dropdown-form>
+              </div>
             </b-dropdown>
 
             <b-dropdown
@@ -535,12 +528,12 @@
               <template v-slot:button-content>
                 <maizcon name="height"></maizcon>
               </template>
-              <b-dropdown-form>
+              <div class="px-2">
                 <CssInput
                     :units="['px', '%']"
                     v-model="styles['height']"
                     @change="setHeight" />
-              </b-dropdown-form>
+              </div>
             </b-dropdown>
 
             <b-dropdown
@@ -551,8 +544,9 @@
               <template v-slot:button-content>
                 <maizcon name="margin"></maizcon>
               </template>
-              <b-dropdwon-form
-                  @click="(e) => {e.stopPropagation()}" >
+              <div
+                class="px-2"
+                @click="(e) => {e.stopPropagation()}" >
                   <label> {{ $t('toolbox.padding') }} </label>
                   <CssInput
                   :units="['px', '%']"
@@ -561,7 +555,7 @@
                   <label> {{ $t('toolbox.padding') }} </label>
                   <CssInput
                   :units="['px', '%']"
-                  v-model="styles['margin-right']"
+                  v-model="styles['padding-right']"
                   @change="setPaddingX" />
                   <label> {{ $t('toolbox.margin') }} </label>
                   <CssInput
@@ -573,7 +567,7 @@
                   :units="['px', '%']"
                   v-model="styles['margin-right']"
                   @change="setMarginX" />
-              </b-dropdwon-form>
+              </div>
             </b-dropdown>
           </div>
         </template>
@@ -719,8 +713,10 @@ export default {
         }
       })
       EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
-        this.styles['background-image'] = `url('${widgetData.src}')`
-        this.update()
+        if (widgetData.src) {
+          this.styles['background-image'] = `url('${widgetData.src}')`
+          this.update()
+        }
       })
       return false
     },
@@ -787,7 +783,7 @@ export default {
       this.update()
     },
     setDirection (e) {
-      this.styles['direction'] = e.target.value
+      this.styles['direction'] = e
       this.update()
     },
     toggleTextIndent () {

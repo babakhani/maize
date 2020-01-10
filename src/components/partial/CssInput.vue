@@ -86,7 +86,13 @@ export default {
     }
   },
   watch: {
-    value () {
+    value () { this.setPre() }
+  },
+  mounted () {
+    this.setPre()
+  },
+  methods: {
+    setPre () {
       if (this.statics && this.statics.includes(this.value)) {
         this.disableNumerals = true
         this.output = this.value
@@ -102,9 +108,7 @@ export default {
         this.disableNumerals = false
         this.output = this.value
       }
-    }
-  },
-  methods: {
+    },
     setStatic (e) {
       this.output = e
       this.$emit('change', e)
