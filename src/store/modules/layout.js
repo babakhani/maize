@@ -4,6 +4,7 @@ export default {
     modalIsVisible: false,
     modalName: '',
     modalDefaultData: {},
+    modalEscKeyReserved: false,
 
     previewModeSize: 'desktop',
     previewMode: false,
@@ -18,11 +19,17 @@ export default {
     selectedItemProperties: {}
   },
   getters: {
+    modalEscKeyReserved (state) {
+      return state.modalEscKeyReserved
+    },
+    modalIsVisible (state) {
+      return state.modalIsVisible
+    },
     previewMode (state) {
       return state.previewModeSize
     },
     previewSize (state) {
-      return state.previewModeSize == 'phone' ? 366 : state.previewModeSize == 'tablet' ? 724 : 1366
+      return state.previewModeSize === 'phone' ? 366 : state.previewModeSize === 'tablet' ? 724 : 1366
     }
   },
   mutations: {
@@ -52,7 +59,7 @@ export default {
       state.pickImageMode = payload
     },
     setPickVideoMode (state, payload) {
-      if (payload == false) {
+      if (payload === false) {
         state.pickVideoType = false
       }
       state.pickVideoMode = payload
@@ -71,9 +78,15 @@ export default {
     },
     setSettingsMode (state, payload) {
       state.settingsMode = payload
+    },
+    modalEscKeyReserved (state, payload) {
+      state.modalEscKeyReserved = payload
     }
   },
   actions: {
+    modalEscKeyReserved (context, payload) {
+      context.commit('modalEscKeyReserved', payload)
+    },
     setModalView (context, payload) {
       context.commit('setModalView', payload)
     },

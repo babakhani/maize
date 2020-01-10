@@ -1,7 +1,6 @@
 <template>
   <div
     class="editable-part editable-background"
-    @keydown.esc="hideToolbox()"
     :class="{
     'editable-active': editMode,
     'under-edit': toolboxVisible}">

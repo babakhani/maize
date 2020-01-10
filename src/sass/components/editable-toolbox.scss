@@ -24,6 +24,19 @@
   .widget-text-editable--toolbox--group {
     display: block;
     position: relative;
+    float:left;
+    padding-bottom: 20px;
+    .widget-text-editable--toolbox--group-title {
+      display: block;
+       width: 100%;
+       position: absolute;
+       height: 20px;
+       line-height: 20px;
+       bottom: 0;
+       font-size: .6em;
+       text-align: center;
+       color: $gray-9;
+    }
   }
   .widget-text-editable--toolbox--group-separator {
     display: block;
@@ -216,9 +229,6 @@
     z-index: 10;
     width: 32px;
     height: 32px;
-    &:hover {
-      background-color: $primary-color;
-    }
     svg {
       position: absolute;
       top: 50%;

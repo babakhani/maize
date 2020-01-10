@@ -1,47 +1,74 @@
 <!-- Fixed navbar -->
 <template>
-  <div class="widget-text-editable--toolbox">
+  <div
+    @dblclick="(e) => {e.stopPropagation()}"
+    class="widget-text-editable--toolbox">
         <div v-if="groups.indexOf('text') > -1"
              class="widget-text-editable--toolbox--group">
         </div>
-        <template
-          v-if="visibileImageSelector">
+        <div
+          v-if="visibileImageSelector"
+          class="widget-text-editable--toolbox--group">
           <button :title="$t('toolbox.icon_picker')"
             v-b-tooltip.hover.top.small
             @click="pickImage"
             class="btn btn-sm widget-text-editable--toolbox--button">
             <icon name="image"></icon>
           </button>
-          <div class="widget-text-editable--toolbox--group-separator"></div>
-        </template>
+          <div
+            class="widget-text-editable--toolbox--group-title">
+            {{ $t('toolbox.image') }}
+          </div>
+        </div>
+        <div
+          v-if="visibileImageSelector"
+          class="widget-text-editable--toolbox--group-separator"></div>
 
-        <template
-          v-if="visibileIconSelector">
+        <div
+          v-if="visibileIconSelector"
+          class="widget-text-editable--toolbox--group">
           <button :title="$t('toolbox.icon_picker')"
             v-b-tooltip.hover.top.small
             @click="pickIcon"
             class="btn btn-sm widget-text-editable--toolbox--button">
             <maizcon name="shuffle"></maizcon>
           </button>
-          <div class="widget-text-editable--toolbox--group-separator"></div>
-        </template>
+          <div
+            class="widget-text-editable--toolbox--group-title">
+            {{ $t('toolbox.icon') }}
+          </div>
+        </div>
+        <div
+          v-if="visibileIconSelector"
+          class="widget-text-editable--toolbox--group-separator"></div>
 
-        <template
-          v-if="visibileLinkSelector">
+        <div
+          v-if="visibileLinkSelector"
+          class="widget-text-editable--toolbox--group">
           <button :title="$t('toolbox.link')"
             v-b-tooltip.hover.top.small
             @click="setPickLinkMode"
             class="btn btn-sm widget-text-editable--toolbox--button">
             <maizcon name="link"></maizcon>
           </button>
-          <div class="widget-text-editable--toolbox--group-separator"></div>
-        </template>
+          <div
+          class="widget-text-editable--toolbox--group-title">
+            {{ $t('toolbox.link') }}
+          </div>
+        </div>
+        <div
+           v-if="visibileLinkSelector"
+           class="widget-text-editable--toolbox--group-separator"></div>
 
         <!-- Background Settings -->
         <!-- ---------------------------------------------------------------------------- -->
         <div
           v-if="groups.indexOf('background') > -1"
           class="widget-text-editable--toolbox--group">
+          <div
+          class="widget-text-editable--toolbox--group-title">
+            {{ $t('toolbox.background') }}
+          </div>
           <b-dropdown
             :title="$t('toolbox.background_color')"
             v-b-tooltip.hover.top.small
@@ -150,14 +177,20 @@
               <icon name="image"></icon>
             </button>
           </template>
-          <div class="widget-text-editable--toolbox--group-separator"></div>
         </div>
+        <div
+           v-if="groups.indexOf('background') > -1"
+           class="widget-text-editable--toolbox--group-separator"></div>
 
         <!-- Text Settings -->
         <!-- ---------------------------------------------------------------------------- -->
         <template
           v-if="groups.indexOf('text') > -1">
           <div class="widget-text-editable--toolbox--group">
+            <div
+              class="widget-text-editable--toolbox--group-title">
+              {{ $t('toolbox.text') }}
+            </div>
 
             <!-- Color -->
             <b-dropdown
@@ -320,26 +353,39 @@
             </button>
 
             <!--TODO: ask reza about direction-->
-            <button :title="$t('toolbox.direction')"
-                       v-b-tooltip.hover.top.small
-                       class="btn btn-sm widget-text-editable--toolbox--button"
-                       @click="toggleDirection()">
-              <icon v-if="styles.direction === 'ltr'"
-                    name="arrow-left"></icon>
-              <icon v-if="styles.direction === 'rtl'"
-                    name="arrow-right"></icon>
-              <icon v-if="styles.direction === 'auto'"
-                    name="arrow-left"></icon>
-            </button>
+            <b-dropdown
+                      :title="$t('toolbox.direction')"
+                      v-b-tooltip.hover.top.small
+                      size="sm"
+                      class="">
+              <template v-slot:button-content>
+                <i class="fas fa-exchange-alt"></i>
+              </template>
+              <b-dropdown-item
+                       :class="{'widget-text-editable--selected': styles['direction'] === 'auto'}"
+                       @click="setDirection('auto')">AUTO</b-dropdown-item>
+              <b-dropdown-item
+                       :class="{'widget-text-editable--selected': styles['direction'] === 'rtl'}"
+                       @click="setDirection('auto')">RTL</b-dropdown-item>
+              <b-dropdown-item
+                       :class="{'widget-text-editable--selected': styles['direction'] === 'ltr'}"
+                       @click="setDirection('auto')">LTR</b-dropdown-item>
+            </b-dropdown>
           </div>
-          <div class="widget-text-editable--toolbox--group-separator"></div>
         </template>
+        <div
+           v-if="groups.indexOf('text') > -1"
+           class="widget-text-editable--toolbox--group-separator"></div>
 
         <!-- Border Settings -->
         <!-- ---------------------------------------------------------------------------- -->
         <template
           v-if="groups.indexOf('border') > -1">
           <div class="widget-text-editable--toolbox--group">
+            <div
+              class="widget-text-editable--toolbox--group-title">
+              {{ $t('toolbox.border') }}
+            </div>
             <b-dropdown
                :title="$t('toolbox.border-color')"
                v-b-tooltip.hover.top.small
@@ -413,14 +459,20 @@
             </b-dropdown>
 
           </div>
-          <div class="widget-text-editable--toolbox--group-separator"></div>
         </template>
+        <div
+           v-if="groups.indexOf('border') > -1"
+           class="widget-text-editable--toolbox--group-separator"></div>
 
         <!-- General Settings -->
         <!-- ---------------------------------------------------------------------------- -->
         <template
           v-if="groups.indexOf('general') > -1">
           <div class="widget-text-editable--toolbox--group">
+            <div
+              class="widget-text-editable--toolbox--group-title">
+              {{ $t('toolbox.general') }}
+            </div>
 
             <b-dropdown
                :title="$t('toolbox.opacity')"
@@ -523,7 +575,7 @@
         </template>
 
         <b-button @click="hide"
-                    class="btn btn-sm btn-danger float-right widget-text-editable--toolbox--close">
+                    class="btn btn-sm btn-outline-danger float-right widget-text-editable--toolbox--close">
           <icon name="times"></icon>
         </b-button>
       </div>
@@ -591,7 +643,7 @@ export default {
       default () {
         return {
           'color': 'inherit',
-          // 'direction': 'auto',
+          'direction': 'auto',
           // 'font-size': null,
           // 'font-weight': 'inherit',
           // 'font-family': null,
@@ -724,13 +776,8 @@ export default {
       this.styles['font-family'] = family
       this.update()
     },
-
-    toggleDirection () {
-      if (this.styles['direction'] === 'rtl') {
-        this.styles['direction'] = 'ltr'
-      } else {
-        this.styles['direction'] = 'rtl'
-      }
+    setDirection (e) {
+      this.styles['direction'] = e.target.value
       this.update()
     },
     toggleTextIndent () {

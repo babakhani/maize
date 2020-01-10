@@ -1,8 +1,8 @@
 import EditablePartToolbox from '@/components/partial/EditablePartToolbox'
-import {EventBus} from '../events/event-bus'
+import { EventBus } from '../events/event-bus'
 
 const Mixin = {
-  components: {EditablePartToolbox},
+  components: { EditablePartToolbox },
   mounted () {
     this.touchedData.cssClass = this.cssClass
     if (this.partData) {
@@ -18,7 +18,7 @@ const Mixin = {
   },
   computed: {
     linkable () {
-      return this.touchedData && typeof(this.touchedData.href) !== 'undefined' && this.touchedData.href
+      return this.touchedData && typeof (this.touchedData.href) !== 'undefined' && this.touchedData.href
     },
     editMode () {
       return this.$store ? !this.$store.state.layout.previewMode : false
@@ -90,16 +90,23 @@ const Mixin = {
       this.showToolboxButton = false
     },
     hideOnEscape (e) {
+      e.preventDefault()
+      e.stopPropagation()
       if (e.code === 'Escape') {
-        this.hideToolbox()
-        document.removeEventListener('keyup', this.hideOnEscape)
+        if (this.$store.getters['layout/modalEscKeyReserved']) {
+        } else {
+          this.hideToolbox()
+          document.removeEventListener('keydown', this.hideOnEscape)
+        }
+        this.$store.dispatch('layout/modalEscKeyReserved', false)
       }
+      return false
     },
     showToolbox (e) {
       e.preventDefault()
       this.toolboxVisible = true
       EventBus.$emit('igotoeditmode', this._uid)
-      document.addEventListener('keyup', this.hideOnEscape)
+      document.addEventListener('keydown', this.hideOnEscape)
     }
   },
   watch: {
@@ -155,6 +162,5 @@ const Mixin = {
     }
   }
 }
-
 
 export default Mixin

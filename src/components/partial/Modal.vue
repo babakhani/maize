@@ -1,6 +1,7 @@
 <template>
   <b-modal
     @hidden="onHide"
+    @shown="onShow"
     v-model="showModal"
     class="modal-box"
     :title="$t('settings.header')">
@@ -27,7 +28,7 @@
         v-model="widgetData.src"
         v-if="modalName == 'image'"
         @hide="hide" />
-    <IconPicker 
+    <IconPicker
         v-model="widgetData.iconName"
         v-if="modalName == 'icon'"
         @hide="hide" />
@@ -55,7 +56,11 @@ export default {
       EventBus.$emit('UPDATE_WIDGET_DATA', this.widgetData)
       this.showModal = false
     },
+    onShow () {
+      this.$store.dispatch('layout/modalEscKeyReserved', true)
+    },
     onHide () {
+      this.$store.dispatch('layout/modalEscKeyReserved', false)
       this.$store.dispatch('layout/hideModalView')
       EventBus.$emit('UPDATE_WIDGET_DATA', this.widgetData)
     },
