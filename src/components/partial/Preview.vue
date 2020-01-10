@@ -1,6 +1,6 @@
 <template>
   <div class="preview">
-    <Frame 
+    <Frame
        ref="frame"
        :style="{
          width: `${previewSize}`,
@@ -8,10 +8,10 @@
        :class="previewMode"
        class="preview-frame">
     <FrameChild>
-    <component 
+    <component
           :id="widget.uniqeId"
           v-for="widget in currentWidgetList"
-          :class="{'container': (widget.data && widget.data.config) ? widget.data.config.fullWidth : false }"
+          :class="{'container': (widget.data && widget.data.config) ? !widget.data.config.fullWidth : false }"
           :key="widget.uniqeId"
           ref="widegtContainer"
           :is="widget.name"
@@ -27,14 +27,14 @@
 import Widgets from '../widgets'
 import Frame from './Frame.vue'
 import FrameChild from './FrameChild.vue'
-import {EventBus} from '@/events/event-bus.js'
+import { EventBus } from '@/events/event-bus.js'
 export default {
   name: 'Preview',
-  components: {...Widgets, Frame, FrameChild},
+  components: { ...Widgets, Frame, FrameChild },
   mounted () {
     let that = this
     EventBus.$on('downloadHtml', event => {
-       that.down()
+      that.down()
     })
   },
   methods: {
@@ -45,14 +45,14 @@ export default {
         this.download('index.html', html)
       }
     },
-    download(filename, text) {
-      var element = document.createElement('a');
-      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-      element.setAttribute('download', filename);
-      element.style.display = 'none';
-      document.body.appendChild(element);
-      element.click();
-      document.body.removeChild(element);
+    download (filename, text) {
+      var element = document.createElement('a')
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
+      element.setAttribute('download', filename)
+      element.style.display = 'none'
+      document.body.appendChild(element)
+      element.click()
+      document.body.removeChild(element)
     }
   },
   computed: {
@@ -61,10 +61,10 @@ export default {
     },
     previewSize () {
       let out = this.$store.getters['layout/previewSize']
-      if (out == 1366) {
-         out = '100%'
+      if (out === 1366) {
+        out = '100%'
       } else {
-         out = `${out}px`
+        out = `${out}px`
       }
       return out
     },
