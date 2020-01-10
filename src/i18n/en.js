@@ -71,6 +71,7 @@ export default {
     'repeat-y': 'repeat-y'
   },
   'modal': {
+    'font_awesome': 'Font Awesome',
     'pick_link': 'Pick link',
     'ok': 'Ok',
     'submit': 'Ok',

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="row px-2 py-1">
+    <div class="row px-3 py-1">
       <div class="col-12">
         <b-input-group
           size="md"
@@ -23,11 +23,15 @@
       </div>
     </div>
     <b-tabs
+      align="center"
+      vertical
+      pills
+      no-fade
       class="mazie-tabs"
       v-model="getDefaultTabIndex"
       card>
       <b-tab
-        class="py-2">
+        class="py-2 px-1">
         <template slot="title">
           <icon class="upload-image-icon"
                 name="images"></icon>
@@ -50,7 +54,7 @@
         </div>
       </b-tab>
       <b-tab
-        class="py-2">
+        class="py-2 px-2 image-uploader-tab">
         <template slot="title">
           <icon class="upload-image-icon"
                 name="images"></icon>

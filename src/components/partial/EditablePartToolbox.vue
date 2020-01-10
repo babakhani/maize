@@ -514,6 +514,7 @@
               </template>
               <div class="px-2">
                 <CssInput
+                    unit="%"
                     :units="['px', '%']"
                     v-model="styles['width']"
                     @change="setWidth" />
@@ -530,6 +531,7 @@
               </template>
               <div class="px-2">
                 <CssInput
+                    unit="%"
                     :units="['px', '%']"
                     v-model="styles['height']"
                     @change="setHeight" />
@@ -891,15 +893,27 @@ export default {
       this.update()
     },
     setWidth (e) {
-      this.styles['width'] = e
+      if (e === '' || e === 'px' || e === '%') {
+        delete this.styles['width']
+      } else {
+        this.styles['width'] = e
+      }
       this.update()
     },
     setHeight (e) {
-      this.styles['height'] = e
+      if (e === '' || e === 'px' || e === '%') {
+        delete this.styles['height']
+      } else {
+        this.styles['height'] = e
+      }
       this.update()
     },
     setBorderRadius (e) {
-      this.styles['border-radius'] = e
+      if (e === '' || e === 'px' || e === '%') {
+        delete this.styles['border-radius']
+      } else {
+        this.styles['border-radius'] = e
+      }
       this.update()
     },
     setBgSize (e) {

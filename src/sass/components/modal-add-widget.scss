@@ -33,6 +33,17 @@
   .modal-content {
     height: 100%;
   }
+  .nav-tabs > .nav-item {
+     margin-left: 10px;
+  }
+  .nav-link {
+    &:active,
+    &:focus,
+    &:hover {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+  }
 }
 .tab-content {
   overflow: auto;

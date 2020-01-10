@@ -18,10 +18,15 @@
       </b-button>
     </template>
     <b-tabs
+      align="center"
+      vertical
+      pills
+      no-fade
+      nav-wrapper-class="w-25"
       v-if="siteSettings"
       card>
       <b-tab active>
-        <template slot="title">
+        <template class="ml-2" slot="title">
           <strong> {{ $t('settings.header') }}</strong>
         </template>
         <div class="row" >

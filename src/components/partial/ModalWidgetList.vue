@@ -26,6 +26,11 @@
       v-if="showModalDelayed"
       no-body>
       <b-tabs
+        align="center"
+        vertical
+        pills
+        no-fade
+        nav-wrapper-class="w-10"
         v-model="currentTab"
         card>
         <b-tab

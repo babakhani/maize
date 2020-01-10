@@ -1,23 +1,26 @@
 <template>
   <!--Start Modal Tab-->
-  <b-tabs 
+  <b-tabs
+    align="center"
+    vertical
+    pills
+    no-fade
     class="icon-selector"
     card>
     <b-tab active class="py-2">
       <template slot="title">
-        <icon class="upload-image-icon"
-              name="images"></icon>
-        <strong> {{ $t('modal.random_image') }}</strong>
+        <strong> {{ $t('modal.font_awesome') }}</strong>
       </template>
       <div class="row px-2 py-1">
         <div class="m-2 h4"
+             :key="icon"
              v-for="icon in fontAwesome5">
           <div
             :class="{ 'selected': icon === picked }"
             class="icon-selector--item p-1"
             @click="pick(icon)"
             @dblclick="pickAndHide(icon)">
-            <i 
+            <i
             :class="icon">
             </i>
           </div>
@@ -28,7 +31,6 @@
 </template>
 
 <script>
-import { EventBus } from '../../events/event-bus'
 import FontAwesome5 from '../../assets/fontawesome5.json'
 
 export default {
@@ -58,6 +60,6 @@ export default {
       this.picked = picked
       this.$emit('input', picked)
     }
-  },
+  }
 }
 </script>
