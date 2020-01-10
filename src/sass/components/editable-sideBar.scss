@@ -33,6 +33,9 @@
   overflow: auto;
   padding: 1em;
   .dropdown-menu  {
-     width: 100%;
+    width: 100%;
+  }
+  @media (min-width: 768px) {
+    .card-columns {column-count: 1;}
   }
 }

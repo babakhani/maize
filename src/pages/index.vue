@@ -1,5 +1,5 @@
 <template>
-  <div
+  <div 
        class="editor-page"
        :class="{ 'editor-page-preview-mode': previewMode, 'editor-page-mobile-preview-mode': mobilePreviewMode, 'editor-page-tablet-preview-mode':tabletPreviewMode}">
     <!--<page-toolbox></page-toolbox>-->
@@ -14,8 +14,8 @@
              v-if="pageSideBarIsActive"
              :class="{'active': !pageSideBarIsActive}"
              class="editable-part-sidebar w-25">
-          <b-dropdown
-            :text="groupedWidgetList[currentListIndex].title"
+          <b-dropdown 
+            :text="groupedWidgetList[currentListIndex].title" 
             size="sm"
             variant="outline-primary"
             class="w-100 mb-3">
@@ -23,26 +23,27 @@
               value="index"
               class="w-100"
               @click="currentListIndex = index"
+              :key="index"
              v-for="(item, index) in groupedWidgetList" >
-             {{ item.title }}
+             {{ item.title }} 
             </b-dropdown-item>
           </b-dropdown>
-             <div
+             <div 
              v-for="(item, index) in groupedWidgetList"
              :key="index">
                <WidgetList
-                 v-if="index == currentListIndex"
+                 v-if="index == currentListIndex" 
                  :widget-list="item.widgets" />
              </div>
         </nav>
         <div
-          :class="{
+          :class="{ 
                     'px-4': !previewMode,
                     'w-100': !pageSideBarIsActive,
                     'w-75': pageSideBarIsActive
                     }"
           class="plotarea float-right mr-0">
-          <draggable
+          <draggable 
           v-model="currentWidgetList"
           :options="{handle:'.widget-drag-handle'}"
           group="pagewidget">

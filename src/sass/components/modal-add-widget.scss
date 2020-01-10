@@ -1,8 +1,8 @@
 .card-columns {
-   column-count: 1
+   column-count: 2
 }
 @media (min-width: 768px) {
-  .card-columns {column-count: 1;}
+  .card-columns {column-count: 2;}
 }
 .modal-dialog-centered {
   &::before {

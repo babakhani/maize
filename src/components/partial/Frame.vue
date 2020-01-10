@@ -23,7 +23,6 @@ export default {
       this.$emit('onload', e)
     },
     renderChildren () {
-      console.log('frame renderChildren ---')
       const children = this.$slots.default
       if (this.$el.contentDocument) {
         const body = this.$el.contentDocument.body

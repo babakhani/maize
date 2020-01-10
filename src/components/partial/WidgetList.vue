@@ -3,7 +3,6 @@
     class="card-columns">
     <draggable
     :clone="cloneDog"
-    @end="onremoved"
     :options="{
       removeCloneOnHide: false
     }"
@@ -67,10 +66,6 @@ export default {
     updateAddList (name) {
       this.$emit('updateAddList', name)
       this.$forceUpdate()
-    },
-    onremoved () {
-      this.$forceUpdate()
-      console.log('onremoved -----------')
     },
     cloneDog (e) {
       return {
