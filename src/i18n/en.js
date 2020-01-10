@@ -5,6 +5,7 @@ export default {
   'preview_mode': 'Preview Mode',
   'add_widget': 'Add widget, Have fun!',
   'toolbox': {
+    'widget_selector': 'Widgets',
     'edit': 'Edit',
     'preview': 'Preview',
     'delete': 'Delete',

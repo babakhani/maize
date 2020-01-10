@@ -9,24 +9,37 @@
 
           <ul class="navbar-nav float-right ml-auto pr-0">
             <li class="pointer nav-item mr-lg-3 pr-0">
-              <a class=" nav-link px-0"
+              <a class="nav-link px-0"
                  :title="previewMode ? $t('toolbox.edit') : $t('preview_mode')"
                  @click="setPreviewMode"
                  v-b-tooltip.hover.bottom.small
                  href="#">
                 <b-form-checkbox
+                 class=""
                  v-model="checked"
                  name="check-button"
                  switch
-                 size="lg"
+                 size="md"
                  @change="setPreviewMode">
-                  <span>
-                    {{ previewMode ? $t('toolbox.edit') : $t('toolbox.preview') }}
-                  </span>
+                 {{ previewMode ? $t('toolbox.edit') : $t('toolbox.preview') }}
                 </b-form-checkbox>
               </a>
             </li>
-            <li 
+            <li class="pointer nav-item mr-lg-3 pr-0">
+              <div class="nav-link px-0">
+                <b-form-checkbox
+                 class=""
+                 :title="$t('toolbox.widget_selector')"
+                 v-b-tooltip.hover.bottom.small
+                 v-model.sync="pageSideBarIsActive"
+                 name="check-button"
+                 switch
+                 size="md">
+                 {{ $t('toolbox.widget_selector') }}
+                </b-form-checkbox>
+              </div>
+            </li>
+            <li
               v-if="!previewMode"
               class="nav-item mr-lg-3">
               <a :title="$t('toolbox.settings')"
@@ -36,7 +49,7 @@
                 <icon name="cog"></icon>
               </a>
             </li>
-            <li 
+            <li
               v-if="!previewMode"
               class="nav-item mr-lg-3">
               <a :title="$t('add_widget')"
@@ -46,7 +59,7 @@
                 <icon name="plus-square"></icon>
               </a>
             </li>
-            <li 
+            <li
               v-if="previewMode"
               class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
@@ -56,7 +69,7 @@
                 <icon name="download"></icon>
               </a>
             </li>
-            <li 
+            <li
               v-if="!previewMode"
               class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
@@ -66,7 +79,7 @@
                 <icon name="undo"></icon>
               </a>
             </li>
-            <li 
+            <li
               v-if="!previewMode"
               class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
@@ -76,7 +89,7 @@
                 <icon name="redo"></icon>
               </a>
             </li>
-            <li 
+            <li
               v-if="previewMode"
               class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
@@ -86,7 +99,7 @@
                 <icon name="mobile-alt"></icon>
               </a>
             </li>
-            <li 
+            <li
               v-if="previewMode"
               class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
@@ -96,7 +109,7 @@
                 <icon name="tablet-alt"></icon>
               </a>
             </li>
-            <li 
+            <li
               v-if="previewMode"
               class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
@@ -135,10 +148,10 @@
   </header>
 </template>
 <script>
-import {EventBus} from '@/events/event-bus.js'
+import { EventBus } from '@/events/event-bus.js'
 export default {
   name: 'PageToolbax',
-  data() {
+  data () {
     return {
       checked: false
     }
@@ -161,7 +174,7 @@ export default {
       this.$store.dispatch('redo')
     },
     setPreviewMode (e) {
-      this.checked= !this.checked
+      this.checked = !this.checked
       this.$store.dispatch('layout/setPreviewMode', this.checked)
       this.checked
     },
@@ -186,6 +199,14 @@ export default {
     }
   },
   computed: {
+    pageSideBarIsActive: {
+      get () {
+        return this.$store.state.layout.pageSideBarIsActive
+      },
+      set (e) {
+        this.$store.dispatch('layout/setPageSideBarIsActive', e)
+      }
+    },
     currentLocale () {
       return this.$store.state.locale.currentLocale
     },
@@ -199,7 +220,7 @@ export default {
       return this.$store.state.layout.tabletPreviewMode
     },
     autosaveStatus: function () {
-      return this.status;
+      return this.status
     }
   }
 }

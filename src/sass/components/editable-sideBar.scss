@@ -1,7 +1,6 @@
 /* ------------------EDITABLE PART SIDEBAR-------------- */
 .wrapper {
   display: flex;
-  align-items: stretch;
 
   /* --------------CONTENT STYLE------------------------- */
   #content {
@@ -10,5 +9,30 @@
     transition: all 0.3s;
     width: 90%;
     margin: 0 auto;
+  }
+}
+
+.plotarea {
+  position: fixed;
+  right: 0;
+  height: calc(100vh - 50px);
+  overflow: auto;
+  > div:first-child {
+    &:empty {
+       border: 2px dashed rgba($primary-color, .05);
+       min-height: 200px;
+       margin-top: 3em;
+    }
+  }
+}
+
+.editable-part-sidebar {
+  position: fixed;
+  height: calc(100vh - 50px);
+  background: rgba($black, 0.1);
+  overflow: auto;
+  padding: 1em;
+  .dropdown-menu  {
+     width: 100%;
   }
 }
