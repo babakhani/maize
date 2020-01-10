@@ -15,18 +15,19 @@
              :class="{'active': !pageSideBarIsActive}"
              class="editable-part-sidebar">
         </nav>
-        <div 
+        <div
              :class="{ 'px-4': !previewMode }"
              class="w-100">
           <draggable v-model="currentWidgetList"
                      :options="{handle:'.widget-drag-handle'}"
                      @start="drag=true"
                      @end="drag=false">
-          <div v-for="(widget, index) in currentWidgetList"
+          <div v-for="widget in currentWidgetList"
                :key="widget.uniqeId">
             <component :is="widget.name"
                class="widget-block"
-               :class="{'container': (widget.data && widget.data.config) ? widget.data.config.fullWidth : false }"
+               :class="{'container': (widget.data && widget.data.config) ?
+               !widget.data.config.fullWidth : false }"
                :edit-mode="!$store.state.main.previewMode"
                :widgetData="widget.data"
                :uniqeKey="widget.uniqeId">
@@ -46,49 +47,48 @@
 </template>
 
 <script>
-  import editor from '../mixins/editorpage'
-  import draggable from 'vuedraggable'
-  import ModalSettings from '../components/partial/ModalSettings'
-  import Preview from '../components/partial/Preview'
-  import Modal from '../components/partial/Modal'
+import editor from '../mixins/editorpage'
+import draggable from 'vuedraggable'
+import ModalSettings from '../components/partial/ModalSettings'
+import Preview from '../components/partial/Preview'
+import Modal from '../components/partial/Modal'
 
-  export default {
-    name: 'EditorPage',
-    mixins: [editor],
-    components: {
-      Modal,
-      Preview,
-      draggable,
-      ModalSettings
+export default {
+  name: 'EditorPage',
+  mixins: [editor],
+  components: {
+    Modal,
+    Preview,
+    draggable,
+    ModalSettings
+  },
+  computed: {
+    modalName () {
+      return this.$store.state.layout.modalName
     },
-    computed: {
-      modalName () {
-        return this.$store.state.layout.modalName
+    preData () {
+      return this.$store.state.layout.modalDefaultData
+    },
+    pageSideBarIsActive () {
+      return this.$store.state.layout.pageSideBarIsActive
+    },
+    previewMode () {
+      return this.$store.state.layout.previewMode
+    },
+    tabletPreviewMode () {
+      return this.$store.state.layout.tabletPreviewMode
+    },
+    mobilePreviewMode () {
+      return this.$store.state.layout.mobilePreviewMode
+    },
+    currentWidgetList: {
+      get () {
+        return this.$store.state.main.currentWidgetList
       },
-      preData () {
-        return this.$store.state.layout.modalDefaultData
-      },
-      pageSideBarIsActive() {
-        return this.$store.state.layout.pageSideBarIsActive
-      },
-      previewMode () {
-        return this.$store.state.layout.previewMode
-      },
-      tabletPreviewMode () {
-        return this.$store.state.layout.tabletPreviewMode
-      },
-      mobilePreviewMode () {
-        return this.$store.state.layout.mobilePreviewMode
-      },
-      currentWidgetList: {
-        get () {
-          return this.$store.state.main.currentWidgetList
-        },
-        set (value) {
-          this.$store.dispatch('main/sortCurrentWidgetList', value)
-        }
+      set (value) {
+        this.$store.dispatch('main/sortCurrentWidgetList', value)
       }
     }
   }
+}
 </script>
-
