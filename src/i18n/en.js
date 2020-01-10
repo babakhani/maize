@@ -94,6 +94,8 @@ export default {
     }
   },
   'settings': {
+    'favicon': 'Favicon',
+    'favicon-placeholder': 'Favicon',
     'contact-address': 'Address',
     'contact-phone': 'Phone',
     'contact-mail': 'Email',

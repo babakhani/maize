@@ -65,6 +65,14 @@
                   :placeholder="$t('settings.language-placeholder')">
               </div>
               <div class="form-group">
+                <label>{{ $t('settings.favicon') }}</label>
+                <input
+                   v-model="siteSettings.favicon"
+                   type="text"
+                   class="form-control"
+                  :placeholder="$t('settings.favicon-placeholder')">
+              </div>
+              <div class="form-group">
                 <label>{{ $t('settings.secureURL') }}</label>
                 <input
                    v-model="siteSettings.secureURL"
