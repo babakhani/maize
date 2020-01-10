@@ -77,8 +77,10 @@ export default {
   computed: {
     scale () {
       setTimeout(() => {
-        this.width = this.$refs.column[0].clientWidth
-        this.scale2 = ((this.width * 100) / 1366) / 100
+        if (this.$refs.column[0]) {
+          this.width = this.$refs.column[0].clientWidth
+          this.scale2 = ((this.width * 100) / 1366) / 100
+        }
       }, 1000)
       return ((this.width * 100) / 1366) / 100
     },

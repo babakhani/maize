@@ -37,7 +37,6 @@
                 <input
                    v-model="siteSettings.name"
                    type="text"
-                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.name-placeholder')">
               </div>
@@ -46,7 +45,6 @@
                 <input
                    v-model="siteSettings.title"
                    type="text"
-                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.title-placeholder')">
               </div>
@@ -55,7 +53,6 @@
                 <input
                   v-model="siteSettings.description"
                   type="email"
-                  id="description"
                   class="form-control"
                   :placeholder="$t('settings.description-placeholder')">
               </div>
@@ -64,7 +61,6 @@
                 <input
                    v-model="siteSettings.language"
                    type="text"
-                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.language-placeholder')">
               </div>
@@ -73,7 +69,6 @@
                 <input
                    v-model="siteSettings.secureURL"
                    type="text"
-                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.secureURL-placeholder')">
               </div>
@@ -82,7 +77,6 @@
                 <input
                    v-model="siteSettings.baseURL"
                    type="text"
-                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.baseURL-placeholder')">
               </div>
@@ -91,7 +85,6 @@
                 <input
                   v-model="siteSettings.type"
                   type="text"
-                  id="type"
                   class="form-control"
                   :placeholder="$t('settings.type-placeholder')">
               </div>
@@ -100,7 +93,6 @@
                 <input
                   v-model="siteSettings.canonical"
                   type="text"
-                  id="canonical"
                   class="form-control"
                   :placeholder="$t('settings.canonical-placeholder')">
               </div>
@@ -109,7 +101,6 @@
                 <input
                   v-model="siteSettings.color"
                   type="color"
-                  id="colorPicker"
                   class="form-control">
               </div>
               <div class="form-group">
@@ -117,7 +108,6 @@
                 <input
                    v-model="siteSettings.nextURL"
                    type="text"
-                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.nextURL-placeholder')">
               </div>
@@ -126,7 +116,6 @@
                 <input
                    v-model="siteSettings.image"
                    type="text"
-                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.image-placeholder')">
               </div>
@@ -135,7 +124,6 @@
                 <input
                    v-model="siteSettings.imageWidth"
                    type="text"
-                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.imageWidth-placeholder')">
               </div>
@@ -144,7 +132,6 @@
                 <input
                    v-model="siteSettings.imageHeight"
                    type="text"
-                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.imageHeight-placeholder')">
               </div>
@@ -153,7 +140,6 @@
                 <input
                    v-model="siteSettings.imageType"
                    type="text"
-                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.imageType-placeholder')">
               </div>
@@ -162,7 +148,6 @@
                 <input
                    v-model="siteSettings.facebookAppID"
                    type="text"
-                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.facebookAppID-placeholder')">
               </div>
@@ -171,7 +156,6 @@
                 <input
                    v-model="siteSettings.twitterAccount"
                    type="text"
-                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.twitterAccount-placeholder')">
               </div>
@@ -180,7 +164,6 @@
                 <input
                    v-model="siteSettings.twitterCard"
                    type="text"
-                   id="title"
                    class="form-control"
                   :placeholder="$t('settings.twitterCard-placeholder')">
               </div>

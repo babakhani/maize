@@ -25,7 +25,9 @@
                 </b-form-checkbox>
               </a>
             </li>
-            <li class="pointer nav-item mr-lg-3 pr-0">
+            <li
+              v-if="!previewMode"
+              class="pointer nav-item mr-lg-3 pr-0">
               <div class="nav-link px-0">
                 <b-form-checkbox
                  class=""
