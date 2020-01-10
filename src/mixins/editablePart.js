@@ -90,17 +90,17 @@ const Mixin = {
       this.showToolboxButton = false
     },
     hideOnEscape (e) {
-      e.preventDefault()
-      e.stopPropagation()
       if (e.code === 'Escape') {
+        e.preventDefault()
+        e.stopPropagation()
         if (this.$store.getters['layout/modalEscKeyReserved']) {
         } else {
           this.hideToolbox()
           document.removeEventListener('keydown', this.hideOnEscape)
         }
         this.$store.dispatch('layout/modalEscKeyReserved', false)
+        return false
       }
-      return false
     },
     showToolbox (e) {
       e.preventDefault()

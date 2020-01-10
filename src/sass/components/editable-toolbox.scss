@@ -47,6 +47,11 @@
     background: rgba($primary-color, 0.6);
   }
 
+  .b-dropdown-form{
+     padding: 0em .4em;
+     margin: 0;
+  }
+
   .b-dropdown-text{
      padding-top: 0;
      padding-right: 0;
@@ -63,7 +68,8 @@
     }
     
     .input-group {
-      width: 120px;
+      width: 100%;
+      min-width: 160px;
     }
 
     input[type='range'] {
@@ -98,11 +104,6 @@
         background: rgba($white, .05);
         border: 0;
         color: $white;
-        width: 90%;
-        min-width: 120px;
-        padding: 0;
-        padding-left: .3em;
-        margin: 0 5% 0 5%;
       }
 
       input[type='range'] {

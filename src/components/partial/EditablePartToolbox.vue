@@ -161,12 +161,21 @@
               <template v-slot:button-content>
                 <maizcon name="size"></maizcon>
               </template>
-              <b-dropdown-form>
-                <b-form-group >
-                <b-form-input @input="setBackgroundPosition"
-                   type="text"
-                   v-model="styles['background-position']"/>
-                </b-form-group >
+              <b-dropdown-form style="width: 400px">
+                <b-form-group>
+                  <label> {{ $t('toolbox.background_postion_x') }} </label>
+                  <CssInput
+                         :units="['%', 'px']"
+                         :statics="['center', 'right', 'left']"
+                         v-model="backgroundPositionX"
+                         @change="setBackgroundPositionX" />
+                  <label class="mt-2" > {{ $t('toolbox.background_postion_y') }} </label>
+                  <CssInput
+                         :units="['%', 'px']"
+                         :statics="['center', 'top', 'bottom']"
+                         v-model="backgroundPositionY"
+                         @change="setBackgroundPositionY" />
+                  </b-form-group>
               </b-dropdown-form>
             </b-dropdown>
 
@@ -415,21 +424,10 @@
                 <maizcon name="border"></maizcon>
               </template>
               <b-dropdown-form>
-                <b-form-group >
-                <b-input-group size="sm" append="px">
-                  <b-form-input
-                    type="number"
-                    @change="setBorderWidth"
-                    v-model="defaultStyles.borderWidth" >
-                  </b-form-input>
-                </b-input-group>
-                <b-form-input @input="setBorderWidth"
-                    type="range"
-                    min="0"
-                    max="10"
-                    step="1"
-                    v-model="defaultStyles.borderWidth"/>
-                </b-form-group >
+                <CssInput
+                    :units="['px']"
+                    v-model="styles['border-width']"
+                    @change="setBorderWidth" />
               </b-dropdown-form>
             </b-dropdown>
 
@@ -483,17 +481,33 @@
                 <maizcon name="opacity"></maizcon>
               </template>
               <b-dropdown-form>
-                <b-form-group >
-                  <input type="text"
-                         v-model="styles['opacity']"/>
-                  <br>
-                  <input @input="setOpacityColor"
-                         type="range"
-                         min="0.0"
-                         max="1.0"
-                         :value="styles['opacity']"
-                         step="0.01">
+                <b-form-group class="mb-0" >
+                  <CssInput
+                  :units="[]"
+                  :nounit="true"
+                  :min="0"
+                  :max="1"
+                  :step=".1"
+                  :range="true"
+                  v-model="styles['opacity']"
+                  @change="setOpacityColor" />
                 </b-form-group >
+              </b-dropdown-form>
+            </b-dropdown>
+
+            <b-dropdown
+               :title="$t('toolbox.border_radius')"
+               v-b-tooltip.hover.top.small
+               size="sm"
+               class="">
+              <template v-slot:button-content>
+                <icon name="circle"></icon>
+              </template>
+              <b-dropdown-form>
+                <CssInput
+                    :units="['px', '%']"
+                    v-model="styles['border-radius']"
+                    @change="setBorderRadius" />
               </b-dropdown-form>
             </b-dropdown>
 
@@ -506,11 +520,10 @@
                 <maizcon name="width"></maizcon>
               </template>
               <b-dropdown-form>
-                <b-form-group >
-                  <input @input="setWidth"
-                         type="text"
-                         v-model="styles['width']"/>
-                </b-form-group >
+                <CssInput
+                    :units="['px', '%']"
+                    v-model="styles['width']"
+                    @change="setWidth" />
               </b-dropdown-form>
             </b-dropdown>
 
@@ -523,11 +536,10 @@
                 <maizcon name="height"></maizcon>
               </template>
               <b-dropdown-form>
-                <b-form-group >
-                  <input @input="setHeight"
-                         type="text"
-                         v-model="styles['height']"/>
-                </b-form-group >
+                <CssInput
+                    :units="['px', '%']"
+                    v-model="styles['height']"
+                    @change="setHeight" />
               </b-dropdown-form>
             </b-dropdown>
 
@@ -539,36 +551,28 @@
               <template v-slot:button-content>
                 <maizcon name="margin"></maizcon>
               </template>
-              <b-dropdwon-form>
-                <div
-                  class="dropdown-menu--margin"
-                  @click="(e) => {e.stopPropagation()}"
-                  aria-labelledby="dropdownMenuButtonMargin">
+              <b-dropdwon-form
+                  @click="(e) => {e.stopPropagation()}" >
                   <label> {{ $t('toolbox.padding') }} </label>
-                  <input
-                       @input="setPaddingY"
-                       type="text"
-                       class="dropdown-input--even"
-                       v-model="styles['padding-top']"/>
+                  <CssInput
+                  :units="['px', '%']"
+                  v-model="styles['padding-top']"
+                  @change="setPaddingY" />
                   <label> {{ $t('toolbox.padding') }} </label>
-                  <input
-                       @input="setPaddingX"
-                       type="text"
-                       class="dropdown-input--odd mt-2"
-                       v-model="styles['padding-right']"/>
+                  <CssInput
+                  :units="['px', '%']"
+                  v-model="styles['margin-right']"
+                  @change="setPaddingX" />
                   <label> {{ $t('toolbox.margin') }} </label>
-                  <input
-                       @input="setMarginY"
-                       type="text"
-                       class="dropdown-input--even mt-2"
-                       v-model="styles['margin-top']"/>
+                  <CssInput
+                  :units="['px', '%']"
+                  v-model="styles['margin-top']"
+                  @change="setMarginY" />
                   <label> {{ $t('toolbox.margin') }} </label>
-                  <input
-                       @input="setMarginX"
-                       type="text"
-                       class="dropdown-input--odd"
-                       v-model="styles['margin-right']"/>
-                </div>
+                  <CssInput
+                  :units="['px', '%']"
+                  v-model="styles['margin-right']"
+                  @change="setMarginX" />
               </b-dropdwon-form>
             </b-dropdown>
           </div>
@@ -583,13 +587,14 @@
 <script>
 import maizcon from '../partial/MaizeCon.vue'
 import { EventBus } from '../../events/event-bus'
+import CssInput from './CssInput.vue'
 // import { Material, Compact, Swatches, Slider, Sketch, Chrome, Photoshop } from 'vue-color'
 import { Sketch } from 'vue-color'
 // import CssInput from './CssInput'
 export default {
   name: 'EditablePartToolbox',
   components: {
-    // CssInput,
+    CssInput,
     'maizcon': maizcon,
     'color-picker': Sketch
     // 'compact-picker': Compact,
@@ -601,10 +606,15 @@ export default {
   },
   data () {
     return {
-      defaultStyles: {
-        borderWidth: this.styles['border-width'] ? this.styles['border-width'] : 0
-      }
+      backgroundPositionX: 0,
+      backgroundPositionY: 0
     }
+  },
+  mounted () {
+    this.backgroundPositionX = this.styles['background-position']
+      ? this.styles['background-position'].split(' ')[1] : 0
+    this.backgroundPositionY = this.styles['background-position']
+      ? this.styles['background-position'].split(' ')[0] : 0
   },
   props: {
     target: {
@@ -801,7 +811,7 @@ export default {
       this.update()
     },
     setOpacityColor (e) {
-      this.styles['opacity'] = e.target.value
+      this.styles['opacity'] = e
       this.update()
     },
     toggleTextDecoration () {
@@ -831,7 +841,7 @@ export default {
       this.update()
     },
     setBorderWidth (e) {
-      this.styles['border-width'] = this.defaultStyles.borderWidth + 'px'
+      this.styles['border-width'] = e
       this.update()
     },
     setBorderStyle (style) {
@@ -843,51 +853,55 @@ export default {
       this.update()
     },
     setPaddingY (e) {
-      if (e.target.value === '') {
+      if (e === '') {
         delete this.styles['padding-top']
         delete this.styles['padding-bottom']
       } else {
-        this.styles['padding-top'] = e.target.value
-        this.styles['padding-bottom'] = e.target.value
+        this.styles['padding-top'] = e
+        this.styles['padding-bottom'] = e
       }
       this.update()
     },
     setPaddingX (e) {
-      if (e.target.value === '') {
+      if (e === '') {
         delete this.styles['padding-right']
         delete this.styles['padding-left']
       } else {
-        this.styles['padding-right'] = e.target.value
-        this.styles['padding-left'] = e.target.value
+        this.styles['padding-right'] = e
+        this.styles['padding-left'] = e
       }
       this.update()
     },
     setMarginX (e) {
-      if (e.target.value === '') {
+      if (e === '') {
         delete this.styles['margin-right']
         delete this.styles['margin-left']
       } else {
-        this.styles['margin-left'] = e.target.value
-        this.styles['margin-right'] = e.target.value
+        this.styles['margin-left'] = e
+        this.styles['margin-right'] = e
       }
       this.update()
     },
     setMarginY (e) {
-      if (e.target.value === '') {
+      if (e === '') {
         delete this.styles['margin-top']
         delete this.styles['margin-bottom']
       } else {
-        this.styles['margin-top'] = e.target.value
-        this.styles['margin-bottom'] = e.target.value
+        this.styles['margin-top'] = e
+        this.styles['margin-bottom'] = e
       }
       this.update()
     },
     setWidth (e) {
-      this.styles['width'] = e.target.value
+      this.styles['width'] = e
       this.update()
     },
     setHeight (e) {
-      this.styles['height'] = e.target.value
+      this.styles['height'] = e
+      this.update()
+    },
+    setBorderRadius (e) {
+      this.styles['border-radius'] = e
       this.update()
     },
     setBgSize (e) {
@@ -898,8 +912,16 @@ export default {
       this.styles['background-repeat'] = e
       this.update()
     },
-    setBackgroundPosition (e) {
-      this.styles['background-position'] = e.target.value
+    setBackgroundPositionX (e) {
+      this.backgroundPositionX = e
+      let y = this.backgroundPositionY
+      this.styles['background-position'] = y + ' ' + this.backgroundPositionX
+      this.update()
+    },
+    setBackgroundPositionY (e) {
+      this.backgroundPositionY = e
+      let x = this.backgroundPositionX
+      this.styles['background-position'] = this.backgroundPositionY + ' ' + x
       this.update()
     }
   }

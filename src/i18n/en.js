@@ -53,6 +53,8 @@ export default {
     'icon': 'Icon',
     'image': 'Image',
     'direction': 'Direction',
+    'background_postion_x': 'Horizontal',
+    'background_postion_y': 'Vertical',
     'background': 'Background',
     'background_color': 'Background Color',
     'background_size': 'Background Size',
