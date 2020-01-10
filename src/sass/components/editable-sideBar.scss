@@ -12,11 +12,14 @@
   }
 }
 
-.plotarea {
-  position: fixed;
+body{
+  padding-top: 55px;
+}
+
+.plotarea-width-sidebar {
+  position: absolute;
   right: 0;
-  height: calc(100vh - 50px);
-  overflow: auto;
+  overflow: visible;
   > div:first-child {
     &:empty {
        border: 2px dashed rgba($primary-color, .05);
