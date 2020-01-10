@@ -549,22 +549,22 @@
               <div
                 class="px-2"
                 @click="(e) => {e.stopPropagation()}" >
-                  <label> {{ $t('toolbox.padding') }} </label>
+                  <label> {{ $t('toolbox.padding_y') }} </label>
                   <CssInput
                   :units="['px', '%']"
                   v-model="styles['padding-top']"
                   @change="setPaddingY" />
-                  <label> {{ $t('toolbox.padding') }} </label>
+                  <label> {{ $t('toolbox.padding_x') }} </label>
                   <CssInput
                   :units="['px', '%']"
                   v-model="styles['padding-right']"
                   @change="setPaddingX" />
-                  <label> {{ $t('toolbox.margin') }} </label>
+                  <label class="mt-3"> {{ $t('toolbox.margin_y') }} </label>
                   <CssInput
                   :units="['px', '%']"
                   v-model="styles['margin-top']"
                   @change="setMarginY" />
-                  <label> {{ $t('toolbox.margin') }} </label>
+                  <label> {{ $t('toolbox.margin_x') }} </label>
                   <CssInput
                   :units="['px', '%']"
                   v-model="styles['margin-right']"
