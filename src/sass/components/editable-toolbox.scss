@@ -16,7 +16,7 @@
   padding: 0;
   float: left;
   width: 100%;
-  padding: .1em;
+  padding: .3em .1em .1em .1em ;
   // Preview Mode Styles
   .editor-page-preview-mode & {
     visibility: hidden;
@@ -25,6 +25,9 @@
     display: block;
     position: relative;
     float:left;
+    &:first-child {
+      padding-left: 1em;
+    }
     padding-bottom: 20px;
     .widget-text-editable--toolbox--group-title {
       display: block;
@@ -35,16 +38,16 @@
        bottom: 0;
        font-size: .6em;
        text-align: center;
-       color: $gray-9;
+       color: rgba($primary-color, 0.9);
     }
   }
   .widget-text-editable--toolbox--group-separator {
     display: block;
     float: left;
-    height: 2.9em;
-    margin: .3em .3em;
-    width: 1px;
-    background: rgba($primary-color, 0.6);
+    height: 4.5em;
+    margin: 0 .3em;
+    width: 2px;
+    background: rgba($primary-color, 0.2);
   }
 
   .b-dropdown-form{
@@ -147,16 +150,23 @@
   .widget-text-editable--toolbox--button,
   .dropdown-toggle {
     color: $white;
-    border: 1px solid rgba($primary-color, .2);
+    border: 0;
     width: 3em;
     height: 3em;
-    margin: 3px;
+    margin: .2em .3em;
     float: left;
     padding: 9px;
     cursor: pointer;
     background: transparent;
     position: relative;
     font-size: inherit;
+    box-shadow: 0 0 3px 0px rgba($primary-color, .9);
+    &:hover,
+    &:active,
+    &:focus {
+      box-shadow: 0 0 3px 2px rgba($primary-color, .9);
+      border: 0 !important;
+    }
     svg {
       &,
       g,
@@ -168,8 +178,8 @@
       position: absolute;
       width: .5em;
       height: .5em;
-      bottom: 2px;
-      right: 2px;
+      bottom: .3em;
+      right: .3em;
     }
 
     img {
