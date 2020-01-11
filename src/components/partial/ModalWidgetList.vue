@@ -1,7 +1,8 @@
 <template>
   <b-modal
+    :no-fade="true"
     @shown="onShow"
-    @hidden="onHide"
+    @hide="onHide"
     @ok="onOk"
     v-model="showModal"
     id="addWidgetModal"
@@ -23,7 +24,6 @@
       </b-button>
     </template>
     <b-card
-      v-if="showModalDelayed"
       no-body>
       <b-tabs
         align="center"
@@ -40,18 +40,19 @@
           :active="item.group === 'header'"
           :title="item.title">
           <WidgetList
+            v-if="showModalDelayed"
             @updateAddList="updateAddList"
             :add-widget-list="addWidgetList"
             :widget-list="item.widgets" />
+          <div v-else class="text-center">
+            <b-spinner
+              variant="primary"
+              class="p-5 m-5 mt-5"
+              label="Spinning"></b-spinner>
+          </div>
         </b-tab>
       </b-tabs>
     </b-card>
-    <div v-else class="text-center">
-      <b-spinner
-         variant="primary"
-        class="p-5 m-5 mt-5"
-        label="Spinning"></b-spinner>
-    </div>
   </b-modal>
 </template>
 <script>
@@ -75,14 +76,16 @@ export default {
       // TODO: fix this, remove $forceUpdate
     },
     onShow () {
-      setTimeout(() => {
+      clearTimeout(this.timeout)
+      this.timeout = setTimeout(() => {
         this.showModalDelayed = true
-      }, 800)
+      }, 600)
     },
     onHide () {
-      this.$store.dispatch('layout/setAddWidgetMode', false)
       this.showModalDelayed = false
+      this.showModal = false
       this.addWidgetList = []
+      this.$store.dispatch('layout/setAddWidgetMode', false)
     },
     onOk () {
       // TODO: complete this
@@ -98,10 +101,12 @@ export default {
       return this.$store.state.main.rawWidgetList
     }
   },
-  mounted () {
+  beforeDestroy () {
+    clearTimeout(this.timeout)
   },
   data () {
     return {
+      timeout: null,
       showModalDelayed: false,
       currentTab: 1,
       showModal: false,
