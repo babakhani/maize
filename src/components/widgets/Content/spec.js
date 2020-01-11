@@ -3,80 +3,49 @@ export default {
   group: 'content',
   widgets: [
     {
-      name: 'Content_1',
-      group: 'content',
-      data: {}
+      name: 'Content_1'
     },
     {
-      name: 'Content_2',
-      group: 'content',
-      data: {}
+      name: 'Content_2'
     },
     {
-      name: 'Content_3',
-      group: 'content',
-      data: {}
+      name: 'Content_3'
     },
     {
-      name: 'Content_4',
-      group: 'content',
-      data: {}
+      name: 'Content_4'
     },
     {
-      name: 'Content_5',
-      group: 'content',
-      data: {}
+      name: 'Content_5'
     },
     {
-      name: 'Content_6',
-      group: 'content',
-      data: {}
+      name: 'Content_6'
     },
     {
-      name: 'Content_7',
-      group: 'content',
-      data: {}
+      name: 'Content_7'
     },
     {
-      name: 'Content_8',
-      group: 'content',
-      data: {}
+      name: 'Content_8'
     },
     {
-      name: 'Content_9',
-      group: 'content',
-      data: {}
+      name: 'Content_9'
     },
     {
-      name: 'Content_10',
-      group: 'content',
-      data: {}
+      name: 'Content_10'
     },
     {
-      name: 'Content_11',
-      group: 'content',
-      data: {}
+      name: 'Content_11'
     },
     {
-      name: 'Content_12',
-      group: 'content',
-      data: {}
+      name: 'Content_12'
     },
     {
-      name: 'Content_13',
-      group: 'content',
-
-      data: {}
+      name: 'Content_13'
     },
     {
-      name: 'Content_14',
-      group: 'content',
-      data: {}
+      name: 'Content_14'
     },
     {
-      name: 'Content_15',
-      group: 'content',
-      data: {}
+      name: 'Content_15'
     }
   ]
 }

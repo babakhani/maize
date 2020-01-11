@@ -27,18 +27,13 @@
         <Frame
           :style="{
                    width: `${widthFrame}px`,
-                   transform: `scale(${sanitizedScale}) translate(-50% , -50%)`,
+                   transform: `scale(${sanitizedScale})`,
                    height: heightList[index] ? `${heightList[index]}px`  : `${ widget.height ?  widget.height : 100 }px`
                    }"
           class="widget-thumb-container">
-        <FrameChild
-              title="this is iframe title">
-        <link href="/lib/bootstrap.min.css"
-              rel="stylesheet"
-              crossorigin="anonymous">
-        <link rel="stylesheet"
-              href="/lib/maize_blocks.min.css">
+        <FrameChild>
         <component
+              style="overflow: hidden;"
               ref="widegtContainer"
               :is="widget.name"
               :widgetData="widget.data"
@@ -46,6 +41,15 @@
               :uniqeKey="widget.uniqeId"></component>
         </FrameChild>
         </Frame>
+        <div
+          v-if="overlayVisbility"
+          class="iframe-loading-overlay" >
+            <b-spinner
+              variant="primary"
+              size="sm"
+              class="m-5 mt-5"
+              label="Spinning"></b-spinner>
+        </div>
         <span class="widget-selected-num"
               v-if="addWidgetList.indexOf(widget) > -1">{{addWidgetList.indexOf(widget)}}</span>
       </div>
@@ -76,12 +80,13 @@ export default {
   },
   computed: {
     scale () {
-      setTimeout(() => {
+      clearTimeout(this.setWidthTimeout)
+      this.setWidthTimeout = setTimeout(() => {
         if (this.$refs.column[0]) {
           this.width = this.$refs.column[0].clientWidth
           this.scale2 = ((this.width * 100) / 1366) / 100
         }
-      }, 1000)
+      }, 100)
       return ((this.width * 100) / 1366) / 100
     },
     sanitizedScale () {
@@ -99,28 +104,21 @@ export default {
   },
   updated () {
     this.$nextTick(function () {
-      if (this.$refs.widegtContainer && this.heightSetup) {
-        setTimeout(() => {
+      if (this.$refs.widegtContainer) {
+        clearTimeout(this.setHeightTimeout)
+        this.setHeightTimeout = setTimeout(() => {
           this.heightList = []
           this.$refs.widegtContainer.forEach((widgetItem, index) => {
             this.heightList.push(widgetItem.$el.clientHeight)
           })
-        }, 300)
-        setTimeout(() => {
-          this.heightList = []
-          this.$refs.widegtContainer.forEach((widgetItem, index) => {
-            this.heightList.push(widgetItem.$el.clientHeight)
-          })
-        }, 1500)
-        setTimeout(() => {
-          this.heightList = []
-          this.$refs.widegtContainer.forEach((widgetItem, index) => {
-            this.heightList.push(widgetItem.$el.clientHeight)
-          })
-        }, 3000)
-        this.heightSetup = false
+          this.overlayVisbility = false
+        }, 500)
       }
     })
+  },
+  beforeDestroy () {
+    clearTimeout(this.setWidthTimeout)
+    clearTimeout(this.setHeightTimeout)
   },
   props: {
     addWidgetList: {
@@ -140,7 +138,9 @@ export default {
   },
   data () {
     return {
-      heightSetup: true,
+      overlayVisbility: true,
+      setWidthTimeout: null,
+      setHeightTimeout: null,
       heightList: [],
       currentTab: 1,
       scale2: 1,

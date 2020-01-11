@@ -1,7 +1,7 @@
 <template>
   <iframe
-          @load="onLoad"
-          frameborder="0"></iframe>
+    @load.once="onLoad"
+    frameborder="0"></iframe>
 </template>
 
 <script>
@@ -15,12 +15,15 @@ export default {
       this.iApp.children = Object.freeze(this.$slots.default)
     }
   },
+  data () {
+    return {
+      showMeTimeout: null
+    }
+  },
   methods: {
     onLoad (e) {
-      setTimeout(() => {
-        this.renderChildren()
-      }, 0)
       this.$emit('onload', e)
+      this.renderChildren()
     },
     renderChildren () {
       const children = this.$slots.default
