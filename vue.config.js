@@ -1,7 +1,7 @@
 module.exports = {
   runtimeCompiler: true,
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/maize/'
+    ? '/maize/demo/'
     : '/',
   lintOnSave: false
 }
