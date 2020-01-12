@@ -22,8 +22,8 @@ export default {
       type: 'Organization',
       color: '#fff'
     },
-    currentHistoryIndex: null,
-    historyLength: null,
+    currentHistoryIndex: 0, 
+    historyLength: 0,
     currentWidgetList: window.localStorage.getItem('page') ? JSON.parse(window.localStorage.getItem('page')).data : [],
     rawWidgetList: rawWidgetList
   },
