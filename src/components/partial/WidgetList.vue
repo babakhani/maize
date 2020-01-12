@@ -21,9 +21,9 @@
                 height: heightList[index] ? `${heightList[index] * sanitizedScale}px`  : `100px`
                 }"
        :class="{
-                'add-widget-modal--widget-item--selected': addWidgetList.indexOf(widget) > -1
+                'add-widget-modal--widget-item--selected': addWidgetList.find((e) => {return e.name === widget.name})
                 }"
-       @click="updateAddList(widget)">
+       @click="updateAddList(widget, $refs.widegtContainer[index])">
         <Frame
           :style="{
                    width: `${widthFrame}px`,
@@ -36,7 +36,6 @@
               style="overflow: hidden;"
               ref="widegtContainer"
               :is="widget.name"
-              :widgetData="widget.data"
               :demoMode="true"
               :uniqeKey="widget.uniqeId"></component>
         </FrameChild>
@@ -51,7 +50,7 @@
               label="Spinning"></b-spinner>
         </div>
         <span class="widget-selected-num"
-              v-if="addWidgetList.indexOf(widget) > -1">{{addWidgetList.indexOf(widget)}}</span>
+              v-if="getWidgetIndex(widget.name) > -1">{{getWidgetIndex(widget.name)}}</span>
       </div>
     </div>
     </draggable>
@@ -67,13 +66,22 @@ export default {
   name: 'WidgetListModal',
   components: { ...Widgets, Frame, FrameChild, draggable },
   methods: {
-    updateAddList (name) {
-      this.$emit('updateAddList', name)
+    getWidgetIndex (name) {
+      let finded = this.addWidgetList.find((i) => {return i.name === name})
+      return this.addWidgetList.indexOf(finded)
+    },
+    updateAddList (item, widgetDefaultData) {
+      this.$emit('updateAddList', {
+        ...item,
+        data: this._.cloneDeep(widgetDefaultData.defaultData)
+      })
       this.$forceUpdate()
     },
     cloneDog (e) {
+      let index = this.widgetList.indexOf(e)
       return {
         name: e.name,
+        data: this._.cloneDeep(this.$refs.widegtContainer[index].defaultData),
         uniqeId: e.name + (lodash.random(1000) + new Date().valueOf())
       }
     }
