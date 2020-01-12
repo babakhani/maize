@@ -20,12 +20,15 @@ class UndoRedoHistory {
   }
 
   addState (state) {
-    if (this.currentIndex + 1 < this.history.length) {
+    if (this.currentIndex > 0) {
       this.history.splice(this.currentIndex + 1);
     }
-    if (JSON.stringify(this.history[this.currentIndex]) !== JSON.stringify(state.main)) {
+    if (this.history.length === 0 || JSON.stringify(this.history[this.currentIndex]) !== JSON.stringify(state.main)) {
       this.history.push(state.main);
       this.currentIndex++;
+      state.main.currentHistoryIndex = this.currentIndex + 1
+      state.main.historyLength = this.history.length
+      this.store.replaceState(lodash.cloneDeep(state));
     }
   }
 
@@ -36,6 +39,8 @@ class UndoRedoHistory {
       oldStates.main = prevMainState
       this.store.replaceState(lodash.cloneDeep(oldStates));
       this.currentIndex--;
+      oldStates.main.currentHistoryIndex = this.currentIndex + 1
+      oldStates.main.historyLength = this.history.length
     }
   }
 
@@ -46,6 +51,8 @@ class UndoRedoHistory {
       oldStates.main = nextMainState
       this.store.replaceState(lodash.cloneDeep(oldStates));
       this.currentIndex++;
+      oldStates.main.currentHistoryIndex = this.currentIndex + 1
+      oldStates.main.historyLength = this.history.length
     }
   }
 }

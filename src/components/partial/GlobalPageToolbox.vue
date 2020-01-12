@@ -76,6 +76,8 @@
               class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
+                 :class="{'disabled': isUndoDisabled}"
+                 :disabled="isUndoDisabled"
                  :title="$t('toolbox.undo')"
                  @click="undo">
                 <icon name="undo"></icon>
@@ -86,6 +88,8 @@
               class="nav-item mr-lg-3">
               <a v-b-tooltip.hover.bottom.small
                  class="nav-link"
+                 :class="{'disabled': isRedoDisabled}"
+                 :disabled="isRedoDisabled"
                  :title="$t('toolbox.redo')"
                  @click="redo">
                 <icon name="redo"></icon>
@@ -201,6 +205,12 @@ export default {
     }
   },
   computed: {
+    isUndoDisabled () {
+      return this.$store.state.main.currentHistoryIndex === 1
+    },
+    isRedoDisabled () {
+      return this.$store.state.main.currentHistoryIndex ===  this.$store.state.main.historyLength
+    },
     pageSideBarIsActive: {
       get () {
         return this.$store.state.layout.pageSideBarIsActive

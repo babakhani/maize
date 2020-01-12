@@ -817,7 +817,7 @@ export default {
       this.update()
     },
     toggleTextDecoration () {
-      if (this.styles['text-decoration'] === 'none') {
+      if (this.styles['text-decoration'] !== 'underline') {
         this.styles['text-decoration'] = 'underline'
       } else {
         this.styles['text-decoration'] = 'none'
@@ -825,7 +825,7 @@ export default {
       this.update()
     },
     toggleThroughDecoration () {
-      if (this.styles['text-decoration'] === 'none') {
+      if (this.styles['text-decoration'] !== 'line-through') {
         this.styles['text-decoration'] = 'line-through'
       } else {
         this.styles['text-decoration'] = 'none'
