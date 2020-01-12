@@ -20,13 +20,13 @@ class UndoRedoHistory {
   }
 
   addState (state) {
-    if (this.currentIndex > 0) {
-      this.history.splice(this.currentIndex + 1);
-    }
     if (this.history.length === 0 || JSON.stringify(this.history[this.currentIndex]) !== JSON.stringify(state.main)) {
+      if (this.currentIndex + 1 !== this.history.length) {
+        this.history.splice(this.currentIndex + 1);
+      }
       this.history.push(state.main);
       this.currentIndex++;
-      state.main.currentHistoryIndex = this.currentIndex + 1
+      state.main.currentHistoryIndex = this.currentIndex
       state.main.historyLength = this.history.length
       this.store.replaceState(lodash.cloneDeep(state));
     }
@@ -37,10 +37,10 @@ class UndoRedoHistory {
     if (prevMainState) {
       let oldStates = lodash.cloneDeep(store.state)
       oldStates.main = prevMainState
-      this.store.replaceState(lodash.cloneDeep(oldStates));
       this.currentIndex--;
-      oldStates.main.currentHistoryIndex = this.currentIndex + 1
+      oldStates.main.currentHistoryIndex = this.currentIndex
       oldStates.main.historyLength = this.history.length
+      this.store.replaceState(lodash.cloneDeep(oldStates));
     }
   }
 
@@ -49,10 +49,10 @@ class UndoRedoHistory {
     if (nextMainState) {
       let oldStates = lodash.cloneDeep(store.state)
       oldStates.main = nextMainState
-      this.store.replaceState(lodash.cloneDeep(oldStates));
       this.currentIndex++;
-      oldStates.main.currentHistoryIndex = this.currentIndex + 1
+      oldStates.main.currentHistoryIndex = this.currentIndex
       oldStates.main.historyLength = this.history.length
+      this.store.replaceState(lodash.cloneDeep(oldStates));
     }
   }
 }
