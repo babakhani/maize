@@ -1,6 +1,6 @@
 <template>
   <iframe
-    @load.once="onLoad"
+    @load="onLoad"
     frameborder="0"></iframe>
 </template>
 

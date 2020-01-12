@@ -50,7 +50,7 @@ export default {
     exportedFrameSrc () {
       let out = null
       if (this.pickFrameSrc) {
-        let test = this.pickFrameSrc.match('/(?<=src=").*?(?=[\"])/gm')
+        let test = this.pickFrameSrc.match('/(?<=src=").*?(?=[\"])/')
         if (test && test.length > 0) {
           out = test[0]
         }

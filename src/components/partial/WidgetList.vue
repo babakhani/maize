@@ -2,11 +2,12 @@
   <div
     class="card-columns">
     <draggable
+    :sort="false"  
     :clone="cloneDog"
-    :options="{
-      removeCloneOnHide: false
-    }"
-    :list="_.cloneDeep(widgetList)"
+    ghost-class="ghost-ghost"
+    drag-class="drag-ghost"
+    chosen-class="chosen-ghost"
+    :list="widgetList"
     :group="{ name: 'pagewidget', pull: 'clone', put: false }">
     <div
       v-if="widgetList && widgetList.length > 0"
@@ -17,8 +18,7 @@
        ref="column"
        class="add-widget-modal--widget-item mb-0"
        :style="{
-                height: heightList[index] ? `${heightList[index] * sanitizedScale}px`  : `${
-                widget.height ?  widget.height : 100 }px`
+                height: heightList[index] ? `${heightList[index] * sanitizedScale}px`  : `100px`
                 }"
        :class="{
                 'add-widget-modal--widget-item--selected': addWidgetList.indexOf(widget) > -1
@@ -28,7 +28,7 @@
           :style="{
                    width: `${widthFrame}px`,
                    transform: `scale(${sanitizedScale})`,
-                   height: heightList[index] ? `${heightList[index]}px`  : `${ widget.height ?  widget.height : 100 }px`
+                   height: heightList[index] ? `${heightList[index]}px`  : `100px`
                    }"
           class="widget-thumb-container">
         <FrameChild>
@@ -104,16 +104,21 @@ export default {
   },
   updated () {
     this.$nextTick(function () {
-      if (this.$refs.widegtContainer) {
-        clearTimeout(this.setHeightTimeout)
-        this.setHeightTimeout = setTimeout(() => {
+      clearTimeout(this.setHeightTimeout)
+      this.setHeightTimeout = setTimeout(() => {
+        if (this.$refs.widegtContainer && this.updateHeightCounter < 3) {
           this.heightList = []
           this.$refs.widegtContainer.forEach((widgetItem, index) => {
-            this.heightList.push(widgetItem.$el.clientHeight)
+            if (this.heightList[index] ) {
+              this.heightList[index] = widgetItem.$el.clientHeight
+            } else {
+              this.heightList.push(widgetItem.$el.clientHeight)
+            }
           })
           this.overlayVisbility = false
-        }, 500)
-      }
+          this.updateHeightCounter++
+        }
+      }, 500)
     })
   },
   beforeDestroy () {
@@ -138,6 +143,7 @@ export default {
   },
   data () {
     return {
+      updateHeightCounter: 0,
       overlayVisbility: true,
       setWidthTimeout: null,
       setHeightTimeout: null,
