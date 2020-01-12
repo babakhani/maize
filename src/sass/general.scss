@@ -11,6 +11,14 @@ body {
   background: rgba(#ccc, 0.3);
 }
 
+.disabled {
+  * {
+    fill :$gray-7 !important;
+  }
+  cursor: default !important;
+  color: $gray-7 !important;
+}
+
 .pointer {
   cursor: pointer !important;
 }

@@ -62,18 +62,18 @@ export default {
   name: 'WidgetListModal',
   components: { ...Widgets, WidgetList },
   methods: {
-    updateAddList (itemName) {
+    updateAddList (item) {
       let widgetList = this.addWidgetList
-      if (widgetList.indexOf(itemName) > -1) {
+      let finded = widgetList.find((n) => {return n.name === item.name})
+      if (finded) {
         this._.remove(widgetList, (n) => {
-          return n === itemName
+          return n.name === item.name
         })
-        this.$forceUpdate()
       } else {
-        widgetList.push(itemName)
+        widgetList.push(item)
       }
       this.addWidgetList = widgetList
-      // TODO: fix this, remove $forceUpdate
+      this.$forceUpdate()
     },
     onShow () {
       clearTimeout(this.timeout)
