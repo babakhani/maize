@@ -24,7 +24,7 @@
               </div>
             </div>
             <div class="row pt-4">
-              <div class="col">
+              <div class="col text-center">
                 <ImageEditable name="image3"
                                cssClass="img-fluid"
                                :partData="touchedData.image3"/>
