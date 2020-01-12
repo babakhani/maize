@@ -12,19 +12,19 @@
               </div>
             </div>
             <div class="row pt-4">
-              <div class="col">
+              <div class="col-6">
                 <ImageEditable name="image1"
                                cssClass="img-fluid"
                                :partData="touchedData.image1"/>
               </div>
-              <div class="col">
+              <div class="col-6">
                 <ImageEditable name="image2"
                                cssClass="img-fluid"
                                :partData="touchedData.image2"/>
               </div>
             </div>
             <div class="row pt-4">
-              <div class="col text-center">
+              <div class="col-12 text-center">
                 <ImageEditable name="image3"
                                cssClass="img-fluid"
                                :partData="touchedData.image3"/>
@@ -67,7 +67,7 @@
             },
             image3: {
               styles: {},
-              src: this.faker.img.big()
+              src: this.faker.img.wide()
             }
           }
         },
