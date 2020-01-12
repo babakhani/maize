@@ -6,7 +6,7 @@
               name="images"></icon>
         <strong> {{ $t('modal.pick_map_position') }}</strong>
       </template>
-      <b-form-group 
+      <b-form-group
         :description="$t('messages.google_map_iframe_extract')">
         <label>{{ $t('settings.src') }}</label>
         <b-form-textarea
@@ -58,7 +58,7 @@ export default {
       return out
     },
     currentWidgetList () {
-        return this.$store.state.main.currentWidgetList
+      return this.$store.state.main.currentWidgetList
     }
   }
 }
