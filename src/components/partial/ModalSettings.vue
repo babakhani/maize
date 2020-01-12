@@ -8,7 +8,7 @@
       <b-button
         @click="onHide"
         variant="outline-link"
-        class="btn btn-link text-muted">
+        class="text-muted">
         {{ $t('modal.cancel') }}
       </b-button>
       <b-button

@@ -149,6 +149,13 @@
 
   .widget-text-editable--toolbox--button,
   .dropdown-toggle {
+    i {
+      color: #bbb;
+    }
+  }
+
+  .widget-text-editable--toolbox--button,
+  .dropdown-toggle {
     color: $white;
     border: 0;
     width: 3em;

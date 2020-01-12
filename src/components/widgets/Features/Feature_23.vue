@@ -5,7 +5,7 @@
         <section class="mz-block">
           <div class="container">
             <div class="row">
-              <div class="col-12 col-md-10 col-lg-8 text-left">
+              <div class="col-12 text-left">
                 <TextEditable tag="h1"
                                name="mainTitle"
                                :partData="touchedData.mainTitle"/>
@@ -22,7 +22,7 @@
             </div>
 
             <div class="row text-center no-gutters pt-5">
-              <div class="col-12 col-md-10 col-lg-8">
+              <div class="col-12">
                 <div class="row">
                   <div class="col-8 col-sm-5 col-md-2 m-auto">
                     <ImageEditable name="feature_image_1"

@@ -7,6 +7,7 @@ export default {
   'delete': 'Delete',
   'load_url': 'Load Url',
   'toolbox': {
+    'image_picker': 'Image Picker',
     'icon_picker': 'Icon Picker',
     'border_radius': 'Border radius',
     'widget_selector': 'Widgets',
