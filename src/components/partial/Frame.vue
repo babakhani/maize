@@ -1,6 +1,10 @@
 <template>
   <iframe
-    @load.once="onLoad"
+    allow="true"
+    importance="high"
+    loading="eager"
+    allowfullscreen="true"
+    @load="onLoad"
     frameborder="0"></iframe>
 </template>
 
