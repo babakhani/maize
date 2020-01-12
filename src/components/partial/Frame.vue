@@ -1,9 +1,5 @@
 <template>
   <iframe
-    allow="true"
-    importance="high"
-    loading="eager"
-    allowfullscreen="true"
     @load="onLoad"
     frameborder="0"></iframe>
 </template>

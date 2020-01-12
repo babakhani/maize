@@ -105,9 +105,8 @@ export default {
   updated () {
     this.$nextTick(function () {
       clearTimeout(this.setHeightTimeout)
-      if (this.$refs.widegtContainer && this.updateHeightCounter < 2) {
-        this.setHeightTimeout = setTimeout(() => {
-          console.log('set height')
+      this.setHeightTimeout = setTimeout(() => {
+        if (this.$refs.widegtContainer && this.updateHeightCounter < 3) {
           this.heightList = []
           this.$refs.widegtContainer.forEach((widgetItem, index) => {
             if (this.heightList[index] ) {
@@ -118,8 +117,8 @@ export default {
           })
           this.overlayVisbility = false
           this.updateHeightCounter++
-        }, 500)
-      }
+        }
+      }, 500)
     })
   },
   beforeDestroy () {
