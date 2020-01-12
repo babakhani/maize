@@ -41,3 +41,10 @@ body {
 .form-control:focus {
   box-shadow: none;
 }
+.modal-header {
+  .close {
+    &:focus {
+      outline: none;
+    }
+  }
+}
