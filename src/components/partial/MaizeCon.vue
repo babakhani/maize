@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :src="'/icons/' + name + '.svg'" alt="">
+    <img :src="'/maize/demo/icons/' + name + '.svg'" alt="">
   </div>
 </template>
 

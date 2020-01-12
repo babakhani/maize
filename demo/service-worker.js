@@ -11,24 +11,24 @@
  * See https://goo.gl/2aRDsh
  */
 
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js')
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  '/maize/demo/precache-manifest.e21d4cb9adf5f2537728c241a17ab204.js'
-)
+  "/maize/demo/precache-manifest.a5007fd29f6a297d7708b9cb49eac69b.js"
+);
 
-workbox.core.setCacheNameDetails({ prefix: 'newmaze' })
+workbox.core.setCacheNameDetails({prefix: "newmaze"});
 
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting()
+    self.skipWaiting();
   }
-})
+});
 
 /**
  * The workboxSW.precacheAndRoute() method efficiently caches and responds to
  * requests for URLs in the manifest.
  * See https://goo.gl/S9QRab
  */
-self.__precacheManifest = [].concat(self.__precacheManifest || [])
-workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
+self.__precacheManifest = [].concat(self.__precacheManifest || []);
+workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
