@@ -1,5 +1,6 @@
 <template>
   <div class="editable-image editable-part"
+       data-aos="fade-left"
        @mouseenter="mouseInElement"
        @mouseleave="mouseLeaveElement"
        @click="showToolbox"
