@@ -9,11 +9,11 @@
         <div
           v-if="visibileImageSelector"
           class="widget-text-editable--toolbox--group">
-          <button :title="$t('toolbox.icon_picker')"
+          <button :title="$t('toolbox.image_picker')"
             v-b-tooltip.hover.top.small
             @click="pickImage"
             class="btn btn-sm widget-text-editable--toolbox--button">
-            <icon name="image"></icon>
+            <i class="fas fa-image" />
           </button>
           <div
             class="widget-text-editable--toolbox--group-title">
@@ -31,7 +31,7 @@
             v-b-tooltip.hover.top.small
             @click="pickIcon"
             class="btn btn-sm widget-text-editable--toolbox--button">
-            <maizcon name="shuffle"></maizcon>
+            <i class="far fa-smile" />
           </button>
           <div
             class="widget-text-editable--toolbox--group-title">
@@ -49,7 +49,7 @@
             v-b-tooltip.hover.top.small
             @click="setPickLinkMode"
             class="btn btn-sm widget-text-editable--toolbox--button">
-            <maizcon name="link"></maizcon>
+            <i class="fas fa-link" />
           </button>
           <div
           class="widget-text-editable--toolbox--group-title">
@@ -75,7 +75,7 @@
             size="sm"
             class="">
             <template v-slot:button-content>
-              <maizcon name="color-fill"></maizcon>
+              <i class="fas fa-fill-drip" />
               <div
                 :style="{'background-color': styles['background-color']}"
                 class="color-indicator"></div>
@@ -99,7 +99,7 @@
             size="sm"
             class="">
               <template v-slot:button-content>
-                <maizcon name="resize"></maizcon>
+                <i class="fas fa-external-link-alt" />
               </template>
               <b-dropdown-item
                 :class="{'widget-text-editable--selected': styles['background-size'] === 'cover'}"
@@ -122,7 +122,7 @@
             size="sm"
             class="">
               <template v-slot:button-content>
-                <maizcon name="tile"></maizcon>
+                <i class="fas fa-object-ungroup" />
               </template>
               <b-dropdown-item
                          :class="{'widget-text-editable--selected': styles['background-repeat'] === 'no-repeat'}"
@@ -154,7 +154,7 @@
             size="sm"
             class="">
               <template v-slot:button-content>
-                <maizcon name="bg-size"></maizcon>
+                <i class="fas fa-th" />
               </template>
               <div class="px-2" style="width: 320px">
                 <b-form-group>
@@ -178,7 +178,7 @@
                    v-b-tooltip.hover.top.small
                    class="btn btn-sm widget-text-editable--toolbox--button"
                    @click="pickBackgroundImage">
-              <icon name="image"></icon>
+            <i class="fas fa-image" />
             </button>
           </template>
         </div>
@@ -203,7 +203,7 @@
             size="sm"
             class="">
               <template v-slot:button-content>
-                <maizcon name="back-color"></maizcon>
+                <i class="fas fa-paint-brush" />
                 <div
                          :style="{'background-color': styles['color']}"
                          class="color-indicator"></div>
@@ -252,7 +252,7 @@
                          size="sm"
                          class="">
               <template v-slot:button-content>
-                <maizcon name="size"></maizcon>
+                <i class="fas fa-text-height" />
               </template>
               <b-dropdown-item :class="{'widget-text-editable--selected': styles['font-size'] === '44px'}"
                          @click="setSize('44px')">{{$t('toolbox.x-large')}}</b-dropdown-item>
@@ -274,7 +274,7 @@
                    @click="toggleBold()"
                    :class="{'widget-text-editable--selected': styles['font-weight'] === 'bold'}"
                    class="btn btn-sm widget-text-editable--toolbox--button">
-              <maizcon name="bold"></maizcon>
+              <i class="fas fa-bold" />
             </button>
             <!-- UnderLine -->
             <button :title="$t('toolbox.underline')"
@@ -282,14 +282,14 @@
                        @click="toggleTextDecoration()"
                        :class="{'widget-text-editable--selected': styles['text-decoration'] === 'underline'}"
                        class="btn btn-sm widget-text-editable--toolbox--button">
-              <maizcon name="underline"></maizcon>
+              <i class="fas fa-underline" />
             </button>
             <button :title="$t('toolbox.line-through')"
                        v-b-tooltip.hover.top.small
                        @click="toggleThroughDecoration()"
                        :class="{'widget-text-editable--selected': styles['text-decoration'] === 'line-through'}"
                        class="btn btn-sm widget-text-editable--toolbox--button">
-              <maizcon name="strikethrough"></maizcon>
+              <i class="fas fa-strikethrough" />
             </button>
 
             <!--Alignment-->
@@ -353,7 +353,7 @@
                          v-b-tooltip.hover.top.small
                          @click="toggleTextIndent()"
                          class="btn btn-sm widget-text-editable--toolbox--button">
-              <maizcon name="indent-increase"></maizcon>
+              <i class="fas fa-indent" />
             </button>
 
             <!--TODO: ask reza about direction-->
@@ -416,7 +416,7 @@
                size="sm"
                class="">
               <template v-slot:button-content>
-                <maizcon name="border"></maizcon>
+                <i class="far fa-square" />
               </template>
               <div class="px-2">
                 <CssInput
@@ -494,7 +494,7 @@
                size="sm"
                class="">
               <template v-slot:button-content>
-                <icon name="circle-notch"></icon>
+                <i class="fas fa-circle-notch" />
               </template>
               <div class="px-2">
                 <CssInput

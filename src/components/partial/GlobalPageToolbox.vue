@@ -173,26 +173,33 @@ export default {
     },
     undo () {
       this.$store.dispatch('undo')
+      this.$root.$emit('bv::hide::tooltip')
     },
     redo () {
       this.$store.dispatch('redo')
+      this.$root.$emit('bv::hide::tooltip')
     },
     setPreviewMode (e) {
       this.checked = !this.checked
       this.$store.dispatch('layout/setPreviewMode', this.checked)
       this.checked
+      this.$root.$emit('bv::hide::tooltip')
     },
     setMobilePreviewMode () {
       this.$store.dispatch('layout/setPreviewModeSize', 'phone')
+      this.$root.$emit('bv::hide::tooltip')
     },
     setTabletPreviewMode () {
       this.$store.dispatch('layout/setPreviewModeSize', 'tablet')
+      this.$root.$emit('bv::hide::tooltip')
     },
     setDesktopPreviewMode () {
       this.$store.dispatch('layout/setPreviewModeSize', 'desktop')
+      this.$root.$emit('bv::hide::tooltip')
     },
     gotToAddWidgetMode () {
       this.$store.dispatch('layout/setAddWidgetMode', true)
+      this.$root.$emit('bv::hide::tooltip')
     },
     exportPage () {
       // this.$store.dispatch('exportPage/exportPage', true)

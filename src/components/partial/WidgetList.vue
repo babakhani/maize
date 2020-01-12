@@ -15,15 +15,15 @@
       v-for="(widget, index) in widgetList"
       class="card mt-1">
       <div
-       ref="column"
-       class="add-widget-modal--widget-item mb-0"
-       :style="{
-                height: heightList[index] ? `${heightList[index] * sanitizedScale}px`  : `100px`
-                }"
-       :class="{
-                'add-widget-modal--widget-item--selected': addWidgetList.find((e) => {return e.name === widget.name})
-                }"
-       @click="updateAddList(widget, $refs.widegtContainer[index])">
+        ref="column"
+        class="add-widget-modal--widget-item mb-0"
+        :style="{
+                 height: heightList[index] ? `${heightList[index] * sanitizedScale}px`  : `100px`
+                 }"
+        :class="{
+                 'add-widget-modal--widget-item--selected': addWidgetList.find((e) => {return e.name === widget.name})
+                 }"
+        @click="updateAddList(widget, $refs.widegtContainer[index])">
         <Frame
           :style="{
                    width: `${widthFrame}px`,
@@ -33,21 +33,21 @@
           class="widget-thumb-container">
         <FrameChild>
         <component
-              style="overflow: hidden;"
-              ref="widegtContainer"
-              :is="widget.name"
-              :demoMode="true"
-              :uniqeKey="widget.uniqeId"></component>
+          style="overflow: hidden;"
+          ref="widegtContainer"
+          :is="widget.name"
+          :demoMode="true"
+          :uniqeKey="widget.uniqeId"></component>
         </FrameChild>
         </Frame>
         <div
           v-if="overlayVisbility"
           class="iframe-loading-overlay" >
-            <b-spinner
-              variant="primary"
-              size="sm"
-              class="m-5 mt-5"
-              label="Spinning"></b-spinner>
+          <b-spinner
+            variant="primary"
+            size="sm"
+            class="m-5 mt-5"
+            label="Spinning"></b-spinner>
         </div>
         <span class="widget-selected-num"
               v-if="getWidgetIndex(widget.name) > -1">{{getWidgetIndex(widget.name)}}</span>
@@ -92,10 +92,10 @@ export default {
       this.setWidthTimeout = setTimeout(() => {
         if (this.$refs.column[0]) {
           this.width = this.$refs.column[0].clientWidth
-          this.scale2 = ((this.width * 100) / 1366) / 100
+          this.scale2 = ((this.width * 100) / this.widthFrame) / 100
         }
       }, 100)
-      return ((this.width * 100) / 1366) / 100
+      return ((this.width * 100) / this.widthFrame) / 100
     },
     sanitizedScale () {
       let out = 1
