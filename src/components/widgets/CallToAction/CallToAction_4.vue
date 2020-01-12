@@ -104,37 +104,37 @@
               styles: {
                 height: '50px'
               },
-              src: this.faker.img.customer_1()
+              src: this.faker.img.rounded()
             },
             customer_logo_2: {
               styles: {
                 height: '50px'
               },
-              src: this.faker.img.customer_2()
+              src: this.faker.img.rounded()
             },
             customer_logo_3: {
               styles: {
                 height: '50px'
               },
-              src: this.faker.img.customer_3()
+              src: this.faker.img.rounded()
             },
             customer_logo_4: {
               styles: {
                 height: '50px'
               },
-              src: this.faker.img.customer_4()
+              src: this.faker.img.rounded()
             },
             customer_logo_5: {
               styles: {
                 height: '50px'
               },
-              src: this.faker.img.customer_5()
+              src: this.faker.img.rounded()
             },
             customer_logo_6: {
               styles: {
                 height: '50px'
               },
-              src: this.faker.img.customer_6()
+              src: this.faker.img.rounded()
             }
           }
         },
