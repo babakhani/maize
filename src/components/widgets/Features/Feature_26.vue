@@ -90,7 +90,7 @@
             },
             main_image: {
               styles: {},
-              src: this.faker.img.icon()
+              src: this.faker.img.big()
             },
             feature_1_title: {
               styles: {},

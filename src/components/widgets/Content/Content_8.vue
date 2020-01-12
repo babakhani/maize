@@ -63,7 +63,7 @@
             },
             image: {
               styles: {},
-              src: this.faker.img.big()
+              src: this.faker.img.wide()
             }
           }
         },

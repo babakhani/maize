@@ -61,7 +61,6 @@
             },
             bg: {
               styles: {
-                'background': '#000'
               }
             },
             footer_copyright: {

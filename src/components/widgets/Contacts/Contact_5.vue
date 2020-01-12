@@ -101,21 +101,6 @@
             <div class="row-50"></div>
           </div>
         </div>
-
-        <div class="container">
-          <div class="row-70"></div>
-          <div class="row text-center">
-            <div class="col">
-              <p class="text-h2">
-                <a href="/"><i class="fa fa-facebook"></i></a>&nbsp;&nbsp;&nbsp;
-                <a href="/"><i class="fa fa-twitter"></i></a>&nbsp;&nbsp;&nbsp;
-                <a href="/"><i class="fa fa-instagram"></i></a>&nbsp;&nbsp;&nbsp;
-                <a href="/"><i class="fa fa-google"></i></a>&nbsp;&nbsp;&nbsp;
-                <a href="/"><i class="fa fa-pinterest"></i></a>
-              </p>
-            </div>
-          </div>
-        </div>
       </section>
     </BgEditable>
   </div>
