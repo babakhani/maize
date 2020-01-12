@@ -66,7 +66,7 @@ export default (settings) => {
         type="text/javascript" 
         crossorigin="anonymous"
         src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-  ${settings.hotjarScript}
-  ${settings.gaScript}
+  ${settings.hotjarScript ? settings.hotjarScript : ''}
+  ${settings.gaScript ? settings.gaScript : ''}
 `
 }
