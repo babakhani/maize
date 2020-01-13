@@ -15,7 +15,7 @@
             </b-button>
             <b-button
             variant="danger"
-            @click="pickAndHide(null)">
+            @click="pickAndHide(' ')">
               {{ $t('delete') }}
             </b-button>
           </b-input-group-append>
