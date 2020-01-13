@@ -30,49 +30,36 @@
       class="mazie-tabs"
       v-model="getDefaultTabIndex"
       card>
-      <b-tab
-        class="py-2 px-1">
-        <template slot="title">
-          <icon class="upload-image-icon"
-                name="images"></icon>
-          <strong> {{ $t('modal.random_image') }}</strong>
-        </template>
-        <div class="row px-2 py-1">
-          <div class="col-6 col-sm-6 col-md-3 col-xl-3 mb-3 image-picker--image-container"
-               :key="imageItem"
-               v-for="imageItem in randomImageList">
-            <div
-              class="image-picker--image-thumb-box"
-              @click="pick(imageItem)"
-              @dblclick="pickAndHide(imageItem)"
-              :class="{'selected' : pickedImageSrc == imageItem }">
-              <img
-                class="image-picker-modal--img p-2 w-100"
-                :src="imageItem">
-            </div>
-          </div>
-        </div>
-      </b-tab>
-      <b-tab
-        class="py-2 px-2 image-uploader-tab">
-        <template slot="title">
-          <icon class="upload-image-icon"
-                name="images"></icon>
-          <strong> {{ $t('modal.upload') }}</strong>
-        </template>
-        <UploadImage @chooseImage="chooseImage"></UploadImage>
-      </b-tab>
+      <template v-for="picker in imagePickers" >
+        <b-tab
+          :key="picker.name"
+          class="py-2 px-1">
+          <template slot="title">
+            <icon
+              v-if="picker.icon"
+              class="upload-image-icon"
+              :name="picker.icon"></icon>
+            <strong> {{ $t(picker.name) }}</strong>
+          </template>
+          <componenet
+            :is="picker"
+            v-model="pickedImageSrc"
+            @done="done"
+            @select="select" />
+        </b-tab>
+      </template>
     </b-tabs>
   </div>
 </template>
 <script>
-import UploadImage from './UploaderImage.vue'
+import ImagePickers from '@/extensions/imagepicker/index.js'
 
 export default {
   name: 'ImagePickerModal',
-  components: { UploadImage },
+  components: { ImagePickers },
   data () {
     return {
+      imagePickers: ImagePickers,
       pickedImageSrc: null
     }
   },
@@ -86,8 +73,11 @@ export default {
     }
   },
   methods: {
-    chooseImage (e) {
-      this.pickAndHide(e)
+    select (e) {
+      this.pick(e)
+    },
+    done () {
+      this.$emit('hide')
     },
     pickAndHide (pickedImageSrc) {
       this.pickedImageSrc = pickedImageSrc
@@ -109,7 +99,19 @@ export default {
       }
     },
     randomImageList () {
-      return this.$store.state.unsplash.imageList
+      return [
+        'https://picsum.photos/id/1/700/300',
+        'https://picsum.photos/id/2/700/300',
+        'https://picsum.photos/id/3/700/300',
+        'https://picsum.photos/id/4/700/300',
+        'https://picsum.photos/id/5/700/300',
+        'https://picsum.photos/id/6/700/300',
+        'https://picsum.photos/id/7/700/300',
+        'https://picsum.photos/id/8/700/300',
+        'https://picsum.photos/id/9/700/300',
+        'https://picsum.photos/id/10/700/300',
+        'https://picsum.photos/id/11/700/300'
+      ]
     }
   }
 }
