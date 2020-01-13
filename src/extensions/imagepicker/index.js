@@ -1,7 +1,7 @@
 import picsum from './picsum'
-import imguruploader from './imguruploader'
+import clientsideuploader from './clientsideuploader'
 
 export default {
-  picsum: picsum,
-  imguruploader: imguruploader
+  clientsideuploader: clientsideuploader,
+  picsum: picsum
 }

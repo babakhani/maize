@@ -202,7 +202,7 @@ export default {
       this.$root.$emit('bv::hide::tooltip')
     },
     exportPage () {
-      // this.$store.dispatch('exportPage/exportPage', true)
+      //this.$store.dispatch('exportPage/exportPage', true)
       EventBus.$emit('downloadHtml')
     },
     goToSettingsMode () {

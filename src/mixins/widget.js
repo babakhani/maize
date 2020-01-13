@@ -18,7 +18,7 @@ const Mixin = {
     }
   },
   beforeCreate () {
-    let base = 'https://raw.githubusercontent.com/babakhani/maize/master/public'
+    let base = ''
     if (Store) {
       this.siteSettings = Store.getters['main/settings']
     }
