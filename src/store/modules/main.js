@@ -6,9 +6,9 @@ export default {
   state: {
     settings: window.localStorage.getItem('settings') ? JSON.parse(window.localStorage.getItem('settings')) : {
       title: 'Maize',
-      description: 'Example description',
+      description: '',
       language: 'en',
-      baseURL: 'https://raw.githubusercontent.com/babakhani/maize/master/public/',
+      baseURL: '',
       canonical: '/',
       nextURL: '',
       image: '',
