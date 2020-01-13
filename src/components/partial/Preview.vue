@@ -53,11 +53,13 @@ export default {
           let fileExtension = item.src.split(';')[0].split('/')[1]
           let sanitizedbase64 = item.src.split('base64,')[1]
           let imageName = (new Date()).valueOf() + Math.random().toString().split('.')[1] + '.' + fileExtension
-          this.imagesFiles.push({
-             base64: sanitizedbase64,
-             name: imageName
-          }) 
-          item.src = `images/${imageName}`
+          if (fileExtension && sanitizedbase64) {
+            this.imagesFiles.push({
+              base64: sanitizedbase64,
+              name: imageName
+            }) 
+            item.src = `images/${imageName}`
+          }
         })
         let html = `<!DOCTYPE html><html lang="${this.$store.getters['main/settings'].language}" prefix="og: http://ogp.me/ns#">${cloneFrameContent.documentElement.innerHTML}</html>`
         this.download('index.html', html)
