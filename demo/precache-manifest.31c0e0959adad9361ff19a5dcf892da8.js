@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "78bc971c36b0ecb924f4",
+    "revision": "eac990f836b78c83e9e9",
     "url": "/maize/demo/css/app.c9a407aa.css"
   },
   {
@@ -364,12 +364,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/maize/demo/imgs/wider.png"
   },
   {
-    "revision": "5f3d58130acf13232d26f00449522d68",
+    "revision": "ffda74ebc8a793f382fb4af40c6a8fbd",
     "url": "/maize/demo/index.html"
   },
   {
-    "revision": "78bc971c36b0ecb924f4",
-    "url": "/maize/demo/js/app.f717da4c.js"
+    "revision": "eac990f836b78c83e9e9",
+    "url": "/maize/demo/js/app.7a2e8076.js"
   },
   {
     "revision": "caac06cfc2f591762014",
