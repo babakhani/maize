@@ -1,17 +1,15 @@
 import IconEditable from '@/components/editable-parts/Icon.vue'
 import TextEditable from '@/components/editable-parts/Text.vue'
 import ImageEditable from '@/components/editable-parts/Image.vue'
-import VideoEditable from '@/components/editable-parts/Video.vue'
 import BgEditable from '@/components/editable-parts/Bg.vue'
 import ButtonEditable from '@/components/editable-parts/Button.vue'
 import MapEditable from '@/components/editable-parts/Map.vue'
-import PlayerEditable from '@/components/editable-parts/Player.vue'
 import WidgetToolbox from '@/components/partial/WidgetToolbox'
 import faker from 'faker'
 import Store from '@/store'
 
 const Mixin = {
-  components: {MapEditable, ButtonEditable ,IconEditable, TextEditable, ImageEditable, BgEditable, WidgetToolbox, VideoEditable, PlayerEditable},
+  components: { MapEditable, ButtonEditable, IconEditable, TextEditable, ImageEditable, BgEditable, WidgetToolbox },
   name: 'EventBody',
   data () {
     return {
@@ -83,7 +81,7 @@ const Mixin = {
   },
   computed: {
     notFullWidth () {
-       return this.touchedData.config && !this.touchedData.config.fullWidth
+      return this.touchedData.config && !this.touchedData.config.fullWidth
     }
   },
   watch: {
@@ -125,7 +123,7 @@ const Mixin = {
         key: this.uniqeKey
       })
     },
-    updateData (e = {name: null, data: null}) {
+    updateData (e = { name: null, data: null }) {
       this.$store.dispatch('main/updateItemOfCurrentWidgetList', {
         key: this.uniqeKey, // id of this widget in cuurentWidgetList
         name: e.name, // name of editble part that his data must be update

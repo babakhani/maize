@@ -648,30 +648,10 @@ export default {
     styles: {
       default () {
         return {
-          'color': 'inherit',
           'direction': 'auto',
-          // 'font-size': null,
-          // 'font-weight': 'inherit',
-          // 'font-family': null,
-          // 'text-align': 'inherit',
-          // 'text-decoration': 'inherit',
-          // 'white-space': 'inherit',
-          // 'text-indent': '0',
-          'background-color': 'transparent',
-          // 'line-height': 'normal',
-          // 'border-width': 'inherit',
-          'border-color': 'transparent'
-          // 'border-style': 'solid',
-          // 'border-radius': '0',
-          // 'opacity': '1',
-          // 'overflow': 'visible',
-          // 'letter-spacing': 'normal',
-          // 'width': 'auto',
-          // 'height': 'auto',
-          // 'background-position': 'center center',
-          // 'background-size': 'cover',
-          // 'background-repeat': 'no-repeat',
-          // 'background-image': ``,
+          'color': 'default',
+          'background-color': 'default',
+          'border-color': 'default'
         }
       }
     }
