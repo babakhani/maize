@@ -1,23 +1,23 @@
 <template>
   <div class="preview">
     <Frame
-       ref="frame"
-       :style="{
-         width: `${previewSize}`,
-       }"
-       :class="previewMode"
-       class="preview-frame">
+      ref="frame"
+      :style="{
+              width: `${previewSize}`,
+              }"
+      :class="previewMode"
+      class="preview-frame">
     <FrameChild>
     <component
-          :id="widget.uniqeId"
-          v-for="widget in currentWidgetList"
-          :class="{'container': (widget.data && widget.data.config) ? !widget.data.config.fullWidth : false }"
-          :key="widget.uniqeId"
-          ref="widegtContainer"
-          :is="widget.name"
-          :widgetData="widget.data"
-          :demoMode="true"
-          :uniqeKey="widget.uniqeId"></component>
+      :id="widget.uniqeId"
+      v-for="widget in currentWidgetList"
+      :class="{'container': (widget.data && widget.data.config) ? !widget.data.config.fullWidth : false }"
+      :key="widget.uniqeId"
+      ref="widegtContainer"
+      :is="widget.name"
+      :widgetData="widget.data"
+      :demoMode="true"
+      :uniqeKey="widget.uniqeId"></component>
     </FrameChild>
     </Frame>
   </div>
@@ -28,31 +28,58 @@ import Widgets from '../widgets'
 import Frame from './Frame.vue'
 import FrameChild from './FrameChild.vue'
 import { EventBus } from '@/events/event-bus.js'
+import JSZip from 'jszip'
+import saveAs from 'jszip/vendor/FileSaver.js'
 export default {
   name: 'Preview',
   components: { ...Widgets, Frame, FrameChild },
   mounted () {
     let that = this
     EventBus.$on('downloadHtml', event => {
-      that.down()
+      that.makeExportableDownload()
     })
   },
+  data () {
+    return {
+      imagesFiles: [] 
+    }
+  },
   methods: {
-    down () {
+    makeExportableDownload () {
       if (this.$refs && this.$refs.frame) {
         let frameContent = this.$refs.frame.$el.contentDocument || this.$refs.frame.contentWindow.document
-        let html = `<!DOCTYPE html><html lang="${this.$store.getters['main/settings'].language}" prefix="og: http://ogp.me/ns#">${frameContent.documentElement.innerHTML}</html>`
+        let cloneFrameContent = frameContent.cloneNode(true)
+        this._.each(cloneFrameContent.getElementsByTagName('img'), (item) => {
+          let fileExtension = item.src.split(';')[0].split('/')[1]
+          let sanitizedbase64 = item.src.split('base64,')[1]
+          let imageName = (new Date()).valueOf() + Math.random().toString().split('.')[1] + '.' + fileExtension
+          this.imagesFiles.push({
+             base64: sanitizedbase64,
+             name: imageName
+          }) 
+          item.src = `images/${imageName}`
+        })
+        let html = `<!DOCTYPE html><html lang="${this.$store.getters['main/settings'].language}" prefix="og: http://ogp.me/ns#">${cloneFrameContent.documentElement.innerHTML}</html>`
         this.download('index.html', html)
       }
     },
-    download (filename, text) {
-      var element = document.createElement('a')
-      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
-      element.setAttribute('download', filename)
-      element.style.display = 'none'
-      document.body.appendChild(element)
-      element.click()
-      document.body.removeChild(element)
+    download (filename, html) {
+      var zip = new JSZip()
+      zip.file("index.html", html)
+      var img = zip.folder("images");
+      this._.each(this.imagesFiles,  (item) => {
+        img.file(item.name, item.base64, {base64: true});
+      })
+      zip.generateAsync({type:"blob"}).then(function(content) {
+        saveAs(content, "maize.zip");
+      });
+      //var element = document.createElement('a')
+      //element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
+      //element.setAttribute('download', filename)
+      //element.style.display = 'none'
+      //document.body.appendChild(element)
+      //element.click()
+      //document.body.removeChild(element)
     }
   },
   computed: {
