@@ -96,6 +96,7 @@ export default {
   },
   'settings': {
     'favicon': 'Favicon',
+    'image-al-placeholder': 'Image Alt',
     'favicon-placeholder': 'Favicon',
     'contact-address': 'Address',
     'contact-phone': 'Phone',

@@ -31,9 +31,7 @@
     .widget-block--toolbox {
       display: none;
     }
-
   }
-
 
   .widget-block--toolbox {
     display: block;
@@ -50,7 +48,6 @@
     background: rgba($white, .7);
     
     .widget-block--toolbox-btn {
-      float: right;
       display: none;
       &.btn-active {
         background: #ccc;

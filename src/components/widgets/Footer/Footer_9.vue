@@ -2,45 +2,57 @@
   <div>
     <WidgetToolbox/>
     <BgEditable>
-    <footer class="fdb-block footer-small bg-dark">
-      <div class="container">
-        <div class="row text-center align-items-center">
-          <div class="col">
-            <ul class="nav justify-content-center">
+    <footer class="mz-block">
+      <div class="row text-center align-items-center">
+        <div class="col">
+          <ul class="nav justify-content-center">
+            <li class="nav-item">
+              <TextEditable tag="a"
+                            cssClass="nav-link"
+                            name="footer_link_1"
+                            :partData="touchedData.footer_link_1"/>
+            </li>
+            <li class="nav-item">
+              <TextEditable tag="a"
+                            cssClass="nav-link"
+                            name="footer_link_2"
+                            :partData="touchedData.footer_link_2"/>
+            </li>
+            <li class="nav-item">
+              <TextEditable tag="a"
+                            cssClass="nav-link"
+                            name="footer_link_3"
+                            :partData="touchedData.footer_link_3"/>
+            </li>
+            <li class="nav-item">
+              <TextEditable tag="a"
+                            cssClass="nav-link"
+                            name="footer_link_4"
+                            :partData="touchedData.footer_link_4"/>
+            </li>
+            <li class="nav-item">
+              <TextEditable tag="a"
+                            cssClass="nav-link"
+                            name="footer_link_5"
+                            :partData="touchedData.footer_link_5"/>
+            </li>
+          </ul>
+          <nav class="navbar navbar-expand no-gutters px-3 justify-content-center">
+            <ul class="navbar-nav">
               <li class="nav-item">
-                <TextEditable tag="a"
-                              cssClass="nav-link"
-                              name="footer_link_1"
-                              :partData="touchedData.footer_link_1"/>
+                <IconEditable
+                  cssClass="nav-link p-1"
+                  name="footer_copyright_icon"
+                  :partData="touchedData.footer_copyright_icon"/>
               </li>
               <li class="nav-item">
-                <TextEditable tag="a"
-                              cssClass="nav-link"
-                              name="footer_link_2"
-                              :partData="touchedData.footer_link_2"/>
-              </li>
-              <li class="nav-item">
-                <TextEditable tag="a"
-                              cssClass="nav-link"
-                              name="footer_link_3"
-                              :partData="touchedData.footer_link_3"/>
-              </li>
-              <li class="nav-item">
-                <TextEditable tag="a"
-                              cssClass="nav-link"
-                              name="footer_link_4"
-                              :partData="touchedData.footer_link_4"/>
-              </li>
-              <li class="nav-item">
-                <TextEditable tag="a"
-                              cssClass="nav-link"
-                              name="footer_link_5"
-                              :partData="touchedData.footer_link_5"/>
+                <TextEditable
+                  tag="a"
+                  name="footer_copyright_text"
+                  :partData="touchedData.footer_copyright_text"/>
               </li>
             </ul>
-
-            <p class="h5 mt-5">© 2013-2018 Maize</p>
-          </div>
+          </nav>
         </div>
       </div>
     </footer>
@@ -62,48 +74,44 @@ export default {
             fullWidth: true
           },
           bg: {
-            styles: {}
-          },
-          // TODO: fix padding style
-          footer_link_1: {
             styles: {
-              padding: '1em',
-              'line-height': '2em'
-            },
+              'background-color': '#1c1c1c'
+            }
+          },
+          footer_link_1: {
+            styles: {},
             text: this.faker.lorem.words(1),
             src: this.faker.internet.url
           },
           footer_link_2: {
-            styles: {
-              padding: '1em',
-              'line-height': '2em'
-            },
+            styles: {},
             text: this.faker.lorem.words(1),
             src: this.faker.internet.url
           },
           footer_link_3: {
-            styles: {
-              padding: '1em',
-              'line-height': '2em'
-            },
+            styles: {},
             text: this.faker.lorem.words(1),
             src: this.faker.internet.url
           },
           footer_link_4: {
-            styles: {
-              padding: '1em',
-              'line-height': '2em'
-            },
+            styles: {},
             text: this.faker.lorem.words(1),
             src: this.faker.internet.url
           },
           footer_link_5: {
-            styles: {
-              padding: '1em',
-              'line-height': '2em'
-            },
+            styles: {},
             text: this.faker.lorem.words(1),
             src: this.faker.internet.url
+          },
+          footer_copyright_text: {
+            styles: {},
+            text: this.faker.footer.copyright(),
+          },
+          footer_copyright_icon: {
+            styles: {},
+            iconName: 'far fa-copyright',
+            text: '<i class="far fa-copyright"></i>',
+            href: this.faker.internet.url()
           }
         }
       },

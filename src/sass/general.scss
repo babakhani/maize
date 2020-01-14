@@ -7,7 +7,6 @@ body {
   font-family: 'IRANYekan', 'IranSansFaNum', 'IranSans', tahoma, Arial, sans-serif;
   font-size: 12px;
   overflow-x: hidden;
-  direction: ltr;
   background: rgba(#ccc, 0.3);
 }
 
@@ -28,14 +27,6 @@ body {
   &:hover {
     outline: 0 !important;
   }
-}
-
-.rtl {
-  direction: rtl;
-}
-
-.ltr {
-  direction: ltr;
 }
 
 .form-control:focus {

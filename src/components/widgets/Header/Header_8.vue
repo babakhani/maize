@@ -2,75 +2,56 @@
   <div>
     <WidgetToolbox/>
     <BgEditable>
-    <header class="bg-dark">
-      <div class="container">
-        <nav class="navbar navbar-expand-md no-gutters">
-          <div class="col-4 col-sm-2 text-center ">
-            <ImageEditable name="logo"
-                           :partData="touchedData.logo"/>
-          </div>
+    <header>
+      <nav class="navbar navbar-expand-md">
+        <ImageEditable name="logo"
+                       :partData="touchedData.logo"/>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav3" aria-controls="navbarNav3" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-          <div class="collapse navbar-collapse justify-content-center col-md-8" id="navbarNav4">
-            <ul class="navbar-nav justify-content-center">
-              <li class="nav-item active">
-                <TextEditable tag="a"
-                              cssClass="nav-link"
-                              name="header_link_1"
-                              :partData="touchedData.header_link_1"/>
-              </li>
-              <li class="nav-item">
-                <TextEditable tag="a"
-                              cssClass="nav-link"
-                              name="header_link_2"
-                              :partData="touchedData.header_link_2"/>
-              </li>
-              <li class="nav-item">
-                <TextEditable tag="a"
-                              cssClass="nav-link"
-                              name="header_link_3"
-                              :partData="touchedData.header_link_3"/>
-              </li>
-              <li class="nav-item">
-                <TextEditable tag="a"
-                              cssClass="nav-link"
-                              name="header_link_4"
-                              :partData="touchedData.header_link_4"/>
-              </li>
-            </ul>
-          </div>
-
-          <ul class="navbar-nav col-2 justify-content-end d-none d-md-flex">
-            <li class="nav-item ml-3">
-              <IconEditable
+        <div class="collapse navbar-collapse" id="navbarNav3">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <TextEditable tag="a"
+                            cssClass="nav-link"
+                            name="header_link_1"
+                            :partData="touchedData.header_link_1"/>
+            </li>
+            <li class="nav-item">
+              <TextEditable tag="a"
+                            cssClass="nav-link"
+                            name="header_link_2"
+                            :partData="touchedData.header_link_2"/>
+            </li>
+            <li class="nav-item">
+              <TextEditable tag="a"
+                            cssClass="nav-link"
+                            name="header_link_3"
+                            :partData="touchedData.header_link_3"/>
+            </li>
+            <li class="nav-item">
+              <TextEditable tag="a"
+                            cssClass="nav-link"
+                            name="header_link_4"
+                            :partData="touchedData.header_link_4"/>
+            </li>
+            <li class="nav-item">
+              <TextEditable
+                tag="a"
                 cssClass="nav-link"
-                name="header_social_link_1"
-                :partData="touchedData.header_social_link_1"/>
-            </li>
-            <li class="nav-item ml-3">
-              <IconEditable
-                            cssClass="nav-link"
-                            name="header_social_link_2"
-                            :partData="touchedData.header_social_link_2"/>
-            </li>
-            <li class="nav-item ml-3">
-              <IconEditable
-                            cssClass="nav-link"
-                            name="header_social_link_3"
-                            :partData="touchedData.header_social_link_3"/>
-            </li>
-            <li class="nav-item ml-3">
-              <IconEditable
-                            cssClass="nav-link"
-                            name="header_social_link_4"
-                            :partData="touchedData.header_social_link_4"/>
+                name="header_link_5"
+                :partData="touchedData.header_link_5"/>
             </li>
           </ul>
-        </nav>
-      </div>
+          <TextEditable
+                tag="a"
+                cssClass="btn btn-primary ml-md-3"
+                name="header_button"
+                :partData="touchedData.header_button"/>
+        </div>
+      </nav>
     </header>
     </BgEditable>
   </div>
@@ -98,62 +79,38 @@ export default {
             },
             src: this.faker.img.logo()
           },
-          // TODO: fix padding style
           header_link_1: {
-            styles: {
-              padding: '1em',
-              'line-height': '2em'
-            },
+            styles: {},
             text: this.faker.lorem.words(1),
             src: this.faker.internet.url
           },
           header_link_2: {
-            styles: {
-              padding: '1em',
-              'line-height': '2em'
-            },
+            styles: {},
             text: this.faker.lorem.words(1),
             src: this.faker.internet.url
           },
           header_link_3: {
-            styles: {
-              padding: '1em',
-              'line-height': '2em'
-            },
+            styles: {},
             text: this.faker.lorem.words(1),
             src: this.faker.internet.url
           },
           header_link_4: {
-            styles: {
-              padding: '1em',
-              'line-height': '2em'
-            },
+            styles: {},
             text: this.faker.lorem.words(1),
             src: this.faker.internet.url
           },
-          header_social_link_1: {
+          header_link_5: {
             styles: {},
-            iconName: 'fab fa-github',
-            text: '<i class="fab fa-slack"></i>',
-            href: this.faker.internet.url()
+            text: this.faker.lorem.words(1),
+            src: this.faker.internet.url
           },
-          header_social_link_2: {
-            styles: {},
-            iconName: 'fab fa-instagram',
-            text: '<i class="fab fa-instagram"></i>',
-            href: this.faker.internet.url()
-          },
-          header_social_link_3: {
-            styles: {},
-            iconName: 'fab fa-twitter',
-            text: '<i class="fab fa-twitter"></i>',
-            href: this.faker.internet.url()
-          },
-          header_social_link_4: {
-            styles: {},
-            iconName: 'fab fa-google',
-            text: '<i class="fab fa-google"></i>',
-            href: this.faker.internet.url()
+          header_button: {
+            styles: {
+              'min-width': '6em',
+              'color': 'white'
+            }, 
+            text: this.faker.lorem.words(1),
+            src: this.faker.internet.url
           }
         }
       },

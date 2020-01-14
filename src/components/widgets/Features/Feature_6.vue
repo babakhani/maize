@@ -15,9 +15,9 @@
                                name="mainTitle"
                                :partData="touchedData.mainTitle"/>
 
-                <div class="row pt-4 pt-xl-5">
+                <div class="row pt-4">
                   <div class="col-12 col-sm-6 col-xl-5">
-                    <TextEditable tag="h4"
+                    <TextEditable tag="strong"
                                    name="feature_1_title"
                                    :partData="touchedData.feature_1_title"/>
                     <TextEditable tag="p"
@@ -25,8 +25,8 @@
                                    :partData="touchedData.feature_1_description"/>
 
                   </div>
-                  <div class="col-12 col-sm-6 col-xl-5 m-auto pt-3 pt-sm-0">
-                    <TextEditable tag="h4"
+                  <div class="col-12 col-sm-6 col-xl-5 ml-auto">
+                    <TextEditable tag="strong"
                                    name="feature_2_title"
                                    :partData="touchedData.feature_2_title"/>
                     <TextEditable tag="p"
@@ -37,15 +37,15 @@
 
                 <div class="row pt-3">
                   <div class="col-12 col-sm-6 col-xl-5">
-                    <TextEditable tag="h4"
+                    <TextEditable tag="strong"
                                    name="feature_3_title"
                                    :partData="touchedData.feature_3_title"/>
                     <TextEditable tag="p"
                                    name="feature_3_description"
                                    :partData="touchedData.feature_3_description"/>
                   </div>
-                  <div class="col-12 col-sm-6 col-xl-5 m-auto pt-3 pt-sm-0">
-                    <TextEditable tag="h4"
+                  <div class="col-12 col-sm-6 col-xl-5 ml-auto">
+                    <TextEditable tag="strong"
                                    name="feature_4_title"
                                    :partData="touchedData.feature_4_title"/>
                     <TextEditable tag="p"

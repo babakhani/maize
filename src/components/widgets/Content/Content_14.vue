@@ -21,7 +21,7 @@
                 <p>
                   <TextEditable tag="a"
                                  name="link"
-                                 cssClass="btn btn-round mt-4"
+                                 cssClass="btn btn-link mt-4"
                                  :partData="touchedData.link"/>
                 </p>
               </div>

@@ -42,6 +42,7 @@ export default {
   },
   methods: {
     upload (file, name) {
+      this.$emit('input', file)
       this.$emit('select', file)
     },
     imageUpload (e) {

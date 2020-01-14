@@ -25,7 +25,7 @@
           class="w-100 my-3" >
           <b-form-input
             @input="pick"
-            :placeholder="$t('image_alt')"
+            :placeholder="$t('settings.image-al-placeholder')"
             v-model="alt"></b-form-input>
         </b-input-group>
       </div>
@@ -72,7 +72,6 @@ export default {
     }
   },
   mounted () {
-    console.log(this.value)
     this.pickedImageSrc = this.value.src
     this.alt = this.value.alt
   },
@@ -95,7 +94,7 @@ export default {
       this.$emit('input',this.value)
       this.$emit('hide')
     },
-    pick () {
+    pick (e) {
       this.value.src = this.pickedImageSrc
       this.value.alt = this.alt 
       this.$emit('input',this.value)

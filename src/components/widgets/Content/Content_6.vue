@@ -1,26 +1,27 @@
 <template>
   <div>
-      <WidgetToolbox/>
-      <BgEditable>
-        <section class="mz-block">
-          <div class="container">
-            <div class="row">
-              <div class="col text-left">
-                <TextEditable tag="h2"
-                               name="mainTitle"
-                               :partData="touchedData.mainTitle"/>
-                <TextEditable tag="p"
-                               name="description1"
-                               :partData="touchedData.description1"/>
+    <WidgetToolbox/>
+    <BgEditable>
+    <section class="mz-block">
+      <div class="row mx-sm-5">
+        <div class="col text-left">
+          <TextEditable
+             tag="h2"
+             name="mainTitle"
+             :partData="touchedData.mainTitle"/>
+          <TextEditable
+             tag="p"
+             name="description1"
+             :partData="touchedData.description1"/>
 
-                <TextEditable tag="p"
-                               name="description2"
-                               :partData="touchedData.description2"/>
-              </div>
-            </div>
-          </div>
-        </section>
-      </BgEditable>
+          <TextEditable
+             tag="p"
+             name="description2"
+             :partData="touchedData.description2"/>
+        </div>
+      </div>
+    </section>
+    </BgEditable>
   </div>
 </template>
 
@@ -28,7 +29,7 @@
   import widgetMixin from '@/mixins/widget'
 
   export default {
-    name: 'Content_5',
+    name: 'Content_6',
     mixins: [widgetMixin],
     props: {
       defaultData: {
