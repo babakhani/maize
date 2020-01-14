@@ -71,7 +71,7 @@ const Mixin = {
       },
       footer: {
         copyright () {
-          return '© 2018 Maize. All Rights Reserved'
+          return '2018 Maize. All Rights Reserved'
         }
       }
     })
