@@ -15,7 +15,7 @@
             :groups="['border', 'general']"
             :currentStyles="touchedData.styles"
             :editableData="touchedData"
-            v-if="toolboxVisible"
+            v-if="editMode && toolboxVisible"
             @hide="hideToolbox"></EditablePartToolbox>
 
     <a v-if="touchedData.href"

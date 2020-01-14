@@ -25,7 +25,7 @@
           class="w-100 my-3" >
           <b-form-input
             @input="pick"
-            :placeholder="$t('image_alt')"
+            :placeholder="$t('settings.image-al-placeholder')"
             v-model="alt"></b-form-input>
         </b-input-group>
       </div>
