@@ -65,7 +65,7 @@
                    </li>
                  </ul>
                  <TextEditable tag="a"
-                               cssClass="btn btn-info ml-md-3"
+                               cssClass="btn btn-primary ml-md-3"
                                name="header_button"
                                :partData="touchedData.header_button"/>
                </div>

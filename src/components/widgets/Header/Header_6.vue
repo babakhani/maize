@@ -44,22 +44,22 @@
 
           <ul class="navbar-nav justify-content-end col-sm-5 order-lg-12 d-none d-md-flex">
             <li class="nav-item">
-              <IconEditable
-                cssClass="nav-link"
-                name="header_social_link_1"
-                :partData="touchedData.header_social_link_1"/>
+            <IconEditable
+              cssClass="nav-link"
+              name="header_social_link_1"
+              :partData="touchedData.header_social_link_1"/>
             </li>
             <li class="nav-item">
-              <IconEditable
-                cssClass="nav-link"
-                name="header_social_link_2"
-                :partData="touchedData.header_social_link_2"/>
+            <IconEditable
+              cssClass="nav-link"
+              name="header_social_link_2"
+              :partData="touchedData.header_social_link_2"/>
             </li>
             <li class="nav-item">
-              <IconEditable
-                cssClass="nav-link"
-                name="header_social_link_3"
-                :partData="touchedData.header_social_link_3"/>
+            <IconEditable
+              cssClass="nav-link"
+              name="header_social_link_3"
+              :partData="touchedData.header_social_link_3"/>
             </li>
           </ul>
         </nav>
@@ -68,72 +68,70 @@
   </div>
 </template>
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'Header_6',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
+export default {
+  name: 'Header_6',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          logo: {
+            styles: {
+              height: '30px'
             },
-            bg: {
-              styles: {
-                'background-color': '#1c1c1c'
-              }
-            },
-            logo: {
-              styles: {
-                height: '30px'
-              },
-              src: this.faker.img.logo()
-            },
-            header_link_1: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-              src: this.faker.internet.url
-            },
-            header_link_2: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-              src: this.faker.internet.url
-            },
-            header_link_3: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-              src: this.faker.internet.url
-            },
-            header_link_4: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-              src: this.faker.internet.url
-            },
-            header_social_link_1: {
-              styles: {},
-              iconName: 'fab fa-github',
-              text: '<i class="fab fa-slack"></i>',
-              href: this.faker.internet.url()
-            },
-            header_social_link_2: {
-              styles: {},
-              iconName: 'fab fa-instagram',
-              text: '<i class="fab fa-instagram"></i>',
-              href: this.faker.internet.url()
-            },
-            header_social_link_3: {
-              styles: {},
-              iconName: 'fab fa-twitter',
-              text: '<i class="fab fa-twitter"></i>',
-              href: this.faker.internet.url()
-            }
+            src: this.faker.img.logo()
+          },
+          header_link_1: {
+            styles: {},
+            text: this.faker.lorem.words(1),
+            src: this.faker.internet.url
+          },
+          header_link_2: {
+            styles: {},
+            text: this.faker.lorem.words(1),
+            src: this.faker.internet.url
+          },
+          header_link_3: {
+            styles: {},
+            text: this.faker.lorem.words(1),
+            src: this.faker.internet.url
+          },
+          header_link_4: {
+            styles: {},
+            text: this.faker.lorem.words(1),
+            src: this.faker.internet.url
+          },
+          header_social_link_1: {
+            styles: {},
+            iconName: 'fab fa-github',
+            text: '<i class="fab fa-slack"></i>',
+            href: this.faker.internet.url()
+          },
+          header_social_link_2: {
+            styles: {},
+            iconName: 'fab fa-instagram',
+            text: '<i class="fab fa-instagram"></i>',
+            href: this.faker.internet.url()
+          },
+          header_social_link_3: {
+            styles: {},
+            iconName: 'fab fa-twitter',
+            text: '<i class="fab fa-twitter"></i>',
+            href: this.faker.internet.url()
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>
