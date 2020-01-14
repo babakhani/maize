@@ -44,22 +44,22 @@
 
           <ul class="navbar-nav justify-content-end col-sm-5 order-lg-12 d-none d-md-flex">
             <li class="nav-item">
-              <TextEditable tag="a"
-                            cssClass="nav-link"
-                            name="header_social_link_1"
-                            :partData="touchedData.header_social_link_1"/>
+              <IconEditable
+                cssClass="nav-link"
+                name="header_social_link_1"
+                :partData="touchedData.header_social_link_1"/>
             </li>
             <li class="nav-item">
-              <TextEditable tag="a"
-                            cssClass="nav-link"
-                            name="header_social_link_2"
-                            :partData="touchedData.header_social_link_2"/>
+              <IconEditable
+                cssClass="nav-link"
+                name="header_social_link_2"
+                :partData="touchedData.header_social_link_2"/>
             </li>
             <li class="nav-item">
-              <TextEditable tag="a"
-                            cssClass="nav-link"
-                            name="header_social_link_3"
-                            :partData="touchedData.header_social_link_3"/>
+              <IconEditable
+                cssClass="nav-link"
+                name="header_social_link_3"
+                :partData="touchedData.header_social_link_3"/>
             </li>
           </ul>
         </nav>
@@ -114,18 +114,21 @@
             },
             header_social_link_1: {
               styles: {},
+              iconName: 'fab fa-github',
               text: '<i class="fab fa-slack"></i>',
-              src: this.faker.internet.url
+              href: this.faker.internet.url()
             },
             header_social_link_2: {
               styles: {},
-              text: '<i class="fab fa-github"></i>',
-              src: this.faker.internet.url
+              iconName: 'fab fa-instagram',
+              text: '<i class="fab fa-instagram"></i>',
+              href: this.faker.internet.url()
             },
             header_social_link_3: {
               styles: {},
+              iconName: 'fab fa-twitter',
               text: '<i class="fab fa-twitter"></i>',
-              src: this.faker.internet.url
+              href: this.faker.internet.url()
             }
           }
         },
