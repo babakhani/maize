@@ -1,17 +1,16 @@
 <template>
   <div>
-      <WidgetToolbox></WidgetToolbox>
-      <BgEditable>
-        <section class="mz-block">
-          <div class="container">
-            <div class="row justify-content-center">
-                <TextEditable tag="h1"
-                               name="mainTitle"
-                               :partData="touchedData.mainTitle"/>
-            </div>
-          </div>
-        </section>
-      </BgEditable>
+    <WidgetToolbox></WidgetToolbox>
+    <BgEditable>
+    <section class="mz-block">
+      <div class="row mx-sm-5 justify-content-center">
+        <TextEditable
+           tag="h1"
+           name="mainTitle"
+           :partData="touchedData.mainTitle"/>
+      </div>
+    </section>
+    </BgEditable>
   </div>
 </template>
 <script>

@@ -1,22 +1,22 @@
 <template>
   <div>
-      <WidgetToolbox/>
-      <BgEditable>
-        <section class="mz-block">
-          <div class="container">
-            <div class="row">
-                <TextEditable tag="h1"
-                               name="mainTitle"
-                               :partData="touchedData.mainTitle"/>
-                <br>
-                <TextEditable tag="p"
-                               name="secondTitle"
-                               cssClass="text-h3"
-                               :partData="touchedData.secondTitle"/>
-            </div>
-          </div>
-        </section>
-      </BgEditable>
+    <WidgetToolbox/>
+    <BgEditable>
+    <section class="mz-block">
+      <div class="row mx-sm-5">
+        <TextEditable
+           tag="h1"
+           name="mainTitle"
+           :partData="touchedData.mainTitle"/>
+        <br>
+        <TextEditable
+           tag="p"
+           name="secondTitle"
+           cssClass="text-h3"
+           :partData="touchedData.secondTitle"/>
+      </div>
+    </section>
+    </BgEditable>
   </div>
 </template>
 

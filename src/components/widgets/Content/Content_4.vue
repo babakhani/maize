@@ -1,20 +1,19 @@
 <template>
   <div>
-      <WidgetToolbox/>
-      <BgEditable>
-        <section class="mz-block">
-          <div class="container">
-            <div class="row">
-              <div class="col col-sm-10 col-md-8 text-left">
-                <TextEditable tag="p"
-                               cssClass="text-h3"
-                               name="description"
-                               :partData="touchedData.description"/>
-              </div>
-            </div>
-          </div>
-        </section>
-      </BgEditable>
+    <WidgetToolbox/>
+    <BgEditable>
+    <section class="mz-block">
+      <div class="row mx-sm-5">
+        <div class="col col-sm-10 col-md-8 text-left">
+          <TextEditable
+             tag="p"
+             cssClass="text-h3"
+             name="description"
+             :partData="touchedData.description"/>
+        </div>
+      </div>
+    </section>
+    </BgEditable>
   </div>
 </template>
 
