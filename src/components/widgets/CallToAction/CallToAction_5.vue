@@ -47,7 +47,6 @@
             },
             action_link: {
               styles: {
-                'min-width': '8em',
                 'color': 'white'
               },
               text: this.faker.lorem.words(2),
