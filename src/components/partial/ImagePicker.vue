@@ -20,6 +20,14 @@
             </b-button>
           </b-input-group-append>
         </b-input-group>
+        <b-input-group
+          size="sm"
+          class="w-100 my-3" >
+          <b-form-input
+            @input="pick"
+            :placeholder="$t('image_alt')"
+            v-model="alt"></b-form-input>
+        </b-input-group>
       </div>
     </div>
     <b-tabs
@@ -28,7 +36,6 @@
       pills
       no-fade
       class="mazie-tabs"
-      v-model="getDefaultTabIndex"
       card>
       <template v-for="picker in imagePickers" >
         <b-tab
@@ -60,11 +67,14 @@ export default {
   data () {
     return {
       imagePickers: ImagePickers,
+      alt: null,
       pickedImageSrc: null
     }
   },
   mounted () {
-    this.pickedImageSrc = this.value
+    console.log(this.value)
+    this.pickedImageSrc = this.value.src
+    this.alt = this.value.alt
   },
   props: {
     value: {
@@ -79,39 +89,16 @@ export default {
     done () {
       this.$emit('hide')
     },
-    pickAndHide (pickedImageSrc) {
-      this.pickedImageSrc = pickedImageSrc
-      this.$emit('input', pickedImageSrc)
+    pickAndHide () {
+      this.value.src = this.pickedImageSrc
+      this.value.alt = this.alt 
+      this.$emit('input',this.value)
       this.$emit('hide')
     },
-    pick (pickedImageSrc) {
-      this.pickedImageSrc = pickedImageSrc
-      this.$emit('input', pickedImageSrc)
-    }
-  },
-  computed: {
-    getDefaultTabIndex: {
-      set () {
-
-      },
-      get () {
-        return (this.pickedImageSrc && this.pickedImageSrc.indexOf('imgur.com')) >= 0 ? 1 : 0
-      }
-    },
-    randomImageList () {
-      return [
-        'https://picsum.photos/id/1/700/300',
-        'https://picsum.photos/id/2/700/300',
-        'https://picsum.photos/id/3/700/300',
-        'https://picsum.photos/id/4/700/300',
-        'https://picsum.photos/id/5/700/300',
-        'https://picsum.photos/id/6/700/300',
-        'https://picsum.photos/id/7/700/300',
-        'https://picsum.photos/id/8/700/300',
-        'https://picsum.photos/id/9/700/300',
-        'https://picsum.photos/id/10/700/300',
-        'https://picsum.photos/id/11/700/300'
-      ]
+    pick () {
+      this.value.src = this.pickedImageSrc
+      this.value.alt = this.alt 
+      this.$emit('input',this.value)
     }
   }
 }
