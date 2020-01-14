@@ -3,7 +3,6 @@
       <WidgetToolbox/>
       <BgEditable>
         <header>
-          <div class="container">
             <nav class="navbar navbar-expand-md">
               <ImageEditable 
                 class="navbar-brand"
@@ -23,7 +22,7 @@
               <div class="collapse navbar-collapse"
                    id="navbarNav1">
                 <ul class="navbar-nav mr-auto">
-                  <li class="nav-item active">
+                  <li class="nav-item">
                     <!--TODO: fix nested and remove padding on styles-->
                     <!--<a class="nav-link"-->
                     <!--href="">Home <span class="sr-only">(current)</span></a>-->
@@ -51,11 +50,12 @@
                                    :partData="touchedData.header_link_4"/>
                   </li>
                 </ul>
-                <a class="btn btn-empty ml-md-3"
-                   href="/">Button</a>
+                <TextEditable tag="a"
+                              cssClass="btn btn-info ml-md-3"
+                              name="header_button"
+                              :partData="touchedData.header_button"/>
               </div>
             </nav>
-          </div>
         </header>
       </BgEditable>
   </div>
@@ -83,35 +83,30 @@
               },
               src: this.faker.img.logo()
             },
-            //TODO: fix padding style
             header_link_1: {
-              styles: {
-                padding: '1em',
-                'line-height': '2em'
-              },
+              styles: {},
               text: this.faker.lorem.words(1),
               src: this.faker.internet.url
             },
             header_link_2: {
-              styles: {
-                padding: '1em',
-                'line-height': '2em'
-              },
+              styles: {},
               text: this.faker.lorem.words(1),
               src: this.faker.internet.url
             },
             header_link_3: {
-              styles: {
-                padding: '1em',
-                'line-height': '2em'
-              },
+              styles: {},
               text: this.faker.lorem.words(1),
               src: this.faker.internet.url
             },
             header_link_4: {
+              styles: {},
+              text: this.faker.lorem.words(1),
+              src: this.faker.internet.url
+            },
+            header_button: {
               styles: {
-                padding: '1em',
-                'line-height': '2em'
+                'min-width': '6em',
+                'color': 'white'
               },
               text: this.faker.lorem.words(1),
               src: this.faker.internet.url

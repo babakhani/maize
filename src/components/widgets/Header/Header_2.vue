@@ -1,17 +1,15 @@
 <template>
   <div>
-      <WidgetToolbox/>
-      <BgEditable>
-        <header>
-          <div class="container text-center">
-            <nav class="navbar">
-              <ImageEditable 
-                name="header_image"
-                :partData="touchedData.header_image"/>
-            </nav>
-          </div>
-        </header>
-      </BgEditable>
+    <WidgetToolbox/>
+    <BgEditable>
+    <header>
+      <nav class="navbar">
+        <ImageEditable 
+           name="header_image"
+           :partData="touchedData.header_image"/>
+      </nav>
+    </header>
+    </BgEditable>
   </div>
 </template>
 <script>
@@ -30,7 +28,7 @@
             },
             bg: {
               styles: {
-                'background': '#000'
+                'background-color': '#1c1c1c'
               }
             },
             header_image: {
