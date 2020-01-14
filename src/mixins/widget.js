@@ -18,6 +18,7 @@ const Mixin = {
     }
   },
   beforeCreate () {
+    this.siteSettings = this._.cloneDeep(Store.getters['main/settings'])
     let base = 'https://raw.githubusercontent.com/babakhani/maize/master/public'
     this.faker = Object.assign(faker, {
       icon: {

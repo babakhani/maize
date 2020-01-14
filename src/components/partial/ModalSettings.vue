@@ -288,7 +288,6 @@ export default {
   },
   mounted () {
     this.siteSettings = this._.cloneDeep(this.$store.getters['main/settings'])
-    console.log()
   },
   computed: {
     randomImageList () {
