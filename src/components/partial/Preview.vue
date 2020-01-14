@@ -68,10 +68,12 @@ export default {
     download (filename, html) {
       var zip = new JSZip()
       zip.file("index.html", html)
-      var img = zip.folder("images");
-      this._.each(this.imagesFiles,  (item) => {
-        img.file(item.name, item.base64, {base64: true});
-      })
+      if (this.imagesFiles.length > 0) {
+        var img = zip.folder("images");
+        this._.each(this.imagesFiles,  (item) => {
+          img.file(item.name, item.base64, {base64: true});
+        })
+      }
       zip.generateAsync({type:"blob"}).then(function(content) {
         saveAs(content, "maize.zip");
       });

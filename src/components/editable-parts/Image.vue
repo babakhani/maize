@@ -22,7 +22,7 @@
        :contenteditable="editMode"
        :href="touchedData.href">
       <img :style="touchedData.styles"
-           alt="image"
+           :alt="touchedData.alt"
            :class="cssClass"
            :contenteditable="editMode"
            class="img-fluid editable-image-img"
@@ -30,7 +30,7 @@
     </a>
     <img v-else
          :style="touchedData.styles"
-         alt="image"
+         :alt="touchedData.alt"
          :class="cssClass"
          :contenteditable="editMode"
          class="img-fluid editable-image-img"

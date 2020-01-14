@@ -18,10 +18,7 @@ const Mixin = {
     }
   },
   beforeCreate () {
-    let base = ''
-    if (Store) {
-      this.siteSettings = Store.getters['main/settings']
-    }
+    let base = 'https://raw.githubusercontent.com/babakhani/maize/master/public'
     this.faker = Object.assign(faker, {
       icon: {
         normal (name = 'fa-tree', color = '333', width = 48, height = 48) {
