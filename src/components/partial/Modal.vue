@@ -1,5 +1,6 @@
 <template>
   <b-modal
+    :data="widgetDataTrigger"
     @hidden="onHide"
     @shown="onShow"
     v-model="showModal"
@@ -25,7 +26,7 @@
         v-model="widgetData.href"
         v-if="modalName == 'link'" />
     <ImagePicker
-        v-model="widgetData.src"
+        v-model="widgetData"
         v-if="modalName == 'image'"
         @hide="hide" />
     <IconPicker
@@ -44,7 +45,9 @@ import MapPicker from './MapPicker'
 
 export default {
   name: 'ModalSettings',
-  data () { return { modalData: null } },
+  data () { return { 
+    widgetData: null
+  }},
   components: {
     MapPicker,
     ImagePicker,
@@ -72,11 +75,11 @@ export default {
     }
   },
   computed: {
+    widgetDataTrigger () {
+      this.widgetData = this._.cloneDeep(this.$store.state.layout.modalDefaultData)
+    },
     modalName () {
       return this.$store.state.layout.modalName
-    },
-    widgetData () {
-      return this._.cloneDeep(this.$store.state.layout.modalDefaultData)
     },
     showModal: {
       get () {
