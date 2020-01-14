@@ -1,24 +1,36 @@
 <template>
   <div>
-      <WidgetToolbox/>
-      <BgEditable>
-        <footer class="mz-block footer-small">
-          <div class="container">
-            <div class="row text-center align-items-center">
-              <div class="col-12 col-sm-6 col-md-4 text-sm-left">
-                <ImageEditable name="footer_image"
-                               :partData="touchedData.footer_image"/>
-              </div>
-
-              <div class="col-12 col-sm-6 col-md-4 mt-4 mt-sm-0 text-center text-sm-right text-md-center">
-                <TextEditable tag="span"
-                               name="footer_copyright"
-                               :partData="touchedData.footer_copyright"/>
-              </div>
-            </div>
-          </div>
-        </footer>
-      </BgEditable>
+    <WidgetToolbox/>
+    <BgEditable>
+    <footer class="mz-block footer-small">
+      <div class="row text-center align-items-center px-2">
+        <div class="col-12 col-sm-6 text-sm-left px-3">
+          <ImageEditable
+             name="footer_image"
+             :partData="touchedData.footer_image"/>
+        </div>
+        <div class="col-12 col-sm-6">
+          <nav class="navbar navbar-expand no-gutters px-3 justify-content-center
+            justify-content-sm-end">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <IconEditable
+                  cssClass="nav-link p-1"
+                  name="footer_copyright_icon"
+                  :partData="touchedData.footer_copyright_icon"/>
+              </li>
+              <li class="nav-item">
+                <TextEditable
+                  tag="a"
+                  name="footer_copyright_text"
+                  :partData="touchedData.footer_copyright_text"/>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </footer>
+    </BgEditable>
   </div>
 </template>
 <script>
@@ -38,17 +50,21 @@
             bg: {
               styles: {}
             },
-            footer_copyright: {
-              styles: {
-                'line-height': '2em'
-              },
-              text: this.faker.footer.copyright(),
-            },
             footer_image: {
               styles: {
                 height: '40px',
               },
               src: this.faker.img.logo()
+            },
+            footer_copyright_text: {
+              styles: {},
+              text: this.faker.footer.copyright(),
+            },
+            footer_copyright_icon: {
+              styles: {},
+              iconName: 'far fa-copyright',
+              text: '<i class="far fa-copyright"></i>',
+              href: this.faker.internet.url()
             }
           }
         },

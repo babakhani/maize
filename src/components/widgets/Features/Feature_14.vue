@@ -2,7 +2,7 @@
   <div>
       <WidgetToolbox/>
       <BgEditable>
-        <section class="mz-block pb-md-0">
+        <section class="mz-block">
           <div class="container">
             <div class="row text-right align-items-center">
               <div class="col-7 col-md-4 m-auto">

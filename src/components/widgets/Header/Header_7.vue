@@ -3,10 +3,10 @@
     <WidgetToolbox/>
     <BgEditable>
     <header>
-      <div class="container">
         <nav class="navbar navbar-expand-md no-gutters">
-          <div class="col-4 col-sm-2 text-center ">
+          <div class="col-4 col-sm-2">
             <ImageEditable name="logo"
+                           cssClass="text-left"
                            :partData="touchedData.logo"/>
           </div>
 
@@ -16,7 +16,7 @@
 
           <div class="collapse navbar-collapse justify-content-center col-md-8" id="navbarNav4">
             <ul class="navbar-nav justify-content-center">
-              <li class="nav-item active">
+              <li class="nav-item">
                 <TextEditable tag="a"
                               cssClass="nav-link"
                               name="header_link_1"
@@ -70,7 +70,6 @@
             </li>
           </ul>
         </nav>
-      </div>
     </header>
     </BgEditable>
   </div>
@@ -90,7 +89,8 @@ export default {
             fullWidth: true
           },
           bg: {
-            styles: {}
+            styles: {
+            }
           },
           logo: {
             styles: {
@@ -98,36 +98,23 @@ export default {
             },
             src: this.faker.img.logo()
           },
-          // TODO: fix padding style
           header_link_1: {
-            styles: {
-              padding: '1em',
-              'line-height': '2em'
-            },
+            styles: {},
             text: this.faker.lorem.words(1),
             src: this.faker.internet.url
           },
           header_link_2: {
-            styles: {
-              padding: '1em',
-              'line-height': '2em'
-            },
+            styles: {},
             text: this.faker.lorem.words(1),
             src: this.faker.internet.url
           },
           header_link_3: {
-            styles: {
-              padding: '1em',
-              'line-height': '2em'
-            },
+            styles: {},
             text: this.faker.lorem.words(1),
             src: this.faker.internet.url
           },
           header_link_4: {
-            styles: {
-              padding: '1em',
-              'line-height': '2em'
-            },
+            styles: {},
             text: this.faker.lorem.words(1),
             src: this.faker.internet.url
           },

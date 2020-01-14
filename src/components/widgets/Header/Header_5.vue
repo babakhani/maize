@@ -64,7 +64,10 @@
                         :partData="touchedData.header_social_link_3"/>
                    </li>
                  </ul>
-                 <a class="btn btn-outline-primary ml-md-3" href="">Button</a>
+                 <TextEditable tag="a"
+                               cssClass="btn btn-primary ml-md-3"
+                               name="header_button"
+                               :partData="touchedData.header_button"/>
                </div>
              </nav>
          </header>
@@ -95,36 +98,23 @@
               href: '#',
               src: this.faker.img.logo()
             },
-            //TODO: fix padding style
             header_link_1: {
-              styles: {
-                padding: '1em',
-                'line-height': '2em'
-              },
+              styles: {},
               text: this.faker.lorem.words(1),
               href: this.faker.internet.url()
             },
             header_link_2: {
-              styles: {
-                padding: '1em',
-                'line-height': '2em'
-              },
+              styles: {},
               text: this.faker.lorem.words(1),
               href: this.faker.internet.url()
             },
             header_link_3: {
-              styles: {
-                padding: '1em',
-                'line-height': '2em'
-              },
+              styles: {},
               text: this.faker.lorem.words(1),
               href: this.faker.internet.url()
             },
             header_link_4: {
-              styles: {
-                padding: '1em',
-                'line-height': '2em'
-              },
+              styles: {},
               text: this.faker.lorem.words(1),
               href: this.faker.internet.url()
             },
@@ -145,6 +135,14 @@
               iconName: 'fab fa-twitter',
               text: '<i class="fab fa-twitter"></i>',
               href: this.faker.internet.url()
+            },
+            header_button: {
+              styles: {
+                'min-width': '6em',
+                'color': 'white'
+              }, 
+              text: this.faker.lorem.words(1),
+              src: this.faker.internet.url
             }
           }
         },
