@@ -13,9 +13,9 @@
 
               <div class="col-12 col-md-6 pt-5 pt-md-0">
                 <div class="row justify-content-left">
-                  <div class="col-3 m-auto text-center">
+                  <div class="col-3 mr-auto text-center">
                     <ImageEditable name="feature_image_1"
-                                   cssClass="mz-icon"
+                                   cssClass="mz-icon mb-2"
                                    :partData="touchedData.feature_image_1"/>
                     <p>
                       <TextEditable tag="a"
@@ -23,17 +23,17 @@
                                      :partData="touchedData.feature_link_1"/>
                     </p>
                   </div>
-                  <div class="col-3 m-auto text-center">
+                  <div class="col-3 mx-auto text-center">
                     <ImageEditable name="feature_image_2"
-                                   cssClass="mz-icon"
+                                   cssClass="mz-icon mb-2"
                                    :partData="touchedData.feature_image_2"/>
                     <TextEditable tag="a"
                                    name="feature_link_2"
                                    :partData="touchedData.feature_link_2"/>
                   </div>
-                  <div class="col-3 m-auto text-center">
+                  <div class="col-3 ml-auto text-center">
                     <ImageEditable name="feature_image_3"
-                                   cssClass="mz-icon"
+                                   cssClass="mz-icon mb-2"
                                    :partData="touchedData.feature_image_3"/>
                     <TextEditable tag="a"
                                    name="feature_link_3"
@@ -42,17 +42,17 @@
                 </div>
 
                 <div class="row justify-content-left mt-4 mt-xl-5">
-                  <div class="col-3 m-auto text-center">
+                  <div class="col-3 mx-auto text-center">
                     <ImageEditable name="feature_image_4"
-                                   cssClass="mz-icon"
+                                   cssClass="mz-icon mb-2"
                                    :partData="touchedData.feature_image_4"/>
                     <TextEditable tag="a"
                                    name="feature_link_4"
                                    :partData="touchedData.feature_link_4"/>
                   </div>
-                  <div class="col-3 m-auto text-center">
+                  <div class="col-3 mx-auto text-center">
                     <ImageEditable name="feature_image_5"
-                                   cssClass="mz-icon"
+                                   cssClass="mz-icon mb-2"
                                    :partData="touchedData.feature_image_5"/>
                     <TextEditable tag="a"
                                    name="feature_link_5"

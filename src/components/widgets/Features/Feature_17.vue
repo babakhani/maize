@@ -13,9 +13,11 @@
                                cssClass="text-h3"
                                name="main_description"
                                :partData="touchedData.main_description"/>
+                <div class="text-center">
                 <ImageEditable name="main_image"
                                cssClass="img-fluid mt-5"
                                :partData="touchedData.main_image"/>
+                </div>
               </div>
             </div>
 

@@ -49,13 +49,11 @@
                       </div>
                       <div class="row mt-4">
                         <div class="col text-center">
-                          <b-button size="sm" variant="primary" type="submit">
-                            <TextEditable 
-                              tag="span"
-                              name="contact_submit"
-                              :partData="touchedData.contact_submit">
-                            </TextEditable>
-                          </b-button>
+                          <TextEditable
+                             tag="a"
+                             cssClass="btn btn-success"
+                             name="contact_submit"
+                             :partData="touchedData.contact_submit"/>
                         </div>
                       </div>
                     </form>
@@ -86,8 +84,7 @@
             },
             bg: {
               styles: {
-                'background': '#000',
-                'color': '#ccc'
+                'background-color': '#1c1c1c'
               }
             },
             mainTitle: {
@@ -99,7 +96,10 @@
               text: this.faker.lorem.words(15),
             },
             contact_submit: {
-              styles: {},
+              styles: {
+                'min-width': '8em',
+                'color': 'white'
+              },
               text: this.faker.lorem.words(1),
             }
           }

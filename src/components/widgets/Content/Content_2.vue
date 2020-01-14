@@ -1,25 +1,25 @@
 <template>
   <div>
-      <WidgetToolbox/>
-      <BgEditable>
-        <section class="mz-block">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col col-md-8 text-center">
-                <TextEditable tag="h3"
-                               name="mainTitle"
-                               cssClass="text-h3"
-                               :partData="touchedData.mainTitle"/>
-                </br>
-                <TextEditable tag="p"
-                               cssClass="text-h3"
-                               name="description"
-                               :partData="touchedData.description"/>
-              </div>
-            </div>
-          </div>
-        </section>
-      </BgEditable>
+    <WidgetToolbox/>
+    <BgEditable>
+    <section class="mz-block">
+      <div class="row mx-sm-5 justify-content-center">
+        <div class="col text-center">
+          <TextEditable
+             tag="h3"
+             name="mainTitle"
+             cssClass="text-h3"
+             :partData="touchedData.mainTitle"/>
+          </br>
+          <TextEditable
+             tag="p"
+             cssClass="text-h3"
+             name="description"
+             :partData="touchedData.description"/>
+        </div>
+      </div>
+    </section>
+    </BgEditable>
   </div>
 </template>
 <script>
