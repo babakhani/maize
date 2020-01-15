@@ -17,10 +17,10 @@
 </template>
 
 <script>
-import FontAwesome5 from '../../assets/fontawesome5.json'
+import FontAwesome5 from './fontawesome5.json'
 
 export default {
-  name: 'FontAwesome',
+  name: 'FontAwesomePicker',
   icon: 'smile',
   data () {
     return {
