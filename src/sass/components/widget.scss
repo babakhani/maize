@@ -1,11 +1,13 @@
 .widget-block {
   display: block;
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, .1);
-  border-radius: 6px;
   position: relative;
   width: 100%;
-  padding-top: 2.8em;
-  margin-top: 1em;
+  margin-top: 10px;
+
+  .editable-background {
+    padding-top: 2.9em;
+  }
 
   .widget-block--name{
     display: block;
@@ -43,12 +45,13 @@
     left: 0;
     bottom: 0;
     z-index: 10;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    background: rgba($white, .7);
+    background: $white;
     
     .widget-block--toolbox-btn {
       display: none;
+      width: 2em;
+      height: 2em;
+      padding: 0;
       &.btn-active {
         background: #ccc;
       }
