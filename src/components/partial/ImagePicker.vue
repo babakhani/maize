@@ -9,13 +9,13 @@
             v-model="pickedImageSrc"></b-form-input>
           <b-input-group-append>
             <b-button
-            variant="outline-primary"
-            @click="pickAndHide(pickedImageSrc)">
+              variant="outline-primary"
+              @click="pickAndHide(pickedImageSrc)">
               {{ $t('load_url') }}
             </b-button>
             <b-button
-            variant="danger"
-            @click="pickAndHide(' ')">
+              variant="danger"
+              @click="pickAndHide(' ')">
               {{ $t('delete') }}
             </b-button>
           </b-input-group-append>

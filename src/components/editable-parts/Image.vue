@@ -5,28 +5,28 @@
        @click="showToolbox"
        @dblclick="setPickImageMode"
        :class="{
-       'editable-active': editMode,
-       'under-edit': toolboxVisible}">
+               'editable-active': editMode,
+               'under-edit': toolboxVisible}">
     <EditablePartToolbox
-            :visibile-image-selector="true"
-            :visibile-link-selector="linkable"
-            @update="updateStyles"
-            @updatewidget="updateEditableData"
-            :groups="['border', 'general']"
-            :currentStyles="touchedData.styles"
-            :editableData="touchedData"
-            v-if="editMode && toolboxVisible"
-            @hide="hideToolbox"></EditablePartToolbox>
+      :visibile-image-selector="true"
+      :visibile-link-selector="linkable"
+      @update="updateStyles"
+      @updatewidget="updateEditableData"
+      :groups="['border', 'general']"
+      :currentStyles="touchedData.styles"
+      :editableData="touchedData"
+      v-if="editMode && toolboxVisible"
+      @hide="hideToolbox"></EditablePartToolbox>
 
     <a v-if="touchedData.href"
        :contenteditable="editMode"
        :href="touchedData.href">
       <img :style="touchedData.styles"
-           :alt="touchedData.alt"
-           :class="cssClass"
-           :contenteditable="editMode"
-           class="img-fluid editable-image-img"
-           :src="touchedData.src">
+       :alt="touchedData.alt"
+       :class="cssClass"
+       :contenteditable="editMode"
+       class="img-fluid editable-image-img"
+       :src="touchedData.src">
     </a>
     <img v-else
          :style="touchedData.styles"
@@ -35,7 +35,7 @@
          :contenteditable="editMode"
          class="img-fluid editable-image-img"
          :src="touchedData.src"
-    />
+         />
   </div>
 </template>
 

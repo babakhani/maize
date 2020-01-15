@@ -24,7 +24,7 @@
           @select="select" />
       </b-tab>
     </template>
-</b-tabs>
+  </b-tabs>
 </template>
 
 <script>

@@ -5,33 +5,33 @@
        @click="showToolbox"
        @dblclick="openSelectorIcon"
        :class="{
-       'editable-active': editMode,
-       'under-edit': toolboxVisible}">
+               'editable-active': editMode,
+               'under-edit': toolboxVisible}">
     <EditablePartToolbox
-            :visibile-icon-selector="true"
-            :visibile-link-selector="linkable"
-            @update="updateStyles"
-            @updatewidget="updateEditableData"
-            :groups="['icon', 'text', 'background', 'border', 'general']"
-            :currentStyles="touchedData.styles"
-            :editableData="touchedData"
-            v-if="toolboxVisible"
-            @hide="hideToolbox"></EditablePartToolbox>
+      :visibile-icon-selector="true"
+      :visibile-link-selector="linkable"
+      @update="updateStyles"
+      @updatewidget="updateEditableData"
+      :groups="['icon', 'text', 'background', 'border', 'general']"
+      :currentStyles="touchedData.styles"
+      :editableData="touchedData"
+      v-if="toolboxVisible"
+      @hide="hideToolbox"></EditablePartToolbox>
     <a
-       v-if="touchedData.href"
-       :class="touchedData.cssClass"
-       :href="touchedData.href">
+      v-if="touchedData.href"
+      :class="touchedData.cssClass"
+      :href="touchedData.href">
       <i
-       :style="touchedData.styles"
-       :class="touchedData.iconName" >
+        :style="touchedData.styles"
+        :class="touchedData.iconName" >
       </i>
     </a>
     <span
       v-else
       :class="touchedData.cssClass">
       <i
-       :style="touchedData.styles"
-       :class="touchedData.iconName" >
+        :style="touchedData.styles"
+        :class="touchedData.iconName" >
       </i>
     </span>
   </div>

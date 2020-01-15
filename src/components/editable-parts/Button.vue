@@ -3,9 +3,8 @@
        @mouseenter="mouseInElement"
        @mouseleave="mouseLeaveElement"
        :class="{
-       'editable-active': editMode,
-       'under-edit': toolboxVisible}">
-    <!--Min Slot-->
+               'editable-active': editMode,
+               'under-edit': toolboxVisible}">
     <EditablePartToolbox
       :visibile-link-selector="tag === 'a'"
       :toolbox-visible="toolboxVisible"
@@ -17,18 +16,18 @@
       v-if="toolboxVisible">
     </EditablePartToolbox>
     <button
-        v-bind:style="touchedData.styles"
-        :class="cssClass"
-        :contenteditable="editMode"
-        :href="tag === 'a' ? touchedData.href : false"
-        :target="tag === 'a' ? '_blank' : false"
-        :type="type"
-        @focus="showToolbox"
-        @focusout="updateTextOnBlur"
-        @dblclick="goToEditMode"
-        @paste="onPaste"
-        @input="updateText">
-        {{touchedData.text}}
+      v-bind:style="touchedData.styles"
+      :class="cssClass"
+      :contenteditable="editMode"
+      :href="tag === 'a' ? touchedData.href : false"
+      :target="tag === 'a' ? '_blank' : false"
+      :type="type"
+      @focus="showToolbox"
+      @focusout="updateTextOnBlur"
+      @dblclick="goToEditMode"
+      @paste="onPaste"
+      @input="updateText">
+      {{touchedData.text}}
     </button>
   </div>
 </template>
@@ -57,9 +56,9 @@ export default {
       }
     },
     /**
-       * @link https://stackoverflow.com/questions/2176861/javascript-get-clipboard-data-on-paste-event-cross-browser/6804718#6804718
-       * @param e
-       */
+     * @link https://stackoverflow.com/questions/2176861/javascript-get-clipboard-data-on-paste-event-cross-browser/6804718#6804718
+     * @param e
+     */
     onPaste (e) {
       // TODO: must move to helpre class
       function strip (html) {

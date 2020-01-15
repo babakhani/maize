@@ -3,602 +3,590 @@
   <div
     @dblclick="(e) => {e.stopPropagation()}"
     class="widget-text-editable--toolbox">
-        <div v-if="groups.indexOf('text') > -1"
-             class="widget-text-editable--toolbox--group">
-        </div>
-        <div
-          v-if="visibileImageSelector"
-          class="widget-text-editable--toolbox--group">
-          <button :title="$t('toolbox.image_picker')"
-            v-b-tooltip.hover.top.small
-            @click="pickImage"
-            class="btn btn-sm widget-text-editable--toolbox--button">
-            <i class="fas fa-image" />
-          </button>
-          <div
-            class="widget-text-editable--toolbox--group-title">
-            {{ $t('toolbox.image') }}
-          </div>
-        </div>
-        <div
-          v-if="visibileImageSelector"
-          class="widget-text-editable--toolbox--group-separator"></div>
-
-        <div
-          v-if="visibileIconSelector"
-          class="widget-text-editable--toolbox--group">
-          <button :title="$t('toolbox.icon_picker')"
-            v-b-tooltip.hover.top.small
-            @click="pickIcon"
-            class="btn btn-sm widget-text-editable--toolbox--button">
-            <i class="far fa-smile" />
-          </button>
-          <div
-            class="widget-text-editable--toolbox--group-title">
-            {{ $t('toolbox.icon') }}
-          </div>
-        </div>
-        <div
-          v-if="visibileIconSelector"
-          class="widget-text-editable--toolbox--group-separator"></div>
-
-        <div
-          v-if="visibileLinkSelector"
-          class="widget-text-editable--toolbox--group">
-          <button :title="$t('toolbox.link')"
-            v-b-tooltip.hover.top.small
-            @click="setPickLinkMode"
-            class="btn btn-sm widget-text-editable--toolbox--button">
-            <i class="fas fa-link" />
-          </button>
-          <div
-          class="widget-text-editable--toolbox--group-title">
-            {{ $t('toolbox.link') }}
-          </div>
-        </div>
-        <div
-           v-if="visibileLinkSelector"
-           class="widget-text-editable--toolbox--group-separator"></div>
-
-        <!-- Background Settings -->
-        <!-- ---------------------------------------------------------------------------- -->
-        <div
-          v-if="groups.indexOf('background') > -1"
-          class="widget-text-editable--toolbox--group">
-          <div
-          class="widget-text-editable--toolbox--group-title">
-            {{ $t('toolbox.background') }}
-          </div>
-          <b-dropdown
-            :title="$t('toolbox.background_color')"
-            v-b-tooltip.hover.top.small
-            size="sm"
-            class="">
-            <template v-slot:button-content>
-              <i class="fas fa-fill-drip" />
-              <div
-                :style="{'background-color': styles['background-color']}"
-                class="color-indicator"></div>
-            </template>
-            <b-dropdown-text>
-              <div
-                @click="(e) => {e.stopPropagation()}"
-                aria-labelledby="dropdownMenuButtonBgColor">
-                <color-picker
-                :value="styles['background-color']"
-                @input="updateBgColor">
-                </color-picker>
-              </div>
-            </b-dropdown-text>
-          </b-dropdown>
-          <template
-            v-if="groups.indexOf('backgroundimage') > -1">
-            <b-dropdown
-            :title="$t('toolbox.background_size')"
-            v-b-tooltip.hover.top.small
-            size="sm"
-            class="">
-              <template v-slot:button-content>
-                <i class="fas fa-external-link-alt" />
-              </template>
-              <b-dropdown-item
-                :class="{'widget-text-editable--selected': styles['background-size'] === 'cover'}"
-                @click="setBgSize('cover')"> {{ $t('toolbox.cover') }}
-              </b-dropdown-item>
-              <b-dropdown-item
-                :class="{'widget-text-editable--selected': styles['background-size'] === 'contain'}"
-                @click="setBgSize('contain')">
-                {{ $t('toolbox.contain') }}
-              </b-dropdown-item>
-              <b-dropdown-item
-                :class="{'widget-text-editable--selected': styles['background-size'] === 'auto'}"
-                @click="setBgSize('auto')">{{ $t('toolbox.auto') }}
-              </b-dropdown-item>
-            </b-dropdown>
-
-            <b-dropdown
-            :title="$t('toolbox.background_repeat')"
-            v-b-tooltip.hover.top.small
-            size="sm"
-            class="">
-              <template v-slot:button-content>
-                <i class="fas fa-object-ungroup" />
-              </template>
-              <b-dropdown-item
-                         :class="{'widget-text-editable--selected': styles['background-repeat'] === 'no-repeat'}"
-                         @click="setBgRepeat('no-repeat')">
-                {{ $t('toolbox.no-repeat') }}
-              </b-dropdown-item>
-              <b-dropdown-item
-                         :class="{'widget-text-editable--selected': styles['background-repeat'] === 'repeat'}"
-                         @click="setBgRepeat('repeat')">
-                {{ $t('toolbox.repeat') }}
-              </b-dropdown-item>
-              <b-dropdown-item
-                         :class="{'widget-text-editable--selected': styles['background-repeat'] ===
-                                 'repeat-x'}"
-                         @click="setBgRepeat('repeat-x')">
-                {{ $t('toolbox.repeat-x') }}
-              </b-dropdown-item>
-              <b-dropdown-item
-                         :class="{'widget-text-editable--selected': styles['background-repeat'] ===
-                                 'repeat-y'}"
-                         @click="setBgRepeat('repeat-y')">
-                {{ $t('toolbox.repeat-y') }}
-              </b-dropdown-item>
-            </b-dropdown>
-
-            <b-dropdown
-            :title="$t('toolbox.background_position')"
-            v-b-tooltip.hover.top.small
-            size="sm"
-            class="">
-              <template v-slot:button-content>
-                <i class="fas fa-th" />
-              </template>
-              <div class="px-2" style="width: 320px">
-                <b-form-group>
-                  <label> {{ $t('toolbox.background_postion_x') }} </label>
-                  <CssInput
-                         :units="['%', 'px']"
-                         :statics="['center', 'right', 'left']"
-                         v-model="backgroundPositionX"
-                         @change="setBackgroundPositionX" />
-                  <label class="mt-2" > {{ $t('toolbox.background_postion_y') }} </label>
-                  <CssInput
-                         :units="['%', 'px']"
-                         :statics="['center', 'top', 'bottom']"
-                         v-model="backgroundPositionY"
-                         @change="setBackgroundPositionY" />
-                  </b-form-group>
-              </div>
-            </b-dropdown>
-
-            <button :title="$t('toolbox.background_image')"
-                   v-b-tooltip.hover.top.small
-                   class="btn btn-sm widget-text-editable--toolbox--button"
-                   @click="pickBackgroundImage">
-            <i class="fas fa-image" />
-            </button>
-          </template>
-        </div>
-        <div
-           v-if="groups.indexOf('background') > -1"
-           class="widget-text-editable--toolbox--group-separator"></div>
-
-        <!-- Text Settings -->
-        <!-- ---------------------------------------------------------------------------- -->
-        <template
-          v-if="groups.indexOf('text') > -1">
-          <div class="widget-text-editable--toolbox--group">
-            <div
-              class="widget-text-editable--toolbox--group-title">
-              {{ $t('toolbox.text') }}
-            </div>
-
-            <!-- Color -->
-            <b-dropdown
-            :title="$t('toolbox.font-color')"
-            v-b-tooltip.hover.top.small
-            size="sm"
-            class="">
-              <template v-slot:button-content>
-                <i class="fas fa-paint-brush" />
-                <div
-                         :style="{'background-color': styles['color']}"
-                         class="color-indicator"></div>
-              </template>
-              <b-dropdown-text>
-                <div
-                         @click="(e) => {e.stopPropagation()}"
-                         aria-labelledby="dropdownMenuButtonColor">
-                         <color-picker :value="styles['color']"
-                         @input="updateColor">
-                         </color-picker>
-                </div>
-              </b-dropdown-text>
-            </b-dropdown>
-
-            <!--Font Family -->
-            <b-dropdown
-            :title="$t('toolbox.font-family')"
-            v-b-tooltip.hover.top.small
-            size="sm"
-            class="">
-              <template v-slot:button-content>
-                <maizcon name="font"></maizcon>
-              </template>
-              <b-dropdown-item
-                         :class="{'widget-text-editable--selected': styles['font-family'] === 'monospace'}"
-                         @click="setFontFamily('monospace')">
-                {{ $t('monospace') }}
-              </b-dropdown-item>
-              <b-dropdown-item
-                         :class="{'widget-text-editable--selected': styles['font-family'] === 'serif'}"
-                         @click="setFontFamily('serif')">
-                {{ $t('serif') }}
-              </b-dropdown-item>
-              <b-dropdown-item
-                         :class="{'widget-text-editable--selected': styles['font-family'] === 'fantasy'}"
-                         @click="setFontFamily('fantasy')">
-                {{ $t('fantasy') }}
-              </b-dropdown-item>
-            </b-dropdown>
-
-            <!--Font Size -->
-            <b-dropdown
-                         :title="$t('toolbox.font-size')"
-                         v-b-tooltip.hover.top.small
-                         size="sm"
-                         class="">
-              <template v-slot:button-content>
-                <i class="fas fa-text-height" />
-              </template>
-              <b-dropdown-item :class="{'widget-text-editable--selected': styles['font-size'] === '44px'}"
-                         @click="setSize('44px')">{{$t('toolbox.x-large')}}</b-dropdown-item>
-              <b-dropdown-item :class="{'widget-text-editable--selected': styles['font-size'] === '18px'}"
-                         @click="setSize('18px')">{{$t('toolbox.large')}}</b-dropdown-item>
-              <b-dropdown-item :class="{'widget-text-editable--selected': styles['font-size'] === '16px'}"
-                         @click="setSize('16px')">{{$t('toolbox.Medium')}}</b-dropdown-item>
-              <b-dropdown-item :class="{'widget-text-editable--selected': styles['font-size'] === '14px'}"
-                         @click="setSize('14px')">{{$t('toolbox.small')}}</b-dropdown-item>
-              <b-dropdown-item :class="{'widget-text-editable--selected': styles['font-size'] === '12px'}"
-                         @click="setSize('12px')">{{$t('toolbox.x-small')}}</b-dropdown-item>
-              <b-dropdown-item :class="{'widget-text-editable&#45;&#45;selected':
-                                       styles['font-size'] === '10px'}"
-                         @click="setSize('10px')">{{$t('toolbox.xx-small')}}</b-dropdown-item>
-            </b-dropdown>
-            <!-- Bold -->
-            <button :title="$t('toolbox.bold')"
-                   v-b-tooltip.hover.top.small
-                   @click="toggleBold()"
-                   :class="{'widget-text-editable--selected': styles['font-weight'] === 'bold'}"
-                   class="btn btn-sm widget-text-editable--toolbox--button">
-              <i class="fas fa-bold" />
-            </button>
-            <!-- UnderLine -->
-            <button :title="$t('toolbox.underline')"
-                       v-b-tooltip.hover.top.small
-                       @click="toggleTextDecoration()"
-                       :class="{'widget-text-editable--selected': styles['text-decoration'] === 'underline'}"
-                       class="btn btn-sm widget-text-editable--toolbox--button">
-              <i class="fas fa-underline" />
-            </button>
-            <button :title="$t('toolbox.line-through')"
-                       v-b-tooltip.hover.top.small
-                       @click="toggleThroughDecoration()"
-                       :class="{'widget-text-editable--selected': styles['text-decoration'] === 'line-through'}"
-                       class="btn btn-sm widget-text-editable--toolbox--button">
-              <i class="fas fa-strikethrough" />
-            </button>
-
-            <!--Alignment-->
-            <b-dropdown
-                       :title="$t('toolbox.alignment')"
-                       v-b-tooltip.hover.top.small
-                       size="sm"
-                       class="">
-              <template v-slot:button-content>
-                <maizcon name="align-center"></maizcon>
-              </template>
-              <b-dropdown-item title="align left"
-                               @click="align('left')"
-                               :class="{'widget-text-editable--selected': styles['text-align'] ==
-                                        'left'}">
-                <icon name="align-left"></icon>
-              </b-dropdown-item>
-              <b-dropdown-item title="align right"
-                               @click="align('right')"
-                               :class="{'widget-text-editable--selected': styles['text-align'] ==
-                                        'right'}">
-                <icon name="align-right"></icon>
-              </b-dropdown-item>
-              <b-dropdown-item title="align center"
-                               @click="align('center')"
-                               :class="{'widget-text-editable--selected': styles['text-align'] ==
-                                        'center'}">
-                <icon name="align-center"></icon>
-              </b-dropdown-item>
-              <b-dropdown-item title="align justify"
-                               @click="align('justify')"
-                               :class="{'widget-text-editable--selected': styles['text-align'] ==
-                                        'justify'}">
-                <icon name="align-justify"></icon>
-              </b-dropdown-item>
-            </b-dropdown>
-
-            <!-- Line Space!-->
-            <b-dropdown
-                      :title="$t('toolbox.line-space')"
-                      v-b-tooltip.hover.top.small
-                      size="sm"
-                      class="">
-              <template v-slot:button-content>
-                <maizcon name="line-space"></maizcon>
-              </template>
-              <b-dropdown-item :class="{'widget-text-editable--selected': styles['line-height'] === '1em'}"
-                         @click="setLineHeight('1em')">1</b-dropdown-item>
-              <b-dropdown-item :class="{'widget-text-editable--selected': styles['line-height'] === '1.2em'}"
-                         @click="setLineHeight('1.2em')">1.2</b-dropdown-item>
-              <b-dropdown-item :class="{'widget-text-editable--selected': styles['line-height'] === '1.5e'}"
-                         @click="setLineHeight('1.5em')">1.5</b-dropdown-item>
-              <b-dropdown-item :class="{'widget-text-editable--selected': styles['line-height'] === '2em'}"
-                         @click="setLineHeight('2em')">2</b-dropdown-item>
-              <b-dropdown-item :class="{'widget-text-editable--selected': styles['line-height'] === '3em'}"
-                         @click="setLineHeight('3em')">3</b-dropdown-item>
-            </b-dropdown>
-
-            <button :class="{'widget-text-editable--selected': styles['text-indent'] != '0'}"
-                         :title="$t('toolbox.indent')"
-                         v-b-tooltip.hover.top.small
-                         @click="toggleTextIndent()"
-                         class="btn btn-sm widget-text-editable--toolbox--button">
-              <i class="fas fa-indent" />
-            </button>
-
-            <!--TODO: ask reza about direction-->
-            <b-dropdown
-                      :title="$t('toolbox.direction')"
-                      v-b-tooltip.hover.top.small
-                      size="sm"
-                      class="">
-              <template v-slot:button-content>
-                <i class="fas fa-exchange-alt"></i>
-              </template>
-              <b-dropdown-item
-                       :class="{'widget-text-editable--selected': styles['direction'] === 'auto'}"
-                       @click="setDirection('auto')">AUTO</b-dropdown-item>
-              <b-dropdown-item
-                       :class="{'widget-text-editable--selected': styles['direction'] === 'rtl'}"
-                       @click="setDirection('rtl')">RTL</b-dropdown-item>
-              <b-dropdown-item
-                       :class="{'widget-text-editable--selected': styles['direction'] === 'ltr'}"
-                       @click="setDirection('ltr')">LTR</b-dropdown-item>
-            </b-dropdown>
-          </div>
-        </template>
-        <div
-           v-if="groups.indexOf('text') > -1"
-           class="widget-text-editable--toolbox--group-separator"></div>
-
-        <!-- Border Settings -->
-        <!-- ---------------------------------------------------------------------------- -->
-        <template
-          v-if="groups.indexOf('border') > -1">
-          <div class="widget-text-editable--toolbox--group">
-            <div
-              class="widget-text-editable--toolbox--group-title">
-              {{ $t('toolbox.border') }}
-            </div>
-            <b-dropdown
-               :title="$t('toolbox.border-color')"
-               v-b-tooltip.hover.top.small
-               size="sm"
-               class="">
-              <template v-slot:button-content>
-                <maizcon name="border-color"></maizcon>
-                <div
-                         :style="{'background-color': styles['border-color']}"
-                         class="color-indicator"></div>
-              </template>
-              <b-dropdown-text
-                         @click="(e) => {e.stopPropagation()}"
-                         aria-labelledby="dropdownMenuButtonBorderColor">
-                         <color-picker :value="styles['border-color']"
-                         @input="updateBorderColor">
-                         </color-picker>
-              </b-dropdown-text>
-            </b-dropdown>
-
-            <b-dropdown
-               :title="$t('toolbox.border-width')"
-               v-b-tooltip.hover.top.small
-               size="sm"
-               class="">
-              <template v-slot:button-content>
-                <i class="far fa-square" />
-              </template>
-              <div class="px-2">
-                <CssInput
-                    :units="['px']"
-                    v-model="styles['border-width']"
-                    @change="setBorderWidth" />
-              </div>
-            </b-dropdown>
-
-            <b-dropdown
-               :title="$t('toolbox.border-style')"
-               v-b-tooltip.hover.top.small
-               size="sm"
-               class="">
-              <template v-slot:button-content>
-                <maizcon name="border-style"></maizcon>
-              </template>
-                <b-dropdown-item :class="{'widget-text-editable--selected': styles['border-style']
-                         === 'none'}"
-                   @click="setBorderStyle('none')">{{ $t('none') }}</b-dropdown-item>
-                <b-dropdown-item :class="{'widget-text-editable--selected': styles['border-style']
-                         === 'solid'}"
-                   @click="setBorderStyle('solid')">{{ $t('solid') }}</b-dropdown-item>
-                <b-dropdown-item :class="{'widget-text-editable--selected': styles['border-style']
-                         === 'dashed'}"
-                   @click="setBorderStyle('dashed')">{{ $t('dashed') }}</b-dropdown-item>
-                <b-dropdown-item :class="{'widget-text-editable--selected': styles['border-style']
-                         === 'double'}"
-                   @click="setBorderStyle('double')">{{ $t('double') }}</b-dropdown-item>
-                <b-dropdown-item :class="{'widget-text-editable--selected': styles['border-style']
-                         === 'dotted'}"
-                   @click="setBorderStyle('dotted')">{{ $t('dotted') }}</b-dropdown-item>
-            </b-dropdown>
-
-          </div>
-        </template>
-        <div
-           v-if="groups.indexOf('border') > -1"
-           class="widget-text-editable--toolbox--group-separator"></div>
-
-        <!-- General Settings -->
-        <!-- ---------------------------------------------------------------------------- -->
-        <template
-          v-if="groups.indexOf('general') > -1">
-          <div class="widget-text-editable--toolbox--group">
-            <div
-              class="widget-text-editable--toolbox--group-title">
-              {{ $t('toolbox.general') }}
-            </div>
-
-            <b-dropdown
-               :title="$t('toolbox.opacity')"
-               v-b-tooltip.hover.top.small
-               size="sm"
-               class="">
-              <template v-slot:button-content>
-                <maizcon name="opacity"></maizcon>
-              </template>
-              <div class="px-2">
-                  <CssInput
-                  :units="[]"
-                  :nounit="true"
-                  :min="0"
-                  :max="1"
-                  :step=".1"
-                  :range="true"
-                  v-model="styles['opacity']"
-                  @change="setOpacityColor" />
-              </div>
-            </b-dropdown>
-
-            <b-dropdown
-               :title="$t('toolbox.border_radius')"
-               v-b-tooltip.hover.top.small
-               size="sm"
-               class="">
-              <template v-slot:button-content>
-                <i class="fas fa-circle-notch" />
-              </template>
-              <div class="px-2">
-                <CssInput
-                    :units="['px', '%']"
-                    v-model="styles['border-radius']"
-                    @change="setBorderRadius" />
-              </div>
-            </b-dropdown>
-
-            <b-dropdown
-               :title="$t('toolbox.width')"
-               v-b-tooltip.hover.top.small
-               size="sm"
-               class="">
-              <template v-slot:button-content>
-                <maizcon name="width"></maizcon>
-              </template>
-              <div class="px-2">
-                <CssInput
-                    unit="%"
-                    :units="['px', '%']"
-                    v-model="styles['width']"
-                    @change="setWidth" />
-              </div>
-            </b-dropdown>
-
-            <b-dropdown
-               :title="$t('toolbox.height')"
-               v-b-tooltip.hover.top.small
-               size="sm"
-               class="">
-              <template v-slot:button-content>
-                <maizcon name="height"></maizcon>
-              </template>
-              <div class="px-2">
-                <CssInput
-                    unit="%"
-                    :units="['px', '%']"
-                    v-model="styles['height']"
-                    @change="setHeight" />
-              </div>
-            </b-dropdown>
-
-            <b-dropdown
-               :title="$t('toolbox.margin')"
-               v-b-tooltip.hover.top.small
-               size="sm"
-               class="">
-              <template v-slot:button-content>
-                <maizcon name="margin"></maizcon>
-              </template>
-              <div
-                class="px-2"
-                @click="(e) => {e.stopPropagation()}" >
-                  <label> {{ $t('toolbox.padding_y') }} </label>
-                  <CssInput
-                  :units="['px', '%']"
-                  v-model="styles['padding-top']"
-                  @change="setPaddingY" />
-                  <label> {{ $t('toolbox.padding_x') }} </label>
-                  <CssInput
-                  :units="['px', '%']"
-                  v-model="styles['padding-right']"
-                  @change="setPaddingX" />
-                  <label class="mt-3"> {{ $t('toolbox.margin_y') }} </label>
-                  <CssInput
-                  :units="['px', '%']"
-                  v-model="styles['margin-top']"
-                  @change="setMarginY" />
-                  <label> {{ $t('toolbox.margin_x') }} </label>
-                  <CssInput
-                  :units="['px', '%']"
-                  v-model="styles['margin-right']"
-                  @change="setMarginX" />
-              </div>
-            </b-dropdown>
-          </div>
-        </template>
-
-        <b-button @click="hide"
-                    class="btn btn-sm btn-outline-danger float-right widget-text-editable--toolbox--close">
-          <icon name="times"></icon>
-        </b-button>
+    <div
+      v-if="visibileImageSelector"
+      class="widget-text-editable--toolbox--group">
+      <button :title="$t('toolbox.image_picker')"
+      v-b-tooltip.hover.top.small
+      @click="pickImage"
+      class="btn btn-sm widget-text-editable--toolbox--button">
+        <i class="fas fa-image" />
+      </button>
+      <div
+        class="widget-text-editable--toolbox--group-title">
+        {{ $t('toolbox.image') }}
       </div>
+    </div>
+    <div
+      v-if="visibileImageSelector"
+      class="widget-text-editable--toolbox--group-separator"></div>
+    <div
+      v-if="visibileIconSelector"
+      class="widget-text-editable--toolbox--group">
+      <button :title="$t('toolbox.icon_picker')"
+      v-b-tooltip.hover.top.small
+      @click="pickIcon"
+      class="btn btn-sm widget-text-editable--toolbox--button">
+        <i class="far fa-smile" />
+      </button>
+      <div
+        class="widget-text-editable--toolbox--group-title">
+        {{ $t('toolbox.icon') }}
+      </div>
+    </div>
+    <div
+      v-if="visibileIconSelector"
+      class="widget-text-editable--toolbox--group-separator"></div>
+
+    <div
+      v-if="visibileLinkSelector"
+      class="widget-text-editable--toolbox--group">
+      <button :title="$t('toolbox.link')"
+      v-b-tooltip.hover.top.small
+      @click="setPickLinkMode"
+      class="btn btn-sm widget-text-editable--toolbox--button">
+        <i class="fas fa-link" />
+      </button>
+      <div
+        class="widget-text-editable--toolbox--group-title">
+        {{ $t('toolbox.link') }}
+      </div>
+    </div>
+    <div
+      v-if="visibileLinkSelector"
+      class="widget-text-editable--toolbox--group-separator"></div>
+
+    <!-- Background Settings -->
+    <!-- ---------------------------------------------------------------------------- -->
+    <div
+      v-if="groups.indexOf('background') > -1"
+      class="widget-text-editable--toolbox--group">
+      <div
+        class="widget-text-editable--toolbox--group-title">
+        {{ $t('toolbox.background') }}
+      </div>
+      <b-dropdown
+        :title="$t('toolbox.background_color')"
+        v-b-tooltip.hover.top.small
+        size="sm"
+        class="">
+        <template v-slot:button-content>
+          <i class="fas fa-fill-drip" />
+            <div
+              :style="{'background-color': styles['background-color']}"
+              class="color-indicator"></div>
+        </template>
+        <b-dropdown-text>
+          <div
+            @click="(e) => {e.stopPropagation()}"
+            aria-labelledby="dropdownMenuButtonBgColor">
+            <color-picker
+              :value="styles['background-color']"
+              @input="updateBgColor">
+            </color-picker>
+          </div>
+        </b-dropdown-text>
+      </b-dropdown>
+      <template
+        v-if="groups.indexOf('backgroundimage') > -1">
+        <b-dropdown
+          :title="$t('toolbox.background_size')"
+          v-b-tooltip.hover.top.small
+          size="sm"
+          class="">
+          <template v-slot:button-content>
+            <i class="fas fa-external-link-alt" />
+          </template>
+          <b-dropdown-item
+            :class="{'widget-text-editable--selected': styles['background-size'] === 'cover'}"
+            @click="setBgSize('cover')"> {{ $t('toolbox.cover') }}
+          </b-dropdown-item>
+          <b-dropdown-item
+            :class="{'widget-text-editable--selected': styles['background-size'] === 'contain'}"
+            @click="setBgSize('contain')">
+            {{ $t('toolbox.contain') }}
+          </b-dropdown-item>
+          <b-dropdown-item
+            :class="{'widget-text-editable--selected': styles['background-size'] === 'auto'}"
+            @click="setBgSize('auto')">{{ $t('toolbox.auto') }}
+          </b-dropdown-item>
+        </b-dropdown>
+
+        <b-dropdown
+          :title="$t('toolbox.background_repeat')"
+          v-b-tooltip.hover.top.small
+          size="sm"
+          class="">
+          <template v-slot:button-content>
+            <i class="fas fa-object-ungroup" />
+          </template>
+          <b-dropdown-item
+            :class="{'widget-text-editable--selected': styles['background-repeat'] === 'no-repeat'}"
+            @click="setBgRepeat('no-repeat')">
+            {{ $t('toolbox.no-repeat') }}
+          </b-dropdown-item>
+          <b-dropdown-item
+            :class="{'widget-text-editable--selected': styles['background-repeat'] === 'repeat'}"
+            @click="setBgRepeat('repeat')">
+            {{ $t('toolbox.repeat') }}
+          </b-dropdown-item>
+          <b-dropdown-item
+            :class="{'widget-text-editable--selected': styles['background-repeat'] ===
+                                  'repeat-x'}"
+            @click="setBgRepeat('repeat-x')">
+            {{ $t('toolbox.repeat-x') }}
+          </b-dropdown-item>
+          <b-dropdown-item
+            :class="{'widget-text-editable--selected': styles['background-repeat'] ===
+                                  'repeat-y'}"
+            @click="setBgRepeat('repeat-y')">
+            {{ $t('toolbox.repeat-y') }}
+          </b-dropdown-item>
+        </b-dropdown>
+
+        <b-dropdown
+          :title="$t('toolbox.background_position')"
+          v-b-tooltip.hover.top.small
+          size="sm"
+          class="">
+          <template v-slot:button-content>
+            <i class="fas fa-th" />
+          </template>
+          <div class="px-2" style="width: 320px">
+            <b-form-group>
+              <label> {{ $t('toolbox.background_postion_x') }} </label>
+              <CssInput
+                :units="['%', 'px']"
+                :statics="['center', 'right', 'left']"
+                v-model="backgroundPositionX"
+                @change="setBackgroundPositionX" />
+              <label class="mt-2" > {{ $t('toolbox.background_postion_y') }} </label>
+              <CssInput
+                :units="['%', 'px']"
+                :statics="['center', 'top', 'bottom']"
+                v-model="backgroundPositionY"
+                @change="setBackgroundPositionY" />
+            </b-form-group>
+          </div>
+        </b-dropdown>
+
+        <button :title="$t('toolbox.background_image')"
+                v-b-tooltip.hover.top.small
+                class="btn btn-sm widget-text-editable--toolbox--button"
+                @click="pickBackgroundImage">
+          <i class="fas fa-image" />
+        </button>
+      </template>
+    </div>
+    <div
+      v-if="groups.indexOf('background') > -1"
+      class="widget-text-editable--toolbox--group-separator"></div>
+
+    <!-- Text Settings -->
+    <!-- ---------------------------------------------------------------------------- -->
+    <template
+      v-if="groups.indexOf('text') > -1">
+      <div class="widget-text-editable--toolbox--group">
+        <div
+          class="widget-text-editable--toolbox--group-title">
+          {{ $t('toolbox.text') }}
+        </div>
+
+        <!-- Color -->
+        <b-dropdown
+          :title="$t('toolbox.font-color')"
+          v-b-tooltip.hover.top.small
+          size="sm"
+          class="">
+          <template v-slot:button-content>
+            <i class="fas fa-paint-brush" />
+              <div
+                :style="{'background-color': styles['color']}"
+                class="color-indicator"></div>
+          </template>
+          <b-dropdown-text>
+            <div
+              @click="(e) => {e.stopPropagation()}"
+              aria-labelledby="dropdownMenuButtonColor">
+              <color-picker :value="styles['color']"
+              @input="updateColor">
+              </color-picker>
+            </div>
+          </b-dropdown-text>
+        </b-dropdown>
+
+        <!--Font Family -->
+        <b-dropdown
+          :title="$t('toolbox.font-family')"
+          v-b-tooltip.hover.top.small
+          size="sm"
+          class="">
+          <template v-slot:button-content>
+            <icon name="font"></icon>
+          </template>
+          <b-dropdown-item
+            :class="{'widget-text-editable--selected': styles['font-family'] === 'monospace'}"
+            @click="setFontFamily('monospace')">
+            {{ $t('monospace') }}
+          </b-dropdown-item>
+          <b-dropdown-item
+            :class="{'widget-text-editable--selected': styles['font-family'] === 'serif'}"
+            @click="setFontFamily('serif')">
+            {{ $t('serif') }}
+          </b-dropdown-item>
+          <b-dropdown-item
+            :class="{'widget-text-editable--selected': styles['font-family'] === 'fantasy'}"
+            @click="setFontFamily('fantasy')">
+            {{ $t('fantasy') }}
+          </b-dropdown-item>
+        </b-dropdown>
+
+        <!--Font Size -->
+        <b-dropdown
+          :title="$t('toolbox.font-size')"
+          v-b-tooltip.hover.top.small
+          size="sm"
+          class="">
+          <template v-slot:button-content>
+            <i class="fas fa-text-height" />
+          </template>
+          <b-dropdown-item :class="{'widget-text-editable--selected': styles['font-size'] === '44px'}"
+               @click="setSize('44px')">{{$t('toolbox.x-large')}}</b-dropdown-item>
+          <b-dropdown-item :class="{'widget-text-editable--selected': styles['font-size'] === '18px'}"
+               @click="setSize('18px')">{{$t('toolbox.large')}}</b-dropdown-item>
+          <b-dropdown-item :class="{'widget-text-editable--selected': styles['font-size'] === '16px'}"
+               @click="setSize('16px')">{{$t('toolbox.Medium')}}</b-dropdown-item>
+          <b-dropdown-item :class="{'widget-text-editable--selected': styles['font-size'] === '14px'}"
+               @click="setSize('14px')">{{$t('toolbox.small')}}</b-dropdown-item>
+          <b-dropdown-item :class="{'widget-text-editable--selected': styles['font-size'] === '12px'}"
+               @click="setSize('12px')">{{$t('toolbox.x-small')}}</b-dropdown-item>
+          <b-dropdown-item :class="{'widget-text-editable&#45;&#45;selected':
+                                        styles['font-size'] === '10px'}"
+               @click="setSize('10px')">{{$t('toolbox.xx-small')}}</b-dropdown-item>
+        </b-dropdown>
+        <!-- Bold -->
+        <button :title="$t('toolbox.bold')"
+               v-b-tooltip.hover.top.small
+               @click="toggleBold()"
+               :class="{'widget-text-editable--selected': styles['font-weight'] === 'bold'}"
+               class="btn btn-sm widget-text-editable--toolbox--button">
+          <i class="fas fa-bold" />
+        </button>
+        <!-- UnderLine -->
+        <button :title="$t('toolbox.underline')"
+             v-b-tooltip.hover.top.small
+             @click="toggleTextDecoration()"
+             :class="{'widget-text-editable--selected': styles['text-decoration'] === 'underline'}"
+             class="btn btn-sm widget-text-editable--toolbox--button">
+          <i class="fas fa-underline" />
+        </button>
+        <button :title="$t('toolbox.line-through')"
+             v-b-tooltip.hover.top.small
+             @click="toggleThroughDecoration()"
+             :class="{'widget-text-editable--selected': styles['text-decoration'] === 'line-through'}"
+             class="btn btn-sm widget-text-editable--toolbox--button">
+          <i class="fas fa-strikethrough" />
+        </button>
+
+        <!--Alignment-->
+        <b-dropdown
+          :title="$t('toolbox.alignment')"
+          v-b-tooltip.hover.top.small
+          size="sm"
+          class="">
+          <template v-slot:button-content>
+            <icon name="align-center"></icon>
+          </template>
+          <b-dropdown-item title="align left"
+                           @click="align('left')"
+                           :class="{'widget-text-editable--selected': styles['text-align'] ==
+                                         'left'}">
+            <icon name="align-left"></icon>
+          </b-dropdown-item>
+          <b-dropdown-item title="align right"
+                           @click="align('right')"
+                           :class="{'widget-text-editable--selected': styles['text-align'] ==
+                                         'right'}">
+            <icon name="align-right"></icon>
+          </b-dropdown-item>
+          <b-dropdown-item title="align center"
+                           @click="align('center')"
+                           :class="{'widget-text-editable--selected': styles['text-align'] ==
+                                         'center'}">
+            <icon name="align-center"></icon>
+          </b-dropdown-item>
+          <b-dropdown-item title="align justify"
+                           @click="align('justify')"
+                           :class="{'widget-text-editable--selected': styles['text-align'] ==
+                                         'justify'}">
+            <icon name="align-justify"></icon>
+          </b-dropdown-item>
+        </b-dropdown>
+
+        <!-- Line Space!-->
+        <b-dropdown
+          :title="$t('toolbox.line-space')"
+          v-b-tooltip.hover.top.small
+          size="sm"
+          class="">
+          <template v-slot:button-content>
+            <maizcon name="line-space"></maizcon>
+          </template>
+          <b-dropdown-item :class="{'widget-text-editable--selected': styles['line-height'] === '1em'}"
+                     @click="setLineHeight('1em')">1</b-dropdown-item>
+          <b-dropdown-item :class="{'widget-text-editable--selected': styles['line-height'] === '1.2em'}"
+                     @click="setLineHeight('1.2em')">1.2</b-dropdown-item>
+          <b-dropdown-item :class="{'widget-text-editable--selected': styles['line-height'] === '1.5e'}"
+                     @click="setLineHeight('1.5em')">1.5</b-dropdown-item>
+          <b-dropdown-item :class="{'widget-text-editable--selected': styles['line-height'] === '2em'}"
+                     @click="setLineHeight('2em')">2</b-dropdown-item>
+          <b-dropdown-item :class="{'widget-text-editable--selected': styles['line-height'] === '3em'}"
+                     @click="setLineHeight('3em')">3</b-dropdown-item>
+        </b-dropdown>
+
+        <button :class="{'widget-text-editable--selected': styles['text-indent'] != '0'}"
+                     :title="$t('toolbox.indent')"
+                     v-b-tooltip.hover.top.small
+                     @click="toggleTextIndent()"
+                     class="btn btn-sm widget-text-editable--toolbox--button">
+          <i class="fas fa-indent" />
+        </button>
+
+        <!--TODO: ask reza about direction-->
+        <b-dropdown
+          :title="$t('toolbox.direction')"
+          v-b-tooltip.hover.top.small
+          size="sm"
+          class="">
+          <template v-slot:button-content>
+            <i class="fas fa-exchange-alt"></i>
+          </template>
+          <b-dropdown-item
+            :class="{'widget-text-editable--selected': styles['direction'] === 'auto'}"
+            @click="setDirection('auto')">AUTO</b-dropdown-item>
+          <b-dropdown-item
+            :class="{'widget-text-editable--selected': styles['direction'] === 'rtl'}"
+            @click="setDirection('rtl')">RTL</b-dropdown-item>
+          <b-dropdown-item
+            :class="{'widget-text-editable--selected': styles['direction'] === 'ltr'}"
+            @click="setDirection('ltr')">LTR</b-dropdown-item>
+        </b-dropdown>
+      </div>
+    </template>
+    <div
+      v-if="groups.indexOf('text') > -1"
+      class="widget-text-editable--toolbox--group-separator"></div>
+
+    <!-- Border Settings -->
+    <!-- ---------------------------------------------------------------------------- -->
+    <template
+      v-if="groups.indexOf('border') > -1">
+      <div class="widget-text-editable--toolbox--group">
+        <div
+          class="widget-text-editable--toolbox--group-title">
+          {{ $t('toolbox.border') }}
+        </div>
+        <b-dropdown
+          :title="$t('toolbox.border-color')"
+          v-b-tooltip.hover.top.small
+          size="sm"
+          class="">
+          <template v-slot:button-content>
+            <maizcon name="border-color"></maizcon>
+            <div
+              :style="{'background-color': styles['border-color']}"
+              class="color-indicator"></div>
+          </template>
+          <b-dropdown-text
+            @click="(e) => {e.stopPropagation()}"
+            aria-labelledby="dropdownMenuButtonBorderColor">
+            <color-picker :value="styles['border-color']"
+            @input="updateBorderColor">
+            </color-picker>
+          </b-dropdown-text>
+        </b-dropdown>
+
+        <b-dropdown
+          :title="$t('toolbox.border-width')"
+          v-b-tooltip.hover.top.small
+          size="sm"
+          class="">
+          <template v-slot:button-content>
+            <i class="far fa-square" />
+          </template>
+          <div class="px-2">
+            <CssInput
+              :units="['px']"
+              v-model="styles['border-width']"
+              @change="setBorderWidth" />
+          </div>
+        </b-dropdown>
+
+        <b-dropdown
+          :title="$t('toolbox.border-style')"
+          v-b-tooltip.hover.top.small
+          size="sm"
+          class="">
+          <template v-slot:button-content>
+            <maizcon name="border-style"></maizcon>
+          </template>
+          <b-dropdown-item :class="{'widget-text-editable--selected': styles['border-style']
+                                   === 'none'}"
+                     @click="setBorderStyle('none')">{{ $t('none') }}</b-dropdown-item>
+          <b-dropdown-item :class="{'widget-text-editable--selected': styles['border-style']
+                                   === 'solid'}"
+                     @click="setBorderStyle('solid')">{{ $t('solid') }}</b-dropdown-item>
+          <b-dropdown-item :class="{'widget-text-editable--selected': styles['border-style']
+                                   === 'dashed'}"
+                     @click="setBorderStyle('dashed')">{{ $t('dashed') }}</b-dropdown-item>
+          <b-dropdown-item :class="{'widget-text-editable--selected': styles['border-style']
+                                   === 'double'}"
+                     @click="setBorderStyle('double')">{{ $t('double') }}</b-dropdown-item>
+          <b-dropdown-item :class="{'widget-text-editable--selected': styles['border-style']
+                                   === 'dotted'}"
+                     @click="setBorderStyle('dotted')">{{ $t('dotted') }}</b-dropdown-item>
+        </b-dropdown>
+
+      </div>
+    </template>
+    <div
+      v-if="groups.indexOf('border') > -1"
+      class="widget-text-editable--toolbox--group-separator"></div>
+
+    <!-- General Settings -->
+    <!-- ---------------------------------------------------------------------------- -->
+    <template
+      v-if="groups.indexOf('general') > -1">
+      <div class="widget-text-editable--toolbox--group">
+        <div
+          class="widget-text-editable--toolbox--group-title">
+          {{ $t('toolbox.general') }}
+        </div>
+
+        <b-dropdown
+          :title="$t('toolbox.opacity')"
+          v-b-tooltip.hover.top.small
+          size="sm"
+          class="">
+          <template v-slot:button-content>
+            <icon name="burn"></icon>
+          </template>
+          <div class="px-2">
+            <CssInput
+              :units="[]"
+              :nounit="true"
+              :min="0"
+              :max="1"
+              :step=".1"
+              :range="true"
+              v-model="styles['opacity']"
+              @change="setOpacityColor" />
+          </div>
+        </b-dropdown>
+
+        <b-dropdown
+          :title="$t('toolbox.border_radius')"
+          v-b-tooltip.hover.top.small
+          size="sm"
+          class="">
+          <template v-slot:button-content>
+            <i class="fas fa-circle-notch" />
+          </template>
+          <div class="px-2">
+            <CssInput
+              :units="['px', '%']"
+              v-model="styles['border-radius']"
+              @change="setBorderRadius" />
+          </div>
+        </b-dropdown>
+
+        <b-dropdown
+          :title="$t('toolbox.width')"
+          v-b-tooltip.hover.top.small
+          size="sm"
+          class="">
+          <template v-slot:button-content>
+            <maizcon name="width"></maizcon>
+          </template>
+          <div class="px-2">
+            <CssInput
+              unit="%"
+              :units="['px', '%']"
+              v-model="styles['width']"
+              @change="setWidth" />
+          </div>
+        </b-dropdown>
+
+        <b-dropdown
+          :title="$t('toolbox.height')"
+          v-b-tooltip.hover.top.small
+          size="sm"
+          class="">
+          <template v-slot:button-content>
+            <maizcon name="height"></maizcon>
+          </template>
+          <div class="px-2">
+            <CssInput
+              unit="%"
+              :units="['px', '%']"
+              v-model="styles['height']"
+              @change="setHeight" />
+          </div>
+        </b-dropdown>
+
+        <b-dropdown
+          :title="$t('toolbox.margin')"
+          v-b-tooltip.hover.top.small
+          size="sm"
+          class="">
+          <template v-slot:button-content>
+            <maizcon name="margin"></maizcon>
+          </template>
+          <div
+            class="px-2"
+            @click="(e) => {e.stopPropagation()}" >
+            <label> {{ $t('toolbox.padding_y') }} </label>
+            <CssInput
+              :units="['px', '%']"
+              v-model="styles['padding-top']"
+              @change="setPaddingY" />
+            <label> {{ $t('toolbox.padding_x') }} </label>
+            <CssInput
+              :units="['px', '%']"
+              v-model="styles['padding-right']"
+              @change="setPaddingX" />
+            <label class="mt-3"> {{ $t('toolbox.margin_y') }} </label>
+            <CssInput
+              :units="['px', '%']"
+              v-model="styles['margin-top']"
+              @change="setMarginY" />
+            <label> {{ $t('toolbox.margin_x') }} </label>
+            <CssInput
+              :units="['px', '%']"
+              v-model="styles['margin-right']"
+              @change="setMarginX" />
+          </div>
+        </b-dropdown>
+      </div>
+    </template>
+
+    <b-button @click="hide"
+              class="btn btn-sm btn-outline-danger float-right widget-text-editable--toolbox--close">
+      <icon name="times"></icon>
+    </b-button>
+  </div>
 </template>
 <script>
 import maizcon from '../partial/MaizeCon.vue'
 import { EventBus } from '../../events/event-bus'
-import CssInput from './CssInput.vue'
-// import { Material, Compact, Swatches, Slider, Sketch, Chrome, Photoshop } from 'vue-color'
 import { Sketch } from 'vue-color'
-// import CssInput from './CssInput'
+import CssInput from './CssInput.vue'
 export default {
   name: 'EditablePartToolbox',
   components: {
     CssInput,
     'maizcon': maizcon,
     'color-picker': Sketch
-    // 'compact-picker': Compact,
-    // 'swatches-picker': Swatches,
-    // 'slider-picker': Slider,
-    // 'sketch-picker': Sketch,
-    // 'chrome-picker': Chrome,
-    // 'photoshop-picker': Photoshop
   },
   data () {
     return {

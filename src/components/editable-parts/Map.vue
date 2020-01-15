@@ -4,8 +4,8 @@
        @mouseleave="mouseLeaveElement"
        @dblclick="setPickMapMode"
        :class="{
-       'editable-active': editMode,
-       'under-edit': toolboxVisible}">
+               'editable-active': editMode,
+               'under-edit': toolboxVisible}">
     <iframe class="map"
             :class="cssClass"
             :src="touchedData.frameSrc"

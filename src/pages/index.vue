@@ -6,8 +6,7 @@
             'editor-page-mobile-preview-mode': mobilePreviewMode, 
             'editor-page-tablet-preview-mode':tabletPreviewMode
             }">
-    <!--<page-toolbox></page-toolbox>-->
-    <global-page-toolbox></global-page-toolbox>
+    <PageHeader></PageHeader>
     <Preview v-show="previewMode"/>
     <div  v-show="!previewMode" class="wrapper">
       <nav id="sidebar"
@@ -80,24 +79,29 @@
 </template>
 
 <script>
-import editor from '../mixins/editorpage'
 import draggable from 'vuedraggable'
 import ModalSettings from '../components/partial/ModalSettings'
 import Preview from '../components/partial/Preview'
 import Modal from '../components/partial/Modal'
 import Widgets from '../components//widgets'
 import WidgetList from '../components/partial/WidgetList'
+import PageHeader from '../components/partial/PageHeader.vue'
+import AddWidget from '../components/partial/AddWidget'
+import ModalWidgetList from '../components/partial/ModalWidgetList'
 
 export default {
   name: 'EditorPage',
-  mixins: [editor],
   components: {
     Modal,
     Preview,
     draggable,
     ModalSettings,
     ...Widgets,
-    WidgetList
+    WidgetList,
+    Widgets, 
+    AddWidget, 
+    ModalWidgetList, 
+    PageHeader
   },
   data () {
     return {

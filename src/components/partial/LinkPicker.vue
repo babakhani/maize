@@ -21,9 +21,9 @@
       <div class="form-group">
         <label>{{ $t('settings.page_sections') }}</label>
         <b-form-select 
-          @change="updatePreData"
-          v-model="pickLink" 
-          class="mb-3">
+           @change="updatePreData"
+           v-model="pickLink" 
+           class="mb-3">
           <option v-for="widget in currentWidgetList"
                   :value="`#${widget.uniqeId}`">{{ widget.uniqeId }}</option> 
         </b-form-select>
@@ -36,7 +36,7 @@
 import { EventBus } from '../../events/event-bus'
 
 export default {
-  name: 'LinkPickerModal',
+  name: 'LinkPicker',
   data () {
     return {
       pickLink: null
@@ -58,7 +58,7 @@ export default {
   },
   computed: {
     currentWidgetList () {
-        return this.$store.state.main.currentWidgetList
+      return this.$store.state.main.currentWidgetList
     }
   }
 }

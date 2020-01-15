@@ -2,9 +2,7 @@
   <div class="preview">
     <Frame
       ref="frame"
-      :style="{
-              width: `${previewSize}`,
-              }"
+      :style="{ width: `${previewSize}` }"
       :class="previewMode"
       class="preview-frame">
     <FrameChild>
@@ -36,8 +34,7 @@ export default {
   mounted () {
     let that = this
     EventBus.$on('downloadHtml', event => {
-      that.makeExportableDownload()
-    })
+      that.makeExportableDownload() })
   },
   data () {
     return {

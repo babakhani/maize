@@ -2,8 +2,8 @@
   <div
     class="editable-part editable-background"
     :class="{
-    'editable-active': editMode,
-    'under-edit': toolboxVisible}">
+            'editable-active': editMode,
+            'under-edit': toolboxVisible}">
     <button v-if="editMode"
             class="btn btn-link no-outline editable-part settings-btn"
             :title="$t('toolbox.bg_settings')"
@@ -12,11 +12,11 @@
       <icon name="cog"></icon>
     </button>
     <EditablePartToolbox
-          :groups="['backgroundimage', 'background', 'border', 'general']"
-          @update="updateStyles"
-          :currentStyles="touchedData.styles"
-          v-if="toolboxVisible"
-          @hide="hideToolbox"></EditablePartToolbox>
+      :groups="['backgroundimage', 'background', 'border', 'general']"
+      @update="updateStyles"
+      :currentStyles="touchedData.styles"
+      v-if="toolboxVisible"
+      @hide="hideToolbox"></EditablePartToolbox>
     <div v-bind:style="touchedData.styles">
       <slot></slot>
     </div>

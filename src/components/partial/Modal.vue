@@ -44,7 +44,7 @@ import ImagePicker from './ImagePicker'
 import MapPicker from './MapPicker'
 
 export default {
-  name: 'ModalSettings',
+  name: 'PickersModal',
   data () { return { 
     widgetData: null
   }},
