@@ -43,3 +43,24 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+
+.editable-background {
+  background: $white;
+  .settings-btn {
+    position: absolute;
+    height: 3em;
+    width: 3em;
+    z-index: 1000;
+  }
+  .editor-page-preview-mode & {
+    border-top: 0;
+    .editable-part--settings-btn {
+      display: none;
+    }
+  }
+}
+
+
+</style>

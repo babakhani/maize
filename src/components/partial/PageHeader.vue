@@ -231,3 +231,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.navbar{
+  .custom-control-label{
+    padding-top: 3px;
+    vertical-align: middle;
+  }
+}
+</style>

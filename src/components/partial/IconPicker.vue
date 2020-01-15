@@ -54,3 +54,29 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" >
+.icon-selector {
+  .icon-selector--item {
+    display: block;
+    width: 1.8em;
+    height: 1.8em;
+    position: relative;
+    &:hover {
+      background: rgba($primary-color, .1);
+      cursor: pointer;
+      outline: 2px solid $primary-color;
+    }
+    &.selected {
+      outline: 2px solid $primary-color;
+      background: rgba($primary-color, .1);
+    }
+    i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+</style>

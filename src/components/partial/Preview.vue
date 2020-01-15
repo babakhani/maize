@@ -107,3 +107,21 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.preview {
+  background: #f1f1f1;
+  .preview-frame {
+    max-width: 100%;
+    box-shadow: 0 0 3px 1px rgba(0,0,0,0.35);
+    display: block;
+    float: none;
+    margin: 0 auto;
+    width: 100%;
+    height: calc(100vh - 68px);
+    &.desktop {
+      height: calc(100vh - 68px);
+    }
+  }
+}
+</style>

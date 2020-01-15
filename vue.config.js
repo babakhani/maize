@@ -1,4 +1,11 @@
 module.exports = {
   runtimeCompiler: true,
-  lintOnSave: false
+  lintOnSave: false,
+  css: {
+    loaderOptions: {
+      scss: {
+        prependData: `@import "@/sass/settings.scss";`
+      }
+    }
+  }
 }

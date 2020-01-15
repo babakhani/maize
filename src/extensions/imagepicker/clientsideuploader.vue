@@ -58,3 +58,79 @@ export default {
   }
 }
 </script>
+<style scoped lang="scss">
+.image-uploader-tab {
+  height: calc(100% - 160px);
+}
+.upload-image-widget {
+  position: relative;
+  border: 2px dashed #cccccc;
+  color: #bfbfbf;
+  background: #f8f8f8;
+  //padding: 5%;
+  height: 100%;
+  overflow: auto;
+  text-align: center;
+  .upload-image-widget--empty-state {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  span,
+  h4,
+  h6 {
+    color: #777;
+  }
+  button {
+    position: relative;
+    cursor: pointer !important;
+  }
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer !important;
+  }
+
+  .upload-image-widget--box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 56.25%;
+    @media (min-width: 1024px) {
+      padding-top: 30%;
+      height: 100%;
+      top: 0;
+    }
+  }
+  .upload-image-widget--box--image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 100%;
+    max-width: 100%;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    display: block;
+    opacity: 1;
+    &.upload-image-widget--default {
+      opacity: 0;
+    }
+  }
+  svg {
+    &.upload-image-widget--icon {
+      width: 100px;
+      height: 2.2em;
+    }
+  }
+}
+</style>

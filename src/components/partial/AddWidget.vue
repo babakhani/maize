@@ -35,3 +35,74 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" >
+.add-widget-box {
+
+  margin: 1em;
+
+  .add-widget-box--card {
+    margin-bottom: 5.5em;
+  }
+
+  .editor-page-preview-mode & {
+    display: none;
+  }
+
+  .add-widget-box--main {
+    border-radius: 30px;
+    width: 20em;
+    height: 20em;
+    cursor: pointer;
+    background: rgba($primary-color, 0.03);
+    position: relative;
+    border: 0;
+
+    &:hover {
+      background: rgba($primary-color, 0.07);
+    }
+
+    .add-widget-box--main--details {
+      text-align: center;
+      top: 2em;
+      left: 2em;
+      right: 2em;
+      bottom: 2em;
+      position: absolute;
+      .center-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .btn-add-widget {
+        position: relative;
+        cursor: pointer;
+        width: 1.5em;
+        height: 1.5em;
+        border: 2px solid $primary-color;
+        border-radius: 100%;
+        box-shadow: 0 2px 4px 0 rgba($primary-color, 0.5);
+        font-size: 5em;
+        &:hover {
+          border-color: $primary-color;
+        }
+        .fa-icon {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50% );
+          color: $primary-color;
+        }
+      }
+      .text-add-widget {
+        font-size: 16px;
+        border-color: $primary-color;
+        margin-top: 15px;
+        font-weight: normal;
+      }
+    }
+  }
+}
+</style>

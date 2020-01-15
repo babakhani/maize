@@ -22,15 +22,12 @@
   display: block !important;
   position: absolute;
   z-index: 1000;
-  //width: 50%;
-  //TODO: Reza: plz checke it
   min-width: 42%;
   background: rgba(0, 0, 0, .9);
   border-top-left-radius: 100px;
   border-bottom-left-radius: 100px;
   min-height: 32px;
   padding-left: 1em;
-  //border:  2px dashed red !important;
 
   .tooltip-inner {
     background: transparent;
