@@ -38,7 +38,7 @@
           v-for="(item, index) in groupedWidgetList"
           :key="index">
           <WidgetList
-            v-if="index == currentListIndex"
+            v-if="delayedSidebarPreview && index == currentListIndex"
             :widget-list="item.widgets" />
         </div>
       </nav>
@@ -105,10 +105,24 @@ export default {
   },
   data () {
     return {
+      sidebarPreviewDelaytimer: null,
+      delayedSidebarPreview: false,
       currentListIndex: 0
     }
   },
+  beforeDestroy () {
+    clearTimeout(this.sidebarPreviewDelaytimer)
+  },
   methods: {
+    showSidebarWithDelay () {
+      if (this.$store.state.layout.pageSideBarIsActive) {
+        clearTimeout(this.sidebarPreviewDelaytimer)
+        this.sidebarPreviewDelaytimer = setTimeout(() => {
+          this.delayedSidebarPreview = true
+        }, 0)
+        this.delayedSidebarPreview = false 
+      }
+    },
     hideSidebar () {
       this.$store.dispatch('layout/setPageSideBarIsActive', false)
     }
@@ -124,6 +138,7 @@ export default {
       return this.$store.state.layout.modalDefaultData
     },
     pageSideBarIsActive () {
+      this.showSidebarWithDelay()
       return this.$store.state.layout.pageSideBarIsActive
     },
     previewMode () {
