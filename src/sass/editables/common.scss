@@ -15,7 +15,7 @@ $icon-size: 1.6em;
   
   &.under-edit,
   &.under-edit:hover {
-     transition: 100ms all linear;
+     transition: 20ms all linear;
      outline: 5px dashed rgba($primary-color, .6) !important;
   }
 
