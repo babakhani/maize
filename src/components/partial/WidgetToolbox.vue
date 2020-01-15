@@ -4,7 +4,7 @@
     class="widget-block--toolbox">
     <nav class="navbar-expand-lg navbar py-0 my-0 px-1 mx-1">
       <span class="navbar-text">
-        {{ $parent.$options.name}}
+        {{ sanitizedName }}
       </span>
       <div class="collapse navbar-collapse" >
       <ul class="navbar-nav ml-auto">
@@ -72,7 +72,8 @@ export default {
   name: 'WidgetToolbox',
   data () {
     return {
-      showTools: true
+      showTools: true,
+      sanitizedName: this.$parent.$options.name.replace('_', ' ')
     }
   },
   props: {
