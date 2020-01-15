@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/maize/demo/precache-manifest.c21f91fbb41b832fda8d60233fb1a747.js"
+  "/maize/demo/precache-manifest.30fceb1b3548b57ef0fa2740e8dfae51.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "newmaze"});
