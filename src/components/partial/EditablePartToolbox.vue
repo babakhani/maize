@@ -4,6 +4,23 @@
     @dblclick="(e) => {e.stopPropagation()}"
     class="widget-text-editable--toolbox">
     <div
+      v-if="visibileTextSelector"
+      class="widget-text-editable--toolbox--group">
+      <button :title="$t('toolbox.image_picker')"
+      v-b-tooltip.hover.top.small
+      @click="pickText"
+      class="btn btn-sm widget-text-editable--toolbox--button">
+        <i class="fas fa-life-ring" />
+      </button>
+      <div
+        class="widget-text-editable--toolbox--group-title">
+        {{ $t('toolbox.text') }}
+      </div>
+    </div>
+    <div
+      v-if="visibileTextSelector"
+      class="widget-text-editable--toolbox--group-separator"></div>
+    <div
       v-if="visibileImageSelector"
       class="widget-text-editable--toolbox--group">
       <button :title="$t('toolbox.image_picker')"
@@ -605,6 +622,10 @@ export default {
       default: false,
       required: false
     },
+    visibileTextSelector: {
+      default: false,
+      required: false
+    },
     visibileImageSelector: {
       default: false,
       required: false
@@ -648,6 +669,18 @@ export default {
     this.styles = this._.extend(this.styles, this.currentStyles)
   },
   methods: {
+    pickText () {
+      this.$store.dispatch('layout/setModalView', {
+        name: 'text',
+        data: this.editableData
+      })
+      EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
+        if (widgetData && widgetData.text) {
+          this.$emit('updatewidget', widgetData)
+        }
+      })
+      return false
+    },
     pickImage () {
       this.$store.dispatch('layout/setModalView', {
         name: 'image',
@@ -923,7 +956,7 @@ export default {
   background: rgba($black, .95);
   position: fixed !important;
   border-radius: 0;
-  bottom: 0; 
+  bottom: 0;
   left: 0;
   right: 0;
   padding: 0;
@@ -982,7 +1015,7 @@ export default {
     .dropdown-toggle::after {
       display: none;
     }
-    
+
     .input-group {
       width: 100%;
       min-width: 160px;
@@ -1128,7 +1161,6 @@ export default {
       }
     }
   }
-
 
   input[type=color] {
     border: 0;

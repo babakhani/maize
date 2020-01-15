@@ -6,6 +6,7 @@
                'editable-active': editMode,
                'under-edit': toolboxVisible}">
     <EditablePartToolbox
+      :visibile-text-selector="true"
       :visibile-link-selector="tag === 'a'"
       :toolbox-visible="toolboxVisible"
       :currentStyles="touchedData.styles"

@@ -19,6 +19,10 @@
         {{ $t('modal.ok') }}
       </b-button>
     </template>
+    <TextPicker
+        @hide="hide"
+        v-model="widgetData.text"
+        v-if="modalName == 'text'" />
     <MapPicker
         v-model="widgetData.frameSrc"
         v-if="modalName == 'map'" />
@@ -42,13 +46,17 @@ import IconPicker from './IconPicker'
 import LinkPicker from './LinkPicker'
 import ImagePicker from './ImagePicker'
 import MapPicker from './MapPicker'
+import TextPicker from './TextPicker'
 
 export default {
   name: 'PickersModal',
-  data () { return { 
-    widgetData: null
-  }},
+  data () {
+    return {
+      widgetData: null
+    }
+  },
   components: {
+    TextPicker,
     MapPicker,
     ImagePicker,
     IconPicker,
@@ -76,7 +84,10 @@ export default {
   },
   computed: {
     widgetDataTrigger () {
+      /* eslint-disable */
       this.widgetData = this._.cloneDeep(this.$store.state.layout.modalDefaultData)
+      /* eslint-enable */
+      return this.widgetData
     },
     modalName () {
       return this.$store.state.layout.modalName
