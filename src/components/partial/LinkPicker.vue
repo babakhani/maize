@@ -1,9 +1,13 @@
 <template>
-  <b-tabs card>
+  <b-tabs 
+    vertical
+    pills
+    no-fade
+    card>
     <b-tab active>
       <template slot="title">
         <icon class="upload-image-icon"
-              name="images"></icon>
+              name="link"></icon>
         <strong> {{ $t('modal.pick_link') }}</strong>
       </template>
       <div class="form-group">
