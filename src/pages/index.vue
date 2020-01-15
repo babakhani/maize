@@ -8,78 +8,74 @@
             }">
     <!--<page-toolbox></page-toolbox>-->
     <global-page-toolbox></global-page-toolbox>
-
-    <template v-if="previewMode">
-      <Preview />
-    </template>
-    <template v-else>
-      <div class="wrapper">
-        <nav id="sidebar"
-             v-if="pageSideBarIsActive"
-             :class="{'active': !pageSideBarIsActive}"
-             class="editable-part-sidebar w-25">
-          <b-button-group size="sm" class="w-100 mb-3">
-            <b-dropdown
-              :text="groupedWidgetList[currentListIndex].title"
-              variant="outline-primary"
-              class="w-100">
-              <b-dropdown-item
-                value="index"
-                class="w-100"
-                @click="currentListIndex = index"
-                :key="index"
-                v-for="(item, index) in groupedWidgetList" >
-                {{ item.title }}
-              </b-dropdown-item>
-            </b-dropdown>
-            <!--<b-button -->
-              <!--variant="outline-danger"-->
-              <!--@click="hideSidebar"-->
-              <!--class="btn-sm" >-->
-              <!--<icon name="times" />-->
-            <!--</b-button>-->
-          </b-button-group>
-          <div
-            v-for="(item, index) in groupedWidgetList"
-            :key="index">
-            <WidgetList
-              v-if="index == currentListIndex"
-              :widget-list="item.widgets" />
-          </div>
-        </nav>
+    <Preview v-show="previewMode"/>
+    <div  v-show="!previewMode" class="wrapper">
+      <nav id="sidebar"
+           v-if="pageSideBarIsActive"
+           :class="{'active': !pageSideBarIsActive}"
+           class="editable-part-sidebar w-25">
+        <b-button-group size="sm" class="w-100 mb-3">
+          <b-dropdown
+            :text="groupedWidgetList[currentListIndex].title"
+            variant="outline-primary"
+            class="w-100">
+            <b-dropdown-item
+              value="index"
+              class="w-100"
+              @click="currentListIndex = index"
+              :key="index"
+              v-for="(item, index) in groupedWidgetList" >
+              {{ item.title }}
+            </b-dropdown-item>
+          </b-dropdown>
+          <!--<b-button -->
+          <!--variant="outline-danger"-->
+          <!--@click="hideSidebar"-->
+          <!--class="btn-sm" >-->
+          <!--<icon name="times" />-->
+          <!--</b-button>-->
+        </b-button-group>
         <div
-          :class="{
-                    'plotarea-width-sidebar': pageSideBarIsActive,
-                    'px-4': !previewMode,
-                    'w-100': !pageSideBarIsActive,
-                    'w-75': pageSideBarIsActive
-                    }"
-          class="plotarea float-right mr-0">
-          <draggable
+          v-for="(item, index) in groupedWidgetList"
+          :key="index">
+          <WidgetList
+            v-if="index == currentListIndex"
+            :widget-list="item.widgets" />
+        </div>
+      </nav>
+      <div
+        :class="{
+                 'plotarea-width-sidebar': pageSideBarIsActive,
+                 'px-4': !previewMode,
+                 'w-100': !pageSideBarIsActive,
+                 'w-75': pageSideBarIsActive
+                 }"
+        class="plotarea float-right mr-0">
+        <draggable
           v-model="currentWidgetList"
           :options="{handle:'.widget-drag-handle'}"
           group="pagewidget">
-          <div v-for="widget in currentWidgetList"
-               :key="widget.uniqeId">
-            <component :is="widget.name"
-               class="widget-block"
-               :class="{'container': (widget.data && widget.data.config) ?
-               !widget.data.config.fullWidth : false }"
-               :edit-mode="!$store.state.main.previewMode"
-               :widgetData="widget.data"
-               :uniqeKey="widget.uniqeId">
-            </component>
-          </div>
-          </draggable>
-          <AddWidget>
-          <div class="blocks-area"></div>
-          </AddWidget>
+        <div v-for="widget in currentWidgetList"
+             :key="widget.uniqeId">
+          <component :is="widget.name"
+             class="widget-block"
+             :class="{'container': (widget.data && widget.data.config) ?
+                     !widget.data.config.fullWidth : false }"
+             :edit-mode="!$store.state.main.previewMode"
+             :widgetData="widget.data"
+             :uniqeKey="widget.uniqeId">
+          </component>
         </div>
+        </draggable>
+        <AddWidget>
+        <div class="blocks-area"></div>
+        </AddWidget>
       </div>
+
       <Modal> </Modal>
       <ModalWidgetList></ModalWidgetList>
       <ModalSettings></ModalSettings>
-    </template>
+    </div>
   </div>
 </template>
 
