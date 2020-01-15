@@ -9,13 +9,25 @@
       <div class="collapse navbar-collapse" >
       <ul class="navbar-nav ml-auto">
         <li
-          class="nav-item mr-lg-3">
+          class="nav-item">
           <button v-if="showTools"
                   tabindex="-1"
-                  :title="$t('toolbox.drag')"
+                  @click="$parent.deleteWidget"
+                  :title="$t('toolbox.delete')"
                   v-b-tooltip.hover.top
-                  class="btn btn-link widget-block--toolbox-btn widget-drag-handle">
-            <icon name="arrows-alt"></icon>
+                  class="btn btn-link widget-block--toolbox-btn">
+            <icon name="trash"></icon>
+          </button>
+        </li>
+        <li
+          class="nav-item">
+          <button v-if="showTools"
+                  tabindex="-1"
+                  @click="$parent.toggleFullWidth"
+                  :title="$t('toolbox.full_width')"
+                  v-b-tooltip.hover.top
+                  class="btn btn-link widget-block--toolbox-btn">
+            <icon name="arrows-alt-h"></icon>
           </button>
         </li>
         <li
@@ -44,22 +56,10 @@
           class="nav-item">
           <button v-if="showTools"
                   tabindex="-1"
-                  @click="$parent.toggleFullWidth"
-                  :title="$t('toolbox.full_width')"
+                  :title="$t('toolbox.drag')"
                   v-b-tooltip.hover.top
-                  class="btn btn-link widget-block--toolbox-btn">
-            <icon name="arrows-alt-h"></icon>
-          </button>
-        </li>
-        <li
-          class="nav-item">
-          <button v-if="showTools"
-                  tabindex="-1"
-                  @click="$parent.deleteWidget"
-                  :title="$t('toolbox.delete')"
-                  v-b-tooltip.hover.top
-                  class="btn btn-link widget-block--toolbox-btn">
-            <icon name="trash"></icon>
+                  class="btn btn-link widget-block--toolbox-btn widget-drag-handle">
+            <icon name="arrows-alt"></icon>
           </button>
         </li>
       </ul>

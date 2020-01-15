@@ -14,6 +14,15 @@
 <script>
 export default {
   name: 'App',
+  created(){
+    let htmlEl = document.querySelector("html")
+    htmlEl.setAttribute('dir', window.CONFIG.direction)
+    htmlEl.setAttribute('lang', window.CONFIG.locale)
+    let bootstrapCss = document.getElementById('bootstrapCss')
+    if (window.CONFIG.direction === 'rtl') {
+       bootstrapCss.href = '/lib/bootstrap-rtl.min.css'
+    }
+  },
   methods: {
     changeLanguage (lang) {
       this.$store.dispatch('locale/changeLang', lang)
