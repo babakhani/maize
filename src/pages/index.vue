@@ -119,8 +119,9 @@ export default {
         clearTimeout(this.sidebarPreviewDelaytimer)
         this.sidebarPreviewDelaytimer = setTimeout(() => {
           this.delayedSidebarPreview = true
-        }, 0)
-        this.delayedSidebarPreview = false 
+        }, 100)
+      } else {
+        this.delayedSidebarPreview = false
       }
     },
     hideSidebar () {
