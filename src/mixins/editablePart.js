@@ -32,6 +32,10 @@ const Mixin = {
         this.partData.cssClass = this.cssClass
         this.touchedData = this.partData
         this.touchedText = this.partData.text
+        if (this.partData.animate) {
+        } else {
+          this.touchedData.animate = {}
+        }
       }
     },
     mouseLeaveElement (e) {
@@ -134,7 +138,9 @@ const Mixin = {
       showToolboxButton: false,
       toolboxVisible: false,
       src: null,
-      touchedData: {},
+      touchedData: {
+        animate: {}
+      },
       underEditModeProps: false
     }
   },

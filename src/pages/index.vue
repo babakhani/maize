@@ -7,7 +7,7 @@
             'editor-page-tablet-preview-mode':tabletPreviewMode
             }">
     <PageHeader></PageHeader>
-    <Preview v-show="previewMode"/>
+    <Preview v-if="previewMode"/>
     <div  v-show="!previewMode" class="wrapper">
       <nav id="sidebar"
            v-if="pageSideBarIsActive"
@@ -20,7 +20,6 @@
             class="w-100">
             <b-dropdown-item
               value="index"
-              class="w-100"
               @click="currentListIndex = index"
               :key="index"
               v-for="(item, index) in groupedWidgetList" >

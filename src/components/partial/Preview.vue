@@ -1,6 +1,7 @@
 <template>
   <div class="preview">
     <Frame
+      :srcdoc-enabled="true"
       ref="frame"
       :style="{ width: `${previewSize}` }"
       :class="previewMode"
@@ -34,11 +35,12 @@ export default {
   mounted () {
     let that = this
     EventBus.$on('downloadHtml', event => {
-      that.makeExportableDownload() })
+      that.makeExportableDownload()
+    })
   },
   data () {
     return {
-      imagesFiles: [] 
+      imagesFiles: []
     }
   },
   methods: {
@@ -54,7 +56,7 @@ export default {
             this.imagesFiles.push({
               base64: sanitizedbase64,
               name: imageName
-            }) 
+            })
             item.src = `images/${imageName}`
           }
         })
@@ -64,23 +66,23 @@ export default {
     },
     download (filename, html) {
       var zip = new JSZip()
-      zip.file("index.html", html)
+      zip.file('index.html', html)
       if (this.imagesFiles.length > 0) {
-        var img = zip.folder("images");
-        this._.each(this.imagesFiles,  (item) => {
-          img.file(item.name, item.base64, {base64: true});
+        var img = zip.folder('images')
+        this._.each(this.imagesFiles, (item) => {
+          img.file(item.name, item.base64, { base64: true })
         })
       }
-      zip.generateAsync({type:"blob"}).then(function(content) {
-        saveAs(content, "maize.zip");
-      });
-      //var element = document.createElement('a')
-      //element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
-      //element.setAttribute('download', filename)
-      //element.style.display = 'none'
-      //document.body.appendChild(element)
-      //element.click()
-      //document.body.removeChild(element)
+      zip.generateAsync({ type: 'blob' }).then(function (content) {
+        saveAs(content, 'maize.zip')
+      })
+      // var element = document.createElement('a')
+      // element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
+      // element.setAttribute('download', filename)
+      // element.style.display = 'none'
+      // document.body.appendChild(element)
+      // element.click()
+      // document.body.removeChild(element)
     }
   },
   computed: {

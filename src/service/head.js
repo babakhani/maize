@@ -58,11 +58,6 @@ export default (settings) => {
         type="text/javascript" 
         crossorigin="anonymous"
         src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
-  <script>
-    $(document).ready(() => {
-       AOS.init();
-    })
-  </script>
   <script 
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         type="text/javascript" 
@@ -73,6 +68,11 @@ export default (settings) => {
         type="text/javascript" 
         crossorigin="anonymous"
         src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+  <script>
+    $(document).ready(() => {
+       AOS.init();
+    })
+  </script>
   ${settings.hotjarScript ? settings.hotjarScript : ''}
   ${settings.gaScript ? settings.gaScript : ''}
 `

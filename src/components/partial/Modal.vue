@@ -19,6 +19,10 @@
         {{ $t('modal.ok') }}
       </b-button>
     </template>
+    <AnimatePicker
+        @hide="hide"
+        v-model="widgetData.animate"
+        v-if="modalName == 'animate'" />
     <TextPicker
         @hide="hide"
         v-model="widgetData.text"
@@ -47,6 +51,7 @@ import LinkPicker from './LinkPicker'
 import ImagePicker from './ImagePicker'
 import MapPicker from './MapPicker'
 import TextPicker from './TextPicker'
+import AnimatePicker from './AnimatePicker'
 
 export default {
   name: 'PickersModal',
@@ -56,6 +61,7 @@ export default {
     }
   },
   components: {
+    AnimatePicker,
     TextPicker,
     MapPicker,
     ImagePicker,

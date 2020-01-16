@@ -1,6 +1,7 @@
 <template>
   <div class="editable-text editable-part"
        @mouseenter="mouseInElement"
+       :data-aos="touchedData.animate"
        @mouseleave="mouseLeaveElement"
        :class="{
                'editable-active': editMode,

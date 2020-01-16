@@ -73,6 +73,26 @@
       v-if="visibileLinkSelector"
       class="widget-text-editable--toolbox--group-separator"></div>
 
+    <!-- Animate Settings -->
+    <!-- ---------------------------------------------------------------------------- -->
+    <div
+      v-if="groups.indexOf('background') > -1"
+      class="widget-text-editable--toolbox--group">
+      <div
+        class="widget-text-editable--toolbox--group-title">
+        {{ $t('toolbox.animate') }}
+      </div>
+      <button :title="$t('toolbox.bold')"
+        v-b-tooltip.hover.top.small
+        @click="setAnimate()"
+        :class="{'widget-text-editable--selected': styles['font-weight'] === 'bold'}"
+        class="btn btn-sm widget-text-editable--toolbox--button">
+        <i class="fas fa-forward" />
+      </button>
+    </div>
+    <div
+      class="widget-text-editable--toolbox--group-separator"></div>
+
     <!-- Background Settings -->
     <!-- ---------------------------------------------------------------------------- -->
     <div
@@ -608,7 +628,31 @@ export default {
   data () {
     return {
       backgroundPositionX: 0,
-      backgroundPositionY: 0
+      backgroundPositionY: 0,
+      animationList: [
+        'fade-right',
+        'fade-left',
+        'fade-up',
+        'fade-down',
+        'fade-up-left',
+        'fade-up-right',
+        'fade-down-right',
+        'fade-down-left',
+        'flip-left',
+        'flip-right',
+        'flip-up',
+        'flip-down',
+        'zoom-in',
+        'zoom-in-up',
+        'zoom-in-down',
+        'zoom-in-left',
+        'zoom-in-right',
+        'zoom-out',
+        'zoom-out-up',
+        'zoom-out-down',
+        'zoom-out-right',
+        'zoom-out-left'
+      ]
     }
   },
   mounted () {
@@ -669,6 +713,19 @@ export default {
     this.styles = this._.extend(this.styles, this.currentStyles)
   },
   methods: {
+    setAnimate (animate) {
+      console.log('setAnimate')
+      this.$store.dispatch('layout/setModalView', {
+        name: 'animate',
+        data: this.editableData
+      })
+      EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
+        if (widgetData && widgetData.animate) {
+          this.$emit('updatewidget', widgetData)
+        }
+      })
+      return false
+    },
     pickText () {
       this.$store.dispatch('layout/setModalView', {
         name: 'text',
@@ -977,10 +1034,11 @@ export default {
     padding-bottom: 20px;
     .widget-text-editable--toolbox--group-title {
       display: block;
-       width: 100%;
        position: absolute;
        height: 20px;
        line-height: 20px;
+       right: .1em;
+       left: .1em;
        bottom: 0;
        font-size: .6em;
        text-align: center;

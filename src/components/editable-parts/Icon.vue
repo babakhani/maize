@@ -1,5 +1,6 @@
 <template>
   <div class="editable-image editable-part"
+       :data-aos="touchedData.animate"
        @mouseenter="mouseInElement"
        @mouseleave="mouseLeaveElement"
        @click="showToolbox"

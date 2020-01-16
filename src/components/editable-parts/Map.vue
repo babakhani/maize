@@ -1,5 +1,6 @@
 <template>
   <div class="editable-map editable-part"
+       :data-aos="touchedData.animate"
        @mouseenter="mouseInElement"
        @mouseleave="mouseLeaveElement"
        @dblclick="setPickMapMode"

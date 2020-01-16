@@ -1,5 +1,6 @@
 <template>
   <iframe
+    :srcdoc="srcdoc"
     @load="onLoad"
     frameborder="0"></iframe>
 </template>
@@ -17,7 +18,13 @@ export default {
   },
   data () {
     return {
+      srcdoc: null,
       showMeTimeout: null
+    }
+  },
+  props: {
+    srcdocEnabled: {
+      default: null
     }
   },
   methods: {
@@ -31,6 +38,9 @@ export default {
         const body = this.$el.contentDocument.body
         const head = this.$el.contentDocument.head
         head.innerHTML = Head(this.$store.getters['main/settings'])
+        if (this.srcdocEnabled) {
+          this.srcdoc = head.innerHTML
+        }
         const el = document.createElement('DIV')
         body.appendChild(el)
         const iApp = new Vue({
