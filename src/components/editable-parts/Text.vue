@@ -2,6 +2,7 @@
   <div class="editable-text editable-part"
        @mouseenter="mouseInElement"
        @mouseleave="mouseLeaveElement"
+       @click="showToolbox"
        :class="{
                'editable-active': editMode,
                'under-edit': toolboxVisible}">
@@ -14,7 +15,7 @@
       @updatewidget="updateEditableData"
       @hide="hideToolbox"
       @update="updateStyles"
-      v-if="toolboxVisible">
+      v-if="editMode && toolboxVisible">
     </EditablePartToolbox>
     <component
       v-if="toolboxVisible"

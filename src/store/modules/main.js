@@ -43,6 +43,11 @@ export default {
       }
       const list = lodash.cloneDeep(state.currentWidgetList)
       let itemIndex = null
+      list.forEach((n, index) => {
+        if (n.uniqeId === payload.key) {
+          itemIndex = index
+        }
+      })
       let targetIndex = null
       if (payload.direction === 'up') {
         targetIndex = itemIndex - 1

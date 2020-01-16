@@ -1,9 +1,9 @@
 <template>
   <div
     class="editor-page"
-    :class="{ 
-            'editor-page-preview-mode': previewMode, 
-            'editor-page-mobile-preview-mode': mobilePreviewMode, 
+    :class="{
+            'editor-page-preview-mode': previewMode,
+            'editor-page-mobile-preview-mode': mobilePreviewMode,
             'editor-page-tablet-preview-mode':tabletPreviewMode
             }">
     <PageHeader></PageHeader>
@@ -45,14 +45,13 @@
       <div
         :class="{
                  'plotarea-width-sidebar': pageSideBarIsActive,
-                 'px-4': !previewMode,
                  'w-100': !pageSideBarIsActive,
                  'w-75': pageSideBarIsActive
                  }"
         class="plotarea float-right mr-0">
         <draggable
           v-model="currentWidgetList"
-          :options="{handle:'.widget-drag-handle'}"
+          :options="{handle:'.widget-block--toolbox'}"
           group="pagewidget">
         <div v-for="widget in currentWidgetList"
              :key="widget.uniqeId">
@@ -98,9 +97,9 @@ export default {
     ModalSettings,
     ...Widgets,
     WidgetList,
-    Widgets, 
-    AddWidget, 
-    ModalWidgetList, 
+    Widgets,
+    AddWidget,
+    ModalWidgetList,
     PageHeader
   },
   data () {
@@ -167,7 +166,7 @@ export default {
 .wrapper {
   display: flex;
   #content {
-    padding: 20px;
+    // padding: 20px;
     min-height: 100vh;
     transition: all 0.3s;
     width: 90%;

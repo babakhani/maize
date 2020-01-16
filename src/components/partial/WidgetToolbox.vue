@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="!$parent.demoMode"
-    class="widget-block--toolbox">
+    class="cursor-move widget-block--toolbox">
     <nav class="navbar-expand-lg navbar py-0 my-0 px-1 mx-1">
       <span class="navbar-text">
         {{ sanitizedName }}

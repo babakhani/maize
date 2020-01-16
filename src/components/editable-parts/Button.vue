@@ -13,7 +13,7 @@
       @updatewidget="updateEditableData"
       @hide="hideToolbox"
       @update="updateStyles"
-      v-if="toolboxVisible">
+      v-if="editMode && toolboxVisible">
     </EditablePartToolbox>
     <button
       v-bind:style="touchedData.styles"

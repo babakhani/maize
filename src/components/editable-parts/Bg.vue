@@ -1,25 +1,24 @@
 <template>
   <div
     class="editable-part editable-background"
+    :style="touchedData.styles"
+    @click="showToolbox"
     :class="{
             'editable-active': editMode,
             'under-edit': toolboxVisible}">
     <button v-if="editMode"
             class="btn btn-link no-outline editable-part settings-btn"
             :title="$t('toolbox.bg_settings')"
-            v-b-tooltip.hover.bottom.small
-            @click="showToolbox">
+            v-b-tooltip.hover.bottom.small>
       <icon name="cog"></icon>
     </button>
     <EditablePartToolbox
       :groups="['backgroundimage', 'background', 'border', 'general']"
       @update="updateStyles"
       :currentStyles="touchedData.styles"
-      v-if="toolboxVisible"
+      v-if="editMode && toolboxVisible"
       @hide="hideToolbox"></EditablePartToolbox>
-    <div v-bind:style="touchedData.styles">
-      <slot></slot>
-    </div>
+     <slot></slot>
   </div>
 </template>
 
@@ -60,7 +59,16 @@ export default {
       display: none;
     }
   }
-}
+  outline-offset: -2px;
 
+  &.under-edit:hover,
+  &.under-edit {
+     outline: 3px dashed rgba($primary-color, .6) !important;
+  }
+
+  &:hover{
+    outline: none;
+  }
+}
 
 </style>

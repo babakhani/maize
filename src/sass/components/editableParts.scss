@@ -1,5 +1,11 @@
 $icon-size: 1.6em;
 
+.sortable-chosen {
+  .widget-text-editable--toolbox {
+    display: none !important;
+  }
+}
+
 .editable-part{
   position: relative;
   cursor: pointer;
@@ -9,18 +15,18 @@ $icon-size: 1.6em;
    &:hover,
    &:focus,
    &:active {
-     outline: none !important;
+     outline: none;
    }
   }
   
   &.under-edit,
   &.under-edit:hover {
      transition: 20ms all linear;
-     outline: 5px dashed rgba($primary-color, .6) !important;
+     outline: 2px dashed rgba($primary-color, .6);
   }
 
   &:hover{
-     outline: 2px dashed rgba($primary-color, .4) !important;
+     outline: 1px dashed rgba($primary-color, .2);
     .editable-part--upload-btn,
     .editable-part--settings-btn,
     .editable-part--link-btn{

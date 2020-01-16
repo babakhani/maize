@@ -105,10 +105,12 @@ const Mixin = {
       }
     },
     showToolbox (e) {
+      e.stopPropagation()
       e.preventDefault()
       this.toolboxVisible = true
       EventBus.$emit('igotoeditmode', this._uid)
       document.addEventListener('keydown', this.hideOnEscape)
+      return false
     }
   },
   watch: {
