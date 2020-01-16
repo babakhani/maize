@@ -1,8 +1,10 @@
 <template>
-  <b-tabs 
+  <b-tabs
+    align="center"
     vertical
     pills
     no-fade
+    nav-wrapper-class="w-25"
     card>
     <b-tab active>
       <template slot="title">
@@ -20,12 +22,13 @@
       </div>
       <div class="form-group">
         <label>{{ $t('settings.page_sections') }}</label>
-        <b-form-select 
+        <b-form-select
            @change="updatePreData"
-           v-model="pickLink" 
+           v-model="pickLink"
            class="mb-3">
           <option v-for="widget in currentWidgetList"
-                  :value="`#${widget.uniqeId}`">{{ widget.uniqeId }}</option> 
+                  :key="widget.uniqeId"
+                  :value="`#${widget.uniqeId}`">{{ widget.uniqeId }}</option>
         </b-form-select>
       </div>
     </b-tab>
@@ -33,8 +36,6 @@
 </template>
 
 <script>
-import { EventBus } from '../../events/event-bus'
-
 export default {
   name: 'LinkPicker',
   data () {

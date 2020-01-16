@@ -95,7 +95,13 @@ export default {
       'title': 'Insert your link:'
     }
   },
+  'animate': 'Animate',
+  'link': 'Link',
+  'text': 'Text',
+  'icon': 'Icon',
+  'map': 'Map',
   'settings': {
+    'settings': 'Setting',
     'favicon': 'Favicon',
     'image-al-placeholder': 'Image Alt',
     'favicon-placeholder': 'Favicon',

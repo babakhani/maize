@@ -4,7 +4,6 @@
     class="editable-part editable-background"
     :style="touchedData.styles"
     :data-aos="touchedData.animate.name"
-    :data-aos-offset="touchedData.animate.offset"
     :data-aos-delay="touchedData.animate.delay"
     :data-aos-duration="touchedData.animate.duration"
     :data-aos-easing="touchedData.animate.easing"
@@ -14,7 +13,6 @@
     :class="{
             'editable-active': editMode,
             'under-edit': toolboxVisible}">
-    <pre> {{ touchedData.animate }} </pre>
     <button v-if="editMode"
             class="btn btn-link no-outline editable-part settings-btn"
             :title="$t('toolbox.bg_settings')"
@@ -24,6 +22,7 @@
     <EditablePartToolbox
       :groups="['backgroundimage', 'background', 'border', 'general']"
       @update="updateStyles"
+      @updatewidget="updateEditableData"
       :currentStyles="touchedData.styles"
       :editableData="touchedData"
       v-if="editMode && toolboxVisible"

@@ -5,7 +5,7 @@
     @shown="onShow"
     v-model="showModal"
     class="modal-box"
-    :title="$t('settings.header')">
+    :title="`${$t(modalName)} ${$t('settings.settings')}`">
     <template slot="modal-footer">
       <b-button
         @click="onHide"

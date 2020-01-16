@@ -1,7 +1,12 @@
 <template>
   <div class="editable-text editable-part"
        @mouseenter="mouseInElement"
-       :data-aos="touchedData.animate"
+       :data-aos="touchedData.animate.name"
+       :data-aos-delay="touchedData.animate.delay"
+       :data-aos-duration="touchedData.animate.duration"
+       :data-aos-easing="touchedData.animate.easing"
+       :data-aos-mirror="touchedData.animate.mirror"
+       :data-aos-once="touchedData.animate.once"
        @mouseleave="mouseLeaveElement"
        :class="{
                'editable-active': editMode,

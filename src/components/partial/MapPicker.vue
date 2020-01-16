@@ -1,11 +1,17 @@
 <template>
-  <b-tabs card>
+  <b-tabs
+    align="center"
+    vertical
+    pills
+    no-fade
+    nav-wrapper-class="w-25"
+    card>
     <b-tab active>
       <template slot="title">
         <icon class="upload-image-icon" name="images"></icon>
         <strong> {{ $t('modal.pick_map_position') }}</strong>
       </template>
-      <b-form-group 
+      <b-form-group
         :description="$t('messages.google_map_iframe_extract')">
         <label>{{ $t('settings.src') }}</label>
         <b-form-textarea
@@ -22,8 +28,6 @@
 </template>
 
 <script>
-import { EventBus } from '../../events/event-bus'
-
 export default {
   name: 'MapPicker',
   data () {
@@ -49,7 +53,7 @@ export default {
     exportedFrameSrc () {
       let out = null
       if (this.pickFrameSrc) {
-        let test = this.pickFrameSrc.match('/(?<=src=").*?(?=[\"])/')
+        let test = this.pickFrameSrc.match('/(?<=src=").*?(?=["])/')
         if (test && test.length > 0) {
           out = test[0]
         }

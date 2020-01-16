@@ -35,7 +35,7 @@
       vertical
       pills
       no-fade
-      class="mazie-tabs"
+      nav-wrapper-class="w-25"
       card>
       <template v-for="picker in imagePickers" >
         <b-tab
@@ -90,14 +90,14 @@ export default {
     },
     pickAndHide () {
       this.value.src = this.pickedImageSrc
-      this.value.alt = this.alt 
-      this.$emit('input',this.value)
+      this.value.alt = this.alt
+      this.$emit('input', this.value)
       this.$emit('hide')
     },
     pick (e) {
       this.value.src = this.pickedImageSrc
-      this.value.alt = this.alt 
-      this.$emit('input',this.value)
+      this.value.alt = this.alt
+      this.$emit('input', this.value)
     }
   }
 }

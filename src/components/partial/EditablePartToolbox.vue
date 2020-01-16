@@ -76,7 +76,6 @@
     <!-- Animate Settings -->
     <!-- ---------------------------------------------------------------------------- -->
     <div
-      v-if="groups.indexOf('background') > -1"
       class="widget-text-editable--toolbox--group">
       <div
         class="widget-text-editable--toolbox--group-title">
@@ -628,31 +627,7 @@ export default {
   data () {
     return {
       backgroundPositionX: 0,
-      backgroundPositionY: 0,
-      animationList: [
-        'fade-right',
-        'fade-left',
-        'fade-up',
-        'fade-down',
-        'fade-up-left',
-        'fade-up-right',
-        'fade-down-right',
-        'fade-down-left',
-        'flip-left',
-        'flip-right',
-        'flip-up',
-        'flip-down',
-        'zoom-in',
-        'zoom-in-up',
-        'zoom-in-down',
-        'zoom-in-left',
-        'zoom-in-right',
-        'zoom-out',
-        'zoom-out-up',
-        'zoom-out-down',
-        'zoom-out-right',
-        'zoom-out-left'
-      ]
+      backgroundPositionY: 0
     }
   },
   mounted () {
@@ -714,7 +689,6 @@ export default {
   },
   methods: {
     setAnimate (animate) {
-      console.log('setAnimate')
       this.$store.dispatch('layout/setModalView', {
         name: 'animate',
         data: this.editableData

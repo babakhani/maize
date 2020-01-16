@@ -4,7 +4,7 @@
     vertical
     pills
     no-fade
-    class="mazie-tabs icon-selector"
+    nav-wrapper-class="w-25"
     card>
     <template v-for="picker in iconPickers" >
       <b-tab
