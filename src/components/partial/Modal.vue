@@ -1,5 +1,6 @@
 <template>
   <b-modal
+    :data="widgetDataTrigger"
     @hidden="onHide"
     @shown="onShow"
     v-model="showModal"
@@ -18,6 +19,10 @@
         {{ $t('modal.ok') }}
       </b-button>
     </template>
+    <TextPicker
+        @hide="hide"
+        v-model="widgetData.text"
+        v-if="modalName == 'text'" />
     <MapPicker
         v-model="widgetData.frameSrc"
         v-if="modalName == 'map'" />
@@ -25,7 +30,7 @@
         v-model="widgetData.href"
         v-if="modalName == 'link'" />
     <ImagePicker
-        v-model="widgetData.src"
+        v-model="widgetData"
         v-if="modalName == 'image'"
         @hide="hide" />
     <IconPicker
@@ -41,11 +46,17 @@ import IconPicker from './IconPicker'
 import LinkPicker from './LinkPicker'
 import ImagePicker from './ImagePicker'
 import MapPicker from './MapPicker'
+import TextPicker from './TextPicker'
 
 export default {
-  name: 'ModalSettings',
-  data () { return { modalData: null } },
+  name: 'PickersModal',
+  data () {
+    return {
+      widgetData: null
+    }
+  },
   components: {
+    TextPicker,
     MapPicker,
     ImagePicker,
     IconPicker,
@@ -72,11 +83,14 @@ export default {
     }
   },
   computed: {
+    widgetDataTrigger () {
+      /* eslint-disable */
+      this.widgetData = this._.cloneDeep(this.$store.state.layout.modalDefaultData)
+      /* eslint-enable */
+      return this.widgetData
+    },
     modalName () {
       return this.$store.state.layout.modalName
-    },
-    widgetData () {
-      return this._.cloneDeep(this.$store.state.layout.modalDefaultData)
     },
     showModal: {
       get () {

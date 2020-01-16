@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import lodash from 'lodash'
 import rawWidgetList from '../../components/widgets/spec'
 export default {
@@ -6,9 +5,9 @@ export default {
   state: {
     settings: window.localStorage.getItem('settings') ? JSON.parse(window.localStorage.getItem('settings')) : {
       title: 'Maize',
-      description: 'Example description',
+      description: '',
       language: 'en',
-      baseURL: 'https://raw.githubusercontent.com/babakhani/maize/master/public/',
+      baseURL: '',
       canonical: '/',
       nextURL: '',
       image: '',
@@ -22,7 +21,7 @@ export default {
       type: 'Organization',
       color: '#fff'
     },
-    currentHistoryIndex: 0, 
+    currentHistoryIndex: 0,
     historyLength: 0,
     currentWidgetList: window.localStorage.getItem('page') ? JSON.parse(window.localStorage.getItem('page')).data : [],
     rawWidgetList: rawWidgetList
@@ -40,17 +39,15 @@ export default {
     moveWidget (state, payload) {
       // TODO: do better
       function arrayMove (x, from, to) {
-        x.splice((to < 0 ? x.length + to : to), 0, x.splice(from, 1)[0]);
+        x.splice((to < 0 ? x.length + to : to), 0, x.splice(from, 1)[0])
       }
       const list = lodash.cloneDeep(state.currentWidgetList)
       let itemIndex = null
-      // TODO: check this, it might raise cant read 0 of undefined
-      let item = list.filter((n, index) => {
-        if (n.uniqeId == payload.key) {
+      list.forEach((n, index) => {
+        if (n.uniqeId === payload.key) {
           itemIndex = index
         }
-        return n.uniqeId == payload.key
-      })[0]
+      })
       let targetIndex = null
       if (payload.direction === 'up') {
         targetIndex = itemIndex - 1
@@ -63,24 +60,19 @@ export default {
       }
       state.currentWidgetList = []
       state.currentWidgetList = list
-      window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
+      window.localStorage.setItem('page', JSON.stringify({ data: state.currentWidgetList }))
     },
     updateCurrentWidgetList (state, payload = { key: null, data: {} }) {
       const list = lodash.cloneDeep(state.currentWidgetList)
-      // TODO: check this, it might raise cant read 0 of undefined
-      let item = list.find((n) => {
-        return n.uniqeId == payload.key
-      })
-      item = payload.data
       state.currentWidgetList = []
       state.currentWidgetList = list
-      window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
+      window.localStorage.setItem('page', JSON.stringify({ data: state.currentWidgetList }))
     },
-    updateItemOfCurrentWidgetList (state, payload = {key: null, name: 'null', data: {}}) {
+    updateItemOfCurrentWidgetList (state, payload = { key: null, name: 'null', data: {} }) {
       const list = lodash.cloneDeep(state.currentWidgetList)
       // TODO: check this, it might raise cant read 0 of undefined
       let item = list.find((n) => {
-        return n.uniqeId == payload.key
+        return n.uniqeId === payload.key
       })
       if (typeof item.data === 'undefined') {
         item.data = {}
@@ -88,7 +80,7 @@ export default {
       item.data[payload.name] = lodash.extend(item.data[payload.name], payload.data)
       state.currentWidgetList = []
       state.currentWidgetList = list
-      window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
+      window.localStorage.setItem('page', JSON.stringify({ data: state.currentWidgetList }))
     },
     addToCurrentWidgetList (state, payload) {
       payload.forEach((item) => {
@@ -96,7 +88,7 @@ export default {
         it.uniqeId = it.name + (lodash.random(1000) + new Date().valueOf())
         state.currentWidgetList.push(it)
       })
-      window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
+      window.localStorage.setItem('page', JSON.stringify({ data: state.currentWidgetList }))
     },
     removeFromCurrentWidgetList (state, payload) {
       let list = lodash.cloneDeep(state.currentWidgetList)
@@ -105,18 +97,18 @@ export default {
         return n.uniqeId === payload
       })
       state.currentWidgetList = list
-      window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
+      window.localStorage.setItem('page', JSON.stringify({ data: state.currentWidgetList }))
     },
     sortCurrentWidgetList (state, payload) {
       state.currentWidgetList = payload
-      window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
+      window.localStorage.setItem('page', JSON.stringify({ data: state.currentWidgetList }))
     }
   },
   actions: {
     updateSettings (context, payload) {
       context.commit('updateSettings', payload)
     },
-    moveWidget (context, payload = {direction: null, key: null}) {
+    moveWidget (context, payload = { direction: null, key: null }) {
       context.commit('moveWidget', payload)
     },
     sortCurrentWidgetList (context, payload) {

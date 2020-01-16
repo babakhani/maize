@@ -2,8 +2,7 @@
   <b-tabs card>
     <b-tab active>
       <template slot="title">
-        <icon class="upload-image-icon"
-              name="images"></icon>
+        <icon class="upload-image-icon" name="images"></icon>
         <strong> {{ $t('modal.pick_map_position') }}</strong>
       </template>
       <b-form-group 
@@ -26,7 +25,7 @@
 import { EventBus } from '../../events/event-bus'
 
 export default {
-  name: 'MapPickerModal',
+  name: 'MapPicker',
   data () {
     return {
       pickFrameSrc: ''
@@ -58,7 +57,7 @@ export default {
       return out
     },
     currentWidgetList () {
-        return this.$store.state.main.currentWidgetList
+      return this.$store.state.main.currentWidgetList
     }
   }
 }

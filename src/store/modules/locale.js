@@ -3,7 +3,7 @@ import i18n from '@/i18n'
 export default {
   namespaced: true,
   state: {
-    direction: 'ltr',
+    direction: window.CONFIG.direction,
     currentLocale: null,
     alignment: 'right'
   },

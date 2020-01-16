@@ -6,37 +6,37 @@
        @click="showToolbox"
        @dblclick="setPickImageMode"
        :class="{
-       'editable-active': editMode,
-       'under-edit': toolboxVisible}">
+               'editable-active': editMode,
+               'under-edit': toolboxVisible}">
     <EditablePartToolbox
-            :visibile-image-selector="true"
-            :visibile-link-selector="linkable"
-            @update="updateStyles"
-            @updatewidget="updateEditableData"
-            :groups="['border', 'general']"
-            :currentStyles="touchedData.styles"
-            :editableData="touchedData"
-            v-if="toolboxVisible"
-            @hide="hideToolbox"></EditablePartToolbox>
+      :visibile-image-selector="true"
+      :visibile-link-selector="linkable"
+      @update="updateStyles"
+      @updatewidget="updateEditableData"
+      :groups="['border', 'general']"
+      :currentStyles="touchedData.styles"
+      :editableData="touchedData"
+      v-if="editMode && toolboxVisible"
+      @hide="hideToolbox"></EditablePartToolbox>
 
     <a v-if="touchedData.href"
        :contenteditable="editMode"
        :href="touchedData.href">
       <img :style="touchedData.styles"
-           alt="image"
-           :class="cssClass"
-           :contenteditable="editMode"
-           class="img-fluid editable-image-img"
-           :src="touchedData.src">
+       :alt="touchedData.alt"
+       :class="cssClass"
+       :contenteditable="editMode"
+       class="img-fluid editable-image-img"
+       :src="touchedData.src">
     </a>
     <img v-else
          :style="touchedData.styles"
-         alt="image"
+         :alt="touchedData.alt"
          :class="cssClass"
          :contenteditable="editMode"
          class="img-fluid editable-image-img"
          :src="touchedData.src"
-    />
+         />
   </div>
 </template>
 
@@ -77,3 +77,76 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.editable-image {
+  position: relative;
+  border: 0;
+
+  .editable-image--settings-btn {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 2em;
+    height: 2em;
+    padding: 0;
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  img {
+    min-height: 1.5em;
+    min-width: 1.5em;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .editable-image--toolbox {
+    position: absolute;
+    top: -20px;
+    display: none;
+    z-index: 10;
+    width: 100%;
+    border-radius: 10px;
+    background: #333;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 15px;
+    padding: 5px 0;
+    .dropdown {
+      position: absolute;
+      display: inline-flex;
+    }
+  }
+
+  input {
+    &.editable-image {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      border: 3px dashed blue;
+      background: none;
+      width: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+  }
+
+  &.edit-mode {
+    outline: 3px dashed #f1f1f1;
+    &:hover {
+      .editable-image--toolbox {
+        display: block;
+      }
+    }
+  }
+}
+</style>

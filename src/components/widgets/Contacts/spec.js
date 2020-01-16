@@ -26,6 +26,6 @@ export default {
       name: 'Contact_5',
       group: 'contact',
       data: {}
-    },
+    }
   ]
 }

@@ -30,7 +30,7 @@
           <strong> {{ $t('settings.header') }}</strong>
         </template>
         <div class="row" >
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 pb-5">
             <form action="#!">
               <div class="form-group">
                 <label>{{ $t('settings.name') }}</label>
@@ -288,7 +288,6 @@ export default {
   },
   mounted () {
     this.siteSettings = this._.cloneDeep(this.$store.getters['main/settings'])
-    console.log()
   },
   computed: {
     randomImageList () {

@@ -74,7 +74,7 @@
   import widgetMixin from '@/mixins/widget'
 
   export default {
-    name: 'CallToAction_1',
+    name: 'CallToAction_8',
     mixins: [widgetMixin],
     props: {
       defaultData: {
@@ -103,11 +103,15 @@
               src: this.faker.internet.url(),
             },
             image_1: {
-              styles: {},
+              styles: {
+                'height': '200px'
+              },
               src: this.faker.img.big()
             },
             action_link_1: {
-              styles: {},
+              styles: {
+                'color': 'white'
+              },
               text: this.faker.lorem.words(2),
               src: this.faker.internet.url
             },
@@ -122,11 +126,15 @@
               src: this.faker.internet.url(),
             },
             image_2: {
-              styles: {},
+              styles: {
+                'height': '200px'
+              },
               src: this.faker.img.big()
             },
             action_link_2: {
-              styles: {},
+              styles: {
+                'color': 'white'
+              },
               text: this.faker.lorem.words(2),
               src: this.faker.internet.url
             }

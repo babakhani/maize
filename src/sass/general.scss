@@ -3,12 +3,31 @@ html, body
     height: 100%;
     overflow: auto;
 }
-body {
-  font-family: 'IRANYekan', 'IranSansFaNum', 'IranSans', tahoma, Arial, sans-serif;
+
+body{
+  padding-top: 55px;
+  font-family: 'Roboto', tahoma, Arial, sans-serif;
   font-size: 12px;
   overflow-x: hidden;
-  direction: ltr;
   background: rgba(#ccc, 0.3);
+}
+
+.cursor-move {
+  cursor: move;
+}
+
+.modal-box {
+  z-index: 10001 !important;
+}
+.w-5 {
+  width: 5% !important;
+}
+
+
+.mazie-tabs {
+  .card-header {
+    background: none;
+  }
 }
 
 .disabled {
@@ -28,14 +47,6 @@ body {
   &:hover {
     outline: 0 !important;
   }
-}
-
-.rtl {
-  direction: rtl;
-}
-
-.ltr {
-  direction: ltr;
 }
 
 .form-control:focus {

@@ -15,7 +15,7 @@
                                :partData="touchedData.mainDescription"/>
                 <div class="row pt-4 pt-xl-5">
                   <div class="col-12 col-md-5">
-                    <TextEditable tag="h4"
+                    <TextEditable tag="strong"
                                    name="feature_1_title"
                                    :partData="touchedData.feature_1_title"/>
                     <TextEditable tag="p"
@@ -23,10 +23,11 @@
                                    :partData="touchedData.feature_1_description"/>
                   </div>
                   <div class="col-12 col-md-5 m-auto pt-3 pt-md-0">
-                    <TextEditable tag="h4"
+                    <TextEditable tag="strong"
                                    name="feature_2title"
                                    :partData="touchedData.feature_2_title"/>
-                    <TextEditable tag="p"
+                    <TextEditable
+                                   tag="p"
                                    name="feature_2_description"
                                    :partData="touchedData.feature_2_description"/>
                   </div>
@@ -66,11 +67,11 @@
             },
             mainDescription: {
               styles: {},
-              text: this.faker.lorem.words(6),
+              text: this.faker.lorem.words(30),
             },
             feature_1_title: {
               styles: {},
-              text: this.faker.lorem.words(1),
+              text: this.faker.lorem.words(2),
             },
             feature_1_description: {
               styles: {},
@@ -78,7 +79,7 @@
             },
             feature_2_title: {
               styles: {},
-              text: this.faker.lorem.words(1),
+              text: this.faker.lorem.words(2),
             },
             feature_2_description: {
               styles: {},

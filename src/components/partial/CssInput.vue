@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-input-group size="sm" >
+    <b-input-group size="sm">
       <b-input-group-prepend v-if="statics">
         <b-button
           v-for="item in statics"
@@ -15,27 +15,27 @@
         type="number"
         v-model="output" >
       </b-form-input>
-      <b-input-group-append>
-        <b-button
-          :disabled="disableNumerals"
-          v-if="units.includes('%')"
-          @click="setUnit('%')"
-          :variant="innerunit === '%' ? 'primary' : 'outline-primary' ">%</b-button>
-        <b-button
-          :disabled="disableNumerals"
-          v-if="units.includes('px')"
-          @click="setUnit('px')"
-          :variant="innerunit === 'px' ? 'primary' : 'outline-primary' ">px</b-button>
-      </b-input-group-append>
+        <b-input-group-append>
+          <b-button
+            :disabled="disableNumerals"
+            v-if="units.includes('%')"
+            @click="setUnit('%')"
+            :variant="innerunit === '%' ? 'primary' : 'outline-primary' ">%</b-button>
+          <b-button
+            :disabled="disableNumerals"
+            v-if="units.includes('px')"
+            @click="setUnit('px')"
+            :variant="innerunit === 'px' ? 'primary' : 'outline-primary' ">px</b-button>
+        </b-input-group-append>
     </b-input-group>
     <b-form-input
-        v-if="range"
-        @input="update"
-        type="range"
-        :min="min"
-        :max="max"
-        :step="step"
-        v-model="output"/>
+      v-if="range"
+      @input="update"
+      type="range"
+      :min="min"
+      :max="max"
+      :step="step"
+      v-model="output"/>
   </div>
 </template>
 <script>
@@ -86,13 +86,13 @@ export default {
     }
   },
   watch: {
-    value () { this.setPre() }
+    value () { this.setPreDefinedValues() }
   },
   mounted () {
-    this.setPre()
+    this.setPreDefinedValues()
   },
   methods: {
-    setPre () {
+    setPreDefinedValues () {
       if (this.statics && this.statics.includes(this.value)) {
         this.disableNumerals = true
         this.output = this.value

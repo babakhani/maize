@@ -1,48 +1,42 @@
 <template>
-  <!--Start Modal Tab-->
   <b-tabs
     align="center"
     vertical
     pills
     no-fade
-    class="icon-selector"
+    class="mazie-tabs icon-selector"
     card>
-    <b-tab active class="py-2">
-      <template slot="title">
-        <strong> {{ $t('modal.font_awesome') }}</strong>
-      </template>
-      <div class="row px-2 py-1">
-        <div class="m-2 h4"
-             :key="icon"
-             v-for="icon in fontAwesome5">
-          <div
-            :class="{ 'selected': icon === picked }"
-            class="icon-selector--item p-1"
-            @click="pick(icon)"
-            @dblclick="pickAndHide(icon)">
-            <i
-            :class="icon">
-            </i>
-          </div>
-        </div>
-      </div>
-    </b-tab>
-    </b-tabs>
+    <template v-for="picker in iconPickers" >
+      <b-tab
+        :key="picker.name"
+        class="py-2 px-1">
+        <template slot="title">
+          <icon
+            v-if="picker.icon"
+            class="upload-image-icon"
+            :name="picker.icon"></icon>
+          <strong> {{ $t(picker.name) }}</strong>
+        </template>
+        <componenet
+          :is="picker"
+          v-model="value"
+          @done="done"
+          @select="select" />
+      </b-tab>
+    </template>
+  </b-tabs>
 </template>
 
 <script>
-import FontAwesome5 from '../../assets/fontawesome5.json'
+import IconPickers from '@/extensions/iconpicker/index.js'
 
 export default {
   name: 'IconPicker',
+  components: { IconPickers },
   data () {
     return {
-      fontAwesome5: FontAwesome5,
-      picked: null
+      iconPickers: IconPickers
     }
-  },
-  mounted () {
-    this.picked = this.value
   },
   props: {
     value: {
@@ -51,15 +45,38 @@ export default {
     }
   },
   methods: {
-    pickAndHide (picked) {
-      this.picked = picked
-      this.$emit('input', picked)
-      this.$emit('hide')
+    select (e) {
+      this.$emit('input', e)
     },
-    pick (picked) {
-      this.picked = picked
-      this.$emit('input', picked)
+    done () {
+      this.$emit('hide')
     }
   }
 }
 </script>
+
+<style lang="scss" >
+.icon-selector {
+  .icon-selector--item {
+    display: block;
+    width: 1.8em;
+    height: 1.8em;
+    position: relative;
+    &:hover {
+      background: rgba($primary-color, .1);
+      cursor: pointer;
+      outline: 2px solid $primary-color;
+    }
+    &.selected {
+      outline: 2px solid $primary-color;
+      background: rgba($primary-color, .1);
+    }
+    i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+</style>

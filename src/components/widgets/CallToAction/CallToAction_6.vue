@@ -63,7 +63,9 @@
               src: this.faker.internet.url(),
             },
             action_link: {
-              styles: {},
+              styles: {
+                'color': 'white'
+              },
               text: this.faker.lorem.words(3),
               src: this.faker.internet.url
             },

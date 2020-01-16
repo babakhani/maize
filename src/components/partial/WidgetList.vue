@@ -2,13 +2,13 @@
   <div
     class="card-columns">
     <draggable
-    :sort="false"  
-    :clone="cloneDog"
-    ghost-class="ghost-ghost"
-    drag-class="drag-ghost"
-    chosen-class="chosen-ghost"
-    :list="widgetList"
-    :group="{ name: 'pagewidget', pull: 'clone', put: false }">
+      :sort="false"  
+      :clone="cloneDog"
+      ghost-class="ghost-ghost"
+      drag-class="drag-ghost"
+      chosen-class="chosen-ghost"
+      :list="widgetList"
+      :group="{ name: 'pagewidget', pull: 'clone', put: false }">
     <div
       v-if="widgetList && widgetList.length > 0"
       :key="index"
@@ -61,7 +61,6 @@ import Widgets from '../widgets'
 import Frame from './Frame.vue'
 import FrameChild from './FrameChild.vue'
 import draggable from 'vuedraggable'
-import lodash from 'lodash'
 export default {
   name: 'WidgetListModal',
   components: { ...Widgets, Frame, FrameChild, draggable },
@@ -82,7 +81,7 @@ export default {
       return {
         name: e.name,
         data: this._.cloneDeep(this.$refs.widegtContainer[index].defaultData),
-        uniqeId: e.name + (lodash.random(1000) + new Date().valueOf())
+        uniqeId: e.name + (this._.random(1000) + new Date().valueOf())
       }
     }
   },
