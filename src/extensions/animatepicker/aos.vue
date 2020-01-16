@@ -23,8 +23,8 @@
     <b-input
       type="range"
       min="0"
-      max="10000"
-      step="1:"
+      max="3000"
+      step="100"
       @change="select(animate)"
       v-model="animate.delay"/>
     </b-form-group>
@@ -38,7 +38,7 @@
       type="range"
       min="0"
       max="10000"
-      step="1:"
+      step="100"
       @change="select(animate)"
       v-model="animate.duration"/>
     </b-form-group>
