@@ -1,3 +1,4 @@
+const CONFIG = window.CONFIG
 export default (settings) => {
   return `
   <title> ${settings.title} </title>
@@ -42,37 +43,48 @@ export default (settings) => {
     }
   </script>
   <meta name="format-detection" content="telephone=no">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+
+  <link 
+        id="bootstrap_css"
         rel="stylesheet"
-        crossorigin="anonymous">
-  <link rel="stylesheet"
-        crossorigin="anonymous"
-        href="https://gitcdn.link/repo/babakhani/maize/master/public/lib/maize_blocks.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" 
-        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" 
-        crossorigin="anonymous">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        href="${CONFIG.cdn.css.bootstrap}">
+  <link 
+        id="maize_css"
+        rel="stylesheet"
+        href="${CONFIG.cdn.css.maize}">
+  <link 
+        id="fontawesome_css"
+        rel="stylesheet" 
+        href="${CONFIG.cdn.css.fontawesome}">
+  <link 
+        id="aos_css"
+        rel="stylesheet" 
+        href="${CONFIG.cdn.css.aos}">
   <script 
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        id="jquery_js"
         type="text/javascript" 
-        crossorigin="anonymous"
-        src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
+        src="${CONFIG.cdn.js.jquery}">
+        </script>
   <script 
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        id="popper_js"
         type="text/javascript" 
-        crossorigin="anonymous"
-        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
+        src="${CONFIG.cdn.js.popper}">
+        </script>
   <script 
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        id="bootstrap_js"
         type="text/javascript" 
-        crossorigin="anonymous"
-        src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+        src="${CONFIG.cdn.js.bootstrap}">
+        </script>
+  <script 
+        id="aos_js"
+        src="${CONFIG.cdn.js.aos}">
+        </script>
   <script>
     $(document).ready(() => {
        AOS.init();
     })
   </script>
+
   ${settings.hotjarScript ? settings.hotjarScript : ''}
   ${settings.gaScript ? settings.gaScript : ''}
 `

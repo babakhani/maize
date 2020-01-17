@@ -7,7 +7,7 @@
             'editor-page-tablet-preview-mode':tabletPreviewMode
             }">
     <PageHeader></PageHeader>
-    <Preview v-if="previewMode"/>
+    <Preview v-show="previewMode"/>
     <div  v-show="!previewMode" class="wrapper">
       <nav id="sidebar"
            v-if="pageSideBarIsActive"
@@ -72,6 +72,8 @@
       <Modal> </Modal>
       <ModalWidgetList></ModalWidgetList>
       <ModalSettings></ModalSettings>
+      <ModalExport></ModalExport>
+      <ModalImport></ModalImport>
     </div>
   </div>
 </template>
@@ -86,10 +88,14 @@ import WidgetList from '../components/partial/WidgetList'
 import PageHeader from '../components/partial/PageHeader.vue'
 import AddWidget from '../components/partial/AddWidget'
 import ModalWidgetList from '../components/partial/ModalWidgetList'
+import ModalExport from '../components/partial/ModalExport'
+import ModalImport from '../components/partial/ModalImport'
 
 export default {
   name: 'EditorPage',
   components: {
+    ModalImport,
+    ModalExport,
     Modal,
     Preview,
     draggable,

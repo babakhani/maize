@@ -40,14 +40,69 @@ export default {
   },
   data () {
     return {
-      imagesFiles: []
+      exportHtml: null,
+      imagesFiles: [],
+      cssFiles: null,
+      fontsFiles: null,
+      jsFiles: null
     }
   },
   methods: {
+    getAssets (cloneFrameContent) {
+      let promiseList = []
+      this.cssFiles = {}
+      this.jsFiles = {}
+      this.fontsFiles = {}
+      this._.each(window.CONFIG.cdn.css, (url, key) => {
+        promiseList.push(fetch(url)
+          .then((resp) => resp.text())
+          .then((data) => {
+            this.cssFiles[key] = data
+          }))
+      })
+      this._.each(window.CONFIG.cdn.js, (url, key) => {
+        promiseList.push(fetch(url)
+          .then((resp) => resp.text())
+          .then((data) => {
+            this.jsFiles[key] = data
+          }))
+      })
+      this._.each(window.CONFIG.cdn.fonts, (url, key) => {
+        promiseList.push(fetch(url + key)
+          .then((resp) => resp.arrayBuffer())
+          .then((data) => {
+            this.fontsFiles[key] = data
+          }))
+      })
+      Promise.all([...promiseList]).then(() => {
+        this._.each(this.cssFiles, (file, id) => {
+          let sanitizedId = `${id}_css`
+          let elem = cloneFrameContent.getElementById(sanitizedId)
+          elem.href = `./css/${id}.css`
+        })
+        this._.each(this.jsFiles, (file, id) => {
+          let sanitizedId = `${id}_js`
+          let elem = cloneFrameContent.getElementById(sanitizedId)
+          elem.src = `./js/${id}.js`
+        })
+        // Main Export Html
+        this.exportHtml = `
+          <!DOCTYPE html>
+          <html 
+          lang="${this.$store.getters['main/settings'].language}" 
+          prefix="og: 
+          http://ogp.me/ns#">
+          ${cloneFrameContent.documentElement.innerHTML}
+          </html>`
+        this.download('index.html', this.exportHtml)
+      })
+    },
     makeExportableDownload () {
       if (this.$refs && this.$refs.frame) {
         let frameContent = this.$refs.frame.$el.contentDocument || this.$refs.frame.contentWindow.document
         let cloneFrameContent = frameContent.cloneNode(true)
+
+        // Find Imge tags
         this._.each(cloneFrameContent.getElementsByTagName('img'), (item) => {
           let fileExtension = item.src.split(';')[0].split('/')[1]
           let sanitizedbase64 = item.src.split('base64,')[1]
@@ -60,32 +115,58 @@ export default {
             item.src = `images/${imageName}`
           }
         })
-        let html = `<!DOCTYPE html><html lang="${this.$store.getters['main/settings'].language}" prefix="og: http://ogp.me/ns#">${cloneFrameContent.documentElement.innerHTML}</html>`
-        this.download('index.html', html)
+        this.getAssets(cloneFrameContent)
       }
     },
     download (filename, html) {
       var zip = new JSZip()
+
+      // Index
       zip.file('index.html', html)
+
+      // Images
       if (this.imagesFiles.length > 0) {
         var img = zip.folder('images')
         this._.each(this.imagesFiles, (item) => {
           img.file(item.name, item.base64, { base64: true })
         })
       }
+
+      // CSS
+      if (this.cssFiles) {
+        var css = zip.folder('css')
+        this._.each(this.cssFiles, (item, name) => {
+          css.file(`${name}.css`, item)
+        })
+      }
+
+      // JS
+      if (this.jsFiles) {
+        var js = zip.folder('js')
+        this._.each(this.jsFiles, (item, name) => {
+          js.file(`${name}.js`, item)
+        })
+      }
+
+      // JS
+      if (this.fontsFiles) {
+        var font = zip.folder('webfonts')
+        this._.each(this.fontsFiles, (item, name) => {
+          font.file(name, item)
+        })
+      }
+
+      // Maize Json File
+      zip.file('maize.json', JSON.stringify(this.pageData))
       zip.generateAsync({ type: 'blob' }).then(function (content) {
         saveAs(content, 'maize.zip')
       })
-      // var element = document.createElement('a')
-      // element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
-      // element.setAttribute('download', filename)
-      // element.style.display = 'none'
-      // document.body.appendChild(element)
-      // element.click()
-      // document.body.removeChild(element)
     }
   },
   computed: {
+    pageData () {
+      return this.$store.state.main.page
+    },
     previewMode () {
       return this.$store.getters['layout/previewMode']
     },

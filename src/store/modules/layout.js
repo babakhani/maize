@@ -6,17 +6,13 @@ export default {
     modalDefaultData: {},
     modalEscKeyReserved: false,
 
-    previewModeSize: 'desktop',
     previewMode: false,
+    previewModeSize: 'desktop',
     addWidgetMode: false,
-    pickImageMode: false,
-    pickVideoMode: false,
-    pickVideoType: false,
-    pickLinkType: false,
-    pickLinkCurrent: '',
     settingsMode: false,
-    pageSideBarIsActive: false,
-    selectedItemProperties: {}
+    exportMode: false,
+    importMode: false,
+    pageSideBarIsActive: false
   },
   getters: {
     modalEscKeyReserved (state) {
@@ -46,23 +42,11 @@ export default {
     setPreviewModeSize (state, payload) {
       state.previewModeSize = payload
     },
-    setSelectedItemProperties (state, payload) {
-      state.selectedItemProperties = payload
-    },
     setPageSideBarIsActive (state, payload) {
       state.pageSideBarIsActive = payload
     },
     setPreviewMode (state, payload) {
       state.previewMode = payload
-    },
-    setPickImageMode (state, payload) {
-      state.pickImageMode = payload
-    },
-    setPickVideoMode (state, payload) {
-      if (payload === false) {
-        state.pickVideoType = false
-      }
-      state.pickVideoMode = payload
     },
     setAddWidgetMode (state, payload) {
       state.addWidgetMode = payload
@@ -70,14 +54,14 @@ export default {
     setPickVideoType (state, payload) {
       state.pickVideoType = payload
     },
-    setPickLinkMode (state, payload) {
-      state.pickLinkType = payload
-    },
-    setPickLinkCurrent (state, payload) {
-      state.pickLinkCurrent = payload
-    },
     setSettingsMode (state, payload) {
       state.settingsMode = payload
+    },
+    setExportMode (state, payload) {
+      state.exportMode = payload
+    },
+    setImportMode (state, payload) {
+      state.importMode = payload
     },
     modalEscKeyReserved (state, payload) {
       state.modalEscKeyReserved = payload
@@ -128,6 +112,12 @@ export default {
     },
     setSettingsMode (context, payload) {
       context.commit('setSettingsMode', payload)
+    },
+    setExportMode (context, payload) {
+      context.commit('setExportMode', payload)
+    },
+    setImportMode (context, payload) {
+      context.commit('setImportMode', payload)
     }
   }
 }

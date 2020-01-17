@@ -4,13 +4,13 @@
     <a class="navbar-brand" href="#">
       MAIZE
     </a>
-    <button 
-      class="navbar-toggler" 
-      type="button" 
-      data-toggle="collapse" 
-      data-target="#navbarsDefault" 
-      aria-controls="navbarsDefault" 
-      aria-expanded="false" 
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarsDefault"
+      aria-controls="navbarsDefault"
+      aria-expanded="false"
       aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -27,12 +27,21 @@
           </a>
         </li>
         <li
+          class="nav-item mr-lg-3">
+          <a v-b-tooltip.hover.bottom.small
+             class="nav-link"
+             :title="$t('import')"
+             @click="setMode('import')">
+            <icon name="upload"></icon>
+          </a>
+        </li>
+        <li
           v-if="previewMode"
           class="nav-item mr-lg-3">
           <a v-b-tooltip.hover.bottom.small
              class="nav-link"
              :title="$t('export')"
-             @click="exportPage">
+             @click="setMode('export')">
             <icon name="download"></icon>
           </a>
         </li>
@@ -96,7 +105,7 @@
               class=""
               :title="$t('toolbox.widget_selector')"
               v-b-tooltip.hover.bottom.small
-              v-model.sync="pageSideBarIsActive"
+              v-model="pageSideBarIsActive"
               name="check-button"
               switch
               size="md">
@@ -126,7 +135,7 @@
           <a :title="$t('toolbox.settings')"
           v-b-tooltip.hover.top.small
           class="nav-link"
-          @click="goToSettingsMode">
+          @click="setMode('settings')">
             <icon name="cog"></icon>
           </a>
         </li>
@@ -148,7 +157,7 @@ export default {
       this.$store.dispatch('layout/setAddWidgetMode', true)
     },
     toggleLanguage () {
-      if (this.currentLocale == 'fa') {
+      if (this.currentLocale === 'fa') {
         this.$store.dispatch('locale/changeLang', 'en')
       } else {
         this.$store.dispatch('locale/changeLang', 'fa')
@@ -165,7 +174,6 @@ export default {
     setPreviewMode (e) {
       this.checked = !this.checked
       this.$store.dispatch('layout/setPreviewMode', this.checked)
-      this.checked
       this.$root.$emit('bv::hide::tooltip')
     },
     setMobilePreviewMode () {
@@ -184,12 +192,17 @@ export default {
       this.$store.dispatch('layout/setAddWidgetMode', true)
       this.$root.$emit('bv::hide::tooltip')
     },
-    exportPage () {
-      // this.$store.dispatch('exportPage/exportPage', true)
-      EventBus.$emit('downloadHtml')
-    },
-    goToSettingsMode () {
-      this.$store.dispatch('layout/setSettingsMode', true)
+    setMode (i) {
+      if (i === 'settings') {
+        this.$store.dispatch('layout/setSettingsMode', true)
+      }
+      if (i === 'export') {
+        EventBus.$emit('downloadHtml')
+        // this.$store.dispatch('layout/setExportMode', true)
+      }
+      if (i === 'import') {
+        this.$store.dispatch('layout/setImportMode', true)
+      }
     }
   },
   computed: {

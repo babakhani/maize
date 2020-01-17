@@ -2,8 +2,9 @@ import lodash from 'lodash'
 import rawWidgetList from '../../components/widgets/spec'
 export default {
   namespaced: true,
+  page: window.localStorage.getItem('page') ? JSON.parse(window.localStorage.getItem('page')) : null,
   state: {
-    settings: window.localStorage.getItem('settings') ? JSON.parse(window.localStorage.getItem('settings')) : {
+    settings: window.localStorage.getItem('page') ? JSON.parse(window.localStorage.getItem('page')).settings : {
       title: 'Maize',
       description: '',
       language: 'en',
@@ -23,7 +24,7 @@ export default {
     },
     currentHistoryIndex: 0,
     historyLength: 0,
-    currentWidgetList: window.localStorage.getItem('page') ? JSON.parse(window.localStorage.getItem('page')).data : [],
+    currentWidgetList: window.localStorage.getItem('page') ? JSON.parse(window.localStorage.getItem('page')).widgets : [],
     rawWidgetList: rawWidgetList
   },
   getters: {
@@ -34,7 +35,14 @@ export default {
   mutations: {
     updateSettings (state, payload) {
       state.settings = payload
-      window.localStorage.setItem('settings', JSON.stringify(state.settings))
+    },
+    updateLocalStorage (state) {
+      state.page = {
+        maize: '0.0.1',
+        widgets: state.currentWidgetList,
+        settings: state.settings
+      }
+      window.localStorage.setItem('page', JSON.stringify(state.page))
     },
     moveWidget (state, payload) {
       // TODO: do better
@@ -60,13 +68,9 @@ export default {
       }
       state.currentWidgetList = []
       state.currentWidgetList = list
-      window.localStorage.setItem('page', JSON.stringify({ data: state.currentWidgetList }))
     },
     updateCurrentWidgetList (state, payload = { key: null, data: {} }) {
-      const list = lodash.cloneDeep(state.currentWidgetList)
-      state.currentWidgetList = []
-      state.currentWidgetList = list
-      window.localStorage.setItem('page', JSON.stringify({ data: state.currentWidgetList }))
+      state.currentWidgetList = payload
     },
     updateItemOfCurrentWidgetList (state, payload = { key: null, name: 'null', data: {} }) {
       const list = lodash.cloneDeep(state.currentWidgetList)
@@ -80,7 +84,6 @@ export default {
       item.data[payload.name] = lodash.extend(item.data[payload.name], payload.data)
       state.currentWidgetList = []
       state.currentWidgetList = list
-      window.localStorage.setItem('page', JSON.stringify({ data: state.currentWidgetList }))
     },
     addToCurrentWidgetList (state, payload) {
       payload.forEach((item) => {
@@ -88,7 +91,6 @@ export default {
         it.uniqeId = it.name + (lodash.random(1000) + new Date().valueOf())
         state.currentWidgetList.push(it)
       })
-      window.localStorage.setItem('page', JSON.stringify({ data: state.currentWidgetList }))
     },
     removeFromCurrentWidgetList (state, payload) {
       let list = lodash.cloneDeep(state.currentWidgetList)
@@ -97,34 +99,39 @@ export default {
         return n.uniqeId === payload
       })
       state.currentWidgetList = list
-      window.localStorage.setItem('page', JSON.stringify({ data: state.currentWidgetList }))
     },
     sortCurrentWidgetList (state, payload) {
       state.currentWidgetList = payload
-      window.localStorage.setItem('page', JSON.stringify({ data: state.currentWidgetList }))
     }
   },
   actions: {
     updateSettings (context, payload) {
       context.commit('updateSettings', payload)
+      context.commit('updateLocalStorage')
     },
     moveWidget (context, payload = { direction: null, key: null }) {
       context.commit('moveWidget', payload)
+      context.commit('updateLocalStorage')
     },
     sortCurrentWidgetList (context, payload) {
       context.commit('sortCurrentWidgetList', payload)
+      context.commit('updateLocalStorage')
     },
     updateCurrentWidgetList (context, payload) {
       context.commit('updateCurrentWidgetList', payload)
+      context.commit('updateLocalStorage')
     },
     updateItemOfCurrentWidgetList (context, payload) {
       context.commit('updateItemOfCurrentWidgetList', payload)
+      context.commit('updateLocalStorage')
     },
     addToCurrentWidgetList (context, payload) {
       context.commit('addToCurrentWidgetList', payload)
+      context.commit('updateLocalStorage')
     },
     removeFromCurrentWidgetList (context, payload) {
       context.commit('removeFromCurrentWidgetList', payload)
+      context.commit('updateLocalStorage')
     }
   }
 }

@@ -10,7 +10,7 @@
       v-b-tooltip.hover.top.small
       @click="pickText"
       class="btn btn-sm widget-text-editable--toolbox--button">
-        <i class="fas fa-life-ring" />
+        <icon name="life-ring" />
       </button>
       <div
         class="widget-text-editable--toolbox--group-title">
@@ -27,7 +27,7 @@
       v-b-tooltip.hover.top.small
       @click="pickImage"
       class="btn btn-sm widget-text-editable--toolbox--button">
-        <i class="fas fa-image" />
+        <icon name="image" />
       </button>
       <div
         class="widget-text-editable--toolbox--group-title">
@@ -44,7 +44,7 @@
       v-b-tooltip.hover.top.small
       @click="pickIcon"
       class="btn btn-sm widget-text-editable--toolbox--button">
-        <i class="far fa-smile" />
+        <icon name="smile" />
       </button>
       <div
         class="widget-text-editable--toolbox--group-title">
@@ -62,7 +62,7 @@
       v-b-tooltip.hover.top.small
       @click="setPickLinkMode"
       class="btn btn-sm widget-text-editable--toolbox--button">
-        <i class="fas fa-link" />
+        <icon name="link" />
       </button>
       <div
         class="widget-text-editable--toolbox--group-title">
@@ -86,7 +86,7 @@
         @click="setAnimate()"
         :class="{'widget-text-editable--selected': styles['font-weight'] === 'bold'}"
         class="btn btn-sm widget-text-editable--toolbox--button">
-        <i class="fas fa-forward" />
+        <icon name="forward" />
       </button>
     </div>
     <div
@@ -107,7 +107,7 @@
         size="sm"
         class="">
         <template v-slot:button-content>
-          <i class="fas fa-fill-drip" />
+          <icon name="fill-drip" />
             <div
               :style="{'background-color': styles['background-color']}"
               class="color-indicator"></div>
@@ -131,7 +131,7 @@
           size="sm"
           class="">
           <template v-slot:button-content>
-            <i class="fas fa-external-link-alt" />
+            <icon name="external-link-alt" />
           </template>
           <b-dropdown-item
             :class="{'widget-text-editable--selected': styles['background-size'] === 'cover'}"
@@ -154,7 +154,7 @@
           size="sm"
           class="">
           <template v-slot:button-content>
-            <i class="fas fa-object-ungroup" />
+            <icon name="object-ungroup" />
           </template>
           <b-dropdown-item
             :class="{'widget-text-editable--selected': styles['background-repeat'] === 'no-repeat'}"
@@ -186,7 +186,7 @@
           size="sm"
           class="">
           <template v-slot:button-content>
-            <i class="fas fa-th" />
+            <icon name="th" />
           </template>
           <div class="px-2" style="width: 320px">
             <b-form-group>
@@ -210,7 +210,7 @@
                 v-b-tooltip.hover.top.small
                 class="btn btn-sm widget-text-editable--toolbox--button"
                 @click="pickBackgroundImage">
-          <i class="fas fa-image" />
+          <icon name="image" />
         </button>
       </template>
     </div>
@@ -235,7 +235,7 @@
           size="sm"
           class="">
           <template v-slot:button-content>
-            <i class="fas fa-paint-brush" />
+            <icon name="paint-brush" />
               <div
                 :style="{'background-color': styles['color']}"
                 class="color-indicator"></div>
@@ -258,7 +258,7 @@
           size="sm"
           class="">
           <template v-slot:button-content>
-            <icon name="font"></icon>
+            <icon name="font"/>
           </template>
           <b-dropdown-item
             :class="{'widget-text-editable--selected': styles['font-family'] === 'monospace'}"
@@ -306,7 +306,7 @@
                @click="toggleBold()"
                :class="{'widget-text-editable--selected': styles['font-weight'] === 'bold'}"
                class="btn btn-sm widget-text-editable--toolbox--button">
-          <i class="fas fa-bold" />
+          <icon name="bold" />
         </button>
         <!-- UnderLine -->
         <button :title="$t('toolbox.underline')"
@@ -314,14 +314,14 @@
              @click="toggleTextDecoration()"
              :class="{'widget-text-editable--selected': styles['text-decoration'] === 'underline'}"
              class="btn btn-sm widget-text-editable--toolbox--button">
-          <i class="fas fa-underline" />
+          <icon name="underline" />
         </button>
         <button :title="$t('toolbox.line-through')"
              v-b-tooltip.hover.top.small
              @click="toggleThroughDecoration()"
              :class="{'widget-text-editable--selected': styles['text-decoration'] === 'line-through'}"
              class="btn btn-sm widget-text-editable--toolbox--button">
-          <i class="fas fa-strikethrough" />
+          <icon name="strikethrough" />
         </button>
 
         <!--Alignment-->
@@ -331,31 +331,31 @@
           size="sm"
           class="">
           <template v-slot:button-content>
-            <icon name="align-center"></icon>
+            <icon name="align-center"/>
           </template>
           <b-dropdown-item title="align left"
                            @click="align('left')"
                            :class="{'widget-text-editable--selected': styles['text-align'] ==
                                          'left'}">
-            <icon name="align-left"></icon>
+            <icon name="align-left"/>
           </b-dropdown-item>
           <b-dropdown-item title="align right"
                            @click="align('right')"
                            :class="{'widget-text-editable--selected': styles['text-align'] ==
                                          'right'}">
-            <icon name="align-right"></icon>
+            <icon name="align-right"/>
           </b-dropdown-item>
           <b-dropdown-item title="align center"
                            @click="align('center')"
                            :class="{'widget-text-editable--selected': styles['text-align'] ==
                                          'center'}">
-            <icon name="align-center"></icon>
+            <icon name="align-center"/>
           </b-dropdown-item>
           <b-dropdown-item title="align justify"
                            @click="align('justify')"
                            :class="{'widget-text-editable--selected': styles['text-align'] ==
                                          'justify'}">
-            <icon name="align-justify"></icon>
+            <icon name="align-justify"/>
           </b-dropdown-item>
         </b-dropdown>
 
@@ -385,7 +385,7 @@
                      v-b-tooltip.hover.top.small
                      @click="toggleTextIndent()"
                      class="btn btn-sm widget-text-editable--toolbox--button">
-          <i class="fas fa-indent" />
+          <icon name="indent" />
         </button>
 
         <!--TODO: ask reza about direction-->
@@ -395,7 +395,7 @@
           size="sm"
           class="">
           <template v-slot:button-content>
-            <i class="fas fa-exchange-alt"></i>
+            <icon name="exchange-alt"/>
           </template>
           <b-dropdown-item
             :class="{'widget-text-editable--selected': styles['direction'] === 'auto'}"
@@ -448,7 +448,7 @@
           size="sm"
           class="">
           <template v-slot:button-content>
-            <i class="far fa-square" />
+            <icon name="square" />
           </template>
           <div class="px-2">
             <CssInput
@@ -505,7 +505,7 @@
           size="sm"
           class="">
           <template v-slot:button-content>
-            <icon name="burn"></icon>
+            <icon name="burn"/>
           </template>
           <div class="px-2">
             <CssInput
@@ -526,7 +526,7 @@
           size="sm"
           class="">
           <template v-slot:button-content>
-            <i class="fas fa-circle-notch" />
+            <icon name="circle-notch" />
           </template>
           <div class="px-2">
             <CssInput
@@ -608,7 +608,7 @@
 
     <b-button @click="hide"
               class="btn btn-sm btn-outline-danger float-right widget-text-editable--toolbox--close">
-      <icon name="times"></icon>
+      <icon name="times"/>
     </b-button>
   </div>
 </template>
