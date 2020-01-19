@@ -2,22 +2,21 @@
   <div class="editable-text editable-part"
        @mouseenter="mouseInElement"
        @mouseleave="mouseLeaveElement"
-       @keydown.esc="updateTextOnBlur();hideToolbox()"
        :class="{
        'editable-active': editMode,
        'under-edit': toolboxVisible}">
     <!--Min Slot-->
-    <EditablePartToolbox 
+    <EditablePartToolbox
       :visibile-link-selector="tag === 'a'"
       :toolbox-visible="toolboxVisible"
       :currentStyles="touchedData.styles"
-      :editableData="touchedData"    
+      :editableData="touchedData"
       @updatewidget="updateEditableData"
       @hide="hideToolbox"
       @update="updateStyles"
       v-if="toolboxVisible">
     </EditablePartToolbox>
-    <component 
+    <component
         v-if="toolboxVisible"
         :is="tag"
         v-bind:style="touchedData.styles"
@@ -52,43 +51,42 @@
   </div>
 </template>
 <script>
-  import EditablePartMixin from '../../mixins/editablePart'
-  import {EventBus} from '../../events/event-bus'
+import EditablePartMixin from '../../mixins/editablePart'
 
-  export default {
-    name: 'TextEditable',
-    mixins: [EditablePartMixin],
-    data () {
-      return {
-        touchedText: null
+export default {
+  name: 'TextEditable',
+  mixins: [EditablePartMixin],
+  data () {
+    return {
+      touchedText: null
+    }
+  },
+  methods: {
+    preventInEditMode (e) {
+      if (this.editMode) {
+        e.preventDefault()
+        return false
       }
     },
-    methods: {
-      preventInEditMode (e) {
-        if (this.editMode) {
-          e.preventDefault()
-          return false
-        }
-      },
-      /**
+    /**
        * @link https://stackoverflow.com/questions/2176861/javascript-get-clipboard-data-on-paste-event-cross-browser/6804718#6804718
        * @param e
        */
-      onPaste (e) {
-        // TODO: must move to helpre class
-        function strip (html) {
-          const tmp = document.createElement("DIV")
-          tmp.innerHTML = html
-          return tmp.textContent || tmp.innerText || ""
-        }
-
-        e.stopPropagation()
-        e.preventDefault()
-        const clipboardData = e.clipboardData || window.clipboardData
-        const pastedData = clipboardData.getData('Text')
-        this.touchedText = strip(pastedData)
-        this.updatePastedText(this.touchedText)
+    onPaste (e) {
+      // TODO: must move to helpre class
+      function strip (html) {
+        const tmp = document.createElement('DIV')
+        tmp.innerHTML = html
+        return tmp.textContent || tmp.innerText || ''
       }
+
+      e.stopPropagation()
+      e.preventDefault()
+      const clipboardData = e.clipboardData || window.clipboardData
+      const pastedData = clipboardData.getData('Text')
+      this.touchedText = strip(pastedData)
+      this.updatePastedText(this.touchedText)
     }
   }
+}
 </script>

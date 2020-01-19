@@ -86,7 +86,7 @@
             },
             feature_image_1: {
               styles: {},
-              src: this.faker.img.icon()
+              src: this.faker.img.big()
             },
             feature_1_title: {
               styles: {},
@@ -94,7 +94,7 @@
             },
             feature_image_2: {
               styles: {},
-              src: this.faker.img.icon()
+              src: this.faker.img.big()
             },
             feature_2_title: {
               styles: {},
@@ -102,7 +102,7 @@
             },
             feature_image_3: {
               styles: {},
-              src: this.faker.img.icon()
+              src: this.faker.img.big()
             },
             feature_3_title: {
               styles: {},
@@ -110,7 +110,7 @@
             },
             feature_image_4: {
               styles: {},
-              src: this.faker.img.icon()
+              src: this.faker.img.big()
             },
             feature_4_title: {
               styles: {},

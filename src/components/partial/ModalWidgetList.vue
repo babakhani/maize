@@ -1,8 +1,10 @@
 <template>
   <b-modal
-    @hidden="onHide"
+    :no-fade="true"
+    @shown="onShow"
+    @hide="onHide"
     @ok="onOk"
-    v-model.sync="showModal"
+    v-model="showModal"
     id="addWidgetModal"
     size="lg"
     centered
@@ -11,8 +13,8 @@
     <template slot="modal-footer">
       <b-button
         @click="onHide"
-        variant="outline-success"
-        class="btn-link text-muted">
+        variant="outline-link"
+        class="text-muted">
         {{ $t('modal.cancel') }}
       </b-button>
       <b-button
@@ -22,51 +24,68 @@
       </b-button>
     </template>
     <b-card
-      v-if="showModal"
       no-body>
-      <b-tabs card>
-        <template
-          v-model="currentTab"
-          v-for="(item, index) in groupedWidgetList">
-          <b-tab
+      <b-tabs
+        align="center"
+        vertical
+        pills
+        no-fade
+        nav-wrapper-class="w-10"
+        v-model="currentTab"
+        card>
+        <b-tab
+          v-for="(item, index) in groupedWidgetList"
+          :key="index"
           :lazy="true"
           :active="item.group === 'header'"
           :title="item.title">
           <WidgetList
-          @updateAddList="updateAddList"
-          :add-widget-list="addWidgetList"
-          :widget-list="item.widgets" />
-          </b-tab>
-        </template>
+            v-if="showModalDelayed"
+            @updateAddList="updateAddList"
+            :add-widget-list="addWidgetList"
+            :widget-list="item.widgets" />
+          <div v-else class="text-center">
+            <b-spinner
+              variant="primary"
+              class="p-5 m-5 mt-5"
+              label="Spinning"></b-spinner>
+          </div>
+        </b-tab>
       </b-tabs>
     </b-card>
   </b-modal>
 </template>
 <script>
 import Widgets from '../widgets'
-import Frame from './Frame.vue'
-import FrameChild from './FrameChild.vue'
 import WidgetList from './WidgetList'
 export default {
   name: 'WidgetListModal',
-  components: { ...Widgets, Frame, FrameChild, WidgetList },
+  components: { ...Widgets, WidgetList },
   methods: {
-    updateAddList (itemName) {
+    updateAddList (item) {
       let widgetList = this.addWidgetList
-      if (widgetList.indexOf(itemName) > -1) {
+      let finded = widgetList.find((n) => {return n.name === item.name})
+      if (finded) {
         this._.remove(widgetList, (n) => {
-          return n === itemName
+          return n.name === item.name
         })
-        this.$forceUpdate()
       } else {
-        widgetList.push(itemName)
+        widgetList.push(item)
       }
       this.addWidgetList = widgetList
-      // TODO: fix this, remove $forceUpdate
+      this.$forceUpdate()
+    },
+    onShow () {
+      clearTimeout(this.timeout)
+      this.timeout = setTimeout(() => {
+        this.showModalDelayed = true
+      }, 600)
     },
     onHide () {
-      this.$store.dispatch('layout/setAddWidgetMode', false)
+      this.showModalDelayed = false
+      this.showModal = false
       this.addWidgetList = []
+      this.$store.dispatch('layout/setAddWidgetMode', false)
     },
     onOk () {
       // TODO: complete this
@@ -82,8 +101,13 @@ export default {
       return this.$store.state.main.rawWidgetList
     }
   },
+  beforeDestroy () {
+    clearTimeout(this.timeout)
+  },
   data () {
     return {
+      timeout: null,
+      showModalDelayed: false,
       currentTab: 1,
       showModal: false,
       addWidgetList: []

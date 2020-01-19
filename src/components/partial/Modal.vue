@@ -1,14 +1,16 @@
 <template>
   <b-modal
+    :data="widgetDataTrigger"
     @hidden="onHide"
+    @shown="onShow"
     v-model="showModal"
     class="modal-box"
     :title="$t('settings.header')">
     <template slot="modal-footer">
       <b-button
         @click="onHide"
-        variant="outline-success"
-        class="btn btn-link text-muted">
+        class="text-muted"
+        variant="outline-link">
         {{ $t('modal.cancel') }}
       </b-button>
       <b-button
@@ -24,10 +26,10 @@
         v-model="widgetData.href"
         v-if="modalName == 'link'" />
     <ImagePicker
-        v-model="widgetData.src"
+        v-model="widgetData"
         v-if="modalName == 'image'"
         @hide="hide" />
-    <IconPicker 
+    <IconPicker
         v-model="widgetData.iconName"
         v-if="modalName == 'icon'"
         @hide="hide" />
@@ -43,7 +45,9 @@ import MapPicker from './MapPicker'
 
 export default {
   name: 'ModalSettings',
-  data () { return { modalData: null } },
+  data () { return { 
+    widgetData: null
+  }},
   components: {
     MapPicker,
     ImagePicker,
@@ -55,7 +59,11 @@ export default {
       EventBus.$emit('UPDATE_WIDGET_DATA', this.widgetData)
       this.showModal = false
     },
+    onShow () {
+      this.$store.dispatch('layout/modalEscKeyReserved', true)
+    },
     onHide () {
+      this.$store.dispatch('layout/modalEscKeyReserved', false)
       this.$store.dispatch('layout/hideModalView')
       EventBus.$emit('UPDATE_WIDGET_DATA', this.widgetData)
     },
@@ -67,11 +75,11 @@ export default {
     }
   },
   computed: {
+    widgetDataTrigger () {
+      this.widgetData = this._.cloneDeep(this.$store.state.layout.modalDefaultData)
+    },
     modalName () {
       return this.$store.state.layout.modalName
-    },
-    widgetData () {
-      return this._.cloneDeep(this.$store.state.layout.modalDefaultData)
     },
     showModal: {
       get () {

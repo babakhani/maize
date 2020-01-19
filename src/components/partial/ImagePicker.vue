@@ -1,80 +1,79 @@
 <template>
   <div>
-    <div class="row px-2 py-1">
+    <div class="row px-3 py-1">
       <div class="col-12">
-        <b-input-group 
-          size="md" 
+        <b-input-group
+          size="md"
           class="w-100 my-3" >
-          <b-form-input 
+          <b-form-input
             v-model="pickedImageSrc"></b-form-input>
           <b-input-group-append>
-            <b-button 
+            <b-button
             variant="outline-primary"
             @click="pickAndHide(pickedImageSrc)">
-              {{ $t('load_url') }} 
+              {{ $t('load_url') }}
             </b-button>
-            <b-button 
+            <b-button
             variant="danger"
-            @click="pickAndHide(null)">
-              {{ $t('delete') }} 
+            @click="pickAndHide(' ')">
+              {{ $t('delete') }}
             </b-button>
           </b-input-group-append>
         </b-input-group>
+        <b-input-group
+          size="sm"
+          class="w-100 my-3" >
+          <b-form-input
+            @input="pick"
+            :placeholder="$t('settings.image-al-placeholder')"
+            v-model="alt"></b-form-input>
+        </b-input-group>
       </div>
     </div>
-    <b-tabs 
-      class="mazie-tabs"      
-      v-model="getDefaultTabIndex"
+    <b-tabs
+      align="center"
+      vertical
+      pills
+      no-fade
+      class="mazie-tabs"
       card>
-      <b-tab  
-        class="py-2">
-        <template slot="title">
-          <icon class="upload-image-icon"
-                name="images"></icon>
-          <strong> {{ $t('modal.random_image') }}</strong>
-        </template>
-        <div class="row px-2 py-1">
-          <div class="col-6 col-sm-6 col-md-3 col-xl-3 mb-3 image-picker--image-container"
-               v-for="imageItem in randomImageList">
-            <div
-              class="image-picker--image-thumb-box"
-              @click="pick(imageItem)"
-              @dblclick="pickAndHide(imageItem)"
-              :class="{'selected' : pickedImageSrc == imageItem }">
-              <img
-                class="image-picker-modal--img p-2 w-100"
-                :src="imageItem">
-            </div>
-          </div>
-        </div>
-      </b-tab>
-      <b-tab 
-        class="py-2">
-        <template slot="title">
-          <icon class="upload-image-icon"
-                name="images"></icon>
-          <strong> {{ $t('modal.upload') }}</strong>
-        </template>
-        <UploadImage @chooseImage="chooseImage"></UploadImage>
-      </b-tab>
+      <template v-for="picker in imagePickers" >
+        <b-tab
+          :key="picker.name"
+          class="py-2 px-1">
+          <template slot="title">
+            <icon
+              v-if="picker.icon"
+              class="upload-image-icon"
+              :name="picker.icon"></icon>
+            <strong> {{ $t(picker.name) }}</strong>
+          </template>
+          <componenet
+            :is="picker"
+            v-model="pickedImageSrc"
+            @done="done"
+            @select="select" />
+        </b-tab>
+      </template>
     </b-tabs>
   </div>
 </template>
 <script>
-import { EventBus } from '../../events/event-bus'
-import UploadImage from './UploaderImage.vue'
-import ImageSaver from '../../service/image-saver'
+import ImagePickers from '@/extensions/imagepicker/index.js'
 
 export default {
   name: 'ImagePickerModal',
-  components: { UploadImage },
+  components: { ImagePickers },
   data () {
     return {
+      imagePickers: ImagePickers,
+      alt: null,
       pickedImageSrc: null
     }
   },
   mounted () {
-    this.pickedImageSrc = this.value
+    this.pickedImageSrc = this.value.src
+    this.alt = this.value.alt
   },
   props: {
     value: {
@@ -83,26 +82,23 @@ export default {
     }
   },
   methods: {
-    chooseImage (e) {
-      this.pickAndHide(e)
+    select (e) {
+      this.pick(e)
     },
-    pickAndHide (pickedImageSrc) {
-      this.pickedImageSrc = pickedImageSrc
-      this.$emit('input', pickedImageSrc)
+    done () {
       this.$emit('hide')
     },
-    pick (pickedImageSrc) {
-      this.pickedImageSrc = pickedImageSrc
-      this.$emit('input', pickedImageSrc)
-    }
-  },
-  computed: {
-    getDefaultTabIndex () {
-     return this.pickedImageSrc.indexOf('imgur.com') >= 0 ? 1 : 0
+    pickAndHide () {
+      this.value.src = this.pickedImageSrc
+      this.value.alt = this.alt 
+      this.$emit('input',this.value)
+      this.$emit('hide')
     },
-    randomImageList () {
-      return this.$store.state.unsplash.imageList
+    pick (e) {
+      this.value.src = this.pickedImageSrc
+      this.value.alt = this.alt 
+      this.$emit('input',this.value)
     }
-  },
+  }
 }
 </script>

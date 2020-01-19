@@ -13,7 +13,7 @@
             </div>
 
             <div class="row text-center justify-content-center mt-5">
-              <div class="col-12 col-sm-4 col-xl-3 m-md-auto">
+              <div class="col-12 col-sm-4 col-xl-3 mr-md-auto">
                 <ImageEditable name="feature_image_1"
                                cssClass="mz-icon"
                                :partData="touchedData.feature_image_1"/>
@@ -26,7 +26,7 @@
                                :partData="touchedData.feature_1_description"/>
               </div>
 
-              <div class="col-12 col-sm-4 col-xl-3 m-auto pt-4 pt-sm-0">
+              <div class="col-12 col-sm-4 col-xl-3 mx-md-auto">
                 <ImageEditable name="feature_image_2"
                                cssClass="mz-icon"
                                :partData="touchedData.feature_image_2"/>
@@ -39,7 +39,7 @@
                                :partData="touchedData.feature_2_description"/>
               </div>
 
-              <div class="col-12 col-sm-4 col-xl-3 m-auto pt-4 pt-sm-0">
+              <div class="col-12 col-sm-4 col-xl-3 ml-md-auto">
                 <ImageEditable name="feature_image_3"
                                cssClass="mz-icon"
                                :partData="touchedData.feature_image_3"/>

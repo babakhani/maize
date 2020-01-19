@@ -11,11 +11,11 @@
 
   // TODO: bita fix class name
   .add-widget-box--main {
-    border-radius: 100%;
+    border-radius: 30px;
     width: 20em;
     height: 20em;
     cursor: pointer;
-    background: transparent;
+    background: rgba($primary-color, 0.03);
     position: relative;
     border: 0;
 

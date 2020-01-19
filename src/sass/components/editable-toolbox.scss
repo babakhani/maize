@@ -2,11 +2,10 @@
   background: none !important;
 }
 .widget-text-editable--toolbox {
-  position: fixed;
   z-index: 100;
   width: 100%;
   bottom: 0;
-  display: block;
+  display: block !important;
   font-size: 1rem !important;
   background: rgba($black, .95);
   position: fixed !important;
@@ -17,35 +16,65 @@
   padding: 0;
   float: left;
   width: 100%;
-  padding: .1em;
+  padding: .3em .1em .1em .1em ;
   // Preview Mode Styles
   .editor-page-preview-mode & {
     visibility: hidden;
   }
   .widget-text-editable--toolbox--group {
-    display: inline;
-    clear: both;
+    display: block;
     position: relative;
+    float:left;
+    &:first-child {
+      padding-left: 1em;
+    }
+    padding-bottom: 20px;
+    .widget-text-editable--toolbox--group-title {
+      display: block;
+       width: 100%;
+       position: absolute;
+       height: 20px;
+       line-height: 20px;
+       bottom: 0;
+       font-size: .6em;
+       text-align: center;
+       color: rgba($primary-color, 0.9);
+    }
   }
   .widget-text-editable--toolbox--group-separator {
-    display: inline;
+    display: block;
     float: left;
-    height: 2.9em;
-    margin: .3em .3em;
-    width: 1px;
-    background: rgba($primary-color, 0.6);
+    height: 4.5em;
+    margin: 0 .3em;
+    width: 2px;
+    background: rgba($primary-color, 0.2);
   }
 
-  .dropdown,
-  .input-group {
-    float: left;
+  .b-dropdown-form{
+     padding: 0em .4em;
+     margin: 0;
+  }
+
+  .b-dropdown-text{
+     padding-top: 0;
+     padding-right: 0;
+     padding-left: 0;
+     margin-right: 0;
+     margin-left: 0;
   }
 
   .dropdown {
-    float: none;
+    margin: 0;
+    float: left;
     .dropdown-toggle::after {
       display: none;
     }
+    
+    .input-group {
+      width: 100%;
+      min-width: 160px;
+    }
+
     input[type='range'] {
       margin: .5em;
       cursor: pointer;
@@ -78,10 +107,6 @@
         background: rgba($white, .05);
         border: 0;
         color: $white;
-        width: 90%;
-        padding: 0;
-        padding-left: .3em;
-        margin: 0 5% 0 5%;
       }
 
       input[type='range'] {
@@ -122,24 +147,46 @@
     }
   }
 
-  .widget-text-editable--toolbox--button {
+  .widget-text-editable--toolbox--button,
+  .dropdown-toggle {
+    i {
+      color: #bbb;
+    }
+  }
+
+  .widget-text-editable--toolbox--button,
+  .dropdown-toggle {
     color: $white;
-    border: 1px solid rgba($primary-color, .2);
-    width: 3em;
-    height: 3em;
-    margin: 3px;
+    border: 0;
+    width: 2.8em;
+    height: 2.8em;
+    margin: .2em .3em;
     float: left;
     padding: 9px;
     cursor: pointer;
     background: transparent;
     position: relative;
     font-size: inherit;
+    box-shadow: 0 0 3px 0px rgba($primary-color, .9);
+    &:hover,
+    &:active,
+    &:focus {
+      box-shadow: 0 0 3px 2px rgba($primary-color, .9);
+      border: 0 !important;
+    }
+    svg {
+      &,
+      g,
+      path {
+        fill: #bbb !important;
+      }
+    }
     .color-indicator {
       position: absolute;
       width: .5em;
       height: .5em;
-      bottom: 2px;
-      right: 2px;
+      bottom: .3em;
+      right: .3em;
     }
 
     img {
@@ -205,11 +252,8 @@
     cursor: pointer;
     background-color: #000;
     z-index: 10;
-    width: 32px;
-    height: 32px;
-    &:hover {
-      background-color: $primary-color;
-    }
+    width: 2.8em;
+    height: 2.8em;
     svg {
       position: absolute;
       top: 50%;
@@ -226,7 +270,12 @@
         color: $white;
       }
       .vc-input__input {
-        padding: 4px 0 3px 2px;
+        color: rgba($white, .05);
+        background: rgba($white, .1);
+        border: 0 !important;
+        box-shadow: none !important;
+        color: $white;
+        padding: 4px 0 3px 2px !important;
       }
     }
     .vc-sketch-active-color {

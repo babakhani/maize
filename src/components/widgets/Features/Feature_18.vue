@@ -53,7 +53,7 @@
               </div>
             </div>
 
-            <div class="row mt-5">
+            <div class="row my-5 text-center">
               <div class="col-12">
                 <ImageEditable name="main_image"
                                cssClass="img-fluid"

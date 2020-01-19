@@ -7,8 +7,19 @@ body {
   font-family: 'IRANYekan', 'IranSansFaNum', 'IranSans', tahoma, Arial, sans-serif;
   font-size: 12px;
   overflow-x: hidden;
-  direction: ltr;
   background: rgba(#ccc, 0.3);
+}
+
+.disabled {
+  * {
+    fill :$gray-7 !important;
+  }
+  cursor: default !important;
+  color: $gray-7 !important;
+}
+
+.pointer {
+  cursor: pointer !important;
 }
 
 .no-outline {
@@ -18,14 +29,13 @@ body {
   }
 }
 
-.rtl {
-  direction: rtl;
-}
-
-.ltr {
-  direction: ltr;
-}
-
 .form-control:focus {
   box-shadow: none;
+}
+.modal-header {
+  .close {
+    &:focus {
+      outline: none;
+    }
+  }
 }

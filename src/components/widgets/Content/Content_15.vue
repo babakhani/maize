@@ -2,11 +2,12 @@
   <div>
       <WidgetToolbox></WidgetToolbox>
       <BgEditable>
-        <section class="mz-block pb-0">
+        <section class="mz-block">
           <div class="container">
             <div class="row align-items-center">
               <div class="col-12 col-md-6 col-lg-5">
                 <ImageEditable name="image"
+                               class="text-left"
                                cssClass="mz-icon"
                                :partData="touchedData.image"/>
 
@@ -58,7 +59,7 @@
             },
             image: {
               styles: {},
-              src: this.faker.img.icon()
+              src: this.faker.img.big()
             },
             imageTall: {
               styles: {},

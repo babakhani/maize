@@ -1,9 +1,11 @@
 .widget-block {
   display: block;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, .1);
+  border-radius: 6px;
   position: relative;
   width: 100%;
-  padding-top: 3em;
-  margin-top: 2em;
+  padding-top: 2.8em;
+  margin-top: 1em;
 
   .widget-block--name{
     display: block;
@@ -29,7 +31,6 @@
     .widget-block--toolbox {
       display: none;
     }
-
   }
 
   .widget-block--toolbox {
@@ -37,15 +38,17 @@
     position: absolute;
     width: 100%;
     height: 3em;
-    top: .2em;
+    top: 0;
     right: 0;
     left: 0;
     bottom: 0;
     z-index: 10;
-    background: transparent;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    background: rgba($white, .7);
     
     .widget-block--toolbox-btn {
-      float: right;
+      display: none;
       &.btn-active {
         background: #ccc;
       }
@@ -56,18 +59,10 @@
       }
     }
   }
-}
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
-{
-  opacity: 0;
-}
-.btn-empty {
   &:hover {
-    background: transparent;
+    .widget-block--toolbox-btn {
+      display: block;
+    }
   }
 }

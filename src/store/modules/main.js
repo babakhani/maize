@@ -6,9 +6,9 @@ export default {
   state: {
     settings: window.localStorage.getItem('settings') ? JSON.parse(window.localStorage.getItem('settings')) : {
       title: 'Maize',
-      description: 'Example description',
+      description: '',
       language: 'en',
-      baseURL: 'https://raw.githubusercontent.com/babakhani/maize/master/public/',
+      baseURL: '',
       canonical: '/',
       nextURL: '',
       image: '',
@@ -22,6 +22,8 @@ export default {
       type: 'Organization',
       color: '#fff'
     },
+    currentHistoryIndex: 0, 
+    historyLength: 0,
     currentWidgetList: window.localStorage.getItem('page') ? JSON.parse(window.localStorage.getItem('page')).data : [],
     rawWidgetList: rawWidgetList
   },
@@ -63,12 +65,23 @@ export default {
       state.currentWidgetList = list
       window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
     },
+    updateCurrentWidgetList (state, payload = { key: null, data: {} }) {
+      const list = lodash.cloneDeep(state.currentWidgetList)
+      // TODO: check this, it might raise cant read 0 of undefined
+      let item = list.find((n) => {
+        return n.uniqeId == payload.key
+      })
+      item = payload.data
+      state.currentWidgetList = []
+      state.currentWidgetList = list
+      window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
+    },
     updateItemOfCurrentWidgetList (state, payload = {key: null, name: 'null', data: {}}) {
       const list = lodash.cloneDeep(state.currentWidgetList)
       // TODO: check this, it might raise cant read 0 of undefined
-      let item = list.filter((n) => {
+      let item = list.find((n) => {
         return n.uniqeId == payload.key
-      })[0]
+      })
       if (typeof item.data === 'undefined') {
         item.data = {}
       }
@@ -78,15 +91,11 @@ export default {
       window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
     },
     addToCurrentWidgetList (state, payload) {
-      if (lodash.isString(payload)) {
-        state.currentWidgetList.push(payload)
-      } else if (lodash.isArray(payload)) {
-        payload.forEach((item) => {
-          let it = lodash.cloneDeep(item)
-          it.uniqeId = it.name + (lodash.random(1000) + new Date().valueOf())
-          state.currentWidgetList.push(it)
-        })
-      }
+      payload.forEach((item) => {
+        let it = lodash.cloneDeep(item)
+        it.uniqeId = it.name + (lodash.random(1000) + new Date().valueOf())
+        state.currentWidgetList.push(it)
+      })
       window.localStorage.setItem('page', JSON.stringify({data: state.currentWidgetList}))
     },
     removeFromCurrentWidgetList (state, payload) {
@@ -112,6 +121,9 @@ export default {
     },
     sortCurrentWidgetList (context, payload) {
       context.commit('sortCurrentWidgetList', payload)
+    },
+    updateCurrentWidgetList (context, payload) {
+      context.commit('updateCurrentWidgetList', payload)
     },
     updateItemOfCurrentWidgetList (context, payload) {
       context.commit('updateItemOfCurrentWidgetList', payload)

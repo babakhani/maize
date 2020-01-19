@@ -20,7 +20,7 @@
             <div class="row text-left pt-5">
               <div class="col-12 col-sm-6 col-md-5">
                 <ImageEditable name="feature_image_1"
-                               cssClass="img-fluid"
+                               cssClass="img-fluid mb-2"
                                :partData="touchedData.feature_image_1"/>
                 <TextEditable tag="h3"
                                name="feature_1_title"
@@ -33,7 +33,7 @@
 
               <div class="col-12 col-sm-6 col-md-5 ml-sm-auto pt-5 pt-sm-0">
                 <ImageEditable name="feature_image_2"
-                               cssClass="img-fluid"
+                               cssClass="img-fluid mb-2"
                                :partData="touchedData.feature_image_2"/>
                 <TextEditable tag="h3"
                                name="feature_2_title"
@@ -76,7 +76,7 @@
             },
             feature_image_1: {
               styles: {},
-              src: this.faker.img.icon()
+              src: this.faker.img.big()
             },
             feature_1_title: {
               styles: {},
@@ -88,7 +88,7 @@
             },
             feature_image_2: {
               styles: {},
-              src: this.faker.img.icon()
+              src: this.faker.img.big()
             },
             feature_2_title: {
               styles: {},

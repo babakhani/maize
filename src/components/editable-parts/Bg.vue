@@ -1,7 +1,6 @@
 <template>
-  <div 
+  <div
     class="editable-part editable-background"
-    @keydown.esc="hideToolbox()"
     :class="{
     'editable-active': editMode,
     'under-edit': toolboxVisible}">
@@ -12,8 +11,8 @@
             @click="showToolbox">
       <icon name="cog"></icon>
     </button>
-    <EditablePartToolbox 
-          :groups="['backgroundimage', 'background', 'border']"
+    <EditablePartToolbox
+          :groups="['backgroundimage', 'background', 'border', 'general']"
           @update="updateStyles"
           :currentStyles="touchedData.styles"
           v-if="toolboxVisible"
@@ -25,22 +24,22 @@
 </template>
 
 <script>
-  import EditablePartMixin from '../../mixins/editablePart'
+import EditablePartMixin from '../../mixins/editablePart'
 
-  export default {
-    name: 'BgEditable',
-    mixins: [EditablePartMixin],
-    props: {
-      partData: {
-        default () {
-          return this.$parent.touchedData.bg
-        },
-        required: false
+export default {
+  name: 'BgEditable',
+  mixins: [EditablePartMixin],
+  props: {
+    partData: {
+      default () {
+        return this.$parent.touchedData.bg
       },
-      name: {
-        default: 'bg',
-        required: false
-      }
+      required: false
+    },
+    name: {
+      default: 'bg',
+      required: false
     }
   }
+}
 </script>

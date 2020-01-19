@@ -2,27 +2,25 @@
   <div>
       <WidgetToolbox />
       <BgEditable>
-        <section class="mz-block">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div 
-                class="col-12 col-md-8 text-center">
-                <TextEditable 
-                  tag="p"
-                  name="description"
-                  cssClass="text-h3"
-                  :partData="touchedData.description"/>
-                <p class="mt-5 mt-sm-4">
-                  <TextEditable 
-                    tag="a"
-                    cssClass="btn btn-primary px-3"
-                    name="action_link"
-                    :partData="touchedData.action_link"/>
-                </p>
-              </div>
-            </div>
+      <section class="mz-block">
+        <div class="row justify-content-center">
+          <div 
+             class="col-12 col-md-8 text-center">
+            <TextEditable 
+             tag="p"
+             name="description"
+             cssClass="text-h3"
+             :partData="touchedData.description"/>
+            <p class="mt-5 mt-sm-4">
+            <TextEditable 
+               tag="a"
+               cssClass="btn btn-primary px-3"
+               name="action_link"
+               :partData="touchedData.action_link"/>
+            </p>
           </div>
-        </section>
+        </div>
+      </section>
       </BgEditable>
   </div>
 </template>
@@ -50,8 +48,10 @@
               src: this.faker.internet.url(),
             },
             action_link: {
-              styles: {},
-              text: this.faker.lorem.words(1),
+              styles: {
+                'color': 'white'
+              },
+              text: this.faker.lorem.words(2),
               src: this.faker.internet.url
             }
           }

@@ -1,10 +1,17 @@
 .page-toolbox
-  position: sticky
+  position: fixed
+  width: 100%
   top: 0
   z-index: 15
   background-color: rgba($black, 0.95) !important
   box-shadow: 2px 0 2px 1px rgba(0, 0, 0, .1);
-  
+
+  .custom-control-label::after
+    top: 8px
+
+  .custom-control-label::before
+    top: 6px
+
   .navbar
     padding: .5em 0 !important
 
@@ -91,18 +98,6 @@
     &:focus
       border-color: transparent
       box-shadow: none
-
-// TODO: remove from here
-.switch
-  position: relative
-  display: inline-block
-  margin-bottom: 0
-  top: 5px;
-  margin-left: 8px
-  width: 34px
-  height: 14px
-  input
-    display: none
 
 .slider
   position: absolute

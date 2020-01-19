@@ -1,16 +1,15 @@
 <template>
   <div>
-      <WidgetToolbox/>
-      <BgEditable>
-        <header>
-          <div class="container">
-            <nav class="navbar">
-              <ImageEditable name="header_image"
-                :partData="touchedData.header_image"/>
-            </nav>
-          </div>
-        </header>
-      </BgEditable>
+    <WidgetToolbox/>
+    <BgEditable>
+    <header>
+      <nav class="navbar">
+        <ImageEditable
+           name="header_image"
+           :partData="touchedData.header_image"/>
+      </nav>
+    </header>
+    </BgEditable>
   </div>
 </template>
 <script>

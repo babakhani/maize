@@ -1,8 +1,10 @@
-export default (settings) => { return `
+export default (settings) => {
+  return `
   <title> ${settings.title} </title>
   <meta name="description" content="${settings.description}"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <meta charset="UTF-8">
+  <link rel="icon" href="${settings.favicon}" type="image/x-icon" />
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
   <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -64,4 +66,7 @@ export default (settings) => { return `
         type="text/javascript" 
         crossorigin="anonymous"
         src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-`}
+  ${settings.hotjarScript ? settings.hotjarScript : ''}
+  ${settings.gaScript ? settings.gaScript : ''}
+`
+}
