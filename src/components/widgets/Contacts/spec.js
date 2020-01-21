@@ -36,6 +36,16 @@ export default {
       name: 'Contact_7',
       group: 'contact',
       data: {}
+    },
+    {
+      name: 'Contact_8',
+      group: 'contact',
+      data: {}
+    },
+    {
+      name: 'Contact_9',
+      group: 'contact',
+      data: {}
     }
   ]
 }

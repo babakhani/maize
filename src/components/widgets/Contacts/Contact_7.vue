@@ -79,7 +79,7 @@
 import widgetMixin from '@/mixins/widget'
 
 export default {
-  name: 'contact_5',
+  name: 'contact_7',
   mixins: [widgetMixin],
   props: {
     defaultData: {
@@ -116,40 +116,6 @@ export default {
             styles: {},
             text: this.faker.lorem.words(1)
           },
-          contact_phone: {
-            styles: {},
-            text: this.faker.phone.phoneNumber()
-          },
-          contact_image_1: {
-            styles: {
-              height: '40px'
-            },
-            src: this.faker.img.rounded()
-          },
-          contact_image_2: {
-            styles: {
-              height: '40px'
-            },
-            src: this.faker.img.rounded()
-          },
-          contact_address: {
-            styles: {},
-            text: this.faker.fake('{{address.city}}, {{address.stateAbbr}} {{address.zipCode}}')
-          },
-          contact_image_3: {
-            styles: {
-              height: '40px'
-            },
-            src: this.faker.img.rounded()
-          },
-          contact_email_value: {
-            styles: {},
-            text: this.faker.internet.email()
-          },
-          contact_subtitle: {
-            styles: {},
-            text: this.faker.lorem.words(15)
-          }
         }
       }
     },
