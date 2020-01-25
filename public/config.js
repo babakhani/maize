@@ -1,6 +1,10 @@
 window.CONFIG = {
   locale: 'en',
   direction: 'ltr',
+  fonts: {
+    en: [ 'Roboto', 'Open Sans', 'Lato', 'serif', 'fantasy', 'monospace' ],
+    fa: [ 'tahoma', 'IranSans' ]
+  },
   cdn: {
     css: {
       bootstrap: 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css',

@@ -261,19 +261,11 @@
             <icon name="font"/>
           </template>
           <b-dropdown-item
-            :class="{'widget-text-editable--selected': styles['font-family'] === 'monospace'}"
-            @click="setFontFamily('monospace')">
-            {{ $t('monospace') }}
-          </b-dropdown-item>
-          <b-dropdown-item
-            :class="{'widget-text-editable--selected': styles['font-family'] === 'serif'}"
-            @click="setFontFamily('serif')">
-            {{ $t('serif') }}
-          </b-dropdown-item>
-          <b-dropdown-item
-            :class="{'widget-text-editable--selected': styles['font-family'] === 'fantasy'}"
-            @click="setFontFamily('fantasy')">
-            {{ $t('fantasy') }}
+            v-for="font in fonts"
+            :key="font"
+            :class="{'widget-text-editable--selected': styles['font-family'] === 'font'}"
+            @click="setFontFamily(font)">
+            {{ $t(font) }}
           </b-dropdown-item>
         </b-dropdown>
 
@@ -635,6 +627,14 @@ export default {
       ? this.styles['background-position'].split(' ')[1] : 0
     this.backgroundPositionY = this.styles['background-position']
       ? this.styles['background-position'].split(' ')[0] : 0
+  },
+  computed: {
+    fonts () {
+      return window.CONFIG.fonts[this.locale]
+    },
+    locale () {
+      return this.$store.state.locale.current
+    }
   },
   props: {
     target: {

@@ -227,7 +227,7 @@ export default {
       }
     },
     currentLocale () {
-      return this.$store.state.locale.currentLocale
+      return this.$store.state.locale.current
     },
     previewMode () {
       return this.$store.state.layout.previewMode

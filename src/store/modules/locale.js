@@ -4,13 +4,15 @@ export default {
   namespaced: true,
   state: {
     direction: window.CONFIG.direction,
+    // DEPRECATED
     currentLocale: null,
-    alignment: 'right'
+    current: window.CONFIG.locale
   },
   mutations: {
     setLang (state, payload) {
       i18n.locale = payload
       state.currentLocale = payload
+      state.current = payload
       window.localStorage.setItem('locale', payload)
     }
   },
