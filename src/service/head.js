@@ -5,7 +5,7 @@ export default (settings) => {
   <meta name="description" content="${settings.description}"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <meta charset="UTF-8">
-  <link rel="icon" href="${settings.favicon}" type="image/x-icon" />
+  <link id="mainFavicon" rel="icon" href="${settings.favicon}" type="image/x-icon" />
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
   <meta name="apple-mobile-web-app-capable" content="yes"/>

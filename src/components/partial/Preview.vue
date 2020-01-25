@@ -42,6 +42,7 @@ export default {
     return {
       exportHtml: null,
       imagesFiles: [],
+      favicon: null,
       cssFiles: null,
       fontsFiles: null,
       jsFiles: null
@@ -103,6 +104,12 @@ export default {
         let cloneFrameContent = frameContent.cloneNode(true)
 
         // Find Imge tags
+        this.favicon = cloneFrameContent.getElementById('mainFavicon').href
+        if (this.favicon && this.favicon.split('base64,')[1]) {
+          this.favicon = this.favicon.split('base64,')[1]
+          cloneFrameContent.getElementById('mainFavicon').href = 'favicon.ico'
+        }
+
         this._.each(cloneFrameContent.getElementsByTagName('img'), (item) => {
           let fileExtension = item.src.split(';')[0].split('/')[1]
           let sanitizedbase64 = item.src.split('base64,')[1]
@@ -130,6 +137,11 @@ export default {
         this._.each(this.imagesFiles, (item) => {
           img.file(item.name, item.base64, { base64: true })
         })
+      }
+
+      // Favicon
+      if (this.favicon) {
+        zip.file('favicon.ico', this.favicon, { base64: true })
       }
 
       // CSS
