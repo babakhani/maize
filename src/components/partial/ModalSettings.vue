@@ -66,11 +66,22 @@
               </div>
               <div class="form-group">
                 <label>{{ $t('settings.favicon') }}</label>
+                <b-form-file
+                  @change="setFavicon"
+                  :placeholder="$t('settings.favicon-placeholder')"
+                  :drop-placeholder="$t('settings.favicon-placeholder-drag')">
+                </b-form-file>
+                <img alt="image"
+                     v-if="siteSettings.favicon"
+                     class="mt-2 favicon-thumb"
+                     :src="siteSettings.favicon"/>
+              </div>
+              <div class="form-group w-25">
+                <label>{{ $t('settings.color') }}</label>
                 <input
-                   v-model="siteSettings.favicon"
-                   type="text"
-                   class="form-control"
-                  :placeholder="$t('settings.favicon-placeholder')">
+                  v-model="siteSettings.color"
+                  type="color"
+                  class="form-control">
               </div>
               <div class="form-group">
                 <label>{{ $t('settings.secureURL') }}</label>
@@ -103,13 +114,6 @@
                   type="text"
                   class="form-control"
                   :placeholder="$t('settings.canonical-placeholder')">
-              </div>
-              <div class="form-group w-25">
-                <label>{{ $t('settings.color') }}</label>
-                <input
-                  v-model="siteSettings.color"
-                  type="color"
-                  class="form-control">
               </div>
               <div class="form-group">
                 <label>{{ $t('settings.nextURL') }}</label>
@@ -284,6 +288,16 @@ export default {
       this.onHide()
       this.$store.dispatch('main/updateSettings', this.siteSettings)
       return false
+    },
+    setFavicon (e) {
+      const self = this
+      if (e.target.files && e.target.files[0]) {
+        var reader = new FileReader()
+        reader.onload = function (e) {
+          self.siteSettings.favicon = e.target.result
+        }
+        reader.readAsDataURL(e.target.files[0])
+      }
     }
   },
   mounted () {
@@ -304,3 +318,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped >
+.favicon-thumb {
+  max-width: 16px;
+  max-height: 16px;
+}
+</style>
