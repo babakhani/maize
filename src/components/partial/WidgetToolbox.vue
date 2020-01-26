@@ -3,7 +3,13 @@
     v-if="!$parent.demoMode"
     class="cursor-move widget-block--toolbox">
     <nav class="navbar-expand-lg navbar py-0 my-0 px-1 mx-1">
-      <span class="navbar-text">
+      <span
+        :contenteditable="editNameMode"
+        @focusout="goOutNameMode"
+        @dblclick="goToEditNameMode"
+        @input="updateName"
+        style="direction: ltr"
+        class="navbar-text">
         {{ sanitizedName }}
       </span>
       <div class="collapse navbar-collapse" >
@@ -72,14 +78,40 @@ export default {
   name: 'WidgetToolbox',
   data () {
     return {
-      showTools: true,
-      sanitizedName: this.$parent.$options.name.replace('_', ' ')
+      editNameMode: null,
+      sanitizedName: null,
+      showTools: true
     }
   },
   props: {
     editMode: {
       default: false,
       require: true
+    }
+  },
+  mounted () {
+    this.sanitizedName = this.$parent.$options.name.replace('_', ' ')
+    setTimeout(() => {
+      if (this.$parent.touchedData && this.$parent.touchedData.config &&
+        this.$parent.touchedData.config.name) {
+        this.sanitizedName = this.$parent.touchedData.config.name
+      }
+    }, 0)
+  },
+  methods: {
+    goToEditNameMode () {
+      this.editNameMode = true
+    },
+    goOutNameMode () {
+      this.editNameMode = false
+    },
+    updateName (e) {
+      this.$parent.updateData({
+        name: 'config',
+        data: {
+          name: e.target.innerText
+        }
+      })
     }
   }
 }

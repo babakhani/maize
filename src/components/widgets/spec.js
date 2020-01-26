@@ -5,6 +5,7 @@ import HeaderSpec from './Header/spec'
 import CallToActionSpec from './CallToAction/spec'
 import ContactsSpec from './Contacts/spec'
 import KitchenSpec from './Kitchen/spec'
+import AdvancedSpec from './Advanced/spec'
 export default [
   HeaderSpec,
   CallToActionSpec,
@@ -12,5 +13,6 @@ export default [
   ContentSpec,
   ContactsSpec,
   FooterSpec,
-  KitchenSpec
+  KitchenSpec,
+  AdvancedSpec
 ]

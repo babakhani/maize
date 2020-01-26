@@ -19,7 +19,7 @@
               :is="picker"
               v-model="animate"
               @done="done"
-              @select="select" />
+              @input="select" />
           </b-tab>
         </template>
       </b-tabs>

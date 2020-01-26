@@ -1,4 +1,3 @@
-<!-- Fixed navbar -->
 <template>
   <div
     @dblclick="(e) => {e.stopPropagation()}"

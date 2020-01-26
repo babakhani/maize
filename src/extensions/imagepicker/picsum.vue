@@ -30,7 +30,6 @@ export default {
   },
   methods: {
     select (pickedImageSrc, hide = false) {
-      this.$emit('select', pickedImageSrc)
       this.$emit('input', pickedImageSrc)
       if (hide) {
         this.$emit('done')

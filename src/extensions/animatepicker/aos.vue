@@ -66,7 +66,6 @@
 </template>
 
 <script>
-import faker from 'faker'
 export default {
   name: 'AOS',
   icon: false,
@@ -126,16 +125,6 @@ export default {
         'ease-in-quart',
         'ease-out-quart',
         'ease-in-out-quart'
-      ],
-      sampletexts: [
-        faker.lorem.words(10),
-        faker.lorem.words(10),
-        faker.lorem.words(10),
-        faker.lorem.words(10),
-        faker.lorem.words(10),
-        faker.lorem.words(10),
-        faker.lorem.words(10),
-        faker.lorem.words(10)
       ]
     }
   },
@@ -153,7 +142,6 @@ export default {
   methods: {
     select (animate, hide = false) {
       this.$emit('input', animate)
-      this.$emit('select', animate)
       if (hide) {
         this.$emit('done')
       }

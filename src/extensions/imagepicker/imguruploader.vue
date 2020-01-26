@@ -58,7 +58,7 @@ export default {
         .then(response => response.text())
         .then(result => JSON.parse(result))
         .then(result => {
-          self.$emit('select', result.data.link)
+          self.$emit('input', result.data.link)
           self.$emit('done')
         })
         .catch(error => console.log('error', error))

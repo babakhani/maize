@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     select (picked, hide = false) {
-      this.$emit('select', picked)
+      this.$emit('input', picked)
       if (hide) {
         this.$emit('done')
       }

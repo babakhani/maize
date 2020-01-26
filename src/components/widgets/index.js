@@ -8,6 +8,7 @@ import Gallery from './Gallery/index'
 import CallToAction from './CallToAction/index'
 import Contacts from './Contacts/index'
 import Kitchen from './Kitchen/index'
+import Advanced from './Advanced/index'
 
 export default {
   ...Header,
@@ -19,5 +20,6 @@ export default {
   ...Gallery,
   ...Contacts,
   ...Footer,
+  ...Advanced,
   ...Kitchen
 }

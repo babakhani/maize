@@ -208,7 +208,6 @@ export default {
   },
   methods: {
     select (pickedText, hide = false) {
-      this.$emit('select', pickedText)
       this.$emit('input', pickedText)
       if (hide) {
         this.$emit('done')

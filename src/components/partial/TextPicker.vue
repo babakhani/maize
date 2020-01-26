@@ -17,7 +17,7 @@
           :is="picker"
           v-model="innervalue"
           @done="done"
-          @select="select" />
+          @input="select" />
       </b-tab>
     </template>
   </b-tabs>

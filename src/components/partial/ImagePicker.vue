@@ -52,7 +52,7 @@
             :is="picker"
             v-model="pickedImageSrc"
             @done="done"
-            @select="select" />
+            @input="select" />
         </b-tab>
       </template>
     </b-tabs>
