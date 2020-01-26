@@ -31,13 +31,13 @@
       :contenteditable="editMode"
       :href="tag === 'a' ? touchedData.href : false"
       :target="tag === 'a' ? '_blank' : false"
+      v-html="touchedData.text"
       @focus="showToolbox"
       @click="(e) => e.preventDefault()"
       @focusout="updateTextOnBlur"
       @dblclick="goToEditMode"
       @paste="onPaste"
       @input="updateText">
-      {{touchedData.text}}
     </component>
     <component
       v-if="!toolboxVisible"

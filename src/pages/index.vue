@@ -7,8 +7,8 @@
             'editor-page-tablet-preview-mode':tabletPreviewMode
             }">
     <PageHeader></PageHeader>
-    <Preview v-show="previewMode"/>
-    <div  v-show="!previewMode" class="wrapper">
+    <Preview v-if="previewMode"/>
+    <div  v-if="!previewMode" class="wrapper">
       <nav id="sidebar"
            v-if="pageSideBarIsActive"
            :class="{'active': !pageSideBarIsActive}"

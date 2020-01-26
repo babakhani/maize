@@ -60,6 +60,14 @@ export default (settings) => {
         id="aos_css"
         rel="stylesheet" 
         href="${CONFIG.cdn.css.aos}">
+  <link 
+        id="slick_css"
+        rel="stylesheet" 
+        href="${CONFIG.cdn.css.slick}">
+  <link 
+        id="slicktheme_css"
+        rel="stylesheet" 
+        href="${CONFIG.cdn.css.slick}">
   <script 
         id="jquery_js"
         type="text/javascript" 
@@ -79,9 +87,14 @@ export default (settings) => {
         id="aos_js"
         src="${CONFIG.cdn.js.aos}">
         </script>
+  <script 
+        id="slick_js"
+        src="${CONFIG.cdn.js.slick}">
+        </script>
   <script>
     $(document).ready(() => {
        AOS.init();
+       $('.slick-slider').slick();
     })
   </script>
 

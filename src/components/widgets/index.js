@@ -7,6 +7,7 @@ import Form from './Form/index'
 import Gallery from './Gallery/index'
 import CallToAction from './CallToAction/index'
 import Contacts from './Contacts/index'
+import Kitchen from './Kitchen/index'
 
 export default {
   ...Header,
@@ -17,5 +18,6 @@ export default {
   ...Form,
   ...Gallery,
   ...Contacts,
-  ...Footer
+  ...Footer,
+  ...Kitchen
 }

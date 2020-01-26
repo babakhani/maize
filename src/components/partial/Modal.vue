@@ -21,24 +21,24 @@
     </template>
     <AnimatePicker
         @hide="hide"
-        v-model="widgetData.animate"
+        v-model="editablePartData.animate"
         v-if="modalName == 'animate'" />
     <TextPicker
         @hide="hide"
-        v-model="widgetData.text"
+        v-model="editablePartData.text"
         v-if="modalName == 'text'" />
     <MapPicker
-        v-model="widgetData.frameSrc"
+        v-model="editablePartData.frameSrc"
         v-if="modalName == 'map'" />
     <LinkPicker
-        v-model="widgetData.href"
+        v-model="editablePartData.href"
         v-if="modalName == 'link'" />
     <ImagePicker
-        v-model="widgetData"
+        v-model="editablePartData"
         v-if="modalName == 'image'"
         @hide="hide" />
     <IconPicker
-        v-model="widgetData.iconName"
+        v-model="editablePartData.iconName"
         v-if="modalName == 'icon'"
         @hide="hide" />
   </b-modal>
@@ -57,7 +57,7 @@ export default {
   name: 'PickersModal',
   data () {
     return {
-      widgetData: null
+      editablePartData: null
     }
   },
   components: {
@@ -70,7 +70,7 @@ export default {
   },
   methods: {
     hide () {
-      EventBus.$emit('UPDATE_WIDGET_DATA', this.widgetData)
+      EventBus.$emit('UPDATE_WIDGET_DATA', this.editablePartData)
       this.showModal = false
     },
     onShow () {
@@ -79,10 +79,10 @@ export default {
     onHide () {
       this.$store.dispatch('layout/modalEscKeyReserved', false)
       this.$store.dispatch('layout/hideModalView')
-      EventBus.$emit('UPDATE_WIDGET_DATA', this.widgetData)
+      EventBus.$emit('UPDATE_WIDGET_DATA', this.editablePartData)
     },
     onOk (e) {
-      EventBus.$emit('UPDATE_WIDGET_DATA', this.widgetData)
+      EventBus.$emit('UPDATE_WIDGET_DATA', this.editablePartData)
       e.preventDefault()
       this.onHide()
       return false
@@ -91,9 +91,9 @@ export default {
   computed: {
     widgetDataTrigger () {
       /* eslint-disable */
-      this.widgetData = this._.cloneDeep(this.$store.state.layout.modalDefaultData)
+      this.editablePartData = this._.cloneDeep(this.$store.state.layout.modalDefaultData)
       /* eslint-enable */
-      return this.widgetData
+      return this.editablePartData
     },
     modalName () {
       return this.$store.state.layout.modalName

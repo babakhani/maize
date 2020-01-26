@@ -15,6 +15,7 @@
         </template>
         <componenet
           :is="picker"
+          v-model="innervalue"
           @done="done"
           @select="select" />
       </b-tab>
@@ -30,7 +31,8 @@ export default {
   components: { TextPickers },
   data () {
     return {
-      textPickers: TextPickers
+      textPickers: TextPickers,
+      innervalue: this.value
     }
   },
   props: {
