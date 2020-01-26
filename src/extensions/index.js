@@ -5,13 +5,15 @@ import lorem from './lorem'
 import tiptap from './tiptap'
 import texty from './texty'
 import aos from './aos'
+import link from './link'
 
 export default {
-  clientsideuploader: clientsideuploader,
-  picsum: picsum,
-  fontawesome: fontawesome,
-  aos: aos,
-  tiptap: tiptap,
-  texty: texty,
-  lorem: lorem
+  clientsideuploader,
+  picsum,
+  fontawesome,
+  aos,
+  tiptap,
+  texty,
+  lorem,
+  link
 }

@@ -4,14 +4,14 @@
       <label>{{ $t('settings.url') }}</label>
       <b-form-input type="text"
                     v-model="pickLink"
-                    @input="updatePreData"
+                    @input="select(pickLink)"
                     :placeholder="$t('insert_link')">
       </b-form-input>
     </div>
     <div class="form-group">
       <label>{{ $t('settings.page_sections') }}</label>
       <b-form-select
-        @change="updatePreData"
+        @change="select(pickLink)"
         v-model="pickLink"
         class="mb-3">
         <option v-for="widget in currentWidgetList"
@@ -25,13 +25,33 @@
 export default {
   name: 'Link',
   icon: false,
+  props: {
+    value: {
+      type: [String, Boolean],
+      required: false
+    }
+  },
+  mounted () {
+    this.pickLink = this.value
+  },
   data () {
     return {
+      pickLink: null
+    }
+  },
+  watch: {
+    value () {
+      this.pickLink = this.value
+    }
+  },
+  computed: {
+    currentWidgetList () {
+      return this.$store.state.main.currentWidgetList
     }
   },
   methods: {
-    select (pickedText, hide = false) {
-      this.$emit('input', pickedText)
+    select (pickLink, hide = false) {
+      this.$emit('input', pickLink)
       if (hide) {
         this.$emit('done')
       }

@@ -60,7 +60,7 @@
       class="widget-text-editable--toolbox--group">
       <button :title="$t('toolbox.link')"
       v-b-tooltip.hover.top.small
-      @click="setPickLinkMode"
+      @click="openExtensions('href', ['Link'])"
       class="btn btn-sm widget-text-editable--toolbox--button">
         <icon name="link" />
       </button>
@@ -689,6 +689,11 @@ export default {
   },
   methods: {
     openExtensions (dataKey, extensionsList) {
+
+      console.log('openExtensions')
+      console.log(dataKey)
+      console.log(this.editableData[dataKey])
+
       this.$store.dispatch('layout/setModalView', {
         name: 'extensionloader',
         extensions: extensionsList,
@@ -697,6 +702,8 @@ export default {
       EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
         let o = {}
         o[dataKey] = widgetData
+        console.log('widgetData')
+        console.log(widgetData)
         this.$emit('updatewidget', o)
       })
       return false
@@ -720,16 +727,6 @@ export default {
           this.styles['background-image'] = `url('${widgetData.src}')`
           this.update()
         }
-      })
-      return false
-    },
-    setPickLinkMode (e) {
-      this.$store.dispatch('layout/setModalView', {
-        name: 'link',
-        data: this.editableData
-      })
-      EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
-        this.$emit('updatewidget', widgetData)
       })
       return false
     },

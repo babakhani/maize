@@ -18,7 +18,6 @@
         {{ $t('modal.ok') }}
       </b-button>
     </template>
-    <pre> {{ editablePartData }} </pre>
     <ExtensionsLoader
       :extensions="extensions"
       @hide="hide"
@@ -48,6 +47,7 @@ export default {
     },
     onShow () {
       this.$store.dispatch('layout/modalEscKeyReserved', true)
+      this.editablePartData = this._.cloneDeep(this.$store.state.layout.modalDefaultData)
     },
     onHide () {
       this.$store.dispatch('layout/modalEscKeyReserved', false)

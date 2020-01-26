@@ -45,6 +45,11 @@ export default {
   mounted () {
     this.extensionsData = this.value
   },
+  watch: {
+    value () {
+      this.extensionsData = this.value
+    }
+  },
   props: {
     extensions: {
       type: [Array],
