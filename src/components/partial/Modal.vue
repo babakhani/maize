@@ -1,6 +1,5 @@
 <template>
   <b-modal
-    :data="widgetDataTrigger"
     @hidden="onHide"
     @shown="onShow"
     v-model="showModal"
@@ -19,39 +18,18 @@
         {{ $t('modal.ok') }}
       </b-button>
     </template>
-    <AnimatePicker
-        @hide="hide"
-        v-model="editablePartData.animate"
-        v-if="modalName == 'animate'" />
-    <TextPicker
-        @hide="hide"
-        v-model="editablePartData.text"
-        v-if="modalName == 'text'" />
-    <MapPicker
-        v-model="editablePartData.frameSrc"
-        v-if="modalName == 'map'" />
-    <LinkPicker
-        v-model="editablePartData.href"
-        v-if="modalName == 'link'" />
-    <ImagePicker
-        v-model="editablePartData"
-        v-if="modalName == 'image'"
-        @hide="hide" />
-    <IconPicker
-        v-model="editablePartData.iconName"
-        v-if="modalName == 'icon'"
-        @hide="hide" />
+    <pre> {{ editablePartData }} </pre>
+    <ExtensionsLoader
+      :extensions="extensions"
+      @hide="hide"
+      v-model="editablePartData"
+      v-if="modalName == 'extensionloader'" />
   </b-modal>
 </template>
 
 <script>
 import { EventBus } from '../../events/event-bus'
-import IconPicker from './IconPicker'
-import LinkPicker from './LinkPicker'
-import ImagePicker from './ImagePicker'
-import MapPicker from './MapPicker'
-import TextPicker from './TextPicker'
-import AnimatePicker from './AnimatePicker'
+import ExtensionsLoader from './ExtensionsLoader'
 
 export default {
   name: 'PickersModal',
@@ -61,12 +39,7 @@ export default {
     }
   },
   components: {
-    AnimatePicker,
-    TextPicker,
-    MapPicker,
-    ImagePicker,
-    IconPicker,
-    LinkPicker
+    ExtensionsLoader
   },
   methods: {
     hide () {
@@ -88,15 +61,15 @@ export default {
       return false
     }
   },
+  mounted () {
+    this.editablePartData = this._.cloneDeep(this.$store.state.layout.modalDefaultData)
+  },
   computed: {
-    widgetDataTrigger () {
-      /* eslint-disable */
-      this.editablePartData = this._.cloneDeep(this.$store.state.layout.modalDefaultData)
-      /* eslint-enable */
-      return this.editablePartData
-    },
     modalName () {
       return this.$store.state.layout.modalName
+    },
+    extensions () {
+      return this.$store.state.layout.modalExtensions
     },
     showModal: {
       get () {

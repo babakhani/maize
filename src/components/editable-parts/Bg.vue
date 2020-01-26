@@ -26,7 +26,12 @@
       :currentStyles="touchedData.styles"
       :editableData="touchedData"
       v-if="editMode && toolboxVisible"
-      @hide="hideToolbox"></EditablePartToolbox>
+      @hide="hideToolbox">
+      <template v-slot:toolbox>
+        <slot name="toolbox">
+        </slot>
+      </template>
+    </EditablePartToolbox>
      <slot></slot>
   </div>
 </template>

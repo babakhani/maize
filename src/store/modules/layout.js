@@ -3,6 +3,7 @@ export default {
   state: {
     modalIsVisible: false,
     modalName: '',
+    modalExtensions: [],
     modalDefaultData: {},
     modalEscKeyReserved: false,
 
@@ -32,6 +33,7 @@ export default {
     setModalView (state, payload) {
       state.modalIsVisible = true
       state.modalName = payload.name
+      state.modalExtensions = payload.extensions
       state.modalDefaultData = payload.data
     },
     hideModalView (state, payload) {

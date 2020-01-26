@@ -66,13 +66,12 @@ export default {
     openSelectorIcon (e) {
       e.preventDefault()
       this.$store.dispatch('layout/setModalView', {
-        name: 'icon',
-        data: this.touchedData
+        name: 'extensionloader',
+        extensions: ['FontAwesomePicker'],
+        data: this.touchedData.iconName
       })
-      EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
-        if (widgetData && widgetData.iconName) {
-          this.touchedData = widgetData
-        }
+      EventBus.$once('UPDATE_WIDGET_DATA', (data) => {
+        this.touchedData.iconName = data 
         this.updateWidget()
       })
       return false

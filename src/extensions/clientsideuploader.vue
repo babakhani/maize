@@ -1,32 +1,65 @@
 <template>
-  <div class="upload-image-widget p-5 m-2">
-    <div v-if="value"
-         class="upload-image-widget--box">
-      <img alt="image"
-           class="upload-image-widget--box--image"
-           :src='value'>
+  <div>
+    <div class="row px-3 py-1">
+      <div class="col-12">
+        <b-input-group
+          size="md"
+          class="w-100 my-3" >
+          <b-form-input
+            v-model="pickedImageSrc"></b-form-input>
+          <b-input-group-append>
+            <b-button
+              variant="outline-primary"
+              @click="pickAndHide(pickedImageSrc)">
+              {{ $t('load_url') }}
+            </b-button>
+            <b-button
+              variant="danger"
+              @click="pickAndHide(' ')">
+              {{ $t('delete') }}
+            </b-button>
+          </b-input-group-append>
+        </b-input-group>
+        <b-input-group
+          size="sm"
+          class="w-100 my-3" >
+          <b-form-input
+            v-if="false"
+            @input="pick"
+            :placeholder="$t('settings.image-al-placeholder')"
+            v-model="alt"></b-form-input>
+        </b-input-group>
+      </div>
     </div>
-    <div class="" v-else>
-      <h1>
-        <icon class="upload-image-widget--icon"
-              size="lg"
-              name="upload"></icon>
-      </h1>
-      <h4 class="mt-4 p-2">
-        {{ $t('modal.drop_image') }}
-      </h4>
-      <br>
-      <h6 class="p-1 mb-0">
-        {{ $t('modal.or') }}
-      </h6>
-      <br>
-      <button class="btn btn-lg btn-link">
-        <span>{{ $t('modal.choose_your_image') }}</span>
-      </button>
+    <div class="upload-image-widget p-5 m-2">
+      <div v-if="value"
+           class="upload-image-widget--box">
+        <img alt="image"
+             class="upload-image-widget--box--image"
+             :src='value'>
+      </div>
+      <div class="" v-else>
+        <h1>
+          <icon class="upload-image-widget--icon"
+                size="lg"
+                name="upload"></icon>
+        </h1>
+        <h4 class="mt-4 p-2">
+          {{ $t('modal.drop_image') }}
+        </h4>
+        <br>
+        <h6 class="p-1 mb-0">
+          {{ $t('modal.or') }}
+        </h6>
+        <br>
+        <button class="btn btn-lg btn-link">
+          <span>{{ $t('modal.choose_your_image') }}</span>
+        </button>
+      </div>
+      <input class=""
+             @change="imageUpload"
+             type="file"/>
     </div>
-    <input class=""
-           @change="imageUpload"
-           type="file"/>
   </div>
 </template>
 
@@ -34,6 +67,14 @@
 export default {
   name: 'Clinet_Side_Uploader',
   icon: 'cloud',
+  data () {
+    return {
+      pickedImageSrc:null
+    }
+  },
+  mounted () {
+    this.pickedImageSrc =  this.value
+  },
   props: {
     value: {
       type: [Object, Boolean, Array, String],

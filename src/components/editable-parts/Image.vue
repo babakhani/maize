@@ -68,14 +68,13 @@ export default {
     setPickImageMode (e) {
       e.preventDefault()
       this.$store.dispatch('layout/setModalView', {
-        name: 'image',
-        data: this.touchedData
+        name: 'extensionloader',
+        extensions: ['Picsum_Samples', 'Clinet_Side_Uploader'],
+        data: this.touchedData.src
       })
-      EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
-        if (widgetData && widgetData.src) {
-          this.touchedData = widgetData
-          this.updateWidget()
-        }
+      EventBus.$once('UPDATE_WIDGET_DATA', (data) => {
+        this.touchedData.src = data 
+        this.updateWidget()
       })
       return false
     }

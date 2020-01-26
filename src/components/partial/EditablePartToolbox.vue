@@ -2,12 +2,13 @@
   <div
     @dblclick="(e) => {e.stopPropagation()}"
     class="widget-text-editable--toolbox">
+    <slot name="toolbox" > </slot>
     <div
       v-if="visibileTextSelector"
       class="widget-text-editable--toolbox--group">
       <button :title="$t('toolbox.image_picker')"
       v-b-tooltip.hover.top.small
-      @click="pickText"
+      @click="openExtensions('text', ['Lorem', 'Editor', 'Texty'])"
       class="btn btn-sm widget-text-editable--toolbox--button">
         <icon name="life-ring" />
       </button>
@@ -24,7 +25,7 @@
       class="widget-text-editable--toolbox--group">
       <button :title="$t('toolbox.image_picker')"
       v-b-tooltip.hover.top.small
-      @click="pickImage"
+      @click="openExtensions('src', ['Picsum_Samples', 'Clinet_Side_Uploader'])"
       class="btn btn-sm widget-text-editable--toolbox--button">
         <icon name="image" />
       </button>
@@ -41,7 +42,7 @@
       class="widget-text-editable--toolbox--group">
       <button :title="$t('toolbox.icon_picker')"
       v-b-tooltip.hover.top.small
-      @click="pickIcon"
+      @click="openExtensions('iconName', ['FontAwesomePicker'])"
       class="btn btn-sm widget-text-editable--toolbox--button">
         <icon name="smile" />
       </button>
@@ -82,7 +83,7 @@
       </div>
       <button :title="$t('toolbox.bold')"
         v-b-tooltip.hover.top.small
-        @click="setAnimate()"
+        @click="openExtensions('animate', ['AOS'])"
         :class="{'widget-text-editable--selected': styles['font-weight'] === 'bold'}"
         class="btn btn-sm widget-text-editable--toolbox--button">
         <icon name="forward" />
@@ -687,51 +688,16 @@ export default {
     this.styles = this._.extend(this.styles, this.currentStyles)
   },
   methods: {
-    setAnimate (animate) {
+    openExtensions (dataKey, extensionsList) {
       this.$store.dispatch('layout/setModalView', {
-        name: 'animate',
-        data: this.editableData
+        name: 'extensionloader',
+        extensions: extensionsList,
+        data: this.editableData[dataKey]
       })
       EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
-        if (widgetData && widgetData.animate) {
-          this.$emit('updatewidget', widgetData)
-        }
-      })
-      return false
-    },
-    pickText () {
-      this.$store.dispatch('layout/setModalView', {
-        name: 'text',
-        data: this.editableData
-      })
-      EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
-        if (widgetData && widgetData.text) {
-          this.$emit('updatewidget', widgetData)
-        }
-      })
-      return false
-    },
-    pickImage () {
-      this.$store.dispatch('layout/setModalView', {
-        name: 'image',
-        data: this.editableData
-      })
-      EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
-        if (widgetData && widgetData.src) {
-          this.$emit('updatewidget', widgetData)
-        }
-      })
-      return false
-    },
-    pickIcon () {
-      this.$store.dispatch('layout/setModalView', {
-        name: 'icon',
-        data: this.editableData
-      })
-      EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
-        if (widgetData && widgetData.iconName) {
-          this.$emit('updatewidget', widgetData)
-        }
+        let o = {}
+        o[dataKey] = widgetData
+        this.$emit('updatewidget', o)
       })
       return false
     },
