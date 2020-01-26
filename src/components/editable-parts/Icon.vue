@@ -51,18 +51,6 @@ export default {
   name: 'ImageEditable',
   mixins: [EditablePartMixin],
   methods: {
-    openSelectorLink (e) {
-      e.preventDefault()
-      this.$store.dispatch('layout/setModalView', {
-        name: 'link',
-        data: this.touchedData
-      })
-      EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
-        this.touchedData = widgetData
-        this.updateWidget()
-      })
-      return false
-    },
     openSelectorIcon (e) {
       e.preventDefault()
       this.$store.dispatch('layout/setModalView', {
