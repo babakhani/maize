@@ -1,5 +1,5 @@
 <template>
-  <div class="upload-image-widget p-5 m-2">
+  <div class="upload-image-widget py-2 px-3">
     <p
        @dblclick="select(text, true)"
        @click="select(text)"

@@ -1,5 +1,5 @@
 <template>
-  <div class="upload-image-widget p-5 m-2">
+  <div class="upload-image-widget py-2 px-3">
     <b-form-input
       type="range"
       :min="1"
@@ -8,7 +8,7 @@
       @change="select(text)"
       v-model="count"/>
       <p
-        class="mt-5"
+        class="mt-5 text-justify"
         @dblclick="select(text, true)"
         @click="select(text)">
         {{ text }}

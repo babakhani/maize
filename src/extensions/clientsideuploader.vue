@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="row px-3 py-1">
+    <div class="row px-3 py-0">
       <div class="col-12">
         <b-input-group
           size="md"
@@ -31,7 +31,7 @@
         </b-input-group>
       </div>
     </div>
-    <div class="upload-image-widget p-5 m-2">
+    <div class="upload-image-widget p-5 my-2 mx-3">
       <div v-if="value"
            class="upload-image-widget--box">
         <img alt="image"
@@ -109,8 +109,12 @@ export default {
   background: #f8f8f8;
   //padding: 5%;
   height: 100%;
+  min-height: 590px;
   overflow: auto;
   text-align: center;
+  @media (max-width: 1440px) {
+    min-height: 500px;
+  }
   .upload-image-widget--empty-state {
     position: relative;
     top: 50%;

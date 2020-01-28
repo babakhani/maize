@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="row px-2 py-1">
+    <div class="row px-2 py-2">
       <div class="col-6 col-sm-6 col-md-3 col-xl-3 mb-3 image-picker--image-container"
            :key="imageItem"
            v-for="imageItem in randomImageList">
