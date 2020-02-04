@@ -7,6 +7,7 @@ export default {
     modalDefaultData: {},
     modalEscKeyReserved: false,
 
+    isMobile: (window.innerWidth <= 768) || (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|OperaMini/i.test(navigator.userAgent)),
     previewMode: false,
     previewModeSize: 'desktop',
     addWidgetMode: false,
@@ -16,6 +17,9 @@ export default {
     pageSideBarIsActive: false
   },
   getters: {
+    isMobile (state) {
+      return state.isMobile
+    },
     modalEscKeyReserved (state) {
       return state.modalEscKeyReserved
     },

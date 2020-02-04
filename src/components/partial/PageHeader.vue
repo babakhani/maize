@@ -98,7 +98,7 @@
           </a>
         </li>
         <li
-          v-if="!previewMode"
+          v-if="!previewMode && !isMobile"
           class="pointer nav-item mr-lg-3 pr-0">
           <div class="nav-link px-0">
             <b-form-checkbox
@@ -206,6 +206,9 @@ export default {
     }
   },
   computed: {
+    isMobile () {
+      return this.$store.getters['layout/isMobile']
+    },
     isUndoDisabled () {
       return this.currentHistoryIndex === 0
     },

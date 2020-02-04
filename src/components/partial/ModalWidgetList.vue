@@ -27,8 +27,8 @@
       no-body>
       <b-tabs
         align="center"
-        vertical
         pills
+        :vertical="!isMobile"
         no-fade
         nav-wrapper-class="w-10"
         v-model="currentTab"
@@ -94,6 +94,9 @@ export default {
     }
   },
   computed: {
+    isMobile () {
+      return this.$store.getters['layout/isMobile']
+    },
     modalShowGlobalState () {
       return this.$store.state.layout.addWidgetMode
     },

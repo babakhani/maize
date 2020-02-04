@@ -19,10 +19,9 @@
     </template>
     <b-tabs
       align="center"
-      vertical
+      :vertical="!isMobile"
       pills
       no-fade
-      nav-wrapper-class="w-25"
       v-if="siteSettings"
       card>
       <b-tab active>
@@ -304,6 +303,9 @@ export default {
     this.siteSettings = this._.cloneDeep(this.$store.getters['main/settings'])
   },
   computed: {
+    isMobile () {
+      return this.$store.getters['layout/isMobile']
+    },
     randomImageList () {
       return this.$store.state.unsplash.imageList
     },

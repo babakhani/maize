@@ -2,10 +2,9 @@
   <div>
     <b-tabs
       align="center"
-      vertical
+      :vertical="!isMobile"
       pills
       no-fade
-      nav-wrapper-class="w-25"
       card>
       <template 
       v-if="extensions.includes(extension.name)"
@@ -44,6 +43,11 @@ export default {
   },
   mounted () {
     this.extensionsData = this.value
+  },
+  computed : {
+    isMobile () {
+      return this.$store.getters['layout/isMobile']
+    },
   },
   watch: {
     value () {
