@@ -18,7 +18,7 @@
       <ul class="navbar-nav ml-auto">
         <li
           v-if="!previewMode"
-          class="nav-item mr-lg-3">
+          class="nav-item mr-3">
           <a :title="$t('add_widget')"
           v-b-tooltip.hover.bottom.small
           class="nav-link"
@@ -27,7 +27,7 @@
           </a>
         </li>
         <li
-          class="nav-item mr-lg-3">
+          class="nav-item mr-3">
           <a v-b-tooltip.hover.bottom.small
              class="nav-link"
              :title="$t('import')"
@@ -37,7 +37,7 @@
         </li>
         <li
           v-if="previewMode"
-          class="nav-item mr-lg-3">
+          class="nav-item mr-3">
           <a v-b-tooltip.hover.bottom.small
              class="nav-link"
              :title="$t('export')"
@@ -47,7 +47,7 @@
         </li>
         <li
           v-if="!previewMode"
-          class="nav-item mr-lg-3">
+          class="nav-item mr-3">
           <a v-b-tooltip.hover.bottom.small
              class="nav-link"
              :class="{'disabled': isUndoDisabled}"
@@ -58,7 +58,7 @@
         </li>
         <li
           v-if="!previewMode"
-          class="nav-item mr-lg-3">
+          class="nav-item mr-3">
           <a v-b-tooltip.hover.bottom.small
              class="nav-link"
              :class="{'disabled': isRedoDisabled}"
@@ -69,7 +69,7 @@
         </li>
         <li
           v-if="previewMode"
-          class="nav-item mr-lg-3">
+          class="nav-item mr-3">
           <a v-b-tooltip.hover.bottom.small
              class="nav-link"
              :title="$t('toolbox.mobile')"
@@ -79,7 +79,7 @@
         </li>
         <li
           v-if="previewMode"
-          class="nav-item mr-lg-3">
+          class="nav-item mr-3">
           <a v-b-tooltip.hover.bottom.small
              class="nav-link"
              :title="$t('toolbox.tablet')"
@@ -89,7 +89,7 @@
         </li>
         <li
           v-if="previewMode"
-          class="nav-item mr-lg-3">
+          class="nav-item mr-3">
           <a v-b-tooltip.hover.bottom.small
              class="nav-link"
              :title="$t('toolbox.desktop')"
@@ -99,7 +99,7 @@
         </li>
         <li
           v-if="!previewMode && !isMobile"
-          class="pointer nav-item mr-lg-3 pr-0">
+          class="pointer nav-item mr-3 pr-0">
           <div class="nav-link px-0">
             <b-form-checkbox
               class=""
@@ -113,7 +113,7 @@
             </b-form-checkbox>
           </div>
         </li>
-        <li class="pointer nav-item mr-lg-3 pr-0" style="width: 80px">
+        <li class="pointer nav-item mr-3 pr-0" style="width: 80px">
           <a class="nav-link px-0"
              :title="previewMode ? $t('toolbox.edit') : $t('preview_mode')"
              @click="setPreviewMode"
@@ -131,7 +131,7 @@
           </a>
         </li>
         <li
-          class="nav-item mr-lg-3">
+          class="nav-item mr-3">
           <a :title="$t('toolbox.settings')"
           v-b-tooltip.hover.top.small
           class="nav-link"
