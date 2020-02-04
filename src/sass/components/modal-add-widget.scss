@@ -23,6 +23,13 @@
   background: white;
 }
 
+.card-header {
+    white-space: nowrap;
+    overflow: auto;
+    .nav {
+      flex-wrap: nowrap;
+    }
+  }
 .modal-backdrop {
   background-color: rgba(darken($primary-color, 30), .9);
   opacity: 1;
@@ -43,6 +50,15 @@
   margin: 0;
   border-radius: 10px !important;
   box-shadow: 0 0 10px 2 rgba(0, 0, 0, .6);
+
+  @media (max-width: 768px) {
+   width: 100% !important;
+   max-width: 100% !important;
+   height: 100%;
+   top: 0;
+   left: 0;
+   right: 0;
+  }
   .modal-content {
     height: 100%;
   }

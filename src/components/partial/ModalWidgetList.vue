@@ -26,11 +26,9 @@
     <b-card
       no-body>
       <b-tabs
-        align="center"
         pills
         :vertical="!isMobile"
         no-fade
-        nav-wrapper-class="w-10"
         v-model="currentTab"
         card>
         <b-tab
