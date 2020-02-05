@@ -111,7 +111,7 @@ export default {
   color: #bfbfbf;
   background: #f8f8f8;
   //padding: 5%;
-  height: 100%;
+  min-height: 98%;
   overflow: auto;
   text-align: center;
   .upload-image-widget--empty-state {
