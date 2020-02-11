@@ -6,6 +6,7 @@ export default {
   'add_widget': 'Add widget, Have fun!',
   'delete': 'Delete',
   'load_url': 'Load Url',
+  'import': 'Import',
   'toolbox': {
     'animate': 'animate',
     'image_picker': 'Image Picker',
@@ -81,6 +82,8 @@ export default {
     'repeat-y': 'repeat-y'
   },
   'modal': {
+    'drop_maize_json': 'Drop Maize JSON file',
+    'choose_file': 'Choose File',
     'font_awesome': 'Font Awesome',
     'pick_link': 'Pick link',
     'ok': 'Ok',
@@ -103,6 +106,7 @@ export default {
   'settings': {
     'settings': 'Setting',
     'favicon': 'Favicon',
+    'favicon-placeholder-drag': 'Favicon',
     'image-al-placeholder': 'Image Alt',
     'favicon-placeholder': 'Favicon',
     'contact-address': 'Address',
@@ -156,6 +160,14 @@ export default {
     'type-placeholder': 'ex: Organization',
     'meta': 'Meta Tags',
     'header': 'Site Settings'
+  },
+  'animate': {
+    'name': 'Animate Name',
+    'easing': 'Easing',
+    'delay': 'Delay',
+    'duration': 'Duration',
+    'mirror': 'Mirror',
+    'once': 'Once'
   },
   'messages': {
     'google_map_iframe_extract': 'Google map embed iframe source will be extract from <iframe src=".... />'
