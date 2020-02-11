@@ -26,6 +26,26 @@ export default {
       name: 'Contact_5',
       group: 'contact',
       data: {}
+    },
+    {
+      name: 'Contact_6',
+      group: 'contact',
+      data: {}
+    },
+    {
+      name: 'Contact_7',
+      group: 'contact',
+      data: {}
+    },
+    {
+      name: 'Contact_8',
+      group: 'contact',
+      data: {}
+    },
+    {
+      name: 'Contact_9',
+      group: 'contact',
+      data: {}
     }
   ]
 }

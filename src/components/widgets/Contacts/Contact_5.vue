@@ -150,7 +150,6 @@
                 'color': '#f2f2f2'
               },
               iconName: 'fas fa-phone',
-              text: '<i class="fas fa-phone"></i>',
               href: this.faker.internet.url()
             },
             social_link_2: {
@@ -158,20 +157,18 @@
                 'color': '#f2f2f2'
               },
               iconName: 'fas fa-map-marker-alt',
-              text: '<i class="fas fa-map-marker-alt"></i>',
               href: this.faker.internet.url()
-            },
-            contact_address: {
-              styles: {},
-              text: this.faker.fake("{{address.city}}, {{address.stateAbbr}} {{address.zipCode}}")
             },
             social_link_3: {
               styles: {
                 'color': '#f2f2f2'
               },
               iconName: 'far fa-envelope',
-              text: '<i class="far fa-envelope"></i>',
               href: this.faker.internet.url()
+            },
+            contact_address: {
+              styles: {},
+              text: this.faker.fake("{{address.city}}, {{address.stateAbbr}} {{address.zipCode}}")
             },
             contact_email_value: {
               styles: {},

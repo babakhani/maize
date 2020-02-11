@@ -25,6 +25,39 @@ export default {
     },
     {
       name: 'CallToAction_8'
+    },
+    {
+      name: 'CallToAction_9'
+    },
+    {
+      name: 'CallToAction_10'
+    },
+    {
+      name: 'CallToAction_11'
+    },
+    {
+      name: 'CallToAction_12'
+    },
+    {
+      name: 'CallToAction_13'
+    },
+    {
+      name: 'CallToAction_14'
+    },
+    {
+      name: 'CallToAction_15'
+    },
+    {
+      name: 'CallToAction_16'
+    },
+    {
+      name: 'CallToAction_17'
+    },
+    {
+      name: 'CallToAction_18'
+    },
+    {
+      name: 'CallToAction_19'
     }
   ]
 }
