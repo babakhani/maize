@@ -65,9 +65,10 @@
             },
             action_link: {
               styles: {
+                'min-width': '120px',
                 'color': 'white'
               },
-              text: this.faker.lorem.words(3),
+              text: this.faker.lorem.words(2),
               src: this.faker.internet.url
             },
             image: {

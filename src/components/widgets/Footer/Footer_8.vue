@@ -65,7 +65,6 @@ export default {
           footer_copyright_icon: {
             styles: {},
             iconName: 'far fa-copyright',
-            text: '<i class="far fa-copyright"></i>',
             href: this.faker.internet.url()
           }
         }
