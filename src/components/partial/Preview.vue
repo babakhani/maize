@@ -110,6 +110,25 @@ export default {
           cloneFrameContent.getElementById('mainFavicon').href = 'favicon.ico'
         }
 
+        this._.each(cloneFrameContent.getElementsByClassName('editable-background'), (item) => {
+          if (item.style && item.style.backgroundImage) {
+            let src = item.style.backgroundImage.match(/(?<=")(.*)(?=")/g)[0]
+            let fileExtension = src.split(';')[0].split('/')[1]
+            if (fileExtension === 'svg+xml') {
+              fileExtension = 'svg'
+            }
+            let sanitizedbase64 = src.split('base64,')[1]
+            let imageName = (new Date()).valueOf() + Math.random().toString().split('.')[1] + '.' + fileExtension
+            if (fileExtension && sanitizedbase64) {
+              this.imagesFiles.push({
+                base64: sanitizedbase64,
+                name: imageName
+              })
+              item.style.backgroundImage = `url(images/${imageName})`
+            }
+          }
+        })
+
         this._.each(cloneFrameContent.getElementsByTagName('img'), (item) => {
           let fileExtension = item.src.split(';')[0].split('/')[1]
           if (fileExtension === 'svg+xml') {
@@ -117,7 +136,6 @@ export default {
           }
           let sanitizedbase64 = item.src.split('base64,')[1]
           let imageName = (new Date()).valueOf() + Math.random().toString().split('.')[1] + '.' + fileExtension
-
           if (fileExtension && sanitizedbase64) {
             this.imagesFiles.push({
               base64: sanitizedbase64,
