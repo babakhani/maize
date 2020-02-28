@@ -21,7 +21,6 @@
             :name="extension.icon"></icon>
           <strong> {{ $t(extension.name) }}</strong>
         </template>
-        <pre> {{ extensionsData }} </pre>
         <componenet
           v-if="extensionsData"
           :is="extension"

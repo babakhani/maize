@@ -9,7 +9,7 @@
           @click="openSettingExtension()"
           v-b-tooltip.hover.top.small
           class="btn btn-sm widget-text-editable--toolbox--button">
-            <icon name="life-ring" />
+            <icon name="bars" />
           </button>
           <div
             class="widget-text-editable--toolbox--group-title">
