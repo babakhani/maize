@@ -125,10 +125,6 @@
         type="range">
         </b-form-input>
       </b-form-group>
-      <b-btn
-        @click="select">
-          Submit
-      </b-btn>
     </b-form>
   </div>
 </template>
