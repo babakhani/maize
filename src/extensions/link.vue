@@ -27,7 +27,7 @@ export default {
   icon: false,
   props: {
     value: {
-      type: [String, Boolean],
+      type: [String, Boolean, Object],
       required: false
     }
   },

@@ -8,7 +8,7 @@
             }">
     <PageHeader></PageHeader>
     <Preview v-if="previewMode"/>
-    <div  v-if="!previewMode" class="wrapper">
+    <div  v-show="!previewMode" class="wrapper">
       <nav id="sidebar"
            v-if="pageSideBarIsActive"
            :class="{'active': !pageSideBarIsActive}"

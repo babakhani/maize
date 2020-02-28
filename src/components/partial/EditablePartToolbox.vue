@@ -689,6 +689,9 @@ export default {
   },
   methods: {
     openExtensions (dataKey, extensionsList) {
+      console.log('openExtensions -------------------')
+      console.log(this.editableData)
+      console.log(this.editableData[dataKey])
       this.$store.dispatch('layout/setModalView', {
         name: 'extensionloader',
         extensions: extensionsList,
