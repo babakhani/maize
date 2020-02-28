@@ -22,10 +22,11 @@
         ref="slider"
         class="slick-slider"
         :data-slider="JSON.stringify(touchedData.slider.config)">
-        <div 
-          v-for="pic in touchedData.slider.images">
-          <img :src="pic.url" :alt="pic.alt" />
-        </div>
+        <img 
+        style="max-width: 100%; max-height: 100%;"
+        :src="pic.url" 
+        v-for="pic in touchedData.slider.images"
+        :alt="pic.alt" />
       </div>
       </BgEditable>
   </div>

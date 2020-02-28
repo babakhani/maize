@@ -1,26 +1,31 @@
 <template>
-  <div class="p-2">
+  <div class="p-2 pb-5 mb-5">
     <h3>{{ $t("settings.slides") }}</h3>
+    <span> {{ $t('messages.drag_image_here') }}</span>
+    <input
+      type="file"
+      class="mb-4"
+      @change="imageUpload" />
     <b-list-group v-if="images">
       <b-list-group-item
         v-for="(item, index) in images">
         <img 
         width="150"
         :src="item.url" />
-        Cras justo odio
-        <b-button
-          @click="removeFromList(index)"
-          class="float-right"
-          variant="outline-danger">
+        <b-form-input 
+               class="mt-2"
+               v-model="item.alt"/>
+        <b-form-input 
+               class="mt-2"
+               v-model="item.caption"/>
+          <b-button
+            class="mt-2 float-right"
+            @click="removeFromList(index)"
+            variant="outline-danger">
           {{ $t("remove") }}
         </b-button>
       </b-list-group-item>
     </b-list-group>
-    <b-button
-      variant="outline-success"
-      class="mt-3">
-      {{ $t("add_slide") }}
-    </b-button>
   </div>
 </template>
 <script>
@@ -51,6 +56,22 @@ export default {
     }
   },
   methods: {
+    addToList (file, name) {
+      this.images.unshift({
+         alt: name,
+         url: file
+      })
+    },
+    imageUpload (e) {
+      const self = this
+      if (e.target.files && e.target.files[0]) {
+        var reader = new FileReader()
+        reader.onload = function (e) {
+          self.addToList(e.target.result)
+        }
+        reader.readAsDataURL(e.target.files[0])
+      }
+    },
     removeFromList (index) {
       this.images.splice(index, 1)
     },
