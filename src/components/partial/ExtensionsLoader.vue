@@ -21,6 +21,7 @@
             :name="extension.icon"></icon>
           <strong> {{ $t(extension.name) }}</strong>
         </template>
+        <pre> {{ extensionsData }} </pre>
         <componenet
           v-if="extensionsData"
           :is="extension"
@@ -67,7 +68,12 @@ export default {
   },
   methods: {
     select (e) {
-      const data = this._.extend(this.extensionsData, e)
+      let data
+      if (this._.isObject(e)) {
+        data = this._.extend(this.extensionsData, e)
+      } else {
+        data = e 
+      }
       this.$emit('input', data)
     },
     done () {

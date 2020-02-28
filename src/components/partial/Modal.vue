@@ -22,7 +22,7 @@
     <template v-if="editablePartData">
       <ExtensionsLoader
         :extensions="extensions"
-        @hide="hide"
+        @hide="saveAndHide"
         v-model="editablePartData"
         v-if="modalName == 'extensionloader'" />
     </template>
@@ -57,6 +57,10 @@ export default {
       this.$store.dispatch('layout/modalEscKeyReserved', false)
       this.$store.dispatch('layout/hideModalView')
       EventBus.$emit('UPDATE_WIDGET_DATA', null)
+    },
+    saveAndHide (e) {
+      EventBus.$emit('UPDATE_WIDGET_DATA', this.editablePartData)
+      this.hide()
     },
     onOk (e) {
       EventBus.$emit('UPDATE_WIDGET_DATA', this.editablePartData)
