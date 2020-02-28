@@ -41,10 +41,25 @@ export default {
   },
   methods: {
     select (pickedImageSrc, hide = false) {
-      this.$emit('input', pickedImageSrc)
-      if (hide) {
-        this.$emit('done')
+      function toDataURL(url, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function() {
+          var reader = new FileReader();
+          reader.onloadend = function() {
+            callback(reader.result);
+          }
+          reader.readAsDataURL(xhr.response);
+        };
+        xhr.open('GET', url);
+        xhr.responseType = 'blob';
+        xhr.send();
       }
+      toDataURL(pickedImageSrc, (dataUrl) => {
+        this.$emit('input', dataUrl)
+        if (hide) {
+          this.$emit('done')
+        }
+      })
     }
   }
 }
