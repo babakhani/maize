@@ -1,6 +1,7 @@
 export default {
   language: 'fa',
   'export': 'Export',
+  'import': 'Import',
   'show_header': 'Show header',
   'preview_mode': 'Preview Mode',
   'add_widget': 'Add widget, Have fun!',
@@ -83,9 +84,23 @@ export default {
   },
   'slider': {
     'mobileFirst': 'Mobile First',
-    'autoplay': 'Auto Play',
+    'autoplay': 'Autoplay',
     'dots': 'Dots',
     'slidesToShow': 'Slides To Show',
+    'slider.arrows': 'Arrows',
+    'accessibility': 'Accessibility',
+    'touchMove': 'Touch move',
+    'swipeToSlide': 'Swipe to slide',
+    'draggable': 'Draggable',
+    'vertical': 'Vertical',
+    'lazyLoad': 'Lazy load',
+    'infinite': 'Infinite',
+    'fade': 'Fade',
+    'rows': 'Rows',
+    'slidesToScroll': 'Slides to scroll',
+    'speed': 'Speed',
+    'autoplay_speed': 'Autoplay speed',
+    'arrows': 'Arrows'
   },
   'modal': {
     'font_awesome': 'Font Awesome',
@@ -98,11 +113,20 @@ export default {
     'or': 'OR',
     'choose_your_image': 'Choose your image',
     'random_image': 'Random Image',
+    'drop_maize_json': 'Drop json here',
+    'choose_file': 'Choose file',
     'link': {
       'title': 'Insert your link:'
     }
   },
-  'animate': 'Animate',
+  'animate': {
+    'name': 'Name',
+    'easing': 'Easing',
+    'delay': 'Delay',
+    'duration': 'Duration',
+    'mirror': 'Mirror',
+    'once': 'Once'
+  },
   'link': 'Link',
   'text': 'Text',
   'icon': 'Icon',
@@ -110,6 +134,8 @@ export default {
   'settings': {
     'settings': 'Setting',
     'favicon': 'Favicon',
+    'favicon_placeholder': 'Favicon',
+    'favicon-placeholder-drag': 'Drop here',
     'image-al-placeholder': 'Image Alt',
     'favicon-placeholder': 'Favicon',
     'contact-address': 'Address',
@@ -162,7 +188,8 @@ export default {
     'type': 'Type',
     'type-placeholder': 'ex: Organization',
     'meta': 'Meta Tags',
-    'header': 'Site Settings'
+    'header': 'Site Settings',
+    'slider': 'Slider settings'
   },
   'messages': {
     'google_map_iframe_extract': 'Google map embed iframe source will be extract from <iframe src=".... />'
@@ -171,6 +198,9 @@ export default {
   'monospace': 'monospace',
   'serif': 'serif',
   'fantasy': 'fantasy',
+  'Roboto': 'Roboto',
+  'Open Sans': 'Open Sans',
+  'Lato': 'Lato',
   'none': 'none',
   'solid': 'solid',
   'dashed': 'dashed',
@@ -184,5 +214,16 @@ export default {
   'maize': 'Maize',
   'insert_link': 'Insert your link',
   'tamasha': 'Tamasha',
-  'search_video_here': 'Search video here'
+  'search_video_here': 'Search video here',
+  'iframe': 'iframe',
+  'extensionloader': 'Extension loader',
+  'Slider': 'Slider',
+  'AOS': 'AOS',
+  'mirror': 'Mirror',
+  'once': 'Once',
+  'Clinet_Side_Uploader': 'Clinet Side Uploader',
+  'Picsum_Samples': 'Picsum Samples',
+  'Lorem': 'Lorem',
+  'Texty': 'Texty',
+  'Editor': 'Editor'
 }
