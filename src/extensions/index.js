@@ -9,6 +9,7 @@ import link from './link'
 import slider from './slider'
 import slides from './slides'
 import frame from './frame'
+import streamline from './streamline'
 
 export default {
   clientsideuploader,
@@ -21,5 +22,6 @@ export default {
   link,
   slider,
   slides,
-  frame
+  frame,
+  streamline
 }

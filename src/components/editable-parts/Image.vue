@@ -57,7 +57,7 @@ export default {
       e.preventDefault()
       this.$store.dispatch('layout/setModalView', {
         name: 'extensionloader',
-        extensions: ['Picsum_Samples', 'Clinet_Side_Uploader'],
+        extensions: ['Picsum_Samples', 'Clinet_Side_Uploader', 'StreamLine_Samples'],
         data: this.touchedData.src
       })
       EventBus.$once('UPDATE_WIDGET_DATA', (data) => {

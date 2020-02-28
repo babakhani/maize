@@ -67,7 +67,7 @@ export default (settings) => {
   <link 
         id="slicktheme_css"
         rel="stylesheet" 
-        href="${CONFIG.cdn.css.slick}">
+        href="${CONFIG.cdn.css.slicktheme}">
   <script 
         id="jquery_js"
         type="text/javascript" 

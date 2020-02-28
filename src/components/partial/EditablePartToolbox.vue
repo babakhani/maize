@@ -25,7 +25,7 @@
       class="widget-text-editable--toolbox--group">
       <button :title="$t('toolbox.image_picker')"
       v-b-tooltip.hover.top.small
-      @click="openExtensions('src', ['Picsum_Samples', 'Clinet_Side_Uploader'])"
+      @click="openExtensions('src', ['StreamLine_Samples', 'Picsum_Samples', 'Clinet_Side_Uploader'])"
       class="btn btn-sm widget-text-editable--toolbox--button">
         <icon name="image" />
       </button>

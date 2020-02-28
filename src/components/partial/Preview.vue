@@ -112,8 +112,12 @@ export default {
 
         this._.each(cloneFrameContent.getElementsByTagName('img'), (item) => {
           let fileExtension = item.src.split(';')[0].split('/')[1]
+          if (fileExtension === 'svg+xml') {
+            fileExtension = 'svg'
+          }
           let sanitizedbase64 = item.src.split('base64,')[1]
           let imageName = (new Date()).valueOf() + Math.random().toString().split('.')[1] + '.' + fileExtension
+
           if (fileExtension && sanitizedbase64) {
             this.imagesFiles.push({
               base64: sanitizedbase64,
