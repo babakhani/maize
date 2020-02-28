@@ -7,7 +7,8 @@ export default {
   'delete': 'Delete',
   'load_url': 'Load Url',
   'toolbox': {
-    'animate': 'animate',
+    'slider': 'Slider',
+    'animate': 'Animate',
     'image_picker': 'Image Picker',
     'icon_picker': 'Icon Picker',
     'border_radius': 'Border radius',
@@ -79,6 +80,12 @@ export default {
     'no-repeat': 'no-repeat',
     'repeat-x': 'repeat-x',
     'repeat-y': 'repeat-y'
+  },
+  'slider': {
+    'mobileFirst': 'Mobile First',
+    'autoplay': 'Auto Play',
+    'dots': 'Dots',
+    'slidesToShow': 'Slides To Show',
   },
   'modal': {
     'font_awesome': 'Font Awesome',

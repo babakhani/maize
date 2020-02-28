@@ -2,28 +2,29 @@
   <div>
       <WidgetToolbox/>
       <BgEditable>
+      <template v-slot:toolbox>
+        <div
+          class="widget-text-editable--toolbox--group">
+          <button :title="$t('iframe')"
+          @click="openSettingExtension()"
+          v-b-tooltip.hover.top.small
+          class="btn btn-sm widget-text-editable--toolbox--button">
+            <icon name="life-ring" />
+          </button>
+          <div
+            class="widget-text-editable--toolbox--group-title">
+            {{ $t('toolbox.slider') }}
+          </div>
+        </div>
+      </template>
       <div
         v-if="touchedData && touchedData.slider"
+        ref="slider"
         class="slick-slider"
-        :data-slick="touchedData.slider.config">
-        <pre> {{ touchedData.slider.config }} </pre>
-        <div>
-          <ImageEditable
-            name="image1"
-            cssClass="img-fluid"
-            :partData="touchedData.image1"/>
-        </div>
-        <div>
-          <ImageEditable
-            name="image1"
-            cssClass="img-fluid"
-            :partData="touchedData.image1"/>
-        </div>
-        <div>
-          <ImageEditable
-            name="image1"
-            cssClass="img-fluid"
-            :partData="touchedData.image1"/>
+        :data-slider="JSON.stringify(touchedData.slider.config)">
+        <div 
+          v-for="pic in touchedData.slider.images">
+          <img :src="pic.url" :alt="pic.alt" />
         </div>
       </div>
       </BgEditable>
@@ -31,20 +32,11 @@
 </template>
 <script>
 import widgetMixin from '@/mixins/widget'
+import { EventBus } from '@/events/event-bus'
 
 export default {
   name: 'ImageTest',
   mixins: [widgetMixin],
-  mounted () {
-    console.log('init slider')
-    console.log(this.editMode)
-    if (this.editMode) {
-      setTimeout(() => {
-        // https://github.com/kenwheeler/slick/
-        $('.slick-slider').slick(this.touchedData.slider.config)
-      }, 500)
-    }
-  },
   props: {
     defaultData: {
       default () {
@@ -54,14 +46,41 @@ export default {
             fullWidth: true
           },
           bg: {
-            styles: {
-              'background-position': 'center center',
-              'background-size': 'cover',
-              'background-repeat': 'no-repeat',
-              'background-image': `url('${this.faker.img.size(100, 200)}')`
-            }
+            styles: { }
           },
           slider: {
+            images: [
+              {
+                url: 'https://i.picsum.photos/id/64/700/300.jpg',
+                caption: 'Sample Slider Image',
+                alt: 'sample_1'
+              },
+              {
+                url: 'https://i.picsum.photos/id/65/700/300.jpg',
+                caption: 'Sample Slider Image',
+                alt: 'sample_1'
+              },
+              {
+                url: 'https://i.picsum.photos/id/99/700/300.jpg',
+                caption: 'Sample Slider Image',
+                alt: 'sample_1'
+              },
+              {
+                url: 'https://i.picsum.photos/id/200/700/300.jpg',
+                caption: 'Sample Slider Image',
+                alt: 'sample_1'
+              },
+              {
+                url: 'https://i.picsum.photos/id/100/700/300.jpg',
+                caption: 'Sample Slider Image',
+                alt: 'sample_1'
+              },
+              {
+                url: 'https://i.picsum.photos/id/77/700/300.jpg',
+                caption: 'Sample Slider Image',
+                alt: 'sample_1'
+              }
+            ], 
             // https://github.com/kenwheeler/slick/
             config: {
               'autoplay': true,
@@ -74,7 +93,15 @@ export default {
               'mobileFirst': true,
               'dots': true,
               'slidesToShow': 2,
-              'slidesToScroll': 1
+              'slidesToScroll': 1,
+              'swipeToSlide': true,
+              'draggable': true,
+              'vertical': false,
+              'lazyLoad': false,
+              'infinite': false,
+              'fade': false,
+              'lazyLoad': false,
+              'rows': 1
             }
           },
           image1: {
@@ -84,6 +111,32 @@ export default {
         }
       },
       require: false
+    }
+  },
+  mounted () {
+    if (this.editMode) {
+      setTimeout(() => {
+        $(this.$refs.slider).slick(this.touchedData.slider.config)
+      }, 500)
+    }
+  },
+  methods: {
+    openSettingExtension () {
+      const self = this
+      this.$store.dispatch('layout/setModalView', {
+        name: 'extensionloader',
+        extensions: ['Slider'],
+        data: this._.cloneDeep(self.touchedData.slider.config)
+      })
+      EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
+        if (widgetData) {
+          this.touchedData.slider.config = widgetData 
+          $(this.$refs.slider).slick('unslick')
+          $(this.$refs.slider).slick(this.touchedData.slider.config)
+          self.updateWidget()
+        }
+      })
+      return false
     }
   }
 }

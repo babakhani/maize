@@ -94,7 +94,9 @@ export default (settings) => {
   <script>
     $(document).ready(() => {
        AOS.init();
-       $('.slick-slider').slick();
+       $('.slick-slider').each(function() {
+          $(this).slick($(this).data().slider)
+       });
     })
   </script>
 

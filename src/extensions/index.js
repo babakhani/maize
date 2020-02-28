@@ -6,6 +6,7 @@ import tiptap from './tiptap'
 import texty from './texty'
 import aos from './aos'
 import link from './link'
+import slider from './slider'
 
 export default {
   clientsideuploader,
@@ -15,5 +16,6 @@ export default {
   tiptap,
   texty,
   lorem,
-  link
+  link,
+  slider
 }

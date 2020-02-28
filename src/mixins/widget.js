@@ -121,6 +121,13 @@ const Mixin = {
         key: this.uniqeKey
       })
     },
+    updateWidget () {
+      this.$store.dispatch('main/updateItemOfCurrentWidgetList', {
+        key: this.uniqeKey, // id of this widget in cuurentWidgetList
+        name: this.name, // name of editble part that his data must be update
+        data: this.touchedData
+      })
+    },
     updateData (e = { name: null, data: null }) {
       this.$store.dispatch('main/updateItemOfCurrentWidgetList', {
         key: this.uniqeKey, // id of this widget in cuurentWidgetList
