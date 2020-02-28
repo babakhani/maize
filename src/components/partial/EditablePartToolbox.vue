@@ -712,14 +712,13 @@ export default {
     },
     pickBackgroundImage () {
       this.$store.dispatch('layout/setModalView', {
-        name: 'image',
-        data: {
-          src: this.getBgURL()
-        }
+        name: 'extensionloader',
+        extensions: ['Picsum_Samples', 'Clinet_Side_Uploader'],
+        data: this.getBgURL() ? this.getBgURL() : ' ' 
       })
       EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
-        if (widgetData.src) {
-          this.styles['background-image'] = `url('${widgetData.src}')`
+        if (widgetData) {
+          this.styles['background-image'] = `url('${widgetData}')`
           this.update()
         }
       })

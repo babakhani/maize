@@ -61,8 +61,10 @@ export default {
         data: this.touchedData.src
       })
       EventBus.$once('UPDATE_WIDGET_DATA', (data) => {
-        this.touchedData.src = data 
-        this.updateWidget()
+        if (data) {
+          this.touchedData.src = data 
+          this.updateWidget()
+        }
       })
       return false
     }
