@@ -1,3 +1,4 @@
+const CONFIG = window.CONFIG
 export default {
   namespaced: true,
   state: {
@@ -13,7 +14,7 @@ export default {
     settingsMode: false,
     exportMode: false,
     importMode: false,
-    pageSideBarIsActive: false
+    pageSideBarIsActive: CONFIG.pageSideBarIsActive
   },
   getters: {
     modalEscKeyReserved (state) {

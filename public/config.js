@@ -1,6 +1,7 @@
 window.CONFIG = {
   locale: 'en',
   direction: 'ltr',
+  pageSideBarIsActive: true,
   fonts: {
     en: [ 'Roboto', 'Open Sans', 'Lato', 'serif', 'fantasy', 'monospace' ],
     fa: [ 'tahoma', 'IranSans' ]
