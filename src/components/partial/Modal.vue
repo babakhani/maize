@@ -18,11 +18,13 @@
         {{ $t('modal.ok') }}
       </b-button>
     </template>
-    <ExtensionsLoader
-      :extensions="extensions"
-      @hide="hide"
-      v-model="editablePartData"
-      v-if="modalName == 'extensionloader'" />
+    <template v-if="editablePartData">
+      <ExtensionsLoader
+        :extensions="extensions"
+        @hide="hide"
+        v-model="editablePartData"
+        v-if="modalName == 'extensionloader' && editablePartData" />
+    </template>
   </b-modal>
 </template>
 
@@ -42,17 +44,16 @@ export default {
   },
   methods: {
     hide () {
-      EventBus.$emit('UPDATE_WIDGET_DATA', this.editablePartData)
       this.showModal = false
     },
     onShow () {
       this.$store.dispatch('layout/modalEscKeyReserved', true)
+      this.editablePartData = null
       this.editablePartData = this._.cloneDeep(this.$store.state.layout.modalDefaultData)
     },
     onHide () {
       this.$store.dispatch('layout/modalEscKeyReserved', false)
       this.$store.dispatch('layout/hideModalView')
-      EventBus.$emit('UPDATE_WIDGET_DATA', this.editablePartData)
     },
     onOk (e) {
       EventBus.$emit('UPDATE_WIDGET_DATA', this.editablePartData)
@@ -60,9 +61,6 @@ export default {
       this.onHide()
       return false
     }
-  },
-  mounted () {
-    this.editablePartData = this._.cloneDeep(this.$store.state.layout.modalDefaultData)
   },
   computed: {
     modalName () {

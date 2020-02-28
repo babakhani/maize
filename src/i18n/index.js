@@ -13,6 +13,7 @@ const i18n = new VueI18n({
   // set locale
   locale: window.CONFIG.locale,
   // set locale messages
+  silentTranslationWarn: true,
   messages
 })
 // Sample usage

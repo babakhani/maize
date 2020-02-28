@@ -21,6 +21,7 @@
           <strong> {{ $t(extension.name) }}</strong>
         </template>
         <componenet
+          v-if="extensionsData"
           :is="extension"
           v-model="extensionsData"
           @done="done"
@@ -45,24 +46,20 @@ export default {
   mounted () {
     this.extensionsData = this.value
   },
-  watch: {
-    value () {
-      this.extensionsData = this.value
-    }
-  },
   props: {
     extensions: {
       type: [Array],
-      required: false
+      required: true
     },
     value: {
       type: [Object, Boolean, Array, String],
-      required: false
+      required: true 
     }
   },
   methods: {
     select (e) {
-      this.$emit('input', e)
+      const data = this._.extend(this.extensionsData, e)
+      this.$emit('input', data)
     },
     done () {
       this.$emit('hide')

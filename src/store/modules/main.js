@@ -72,6 +72,20 @@ export default {
     updateCurrentWidgetList (state, payload = { key: null, data: {} }) {
       state.currentWidgetList = payload
     },
+    updateWidgetByUniqeId (state, payload = { key: null, data: {} }) {
+      const list = lodash.cloneDeep(state.currentWidgetList)
+      // TODO: check this, it might raise cant read 0 of undefined
+      let item = list.find((n) => {
+        return n.uniqeId === payload.key
+      })
+      if (typeof item.data === 'undefined') {
+        item.data = {}
+      }
+      item.data = lodash.extend(item.data, payload.data)
+      state.currentWidgetList = []
+      state.currentWidgetList = list
+    },
+    // TODO: delete
     updateItemOfCurrentWidgetList (state, payload = { key: null, name: 'null', data: {} }) {
       const list = lodash.cloneDeep(state.currentWidgetList)
       // TODO: check this, it might raise cant read 0 of undefined
@@ -119,6 +133,10 @@ export default {
     },
     updateCurrentWidgetList (context, payload) {
       context.commit('updateCurrentWidgetList', payload)
+      context.commit('updateLocalStorage')
+    },
+    updateWidgetByUniqeId (context, payload) {
+      context.commit('updateWidgetByUniqeId', payload)
       context.commit('updateLocalStorage')
     },
     updateItemOfCurrentWidgetList (context, payload) {

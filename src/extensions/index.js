@@ -7,6 +7,7 @@ import texty from './texty'
 import aos from './aos'
 import link from './link'
 import slider from './slider'
+import slides from './slides'
 
 export default {
   clientsideuploader,
@@ -17,5 +18,6 @@ export default {
   texty,
   lorem,
   link,
-  slider
+  slider,
+  slides,
 }
