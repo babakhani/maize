@@ -9,7 +9,7 @@
             @click="openSettingExtension()"
             v-b-tooltip.hover.top.small
             class="btn btn-sm widget-text-editable--toolbox--button">
-              <icon name="life-ring" />
+              <icon name="bars" />
             </button>
             <div
               class="widget-text-editable--toolbox--group-title">
@@ -33,18 +33,15 @@ export default {
   mixins: [widgetMixin],
   methods: {
     openSettingExtension () {
+      const self = this
       this.$store.dispatch('layout/setModalView', {
         name: 'extensionloader',
-        extensions: ['Picsum_Samples', 'Clinet_Side_Uploader'],
-        data:  {
-           text: 'samlam'
-        }
+        extensions: ['Frame'],
+        data: this._.cloneDeep(self.touchedData)
       })
       EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
-        if (widgetData && widgetData.text) {
-          console.log('update by extensions')
-          console.log(widgetData.text)
-          // this.$emit('updatewidget', widgetData)
+        if (widgetData) {
+          self.updateWidget(widgetData)
         }
       })
       return false
@@ -65,9 +62,7 @@ export default {
           },
           frame: {
             styles: {},
-            iconName: 'fab fa-instagram',
-            text: '<i class="fab fa-instagram"></i>',
-            href: 'https://ubeac.io/'
+            href: ''
           }
         }
       },

@@ -36,7 +36,7 @@ import widgetMixin from '@/mixins/widget'
 import { EventBus } from '@/events/event-bus'
 
 export default {
-  name: 'ImageTest',
+  name: 'Slider',
   mixins: [widgetMixin],
   props: {
     defaultData: {

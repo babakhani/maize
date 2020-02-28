@@ -8,6 +8,7 @@ import aos from './aos'
 import link from './link'
 import slider from './slider'
 import slides from './slides'
+import frame from './frame'
 
 export default {
   clientsideuploader,
@@ -20,4 +21,5 @@ export default {
   link,
   slider,
   slides,
+  frame
 }

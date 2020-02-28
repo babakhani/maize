@@ -4,6 +4,9 @@ export default {
   widgets: [
     {
       name: 'Iframe'
+    },
+    {
+      name: 'Slider'
     }
   ]
 }
