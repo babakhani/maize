@@ -689,22 +689,17 @@ export default {
   },
   methods: {
     openExtensions (dataKey, extensionsList) {
-
-      console.log('openExtensions')
-      console.log(dataKey)
-      console.log(this.editableData[dataKey])
-
       this.$store.dispatch('layout/setModalView', {
         name: 'extensionloader',
         extensions: extensionsList,
         data: this.editableData[dataKey]
       })
       EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
-        let o = {}
-        o[dataKey] = widgetData
-        console.log('widgetData')
-        console.log(widgetData)
-        this.$emit('updatewidget', o)
+        if (widgetData) {
+          let o = {}
+          o[dataKey] = widgetData
+          this.$emit('updatewidget', o)
+        }
       })
       return false
     },

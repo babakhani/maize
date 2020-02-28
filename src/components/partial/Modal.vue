@@ -1,5 +1,6 @@
 <template>
   <b-modal
+    lazy
     @hidden="onHide"
     @shown="onShow"
     v-model="showModal"
@@ -23,7 +24,7 @@
         :extensions="extensions"
         @hide="hide"
         v-model="editablePartData"
-        v-if="modalName == 'extensionloader' && editablePartData" />
+        v-if="modalName == 'extensionloader'" />
     </template>
   </b-modal>
 </template>
@@ -52,8 +53,10 @@ export default {
       this.editablePartData = this._.cloneDeep(this.$store.state.layout.modalDefaultData)
     },
     onHide () {
+      this.editablePartData = null
       this.$store.dispatch('layout/modalEscKeyReserved', false)
       this.$store.dispatch('layout/hideModalView')
+      EventBus.$emit('UPDATE_WIDGET_DATA', null)
     },
     onOk (e) {
       EventBus.$emit('UPDATE_WIDGET_DATA', this.editablePartData)
@@ -61,6 +64,8 @@ export default {
       this.onHide()
       return false
     }
+  },
+  mounted () {
   },
   computed: {
     modalName () {

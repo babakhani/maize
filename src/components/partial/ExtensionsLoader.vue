@@ -1,6 +1,7 @@
 <template>
   <div>
     <b-tabs
+      lazy
       align="center"
       vertical
       pills
@@ -54,6 +55,14 @@ export default {
     value: {
       type: [Object, Boolean, Array, String],
       required: true 
+    }
+  },
+  watch: {
+    value: {
+      deep: true,
+      handler () {
+       this.extensionsData = this.value
+      }
     }
   },
   methods: {
