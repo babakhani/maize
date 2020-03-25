@@ -1,7 +1,13 @@
 <template>
   <div>
       <WidgetToolbox/>
-      <BgEditable>
+      <div v-if="demoMode">
+        <h1 class="w-100 text-center my-5">
+          {{ $t('Slider') }}
+        </h1>
+      </div>
+      <BgEditable
+        v-else>
       <template v-slot:toolbox>
         <div
           class="widget-text-editable--toolbox--group">
@@ -22,9 +28,9 @@
         ref="slider"
         class="slick-slider"
         :data-slider="JSON.stringify(touchedData.slider.config)">
-        <img 
+        <img
         style="max-width: 100%; max-height: 100%;"
-        :src="pic.url" 
+        :src="pic.url"
         v-for="pic in touchedData.slider.images"
         :alt="pic.alt" />
       </div>
@@ -81,7 +87,7 @@ export default {
                 caption: 'Sample Slider Image',
                 alt: 'sample_1'
               }
-            ], 
+            ],
             // https://github.com/kenwheeler/slick/
             config: {
               'autoplay': true,

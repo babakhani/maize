@@ -1,7 +1,13 @@
 <template>
   <div>
       <WidgetToolbox/>
-      <BgEditable>
+      <div v-if="demoMode">
+        <h1 class="w-100 text-center my-5">
+          {{ $t('Iframe') }}
+        </h1>
+      </div>
+      <BgEditable
+        v-else>
         <template v-slot:toolbox>
           <div
             class="widget-text-editable--toolbox--group">
@@ -18,9 +24,14 @@
           </div>
         </template>
         <iframe
-          v-if="touchedData && touchedData.frame"
+          v-if="touchedData && touchedData.frame && touchedData.frame.href"
           style="width: 100%;border: 0;height: 100%;"
           :src="touchedData.frame.href" />
+          <h2
+            v-else
+            class="w-100 text-center">
+            {{ $t('messages.iframe_select_url') }}
+          </h2>
       </BgEditable>
   </div>
 </template>
@@ -44,7 +55,7 @@ export default {
         }
       })
       return false
-    },
+    }
   },
   props: {
     defaultData: {

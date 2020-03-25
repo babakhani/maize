@@ -192,6 +192,8 @@ export default {
     'slider': 'Slider settings'
   },
   'messages': {
+    'drag_image_here': 'Drag Your Image Here! ',
+    'iframe_select_url': 'Please set iframe URL !',
     'google_map_iframe_extract': 'Google map embed iframe source will be extract from <iframe src=".... />'
   },
   'hello_from_modal': 'Hello from modal',
