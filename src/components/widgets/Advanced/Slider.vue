@@ -123,15 +123,14 @@ export default {
   },
   methods: {
     openSettingExtension () {
-      const self = this
       this.$store.dispatch('layout/setModalView', {
         name: 'extensionloader',
         extensions: ['Slider', 'Slides'],
-        data: this._.cloneDeep(self.touchedData)
+        data: this.touchedData
       })
       EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
         if (widgetData) {
-          self.updateWidget(widgetData)
+          this.updateWidget(widgetData)
           $(this.$refs.slider).slick('unslick')
           $(this.$refs.slider).slick(this.touchedData.slider.config)
         }

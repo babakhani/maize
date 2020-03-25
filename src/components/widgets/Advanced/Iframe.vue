@@ -33,15 +33,14 @@ export default {
   mixins: [widgetMixin],
   methods: {
     openSettingExtension () {
-      const self = this
       this.$store.dispatch('layout/setModalView', {
         name: 'extensionloader',
         extensions: ['Frame'],
-        data: this._.cloneDeep(self.touchedData)
+        data: this.touchedData
       })
       EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
         if (widgetData) {
-          self.updateWidget(widgetData)
+          this.updateWidget(widgetData)
         }
       })
       return false
