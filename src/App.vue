@@ -15,6 +15,7 @@
 export default {
   name: 'App',
   created () {
+    // NOTE: Layout Direction
     let htmlEl = document.querySelector('html')
     let body = document.querySelector('body')
     htmlEl.setAttribute('dir', window.CONFIG.editorDirection)

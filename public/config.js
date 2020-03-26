@@ -2,6 +2,7 @@ window.CONFIG = {
   locale: 'fa',
   editorDirection: 'rtl',
   editorFont: 'IranSans',
+  // NOTE: Layout Direction
   direction: 'rtl',
   pageSideBarIsActive: true,
   fonts: {
@@ -11,7 +12,7 @@ window.CONFIG = {
   cdn: {
     css: {
       bootstrap: 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css',
-      bootstrap_rtl: '/lib/bootstrap-rtl.min.css',
+      'bootstrap-rtl.min': '/lib/bootstrap-rtl.min.css',
       maize: 'https://gitcdn.link/repo/babakhani/maize/master/public/lib/maize_blocks.min.css',
       fontawesome: 'https://use.fontawesome.com/releases/v5.7.0/css/all.css',
       aos: 'https://unpkg.com/aos@2.3.1/dist/aos.css',

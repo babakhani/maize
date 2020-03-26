@@ -51,10 +51,6 @@ export default (settings) => {
     out += `<script id="${key}_js" type="text/javascript" src="${CONFIG.cdn.js[key]}"> </script>`
   })
 
-  if (CONFIG.direction === 'rtl') {
-    out += ` <link id="bootstrap_rtl_css" rel="stylesheet" href="/lib/bootstrap-rtl.min.css">`
-  }
-
   out += `
   <script>
     $(document).ready(() => {

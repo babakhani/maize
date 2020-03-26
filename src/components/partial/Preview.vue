@@ -86,10 +86,12 @@ export default {
           let elem = cloneFrameContent.getElementById(sanitizedId)
           elem.src = `./js/${id}.js`
         })
+        // NOTE: Layout Direction
         // Main Export Html
         this.exportHtml = `
           <!DOCTYPE html>
           <html 
+          dir="${window.CONFIG.direction}" 
           lang="${this.$store.getters['main/settings'].language}" 
           prefix="og: 
           http://ogp.me/ns#">
