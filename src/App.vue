@@ -1,26 +1,28 @@
 <template>
   <div id="app">
     <!--<img src="./assets/logo.png">-->
-   <!-- <div class="row">
+    <!-- <div class="row">
       <div class="col-12">
-        <div class="btn" @click="changeLanguage('fa')">FA</div>
-        <div class="btn" @click="changeLanguage('en')">EN</div>
+      <div class="btn" @click="changeLanguage('fa')">FA</div>
+      <div class="btn" @click="changeLanguage('en')">EN</div>
       </div>
-    </div>-->
-    <router-view/>
+      </div>-->
+      <router-view/>
   </div>
 </template>
 
 <script>
 export default {
   name: 'App',
-  created(){
-    let htmlEl = document.querySelector("html")
-    htmlEl.setAttribute('dir', window.CONFIG.direction)
+  created () {
+    let htmlEl = document.querySelector('html')
+    let body = document.querySelector('body')
+    htmlEl.setAttribute('dir', window.CONFIG.editorDirection)
     htmlEl.setAttribute('lang', window.CONFIG.locale)
+    body.setAttribute('style', `font-family: ${window.CONFIG.editorFont}`)
     let bootstrapCss = document.getElementById('bootstrapCss')
-    if (window.CONFIG.direction === 'rtl') {
-       bootstrapCss.href = '/lib/bootstrap-rtl.min.css'
+    if (window.CONFIG.editorDirection === 'rtl') {
+      bootstrapCss.href = '/lib/bootstrap-rtl.min.css'
     }
   },
   methods: {
@@ -32,5 +34,5 @@ export default {
 </script>
 
 <style lang="sass">
-  @import "sass/main"
+@import "sass/main"
 </style>

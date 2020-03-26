@@ -5,6 +5,15 @@ export default {
   'preview_mode': 'نسخه نمایش',
   'add_widget': 'اضافه کردن ویجت',
   'toolbox': {
+    'name': 'نام',
+    'text': 'متن',
+    'border': 'خط',
+    'general': 'دیگر',
+    'animate': 'انیمیشن',
+    'background': 'ضمینه',
+    'widget_selector': 'انتخاب ویجت',
+    'preview': 'نمایش',
+    'image': 'تصویر',
     'edit': 'ویرایش',
     'delete': 'حذف',
     'full_width': 'تمام عرض',
@@ -62,6 +71,7 @@ export default {
     }
   },
   'settings': {
+    'settings': 'تنظیمات',
     'header': 'تنظیمات سایت',
     'title': 'عنوان',
     'title-placeholder': 'Maize',

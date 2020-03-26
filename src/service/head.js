@@ -1,6 +1,6 @@
 const CONFIG = window.CONFIG
 export default (settings) => {
-  return `
+  let out = `
   <title> ${settings.title} </title>
   <meta name="description" content="${settings.description}"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -43,54 +43,19 @@ export default (settings) => {
     }
   </script>
   <meta name="format-detection" content="telephone=no">
+  `
+  Object.keys(CONFIG.cdn.css).forEach((key) => {
+    out += ` <link id="${key}_css" rel="stylesheet" href="${CONFIG.cdn.css[key]}">`
+  })
+  Object.keys(CONFIG.cdn.js).forEach((key) => {
+    out += `<script id="${key}_js" type="text/javascript" src="${CONFIG.cdn.js[key]}"> </script>`
+  })
 
-  <link 
-        id="bootstrap_css"
-        rel="stylesheet"
-        href="${CONFIG.cdn.css.bootstrap}">
-  <link 
-        id="maize_css"
-        rel="stylesheet"
-        href="${CONFIG.cdn.css.maize}">
-  <link 
-        id="fontawesome_css"
-        rel="stylesheet" 
-        href="${CONFIG.cdn.css.fontawesome}">
-  <link 
-        id="aos_css"
-        rel="stylesheet" 
-        href="${CONFIG.cdn.css.aos}">
-  <link 
-        id="slick_css"
-        rel="stylesheet" 
-        href="${CONFIG.cdn.css.slick}">
-  <link 
-        id="slicktheme_css"
-        rel="stylesheet" 
-        href="${CONFIG.cdn.css.slicktheme}">
-  <script 
-        id="jquery_js"
-        type="text/javascript" 
-        src="${CONFIG.cdn.js.jquery}">
-        </script>
-  <script 
-        id="popper_js"
-        type="text/javascript" 
-        src="${CONFIG.cdn.js.popper}">
-        </script>
-  <script 
-        id="bootstrap_js"
-        type="text/javascript" 
-        src="${CONFIG.cdn.js.bootstrap}">
-        </script>
-  <script 
-        id="aos_js"
-        src="${CONFIG.cdn.js.aos}">
-        </script>
-  <script 
-        id="slick_js"
-        src="${CONFIG.cdn.js.slick}">
-        </script>
+  if (CONFIG.direction === 'rtl') {
+    out += ` <link id="bootstrap_rtl_css" rel="stylesheet" href="/lib/bootstrap-rtl.min.css">`
+  }
+
+  out += `
   <script>
     $(document).ready(() => {
        AOS.init();
@@ -99,8 +64,8 @@ export default (settings) => {
        });
     })
   </script>
-
   ${settings.hotjarScript ? settings.hotjarScript : ''}
   ${settings.gaScript ? settings.gaScript : ''}
-`
+  `
+  return out
 }
