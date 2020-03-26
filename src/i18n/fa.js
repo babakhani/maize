@@ -90,6 +90,13 @@ export default {
     }
   },
   'settings': {
+    'name': 'نام',
+    'color': 'رنگ',
+    'favicon': 'نماد',
+    'contact-info': 'اطلاعات تماس',
+    'monitoring': 'مانیتورینگ',
+    'language': 'زبان',
+    'secureURL': 'آدرس امن',
     'settings': 'تنظیمات',
     'header': 'تنظیمات سایت',
     'title': 'عنوان',
