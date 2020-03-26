@@ -6,7 +6,7 @@
     <div
       v-if="visibileTextSelector"
       class="widget-text-editable--toolbox--group">
-      <button :title="$t('toolbox.image_picker')"
+      <button :title="$t('toolbox.text')"
       v-b-tooltip.hover.top.small
       @click="openExtensions('text', ['Lorem', 'Editor', 'Texty'])"
       class="btn btn-sm widget-text-editable--toolbox--button">
@@ -81,7 +81,7 @@
         class="widget-text-editable--toolbox--group-title">
         {{ $t('toolbox.animate') }}
       </div>
-      <button :title="$t('toolbox.bold')"
+      <button :title="$t('toolbox.animate')"
         v-b-tooltip.hover.top.small
         @click="openExtensions('animate', ['AOS'])"
         :class="{'widget-text-editable--selected': styles['font-weight'] === 'bold'}"
@@ -102,7 +102,7 @@
         {{ $t('toolbox.background') }}
       </div>
       <b-dropdown
-        :title="$t('toolbox.background_color')"
+        :title="$t('toolbox.background')"
         v-b-tooltip.hover.top.small
         size="sm"
         class="">
@@ -190,13 +190,13 @@
           </template>
           <div class="px-2" style="width: 320px">
             <b-form-group>
-              <label> {{ $t('toolbox.background_postion_x') }} </label>
+              <label> {{ $t('toolbox.background_position_x') }} </label>
               <CssInput
                 :units="['%', 'px']"
                 :statics="['center', 'right', 'left']"
                 v-model="backgroundPositionX"
                 @change="setBackgroundPositionX" />
-              <label class="mt-2" > {{ $t('toolbox.background_postion_y') }} </label>
+              <label class="mt-2" > {{ $t('toolbox.background_position_y') }} </label>
               <CssInput
                 :units="['%', 'px']"
                 :statics="['center', 'top', 'bottom']"

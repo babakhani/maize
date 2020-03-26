@@ -49,7 +49,7 @@
       @change="select(animate)"
       switch
       size="sm">
-      {{ $t('mirror') }}
+      {{ $t('animate.mirror') }}
     </b-form-checkbox>
     </b-form-group>
     <b-form-group
@@ -59,7 +59,7 @@
       @change="select(animate)"
       switch
       size="sm">
-      {{ $t('once') }}
+      {{ $t('animate.once') }}
     </b-form-checkbox>
     </b-form-group>
   </div>
