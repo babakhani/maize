@@ -6,7 +6,7 @@ window.CONFIG = {
   pageSideBarIsActive: true,
   fonts: {
     en: [ 'Roboto', 'Open Sans', 'Lato', 'serif', 'fantasy', 'monospace' ],
-    fa: [ 'tahoma', 'IranSans' ]
+    fa: [ 'IranSans', 'IranYekan', 'tahoma' ]
   },
   cdn: {
     css: {

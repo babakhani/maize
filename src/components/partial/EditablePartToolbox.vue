@@ -108,9 +108,9 @@
         class="">
         <template v-slot:button-content>
           <icon name="fill-drip" />
-            <div
-              :style="{'background-color': styles['background-color']}"
-              class="color-indicator"></div>
+          <div
+            :style="{'background-color': styles['background-color']}"
+            class="color-indicator"></div>
         </template>
         <b-dropdown-text>
           <div
@@ -168,13 +168,13 @@
           </b-dropdown-item>
           <b-dropdown-item
             :class="{'widget-text-editable--selected': styles['background-repeat'] ===
-                                  'repeat-x'}"
+                                   'repeat-x'}"
             @click="setBgRepeat('repeat-x')">
             {{ $t('toolbox.repeat-x') }}
           </b-dropdown-item>
           <b-dropdown-item
             :class="{'widget-text-editable--selected': styles['background-repeat'] ===
-                                  'repeat-y'}"
+                                   'repeat-y'}"
             @click="setBgRepeat('repeat-y')">
             {{ $t('toolbox.repeat-y') }}
           </b-dropdown-item>
@@ -236,9 +236,9 @@
           class="">
           <template v-slot:button-content>
             <icon name="paint-brush" />
-              <div
-                :style="{'background-color': styles['color']}"
-                class="color-indicator"></div>
+            <div
+              :style="{'background-color': styles['color']}"
+              class="color-indicator"></div>
           </template>
           <b-dropdown-text>
             <div
@@ -289,7 +289,7 @@
           <b-dropdown-item :class="{'widget-text-editable--selected': styles['font-size'] === '12px'}"
                @click="setSize('12px')">{{$t('toolbox.x-small')}}</b-dropdown-item>
           <b-dropdown-item :class="{'widget-text-editable&#45;&#45;selected':
-                                        styles['font-size'] === '10px'}"
+                                         styles['font-size'] === '10px'}"
                @click="setSize('10px')">{{$t('toolbox.xx-small')}}</b-dropdown-item>
         </b-dropdown>
         <!-- Bold -->
@@ -302,17 +302,17 @@
         </button>
         <!-- UnderLine -->
         <button :title="$t('toolbox.underline')"
-             v-b-tooltip.hover.top.small
-             @click="toggleTextDecoration()"
-             :class="{'widget-text-editable--selected': styles['text-decoration'] === 'underline'}"
-             class="btn btn-sm widget-text-editable--toolbox--button">
+                v-b-tooltip.hover.top.small
+                @click="toggleTextDecoration()"
+                :class="{'widget-text-editable--selected': styles['text-decoration'] === 'underline'}"
+                class="btn btn-sm widget-text-editable--toolbox--button">
           <icon name="underline" />
         </button>
         <button :title="$t('toolbox.line-through')"
-             v-b-tooltip.hover.top.small
-             @click="toggleThroughDecoration()"
-             :class="{'widget-text-editable--selected': styles['text-decoration'] === 'line-through'}"
-             class="btn btn-sm widget-text-editable--toolbox--button">
+                v-b-tooltip.hover.top.small
+                @click="toggleThroughDecoration()"
+                :class="{'widget-text-editable--selected': styles['text-decoration'] === 'line-through'}"
+                class="btn btn-sm widget-text-editable--toolbox--button">
           <icon name="strikethrough" />
         </button>
 
@@ -328,25 +328,25 @@
           <b-dropdown-item title="align left"
                            @click="align('left')"
                            :class="{'widget-text-editable--selected': styles['text-align'] ==
-                                         'left'}">
+                                          'left'}">
             <icon name="align-left"/>
           </b-dropdown-item>
           <b-dropdown-item title="align right"
                            @click="align('right')"
                            :class="{'widget-text-editable--selected': styles['text-align'] ==
-                                         'right'}">
+                                          'right'}">
             <icon name="align-right"/>
           </b-dropdown-item>
           <b-dropdown-item title="align center"
                            @click="align('center')"
                            :class="{'widget-text-editable--selected': styles['text-align'] ==
-                                         'center'}">
+                                          'center'}">
             <icon name="align-center"/>
           </b-dropdown-item>
           <b-dropdown-item title="align justify"
                            @click="align('justify')"
                            :class="{'widget-text-editable--selected': styles['text-align'] ==
-                                         'justify'}">
+                                          'justify'}">
             <icon name="align-justify"/>
           </b-dropdown-item>
         </b-dropdown>
@@ -433,7 +433,6 @@
             </color-picker>
           </b-dropdown-text>
         </b-dropdown>
-
         <b-dropdown
           :title="$t('toolbox.border-width')"
           v-b-tooltip.hover.top.small
@@ -459,19 +458,19 @@
             <maizcon name="border-style"></maizcon>
           </template>
           <b-dropdown-item :class="{'widget-text-editable--selected': styles['border-style']
-                                   === 'none'}"
+                                    === 'none'}"
                      @click="setBorderStyle('none')">{{ $t('none') }}</b-dropdown-item>
           <b-dropdown-item :class="{'widget-text-editable--selected': styles['border-style']
-                                   === 'solid'}"
+                                    === 'solid'}"
                      @click="setBorderStyle('solid')">{{ $t('solid') }}</b-dropdown-item>
           <b-dropdown-item :class="{'widget-text-editable--selected': styles['border-style']
-                                   === 'dashed'}"
+                                    === 'dashed'}"
                      @click="setBorderStyle('dashed')">{{ $t('dashed') }}</b-dropdown-item>
           <b-dropdown-item :class="{'widget-text-editable--selected': styles['border-style']
-                                   === 'double'}"
+                                    === 'double'}"
                      @click="setBorderStyle('double')">{{ $t('double') }}</b-dropdown-item>
           <b-dropdown-item :class="{'widget-text-editable--selected': styles['border-style']
-                                   === 'dotted'}"
+                                    === 'dotted'}"
                      @click="setBorderStyle('dotted')">{{ $t('dotted') }}</b-dropdown-item>
         </b-dropdown>
 
@@ -967,15 +966,15 @@ export default {
     padding-bottom: 20px;
     .widget-text-editable--toolbox--group-title {
       display: block;
-       position: absolute;
-       height: 20px;
-       line-height: 20px;
-       right: .1em;
-       left: .1em;
-       bottom: 0;
-       font-size: .6em;
-       text-align: center;
-       color: rgba($primary-color, 0.9);
+      position: absolute;
+      height: 20px;
+      line-height: 20px;
+      right: .1em;
+      left: .1em;
+      bottom: 0;
+      font-size: .6em;
+      text-align: center;
+      color: rgba($primary-color, 0.9);
     }
   }
   .widget-text-editable--toolbox--group-separator {
@@ -988,16 +987,16 @@ export default {
   }
 
   .b-dropdown-form{
-     padding: 0em .4em;
-     margin: 0;
+    padding: 0em .4em;
+    margin: 0;
   }
 
   .b-dropdown-text{
-     padding-top: 0;
-     padding-right: 0;
-     padding-left: 0;
-     margin-right: 0;
-     margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: 0;
   }
 
   .dropdown {
@@ -1035,7 +1034,7 @@ export default {
         margin: 0 5%;
       }
       .vc-compact {
-         background: transparent;
+        background: transparent;
       }
 
       input[type='number'],
@@ -1069,18 +1068,18 @@ export default {
           background: rgba($primary-color, 0.5);
         }
       }
-     &.dropdown-menu--margin {
-       padding-top:  .25em;
-       max-width: 10em;
-       input {
-         width: 4em;
-        padding-left: .3em;
-         margin: auto;
-       }
-       .dropdown-input--even {
-         margin-left: 2.5%
-       }
-     }
+      &.dropdown-menu--margin {
+        padding-top:  .25em;
+        max-width: 10em;
+        input {
+          width: 4em;
+          padding-left: .3em;
+          margin: auto;
+        }
+        .dropdown-input--even {
+          margin-left: 2.5%
+        }
+      }
     }
   }
 
@@ -1127,12 +1126,12 @@ export default {
     }
 
     img {
-       width: 24px;
-       height: 22px;
-       position: absolute;
-       top: 50%;
-       left: 50%;
-       transform: translate(-50%, -50%);
+      width: 24px;
+      height: 22px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
     &.widget-text-editable--selected {
       background: rgba($primary-color, 0.3);

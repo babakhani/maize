@@ -98,8 +98,8 @@ export default {
         this.output = this.value
       } else if (this.value && this.value !== '') {
         this.disableNumerals = false
-        let propRe = "/^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/"
-        let parts = this.value.toString().match(propRe)
+        let propRe = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/
+        let parts = this.value.match(propRe)
         if (parts) {
           this.output = parts[1]
           this.innerunit = parts[2]
