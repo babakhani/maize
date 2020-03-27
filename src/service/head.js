@@ -43,6 +43,12 @@ export default (settings) => {
     }
   </script>
   <meta name="format-detection" content="telephone=no">
+  <style>
+    html,
+    body {
+      overflow-x: hidden;
+    }
+  </style>
   `
   Object.keys(CONFIG.cdn.css).forEach((key) => {
     out += ` <link id="${key}_css" rel="stylesheet" href="${CONFIG.cdn.css[key]}">`
