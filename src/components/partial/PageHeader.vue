@@ -16,16 +16,16 @@
     </button>
     <div id="navbarsDefault" class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
-        <li
-          v-if="!previewMode"
-          class="nav-item mr-lg-3">
-          <a :title="$t('add_widget')"
-          v-b-tooltip.hover.bottom.small
-          class="nav-link"
-          @click="goToAddWidgetMode">
-            <icon name="plus-square"></icon>
-          </a>
-        </li>
+        <!--<li-->
+          <!--v-if="!previewMode"-->
+          <!--class="nav-item mr-lg-3">-->
+          <!--<a :title="$t('add_widget')"-->
+          <!--v-b-tooltip.hover.bottom.small-->
+          <!--class="nav-link"-->
+          <!--@click="goToAddWidgetMode">-->
+            <!--<icon name="plus-square"></icon>-->
+          <!--</a>-->
+        <!--</li>-->
         <li
           class="nav-item mr-lg-3">
           <a v-b-tooltip.hover.bottom.small
@@ -36,7 +36,6 @@
           </a>
         </li>
         <li
-          v-if="previewMode"
           class="nav-item mr-lg-3">
           <a v-b-tooltip.hover.bottom.small
              class="nav-link"
@@ -197,8 +196,7 @@ export default {
         this.$store.dispatch('layout/setSettingsMode', true)
       }
       if (i === 'export') {
-        EventBus.$emit('downloadHtml')
-        // this.$store.dispatch('layout/setExportMode', true)
+        this.$store.dispatch('layout/setExportMode', true)
       }
       if (i === 'import') {
         this.$store.dispatch('layout/setImportMode', true)

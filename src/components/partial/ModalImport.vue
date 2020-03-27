@@ -54,7 +54,7 @@
 
 <script>
 export default {
-  name: 'ModalExport',
+  name: 'ModalImport',
   data () {
     return {
       pageJson: false

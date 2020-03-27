@@ -4,6 +4,31 @@
     v-model="showModal"
     class="modal-setting modal-box"
     :title="$t('export')">
+    <b-form
+      class="pt-4 px-5">
+      <b-form-group
+        id="input-group-1"
+        label="Sample Export config"
+        label-for="input-1"
+        description="We'll never share your email with anyone else.">
+        <b-form-input
+          id="input-1"
+          type="email"
+          required
+          placeholder="Enter email" >
+        </b-form-input>
+      </b-form-group>
+      <b-form-group
+        id="input-group-1"
+        label="Sample Export config"
+        label-for="input-1"
+        description="We'll never share your email with anyone else.">
+        <b-form-checkbox 
+        name="check-button" 
+        switch>
+        </b-form-checkbox>
+      </b-form-group>
+    </b-form>
     <template slot="modal-footer">
       <b-button
         @click="onHide"
@@ -21,6 +46,7 @@
 </template>
 
 <script>
+import { EventBus } from '@/events/event-bus.js'
 export default {
   name: 'ModalExport',
   data () {
@@ -39,7 +65,11 @@ export default {
       e.preventDefault()
       this.onHide()
       this.$store.dispatch('main/updateSettings', this.siteSettings)
+      this.exportZip()
       return false
+    },
+    exportZip () {
+      EventBus.$emit('downloadHtml')
     }
   },
   mounted () {
