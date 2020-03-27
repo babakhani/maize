@@ -23,7 +23,7 @@ export default {
     body.setAttribute('style', `font-family: ${window.CONFIG.editorFont}`)
     let bootstrapCss = document.getElementById('bootstrapCss')
     if (window.CONFIG.editorDirection === 'rtl') {
-      bootstrapCss.href = '/lib/bootstrap-rtl.min.css'
+      bootstrapCss.href = '/lib/bootstrap-rtl.css'
     }
   },
   methods: {

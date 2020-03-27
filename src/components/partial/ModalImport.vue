@@ -68,12 +68,11 @@ export default {
         reader.onload = function (e) {
           self.updatePage(e.target.result)
         }
-        reader.readAsDataURL(e.target.files[0])
+        reader.readAsText(e.target.files[0])
       }
     },
     updatePage (objJsonStr) {
-      let sanitized = objJsonStr.split('base64,')[1]
-      this.pageJson = JSON.parse(atob(sanitized))
+      this.pageJson = JSON.parse(objJsonStr)
     },
     onHide () {
       this.$store.dispatch('layout/setImportMode', false)

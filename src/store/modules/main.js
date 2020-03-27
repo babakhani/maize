@@ -2,8 +2,8 @@ import lodash from 'lodash'
 import rawWidgetList from '../../components/widgets/spec'
 export default {
   namespaced: true,
-  page: window.localStorage.getItem('page') ? JSON.parse(window.localStorage.getItem('page')) : null,
   state: {
+    page: window.localStorage.getItem('page') ? JSON.parse(window.localStorage.getItem('page')) : null,
     settings: window.localStorage.getItem('page') ? JSON.parse(window.localStorage.getItem('page')).settings : {
       title: 'Maize',
       description: '',
