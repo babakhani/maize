@@ -109,7 +109,7 @@ export default {
         this.favicon = cloneFrameContent.getElementById('mainFavicon').href
         if (this.favicon && this.favicon.split('base64,')[1]) {
           this.favicon = this.favicon.split('base64,')[1]
-          cloneFrameContent.getElementById('mainFavicon').href = 'favicon.ico'
+          cloneFrameContent.getElementById('mainFavicon').href = 'favicon.svg'
         }
 
         this._.each(cloneFrameContent.getElementsByClassName('editable-background'), (item) => {
@@ -165,7 +165,7 @@ export default {
 
       // Favicon
       if (this.favicon) {
-        zip.file('favicon.ico', this.favicon, { base64: true })
+        zip.file('favicon.svg', this.favicon, { base64: true })
       }
 
       // CSS

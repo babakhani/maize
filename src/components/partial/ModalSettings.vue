@@ -68,6 +68,7 @@
                 <label>{{ $t('settings.favicon') }}</label>
                 <b-form-file
                   @change="setFavicon"
+                   v-model="siteSettings.faviconFile"
                   :placeholder="$t('settings.favicon-placeholder')"
                   :drop-placeholder="$t('settings.favicon-placeholder-drag')">
                 </b-form-file>
@@ -291,13 +292,16 @@ export default {
     },
     setFavicon (e) {
       const self = this
-      if (e.target.files && e.target.files[0]) {
-        var reader = new FileReader()
-        reader.onload = function (e) {
-          self.siteSettings.favicon = e.target.result
+      setTimeout(() => {
+        if (self.siteSettings.faviconFile) {
+          const reader = new FileReader()
+          reader.readAsDataURL(self.siteSettings.faviconFile)
+          reader.onload = (a) => {
+            self.$set(this.siteSettings, 'favicon', reader.result)
+            self.siteSettings.faviconFile = []
+          }
         }
-        reader.readAsDataURL(e.target.files[0])
-      }
+      }, 300)
     }
   },
   mounted () {
@@ -321,7 +325,7 @@ export default {
 
 <style lang="scss" scoped >
 .favicon-thumb {
-  max-width: 16px;
-  max-height: 16px;
+  max-width: 64px;
+  max-height: 64px;
 }
 </style>
