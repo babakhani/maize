@@ -139,7 +139,7 @@
                 'color': 'white'
               }, 
               text: this.faker.lorem.words(1),
-              src: this.faker.internet.url
+              href: this.faker.internet.url()
             }
           }
         },

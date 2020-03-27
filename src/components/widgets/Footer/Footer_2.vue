@@ -81,22 +81,22 @@
             footer_link_1: {
               styles: {},
               text: this.faker.lorem.words(1),
-              src: this.faker.internet.url
+              href: this.faker.internet.url()
             },
             footer_link_2: {
               styles: {},
               text: this.faker.lorem.words(1),
-              src: this.faker.internet.url
+              href: this.faker.internet.url()
             },
             footer_link_3: {
               styles: {},
               text: this.faker.lorem.words(1),
-              src: this.faker.internet.url
+              href: this.faker.internet.url()
             },
             footer_link_4: {
               styles: {},
               text: this.faker.lorem.words(1),
-              src: this.faker.internet.url
+              href: this.faker.internet.url()
             },
             footer_copyright_text: {
               styles: {},
