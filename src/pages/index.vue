@@ -7,7 +7,7 @@
             'editor-page-tablet-preview-mode':tabletPreviewMode
             }">
     <PageHeader></PageHeader>
-    <Globe> </Globe>
+    <!--<Globe> </Globe>-->
     <Preview
     ref="preview"
     :preview-version="previewVersion"
