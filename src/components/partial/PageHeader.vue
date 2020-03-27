@@ -2,7 +2,7 @@
 <template>
   <nav class="navbar navbar-expand-md shadow-sm navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="#">
-      {{ $t('brand_name') }} 
+      {{ $t('brand_name') }}
     </a>
     <button
       class="navbar-toggler"
@@ -14,8 +14,8 @@
       aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div id="navbarsDefault" class="collapse navbar-collapse">
-      <ul class="navbar-nav ml-auto">
+    <div id="navbarsDefault" class="collapse navbar-collapse  justify-content-end">
+      <ul class="navbar-nav">
         <!--<li-->
           <!--v-if="!previewMode"-->
           <!--class="nav-item mr-lg-3">-->
@@ -143,7 +143,6 @@
   </nav>
 </template>
 <script>
-import { EventBus } from '@/events/event-bus.js'
 export default {
   name: 'PageToolbax',
   data () {
@@ -244,10 +243,4 @@ export default {
 </script>
 
 <style lang="scss">
-.navbar{
-  .custom-control-label{
-    padding-top: 3px;
-    vertical-align: middle;
-  }
-}
 </style>

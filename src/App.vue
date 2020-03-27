@@ -21,10 +21,6 @@ export default {
     htmlEl.setAttribute('dir', window.CONFIG.editorDirection)
     htmlEl.setAttribute('lang', window.CONFIG.locale)
     body.setAttribute('style', `font-family: ${window.CONFIG.editorFont}`)
-    let bootstrapCss = document.getElementById('bootstrapCss')
-    if (window.CONFIG.editorDirection === 'rtl') {
-      bootstrapCss.href = '/lib/bootstrap-rtl.css'
-    }
   },
   methods: {
     changeLanguage (lang) {

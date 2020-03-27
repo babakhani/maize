@@ -78,11 +78,15 @@ export default {
   &.under-edit:hover,
   &.under-edit {
      outline: 3px dashed rgba($primary-color, .6) !important;
-  }
-
-  &:hover{
-    outline: none;
-  }
-}
-
+   }
+   .settings-btn {
+     display: none;
+   }
+   &:hover{
+     outline: none;
+     .settings-btn {
+       display: block;
+     }
+   }
+ }
 </style>

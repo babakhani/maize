@@ -12,8 +12,8 @@
         class="navbar-text">
         {{ sanitizedName }}
       </span>
-      <div class="collapse navbar-collapse" >
-        <ul class="navbar-nav ml-auto">
+      <div class="collapse navbar-collapse justify-content-end" >
+        <ul class="navbar-nav">
           <li
             class="nav-item">
             <button v-if="showTools"

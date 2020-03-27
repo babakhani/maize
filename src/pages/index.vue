@@ -1,10 +1,6 @@
 <template>
   <div
     class="editor-page"
-    :dir="config.direction"
-    :style="{
-      'direciton': config.direction
-    }"
     :class="{
             'editor-page-preview-mode': previewMode,
             'editor-page-mobile-preview-mode': mobilePreviewMode,
