@@ -7,6 +7,7 @@
             'editor-page-tablet-preview-mode':tabletPreviewMode
             }">
     <PageHeader></PageHeader>
+    <Globe> </Globe>
     <Preview
     ref="preview"
     :preview-version="previewVersion"
@@ -93,6 +94,7 @@ import AddWidget from '../components/partial/AddWidget'
 import ModalWidgetList from '../components/partial/ModalWidgetList'
 import ModalExport from '../components/partial/ModalExport'
 import ModalImport from '../components/partial/ModalImport'
+import Globe from '../components/partial/Globe'
 
 export default {
   name: 'EditorPage',
@@ -108,7 +110,8 @@ export default {
     Widgets,
     AddWidget,
     ModalWidgetList,
-    PageHeader
+    PageHeader,
+    Globe
   },
   data () {
     return {

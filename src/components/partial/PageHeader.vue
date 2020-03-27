@@ -31,6 +31,15 @@
           <a v-b-tooltip.hover.bottom.small
              class="nav-link"
              :title="$t('import')"
+             @click="setMode('language')">
+            <icon name="globe"></icon>
+          </a>
+        </li>
+        <li
+          class="nav-item mr-lg-3">
+          <a v-b-tooltip.hover.bottom.small
+             class="nav-link"
+             :title="$t('import')"
              @click="setMode('import')">
             <icon name="upload"></icon>
           </a>
