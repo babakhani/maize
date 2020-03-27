@@ -59,28 +59,7 @@ export default {
       type: Array,
       required: false,
       default () {
-        return [
-          {
-             title: 'English',
-             lang: 'en',
-             isRTL: false
-          },
-          {
-             title: 'Persian',
-             lang: 'fa',
-             isRTL: true 
-          },
-          {
-             title: 'France',
-             lang: 'fr',
-             isRTL: false 
-          },
-          {
-             title: 'Arabic',
-             lang: 'ar',
-             isRTL: true
-          }
-        ]
+        return window.CONFIG.languages
       }
     }
   },

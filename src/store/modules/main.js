@@ -1,27 +1,11 @@
 import lodash from 'lodash'
 import rawWidgetList from '../../components/widgets/spec'
+const CONFIG = window.CONFIG
 export default {
   namespaced: true,
   state: {
     page: window.localStorage.getItem('page') ? JSON.parse(window.localStorage.getItem('page')) : null,
-    settings: window.localStorage.getItem('page') ? JSON.parse(window.localStorage.getItem('page')).settings : {
-      title: 'Maize',
-      description: '',
-      language: 'en',
-      baseURL: '',
-      canonical: '/',
-      nextURL: '',
-      image: '',
-      imageWidth: '',
-      imageHeight: '',
-      imageType: '',
-      secureURL: '',
-      facebookAppID: '',
-      twitterAccount: '',
-      twitterCard: 'summary',
-      type: 'Organization',
-      color: '#fff'
-    },
+    settings: window.localStorage.getItem('page') ? JSON.parse(window.localStorage.getItem('page')).settings : CONFIG.siteDefaultSettings,
     currentHistoryIndex: 0,
     historyLength: 0,
     currentWidgetList: window.localStorage.getItem('page') ? JSON.parse(window.localStorage.getItem('page')).widgets : [],

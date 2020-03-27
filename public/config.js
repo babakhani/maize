@@ -9,6 +9,46 @@ window.CONFIG = {
     en: [ 'Roboto', 'Open Sans', 'Lato', 'serif', 'fantasy', 'monospace' ],
     fa: [ 'IranSans', 'IranYekan', 'tahoma' ]
   },
+  languages: [
+    {
+      title: 'English',
+      lang: 'en',
+      isRTL: false
+    },
+    {
+      title: 'Persian',
+      lang: 'fa',
+      isRTL: true 
+    },
+    {
+      title: 'France',
+      lang: 'fr',
+      isRTL: false 
+    },
+    {
+      title: 'Arabic',
+      lang: 'ar',
+      isRTL: true
+    }
+  ],
+  siteDefaultSettings: {
+      title: 'Maize',
+      description: '',
+      language: 'fa',
+      baseURL: '',
+      canonical: '/',
+      nextURL: '',
+      image: '',
+      imageWidth: '',
+      imageHeight: '',
+      imageType: '',
+      secureURL: '',
+      facebookAppID: '',
+      twitterAccount: '',
+      twitterCard: 'summary',
+      type: 'Organization',
+      color: '#fff'
+  },
   cdn: {
     css: {
       bootstrap: 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css',
