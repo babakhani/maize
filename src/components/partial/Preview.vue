@@ -38,6 +38,20 @@ export default {
       that.makeExportableDownload()
     })
   },
+  props: {
+    previewVersion: {
+      default: 0,
+      type: Number,
+      required: false
+    }
+  },
+  watch: {
+    previewVersion () {
+      if (this.$refs.frame && this.$refs.frame.$el) {
+        this.$refs.frame.$el.contentDocument.location.reload(true)
+      }
+    }
+  },
   data () {
     return {
       exportHtml: null,

@@ -7,7 +7,10 @@
             'editor-page-tablet-preview-mode':tabletPreviewMode
             }">
     <PageHeader></PageHeader>
-    <Preview v-if="previewMode"/>
+    <Preview
+    ref="preview"
+    :preview-version="previewVersion"
+    v-show="previewMode"/>
     <div  v-show="!previewMode" class="wrapper">
       <nav id="sidebar"
            v-if="pageSideBarIsActive"
@@ -109,6 +112,7 @@ export default {
   },
   data () {
     return {
+      previewVersion: 0,
       config: window.CONFIG,
       sidebarPreviewDelaytimer: null,
       delayedSidebarPreview: false,
@@ -131,6 +135,12 @@ export default {
     },
     hideSidebar () {
       this.$store.dispatch('layout/setPageSideBarIsActive', false)
+    }
+  },
+  watch: {
+    previewMode () {
+      this.previewVersion += 1
+      this.$forceUpdate()
     }
   },
   computed: {
