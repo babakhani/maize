@@ -1,6 +1,7 @@
 export default {
   language: 'fa',
   'export': 'Export',
+  'brand_name': 'Landingo',
   'import': 'Import',
   'show_header': 'Show header',
   'preview_mode': 'Preview Mode',

@@ -2,7 +2,7 @@
 <template>
   <nav class="navbar navbar-expand-md shadow-sm navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="#">
-      MAIZE
+      {{ $t('brand_name') }} 
     </a>
     <button
       class="navbar-toggler"
