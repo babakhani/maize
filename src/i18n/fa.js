@@ -6,6 +6,7 @@ export default {
   'preview_mode': 'نسخه نمایش',
   'add_widget': 'اضافه کردن ویجت',
   'toolbox': {
+    'iframe_setting': 'آدرس فریم',
     'background_position_x': 'موقعیت افقی',
     'background_position_y': 'موقعیت عمودی',
     'background_image': 'تصویر پس ضمینه',
@@ -117,7 +118,8 @@ export default {
     'banner-url': 'آدرس بنر',
     'banner-placeholder': 'http://www.example.com',
     'banner-color': 'رنگ بنر',
-    'color-placeholder': ':یک رنگ را انتخاب کنید'
+    'color-placeholder': ':یک رنگ را انتخاب کنید',
+    'url': 'آدرس'
   },
   'hello_from_modal': 'Hello from modal',
   'monospace': 'monospace',

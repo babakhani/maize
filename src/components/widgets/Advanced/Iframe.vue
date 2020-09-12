@@ -15,13 +15,15 @@
             @click="openSettingExtension()"
             v-b-tooltip.hover.top.small
             class="btn btn-sm widget-text-editable--toolbox--button">
-              <icon name="bars" />
+              <icon name="link" />
             </button>
             <div
               class="widget-text-editable--toolbox--group-title">
-              {{ $t('toolbox.text') }}
+              {{ $t('toolbox.iframe_setting') }}
             </div>
           </div>
+          <div
+            class="widget-text-editable--toolbox--group-separator"></div>
         </template>
         <iframe
           v-if="touchedData && touchedData.frame && touchedData.frame.href"

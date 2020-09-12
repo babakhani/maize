@@ -9,6 +9,7 @@ export default {
   'delete': 'Delete',
   'load_url': 'Load Url',
   'toolbox': {
+    'iframe_setting': 'Iframe',
     'slider': 'Slider',
     'animate': 'Animate',
     'image_picker': 'Image Picker',
