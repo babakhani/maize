@@ -38,7 +38,7 @@
           :key="index"
           :lazy="true"
           :active="item.group === 'header'"
-          :title="item.title">
+          :title="$t(`widgets.${item.title}`)">
           <WidgetList
             v-if="showModalDelayed"
             @updateAddList="updateAddList"
@@ -64,7 +64,7 @@ export default {
   methods: {
     updateAddList (item) {
       let widgetList = this.addWidgetList
-      let finded = widgetList.find((n) => {return n.name === item.name})
+      let finded = widgetList.find((n) => { return n.name === item.name })
       if (finded) {
         this._.remove(widgetList, (n) => {
           return n.name === item.name
