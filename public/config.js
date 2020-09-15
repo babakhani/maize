@@ -18,12 +18,12 @@ window.CONFIG = {
     {
       title: 'Persian',
       lang: 'fa',
-      isRTL: true 
+      isRTL: true
     },
     {
       title: 'France',
       lang: 'fr',
-      isRTL: false 
+      isRTL: false
     },
     {
       title: 'Arabic',
@@ -58,15 +58,15 @@ window.CONFIG = {
       maize: 'https://gitcdn.link/repo/babakhani/maize/master/public/lib/maize_blocks.min.css',
       fontawesome: 'https://use.fontawesome.com/releases/v5.7.0/css/all.css',
       aos: 'https://unpkg.com/aos@2.3.1/dist/aos.css',
-      slick: 'http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css',
-      slicktheme: 'http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css'
+      slick: '/lib/slick.css',
+      slicktheme: '/lib/slick-theme.css'
     },
     js: {
       jquery: 'https://code.jquery.com/jquery-3.4.1.slim.min.js',
       popper: 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js',
       bootstrap: 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js',
       aos: 'https://unpkg.com/aos@2.3.1/dist/aos.js',
-      slick: 'http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js'
+      slick: '/lib/slick.min.js'
     },
     fonts: {
       'iranyekanwebregular.eot': '/webfonts/',

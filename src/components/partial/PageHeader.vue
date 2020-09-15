@@ -1,6 +1,6 @@
 <!-- Fixed navbar -->
 <template>
-  <nav class="navbar navbar-expand-md shadow-sm navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-md shadow-sm fixed-top">
     <a class="navbar-brand" href="#">
       {{ $t('brand_name') }}
     </a>
