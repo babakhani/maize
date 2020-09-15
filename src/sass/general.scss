@@ -6,10 +6,14 @@ html, body
 
 body{
   padding-top: 55px;
-  font-family: "IranSans";
+  font-family: "IranSans" !important;
   font-size: 12px;
   overflow-x: hidden;
   background: rgba(#ccc, 0.3);
+}
+
+.tooltip {
+  font-family: "IranSans" !important;
 }
 
 .cursor-move {
