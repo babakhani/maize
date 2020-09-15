@@ -19,7 +19,7 @@
            class="editable-part-sidebar w-25">
         <b-button-group size="sm" class="w-100 mb-3">
           <b-dropdown
-            :text="groupedWidgetList[currentListIndex].title"
+            :text="$t(`widgets.${groupedWidgetList[currentListIndex].title}`)"
             variant="outline-primary"
             class="w-100">
             <b-dropdown-item
@@ -27,7 +27,7 @@
               @click="currentListIndex = index"
               :key="index"
               v-for="(item, index) in groupedWidgetList" >
-              {{ item.title }}
+              {{ $t(`widgets.${item.title}`) }}
             </b-dropdown-item>
           </b-dropdown>
           <!--<b-button -->

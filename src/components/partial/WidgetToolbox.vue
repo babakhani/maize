@@ -10,7 +10,7 @@
         @input="updateName"
         style="direction: ltr"
         class="navbar-text">
-        {{ sanitizedName }}
+        {{$t(`widgets.${this.widgetName}`) }} {{ this.widgetNumber }}
       </span>
       <div class="collapse navbar-collapse justify-content-end" >
         <ul class="navbar-nav">
@@ -80,7 +80,9 @@ export default {
     return {
       editNameMode: null,
       sanitizedName: null,
-      showTools: true
+      showTools: true,
+      widgetName: '',
+      widgetNumber: ''
     }
   },
   props: {
@@ -91,6 +93,9 @@ export default {
   },
   mounted () {
     this.sanitizedName = this.$parent.$options.name.replace('_', ' ')
+    const words = this.sanitizedName.split(' ')
+    this.widgetNumber = words[1]
+    this.widgetName = words[0]
     setTimeout(() => {
       if (this.$parent.touchedData && this.$parent.touchedData.config &&
         this.$parent.touchedData.config.name) {

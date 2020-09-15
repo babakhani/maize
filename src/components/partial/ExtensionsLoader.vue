@@ -8,7 +8,7 @@
       no-fade
       nav-wrapper-class="w-25"
       card>
-      <template 
+      <template
       v-if="extensions.includes(extension.name)"
       v-for="extension in settingsExtensions" >
       <b-tab
@@ -19,7 +19,7 @@
             v-if="extension.icon"
             class="upload-image-icon"
             :name="extension.icon"></icon>
-          <strong> {{ $t(extension.name) }}</strong>
+          <strong>  {{$t(`extension.${extension.name}`) }}</strong>
         </template>
         <componenet
           v-if="extensionsData"
@@ -54,14 +54,14 @@ export default {
     },
     value: {
       type: [Object, Boolean, Array, String],
-      required: true 
+      required: true
     }
   },
   watch: {
     value: {
       deep: true,
       handler () {
-       this.extensionsData = this.value
+        this.extensionsData = this.value
       }
     }
   },
@@ -71,7 +71,7 @@ export default {
       if (this._.isObject(e)) {
         data = this._.extend(this.extensionsData, e)
       } else {
-        data = e 
+        data = e
       }
       this.$emit('input', data)
     },
