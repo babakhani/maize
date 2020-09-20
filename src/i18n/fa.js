@@ -87,7 +87,10 @@ export default {
     'margin': 'حاشیه',
     'height': 'ارتفاع',
     'width': 'عرض',
-    'direction': 'جهت'
+    'direction': 'جهت',
+    'border_radius': 'انحنای گوشه ها',
+    'iframe': 'فریم',
+    'slider': 'اسلایدر'
   },
   'extension': {
     'Clinet_Side_Uploader': 'بارگذاری تصویر',
