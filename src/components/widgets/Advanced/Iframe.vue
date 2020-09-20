@@ -11,7 +11,8 @@
         <template v-slot:toolbox>
           <div
             class="widget-text-editable--toolbox--group">
-            <button :title="$t('iframe')"
+            <button
+            :title="$t('toolbox.iframe_setting')"
             @click="openSettingExtension()"
             v-b-tooltip.hover.top.small
             class="btn btn-sm widget-text-editable--toolbox--button">

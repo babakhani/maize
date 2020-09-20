@@ -1,6 +1,7 @@
 export default {
   language: 'en',
   'export': 'ذخیره',
+  'import': 'بارگذاری',
   'brand_name': 'لندینگو',
   'show_header': 'نمایش هدر',
   'preview_mode': 'نسخه نمایش',
@@ -23,6 +24,7 @@ export default {
   'messages': {
     'iframe_select_url': 'پیوند خود را انتخاب کنید'
   },
+
   'toolbox': {
     'iframe_setting': 'آدرس فریم',
     'background_position_x': 'موقعیت افقی',
@@ -85,7 +87,10 @@ export default {
     'margin': 'حاشیه',
     'height': 'ارتفاع',
     'width': 'عرض',
-    'direction': 'جهت'
+    'direction': 'جهت',
+    'border_radius': 'انحنای گوشه ها',
+    'iframe': 'فریم',
+    'slider': 'اسلایدر'
   },
   'extension': {
     'Clinet_Side_Uploader': 'بارگذاری تصویر',
@@ -181,6 +186,12 @@ export default {
     'banner-color': 'رنگ بنر',
     'color-placeholder': ':یک رنگ را انتخاب کنید',
     'url': 'آدرس'
+  },
+  'exportModal': {
+    'email_title': 'آدرس ایمیل خود را جهت دریافت فایل وارد کنید.',
+    'email_placeholder': 'آدرس ایمیل خود را وارد کنید.',
+    'config_title': 'نمونه تنظیمات برای ذخیره فایل خروجی',
+    'email_message': 'ما آدرس ایمیل شما را به هیچ عنوان با دیگران به اشتراک نمی گذاریم'
   },
   'hello_from_modal': 'Hello from modal',
   'monospace': 'monospace',
