@@ -8,23 +8,23 @@
       class="pt-4 px-5">
       <b-form-group
         id="input-group-1"
-        label="Sample Export config"
+        :label="$t('exportModal.email_title')"
         label-for="input-1"
-        description="We'll never share your email with anyone else.">
+        :description="$t('exportModal.email_message')">
         <b-form-input
           id="input-1"
           type="email"
           required
-          placeholder="Enter email" >
+          :placeholder="$t('exportModal.email_placeholder')" >
         </b-form-input>
       </b-form-group>
       <b-form-group
         id="input-group-1"
-        label="Sample Export config"
+        :label="$t('exportModal.config_title')"
         label-for="input-1"
-        description="We'll never share your email with anyone else.">
-        <b-form-checkbox 
-        name="check-button" 
+        :description="$t('exportModal.email_message')">
+        <b-form-checkbox
+        name="check-button"
         switch>
         </b-form-checkbox>
       </b-form-group>
