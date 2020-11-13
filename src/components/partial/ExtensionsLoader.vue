@@ -1,6 +1,7 @@
 <template>
   <div>
     <b-tabs
+      @activate-tab="onTabChanged"
       lazy
       align="center"
       vertical
@@ -11,6 +12,7 @@
       <template
       v-for="extension in settingsExtensions" >
       <b-tab
+        :active="lastSeenTab === extension.name"
         v-if="extensions.includes(extension.name)"
         :key="extension.name"
         class="py-2 px-1">
@@ -41,11 +43,13 @@ export default {
   data () {
     return {
       settingsExtensions: SettingsExtensions,
+      lastSeenTab: null,
       extensionsData: null
     }
   },
   mounted () {
     this.extensionsData = this.value
+    this.lastSeenTab = window.localStorage.getItem('extenstionsTabHistory')
   },
   props: {
     extensions: {
@@ -66,6 +70,9 @@ export default {
     }
   },
   methods: {
+    onTabChanged (e, a) {
+      window.localStorage.setItem('extenstionsTabHistory', this.extensions[e])
+    },
     select (e) {
       this.$emit('input', e)
     },

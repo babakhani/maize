@@ -99,8 +99,8 @@ export default {
   'extension': {
     'Link': 'پیوند',
     'Clinet_Side_Uploader': 'بارگذاری تصویر',
-    'Picsum_Samples': 'تصاویر موجود از سایت پیکسام',
-    'StreamLine_Samples': 'تصاویر موجود از سایت استریم لاین',
+    'Picsum_Samples': 'تصاویر پیکسام',
+    'StreamLine_Samples': 'تصاویر استریم لاین',
     'AOS': 'انیمیشن در اسکرول',
     'Editor': 'ویرایش  متن دلخواه',
     'Texty': 'متن پیش فرض از تکستی',

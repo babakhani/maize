@@ -8,7 +8,7 @@
       class="widget-text-editable--toolbox--group">
       <button :title="$t('toolbox.text')"
       v-b-tooltip.hover.top.small
-      @click="openExtensions('text', ['Lorem', 'Editor', 'Texty'])"
+      @click="openExtensions('text', ['Editor', 'Texty', 'Lorem'])"
       class="btn btn-sm widget-text-editable--toolbox--button">
         <icon name="life-ring" />
       </button>
@@ -25,7 +25,7 @@
       class="widget-text-editable--toolbox--group">
       <button :title="$t('toolbox.image_picker')"
       v-b-tooltip.hover.top.small
-      @click="openExtensions('src', ['StreamLine_Samples', 'Picsum_Samples', 'Clinet_Side_Uploader'])"
+      @click="openExtensions('src', ['Clinet_Side_Uploader', 'Picsum_Samples', 'StreamLine_Samples', ])"
       class="btn btn-sm widget-text-editable--toolbox--button">
         <icon name="image" />
       </button>
