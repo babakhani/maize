@@ -1,5 +1,5 @@
 <template>
-  <div class="upload-image-widget p-5 m-2">
+  <div class="upload-image-widget m-2">
     <b-form-input
       type="range"
       :min="1"

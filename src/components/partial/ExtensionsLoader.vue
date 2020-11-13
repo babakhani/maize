@@ -2,7 +2,6 @@
   <div>
     <b-tabs
       @activate-tab="onTabChanged"
-      lazy
       align="center"
       vertical
       pills

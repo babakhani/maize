@@ -1,6 +1,8 @@
 <template>
   <div class="editor">
-    <editor-menu-bar :editor="editor" v-slot="{ commands, isActive }">
+    <editor-menu-bar
+      :editor="editor"
+      v-slot="{ commands, isActive }">
       <div class="menubar">
         <div class="btn-group" role="group" aria-label="Basic example">
           <button
@@ -135,7 +137,9 @@
         </div>
       </div>
     </editor-menu-bar>
-    <editor-content class="editor__content" :editor="editor" />
+    <editor-content
+      class="editor__content"
+      :editor="editor" />
   </div>
 </template>
 
