@@ -1,8 +1,10 @@
 <!-- Fixed navbar -->
 <template>
-  <nav class="navbar navbar-expand-md shadow-sm fixed-top">
+  <nav class="editor-page-navbar navbar navbar-expand-md shadow-sm fixed-top">
     <a class="navbar-brand" href="#">
-      {{ $t('brand_name') }}
+       <img
+       height="32"
+       src="http://cdn.landingo.ir/public/imgs/img_logo.png" />
     </a>
     <button
       class="navbar-toggler"
@@ -36,18 +38,18 @@
           <!--</a>-->
         <!--</li>-->
         <li
-          class="nav-item mr-lg-3">
+          class="nav-item">
           <a v-b-tooltip.hover.bottom.small
-             class="nav-link"
+             class=" btn-light btn"
              :title="$t('import')"
              @click="setMode('import')">
             <icon name="upload"></icon>
           </a>
         </li>
         <li
-          class="nav-item mr-lg-3">
+          class="nav-item">
           <a v-b-tooltip.hover.bottom.small
-             class="nav-link"
+             class=" btn-light btn"
              :title="$t('export')"
              @click="setMode('export')">
             <icon name="download"></icon>
@@ -55,9 +57,9 @@
         </li>
         <li
           v-if="!previewMode"
-          class="nav-item mr-lg-3">
+          class="nav-item">
           <a v-b-tooltip.hover.bottom.small
-             class="nav-link"
+             class=" btn-light btn"
              :class="{'disabled': isUndoDisabled}"
              :title="$t('toolbox.undo')"
              @click="undo">
@@ -66,9 +68,9 @@
         </li>
         <li
           v-if="!previewMode"
-          class="nav-item mr-lg-3">
+          class="nav-item">
           <a v-b-tooltip.hover.bottom.small
-             class="nav-link"
+             class=" btn-light btn"
              :class="{'disabled': isRedoDisabled}"
              :title="$t('toolbox.redo')"
              @click="redo">
@@ -77,9 +79,9 @@
         </li>
         <li
           v-if="previewMode"
-          class="nav-item mr-lg-3">
+          class="nav-item">
           <a v-b-tooltip.hover.bottom.small
-             class="nav-link"
+             class=" btn-light btn"
              :title="$t('toolbox.mobile')"
              @click="setMobilePreviewMode">
             <icon name="mobile-alt"></icon>
@@ -87,9 +89,9 @@
         </li>
         <li
           v-if="previewMode"
-          class="nav-item mr-lg-3">
+          class="nav-item">
           <a v-b-tooltip.hover.bottom.small
-             class="nav-link"
+             class=" btn-light btn"
              :title="$t('toolbox.tablet')"
              @click="setTabletPreviewMode">
             <icon name="tablet-alt"></icon>
@@ -97,9 +99,9 @@
         </li>
         <li
           v-if="previewMode"
-          class="nav-item mr-lg-3">
+          class="nav-item">
           <a v-b-tooltip.hover.bottom.small
-             class="nav-link"
+             class=" btn-light btn"
              :title="$t('toolbox.desktop')"
              @click="setDesktopPreviewMode">
             <icon name="desktop"></icon>
@@ -107,11 +109,9 @@
         </li>
         <li
           v-if="!previewMode"
-          class="pointer nav-item mr-lg-3 pr-0">
-          <div class="nav-link px-0">
+          class="pointer nav-item pr-0">
+          <div class="btn-light btn">
             <b-form-checkbox
-              class=""
-              :title="$t('toolbox.widget_selector')"
               v-b-tooltip.hover.bottom.small
               v-model="pageSideBarIsActive"
               name="check-button"
@@ -121,9 +121,9 @@
             </b-form-checkbox>
           </div>
         </li>
-        <li class="pointer nav-item mr-lg-3 pr-0" style="width: 80px">
-          <a class="nav-link px-0"
-             :title="previewMode ? $t('toolbox.edit') : $t('preview_mode')"
+        <li class="pointer nav-item">
+          <a
+             class="btn-light btn"
              @click="setPreviewMode"
              v-b-tooltip.hover.bottom.small
              href="#">
@@ -139,10 +139,11 @@
           </a>
         </li>
         <li
-          class="nav-item mr-lg-3">
-          <a :title="$t('toolbox.settings')"
+          class="nav-item">
+          <a
+          :title="$t('toolbox.settings')"
           v-b-tooltip.hover.top.small
-          class="nav-link"
+          class="btn-light btn"
           @click="setMode('settings')">
             <icon name="cog"></icon>
           </a>

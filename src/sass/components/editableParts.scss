@@ -1,5 +1,9 @@
 $icon-size: 1.6em;
 
+.nav-link {
+  white-space: nowrap;
+}
+
 .sortable-chosen {
   .widget-text-editable--toolbox {
     display: none !important;
@@ -7,6 +11,7 @@ $icon-size: 1.6em;
 }
 
 .editable-part{
+  font-family: 'IranSans';
   position: relative;
   cursor: pointer;
 

@@ -83,35 +83,35 @@ export default {
           },
           header_link_1: {
             styles: {},
-            text: this.faker.lorem.words(1),
+            text: this.faker.company.catchPhraseNoun(),
             herf: this.faker.internet.url()
           },
           header_link_2: {
             styles: {},
-            text: this.faker.lorem.words(1),
+            text: this.faker.company.catchPhraseNoun(),
             href: this.faker.internet.url()
           },
           header_link_3: {
             styles: {},
-            text: this.faker.lorem.words(1),
+            text: this.faker.company.catchPhraseNoun(),
             herf: this.faker.internet.url()
           },
           header_link_4: {
             styles: {},
-            text: this.faker.lorem.words(1),
+            text: this.faker.company.catchPhraseNoun(),
             herf: this.faker.internet.url()
           },
           header_link_5: {
             styles: {},
-            text: this.faker.lorem.words(1),
+            text: this.faker.company.catchPhraseNoun(),
             herf: this.faker.internet.url()
           },
           header_button: {
             styles: {
               'min-width': '6em',
               'color': 'white'
-            }, 
-            text: this.faker.lorem.words(1),
+            },
+            text: this.faker.company.catchPhraseNoun(),
             href: this.faker.internet.url
           }
         }

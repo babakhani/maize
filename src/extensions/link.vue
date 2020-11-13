@@ -2,10 +2,12 @@
   <div class="p-5 m-2">
     <div class="form-group">
       <label>{{ $t('settings.url') }}</label>
-      <b-form-input type="text"
-                    v-model="pickLink"
-                    @input="select(pickLink)"
-                    :placeholder="$t('insert_link')">
+      <b-form-input
+         class="ltr"
+         type="text"
+         v-model="pickLink"
+         @input="select(pickLink)"
+         :placeholder="$t('insert_link')">
       </b-form-input>
     </div>
     <div class="form-group">

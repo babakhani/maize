@@ -4,16 +4,16 @@
       <BgEditable>
          <header>
              <nav class="navbar navbar-expand-md">
-               <ImageEditable 
+               <ImageEditable
                   name="logo"
                  :partData="touchedData.logo"/>
-               <button 
-                 class="navbar-toggler" 
-                 type="button" 
-                 data-toggle="collapse" 
-                 data-target="#navbarNav1" 
-                 aria-controls="navbarNav1" 
-                 aria-expanded="false" 
+               <button
+                 class="navbar-toggler"
+                 type="button"
+                 data-toggle="collapse"
+                 data-target="#navbarNav1"
+                 aria-controls="navbarNav1"
+                 aria-expanded="false"
                  aria-label="Toggle navigation">
                  <span class="navbar-toggler-icon"></span>
                </button>
@@ -46,19 +46,19 @@
                  </ul>
                  <ul class="navbar-nav justify-content-end d-none d-lg-flex ml-md-auto">
                    <li class="nav-item ml-3">
-                     <IconEditable 
+                     <IconEditable
                         cssClass="nav-link"
                         name="header_social_link_1"
                         :partData="touchedData.header_social_link_1"/>
                    </li>
                    <li class="nav-item ml-3">
-                     <IconEditable 
+                     <IconEditable
                         cssClass="nav-link"
                         name="header_social_link_2"
                         :partData="touchedData.header_social_link_2"/>
                    </li>
                    <li class="nav-item ml-3">
-                     <IconEditable 
+                     <IconEditable
                         cssClass="nav-link"
                         name="header_social_link_3"
                         :partData="touchedData.header_social_link_3"/>
@@ -75,76 +75,76 @@
   </div>
 </template>
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'Header_5',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
+export default {
+  name: 'Header_5',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          logo: {
+            styles: {
+              height: '30px'
             },
-            bg: {
-              styles: {}
+            href: '#',
+            src: this.faker.img.logo()
+          },
+          header_link_1: {
+            styles: {},
+            text: this.faker.company.catchPhraseNoun(),
+            href: this.faker.internet.url()
+          },
+          header_link_2: {
+            styles: {},
+            text: this.faker.company.catchPhraseNoun(),
+            href: this.faker.internet.url()
+          },
+          header_link_3: {
+            styles: {},
+            text: this.faker.company.catchPhraseNoun(),
+            href: this.faker.internet.url()
+          },
+          header_link_4: {
+            styles: {},
+            text: this.faker.company.catchPhraseNoun(),
+            href: this.faker.internet.url()
+          },
+          header_social_link_1: {
+            styles: {},
+            iconName: 'fab fa-github',
+            href: this.faker.internet.url()
+          },
+          header_social_link_2: {
+            styles: {},
+            iconName: 'fab fa-instagram',
+            href: this.faker.internet.url()
+          },
+          header_social_link_3: {
+            styles: {},
+            iconName: 'fab fa-twitter',
+            href: this.faker.internet.url()
+          },
+          header_button: {
+            styles: {
+              'min-width': '6em',
+              'color': 'white'
             },
-            logo: {
-              styles: {
-                height: '30px'
-              },
-              href: '#',
-              src: this.faker.img.logo()
-            },
-            header_link_1: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-              href: this.faker.internet.url()
-            },
-            header_link_2: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-              href: this.faker.internet.url()
-            },
-            header_link_3: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-              href: this.faker.internet.url()
-            },
-            header_link_4: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-              href: this.faker.internet.url()
-            },
-            header_social_link_1: {
-              styles: {},
-              iconName: 'fab fa-github',
-              href: this.faker.internet.url()
-            },
-            header_social_link_2: {
-              styles: {},
-              iconName: 'fab fa-instagram',
-              href: this.faker.internet.url()
-            },
-            header_social_link_3: {
-              styles: {},
-              iconName: 'fab fa-twitter',
-              href: this.faker.internet.url()
-            },
-            header_button: {
-              styles: {
-                'min-width': '6em',
-                'color': 'white'
-              }, 
-              text: this.faker.lorem.words(1),
-              href: this.faker.internet.url()
-            }
+            text: this.faker.company.catchPhraseNoun(),
+            href: this.faker.internet.url()
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

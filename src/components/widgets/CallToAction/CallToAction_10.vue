@@ -6,11 +6,11 @@
       <div class="container py-5">
         <div class="row">
           <div class="col-12">
-            <TextEditable 
+            <TextEditable
                tag="h1"
                name="mainTitle"
                :partData="touchedData.mainTitle"/>
-            <TextEditable 
+            <TextEditable
                tag="p"
                name="description"
                cssClass="lead"
@@ -26,11 +26,11 @@
                            :partData="touchedData.image"/>
           </div>
           <div class="col-12 col-sm-6 m-auto pt-4 pt-sm-0">
-            <TextEditable 
+            <TextEditable
                tag="h2"
-               name="mainTitle"
+               name="title"
                :partData="touchedData.title"/>
-            <TextEditable 
+            <TextEditable
                tag="p"
                name="description"
                cssClass="lead"
@@ -38,20 +38,20 @@
           </div>
           <div class="col-12 col-sm-3 text-center pt-4 pt-sm-0">
             <p class="">
-            <TextEditable 
+            <TextEditable
                tag="a"
                cssClass="btn btn-outline-primary px-3"
                name="action_link"
                :partData="touchedData.action_link_1"/>
             </p>
             <p class="mt-2">
-            <TextEditable 
+            <TextEditable
                tag="a"
                cssClass="btn btn-primary text-white px-3"
                name="action_link"
                :partData="touchedData.action_link_2"/>
             </p>
-            <TextEditable 
+            <TextEditable
                tag="p"
                name="description"
                cssClass="h5"
@@ -91,28 +91,28 @@ export default {
           description_1: {
             styles: {},
             text: this.faker.lorem.words(40),
-            src: this.faker.internet.url(),
+            src: this.faker.internet.url()
           },
           description_2: {
             styles: {},
             text: this.faker.lorem.words(20),
-            src: this.faker.internet.url(),
+            src: this.faker.internet.url()
           },
           description_3: {
             styles: {},
             text: this.faker.lorem.words(3),
-            src: this.faker.internet.url(),
+            src: this.faker.internet.url()
           },
           action_link_1: {
             styles: {
-              "min-width": "120px"
+              'min-width': '120px'
             },
             text: this.faker.lorem.words(1),
             src: this.faker.internet.url
           },
           action_link_2: {
             styles: {
-              "min-width": "120px"
+              'min-width': '120px'
             },
             text: this.faker.lorem.words(1),
             src: this.faker.internet.url

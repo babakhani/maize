@@ -47,6 +47,7 @@ export default (settings) => {
     html,
     body {
       overflow-x: hidden;
+      font-family: 'IranSans';
     }
   </style>
   `

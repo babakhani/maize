@@ -4,7 +4,7 @@
       <BgEditable>
         <header>
             <nav class="navbar navbar-expand-md">
-              <ImageEditable 
+              <ImageEditable
                 class="navbar-brand"
                 name="header_image"
                 :partData="touchedData.header_image"/>
@@ -61,60 +61,60 @@
   </div>
 </template>
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'Header_4',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
+export default {
+  name: 'Header_4',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          header_image: {
+            styles: {
+              height: '30px'
             },
-            bg: {
-              styles: {}
+            src: this.faker.img.logo()
+          },
+          header_link_1: {
+            styles: {},
+            text: this.faker.company.catchPhraseNoun(),
+            href: this.faker.internet.url()
+          },
+          header_link_2: {
+            styles: {},
+            text: this.faker.company.catchPhraseNoun(),
+            href: this.faker.internet.url()
+          },
+          header_link_3: {
+            styles: {},
+            text: this.faker.company.catchPhraseNoun(),
+            href: this.faker.internet.url()
+          },
+          header_link_4: {
+            styles: {},
+            text: this.faker.company.catchPhraseNoun(),
+            href: this.faker.internet.url()
+          },
+          header_button: {
+            styles: {
+              'min-width': '6em',
+              'color': 'white'
             },
-            header_image: {
-              styles: {
-                height: '30px'
-              },
-              src: this.faker.img.logo()
-            },
-            header_link_1: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-              href: this.faker.internet.url()
-            },
-            header_link_2: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-              href: this.faker.internet.url()
-            },
-            header_link_3: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-              href: this.faker.internet.url()
-            },
-            header_link_4: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-              href: this.faker.internet.url()
-            },
-            header_button: {
-              styles: {
-                'min-width': '6em',
-                'color': 'white'
-              },
-              text: this.faker.lorem.words(1),
-              href: this.faker.internet.url()
-            }
+            text: this.faker.company.catchPhraseNoun(),
+            href: this.faker.internet.url()
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

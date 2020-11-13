@@ -185,7 +185,6 @@ export default {
 .wrapper {
   display: flex;
   #content {
-    // padding: 20px;
     min-height: 100vh;
     transition: all 0.3s;
     width: 90%;

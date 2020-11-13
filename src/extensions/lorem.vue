@@ -16,7 +16,6 @@
   </div>
 </template>
 <script>
-import faker from 'faker'
 export default {
   name: 'Lorem',
   icon: false,
@@ -27,7 +26,7 @@ export default {
   },
   computed: {
     text () {
-      return faker.lorem.words(this.count)
+      return window.faker.lorem.words(this.count)
     }
   },
   methods: {

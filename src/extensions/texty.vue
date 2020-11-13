@@ -11,21 +11,20 @@
 </template>
 
 <script>
-import faker from 'faker'
 export default {
   name: 'Texty',
   icon: 'life-ring',
   data () {
     return {
       sampletexts: [
-        faker.lorem.words(10),
-        faker.lorem.words(10),
-        faker.lorem.words(10),
-        faker.lorem.words(10),
-        faker.lorem.words(10),
-        faker.lorem.words(10),
-        faker.lorem.words(10),
-        faker.lorem.words(10)
+        window.faker.lorem.words(10),
+        window.faker.lorem.words(10),
+        window.faker.lorem.words(10),
+        window.faker.lorem.words(10),
+        window.faker.lorem.words(10),
+        window.faker.lorem.words(10),
+        window.faker.lorem.words(10),
+        window.faker.lorem.words(10)
       ]
     }
   },

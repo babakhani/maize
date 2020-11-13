@@ -68,69 +68,69 @@
   </div>
 </template>
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'Header_12',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
-            },
-            bg: {
-              styles: {
-                'background-color': '#1c1c1c'
-              }
-            },
-            logo: {
-              styles: {
-                height: '30px'
-              },
-              src: this.faker.img.logo()
-            },
-            header_link_1: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-              href: this.faker.internet.url()
-            },
-            header_link_2: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-              href: this.faker.internet.url()
-            },
-            header_link_3: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-              href: this.faker.internet.url()
-            },
-            header_link_4: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-              href: this.faker.internet.url()
-            },
-            header_social_link_1: {
-              styles: {},
-              iconName: 'fab fa-github',
-              href: this.faker.internet.url()
-            },
-            header_social_link_2: {
-              styles: {},
-              iconName: 'fab fa-instagram',
-              href: this.faker.internet.url()
-            },
-            header_social_link_3: {
-              styles: {},
-              iconName: 'fab fa-twitter',
-              href: this.faker.internet.url()
+export default {
+  name: 'Header_12',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {
+              'background-color': '#1c1c1c'
             }
+          },
+          logo: {
+            styles: {
+              height: '30px'
+            },
+            src: this.faker.img.logo()
+          },
+          header_link_1: {
+            styles: {},
+            text: this.faker.company.catchPhraseNoun(),
+            href: this.faker.internet.url()
+          },
+          header_link_2: {
+            styles: {},
+            text: this.faker.company.catchPhraseNoun(),
+            href: this.faker.internet.url()
+          },
+          header_link_3: {
+            styles: {},
+            text: this.faker.company.catchPhraseNoun(),
+            href: this.faker.internet.url()
+          },
+          header_link_4: {
+            styles: {},
+            text: this.faker.company.catchPhraseNoun(),
+            href: this.faker.internet.url()
+          },
+          header_social_link_1: {
+            styles: {},
+            iconName: 'fab fa-github',
+            href: this.faker.internet.url()
+          },
+          header_social_link_2: {
+            styles: {},
+            iconName: 'fab fa-instagram',
+            href: this.faker.internet.url()
+          },
+          header_social_link_3: {
+            styles: {},
+            iconName: 'fab fa-twitter',
+            href: this.faker.internet.url()
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>
