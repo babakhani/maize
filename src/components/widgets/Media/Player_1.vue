@@ -34,37 +34,37 @@
 </template>
 
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'player_1',
-    mixins: [widgetMixin],
-    props: {
-      data: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
+export default {
+  name: 'player_1',
+  mixins: [widgetMixin],
+  props: {
+    data: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          player: {
+            styles: {
+              width: '80%',
+              height: '300px'
             },
-            bg: {
-              styles: {}
-            },
-            player: {
-              styles: {
-                width: '80%',
-                height: '300px'
-              },
-              src: ''
-            },
-            mainTitle: {
-              styles: {},
-              text: 'this is widget default title'
-            }
+            src: ''
+          },
+          mainTitle: {
+            styles: {},
+            text: 'this is widget default title'
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

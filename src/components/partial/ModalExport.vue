@@ -190,15 +190,15 @@ export default {
       }
     },
     download (filename, html) {
-      let self = this
-      var zip = new JSZip()
+      const self = this
+      const zip = new JSZip()
 
       // Index
       zip.file('index.html', html)
 
       // Images
       if (this.imagesFiles.length > 0) {
-        var img = zip.folder('images')
+        const img = zip.folder('images')
         this._.each(this.imagesFiles, (item) => {
           img.file(item.name, item.base64, { base64: true })
         })
@@ -215,7 +215,7 @@ export default {
 
       // CSS
       if (this.cssFiles) {
-        var css = zip.folder('css')
+        const css = zip.folder('css')
         this._.each(this.cssFiles, (item, name) => {
           css.file(`${name}.css`, item)
         })
@@ -223,7 +223,7 @@ export default {
 
       // JS
       if (this.jsFiles) {
-        var js = zip.folder('js')
+        const js = zip.folder('js')
         this._.each(this.jsFiles, (item, name) => {
           js.file(`${name}.js`, item)
         })
@@ -231,7 +231,7 @@ export default {
 
       // JS
       if (this.fontsFiles) {
-        var font = zip.folder('webfonts')
+        const font = zip.folder('webfonts')
         this._.each(this.fontsFiles, (item, name) => {
           font.file(name, item)
         })

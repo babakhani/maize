@@ -69,11 +69,11 @@ export default {
   icon: 'cloud',
   data () {
     return {
-      pickedImageSrc:null
+      pickedImageSrc: null
     }
   },
   mounted () {
-    this.pickedImageSrc =  this.value
+    this.pickedImageSrc = this.value
   },
   props: {
     value: {

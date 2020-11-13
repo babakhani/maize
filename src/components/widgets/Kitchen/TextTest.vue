@@ -11,34 +11,34 @@
   </div>
 </template>
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'TextTest',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
+export default {
+  name: 'TextTest',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          sample_text: {
+            styles: {
+              padding: '1em',
+              'line-height': '2em'
             },
-            bg: {
-              styles: {}
-            },
-            sample_text: {
-              styles: {
-                padding: '1em',
-                'line-height': '2em'
-              },
-              text: this.faker.lorem.words(2),
-              src: this.faker.internet.url
-            }
+            text: this.faker.lorem.words(2),
+            src: this.faker.internet.url
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

@@ -9,29 +9,29 @@
         class="mr-1"
         size="sm">
         {{ lang }}
-      </b-button>  
+      </b-button>
     </div>
     <b-button
       v-b-modal.modal-1
       class="mr-3"
       variant="success"
       size="sm">
-      <icon 
+      <icon
       class="ml-2"
       name="plus" />
       Add New Languages
     </b-button>
-    <b-modal 
+    <b-modal
       @ok="onOK"
       size="sm"
-      id="modal-1" 
+      id="modal-1"
       :title="$t('languages')">
       <b-form
         class="p-5">
         <b-form-group
           :label="$t('globe.language')">
-          <b-form-select 
-            v-model="newlang.lang" 
+          <b-form-select
+            v-model="newlang.lang"
             value-field="lang"
             text-field="title"
             :options="languages"></b-form-select>
@@ -48,7 +48,7 @@ export default {
     name: {
       default: ''
     },
-    siteLanguages:{
+    siteLanguages: {
       type: Array,
       required: false,
       default () {
@@ -77,7 +77,7 @@ export default {
       this.$emit('change', lang)
     },
     onOK () {
-      this.siteLanguages.push(this.newlang.lang)   
+      this.siteLanguages.push(this.newlang.lang)
     }
   }
 

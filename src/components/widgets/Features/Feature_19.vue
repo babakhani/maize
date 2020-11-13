@@ -63,70 +63,70 @@
   </div>
 </template>
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'Feature_19',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
-            },
-            bg: {
-              styles: {}
-            },
-            mainTitle: {
-              styles: {},
-              text: this.faker.lorem.words(3),
-            },
-            main_description: {
-              styles: {},
-              text: this.faker.lorem.words(15),
-            },
-            feature_image_1: {
-              styles: {},
-              src: this.faker.img.big()
-            },
-            feature_1_title: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-            },
-            feature_1_description: {
-              styles: {},
-              text: this.faker.lorem.words(7),
-            },
-            feature_image_2: {
-              styles: {},
-              src: this.faker.img.big()
-            },
-            feature_2_title: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-            },
-            feature_2_description: {
-              styles: {},
-              text: this.faker.lorem.words(7),
-            },
-            feature_image_3: {
-              styles: {},
-              src: this.faker.img.big()
-            },
-            feature_3_title: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-            },
-            feature_3_description: {
-              styles: {},
-              text: this.faker.lorem.words(7),
-            }
+export default {
+  name: 'Feature_19',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          mainTitle: {
+            styles: {},
+            text: this.faker.lorem.words(3)
+          },
+          main_description: {
+            styles: {},
+            text: this.faker.lorem.words(15)
+          },
+          feature_image_1: {
+            styles: {},
+            src: this.faker.img.big()
+          },
+          feature_1_title: {
+            styles: {},
+            text: this.faker.lorem.words(1)
+          },
+          feature_1_description: {
+            styles: {},
+            text: this.faker.lorem.words(7)
+          },
+          feature_image_2: {
+            styles: {},
+            src: this.faker.img.big()
+          },
+          feature_2_title: {
+            styles: {},
+            text: this.faker.lorem.words(1)
+          },
+          feature_2_description: {
+            styles: {},
+            text: this.faker.lorem.words(7)
+          },
+          feature_image_3: {
+            styles: {},
+            src: this.faker.img.big()
+          },
+          feature_3_title: {
+            styles: {},
+            text: this.faker.lorem.words(1)
+          },
+          feature_3_description: {
+            styles: {},
+            text: this.faker.lorem.words(7)
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

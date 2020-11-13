@@ -146,7 +146,7 @@ export default {
     'settings': 'تنظیمات',
     'header': 'تنظیمات سایت',
     'title': 'عنوان وب سایت',
-    'title-placeholder': 'Maize',
+    'title-placeholder': '',
     'description': 'شرح',
     'description-placeholder': 'توضیحات وب سایت',
     'type': 'نوع',

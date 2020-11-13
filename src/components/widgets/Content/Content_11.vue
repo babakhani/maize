@@ -40,46 +40,46 @@
 </template>
 
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'Content_11',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
-            },
-            bg: {
-              styles: {}
-            },
-            mainTitle: {
-              styles: {},
-              text: this.faker.lorem.words(3),
-            },
-            image1: {
-              styles: {},
-              src: this.faker.img.big()
-            },
-            image2: {
-              styles: {},
-              src: this.faker.img.big()
-            },
-            image3: {
-              styles: {},
-              src: this.faker.img.big()
-            },
-            image4: {
-              styles: {},
-              src: this.faker.img.big()
-            }
+export default {
+  name: 'Content_11',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          mainTitle: {
+            styles: {},
+            text: this.faker.lorem.words(3)
+          },
+          image1: {
+            styles: {},
+            src: this.faker.img.big()
+          },
+          image2: {
+            styles: {},
+            src: this.faker.img.big()
+          },
+          image3: {
+            styles: {},
+            src: this.faker.img.big()
+          },
+          image4: {
+            styles: {},
+            src: this.faker.img.big()
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

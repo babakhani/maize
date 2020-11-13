@@ -66,62 +66,62 @@
   </div>
 </template>
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'Feature_3',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
-            },
-            bg: {
-              styles: {}
-            },
-            mainTitle: {
-              styles: {},
-              text: this.faker.lorem.words(3),
-            },
-            feature_1_title: {
-              styles: {},
-              text: this.faker.finance.transactionType(),
-            },
-            feature_1_description: {
-              styles: {},
-              text: this.faker.lorem.words(8),
-            },
-            feature_2_title: {
-              styles: {},
-              text: this.faker.finance.transactionType(),
-            },
-            feature_2_description: {
-              styles: {},
-              text: this.faker.lorem.words(8),
-            },
-            feature_3_title: {
-              styles: {},
-              text: this.faker.finance.transactionType(),
-            },
-            feature_3_description: {
-              styles: {},
-              text: this.faker.lorem.words(8),
-            },
-            feature_4_title: {
-              styles: {},
-              text: this.faker.finance.transactionType(),
-            },
-            feature_4_description: {
-              styles: {},
-              text: this.faker.lorem.words(8),
-            }
+export default {
+  name: 'Feature_3',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          mainTitle: {
+            styles: {},
+            text: this.faker.lorem.words(3)
+          },
+          feature_1_title: {
+            styles: {},
+            text: this.faker.finance.transactionType()
+          },
+          feature_1_description: {
+            styles: {},
+            text: this.faker.lorem.words(8)
+          },
+          feature_2_title: {
+            styles: {},
+            text: this.faker.finance.transactionType()
+          },
+          feature_2_description: {
+            styles: {},
+            text: this.faker.lorem.words(8)
+          },
+          feature_3_title: {
+            styles: {},
+            text: this.faker.finance.transactionType()
+          },
+          feature_3_description: {
+            styles: {},
+            text: this.faker.lorem.words(8)
+          },
+          feature_4_title: {
+            styles: {},
+            text: this.faker.finance.transactionType()
+          },
+          feature_4_description: {
+            styles: {},
+            text: this.faker.lorem.words(8)
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

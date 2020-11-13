@@ -29,7 +29,7 @@ export default {
   },
   data () {
     return {
-       randomImageList : []
+      randomImageList: []
     }
   },
   mounted () {
@@ -41,18 +41,18 @@ export default {
   },
   methods: {
     select (pickedImageSrc, hide = false) {
-      function toDataURL(url, callback) {
-        var xhr = new XMLHttpRequest();
-        xhr.onload = function() {
-          var reader = new FileReader();
-          reader.onloadend = function() {
-            callback(reader.result);
+      function toDataURL (url, callback) {
+        var xhr = new XMLHttpRequest()
+        xhr.onload = function () {
+          var reader = new FileReader()
+          reader.onloadend = function () {
+            callback(reader.result)
           }
-          reader.readAsDataURL(xhr.response);
-        };
-        xhr.open('GET', url);
-        xhr.responseType = 'blob';
-        xhr.send();
+          reader.readAsDataURL(xhr.response)
+        }
+        xhr.open('GET', url)
+        xhr.responseType = 'blob'
+        xhr.send()
       }
       toDataURL(pickedImageSrc, (dataUrl) => {
         this.$emit('input', dataUrl)

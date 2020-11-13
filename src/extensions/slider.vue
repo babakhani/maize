@@ -1,7 +1,7 @@
 <template>
   <div class="p-2 m-2">
     <h3>{{ $t("settings.slider") }}</h3>
-    <b-form 
+    <b-form
        v-if="sliderConfig">
       <b-form-group
         :label="$t('slider.autoplay')">
@@ -77,50 +77,50 @@
       </b-form-group>
       <b-form-group
         :label="`${$t('slider.rows')}  (${sliderConfig.rows})`">
-        <b-form-input 
-        v-model="sliderConfig.rows" 
+        <b-form-input
+        v-model="sliderConfig.rows"
         step="1"
-        min="1" 
+        min="1"
         max="30"
         type="range">
         </b-form-input>
       </b-form-group>
       <b-form-group
         :label="`${$t('slider.slidesToShow')}  (${sliderConfig.slidesToShow})`">
-        <b-form-input 
-        v-model="sliderConfig.slidesToShow" 
+        <b-form-input
+        v-model="sliderConfig.slidesToShow"
         step="1"
-        min="1" 
+        min="1"
         max="30"
         type="range">
         </b-form-input>
       </b-form-group>
       <b-form-group
         :label="`${$t('slider.slidesToScroll')}  (${sliderConfig.slidesToScroll})`">
-        <b-form-input 
-        v-model="sliderConfig.slidesToScroll" 
+        <b-form-input
+        v-model="sliderConfig.slidesToScroll"
         step="1"
-        min="1" 
+        min="1"
         max="30"
         type="range">
         </b-form-input>
       </b-form-group>
       <b-form-group
         :label="`${$t('slider.speed')}  (${sliderConfig.speed})`">
-        <b-form-input 
-        v-model="sliderConfig.speed" 
+        <b-form-input
+        v-model="sliderConfig.speed"
         step="100"
-        min="100" 
+        min="100"
         max="1000"
         type="range">
         </b-form-input>
       </b-form-group>
       <b-form-group
         :label="`${$t('slider.autoplay_speed')}  (${sliderConfig.autoplayspeed})`">
-        <b-form-input 
-        v-model="sliderConfig.autoplayspeed" 
+        <b-form-input
+        v-model="sliderConfig.autoplayspeed"
         step="1000"
-        min="1000" 
+        min="1000"
         max="500000"
         type="range">
         </b-form-input>
@@ -148,7 +148,7 @@ export default {
     }
   },
   watch: {
-    sliderConfig :{
+    sliderConfig: {
       deep: true,
       handler () {
         this.select()
@@ -158,7 +158,7 @@ export default {
   methods: {
     getInitialData () {
       this.outData = this._.cloneDeep(this.value)
-      if(this.outData && this.outData.slider && this.outData.slider.config) {
+      if (this.outData && this.outData.slider && this.outData.slider.config) {
         this.sliderConfig = this.outData.slider.config
       }
     },
@@ -169,4 +169,3 @@ export default {
   }
 }
 </script>
-

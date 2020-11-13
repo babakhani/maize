@@ -53,54 +53,54 @@
   </div>
 </template>
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'Feature_15',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
-            },
-            bg: {
-              styles: {}
-            },
-            mainTitle: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-            },
-            main_description: {
-              styles: {},
-              text: this.faker.lorem.words(25),
-            },
-            feature_image_1: {
-              styles: {},
-              src: this.faker.img.rounded()
-            },
-            feature_1_description: {
-              styles: {},
-              text: this.faker.lorem.words(7),
-            },
-            feature_image_2: {
-              styles: {},
-              src: this.faker.img.rounded()
-            },
-            feature_2_description: {
-              styles: {},
-              text: this.faker.lorem.words(7),
-            },
-            main_image: {
-              styles: {},
-              src: this.faker.img.tall()
-            }
+export default {
+  name: 'Feature_15',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          mainTitle: {
+            styles: {},
+            text: this.faker.lorem.words(1)
+          },
+          main_description: {
+            styles: {},
+            text: this.faker.lorem.words(25)
+          },
+          feature_image_1: {
+            styles: {},
+            src: this.faker.img.rounded()
+          },
+          feature_1_description: {
+            styles: {},
+            text: this.faker.lorem.words(7)
+          },
+          feature_image_2: {
+            styles: {},
+            src: this.faker.img.rounded()
+          },
+          feature_2_description: {
+            styles: {},
+            text: this.faker.lorem.words(7)
+          },
+          main_image: {
+            styles: {},
+            src: this.faker.img.tall()
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

@@ -10,7 +10,7 @@
           class="add-widget-box--main container">
           <div class="add-widget-box--main--details">
             <div class="center-center">
-              <button 
+              <button
                  class="btn btn-add-widget">
                 <icon name="plus"></icon>
               </button>
@@ -29,7 +29,7 @@
 export default {
   name: 'AddWidgetBigButton',
   methods: {
-    goToAddWidgetMode() {
+    goToAddWidgetMode () {
       this.$store.dispatch('layout/setAddWidgetMode', true)
     }
   }

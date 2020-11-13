@@ -43,44 +43,44 @@
 </template>
 
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'Form_1',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
-            },
-            bg: {
-              styles: {}
-            },
-            mainTitle: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-            },
-            form_link_1: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-              src: this.faker.internet.url
-            },
-            form_link_2: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-              src: this.faker.internet.url
-            },
-            form_description: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-            },
+export default {
+  name: 'Form_1',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          mainTitle: {
+            styles: {},
+            text: this.faker.lorem.words(1)
+          },
+          form_link_1: {
+            styles: {},
+            text: this.faker.lorem.words(1),
+            src: this.faker.internet.url
+          },
+          form_link_2: {
+            styles: {},
+            text: this.faker.lorem.words(1),
+            src: this.faker.internet.url
+          },
+          form_description: {
+            styles: {},
+            text: this.faker.lorem.words(1)
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

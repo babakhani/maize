@@ -89,81 +89,81 @@
   </div>
 </template>
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'Feature_22',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
-            },
-            bg: {
-              styles: {}
-            },
-            mainTitle: {
-              styles: {},
-              text: this.faker.lorem.words(3),
-            },
-            feature_image_1: {
-              styles: {},
-              src: this.faker.img.big()
-            },
-            feature_1_title: {
-              styles: {},
-              text: this.faker.lorem.words(2),
-            },
-            feature_1_description: {
-              styles: {},
-              text: this.faker.lorem.words(30),
-            },
-            feature_1_link: {
-              styles: {},
-              text: this.faker.lorem.words(2),
-              src: this.faker.internet.url
-            },
-            feature_image_2: {
-              styles: {},
-              src: this.faker.img.big()
-            },
-            feature_2_title: {
-              styles: {},
-              text: this.faker.lorem.words(2),
-            },
-            feature_2_description: {
-              styles: {},
-              text: this.faker.lorem.words(30),
-            },
-            feature_2_link: {
-              styles: {},
-              text: this.faker.lorem.words(2),
-              src: this.faker.internet.url
-            },
-            feature_image_3: {
-              styles: {},
-              src: this.faker.img.big()
-            },
-            feature_3_title: {
-              styles: {},
-              text: this.faker.lorem.words(2),
-            },
-            feature_3_description: {
-              styles: {},
-              text: this.faker.lorem.words(30),
-            },
-            feature_3_link: {
-              styles: {},
-              text: this.faker.lorem.words(2),
-              src: this.faker.internet.url
-            },
+export default {
+  name: 'Feature_22',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          mainTitle: {
+            styles: {},
+            text: this.faker.lorem.words(3)
+          },
+          feature_image_1: {
+            styles: {},
+            src: this.faker.img.big()
+          },
+          feature_1_title: {
+            styles: {},
+            text: this.faker.lorem.words(2)
+          },
+          feature_1_description: {
+            styles: {},
+            text: this.faker.lorem.words(30)
+          },
+          feature_1_link: {
+            styles: {},
+            text: this.faker.lorem.words(2),
+            src: this.faker.internet.url
+          },
+          feature_image_2: {
+            styles: {},
+            src: this.faker.img.big()
+          },
+          feature_2_title: {
+            styles: {},
+            text: this.faker.lorem.words(2)
+          },
+          feature_2_description: {
+            styles: {},
+            text: this.faker.lorem.words(30)
+          },
+          feature_2_link: {
+            styles: {},
+            text: this.faker.lorem.words(2),
+            src: this.faker.internet.url
+          },
+          feature_image_3: {
+            styles: {},
+            src: this.faker.img.big()
+          },
+          feature_3_title: {
+            styles: {},
+            text: this.faker.lorem.words(2)
+          },
+          feature_3_description: {
+            styles: {},
+            text: this.faker.lorem.words(30)
+          },
+          feature_3_link: {
+            styles: {},
+            text: this.faker.lorem.words(2),
+            src: this.faker.internet.url
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

@@ -2,7 +2,7 @@
   <div
     class="card-columns">
     <draggable
-      :sort="false"  
+      :sort="false"
       :clone="cloneDog"
       ghost-class="ghost-ghost"
       drag-class="drag-ghost"
@@ -66,7 +66,7 @@ export default {
   components: { ...Widgets, Frame, FrameChild, draggable },
   methods: {
     getWidgetIndex (name) {
-      let finded = this.addWidgetList.find((i) => {return i.name === name})
+      let finded = this.addWidgetList.find((i) => { return i.name === name })
       return this.addWidgetList.indexOf(finded)
     },
     updateAddList (item, widgetDefaultData) {
@@ -116,7 +116,7 @@ export default {
         if (this.$refs.widegtContainer && this.updateHeightCounter < 3) {
           this.heightList = []
           this.$refs.widegtContainer.forEach((widgetItem, index) => {
-            if (this.heightList[index] ) {
+            if (this.heightList[index]) {
               this.heightList[index] = widgetItem.$el.clientHeight
             } else {
               this.heightList.push(widgetItem.$el.clientHeight)

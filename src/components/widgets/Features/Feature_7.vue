@@ -36,50 +36,50 @@
   </div>
 </template>
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'Feature_7',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
-            },
-            bg: {
-              styles: {}
-            },
-            feature_1_title: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-            },
-            feature_1_description: {
-              styles: {},
-              text: this.faker.lorem.words(5),
-            },
-            feature_2_title: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-            },
-            feature_2_description: {
-              styles: {},
-              text: this.faker.lorem.words(5),
-            },
-            image_1: {
-              styles: {},
-              src: this.faker.img.big()
-            },
-            image_2: {
-              styles: {},
-              src: this.faker.img.big()
-            }
+export default {
+  name: 'Feature_7',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          feature_1_title: {
+            styles: {},
+            text: this.faker.lorem.words(1)
+          },
+          feature_1_description: {
+            styles: {},
+            text: this.faker.lorem.words(5)
+          },
+          feature_2_title: {
+            styles: {},
+            text: this.faker.lorem.words(1)
+          },
+          feature_2_description: {
+            styles: {},
+            text: this.faker.lorem.words(5)
+          },
+          image_1: {
+            styles: {},
+            src: this.faker.img.big()
+          },
+          image_2: {
+            styles: {},
+            src: this.faker.img.big()
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

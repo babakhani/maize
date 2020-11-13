@@ -49,7 +49,7 @@ export default {
           },
           mainTitle: {
             styles: {},
-            text: this.faker.lorem.words(3),
+            text: this.faker.lorem.words(3)
           },
           image1: {
             styles: {},

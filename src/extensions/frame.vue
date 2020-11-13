@@ -39,7 +39,7 @@ export default {
   methods: {
     getInitialData () {
       this.outData = this._.cloneDeep(this.value)
-      if(this.outData && this.outData.frame && this.outData.frame.href) {
+      if (this.outData && this.outData.frame && this.outData.frame.href) {
         this.pickLink = this.outData.frame.href
       }
     },

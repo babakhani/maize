@@ -6,7 +6,7 @@
       <div class="container py-5" style="background-image: url(imgs/shapes/6.svg);">
         <div class="row text-center justify-content-center">
           <div class="col-12 col-md-8 col-lg-7">
-            <TextEditable 
+            <TextEditable
                tag="h1"
                name="mainTitle"
                :partData="touchedData.mainTitle"/>
@@ -23,7 +23,7 @@
             <form>
               <div class="row">
                 <div class="col">
-                  <TextEditable 
+                  <TextEditable
                      tag="label"
                      name="contact_submit"
                      :partData="touchedData.contact_subtitle_2"/>
@@ -33,7 +33,7 @@
 
               <div class="row mt-4">
                 <div class="col">
-                  <TextEditable 
+                  <TextEditable
                      tag="label"
                      name="contact_submit"
                      :partData="touchedData.contact_subtitle_3"/>
@@ -43,7 +43,7 @@
 
               <div class="row mt-4">
                 <div class="col">
-                  <TextEditable 
+                  <TextEditable
                      tag="label"
                      name="contact_submit"
                      :partData="touchedData.contact_subtitle_4"/>
@@ -53,7 +53,7 @@
               <div class="row mt-4">
                 <div class="col text-right">
                   <button type="submit" class="btn btn-dark">
-                    <TextEditable 
+                    <TextEditable
                                         tag="span"
                                         name="contact_submit"
                                         :partData="touchedData.contact_submit"/>
@@ -115,7 +115,7 @@ export default {
           contact_submit: {
             styles: {},
             text: this.faker.lorem.words(1)
-          },
+          }
         }
       }
     },

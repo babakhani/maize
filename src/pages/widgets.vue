@@ -1,10 +1,10 @@
 <template>
-  <b-card 
+  <b-card
     no-body>
-      <template 
+      <template
         v-model="currentTab"
         v-for="item in groupedWidgetList">
-        <WidgetList 
+        <WidgetList
         @updateAddList="updateAddList"
         :add-widget-list="addWidgetList"
         :widget-list="item.widgets" />
@@ -18,7 +18,7 @@ import FrameChild from '../components/partial/FrameChild.vue'
 import WidgetList from '../components/partial/WidgetList'
 export default {
   name: 'WidgetListModal',
-  components: {...Widgets, Frame, FrameChild, WidgetList},
+  components: { ...Widgets, Frame, FrameChild, WidgetList },
   methods: {
     updateAddList (itemName) {
       let widgetList = this.addWidgetList

@@ -79,74 +79,74 @@
   </div>
 </template>
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'Feature_1',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
-            },
-            bg: {
-              styles: {}
-            },
-            feature_1_title: {
-              styles: {},
-              text: this.faker.finance.transactionType(),
-            },
-            feature_1_description: {
-              styles: {},
-              text: this.faker.lorem.words(10),
-            },
-            feature_2_title: {
-              styles: {},
-              text: this.faker.finance.transactionType(),
-            },
-            feature_2_description: {
-              styles: {},
-              text: this.faker.lorem.words(10),
-            },
-            feature_3_title: {
-              styles: {},
-              text: this.faker.finance.transactionType(),
-            },
-            feature_3_description: {
-              styles: {},
-              text: this.faker.lorem.words(10),
-            },
-            feature_4_title: {
-              styles: {},
-              text: this.faker.finance.transactionType(),
-            },
-            feature_4_description: {
-              styles: {},
-              text: this.faker.lorem.words(10),
-            },
-            feature_5_title: {
-              styles: {},
-              text: this.faker.finance.transactionType(),
-            },
-            feature_5_description: {
-              styles: {},
-              text: this.faker.lorem.words(10),
-            },
-            feature_6_title: {
-              styles: {},
-              text: this.faker.finance.transactionType(),
-            },
-            feature_6_description: {
-              styles: {},
-              text: this.faker.lorem.words(10),
-            }
+export default {
+  name: 'Feature_1',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          feature_1_title: {
+            styles: {},
+            text: this.faker.finance.transactionType()
+          },
+          feature_1_description: {
+            styles: {},
+            text: this.faker.lorem.words(10)
+          },
+          feature_2_title: {
+            styles: {},
+            text: this.faker.finance.transactionType()
+          },
+          feature_2_description: {
+            styles: {},
+            text: this.faker.lorem.words(10)
+          },
+          feature_3_title: {
+            styles: {},
+            text: this.faker.finance.transactionType()
+          },
+          feature_3_description: {
+            styles: {},
+            text: this.faker.lorem.words(10)
+          },
+          feature_4_title: {
+            styles: {},
+            text: this.faker.finance.transactionType()
+          },
+          feature_4_description: {
+            styles: {},
+            text: this.faker.lorem.words(10)
+          },
+          feature_5_title: {
+            styles: {},
+            text: this.faker.finance.transactionType()
+          },
+          feature_5_description: {
+            styles: {},
+            text: this.faker.lorem.words(10)
+          },
+          feature_6_title: {
+            styles: {},
+            text: this.faker.finance.transactionType()
+          },
+          feature_6_description: {
+            styles: {},
+            text: this.faker.lorem.words(10)
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

@@ -28,7 +28,6 @@
                 </div>
               </div>
 
-
               <div class="col-12 mt-4">
                 <div class="row justify-content-center">
                   <div class="col-3 col-xs-5">
@@ -118,65 +117,65 @@
 </template>
 
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'Kitchensink',
-    mixins: [widgetMixin],
-    mounted () {
-    },
-    props: {
-      data: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
-            },
-            image1: {
-              styles: {},
-              src: 'http://via.placeholder.com/150x114'
-            },
-            image2: {
-              styles: {},
-              src: 'http://via.placeholder.com/150x114'
-            },
-            video1: {
-              styles: {},
-              src: 'http://via.placeholder.com/150x114'
-            },
-            video2: {
-              styles: {},
-              src: 'http://via.placeholder.com/150x114'
-            },
-            // Editable parts config that can be used in editable components
-            mainTitle: {
-              text: 'HI i am banner Widget from store',
-              styles: {}
-            },
-            subtitle: {
-              text: 'HI i am banner Widget from store',
-              styles: {}
-            },
-            subtitle1: {
-              text: 'HI i am banner Widget from store',
-              styles: {}
-            },
-            subtitle2: {
-              text: 'HI i am banner Widget from store',
-              styles: {}
-            },
-            bg: {
-              styles: {}
-            },
-            player: {
-              styles: {},
-              src: 'http://tamasha.com/embed/GmKVW'
-            }
+export default {
+  name: 'Kitchensink',
+  mixins: [widgetMixin],
+  mounted () {
+  },
+  props: {
+    data: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          image1: {
+            styles: {},
+            src: 'http://via.placeholder.com/150x114'
+          },
+          image2: {
+            styles: {},
+            src: 'http://via.placeholder.com/150x114'
+          },
+          video1: {
+            styles: {},
+            src: 'http://via.placeholder.com/150x114'
+          },
+          video2: {
+            styles: {},
+            src: 'http://via.placeholder.com/150x114'
+          },
+          // Editable parts config that can be used in editable components
+          mainTitle: {
+            text: 'HI i am banner Widget from store',
+            styles: {}
+          },
+          subtitle: {
+            text: 'HI i am banner Widget from store',
+            styles: {}
+          },
+          subtitle1: {
+            text: 'HI i am banner Widget from store',
+            styles: {}
+          },
+          subtitle2: {
+            text: 'HI i am banner Widget from store',
+            styles: {}
+          },
+          bg: {
+            styles: {}
+          },
+          player: {
+            styles: {},
+            src: 'http://tamasha.com/embed/GmKVW'
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

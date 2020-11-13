@@ -60,7 +60,7 @@ export default {
       })
       EventBus.$once('UPDATE_WIDGET_DATA', (data) => {
         if (data) {
-          this.touchedData.iconName = data 
+          this.touchedData.iconName = data
           this.updateWidget()
         }
       })

@@ -57,47 +57,47 @@
 </template>
 
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'Galley',
-    mixins: [widgetMixin],
-    props: {
-      data: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
-            },
-            bg: {
-              styles: {}
-            },
-            mainTitle: {
-              styles: {},
-              text: 'Content title'
-            },
-            image1: {
-              styles: {},
-              src: '/static/imgs/colors_wide_1.jpg'
-            },
-            image2: {
-              styles: {},
-              src: '/static/imgs/colors_wide_1.jpg'
-            },
-            image3: {
-              styles: {},
-              src: '/static/imgs/colors_wide_1.jpg'
-            },
-            image4: {
-              styles: {},
-              src: '/static/imgs/colors_wide_1.jpg'
-            }
-
+export default {
+  name: 'Galley',
+  mixins: [widgetMixin],
+  props: {
+    data: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          mainTitle: {
+            styles: {},
+            text: 'Content title'
+          },
+          image1: {
+            styles: {},
+            src: '/static/imgs/colors_wide_1.jpg'
+          },
+          image2: {
+            styles: {},
+            src: '/static/imgs/colors_wide_1.jpg'
+          },
+          image3: {
+            styles: {},
+            src: '/static/imgs/colors_wide_1.jpg'
+          },
+          image4: {
+            styles: {},
+            src: '/static/imgs/colors_wide_1.jpg'
           }
-        },
-        require: false
-      }
+
+        }
+      },
+      require: false
     }
   }
+}
 </script>

@@ -9,13 +9,13 @@
     <b-list-group v-if="images">
       <b-list-group-item
         v-for="(item, index) in images">
-        <img 
+        <img
         width="150"
         :src="item.url" />
-        <b-form-input 
+        <b-form-input
                class="mt-2"
                v-model="item.alt"/>
-        <b-form-input 
+        <b-form-input
                class="mt-2"
                v-model="item.caption"/>
           <b-button
@@ -48,7 +48,7 @@ export default {
     }
   },
   watch: {
-    images :{
+    images: {
       deep: true,
       handler () {
         this.select()
@@ -58,8 +58,8 @@ export default {
   methods: {
     addToList (file, name) {
       this.images.unshift({
-         alt: name,
-         url: file
+        alt: name,
+        url: file
       })
     },
     imageUpload (e) {
@@ -77,7 +77,7 @@ export default {
     },
     getInitialData () {
       this.outData = this._.cloneDeep(this.value)
-      if(this.outData && this.outData.slider && this.outData.slider.images) {
+      if (this.outData && this.outData.slider && this.outData.slider.images) {
         this.images = this.outData.slider.images
       }
     },
@@ -88,4 +88,3 @@ export default {
   }
 }
 </script>
-

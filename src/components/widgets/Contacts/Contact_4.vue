@@ -9,13 +9,13 @@
               <div class="mz-box mz-touch">
                 <div class="row text-center justify-content-center">
                   <div class="col-12 col-md-9 col-lg-7">
-                    <TextEditable 
+                    <TextEditable
                       tag="h1"
                       name="mainTitle"
                       :partData="touchedData.mainTitle">
                     </TextEditable>
                     <br/>
-                    <TextEditable 
+                    <TextEditable
                       tag="p"
                       cssClass="text-h3"
                       name="contact_subtitle"
@@ -69,43 +69,43 @@
 </template>
 
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'contact_4',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
-            },
-            bg: {
-              styles: {
-                'background-color': '#1c1c1c'
-              }
-            },
-            mainTitle: {
-              styles: {},
-              text: this.faker.lorem.words(2),
-            },
-            contact_subtitle: {
-              styles: {},
-              text: this.faker.lorem.words(15),
-            },
-            contact_submit: {
-              styles: {
-                'min-width': '8em',
-                'color': 'white'
-              },
-              text: this.faker.lorem.words(1),
+export default {
+  name: 'contact_4',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {
+              'background-color': '#1c1c1c'
             }
+          },
+          mainTitle: {
+            styles: {},
+            text: this.faker.lorem.words(2)
+          },
+          contact_subtitle: {
+            styles: {},
+            text: this.faker.lorem.words(15)
+          },
+          contact_submit: {
+            styles: {
+              'min-width': '8em',
+              'color': 'white'
+            },
+            text: this.faker.lorem.words(1)
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

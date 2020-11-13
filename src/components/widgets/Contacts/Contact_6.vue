@@ -103,7 +103,7 @@ export default {
           contact_submit: {
             styles: {},
             text: this.faker.lorem.words(1)
-          },
+          }
         }
       }
     },
