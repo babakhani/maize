@@ -6,17 +6,17 @@
           <div class="container align-items-center justify-content-center d-flex">
             <div class="row align-items-center text-left">
               <div class="col-12 col-lg-5 ml-auto pt-5 pt-lg-0">
-                <TextEditable 
+                <TextEditable
                    tag="h1"
                    name="title"
                    :partData="touchedData.title"/>
-                <TextEditable 
+                <TextEditable
                    tag="p"
                    name="description"
                    cssClass="text-h3 lead"
                    :partData="touchedData.description"/>
                 <p class="mt-4">
-                <TextEditable 
+                <TextEditable
                    tag="a"
                    cssClass="btn btn-primary px-3"
                    name="action_link"
@@ -37,48 +37,48 @@
 </template>
 
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'CallToAction_7',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
+export default {
+  name: 'CallToAction_7',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          title: {
+            styles: {},
+            text: this.faker.lorem.words(2),
+            src: this.faker.url()
+          },
+          description: {
+            styles: {},
+            text: this.faker.lorem.words(30),
+            src: this.faker.url()
+          },
+          action_link: {
+            styles: {
+              'min-width': '120px',
+              'color': 'white'
             },
-            bg: {
-              styles: {}
-            },
-            title: {
-              styles: {},
-              text: this.faker.lorem.words(2),
-              src: this.faker.internet.url(),
-            },
-            description: {
-              styles: {},
-              text: this.faker.lorem.words(30),
-              src: this.faker.internet.url(),
-            },
-            action_link: {
-              styles: {
-                'min-width': '120px',
-                'color': 'white'
-              },
-              text: this.faker.lorem.words(2),
-              src: this.faker.internet.url
-            },
-            image: {
-              styles: {},
-              src: this.faker.img.big()
-            }
+            text: this.faker.lorem.words(2),
+            src: this.faker.internet.url
+          },
+          image: {
+            styles: {},
+            src: this.faker.img.big()
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

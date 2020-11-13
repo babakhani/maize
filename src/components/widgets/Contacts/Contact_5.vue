@@ -14,7 +14,7 @@
       <div class="container">
         <div class="row text-center justify-content-center pt-5">
           <div class="col-12 col-md-7">
-            <TextEditable 
+            <TextEditable
                tag="h1"
                name="mainTitle"
                :partData="touchedData.mainTitle"/>
@@ -110,74 +110,74 @@
 </template>
 
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'contact_5',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
+export default {
+  name: 'contact_5',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          mainTitle: {
+            styles: {},
+            text: this.faker.lorem.words(2)
+          },
+          contact_subtitle: {
+            styles: {},
+            text: this.faker.lorem.words(5)
+          },
+          contact_submit: {
+            styles: {
+              'min-width': '8em',
+              'color': 'white'
             },
-            bg: {
-              styles: {}
+            text: this.faker.lorem.words(1)
+          },
+          contact_phone: {
+            styles: {},
+            text: this.faker.phone.phoneNumber()
+          },
+          social_link_1: {
+            styles: {
+              'color': '#f2f2f2'
             },
-            mainTitle: {
-              styles: {},
-              text: this.faker.lorem.words(2),
+            iconName: 'fas fa-phone',
+            href: this.faker.url()
+          },
+          social_link_2: {
+            styles: {
+              'color': '#f2f2f2'
             },
-            contact_subtitle: {
-              styles: {},
-              text: this.faker.lorem.words(5),
+            iconName: 'fas fa-map-marker-alt',
+            href: this.faker.url()
+          },
+          social_link_3: {
+            styles: {
+              'color': '#f2f2f2'
             },
-            contact_submit: {
-              styles: {
-                'min-width': '8em',
-                'color': 'white'
-              },
-              text: this.faker.lorem.words(1),
-            },
-            contact_phone: {
-              styles: {},
-              text: this.faker.phone.phoneNumber()
-            },
-            social_link_1: {
-              styles: {
-                'color': '#f2f2f2'
-              },
-              iconName: 'fas fa-phone',
-              href: this.faker.internet.url()
-            },
-            social_link_2: {
-              styles: {
-                'color': '#f2f2f2'
-              },
-              iconName: 'fas fa-map-marker-alt',
-              href: this.faker.internet.url()
-            },
-            social_link_3: {
-              styles: {
-                'color': '#f2f2f2'
-              },
-              iconName: 'far fa-envelope',
-              href: this.faker.internet.url()
-            },
-            contact_address: {
-              styles: {},
-              text: this.faker.fake("{{address.city}}, {{address.stateAbbr}} {{address.zipCode}}")
-            },
-            contact_email_value: {
-              styles: {},
-              text: this.faker.internet.email(),
-            }
+            iconName: 'far fa-envelope',
+            href: this.faker.url()
+          },
+          contact_address: {
+            styles: {},
+            text: this.faker.fake('{{address.city}}, {{address.stateAbbr}} {{address.zipCode}}')
+          },
+          contact_email_value: {
+            styles: {},
+            text: this.faker.internet.email()
           }
         }
-      },
-      require: false
-    }
+      }
+    },
+    require: false
   }
+}
 </script>

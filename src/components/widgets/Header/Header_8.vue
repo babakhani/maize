@@ -82,27 +82,27 @@ export default {
           header_link_1: {
             styles: {},
             text: this.faker.company.catchPhraseNoun(),
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           header_link_2: {
             styles: {},
             text: this.faker.company.catchPhraseNoun(),
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           header_link_3: {
             styles: {},
             text: this.faker.company.catchPhraseNoun(),
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           header_link_4: {
             styles: {},
             text: this.faker.company.catchPhraseNoun(),
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           header_link_5: {
             styles: {},
             text: this.faker.company.catchPhraseNoun(),
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           header_button: {
             styles: {
@@ -110,7 +110,7 @@ export default {
               'color': 'white'
             },
             text: this.faker.company.catchPhraseNoun(),
-            href: this.faker.internet.url()
+            href: this.faker.url()
           }
         }
       },

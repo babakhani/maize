@@ -62,20 +62,20 @@ export default {
           },
           mainTitle: {
             styles: {},
-            text: this.faker.lorem.words(3),
+            text: this.faker.lorem.words(3)
           },
           description: {
             styles: {},
             text: this.faker.lorem.words(30),
-            src: this.faker.internet.url(),
+            src: this.faker.url()
           },
           contact_btn_1: {
             styles: {},
-            text: "Download",
+            text: 'Download'
           },
           contact_btn_2: {
             styles: {},
-            text: "Register",
+            text: 'Register'
           },
           image: {
             styles: {},

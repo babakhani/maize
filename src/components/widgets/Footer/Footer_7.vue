@@ -151,31 +151,31 @@ export default {
           footer_social_link_1: {
             styles: {},
             iconName: 'fab fa-github',
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           footer_social_link_2: {
             styles: {},
             iconName: 'fab fa-instagram',
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           footer_social_link_3: {
             styles: {},
             iconName: 'fab fa-twitter',
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           footer_social_link_4: {
             styles: {},
             iconName: 'fab fa-google',
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           footer_copyright_text: {
             styles: {},
-            text: this.faker.footer.copyright(),
+            text: this.faker.footer.copyright()
           },
           footer_copyright_icon: {
             styles: {},
             iconName: 'far fa-copyright',
-            href: this.faker.internet.url()
+            href: this.faker.url()
           }
         }
       },

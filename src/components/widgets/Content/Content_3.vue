@@ -21,35 +21,35 @@
 </template>
 
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'Content_3',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
-            },
-            bg: {
-              styles: {}
-            },
-            mainTitle: {
-              styles: {},
-              text: this.faker.company.companyName()
-            },
-            secondTitle: {
-              styles: {},
-              text: this.faker.lorem.paragraphs(5),
-              src: this.faker.internet.url(),
-            }
+export default {
+  name: 'Content_3',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          mainTitle: {
+            styles: {},
+            text: this.faker.company.companyName()
+          },
+          secondTitle: {
+            styles: {},
+            text: this.faker.lorem.paragraphs(5),
+            src: this.faker.url()
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

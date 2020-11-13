@@ -31,44 +31,44 @@
 </template>
 
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'Content_8',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
-            },
-            bg: {
-              styles: {}
-            },
-            mainTitle: {
-              styles: {},
-              text: this.faker.lorem.words(3),
-            },
-            secondTitle: {
-              styles: {},
-              text: this.faker.lorem.words(5),
-              src: this.faker.internet.url(),
-            },
-            description: {
-              styles: {},
-              text: this.faker.lorem.words(100),
-              src: this.faker.internet.url(),
-            },
-            image: {
-              styles: {},
-              src: this.faker.img.wide()
-            }
+export default {
+  name: 'Content_8',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          mainTitle: {
+            styles: {},
+            text: this.faker.lorem.words(3)
+          },
+          secondTitle: {
+            styles: {},
+            text: this.faker.lorem.words(5),
+            src: this.faker.url()
+          },
+          description: {
+            styles: {},
+            text: this.faker.lorem.words(100),
+            src: this.faker.url()
+          },
+          image: {
+            styles: {},
+            src: this.faker.img.wide()
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

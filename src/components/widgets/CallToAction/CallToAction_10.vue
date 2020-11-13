@@ -91,17 +91,17 @@ export default {
           description_1: {
             styles: {},
             text: this.faker.lorem.words(40),
-            src: this.faker.internet.url()
+            src: this.faker.url()
           },
           description_2: {
             styles: {},
             text: this.faker.lorem.words(20),
-            src: this.faker.internet.url()
+            src: this.faker.url()
           },
           description_3: {
             styles: {},
             text: this.faker.lorem.words(3),
-            src: this.faker.internet.url()
+            src: this.faker.url()
           },
           action_link_1: {
             styles: {

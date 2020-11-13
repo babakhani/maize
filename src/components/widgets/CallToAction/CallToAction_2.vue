@@ -5,12 +5,12 @@
     <section class="mz-block">
       <div class="row justify-content-center">
         <div class="col-12 col-md-6 text-center">
-          <TextEditable 
+          <TextEditable
              tag="h1"
              name="mainTitle"
              :partData="touchedData.mainTitle">
           </TextEditable>
-          <TextEditable 
+          <TextEditable
              tag="p"
              name="description"
              cssClass="text-h3"
@@ -31,42 +31,42 @@
 </template>
 
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'CallToAction_2',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
+export default {
+  name: 'CallToAction_2',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          mainTitle: {
+            styles: {},
+            text: this.faker.lorem.words(3)
+          },
+          description: {
+            styles: {},
+            text: this.faker.lorem.words(50),
+            src: this.faker.url()
+          },
+          action_link: {
+            styles: {
+              'color': 'white'
             },
-            bg: {
-              styles: {}
-            },
-            mainTitle: {
-              styles: {},
-              text: this.faker.lorem.words(3)
-            },
-            description: {
-              styles: {},
-              text: this.faker.lorem.words(50),
-              src: this.faker.internet.url(),
-            },
-            action_link: {
-              styles: {
-                'color': 'white'
-              },
-              text: this.faker.lorem.words(2),
-              src: this.faker.internet.url
-            }
+            text: this.faker.lorem.words(2),
+            src: this.faker.internet.url
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

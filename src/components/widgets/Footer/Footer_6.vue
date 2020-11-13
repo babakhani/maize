@@ -65,22 +65,22 @@ export default {
           footer_link_1: {
             styles: {},
             text: this.faker.lorem.words(1),
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           footer_link_2: {
             styles: {},
             text: this.faker.lorem.words(1),
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           footer_link_3: {
             styles: {},
             text: this.faker.lorem.words(1),
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           footer_link_4: {
             styles: {},
             text: this.faker.lorem.words(1),
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           header_button: {
             styles: {
@@ -88,7 +88,7 @@ export default {
               'color': 'white'
             },
             text: this.faker.lorem.words(2),
-            href: this.faker.internet.url()
+            href: this.faker.url()
           }
         }
       },

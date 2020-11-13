@@ -105,42 +105,42 @@ export default {
           header_link_1: {
             styles: {},
             text: this.faker.company.catchPhraseNoun(),
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           header_link_2: {
             styles: {},
             text: this.faker.company.catchPhraseNoun(),
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           header_link_3: {
             styles: {},
             text: this.faker.company.catchPhraseNoun(),
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           header_link_4: {
             styles: {},
             text: this.faker.company.catchPhraseNoun(),
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           header_social_link_1: {
             styles: {},
             iconName: 'fab fa-github',
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           header_social_link_2: {
             styles: {},
             iconName: 'fab fa-instagram',
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           header_social_link_3: {
             styles: {},
             iconName: 'fab fa-twitter',
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           header_social_link_4: {
             styles: {},
             iconName: 'fab fa-google',
-            href: this.faker.internet.url()
+            href: this.faker.url()
           }
         }
       },

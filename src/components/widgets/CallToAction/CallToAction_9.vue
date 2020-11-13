@@ -6,14 +6,14 @@
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-auto text-center my-5">
-            <TextEditable 
+            <TextEditable
                tag="button"
                cssClass="btn btn-outline-danger"
                name="action_link"
                :partData="touchedData.action_link"/>
           </div>
           <div class="col-auto mt-4 mt-sm-0">
-            <TextEditable 
+            <TextEditable
                tag="h2"
                name="description"
                cssClass="text-h2"
@@ -45,7 +45,7 @@ export default {
           description: {
             styles: {},
             text: this.faker.lorem.words(8),
-            src: this.faker.internet.url(),
+            src: this.faker.url()
           },
           action_link: {
             styles: {

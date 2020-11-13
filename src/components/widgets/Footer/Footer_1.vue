@@ -24,35 +24,35 @@
   </div>
 </template>
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'Footer_1',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
-            },
-            bg: {
-              styles: {}
-            },
-            footer_copyright_text: {
-              styles: {},
-              text: this.faker.footer.copyright(),
-            },
-            footer_copyright_icon: {
-              styles: {},
-              iconName: 'far fa-copyright',
-              href: this.faker.internet.url()
-            }
+export default {
+  name: 'Footer_1',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          footer_copyright_text: {
+            styles: {},
+            text: this.faker.footer.copyright()
+          },
+          footer_copyright_icon: {
+            styles: {},
+            iconName: 'far fa-copyright',
+            href: this.faker.url()
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

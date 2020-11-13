@@ -67,43 +67,43 @@ export default {
           },
           contact_title: {
             styles: {
-              'font-size' :'23px'
+              'font-size': '23px'
             },
-            text: this.faker.lorem.words(4),
+            text: this.faker.lorem.words(4)
           },
           contact_subtitle: {
             styles: {
-              'font-size' :'23px'
+              'font-size': '23px'
             },
-            text: this.faker.lorem.words(15),
+            text: this.faker.lorem.words(15)
           },
           contact_social_link_1: {
             styles: {
               'font-size': '23px'
             },
             iconName: 'fab fa-github',
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           contact_social_link_2: {
             styles: {
               'font-size': '23px'
             },
             iconName: 'fab fa-instagram',
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           contact_social_link_3: {
             styles: {
               'font-size': '23px'
             },
             iconName: 'fab fa-twitter',
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           contact_social_link_4: {
             styles: {
               'font-size': '23px'
             },
             iconName: 'fab fa-google',
-            href: this.faker.internet.url()
+            href: this.faker.url()
           }
         }
       }

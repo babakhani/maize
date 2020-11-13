@@ -54,12 +54,12 @@ export default {
           description_1: {
             styles: {},
             text: this.faker.lorem.words(20),
-            src: this.faker.internet.url(),
+            src: this.faker.url()
           },
           description_2: {
             styles: {},
             text: this.faker.lorem.words(20),
-            src: this.faker.internet.url(),
+            src: this.faker.url()
           },
           image: {
             styles: {},

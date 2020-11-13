@@ -57,12 +57,12 @@ export default {
           },
           mainTitle: {
             styles: {},
-            text: this.faker.lorem.words(3),
+            text: this.faker.lorem.words(3)
           },
           description: {
             styles: {},
             text: this.faker.lorem.words(30),
-            src: this.faker.internet.url(),
+            src: this.faker.url()
           },
           image: {
             styles: {},

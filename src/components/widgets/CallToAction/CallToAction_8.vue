@@ -6,7 +6,7 @@
       <div class="container">
         <div class="row text-center pb-0 pb-lg-4">
           <div class="col-12">
-            <TextEditable 
+            <TextEditable
                tag="h1"
                name="title_main"
                :partData="touchedData.title_main"/>
@@ -20,18 +20,18 @@
                  cssClass="img-fluid"
                  :partData="touchedData.image_1"/>
               </p>
-              <TextEditable 
+              <TextEditable
                  tag="h3"
                  cssClass="text-h3"
                  name="title_1"
                  :partData="touchedData.title_1"/>
-              <TextEditable 
+              <TextEditable
                  tag="p"
                  name="description_1"
                  cssClass="lead"
                  :partData="touchedData.description_1"/>
               <p class="mt-3">
-              <TextEditable 
+              <TextEditable
                  tag="a"
                  cssClass="btn btn-primary px-3"
                  name="action_link_1"
@@ -45,18 +45,18 @@
                  cssClass="img-fluid"
                  :partData="touchedData.image_2"/>
               </p>
-              <TextEditable 
+              <TextEditable
                  tag="h3"
                  cssClass="text-h3"
                  name="title_2"
                  :partData="touchedData.title_2"/>
-              <TextEditable 
+              <TextEditable
                  tag="p"
                  name="description_2"
                  cssClass="lead"
                  :partData="touchedData.description_2"/>
               <p class="mt-3">
-              <TextEditable 
+              <TextEditable
                  tag="a"
                  cssClass="btn btn-primary px-3"
                  name="action_link_2"
@@ -71,77 +71,77 @@
 </template>
 
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'CallToAction_8',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
+export default {
+  name: 'CallToAction_8',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          title_main: {
+            styles: {},
+            text: this.faker.lorem.words(3),
+            src: this.faker.url()
+          },
+          title_1: {
+            styles: {},
+            text: this.faker.lorem.words(2),
+            src: this.faker.url()
+          },
+          description_1: {
+            styles: {},
+            text: this.faker.lorem.words(20),
+            src: this.faker.url()
+          },
+          image_1: {
+            styles: {
+              'height': '200px'
             },
-            bg: {
-              styles: {}
+            src: this.faker.img.big()
+          },
+          action_link_1: {
+            styles: {
+              'color': 'white'
             },
-            title_main: {
-              styles: {},
-              text: this.faker.lorem.words(3),
-              src: this.faker.internet.url(),
+            text: this.faker.lorem.words(2),
+            src: this.faker.internet.url
+          },
+          title_2: {
+            styles: {},
+            text: this.faker.lorem.words(2),
+            src: this.faker.url()
+          },
+          description_2: {
+            styles: {},
+            text: this.faker.lorem.words(20),
+            src: this.faker.url()
+          },
+          image_2: {
+            styles: {
+              'height': '200px'
             },
-            title_1: {
-              styles: {},
-              text: this.faker.lorem.words(2),
-              src: this.faker.internet.url(),
+            src: this.faker.img.big()
+          },
+          action_link_2: {
+            styles: {
+              'color': 'white'
             },
-            description_1: {
-              styles: {},
-              text: this.faker.lorem.words(20),
-              src: this.faker.internet.url(),
-            },
-            image_1: {
-              styles: {
-                'height': '200px'
-              },
-              src: this.faker.img.big()
-            },
-            action_link_1: {
-              styles: {
-                'color': 'white'
-              },
-              text: this.faker.lorem.words(2),
-              src: this.faker.internet.url
-            },
-            title_2: {
-              styles: {},
-              text: this.faker.lorem.words(2),
-              src: this.faker.internet.url(),
-            },
-            description_2: {
-              styles: {},
-              text: this.faker.lorem.words(20),
-              src: this.faker.internet.url(),
-            },
-            image_2: {
-              styles: {
-                'height': '200px'
-              },
-              src: this.faker.img.big()
-            },
-            action_link_2: {
-              styles: {
-                'color': 'white'
-              },
-              text: this.faker.lorem.words(2),
-              src: this.faker.internet.url
-            }
+            text: this.faker.lorem.words(2),
+            src: this.faker.internet.url
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

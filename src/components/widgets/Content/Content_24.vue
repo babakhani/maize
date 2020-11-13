@@ -55,21 +55,21 @@ export default {
           },
           title_1: {
             styles: {},
-            text: this.faker.lorem.words(2),
+            text: this.faker.lorem.words(2)
           },
           title_2: {
             styles: {},
-            text: this.faker.lorem.words(2),
+            text: this.faker.lorem.words(2)
           },
           description_1: {
             styles: {},
             text: this.faker.lorem.words(20),
-            src: this.faker.internet.url(),
+            src: this.faker.url()
           },
           description_2: {
             styles: {},
             text: this.faker.lorem.words(20),
-            src: this.faker.internet.url(),
+            src: this.faker.url()
           },
           image: {
             styles: {},

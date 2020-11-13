@@ -62,22 +62,22 @@ export default {
           },
           mainTitle: {
             styles: {},
-            text: this.faker.lorem.words(3),
+            text: this.faker.lorem.words(3)
           },
           subtitle: {
             styles: {},
             text: this.faker.lorem.words(8),
-            src: this.faker.internet.url(),
+            src: this.faker.url()
           },
           description_1: {
             styles: {},
             text: this.faker.lorem.words(13),
-            src: this.faker.internet.url(),
+            src: this.faker.url()
           },
           description_2: {
             styles: {},
             text: this.faker.lorem.words(13),
-            src: this.faker.internet.url(),
+            src: this.faker.url()
           },
           image_1: {
             styles: {},

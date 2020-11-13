@@ -68,12 +68,12 @@ export default {
           },
           mainTitle: {
             styles: {},
-            text: this.faker.lorem.words(2),
+            text: this.faker.lorem.words(2)
           },
           description: {
             styles: {},
             text: this.faker.lorem.words(10),
-            src: this.faker.internet.url(),
+            src: this.faker.url()
           },
           image_1: {
             styles: {},

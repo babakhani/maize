@@ -13,13 +13,13 @@
                                cssClass="mz-icon mb-3"
                                :partData="touchedData.image"/>
               </div>
-              <div class="col-4 col-sm-3 col-md-2">   
+              <div class="col-4 col-sm-3 col-md-2">
                 <ImageEditable name="image"
                                class="text-left"
                                cssClass="mz-icon mb-3"
                                :partData="touchedData.image"/>
               </div>
-              <div class="col-4 col-sm-3 col-md-2">    
+              <div class="col-4 col-sm-3 col-md-2">
                 <ImageEditable name="image"
                                class="text-left"
                                cssClass="mz-icon mb-3"
@@ -59,7 +59,7 @@ export default {
           description: {
             styles: {},
             text: this.faker.lorem.words(30),
-            src: this.faker.internet.url(),
+            src: this.faker.url()
           },
           image: {
             styles: {},

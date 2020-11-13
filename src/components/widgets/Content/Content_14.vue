@@ -33,44 +33,44 @@
 </template>
 
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'Content_14',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
-            },
-            bg: {
-              styles: {}
-            },
-            mainTitle: {
-              styles: {},
-              text: this.faker.lorem.words(3),
-            },
-            link: {
-              styles: {},
-              text: 'Download',
-              src: this.faker.internet.url(),
-            },
-            description: {
-              styles: {},
-              text: this.faker.lorem.words(100),
-              src: this.faker.internet.url(),
-            },
-            image: {
-              styles: {},
-              src: this.faker.img.big()
-            }
+export default {
+  name: 'Content_14',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          mainTitle: {
+            styles: {},
+            text: this.faker.lorem.words(3)
+          },
+          link: {
+            styles: {},
+            text: 'Download',
+            src: this.faker.url()
+          },
+          description: {
+            styles: {},
+            text: this.faker.lorem.words(100),
+            src: this.faker.url()
+          },
+          image: {
+            styles: {},
+            src: this.faker.img.big()
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

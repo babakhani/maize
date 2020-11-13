@@ -60,35 +60,35 @@ export default {
           description: {
             styles: {},
             text: this.faker.lorem.words(5),
-            src: this.faker.internet.url(),
+            src: this.faker.url()
           },
           content_icon_1: {
             styles: {
               'font-size': '30px'
             },
             iconName: 'fab fa-github',
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           content_icon_2: {
             styles: {
               'font-size': '30px'
             },
             iconName: 'fab fa-instagram',
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           content_icon_3: {
             styles: {
               'font-size': '30px'
             },
             iconName: 'fab fa-twitter',
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           content_icon_4: {
             styles: {
               'font-size': '30px'
             },
             iconName: 'fab fa-google',
-            href: this.faker.internet.url()
+            href: this.faker.url()
           }
         }
       },

@@ -40,7 +40,7 @@ export default {
           header_link: {
             styles: {},
             text: this.faker.company.catchPhraseNoun(),
-            href: this.faker.internet.url()
+            href: this.faker.url()
           }
         }
       },

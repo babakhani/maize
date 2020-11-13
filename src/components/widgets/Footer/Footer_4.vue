@@ -34,41 +34,41 @@
   </div>
 </template>
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'Footer_4',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
+export default {
+  name: 'Footer_4',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          footer_image: {
+            styles: {
+              height: '40px'
             },
-            bg: {
-              styles: {}
-            },
-            footer_image: {
-              styles: {
-                height: '40px',
-              },
-              src: this.faker.img.logo()
-            },
-            footer_copyright_text: {
-              styles: {},
-              text: this.faker.footer.copyright(),
-            },
-            footer_copyright_icon: {
-              styles: {},
-              iconName: 'far fa-copyright',
-              href: this.faker.internet.url()
-            }
+            src: this.faker.img.logo()
+          },
+          footer_copyright_text: {
+            styles: {},
+            text: this.faker.footer.copyright()
+          },
+          footer_copyright_icon: {
+            styles: {},
+            iconName: 'far fa-copyright',
+            href: this.faker.url()
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

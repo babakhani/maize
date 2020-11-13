@@ -73,16 +73,16 @@ export default {
           },
           mainTitle: {
             styles: {},
-            text: this.faker.lorem.words(2),
+            text: this.faker.lorem.words(2)
           },
           secondTitle: {
             styles: {},
-            text: this.faker.lorem.words(3),
+            text: this.faker.lorem.words(3)
           },
           description: {
             styles: {},
             text: this.faker.lorem.words(20),
-            src: this.faker.internet.url(),
+            src: this.faker.url()
           },
           image: {
             styles: {},
@@ -93,28 +93,28 @@ export default {
               'font-size': '35px'
             },
             iconName: 'fab fa-github',
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           content_icon_2: {
             styles: {
               'font-size': '35px'
             },
             iconName: 'fab fa-instagram',
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           content_icon_3: {
             styles: {
               'font-size': '35px'
             },
             iconName: 'fab fa-twitter',
-            href: this.faker.internet.url()
+            href: this.faker.url()
           },
           content_icon_4: {
             styles: {
               'font-size': '35px'
             },
             iconName: 'fab fa-google',
-            href: this.faker.internet.url()
+            href: this.faker.url()
           }
 
         }

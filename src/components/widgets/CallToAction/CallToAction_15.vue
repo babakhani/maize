@@ -60,12 +60,12 @@ export default {
           title: {
             styles: {},
             text: this.faker.lorem.words(3),
-            src: this.faker.internet.url()
+            src: this.faker.url()
           },
           description: {
             styles: {},
             text: this.faker.lorem.words(25),
-            src: this.faker.internet.url()
+            src: this.faker.url()
           },
           action_link: {
             styles: {

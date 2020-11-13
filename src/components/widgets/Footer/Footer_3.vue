@@ -59,56 +59,56 @@
   </div>
 </template>
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'Footer_3',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
+export default {
+  name: 'Footer_3',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          footer_logo: {
+            styles: {
+              height: '40px'
             },
-            bg: {
-              styles: {}
-            },
-            footer_logo: {
-              styles: {
-                height: '40px',
-              },
-              src: this.faker.img.logo()
-            },
-            footer_link_1: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-              href: this.faker.internet.url()
-            },
-            footer_link_2: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-              href: this.faker.internet.url()
-            },
-            footer_link_3: {
-              styles: {},
-              text: this.faker.lorem.words(1),
-              href: this.faker.internet.url()
-            },
-            footer_copyright_text: {
-              styles: {},
-              text: this.faker.footer.copyright(),
-            },
-            footer_copyright_icon: {
-              styles: {},
-              iconName: 'far fa-copyright',
-              href: this.faker.internet.url()
-            }
+            src: this.faker.img.logo()
+          },
+          footer_link_1: {
+            styles: {},
+            text: this.faker.lorem.words(1),
+            href: this.faker.url()
+          },
+          footer_link_2: {
+            styles: {},
+            text: this.faker.lorem.words(1),
+            href: this.faker.url()
+          },
+          footer_link_3: {
+            styles: {},
+            text: this.faker.lorem.words(1),
+            href: this.faker.url()
+          },
+          footer_copyright_text: {
+            styles: {},
+            text: this.faker.footer.copyright()
+          },
+          footer_copyright_icon: {
+            styles: {},
+            iconName: 'far fa-copyright',
+            href: this.faker.url()
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

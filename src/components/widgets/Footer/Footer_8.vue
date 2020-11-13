@@ -52,7 +52,7 @@ export default {
             styles: {}
           },
           // TODO: fix padding style
-         footer_image: {
+          footer_image: {
             styles: {
               height: '40px'
             },
@@ -60,12 +60,12 @@ export default {
           },
           footer_copyright_text: {
             styles: {},
-            text: this.faker.footer.copyright(),
+            text: this.faker.footer.copyright()
           },
           footer_copyright_icon: {
             styles: {},
             iconName: 'far fa-copyright',
-            href: this.faker.internet.url()
+            href: this.faker.url()
           }
         }
       },

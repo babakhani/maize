@@ -7,13 +7,13 @@
         <div class="row justify-content-center">
           <div class="col-12 col-sm-8 col-md-6 col-lg-6 text-center">
             <h2>
-              <TextEditable 
+              <TextEditable
                tag="strong"
                name="description"
                :partData="touchedData.description"/>
             </h2>
             <p class="mt-5 mt-sm-4">
-            <TextEditable 
+            <TextEditable
                tag="button"
                cssClass="btn btn-outline-primary"
                name="action_link"
@@ -46,7 +46,7 @@ export default {
           description: {
             styles: {},
             text: this.faker.lorem.words(8),
-            src: this.faker.internet.url(),
+            src: this.faker.url()
           },
           action_link: {
             styles: {

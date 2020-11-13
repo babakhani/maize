@@ -73,22 +73,22 @@ export default {
           mainTitle: {
             styles: {},
             text: this.faker.lorem.words(3),
-            src: this.faker.internet.url()
+            src: this.faker.url()
           },
           subTitle: {
             styles: {},
             text: this.faker.lorem.words(2),
-            src: this.faker.internet.url()
+            src: this.faker.url()
           },
           description_1: {
             styles: {},
             text: this.faker.lorem.words(8),
-            src: this.faker.internet.url()
+            src: this.faker.url()
           },
           description_2: {
             styles: {},
             text: this.faker.lorem.words(30),
-            src: this.faker.internet.url()
+            src: this.faker.url()
           },
           action_link: {
             styles: {
