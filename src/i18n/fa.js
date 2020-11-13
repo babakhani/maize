@@ -22,7 +22,10 @@ export default {
     'Slider': 'اسلایدر'
   },
   'messages': {
-    'iframe_select_url': 'پیوند خود را انتخاب کنید'
+    'iframe_select_url': 'پیوند خود را انتخاب کنید',
+    'export_model_header': 'دریافت خروجی به صورت فایل زیپ',
+    'export_model_lead': '',
+    'export_model_file_size': 'حجم فایل خروجی'
   },
 
   'toolbox': {
@@ -110,8 +113,10 @@ export default {
     'once': 'فقط یکبار'
   },
   'modal': {
+    'continue': 'ادامه',
     'pick_link': 'انتخاب پیوند',
     'ok': 'تایید',
+    'export': 'ذخیره خروجی',
     'submit': 'تایید',
     'cancel': 'انصراف',
     'upload': 'بارگذاری',
