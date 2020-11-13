@@ -97,6 +97,7 @@ export default {
     'slider': 'اسلایدر'
   },
   'extension': {
+    'Link': 'پیوند',
     'Clinet_Side_Uploader': 'بارگذاری تصویر',
     'Picsum_Samples': 'تصاویر موجود از سایت پیکسام',
     'StreamLine_Samples': 'تصاویر موجود از سایت استریم لاین',

@@ -67,13 +67,7 @@ export default {
   },
   methods: {
     select (e) {
-      let data
-      if (this._.isObject(e)) {
-        data = this._.extend(this.extensionsData, e)
-      } else {
-        data = e
-      }
-      this.$emit('input', data)
+      this.$emit('input', e)
     },
     done () {
       this.$emit('hide')

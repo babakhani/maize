@@ -137,13 +137,19 @@ export default {
     }
   },
   mounted () {
-    setTimeout(() => {
-      this.animate = Object.assign(this.animate, this.value)
-    }, 0)
+    this.$forceUpdate()
+  },
+  watch: {
+    value () {
+      this.animate = Object.assign(this.animate, this.value.animate)
+    }
   },
   methods: {
     select (animate, hide = false) {
-      this.$emit('input', animate)
+      this.$emit('input', {
+        ...this.value,
+        animate: animate
+      })
       if (hide) {
         this.$emit('done')
       }

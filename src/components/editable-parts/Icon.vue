@@ -14,15 +14,14 @@
                'editable-active': editMode,
                'under-edit': toolboxVisible}">
     <EditablePartToolbox
-      :visibile-icon-selector="true"
-      :visibile-link-selector="linkable"
-      @update="updateStyles"
-      @updatewidget="updateEditableData"
-      :groups="['icon', 'text', 'background', 'border', 'general']"
-      :currentStyles="touchedData.styles"
-      :editableData="touchedData"
       v-if="editMode && toolboxVisible"
-      @hide="hideToolbox"></EditablePartToolbox>
+      :visibile-icon-selector="true"
+      :visibile-link-selector="true"
+      :groups="['icon', 'text', 'background', 'border', 'general']"
+      :partData="touchedData"
+      @update="updateEditableData"
+      @hide="hideToolbox">
+    </EditablePartToolbox>
     <a
       v-if="touchedData.href"
       :class="touchedData.cssClass"
@@ -56,11 +55,11 @@ export default {
       this.$store.dispatch('layout/setModalView', {
         name: 'extensionloader',
         extensions: ['FontAwesomePicker'],
-        data: this.touchedData.iconName
+        data: this.touchedData
       })
       EventBus.$once('UPDATE_WIDGET_DATA', (data) => {
         if (data) {
-          this.touchedData.iconName = data
+          this.touchedData = data
           this.updateWidget()
         }
       })

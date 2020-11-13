@@ -29,9 +29,18 @@ export default {
       return window.faker.lorem.words(this.count)
     }
   },
+  props: {
+    value: {
+      type: [Object, Boolean, Array, String],
+      required: false
+    }
+  },
   methods: {
-    select (pickedText, hide = false) {
-      this.$emit('input', pickedText)
+    select (text, hide = false) {
+      this.$emit('input', {
+        ...this.value,
+        text: text
+      })
       if (hide) {
         this.$emit('done')
       }

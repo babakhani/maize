@@ -14,16 +14,15 @@
                'editable-active': editMode,
                'under-edit': toolboxVisible}">
     <EditablePartToolbox
+      v-if="editMode && toolboxVisible"
       :visibile-image-selector="true"
       :visibile-link-selector="true"
-      @update="updateStyles"
-      @updatewidget="updateEditableData"
-      :groups="['border', 'general']"
-      :currentStyles="touchedData.styles"
+      :groups="['text', 'link', 'border', 'general']"
       :editableData="touchedData"
-      v-if="editMode && toolboxVisible"
-      @hide="hideToolbox"></EditablePartToolbox>
-
+      :partData="touchedData"
+      @update="updateEditableData"
+      @hide="hideToolbox">
+    </EditablePartToolbox>
     <a v-if="touchedData.href"
        :contenteditable="editMode"
        :href="touchedData.href">
@@ -58,11 +57,11 @@ export default {
       this.$store.dispatch('layout/setModalView', {
         name: 'extensionloader',
         extensions: ['Picsum_Samples', 'Clinet_Side_Uploader', 'StreamLine_Samples'],
-        data: this.touchedData.src
+        data: this.touchedData
       })
       EventBus.$once('UPDATE_WIDGET_DATA', (data) => {
         if (data) {
-          this.touchedData.src = data
+          this.touchedData = data
           this.updateWidget()
         }
       })

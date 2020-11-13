@@ -636,10 +636,6 @@ export default {
     }
   },
   props: {
-    target: {
-      default: false,
-      required: false
-    },
     visibileTextSelector: {
       default: false,
       required: false
@@ -656,26 +652,19 @@ export default {
       default: false,
       required: false
     },
-    currentStyles: {
-      default () {
-        return {}
-      },
-      required: true
-    },
     groups: {
       default () {
         return ['text', 'background', 'border', 'general']
       },
       required: false
     },
-    editableData: {
+    partData: {
       default: true,
       required: false
     },
     styles: {
       default () {
         return {
-          'direction': 'auto',
           'color': 'default',
           'background-color': 'default',
           'border-color': 'default'
@@ -684,20 +673,18 @@ export default {
     }
   },
   created () {
-    this.styles = this._.extend(this.styles, this.currentStyles)
+    this.styles = this._.extend(this.styles, this.partData.styles)
   },
   methods: {
     openExtensions (dataKey, extensionsList) {
       this.$store.dispatch('layout/setModalView', {
         name: 'extensionloader',
         extensions: extensionsList,
-        data: this.editableData[dataKey]
+        data: this.partData
       })
       EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
-        if (widgetData || widgetData === '') {
-          let o = {}
-          o[dataKey] = widgetData
-          this.$emit('updatewidget', o)
+        if (widgetData) {
+          this.$emit('update', widgetData)
         }
       })
       return false
@@ -725,7 +712,10 @@ export default {
     },
     update () {
       //  TODO: send only changed data to update methods
-      this.$emit('update', this.styles)
+      this.$emit('update', {
+        ...this.partData,
+        styles: this.styles
+      })
       this.$forceUpdate()
     },
     hide (e) {
@@ -928,6 +918,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-</style>

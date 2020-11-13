@@ -14,11 +14,9 @@
     <EditablePartToolbox
       :visibile-link-selector="tag === 'a'"
       :toolbox-visible="toolboxVisible"
-      :currentStyles="touchedData.styles"
-      :editableData="touchedData"
-      @updatewidget="updateEditableData"
+      :partData="touchedData"
+      @update="updateEditableData"
       @hide="hideToolbox"
-      @update="updateStyles"
       v-if="editMode && toolboxVisible">
     </EditablePartToolbox>
     <button

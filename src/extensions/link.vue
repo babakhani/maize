@@ -34,11 +34,7 @@ export default {
     }
   },
   mounted () {
-    if (this.value === true || this.value === null) {
-      this.pickLink = ''
-    } else {
-      this.pickLink = this.value
-    }
+    this.pickLink = this.value.href
   },
   data () {
     return {
@@ -50,7 +46,7 @@ export default {
       if (this.value === true) {
         this.pickLink = ''
       } else {
-        this.pickLink = this.value
+        this.pickLink = this.value.href
       }
     }
   },
@@ -61,7 +57,10 @@ export default {
   },
   methods: {
     select (pickLink, hide = false) {
-      this.$emit('input', pickLink)
+      this.$emit('input', {
+        ...this.value,
+        href: pickLink
+      })
       if (hide) {
         this.$emit('done')
       }

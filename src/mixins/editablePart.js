@@ -12,10 +12,8 @@ const Mixin = {
     })
   },
   computed: {
-    linkable () {
-      return this.touchedData && typeof (this.touchedData.href) !== 'undefined'
-    },
     editMode () {
+      // NOTE: check store becase editable parts are going to use without store
       return this.$store ? !this.$store.state.layout.previewMode : false
     },
     selectedItemProperties () {

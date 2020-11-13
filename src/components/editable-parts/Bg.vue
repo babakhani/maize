@@ -20,12 +20,10 @@
       <icon name="cog"></icon>
     </button>
     <EditablePartToolbox
-      :groups="['backgroundimage', 'background', 'border', 'general']"
-      @update="updateStyles"
-      @updatewidget="updateEditableData"
-      :currentStyles="touchedData.styles"
-      :editableData="touchedData"
       v-if="editMode && toolboxVisible"
+      :groups="['backgroundimage', 'background', 'border', 'general']"
+      :partData="touchedData"
+      @update="updateEditableData"
       @hide="hideToolbox">
       <template v-slot:toolbox>
         <slot name="toolbox">

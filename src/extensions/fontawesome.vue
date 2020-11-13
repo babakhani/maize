@@ -35,7 +35,10 @@ export default {
   },
   methods: {
     select (picked, hide = false) {
-      this.$emit('input', picked)
+      this.$emit('input', {
+        ...this.value,
+        iconName: picked
+      })
       if (hide) {
         this.$emit('done')
       }

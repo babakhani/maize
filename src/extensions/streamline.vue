@@ -56,7 +56,10 @@ export default {
         xhr.send()
       }
       toDataURL(pickedImageSrc, (dataUrl) => {
-        this.$emit('input', dataUrl)
+        this.$emit('input', {
+          ...this.value,
+          src: dataUrl
+        })
         if (hide) {
           this.$emit('done')
         }

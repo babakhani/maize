@@ -6,6 +6,8 @@
           size="md"
           class="w-100 my-3" >
           <b-form-input
+            class="ltr"
+            @change="onChange"
             v-model="pickedImageSrc"></b-form-input>
           <b-input-group-append>
             <b-button
@@ -36,7 +38,7 @@
            class="upload-image-widget--box">
         <img alt="image"
              class="upload-image-widget--box--image"
-             :src='value'>
+             :src=value.src>
       </div>
       <div class="" v-else>
         <h1>
@@ -73,7 +75,7 @@ export default {
     }
   },
   mounted () {
-    this.pickedImageSrc = this.value
+    this.pickedImageSrc = this.value.src
   },
   props: {
     value: {
@@ -82,8 +84,17 @@ export default {
     }
   },
   methods: {
-    upload (file, name) {
-      this.$emit('input', file)
+    onChange () {
+      this.$emit('input', {
+        ...this.value,
+        src: this.pickedImageSrc
+      })
+    },
+    upload (file) {
+      this.$emit('input', {
+        ...this.value,
+        src: file
+      })
     },
     imageUpload (e) {
       const self = this
