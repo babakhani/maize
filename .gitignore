@@ -24,3 +24,4 @@ yarn-error.log*
 *.sw?
 deploy.sh
 deploycdn.sh
+deploylanding.sh

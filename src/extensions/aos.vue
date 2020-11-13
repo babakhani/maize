@@ -25,6 +25,7 @@
       min="0"
       max="3000"
       step="100"
+      class="mt-3"
       @change="select(animate)"
       v-model="animate.delay"/>
     </b-form-group>
@@ -39,6 +40,7 @@
       min="0"
       max="10000"
       step="100"
+      class="mt-3"
       @change="select(animate)"
       v-model="animate.duration"/>
     </b-form-group>

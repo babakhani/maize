@@ -47,6 +47,7 @@ export default (settings) => {
     body {
       overflow-x: hidden;
       font-family: 'IRANSans';
+      scroll-behavior: smooth;
     }
     * {
       font-family: 'IRANSans';

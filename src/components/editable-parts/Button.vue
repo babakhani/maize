@@ -26,7 +26,6 @@
       :class="cssClass"
       :contenteditable="editMode"
       :href="tag === 'a' ? touchedData.href : false"
-      :target="tag === 'a' ? '_blank' : false"
       :type="type"
       @focus="showToolbox"
       @focusout="updateTextOnBlur"
