@@ -15,7 +15,7 @@
                'under-edit': toolboxVisible}">
     <EditablePartToolbox
       :visibile-image-selector="true"
-      :visibile-link-selector="linkable"
+      :visibile-link-selector="true"
       @update="updateStyles"
       @updatewidget="updateEditableData"
       :groups="['border', 'general']"
@@ -62,7 +62,7 @@ export default {
       })
       EventBus.$once('UPDATE_WIDGET_DATA', (data) => {
         if (data) {
-          this.touchedData.src = data 
+          this.touchedData.src = data
           this.updateWidget()
         }
       })

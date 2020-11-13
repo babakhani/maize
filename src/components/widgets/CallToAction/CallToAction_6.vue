@@ -67,11 +67,12 @@ export default {
               'color': 'white'
             },
             text: this.faker.lorem.words(3),
-            src: this.faker.internet.url
+            href: this.faker.url()
           },
           image: {
             styles: {},
-            src: this.faker.img.big()
+            src: this.faker.img.big(),
+            href: this.faker.url()
           }
         }
       },

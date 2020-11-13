@@ -34,16 +34,24 @@ export default {
     }
   },
   mounted () {
-    this.pickLink = this.value
+    if (this.value === true || this.value === null) {
+      this.pickLink = ''
+    } else {
+      this.pickLink = this.value
+    }
   },
   data () {
     return {
-      pickLink: null
+      pickLink: ''
     }
   },
   watch: {
     value () {
-      this.pickLink = this.value
+      if (this.value === true) {
+        this.pickLink = ''
+      } else {
+        this.pickLink = this.value
+      }
     }
   },
   computed: {

@@ -13,7 +13,7 @@ const Mixin = {
   },
   computed: {
     linkable () {
-      return this.touchedData && typeof (this.touchedData.href) !== 'undefined' && this.touchedData.href
+      return this.touchedData && typeof (this.touchedData.href) !== 'undefined'
     },
     editMode () {
       return this.$store ? !this.$store.state.layout.previewMode : false

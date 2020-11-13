@@ -9,9 +9,9 @@
       nav-wrapper-class="w-25"
       card>
       <template
-      v-if="extensions.includes(extension.name)"
       v-for="extension in settingsExtensions" >
       <b-tab
+        v-if="extensions.includes(extension.name)"
         :key="extension.name"
         class="py-2 px-1">
         <template slot="title">
@@ -22,7 +22,7 @@
           <strong>  {{$t(`extension.${extension.name}`) }}</strong>
         </template>
         <componenet
-          v-if="extensionsData"
+          v-if="extensionsData || extensionsData === ''"
           :is="extension"
           v-model="extensionsData"
           @done="done"
@@ -36,7 +36,7 @@
 import SettingsExtensions from '@/extensions/index.js'
 
 export default {
-  name: 'ImagePickerModal',
+  name: 'ExtensionLoader',
   components: { SettingsExtensions },
   data () {
     return {

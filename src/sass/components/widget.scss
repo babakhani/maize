@@ -40,6 +40,7 @@
   }
 
   .widget-block--toolbox {
+    padding-left: 3em;
     display: none;
     background: rgba($white, 0.1);
     position: absolute;
@@ -71,6 +72,9 @@
   }
 
   &:hover {
+    .editable-background .editable-part.settings-btn {
+      display: block;
+    }
     .widget-block--toolbox-btn,
     .widget-block--toolbox {
       display: block;

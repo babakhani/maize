@@ -5,7 +5,7 @@
     <section class="mz-block">
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6 text-center">
-          <TextEditable 
+          <TextEditable
              tag="h1"
              name="mainTitle"
              :partData="touchedData.mainTitle"/>
@@ -14,7 +14,7 @@
                         cssClass="text-h3"
                         :partData="touchedData.description"/>
           <p class="mt-5 mt-sm-4">
-          <TextEditable 
+          <TextEditable
              tag="a"
              cssClass="btn btn-primary"
              name="action_link"
@@ -24,7 +24,7 @@
       </div>
       <div class="row pt-5 pb-3">
         <div class="col-12 text-center">
-          <TextEditable 
+          <TextEditable
              tag="p"
              name="description_business"
              cssClass="text-h3"
@@ -65,81 +65,81 @@
 </template>
 
 <script>
-  import widgetMixin from '@/mixins/widget'
+import widgetMixin from '@/mixins/widget'
 
-  export default {
-    name: 'CallToAction_4',
-    mixins: [widgetMixin],
-    props: {
-      defaultData: {
-        default () {
-          return {
-            // general widget config
-            config: {
-              fullWidth: true
+export default {
+  name: 'CallToAction_4',
+  mixins: [widgetMixin],
+  props: {
+    defaultData: {
+      default () {
+        return {
+          // general widget config
+          config: {
+            fullWidth: true
+          },
+          bg: {
+            styles: {}
+          },
+          mainTitle: {
+            styles: {},
+            text: this.faker.lorem.words(3)
+          },
+          description: {
+            styles: {},
+            text: this.faker.lorem.words(50)
+          },
+          action_link: {
+            styles: {
+              'color': 'white'
             },
-            bg: {
-              styles: {}
+            text: this.faker.lorem.words(3),
+            href: this.faker.url()
+          },
+          description_business: {
+            styles: {},
+            text: this.faker.lorem.words(8)
+          },
+          customer_logo_1: {
+            styles: {
+              height: '50px'
             },
-            mainTitle: {
-              styles: {},
-              text: this.faker.lorem.words(3)
+            src: this.faker.img.rounded()
+          },
+          customer_logo_2: {
+            styles: {
+              height: '50px'
             },
-            description: {
-              styles: {},
-              text: this.faker.lorem.words(50),
+            src: this.faker.img.rounded()
+          },
+          customer_logo_3: {
+            styles: {
+              height: '50px'
             },
-            action_link: {
-              styles: {
-                'color': 'white'
-              },
-              text: this.faker.lorem.words(3),
-              src: this.faker.internet.url
+            src: this.faker.img.rounded()
+          },
+          customer_logo_4: {
+            styles: {
+              height: '50px'
             },
-            description_business: {
-              styles: {},
-              text: this.faker.lorem.words(8)
+            src: this.faker.img.rounded()
+          },
+          customer_logo_5: {
+            styles: {
+              height: '50px'
             },
-            customer_logo_1: {
-              styles: {
-                height: '50px'
-              },
-              src: this.faker.img.rounded()
+            src: this.faker.img.rounded()
+          },
+          customer_logo_6: {
+            styles: {
+              height: '50px'
             },
-            customer_logo_2: {
-              styles: {
-                height: '50px'
-              },
-              src: this.faker.img.rounded()
-            },
-            customer_logo_3: {
-              styles: {
-                height: '50px'
-              },
-              src: this.faker.img.rounded()
-            },
-            customer_logo_4: {
-              styles: {
-                height: '50px'
-              },
-              src: this.faker.img.rounded()
-            },
-            customer_logo_5: {
-              styles: {
-                height: '50px'
-              },
-              src: this.faker.img.rounded()
-            },
-            customer_logo_6: {
-              styles: {
-                height: '50px'
-              },
-              src: this.faker.img.rounded()
-            }
+            src: this.faker.img.rounded()
           }
-        },
-        require: false
-      }
+        }
+      },
+      require: false
     }
   }
+}
 </script>

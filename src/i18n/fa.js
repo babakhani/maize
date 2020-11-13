@@ -22,6 +22,7 @@ export default {
     'Slider': 'اسلایدر'
   },
   'messages': {
+    'ready_to_import': 'فایل شما به درستی بارگزاری شد!',
     'iframe_select_url': 'پیوند خود را انتخاب کنید',
     'export_model_header': 'دریافت خروجی به صورت فایل زیپ',
     'export_model_lead': '',
@@ -131,7 +132,7 @@ export default {
     }
   },
   'settings': {
-    'name': 'نام',
+    'name': 'نام پروژه (انگلیسی بهتر است)',
     'name-placeholder': 'نام را وارد کنید',
     'color': 'رنگ',
     'favicon': 'نماد',
@@ -144,10 +145,10 @@ export default {
     'baseURL-placeholder': 'آدرس مبنا را وارد کنید',
     'settings': 'تنظیمات',
     'header': 'تنظیمات سایت',
-    'title': 'عنوان',
+    'title': 'عنوان وب سایت',
     'title-placeholder': 'Maize',
     'description': 'شرح',
-    'description-placeholder': 'An awesome landing page',
+    'description-placeholder': 'توضیحات وب سایت',
     'type': 'نوع',
     'type-placeholder': 'e.g. Splash page',
     'twitter-account': 'حساب توییتر',

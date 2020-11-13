@@ -6,15 +6,15 @@
     :title="$t('settings.header')">
     <template slot="modal-footer">
       <b-button
+        @click="onOk"
+        variant="outline-primary">
+        {{ $t('modal.ok') }}
+      </b-button>
+      <b-button
         @click="onHide"
         variant="outline-link"
         class="text-muted">
         {{ $t('modal.cancel') }}
-      </b-button>
-      <b-button
-        @click="onOk"
-        variant="success">
-        {{ $t('modal.ok') }}
       </b-button>
     </template>
     <b-tabs
@@ -23,7 +23,7 @@
       pills
       no-fade
       nav-wrapper-class="w-25"
-      v-if="siteSettings"
+      v-if="siteSettings && storeSettings"
       card>
       <b-tab active>
         <template class="ml-2" slot="title">
@@ -89,16 +89,8 @@
                 <input
                    v-model="siteSettings.secureURL"
                    type="text"
-                   class="form-control"
+                   class="ltr form-control"
                   :placeholder="$t('settings.secureURL-placeholder')">
-              </div>
-              <div class="form-group">
-                <label>{{ $t('settings.baseURL') }}</label>
-                <input
-                   v-model="siteSettings.baseURL"
-                   type="text"
-                   class="form-control"
-                  :placeholder="$t('settings.baseURL-placeholder')">
               </div>
               <div class="form-group">
                 <label>{{ $t('settings.type') }}</label>
@@ -113,7 +105,7 @@
                 <input
                   v-model="siteSettings.canonical"
                   type="text"
-                  class="form-control"
+                  class="ltr form-control"
                   :placeholder="$t('settings.canonical-placeholder')">
               </div>
               <div class="form-group">
@@ -121,16 +113,20 @@
                 <input
                    v-model="siteSettings.nextURL"
                    type="text"
-                   class="form-control"
+                   class="ltr form-control"
                   :placeholder="$t('settings.nextURL-placeholder')">
               </div>
               <div class="form-group">
                 <label>{{ $t('settings.image') }}</label>
-                <input
-                   v-model="siteSettings.image"
-                   type="text"
-                   class="form-control"
-                  :placeholder="$t('settings.image-placeholder')">
+                <b-form-file
+                  @change="setImage"
+                  :placeholder="$t('settings.favicon-placeholder')"
+                  :drop-placeholder="$t('settings.favicon-placeholder-drag')">
+                </b-form-file>
+                <img alt="image"
+                     v-if="siteSettings.imageFile"
+                     class="mt-2 favicon-thumb"
+                     :src="siteSettings.imageFile"/>
               </div>
               <div class="form-group">
                 <label>{{ $t('settings.imageWidth') }}</label>
@@ -161,7 +157,7 @@
                 <input
                    v-model="siteSettings.facebookAppID"
                    type="text"
-                   class="form-control"
+                   class="ltr form-control"
                   :placeholder="$t('settings.facebookAppID-placeholder')">
               </div>
               <div class="form-group">
@@ -169,17 +165,17 @@
                 <input
                    v-model="siteSettings.twitterAccount"
                    type="text"
-                   class="form-control"
+                   class="ltr form-control"
                   :placeholder="$t('settings.twitterAccount-placeholder')">
               </div>
-              <div class="form-group">
-                <label>{{ $t('settings.twitterCard') }}</label>
-                <input
-                   v-model="siteSettings.twitterCard"
-                   type="text"
-                   class="form-control"
-                  :placeholder="$t('settings.twitterCard-placeholder')">
-              </div>
+              <!--<div class="form-group">-->
+                <!--<label>{{ $t('settings.twitterCard') }}</label>-->
+                <!--<input-->
+                   <!--v-model="siteSettings.twitterCard"-->
+                   <!--type="text"-->
+                   <!--class="ltr form-control"-->
+                  <!--:placeholder="$t('settings.twitterCard-placeholder')">-->
+              <!--</div>-->
             </form>
           </div>
         </div>
@@ -203,6 +199,7 @@
           >
           <b-form-input
             type="email"
+            class="ltr"
             v-model="siteSettings.contactMail"
             :placeholder="$t('settings.contact-mail-placeholder')"
             trim>
@@ -214,16 +211,6 @@
           <b-form-input
             type="tel"
             v-model="siteSettings.contactPhone1"
-            :placeholder="$t('settings.contact-phone-placeholder')"
-            trim>
-          </b-form-input>
-        </b-form-group>
-        <b-form-group
-          :label="$t('settings.contact-phone')"
-          >
-          <b-form-input
-            type="tel"
-            v-model="siteSettings.contactPhone2"
             :placeholder="$t('settings.contact-phone-placeholder')"
             trim>
           </b-form-input>
@@ -250,8 +237,9 @@
           <b-form-textarea
             v-model="siteSettings.gaScript"
             :placeholder="$t('settings.ga-placeholder')"
-            rows="3"
-            max-rows="6"
+            class="ltr"
+            rows="8"
+            max-rows="8"
             ></b-form-textarea>
         </b-form-group>
         <b-form-group
@@ -260,8 +248,9 @@
           <b-form-textarea
             v-model="siteSettings.hotjarScript"
             :placeholder="$t('settings.hotjar-placeholder')"
-            rows="3"
-            max-rows="6"
+            class="ltr"
+            rows="10"
+            max-rows="10"
             ></b-form-textarea>
         </b-form-group>
       </b-tab>
@@ -274,9 +263,7 @@ export default {
   name: 'ModalSettings',
   data () {
     return {
-      siteSettings: {
-        title: 'Main'
-      },
+      siteSettings: {},
       pickedLinkSrc: null
     }
   },
@@ -290,24 +277,36 @@ export default {
       this.$store.dispatch('main/updateSettings', this.siteSettings)
       return false
     },
+    setImage (e) {
+      const self = this
+      const reader = new FileReader()
+      reader.readAsDataURL(e.target.files[0])
+      reader.onload = (a) => {
+        self.$set(this.siteSettings, 'imageFile', reader.result)
+      }
+    },
     setFavicon (e) {
       const self = this
-      setTimeout(() => {
-        if (self.siteSettings.faviconFile) {
-          const reader = new FileReader()
-          reader.readAsDataURL(self.siteSettings.faviconFile)
-          reader.onload = (a) => {
-            self.$set(this.siteSettings, 'favicon', reader.result)
-            self.siteSettings.faviconFile = []
-          }
-        }
-      }, 300)
+      const reader = new FileReader()
+      reader.readAsDataURL(e.target.files[0])
+      reader.onload = (a) => {
+        self.$set(this.siteSettings, 'favicon', reader.result)
+        self.siteSettings.faviconFile = []
+      }
     }
   },
   mounted () {
     this.siteSettings = this._.cloneDeep(this.$store.getters['main/settings'])
   },
+  watch: {
+    storeSettings () {
+      this.siteSettings = this.storeSettings
+    }
+  },
   computed: {
+    storeSettings () {
+      return this._.cloneDeep(this.$store.getters['main/settings'])
+    },
     randomImageList () {
       return this.$store.state.unsplash.imageList
     },

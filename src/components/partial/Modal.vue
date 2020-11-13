@@ -19,7 +19,7 @@
         {{ $t('modal.cancel') }}
       </b-button>
     </template>
-    <template v-if="editablePartData">
+    <template>
       <ExtensionsLoader
         :extensions="extensions"
         @hide="saveAndHide"
@@ -37,7 +37,7 @@ export default {
   name: 'PickersModal',
   data () {
     return {
-      editablePartData: null
+      editablePartData: ''
     }
   },
   components: {
@@ -49,14 +49,14 @@ export default {
     },
     onShow () {
       this.$store.dispatch('layout/modalEscKeyReserved', true)
-      this.editablePartData = null
+      this.editablePartData = ''
       this.editablePartData = this._.cloneDeep(this.$store.state.layout.modalDefaultData)
+      if (!this.editablePartData) {
+        this.editablePartData = ''
+      }
     },
     onHide () {
-      this.editablePartData = null
-      this.$store.dispatch('layout/modalEscKeyReserved', false)
-      this.$store.dispatch('layout/hideModalView')
-      EventBus.$emit('UPDATE_WIDGET_DATA', null)
+      this.hide()
     },
     saveAndHide (e) {
       EventBus.$emit('UPDATE_WIDGET_DATA', this.editablePartData)
@@ -65,7 +65,7 @@ export default {
     onOk (e) {
       EventBus.$emit('UPDATE_WIDGET_DATA', this.editablePartData)
       e.preventDefault()
-      this.onHide()
+      this.hide()
       return false
     }
   },

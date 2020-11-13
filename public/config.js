@@ -1,7 +1,7 @@
 window.CONFIG = {
   locale: 'fa',
   editorDirection: 'rtl',
-  editorFont: 'IranSans',
+  editorFont: 'IRANSans',
   // NOTE: Layout Direction
   direction: 'rtl',
   pageSideBarIsActive: true,
@@ -32,13 +32,17 @@ window.CONFIG = {
     }
   ],
   siteDefaultSettings: {
-    title: 'Maize',
+    name: 'Landingo',
+    title: '',
     description: '',
     language: 'fa',
     baseURL: '',
     canonical: '/',
     nextURL: '',
-    image: '',
+    favicon: '',
+    faviconFile: '',
+    image: '/img/site-image.png',
+    imageFile: '',
     imageWidth: '',
     imageHeight: '',
     imageType: '',

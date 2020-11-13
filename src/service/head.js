@@ -10,7 +10,6 @@ export default (settings) => {
   <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
   <meta name="apple-mobile-web-app-capable" content="yes"/>
   <meta http-equiv="content-language" content="${settings.language}"/>
-  <base href="${settings.baseURL}" target="_blank">
   <link rel="canonical" href="${settings.canonical}"/>
   <meta name="robots" content="index,follow"/>
   <meta name="theme-color" content="${settings.color}">
@@ -20,7 +19,7 @@ export default (settings) => {
   <meta property="og:url" content="${settings.canonical}">
   <meta property="og:title" content="${settings.title}">
   <meta property="og:description" content="${settings.description}">
-  <meta property="og:site_name" content="${settings.name}">
+  <meta property="og:site_name" content="${settings.title}">
   <meta property="og:image" content="${settings.image}">
   <meta property="og:image:secure_url" content="${settings.secureURL}">
   <meta property="og:image:width" content="${settings.imageWidth}">
@@ -38,7 +37,7 @@ export default (settings) => {
         "@context": "http://schema.org",
         "@type": "${settings.type}",
         "url": "${settings.canonical}",
-        "name": "${settings.name}",
+        "name": "${settings.title}",
         "logo": "${settings.image}"
     }
   </script>
@@ -47,7 +46,10 @@ export default (settings) => {
     html,
     body {
       overflow-x: hidden;
-      font-family: 'IranSans';
+      font-family: 'IRANSans';
+    }
+    * {
+      font-family: 'IRANSans';
     }
   </style>
   `

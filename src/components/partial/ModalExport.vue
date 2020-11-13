@@ -59,9 +59,7 @@ export default {
       makeExoprtFileResultSize: null,
       makeExportFileProgress: 0,
       imagesFiles: [],
-      siteSettings: {
-        title: 'Main'
-      },
+      siteSettings: { },
       pickedLinkSrc: null
     }
   },
@@ -149,7 +147,7 @@ export default {
         this.favicon = cloneFrameContent.getElementById('mainFavicon').href
         if (this.favicon && this.favicon.split('base64,')[1]) {
           this.favicon = this.favicon.split('base64,')[1]
-          cloneFrameContent.getElementById('mainFavicon').href = 'favicon.svg'
+          cloneFrameContent.getElementById('mainFavicon').href = 'favicon.ico'
         }
 
         this._.each(cloneFrameContent.getElementsByClassName('editable-background'), (item) => {
@@ -204,11 +202,15 @@ export default {
         this._.each(this.imagesFiles, (item) => {
           img.file(item.name, item.base64, { base64: true })
         })
+        if (this.siteSettings.imageFile) {
+          const sanitizedbase64SiteImage = this.siteSettings.imageFile.split('base64,')[1]
+          img.file('site-image.png', sanitizedbase64SiteImage, { base64: true })
+        }
       }
 
       // Favicon
       if (this.favicon) {
-        zip.file('favicon.svg', this.favicon, { base64: true })
+        zip.file('favicon.ico', this.favicon, { base64: true })
       }
 
       // CSS
@@ -236,12 +238,12 @@ export default {
       }
 
       // Maize Json File
-      zip.file('maize.json', JSON.stringify(this.pageData))
+      zip.file(`${this.pageData.settings.name}.lan`, JSON.stringify(this.pageData))
       zip.generateAsync({ type: 'blob' }).then(function (content) {
         self.makeExportFileLoading = false
         self.makeExportFileProgress = 100
         self.makeExoprtFileResultSize = self.humanFileSize(content.size)
-        saveAs(content, 'maize.zip')
+        saveAs(content, `${self.pageData.settings.name}.zip`)
       })
     },
     humanFileSize (bytes, si = false, dp = 1) {

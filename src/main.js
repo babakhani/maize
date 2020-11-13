@@ -22,7 +22,7 @@ Vue.component('icon', Icon)
 
 Vue.mixin({
   beforeCreate () {
-    let base = 'http://cdn.landingo.ir/public'
+    let base = 'https://cdn.landingo.ir/public'
     faker.setLocale('fa')
     faker.commerce.color()
     window.faker = faker

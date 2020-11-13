@@ -38,6 +38,7 @@ export default {
         const html = this.$el.contentDocument.getElementsByTagName('html')[0]
         const body = this.$el.contentDocument.body
         const head = this.$el.contentDocument.head
+
         head.innerHTML = Head(this.$store.getters['main/settings'])
         html.setAttribute('dir', window.CONFIG.direction)
         html.setAttribute('lang', window.CONFIG.locale)

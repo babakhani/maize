@@ -61,7 +61,7 @@ export default {
               'color': 'white'
             },
             text: this.faker.lorem.words(2),
-            src: this.faker.internet.url
+            href: this.faker.url()
           }
         }
       },
