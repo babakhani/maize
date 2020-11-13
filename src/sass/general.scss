@@ -12,6 +12,13 @@ body{
   background: rgba(#ccc, 0.3);
 }
 
+.cursor-pointer {
+  cursor: pointer;
+  & * {
+    cursor: pointer;
+  }
+}
+
 .tooltip {
   font-family: "IranSans" !important;
 }

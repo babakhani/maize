@@ -109,7 +109,7 @@
         </li>
         <li
           v-if="!previewMode"
-          class="pointer nav-item pr-0">
+          class="pointer cursor-pointer nav-item pr-0">
           <div class="btn-light btn">
             <b-form-checkbox
               v-b-tooltip.hover.bottom.small
@@ -123,7 +123,7 @@
         </li>
         <li class="pointer nav-item">
           <div
-             class="btn-light btn"
+             class="btn-light cursor-pointer btn"
              @click="setPreviewMode"
              v-b-tooltip.hover.bottom.small>
             <b-form-checkbox
