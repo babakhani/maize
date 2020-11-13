@@ -122,11 +122,10 @@
           </div>
         </li>
         <li class="pointer nav-item">
-          <a
+          <div
              class="btn-light btn"
              @click="setPreviewMode"
-             v-b-tooltip.hover.bottom.small
-             href="#">
+             v-b-tooltip.hover.bottom.small>
             <b-form-checkbox
               class=""
               v-model="checked"
@@ -136,7 +135,7 @@
               @change="setPreviewMode">
               {{ previewMode ? $t('toolbox.edit') : $t('toolbox.preview') }}
             </b-form-checkbox>
-          </a>
+          </div>
         </li>
         <li
           class="nav-item">
