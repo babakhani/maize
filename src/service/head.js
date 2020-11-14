@@ -65,6 +65,12 @@ export default (settings) => {
   <script>
     $(document).ready(() => {
        AOS.init();
+       // NOTE: There is an issue in preview mode, that make animated parts hide, this timeout is a
+       // temporary patch
+       setTimeout(() => {
+         AOS.init();
+       }, 800)
+
        $('.slick-slider').each(function() {
           $(this).slick($(this).data().slider)
        });
