@@ -4,8 +4,8 @@
          :key="icon"
          v-for="icon in fontAwesome5">
       <div
-        :class="{ 'selected': icon === value }"
-        class="icon-selector--item p-1"
+        :class="{ 'btn-outline-primary': icon === value.iconName }"
+        class="btn cursor-pointer p-1"
         @click="select(icon)"
         @dblclick="select(icon, true)">
         <i

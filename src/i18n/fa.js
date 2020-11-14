@@ -99,6 +99,7 @@ export default {
   'extension': {
     'Link': 'پیوند',
     'Clinet_Side_Uploader': 'بارگذاری تصویر',
+    'FontAwesomePicker': 'انتخاب آیکون',
     'Picsum_Samples': 'تصاویر پیکسام',
     'StreamLine_Samples': 'تصاویر استریم لاین',
     'AOS': 'انیمیشن در اسکرول',
