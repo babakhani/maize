@@ -12,15 +12,15 @@
     :title=" $t('choose_widget')">
     <template slot="modal-footer">
       <b-button
+        variant="outline-primary"
+        @click="onOk">
+        {{ $t('modal.ok') }}
+      </b-button>
+      <b-button
         @click="onHide"
         variant="outline-link"
         class="text-muted">
         {{ $t('modal.cancel') }}
-      </b-button>
-      <b-button
-        variant="success"
-        @click="onOk">
-        {{ $t('modal.ok') }}
       </b-button>
     </template>
     <b-card

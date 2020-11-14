@@ -6,15 +6,15 @@
     :title="$t('import')">
     <template slot="modal-footer">
       <b-button
+        @click="onOk"
+        variant="outline-primary">
+        {{ $t('modal.ok') }}
+      </b-button>
+      <b-button
         @click="onHide"
         variant="outline-link"
         class="text-muted">
         {{ $t('modal.cancel') }}
-      </b-button>
-      <b-button
-        @click="onOk"
-        variant="success">
-        {{ $t('modal.ok') }}
       </b-button>
     </template>
     <b-alert
