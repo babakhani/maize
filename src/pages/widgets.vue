@@ -34,7 +34,7 @@ export default {
       // TODO: fix this, remove $forceUpdate
     },
     onHide () {
-      this.$store.dispatch('layout/setAddWidgetMode', false)
+      // this.$store.dispatch('layout/setAddWidgetMode', false)
       this.addWidgetList = []
     },
     onOk () {

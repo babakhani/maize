@@ -7,6 +7,18 @@
       :class="previewMode"
       class="preview-frame">
     <FrameChild>
+    <noresult v-if="currentWidgetList.length == 0" >
+    <div class="w-25 center mx-auto mt-5 text-center alert alert-light" role="alert">
+      <p>
+        {{ $t('messages.preview_no_widget') }}
+      </p>
+      <button
+        @click="$store.dispatch('layout/setPreviewMode', false)"
+        class="btn m-auto btn-primary mt-3">
+         {{ $t('button.back') }}
+      </button>
+    </div>
+    </noresult>
     <component
       :id="widget.uniqeId"
       v-for="widget in currentWidgetList"

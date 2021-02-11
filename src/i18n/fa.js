@@ -22,6 +22,7 @@ export default {
     'Slider': 'اسلایدر'
   },
   'messages': {
+    'preview_no_widget': 'بدون انتخاب ویجت چیزی برای نمایش وجود ندارد!',
     'ready_to_import': 'فایل شما به درستی بارگزاری شد!',
     'iframe_select_url': 'پیوند خود را انتخاب کنید',
     'export_model_header': 'دریافت خروجی به صورت فایل زیپ',
@@ -114,6 +115,9 @@ export default {
     'duration': 'مدت زمان',
     'mirror': 'معکوس',
     'once': 'فقط یکبار'
+  },
+  'button': {
+    'back': 'بازگشت'
   },
   'modal': {
     'continue': 'ادامه',
@@ -211,12 +215,12 @@ export default {
   'double': 'double',
   'dotted': 'dotted',
   'choose_pic': ':تصویر خود را انتخاب کنید',
-  'choose_video': ':ویدیوی خود را انتخاب کنید',
-  'choose_widget': ':ویجت خود را انتخاب کنید',
+  'choose_video': 'ویدیوی خود را انتخاب کنید',
+  'choose_widget': 'ویجت خود را انتخاب کنید',
   'loading': '...بارگذاری',
   'bootstrap-vue': 'یوت استرپ-ویو',
   'maize': 'Maize',
-  'insert_link': ':پیوند خود را وارد کنید',
+  'insert_link': 'پیوند خود را وارد کنید',
   'tamasha': 'تماشا',
-  'search_video_here': ':اینجا فیلم را جستجو کنید'
+  'search_video_here': 'اینجا فیلم را جستجو کنید'
 }

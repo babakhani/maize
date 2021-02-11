@@ -4,7 +4,7 @@ window.CONFIG = {
   editorFont: 'IRANSans',
   // NOTE: Layout Direction
   direction: 'rtl',
-  pageSideBarIsActive: true,
+  pageSideBarIsActive: false,
   fonts: {
     en: [ 'Roboto', 'Open Sans', 'Lato', 'serif', 'fantasy', 'monospace' ],
     fa: [ 'IranSans', 'IranYekan', 'tahoma' ]

@@ -44,7 +44,7 @@
           </ul>
         </div>
 
-        <div class="col-12 col-lg-2 mt-4 mt-lg-0 text-lg-right ">
+        <div class="col-12 col-lg-3 mt-4 mt-lg-0 text-lg-right ">
 
           <ul class="navbar-nav col-2 justify-content-end d-xs-none d-inline ">
             <li class="nav-item ml-3 d-inline-flex">

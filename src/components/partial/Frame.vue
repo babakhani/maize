@@ -2,6 +2,9 @@
   <iframe
     :srcdoc="srcdoc"
     @load="onLoad"
+    loading="eager"
+    allowfullscreen="true"
+    allow
     frameborder="0"></iframe>
 </template>
 
