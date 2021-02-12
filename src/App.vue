@@ -8,6 +8,9 @@
       </div>
       </div>-->
       <router-view/>
+      <notifications
+         position="bottom right"
+         group="all"/>
   </div>
 </template>
 

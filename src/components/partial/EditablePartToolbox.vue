@@ -8,7 +8,7 @@
       class="widget-text-editable--toolbox--group">
       <button :title="$t('toolbox.text')"
       v-b-tooltip.hover.top.small
-      @click="openExtensions('text', ['Editor', 'Texty', 'Lorem'])"
+      @click="openExtensions(['Editor', 'Texty', 'Lorem'])"
       class="btn btn-sm widget-text-editable--toolbox--button">
         <icon name="life-ring" />
       </button>
@@ -25,7 +25,7 @@
       class="widget-text-editable--toolbox--group">
       <button :title="$t('toolbox.image_picker')"
       v-b-tooltip.hover.top.small
-      @click="openExtensions('src', ['Clinet_Side_Uploader', 'Picsum_Samples', 'StreamLine_Samples', ])"
+      @click="openExtensions(['Clinet_Side_Uploader', 'Picsum_Samples', 'StreamLine_Samples', ])"
       class="btn btn-sm widget-text-editable--toolbox--button">
         <icon name="image" />
       </button>
@@ -42,7 +42,7 @@
       class="widget-text-editable--toolbox--group">
       <button :title="$t('toolbox.icon_picker')"
       v-b-tooltip.hover.top.small
-      @click="openExtensions('iconName', ['FontAwesomePicker'])"
+      @click="openExtensions(['FontAwesomePicker'])"
       class="btn btn-sm widget-text-editable--toolbox--button">
         <icon name="smile" />
       </button>
@@ -60,7 +60,7 @@
       class="widget-text-editable--toolbox--group">
       <button :title="$t('toolbox.link')"
       v-b-tooltip.hover.top.small
-      @click="openExtensions('href', ['Link'])"
+      @click="openExtensions(['Link'])"
       class="btn btn-sm widget-text-editable--toolbox--button">
         <icon name="link" />
       </button>
@@ -83,7 +83,7 @@
       </div>
       <button :title="$t('toolbox.animate')"
         v-b-tooltip.hover.top.small
-        @click="openExtensions('animate', ['AOS'])"
+        @click="openExtensions(['AOS'])"
         :class="{'widget-text-editable--selected': styles['font-weight'] === 'bold'}"
         class="btn btn-sm widget-text-editable--toolbox--button">
         <icon name="forward" />
@@ -278,19 +278,19 @@
           <template v-slot:button-content>
             <i class="fas fa-text-height" />
           </template>
-          <b-dropdown-item :class="{'widget-text-editable--selected': styles['font-size'] === '44px'}"
-               @click="setSize('44px')">{{$t('toolbox.x-large')}}</b-dropdown-item>
-          <b-dropdown-item :class="{'widget-text-editable--selected': styles['font-size'] === '18px'}"
-               @click="setSize('18px')">{{$t('toolbox.large')}}</b-dropdown-item>
-          <b-dropdown-item :class="{'widget-text-editable--selected': styles['font-size'] === '16px'}"
-               @click="setSize('16px')">{{$t('toolbox.Medium')}}</b-dropdown-item>
-          <b-dropdown-item :class="{'widget-text-editable--selected': styles['font-size'] === '14px'}"
-               @click="setSize('14px')">{{$t('toolbox.small')}}</b-dropdown-item>
-          <b-dropdown-item :class="{'widget-text-editable--selected': styles['font-size'] === '12px'}"
-               @click="setSize('12px')">{{$t('toolbox.x-small')}}</b-dropdown-item>
+          <b-dropdown-item :class="{'widget-text-editable--selected': styles['font-size'] === '2.5rem'}"
+               @click="setSize('2.5rem')">{{$t('toolbox.x-large')}}</b-dropdown-item>
+          <b-dropdown-item :class="{'widget-text-editable--selected': styles['font-size'] === '2rem'}"
+               @click="setSize('2rem')">{{$t('toolbox.large')}}</b-dropdown-item>
+          <b-dropdown-item :class="{'widget-text-editable--selected': styles['font-size'] === '1.75rem'}"
+               @click="setSize('1.75rem')">{{$t('toolbox.Medium')}}</b-dropdown-item>
+          <b-dropdown-item :class="{'widget-text-editable--selected': styles['font-size'] === '1.5rem'}"
+               @click="setSize('1.5rem')">{{$t('toolbox.small')}}</b-dropdown-item>
+          <b-dropdown-item :class="{'widget-text-editable--selected': styles['font-size'] === '1.25rem'}"
+               @click="setSize('1.25rem')">{{$t('toolbox.x-small')}}</b-dropdown-item>
           <b-dropdown-item :class="{'widget-text-editable&#45;&#45;selected':
-                                         styles['font-size'] === '10px'}"
-               @click="setSize('10px')">{{$t('toolbox.xx-small')}}</b-dropdown-item>
+                                         styles['font-size'] === '1rem'}"
+               @click="setSize('1rem')">{{$t('toolbox.xx-small')}}</b-dropdown-item>
         </b-dropdown>
         <!-- Bold -->
         <button :title="$t('toolbox.bold')"
@@ -676,7 +676,7 @@ export default {
     this.styles = this._.extend(this.styles, this.partData.styles)
   },
   methods: {
-    openExtensions (dataKey, extensionsList) {
+    openExtensions (extensionsList) {
       this.$store.dispatch('layout/setModalView', {
         name: 'extensionloader',
         extensions: extensionsList,
@@ -689,23 +689,25 @@ export default {
       })
       return false
     },
-    getBgURL () {
-      let out = null
-      if (this.styles['background-image']) {
-        out = this.styles['background-image'].match(/\((.*?)\)/)[1].replace(/('|")/g, '')
-      }
-      return out
-    },
     pickBackgroundImage () {
+      if (this.partData.styles['background-image']) {
+        this.partData['src'] = /(?:\(['"]?)(.*?)(?:['"]?\))/.exec(this.partData.styles['background-image'])[1]
+      }
       this.$store.dispatch('layout/setModalView', {
         name: 'extensionloader',
         extensions: ['Picsum_Samples', 'Clinet_Side_Uploader'],
-        data: this.getBgURL() ? this.getBgURL() : ' '
+        data: this.partData
       })
       EventBus.$once('UPDATE_WIDGET_DATA', (widgetData) => {
         if (widgetData) {
-          this.styles['background-image'] = `url('${widgetData}')`
-          this.update()
+          widgetData.styles['background-image'] = `url('${widgetData.src}')`
+          delete widgetData.src
+          this.$emit('update', {
+            ...widgetData,
+            styles: widgetData.styles
+          })
+          this.styles = widgetData.styles
+          this.$forceUpdate()
         }
       })
       return false

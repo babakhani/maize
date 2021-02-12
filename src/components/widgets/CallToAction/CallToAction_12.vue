@@ -29,7 +29,7 @@
             <TextEditable
               tag="p"
               name="description_2"
-              cssClass="lead text-muted"
+              cssClass="lead"
               :partData="touchedData.description_2"/>
             <p class="mt-4">
             <TextEditable

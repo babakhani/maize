@@ -22,6 +22,9 @@ export default {
     'Slider': 'اسلایدر'
   },
   'messages': {
+    'pick_from_templates_success': 'نسخه از پیش طراحی شده اعمال شد!',
+    'icant_pick_from_templates': 'شما کار ناتمام دارید! به همین دلیل نمی توانید از صفحات از پیش طراحی شده استفاده کنید!',
+    'pick_from_templates': 'می توانید از بین گزینه های موجود یک گزینه را انتخاب کنید!',
     'preview_no_widget': 'بدون انتخاب ویجت چیزی برای نمایش وجود ندارد!',
     'ready_to_import': 'فایل شما به درستی بارگزاری شد!',
     'iframe_select_url': 'پیوند خود را انتخاب کنید',
@@ -120,6 +123,7 @@ export default {
     'back': 'بازگشت'
   },
   'modal': {
+    'next': 'بعدی',
     'continue': 'ادامه',
     'pick_link': 'انتخاب پیوند',
     'ok': 'تایید',

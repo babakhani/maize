@@ -11,7 +11,14 @@ import BootstrapVue from 'bootstrap-vue'
 import VueLodash from 'vue-lodash'
 import VTooltip from 'v-tooltip'
 import faker from 'faker/locale/fa'
+import VueFormWizard from 'vue-form-wizard'
+import GlobalMixin from './mixins/global.js'
+import 'vue-form-wizard/dist/vue-form-wizard.min.css'
+import Notifications from 'vue-notification'
+
 const options = { name: '_' } // customize the way you want to call it
+Vue.use(Notifications)
+Vue.use(VueFormWizard)
 Vue.use(VueLodash, options)
 Vue.use(VTooltip)
 Vue.use(BootstrapVue)
@@ -19,6 +26,8 @@ Vue.config.productionTip = false
 Vue.use(Vuex)
 Vue.component('icon', Icon)
 /* eslint-disable no-new */
+
+Vue.mixin(GlobalMixin)
 
 Vue.mixin({
   beforeCreate () {

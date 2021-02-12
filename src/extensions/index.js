@@ -1,5 +1,6 @@
 import fontawesome from './fontawesome'
 import clientsideuploader from './clientsideuploader'
+import clientsideuploaderbackground from './clientsideuploaderbackground'
 import picsum from './picsum'
 import lorem from './lorem'
 import tiptap from './tiptap'
@@ -12,6 +13,7 @@ import frame from './frame'
 import streamline from './streamline'
 
 export default {
+  clientsideuploaderbackground,
   clientsideuploader,
   picsum,
   fontawesome,

@@ -5,6 +5,14 @@ window.CONFIG = {
   // NOTE: Layout Direction
   direction: 'rtl',
   pageSideBarIsActive: false,
+  templates: {
+    simple: {
+      url: '/templates/simple.json'
+    },
+    simple1: {
+      url: '/templates/simple1.json'
+    }
+  },
   fonts: {
     en: [ 'Roboto', 'Open Sans', 'Lato', 'serif', 'fantasy', 'monospace' ],
     fa: [ 'IranSans', 'IranYekan', 'tahoma' ]
