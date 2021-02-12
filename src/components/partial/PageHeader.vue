@@ -38,24 +38,6 @@
           <!--</a>-->
         <!--</li>-->
         <li
-          class="nav-item">
-          <a v-b-tooltip.hover.bottom.small
-             class=" btn-light btn"
-             :title="$t('import')"
-             @click="setMode('import')">
-            <icon name="upload"></icon>
-          </a>
-        </li>
-        <li
-          class="nav-item">
-          <a v-b-tooltip.hover.bottom.small
-             class=" btn-light btn"
-             :title="$t('export')"
-             @click="setMode('export')">
-            <icon name="download"></icon>
-          </a>
-        </li>
-        <li
           v-if="!previewMode"
           class="nav-item">
           <a v-b-tooltip.hover.bottom.small
@@ -75,6 +57,24 @@
              :title="$t('toolbox.redo')"
              @click="redo">
             <icon name="redo"></icon>
+          </a>
+        </li>
+        <li
+          class="nav-item">
+          <a v-b-tooltip.hover.bottom.small
+             class=" btn-light btn"
+             :title="$t('import')"
+             @click="setMode('import')">
+            <icon name="upload"></icon>
+          </a>
+        </li>
+        <li
+          class="nav-item">
+          <a v-b-tooltip.hover.bottom.small
+             class=" btn-light btn"
+             :title="$t('export')"
+             @click="setMode('export')">
+            <icon name="download"></icon>
           </a>
         </li>
         <li
@@ -110,32 +110,22 @@
         <li
           v-if="!previewMode"
           class="pointer cursor-pointer nav-item pr-0">
-          <div class="btn-light btn">
-            <b-form-checkbox
-              v-b-tooltip.hover.bottom.small
-              v-model="pageSideBarIsActive"
-              name="check-button"
-              switch
-              size="md">
-              {{ $t('toolbox.widget_selector') }}
-            </b-form-checkbox>
-          </div>
+          <a v-b-tooltip.hover.bottom.small
+             class=" btn-light btn"
+             :title="$t('toolbox.widget_selector')"
+             :class="{'shadow-sm': pageSideBarIsActive}"
+             @click="pageSideBarIsActive = !pageSideBarIsActive">
+            <icon name="th"></icon>
+          </a>
         </li>
         <li class="pointer nav-item">
-          <div
-             class="btn-light cursor-pointer btn"
-             @click="setPreviewMode"
-             v-b-tooltip.hover.bottom.small>
-            <b-form-checkbox
-              class=""
-              v-model="checked"
-              name="check-button"
-              switch
-              size="md"
-              @change="setPreviewMode">
-              {{ previewMode ? $t('toolbox.edit') : $t('toolbox.preview') }}
-            </b-form-checkbox>
-          </div>
+            <a v-b-tooltip.hover.bottom.small
+               class=" btn-light btn"
+               :class="{'shadow-sm': checked}"
+               :title="$t('toolbox.preview')"
+               @click="setPreviewMode">
+              <icon name="eye"></icon>
+            </a>
         </li>
         <li
           class="nav-item">

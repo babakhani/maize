@@ -7,7 +7,7 @@
       :class="previewMode"
       class="preview-frame">
     <FrameChild>
-    <noresult v-if="currentWidgetList.length == 0" >
+    <div v-if="currentWidgetList.length == 0" >
     <div class="w-25 center mx-auto mt-5 text-center alert alert-light" role="alert">
       <p>
         {{ $t('messages.preview_no_widget') }}
@@ -18,7 +18,7 @@
          {{ $t('button.back') }}
       </button>
     </div>
-    </noresult>
+    </div>
     <component
       :id="widget.uniqeId"
       v-for="widget in currentWidgetList"
