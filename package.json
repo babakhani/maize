@@ -12,7 +12,7 @@
     "deploy": "npm run build && tar -zcvf landingo.tar.gz ./dist && scp landingo.tar.gz landingo:/var/www/ && rm landingo.tar.gz"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bootstrap-vue": "^2.19.0",
     "canvg": "^3.0.7",
     "core-js": "^3.7.0",
