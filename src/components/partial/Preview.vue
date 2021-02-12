@@ -108,9 +108,9 @@ export default {
     float: none;
     margin: 0 auto;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 50px);
     &.desktop {
-      height: 100vh;
+      height: calc(100vh - 50px);
     }
   }
 }

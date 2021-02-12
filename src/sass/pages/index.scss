@@ -100,7 +100,7 @@
   float: left;
   width: 100%;
   box-shadow: 0 -2px 2px 1px rgba(0, 0, 0, .1);
-  padding: .3em .1em .1em .1em ;
+  padding: .1em .1em .1em .1em ;
   // Preview Mode Styles
   .editor-page-preview-mode & {
     visibility: hidden;
@@ -130,9 +130,9 @@
     display: block;
     float: left;
     height: 4.2em;
-    margin: 0 .3em;
+    margin: 0 0;
     width: 1px;
-    background: rgba($primary-color, 0.2);
+    background: #f8f9fa;
   }
 
   .b-dropdown-form{
@@ -264,8 +264,10 @@
     background: transparent;
     position: relative;
     font-size: inherit;
-    box-shadow: 0 0 1px 0px rgba($editor-buttons-color, .9);
-    border: 1px solid rgba($editor-buttons-color, .6);
+    //box-shadow: 0 0 1px 0px rgba($editor-buttons-color, .9);
+    //border: 1px solid rgba($editor-buttons-color, .6);
+    border: 0;
+    background: #f8f9fa !important;
     &:hover,
     &:active,
     &:focus {
