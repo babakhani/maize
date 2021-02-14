@@ -33,16 +33,12 @@
                 size="lg"
                 name="upload"></icon>
         </h1>
+        <button class="btn btn-lg btn-link">
         <h4 class="mt-4 p-2">
           {{ $t('modal.drop_maize_json') }}
-        </h4>
-        <br>
-        <h6 class="p-1 mb-0">
           {{ $t('modal.or') }}
-        </h6>
-        <br>
-        <button class="btn btn-lg btn-link">
           <span>{{ $t('modal.choose_file') }}</span>
+        </h4>
         </button>
       </div>
       <input

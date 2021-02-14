@@ -68,11 +68,17 @@
           </component>
         </div>
         </draggable>
-        <AddWidget>
-        <div class="blocks-area"></div>
-        </AddWidget>
+        <div
+          class="w-50 m-auto"
+          v-if="currentWidgetList.length == 0">
+          <Templates></Templates>
+          <h4 class="text-center mt-5">{{ $t('messages.start_with_widgets') }}</h4>
+          <AddWidget></AddWidget>
+        </div>
+        <div v-else>
+          <AddWidget></AddWidget>
+        </div>
       </div>
-
       <Modal> </Modal>
       <ModalWidgetList></ModalWidgetList>
       <ModalSettings></ModalSettings>
@@ -95,10 +101,12 @@ import ModalWidgetList from '../components/partial/ModalWidgetList'
 import ModalExport from '../components/partial/ModalExport'
 import ModalImport from '../components/partial/ModalImport'
 import Globe from '../components/partial/Globe'
+import Templates from '../components/partial/Templates'
 
 export default {
   name: 'EditorPage',
   components: {
+    Templates,
     ModalImport,
     ModalExport,
     Modal,

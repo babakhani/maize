@@ -5,7 +5,7 @@ export default {
   'brand_name': 'لندینگو',
   'show_header': 'نمایش هدر',
   'preview_mode': 'نسخه نمایش',
-  'add_widget': 'اضافه کردن ویجت',
+  'add_widget': 'افزودن ویجت',
   'delete': 'حذف',
   'load_url': 'آدرس',
   'widgets': {
@@ -24,7 +24,8 @@ export default {
   'messages': {
     'pick_from_templates_success': 'نسخه از پیش طراحی شده اعمال شد!',
     'icant_pick_from_templates': 'شما کار ناتمام دارید! به همین دلیل نمی توانید از صفحات از پیش طراحی شده استفاده کنید!',
-    'pick_from_templates': 'می توانید از بین گزینه های موجود یک گزینه را انتخاب کنید!',
+    'pick_from_templates': 'می توانید با انتخاب از صفحات پیش ساخته، حتی سریع تر پیش بروید!',
+    'start_with_widgets': 'یا ویجت های دلخواه خود را اضافه کنید!',
     'preview_no_widget': 'بدون انتخاب ویجت چیزی برای نمایش وجود ندارد!',
     'ready_to_import': 'فایل شما به درستی بارگزاری شد!',
     'iframe_select_url': 'پیوند خود را انتخاب کنید',
@@ -123,6 +124,8 @@ export default {
     'back': 'بازگشت'
   },
   'modal': {
+    'previews': 'قبلی',
+    'back': 'بازگشت',
     'next': 'بعدی',
     'continue': 'ادامه',
     'pick_link': 'انتخاب پیوند',

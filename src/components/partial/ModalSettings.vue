@@ -11,7 +11,6 @@
       title=""
       subtitle=""
       stepSize="xs"
-      shape="square"
       color="#136cb0">
       <button slot="prev"></button>
       <button slot="next"></button>
@@ -120,6 +119,14 @@
                   class="ltr form-control"
                   :placeholder="$t('settings.nextURL-placeholder')">
               </div>
+          </div>
+        </div>
+      </tab-content>
+      <tab-content
+        :title="$t('settings.header')">
+        <div class="row" >
+          <div class="col-12 col-md-6 pb-5">
+            <form action="#!">
               <div class="form-group">
                 <label>{{ $t('settings.image') }}</label>
                 <b-form-file
@@ -140,14 +147,6 @@
                   class="form-control"
                   :placeholder="$t('settings.imageWidth-placeholder')">
               </div>
-          </div>
-        </div>
-      </tab-content>
-      <tab-content
-        :title="$t('settings.header')">
-        <div class="row" >
-          <div class="col-12 col-md-6 pb-5">
-            <form action="#!">
               <div class="form-group">
                 <label>{{ $t('settings.imageHeight') }}</label>
                 <input
@@ -259,17 +258,33 @@
           </div>
         </div>
       </tab-content>
+      <tab-content
+        :title="$t('export')">
+        <div class="row" >
+          <div class="col-12 pb-5">
+            <ExportBox></ExportBox>
+          </div>
+        </div>
+      </tab-content>
     </form-wizard>
-    <template slot="modal-footer">
+    <template
+      slot="modal-footer" >
       <b-button
+        class="float-left"
+        @click="onBack"
+        variant="outline-primary">
+        {{ $t('modal.previews') }}
+      </b-button>
+      <b-button
+        class="float-left"
         @click="onOk"
         variant="outline-primary">
         {{ $t('modal.next') }}
       </b-button>
       <b-button
+        class="float-right"
         @click="onHide"
-        variant="outline-link"
-        class="text-muted">
+        variant="outline-secandry">
         {{ $t('modal.cancel') }}
       </b-button>
     </template>
@@ -277,6 +292,7 @@
 </template>
 
 <script>
+import ExportBox from './ExportBox'
 export default {
   name: 'ModalSettings',
   data () {
@@ -286,6 +302,7 @@ export default {
       pickedLinkSrc: null
     }
   },
+  components: { ExportBox },
   methods: {
     onHide () {
       this.$store.dispatch('layout/setSettingsMode', false)
@@ -297,10 +314,10 @@ export default {
     },
     onOk (e) {
       this.$store.dispatch('main/updateSettings', this.siteSettings)
-      // e.preventDefault()
-      // this.onHide()
-      // return false
       this.$refs['wizard'].nextTab()
+    },
+    onBack () {
+      this.$refs['wizard'].prevTab()
     },
     setImage (e) {
       const self = this

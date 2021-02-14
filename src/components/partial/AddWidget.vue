@@ -38,16 +38,15 @@ export default {
 
 <style scoped lang="scss" >
 .add-widget-box--main {
-  border-radius: 30px;
-  width: 20em;
-  height: 20em;
+  border-radius: 15px;
+  width: 10em;
+  height: 10em;
   cursor: pointer;
-  background: rgba($primary-color, 0.03);
   position: relative;
   border: 0;
 
   &:hover {
-    background: rgba($primary-color, 0.07);
+    border: 1px solid $primary-color;
   }
 
   .add-widget-box--main--details {
@@ -67,15 +66,12 @@ export default {
     .btn-add-widget {
       position: relative;
       cursor: pointer;
-      width: 1.5em;
-      height: 1.5em;
-      border: 2px solid $primary-color;
+      width: 1em;
+      height: 1em;
+      margin: .3em 1em 0 1em;
       border-radius: 100%;
       box-shadow: 0 2px 4px 0 rgba($primary-color, 0.5);
       font-size: 5em;
-      &:hover {
-        border-color: $primary-color;
-      }
       .fa-icon {
         position: absolute;
         top: 50%;

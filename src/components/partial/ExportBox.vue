@@ -1,16 +1,13 @@
 <template>
-  <b-modal
-    @hidden="onHide"
-    v-model="showModal"
-    class="modal-setting modal-box"
-    :title="$t('export')">
+  <div>
     <div class="d-block p-3 text-center">
       <b-card>
         <b-jumbotron
+          variant="light"
           :lead="$t('messages.export_model_header')"
-         >
+          >
           <p
-          v-if="makeExoprtFileResultSize">
+            v-if="makeExoprtFileResultSize">
           {{ $t('messages.export_model_file_size') }} : {{ makeExoprtFileResultSize }}
           </p>
           <b-btn
@@ -22,8 +19,8 @@
             >
             {{ $t('modal.export') }}
             <icon
-            size="lg"
-            name="download"></icon>
+              size="lg"
+              name="download"></icon>
           </b-btn>
           <b-progress
             v-if="makeExportFileLoading"
@@ -44,7 +41,7 @@
         {{ $t('modal.continue') }}
       </b-button>
     </template>
-  </b-modal>
+  </div>
 </template>
 
 <script>
@@ -295,3 +292,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped >
+.jumbotron {
+  backgound: white;
+}
+</style>

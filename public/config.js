@@ -7,10 +7,24 @@ window.CONFIG = {
   pageSideBarIsActive: false,
   templates: {
     simple: {
+      img: '/templates/simple1.png',
       url: '/templates/simple.json'
     },
     simple1: {
-      url: '/templates/simple1.json'
+      img: '/templates/simple1.png',
+      url: '/templates/simple.json'
+    },
+    simple2: {
+      img: '/templates/simple.png',
+      url: '/templates/simple.json'
+    },
+    simple3: {
+      img: '/templates/simple1.png',
+      url: '/templates/simple.json'
+    },
+    simple4: {
+      img: '/templates/simple.png',
+      url: '/templates/simple.json'
     }
   },
   fonts: {

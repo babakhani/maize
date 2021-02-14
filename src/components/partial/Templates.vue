@@ -1,18 +1,18 @@
 <template>
   <div class="templates">
-    <h3 class="mb-5 text-center"> {{ $t('messages.pick_from_templates') }} </h3>
+    <h4 class="mb-5 text-center"> {{ $t('messages.pick_from_templates') }} </h4>
     <b-card-group deck>
       <b-card
+        class="pointer template-card"
         v-for="(template, key) in CONFIG.templates"
         @click="setTemplate(template.url)"
-        :title="key"
         img-alt="Image"
         img-top
         tag="article"
         style="max-width: 20rem;" >
-        <pre>
-        {{ template.url }}
-        </pre>
+        <img
+        class="w-100"
+        :src="template.img" />
       </b-card>
     </b-card-group>
   </div>
@@ -62,4 +62,28 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.template-card {
+  position: relative;
+  &:hover {
+    border: 1px solid $primary-color !important;
+
+  }
+  &:active {
+    &::before {
+       font-size: 3em;
+       color: white;
+       text-align: center;
+       text-shadow:2px 2px rgba(0, 0, 0, 0.6);
+       line-height: 180px;
+       content: '+';
+       background: rgba($primary-color, 0.2);
+       top: 0;
+       bottom: 0;
+       left: 0;
+       right: 0;
+       position: absolute;
+    }
+  }
+}
+</style>

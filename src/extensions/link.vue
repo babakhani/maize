@@ -1,5 +1,5 @@
 <template>
-  <div class="p-5 m-2">
+  <div class="m-2">
     <div class="form-group">
       <label>{{ $t('settings.url') }}</label>
       <b-form-input

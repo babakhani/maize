@@ -23,6 +23,10 @@
   background: white;
 }
 
+.modal-footer {
+  display: block;
+}
+
 .modal-backdrop {
   background-color: rgba(darken($primary-color, 30), .9);
   opacity: 1;
@@ -60,7 +64,7 @@
 }
 .tab-content {
   overflow: auto;
-  height: calc(100vh - 220px);
+  height: calc(100vh - 170px);
   .add-widget-modal--tab {
     // display: flex;
     //justify-content: center;
@@ -183,9 +187,5 @@ footer {
   }
 }
 
-.wizard-tab-container {
-  height: 360px;
-  overflow: scroll;
-}
 
 

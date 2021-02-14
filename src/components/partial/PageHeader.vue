@@ -60,24 +60,6 @@
           </a>
         </li>
         <li
-          class="nav-item">
-          <a v-b-tooltip.hover.bottom.small
-             class=" btn-light btn"
-             :title="$t('import')"
-             @click="setMode('import')">
-            <icon name="upload"></icon>
-          </a>
-        </li>
-        <li
-          class="nav-item">
-          <a v-b-tooltip.hover.bottom.small
-             class=" btn-light btn"
-             :title="$t('export')"
-             @click="setMode('export')">
-            <icon name="download"></icon>
-          </a>
-        </li>
-        <li
           v-if="previewMode"
           class="nav-item">
           <a v-b-tooltip.hover.bottom.small
@@ -127,14 +109,32 @@
               <icon name="eye"></icon>
             </a>
         </li>
+        <!--<li-->
+          <!--class="nav-item">-->
+          <!--<a-->
+          <!--:title="$t('toolbox.settings')"-->
+          <!--v-b-tooltip.hover.top.small-->
+          <!--class="btn-light btn"-->
+          <!--@click="setMode('settings')">-->
+            <!--<icon name="cog"></icon>-->
+          <!--</a>-->
+        <!--</li>-->
         <li
           class="nav-item">
-          <a
-          :title="$t('toolbox.settings')"
-          v-b-tooltip.hover.top.small
-          class="btn-light btn"
-          @click="setMode('settings')">
-            <icon name="cog"></icon>
+          <a v-b-tooltip.hover.bottom.small
+             class=" btn-light btn"
+             :title="$t('import')"
+             @click="setMode('import')">
+            <icon name="upload"></icon>
+          </a>
+        </li>
+        <li
+          class="nav-item">
+          <a v-b-tooltip.hover.bottom.small
+             class=" btn-light btn"
+             :title="$t('export')"
+             @click="setMode('settings')">
+            <icon name="download"></icon>
           </a>
         </li>
       </ul>
@@ -240,6 +240,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-</style>
