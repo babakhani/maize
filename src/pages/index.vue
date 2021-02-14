@@ -82,7 +82,6 @@
       <Modal> </Modal>
       <ModalWidgetList></ModalWidgetList>
       <ModalSettings></ModalSettings>
-      <ModalExport></ModalExport>
       <ModalImport></ModalImport>
     </div>
   </div>
@@ -98,7 +97,6 @@ import WidgetList from '../components/partial/WidgetList'
 import PageHeader from '../components/partial/PageHeader.vue'
 import AddWidget from '../components/partial/AddWidget'
 import ModalWidgetList from '../components/partial/ModalWidgetList'
-import ModalExport from '../components/partial/ModalExport'
 import ModalImport from '../components/partial/ModalImport'
 import Globe from '../components/partial/Globe'
 import Templates from '../components/partial/Templates'
@@ -108,7 +106,6 @@ export default {
   components: {
     Templates,
     ModalImport,
-    ModalExport,
     Modal,
     Preview,
     draggable,

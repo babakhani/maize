@@ -1,5 +1,5 @@
 <template>
-  <b-card class="text-center">
+  <b-card class="w-100 text-center">
     <p
       v-if="makeExoprtFileResultSize">
     {{ $t('messages.export_model_file_size') }} : {{ makeExoprtFileResultSize }}
@@ -301,9 +301,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped >
-.jumbotron {
-  background-color: white !important;
-}
-</style>

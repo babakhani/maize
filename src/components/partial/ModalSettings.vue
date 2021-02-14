@@ -4,22 +4,22 @@
     v-model="showModal"
     class="modal-setting modal-box"
     :title="$t('settings.header')">
-    <form-wizard
-      v-model="currentStep"
-      @on-complete="onComplete"
-      :startIndex="startIndex"
-      ref="wizard"
-      title=""
-      subtitle=""
-      stepSize="xs"
-      color="#136cb0">
-      <button slot="prev"></button>
-      <button slot="next"></button>
-      <button slot="finish"></button>
-      <tab-content
-        :title="$t('settings.header')">
-        <div class="row" >
-          <div class="col-12 col-md-6 pb-5">
+    <div class="row" >
+      <div class="col-12 col-lg-6 m-lg-auto pb-5">
+        <form-wizard
+          v-model="currentStep"
+          @on-complete="onComplete"
+          :startIndex="startIndex"
+          ref="wizard"
+          title=""
+          subtitle=""
+          stepSize="xs"
+          color="#136cb0">
+          <button slot="prev"></button>
+          <button slot="next"></button>
+          <button slot="finish"></button>
+          <tab-content
+            :title="$t('settings.header')">
             <form>
               <div class="form-group">
                 <label>{{ $t('settings.name') }}</label>
@@ -54,79 +54,67 @@
                   :placeholder="$t('settings.language-placeholder')">
               </div>
             </form>
-          </div>
-        </div>
-      </tab-content>
-      <tab-content
-        :title="$t('settings.header')">
-        <div class="row" >
-          <div class="col-12 col-md-6 pb-5">
-              <div class="form-group">
-                <label>{{ $t('settings.favicon') }}</label>
-                <b-form-file
-                  @change="setFavicon"
-                  v-model="siteSettings.faviconFile"
-                  :placeholder="$t('settings.favicon-placeholder')"
-                  :drop-placeholder="$t('settings.favicon-placeholder-drag')">
-                </b-form-file>
-                <img alt="image"
-                     v-if="siteSettings.favicon"
-                     class="mt-2 favicon-thumb"
-                     :src="siteSettings.favicon"/>
-              </div>
-              <div class="form-group w-25">
-                <label>{{ $t('settings.color') }}</label>
-                <input
-                  v-model="siteSettings.color"
-                  type="color"
-                  class="form-control">
-              </div>
-              <div class="form-group">
-                <label>{{ $t('settings.secureURL') }}</label>
-                <input
-                  v-model="siteSettings.secureURL"
-                  type="text"
-                  class="ltr form-control"
-                  :placeholder="$t('settings.secureURL-placeholder')">
-              </div>
-              <div class="form-group">
-                <label>{{ $t('settings.type') }}</label>
-                <input
-                  v-model="siteSettings.type"
-                  type="text"
-                  class="form-control"
-                  :placeholder="$t('settings.type-placeholder')">
-              </div>
-          </div>
-        </div>
-      </tab-content>
-      <tab-content
-        :title="$t('settings.header')">
-        <div class="row" >
-          <div class="col-12 col-md-6 pb-5">
-              <div class="form-group">
-                <label>{{ $t('settings.canonical') }}</label>
-                <input
-                  v-model="siteSettings.canonical"
-                  type="text"
-                  class="ltr form-control"
-                  :placeholder="$t('settings.canonical-placeholder')">
-              </div>
-              <div class="form-group">
-                <label>{{ $t('settings.nextURL') }}</label>
-                <input
-                  v-model="siteSettings.nextURL"
-                  type="text"
-                  class="ltr form-control"
-                  :placeholder="$t('settings.nextURL-placeholder')">
-              </div>
-          </div>
-        </div>
-      </tab-content>
-      <tab-content
-        :title="$t('settings.header')">
-        <div class="row" >
-          <div class="col-12 col-md-6 pb-5">
+          </tab-content>
+          <tab-content
+            :title="$t('settings.header')">
+            <div class="form-group">
+              <label>{{ $t('settings.favicon') }}</label>
+              <b-form-file
+                @change="setFavicon"
+                v-model="siteSettings.faviconFile"
+                :placeholder="$t('settings.favicon-placeholder')"
+                :drop-placeholder="$t('settings.favicon-placeholder-drag')">
+              </b-form-file>
+              <img alt="image"
+                   v-if="siteSettings.favicon"
+                   class="mt-2 favicon-thumb"
+                   :src="siteSettings.favicon"/>
+            </div>
+            <div class="form-group w-25">
+              <label>{{ $t('settings.color') }}</label>
+              <input
+                v-model="siteSettings.color"
+                type="color"
+                class="form-control">
+            </div>
+            <div class="form-group">
+              <label>{{ $t('settings.secureURL') }}</label>
+              <input
+                v-model="siteSettings.secureURL"
+                type="text"
+                class="ltr form-control"
+                :placeholder="$t('settings.secureURL-placeholder')">
+            </div>
+            <div class="form-group">
+              <label>{{ $t('settings.type') }}</label>
+              <input
+                v-model="siteSettings.type"
+                type="text"
+                class="form-control"
+                :placeholder="$t('settings.type-placeholder')">
+            </div>
+          </tab-content>
+          <tab-content
+            :title="$t('settings.header')">
+            <div class="form-group">
+              <label>{{ $t('settings.canonical') }}</label>
+              <input
+                v-model="siteSettings.canonical"
+                type="text"
+                class="ltr form-control"
+                :placeholder="$t('settings.canonical-placeholder')">
+            </div>
+            <div class="form-group">
+              <label>{{ $t('settings.nextURL') }}</label>
+              <input
+                v-model="siteSettings.nextURL"
+                type="text"
+                class="ltr form-control"
+                :placeholder="$t('settings.nextURL-placeholder')">
+            </div>
+          </tab-content>
+          <tab-content
+            :title="$t('settings.header')">
             <form action="#!">
               <div class="form-group">
                 <label>{{ $t('settings.image') }}</label>
@@ -174,20 +162,16 @@
                   :placeholder="$t('settings.facebookAppID-placeholder')">
               </div>
             </form>
-          </div>
-        </div>
-      </tab-content>
-      <tab-content
-        :title="$t('settings.contact-info')">
-        <div class="row" >
-          <div class="col-12 col-md-6 pb-5">
+          </tab-content>
+          <tab-content
+            :title="$t('settings.contact-info')">
             <b-form-group
               :label="$t('settings.contact-address')"
               >
               <b-form-textarea
-              v-model="siteSettings.contactAddress"
-              :placeholder="$t('settings.contact-address-placeholder')"
-              trim>
+                v-model="siteSettings.contactAddress"
+                :placeholder="$t('settings.contact-address-placeholder')"
+                trim>
               </b-form-textarea>
             </b-form-group>
             <b-form-group
@@ -221,13 +205,9 @@
                 trim>
               </b-form-input>
             </b-form-group>
-          </div>
-        </div>
-      </tab-content>
-      <tab-content
-        :title="$t('settings.monitoring')">
-        <div class="row" >
-          <div class="col-12 col-md-6 pb-5">
+          </tab-content>
+          <tab-content
+            :title="$t('settings.monitoring')">
             <b-form-group
               :label="$t('settings.ga')">
               <b-form-textarea
@@ -249,52 +229,41 @@
                 max-rows="4"
                 ></b-form-textarea>
             </b-form-group>
-          </div>
-        </div>
-      </tab-content>
-      <tab-content
-        :title="$t('settings.customCode')">
-        <div class="row" >
-          <div class="col-12 col-md-6 pb-5">
-              <div class="form-group">
-                <label>{{ $t('settings.customJavascript') }}</label>
-                <b-form-textarea
-                  v-model="siteSettings.customJavascript"
-                  :placeholder="$t('settings.customJavascript')"
-                  class="ltr"
-                  rows="4"
-                  max-rows="4"
-                  ></b-form-textarea>
-              </div>
-              <div class="form-group">
-                <label>{{ $t('settings.customCss') }}</label>
-                <b-form-textarea
-                  v-model="siteSettings.customCss"
-                  :placeholder="$t('settings.customCss')"
-                  class="ltr"
-                  rows="4"
-                  max-rows="4"
-                  ></b-form-textarea>
-              </div>
-          </div>
-        </div>
-      </tab-content>
-      <tab-content
-        :title="$t('export')">
-        <div class="row" >
-          <div class="col-12 pb-5">
-            <b-card
-              class="w-50 mt-5 m-auto border"
-              style="width: 20em;">
-              <b-form-checkbox
-                @change="updateSettings"
-                class="mb-3"
-                v-model="siteSettings.exportAddIranSansFont"
-                :value="true"
-                :unchecked-value="false"
-                >
-                {{ $t('settings.exportAddIranSansFont') }}
-              </b-form-checkbox>
+          </tab-content>
+          <tab-content
+            :title="$t('settings.customCode')">
+            <div class="form-group">
+              <label>{{ $t('settings.customJavascript') }}</label>
+              <b-form-textarea
+                v-model="siteSettings.customJavascript"
+                :placeholder="$t('settings.customJavascript')"
+                class="ltr"
+                rows="4"
+                max-rows="4"
+                ></b-form-textarea>
+            </div>
+            <div class="form-group">
+              <label>{{ $t('settings.customCss') }}</label>
+              <b-form-textarea
+                v-model="siteSettings.customCss"
+                :placeholder="$t('settings.customCss')"
+                class="ltr"
+                rows="4"
+                max-rows="4"
+                ></b-form-textarea>
+            </div>
+          </tab-content>
+          <tab-content
+            :title="$t('export')">
+            <b-form-checkbox
+              @change="updateSettings"
+              class="mb-3"
+              v-model="siteSettings.exportAddIranSansFont"
+              :value="true"
+              :unchecked-value="false"
+              >
+              {{ $t('settings.exportAddIranSansFont') }}
+            </b-form-checkbox>
               <b-form-checkbox
                 @change="updateSettings"
                 class="mb-3"
@@ -304,39 +273,38 @@
                 >
                 {{ $t('settings.exportAddFontIranYekan') }}
               </b-form-checkbox>
-              <b-form-checkbox
-                @change="updateSettings"
-                class="mb-3"
-                v-model="siteSettings.exportAddFontIcon"
-                :value="true"
-                :unchecked-value="false"
-                >
-                {{ $t('settings.exportAddFontIcon') }}
-              </b-form-checkbox>
-              <b-form-checkbox
-                @change="updateSettings"
-                class="mb-3"
-                v-model="siteSettings.exportCssSingleFile"
-                :value="true"
-                :unchecked-value="false"
-                >
-                {{ $t('settings.exportCssSingleFile') }}
-              </b-form-checkbox>
-              <b-form-checkbox
-                @change="updateSettings"
-                class="mb-3"
-                v-model="siteSettings.exportJavascriptSingleFile"
-                :value="true"
-                :unchecked-value="false"
-                >
-                {{ $t('settings.exportJavascriptSingleFile') }}
-              </b-form-checkbox>
-            </b-card>
-          <ExportBox></ExportBox>
-          </div>
-        </div>
-      </tab-content>
-    </form-wizard>
+                <b-form-checkbox
+                  @change="updateSettings"
+                  class="mb-3"
+                  v-model="siteSettings.exportAddFontIcon"
+                  :value="true"
+                  :unchecked-value="false"
+                  >
+                  {{ $t('settings.exportAddFontIcon') }}
+                </b-form-checkbox>
+                  <b-form-checkbox
+                    @change="updateSettings"
+                    class="mb-3"
+                    v-model="siteSettings.exportCssSingleFile"
+                    :value="true"
+                    :unchecked-value="false"
+                    >
+                    {{ $t('settings.exportCssSingleFile') }}
+                  </b-form-checkbox>
+                    <b-form-checkbox
+                      @change="updateSettings"
+                      class="mb-3"
+                      v-model="siteSettings.exportJavascriptSingleFile"
+                      :value="true"
+                      :unchecked-value="false"
+                      >
+                      {{ $t('settings.exportJavascriptSingleFile') }}
+                    </b-form-checkbox>
+                      <ExportBox></ExportBox>
+          </tab-content>
+        </form-wizard>
+      </div>
+    </div>
     <template
       slot="modal-footer" >
       <b-button

@@ -119,7 +119,6 @@ body{
 .wizard-nav-pills {
   padding: 0 !important;
   margin: 0 !important;
-  width: 50% !important;
   margin: 0 auto !important;
   float: none !important;
 }
@@ -143,8 +142,13 @@ body{
   overflow: scroll;
 }
 
+.wizard-tab-content {
+  padding-top: 2em !important;
+  margin-top: 2em !important;
+}
+
 .vue-form-wizard  {
-  padding-top: 20px;
+  padding-top: 2em !important;
 }
 
 .wizard-tab-content,
