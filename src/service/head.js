@@ -57,6 +57,7 @@ export default (settings) => {
   Object.keys(CONFIG.cdn.css).forEach((key) => {
     out += ` <link id="${key}_css" rel="stylesheet" href="${CONFIG.cdn.css[key]}">`
   })
+
   Object.keys(CONFIG.cdn.js).forEach((key) => {
     out += `<script id="${key}_js" type="text/javascript" src="${CONFIG.cdn.js[key]}"> </script>`
   })

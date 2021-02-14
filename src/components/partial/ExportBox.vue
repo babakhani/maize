@@ -1,47 +1,30 @@
 <template>
-  <div>
-    <div class="d-block p-3 text-center">
-      <b-card>
-        <b-jumbotron
-          variant="light"
-          :lead="$t('messages.export_model_header')"
-          >
-          <p
-            v-if="makeExoprtFileResultSize">
-          {{ $t('messages.export_model_file_size') }} : {{ makeExoprtFileResultSize }}
-          </p>
-          <b-btn
-            style="min-width: 100px;"
-            :disabled="makeExportFileLoading"
-            variant="outline-success"
-            @click.stop.prevent="onOk"
-            size="lg"
-            >
-            {{ $t('modal.export') }}
-            <icon
-              size="lg"
-              name="download"></icon>
-          </b-btn>
-          <b-progress
-            v-if="makeExportFileLoading"
-            class="mt-4"
-            :value="makeExportFileProgress"
-            max="100"
-            show-progress
-            animated>
-          </b-progress>
-        </b-jumbotron>
-      </b-card>
-    </div>
-    <template slot="modal-footer">
-      <b-button
-        @click="onHide"
-        variant="outline-link"
-        class="text-muted">
-        {{ $t('modal.continue') }}
-      </b-button>
-    </template>
-  </div>
+  <b-card class="text-center">
+    <p
+      v-if="makeExoprtFileResultSize">
+    {{ $t('messages.export_model_file_size') }} : {{ makeExoprtFileResultSize }}
+    </p>
+    <b-btn
+      style="min-width: 140px;"
+      :disabled="makeExportFileLoading"
+      variant="outline-success"
+      @click.stop.prevent="onOk"
+      size="lg"
+      >
+      {{ $t('modal.export') }}
+      <icon
+        size="lg"
+        name="download"></icon>
+    </b-btn>
+    <b-progress
+      v-if="makeExportFileLoading"
+      class="mt-4"
+      :value="makeExportFileProgress"
+      max="100"
+      show-progress
+      animated>
+    </b-progress>
+  </b-card>
 </template>
 
 <script>
@@ -54,21 +37,12 @@ export default {
       makeExportFileLoading: false,
       makeExoprtFileResultSize: null,
       makeExportFileProgress: 0,
-      imagesFiles: [],
-      siteSettings: { },
-      pickedLinkSrc: null
+      imagesFiles: []
     }
   },
   methods: {
-    onHide () {
-      this.$store.dispatch('layout/setExportMode', false)
-    },
     onOk (e) {
-      // e.preventDefault()
-      // this.onHide()
-      this.$store.dispatch('main/updateSettings', this.siteSettings)
       this.exportZip()
-      return false
     },
     exportZip () {
       this.makeExportableDownload()
@@ -76,10 +50,10 @@ export default {
     getAssets (cloneFrameContent) {
       this.makeExportFileProgress = 1
       this.makeExportFileLoading = true
-      let promiseList = []
       this.cssFiles = {}
       this.jsFiles = {}
       this.fontsFiles = {}
+      let promiseList = []
       let cssLength = Object.keys(window.CONFIG.cdn.css).length
       let jsLength = Object.keys(window.CONFIG.cdn.js).length
       let fontLength = Object.keys(window.CONFIG.cdn.fonts).length
@@ -113,13 +87,32 @@ export default {
         this._.each(this.cssFiles, (file, id) => {
           let sanitizedId = `${id}_css`
           let elem = cloneFrameContent.getElementById(sanitizedId)
-          elem.href = `./css/${id}.css`
+          if (this.siteSettings.exportCssSingleFile) {
+            elem.remove()
+          } else {
+            elem.href = `./css/${id}.css`
+          }
         })
         this._.each(this.jsFiles, (file, id) => {
           let sanitizedId = `${id}_js`
           let elem = cloneFrameContent.getElementById(sanitizedId)
-          elem.src = `./js/${id}.js`
+          if (this.siteSettings.exportJavascriptSingleFile) {
+            elem.remove()
+          } else {
+            elem.src = `./js/${id}.js`
+          }
         })
+
+        let header = cloneFrameContent.getElementsByTagName('head')[0]
+
+        if (this.siteSettings.exportCssSingleFile) {
+          header.insertAdjacentHTML('afterbegin', '<link id="main_css" rel="stylesheet" href="./css/styles.css">')
+        }
+
+        if (this.siteSettings.exportJavascriptSingleFile) {
+          header.insertAdjacentHTML('afterbegin', '<script id="main_js" type="text/javascript" src="./js/scripts.js"> <\/script>')
+        }
+
         // NOTE: Layout Direction
         // Main Export Html
         this.exportHtml = `
@@ -210,26 +203,58 @@ export default {
       }
 
       // CSS
+      // -------------------------------------------------------------------
       if (this.cssFiles) {
-        const css = zip.folder('css')
-        this._.each(this.cssFiles, (item, name) => {
-          css.file(`${name}.css`, item)
-        })
+        if (this.siteSettings.exportCssSingleFile) {
+          const css = zip.folder('css')
+          let concatinatedCss = ''
+          this._.each(this.cssFiles, (item, name) => {
+            concatinatedCss += item
+          })
+          css.file(`styles.css`, concatinatedCss)
+        } else {
+          const css = zip.folder('css')
+          this._.each(this.cssFiles, (item, name) => {
+            css.file(`${name}.css`, item)
+          })
+        }
       }
 
       // JS
+      // -------------------------------------------------------------------
       if (this.jsFiles) {
-        const js = zip.folder('js')
-        this._.each(this.jsFiles, (item, name) => {
-          js.file(`${name}.js`, item)
-        })
+        if (this.siteSettings.exportJavascriptSingleFile) {
+          const js = zip.folder('js')
+          let concatinatedJavascript = ''
+          this._.each(this.jsFiles, (item, name) => {
+            concatinatedJavascript += '\n'
+            concatinatedJavascript += `// ------------------------------------- ${name}`
+            concatinatedJavascript += '\n'
+            concatinatedJavascript += item
+          })
+          js.file(`scripts.js`, concatinatedJavascript)
+        } else {
+          const js = zip.folder('js')
+          this._.each(this.jsFiles, (item, name) => {
+            js.file(`${name}.js`, item)
+          })
+        }
       }
 
-      // JS
+      // Fonts
+      // -------------------------------------------------------------------
       if (this.fontsFiles) {
         const font = zip.folder('webfonts')
         this._.each(this.fontsFiles, (item, name) => {
-          font.file(name, item)
+          if (name.indexOf('iransansweb') == 0 && this.siteSettings.exportAddIranSansFont) {
+            font.file(name, item)
+          }
+          if (name.indexOf('iranyekan') == 0 && this.siteSettings.exportAddFontIranYekan) {
+            font.file(name, item)
+          }
+          if (name.indexOf('fa-') == 0 && this.siteSettings.exportAddFontIcon) {
+            font.file(name, item)
+          }
         })
       }
 
@@ -266,28 +291,12 @@ export default {
       this.makeExoprtFileResultSize = null
     }
   },
-  mounted () {
-    this.siteSettings = this._.cloneDeep(this.$store.getters['main/settings'])
-  },
-  watch: {
-    showModal () {
-      this.reset()
-    }
-  },
   computed: {
+    siteSettings () {
+      return this.$store.getters['main/settings']
+    },
     pageData () {
       return this.$store.state.main.page
-    },
-    randomImageList () {
-      return this.$store.state.unsplash.imageList
-    },
-    showModal: {
-      get () {
-        return this.$store.state.layout.exportMode
-      },
-      set (value) {
-        this.$store.dispatch('layout/setExportMode', value)
-      }
     }
   }
 }
@@ -295,6 +304,6 @@ export default {
 
 <style lang="scss" scoped >
 .jumbotron {
-  backgound: white;
+  background-color: white !important;
 }
 </style>

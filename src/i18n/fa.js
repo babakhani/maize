@@ -145,6 +145,15 @@ export default {
     }
   },
   'settings': {
+    'exportAddFontIcon': 'افزودن فونت آیکون',
+    'exportAddIranSansFont': 'افزودن فونت ایران سنس به خروجی',
+    'exportAddFontIranYekan': 'افزودن فونت ایران یکان به خروجی',
+    'exportCssSingleFile': 'استایل ها به صورت تک فایل',
+    'exportJavascriptSingleFile': 'اسکریپت ها به صورت تک فایل',
+
+    'customCode': ' افزودن کد دلخواه',
+    'customCss': 'استایل (CSS)',
+    'customJavascript': 'جاوااسکریپت (JavaScript)',
     'name': 'نام پروژه (انگلیسی بهتر است)',
     'name-placeholder': 'نام را وارد کنید',
     'color': 'رنگ',

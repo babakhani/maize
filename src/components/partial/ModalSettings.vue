@@ -7,6 +7,7 @@
     <form-wizard
       v-model="currentStep"
       @on-complete="onComplete"
+      :startIndex="startIndex"
       ref="wizard"
       title=""
       subtitle=""
@@ -131,6 +132,7 @@
                 <label>{{ $t('settings.image') }}</label>
                 <b-form-file
                   @change="setImage"
+                  v-model="siteSettings.imageFile"
                   :placeholder="$t('settings.favicon-placeholder')"
                   :drop-placeholder="$t('settings.favicon-placeholder-drag')">
                 </b-form-file>
@@ -170,14 +172,6 @@
                   type="text"
                   class="ltr form-control"
                   :placeholder="$t('settings.facebookAppID-placeholder')">
-              </div>
-              <div class="form-group">
-                <label>{{ $t('settings.twitterAccount') }}</label>
-                <input
-                  v-model="siteSettings.twitterAccount"
-                  type="text"
-                  class="ltr form-control"
-                  :placeholder="$t('settings.twitterAccount-placeholder')">
               </div>
             </form>
           </div>
@@ -259,10 +253,86 @@
         </div>
       </tab-content>
       <tab-content
+        :title="$t('settings.customCode')">
+        <div class="row" >
+          <div class="col-12 col-md-6 pb-5">
+              <div class="form-group">
+                <label>{{ $t('settings.customJavascript') }}</label>
+                <b-form-textarea
+                  v-model="siteSettings.customJavascript"
+                  :placeholder="$t('settings.customJavascript')"
+                  class="ltr"
+                  rows="4"
+                  max-rows="4"
+                  ></b-form-textarea>
+              </div>
+              <div class="form-group">
+                <label>{{ $t('settings.customCss') }}</label>
+                <b-form-textarea
+                  v-model="siteSettings.customCss"
+                  :placeholder="$t('settings.customCss')"
+                  class="ltr"
+                  rows="4"
+                  max-rows="4"
+                  ></b-form-textarea>
+              </div>
+          </div>
+        </div>
+      </tab-content>
+      <tab-content
         :title="$t('export')">
         <div class="row" >
           <div class="col-12 pb-5">
-            <ExportBox></ExportBox>
+            <b-card
+              class="w-50 mt-5 m-auto border"
+              style="width: 20em;">
+              <b-form-checkbox
+                @change="updateSettings"
+                class="mb-3"
+                v-model="siteSettings.exportAddIranSansFont"
+                :value="true"
+                :unchecked-value="false"
+                >
+                {{ $t('settings.exportAddIranSansFont') }}
+              </b-form-checkbox>
+              <b-form-checkbox
+                @change="updateSettings"
+                class="mb-3"
+                v-model="siteSettings.exportAddFontIranYekan"
+                :value="true"
+                :unchecked-value="false"
+                >
+                {{ $t('settings.exportAddFontIranYekan') }}
+              </b-form-checkbox>
+              <b-form-checkbox
+                @change="updateSettings"
+                class="mb-3"
+                v-model="siteSettings.exportAddFontIcon"
+                :value="true"
+                :unchecked-value="false"
+                >
+                {{ $t('settings.exportAddFontIcon') }}
+              </b-form-checkbox>
+              <b-form-checkbox
+                @change="updateSettings"
+                class="mb-3"
+                v-model="siteSettings.exportCssSingleFile"
+                :value="true"
+                :unchecked-value="false"
+                >
+                {{ $t('settings.exportCssSingleFile') }}
+              </b-form-checkbox>
+              <b-form-checkbox
+                @change="updateSettings"
+                class="mb-3"
+                v-model="siteSettings.exportJavascriptSingleFile"
+                :value="true"
+                :unchecked-value="false"
+                >
+                {{ $t('settings.exportJavascriptSingleFile') }}
+              </b-form-checkbox>
+            </b-card>
+          <ExportBox></ExportBox>
           </div>
         </div>
       </tab-content>
@@ -297,6 +367,7 @@ export default {
   name: 'ModalSettings',
   data () {
     return {
+      startIndex: 7,
       currentStep: '',
       siteSettings: {},
       pickedLinkSrc: null
@@ -315,6 +386,9 @@ export default {
     onOk (e) {
       this.$store.dispatch('main/updateSettings', this.siteSettings)
       this.$refs['wizard'].nextTab()
+    },
+    updateSettings () {
+      this.$store.dispatch('main/updateSettings', this.siteSettings)
     },
     onBack () {
       this.$refs['wizard'].prevTab()

@@ -61,10 +61,10 @@ window.CONFIG = {
     baseURL: '',
     canonical: '/',
     nextURL: '',
-    favicon: '',
+    favicon: [],
     faviconFile: '',
     image: '/img/site-image.png',
-    imageFile: '',
+    imageFile: [],
     imageWidth: '',
     imageHeight: '',
     imageType: '',
@@ -73,7 +73,12 @@ window.CONFIG = {
     twitterAccount: '',
     twitterCard: 'summary',
     type: 'Organization',
-    color: '#fff'
+    color: '#fff',
+    exportAddFontIranYekan: true,
+    exportAddIranSansFont: true,
+    exportCssSingleFile: true,
+    exportJavascriptSingleFile: true,
+    exportAddFontIcon: true
   },
   cdn: {
     css: {
