@@ -5,7 +5,7 @@
     {{ $t('messages.export_model_file_size') }} : {{ makeExoprtFileResultSize }}
     </p>
     <b-btn
-      style="min-width: 140px;"
+      style="min-width: 300px;"
       :disabled="makeExportFileLoading"
       variant="outline-success"
       @click.stop.prevent="onOk"

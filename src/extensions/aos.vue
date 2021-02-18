@@ -2,10 +2,21 @@
   <div class="px-3">
     <b-form-group
       :label="$t('animate.name')">
-    <b-form-select
-      v-model="animate.name"
-      @change="select(animate)"
-      :options="animationList"></b-form-select>
+      <b-row>
+        <b-col
+          cols="2"
+          class="mb-2"
+          v-for="anime in animationList">
+          <b-button
+          :variant="animate.name == anime ? 'primary' : 'light'"
+          class="btn-block box-shadow"
+          @click="setName(anime)">
+            <b-card-text>
+              {{ anime }}
+            </b-card-text>
+          </b-button>
+        </b-col>
+      </b-row>
     </b-form-group>
     <b-form-group
       :label="$t('animate.easing')">
@@ -145,6 +156,10 @@ export default {
     }
   },
   methods: {
+    setName (i) {
+      this.animate.name = i
+      this.select(this.animate)
+    },
     select (animate, hide = false) {
       this.$emit('input', {
         ...this.value,

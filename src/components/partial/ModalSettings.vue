@@ -24,6 +24,7 @@
               <div class="form-group">
                 <label>{{ $t('settings.name') }}</label>
                 <input
+                  autofocus
                   v-model="siteSettings.name"
                   type="text"
                   class="form-control"
@@ -53,6 +54,12 @@
                   class="form-control"
                   :placeholder="$t('settings.language-placeholder')">
               </div>
+              <b-button
+                class="w-25"
+                @click="onOk"
+                variant="outline-primary">
+                {{ $t('modal.next') }}
+              </b-button>
             </form>
           </tab-content>
           <tab-content
@@ -93,6 +100,12 @@
                 class="form-control"
                 :placeholder="$t('settings.type-placeholder')">
             </div>
+            <b-button
+              class="w-25"
+              @click="onOk"
+              variant="outline-primary">
+              {{ $t('modal.next') }}
+            </b-button>
           </tab-content>
           <tab-content
             :title="$t('settings.header')">
@@ -112,6 +125,12 @@
                 class="ltr form-control"
                 :placeholder="$t('settings.nextURL-placeholder')">
             </div>
+            <b-button
+              class="w-25"
+              @click="onOk"
+              variant="outline-primary">
+              {{ $t('modal.next') }}
+            </b-button>
           </tab-content>
           <tab-content
             :title="$t('settings.header')">
@@ -162,6 +181,12 @@
                   :placeholder="$t('settings.facebookAppID-placeholder')">
               </div>
             </form>
+            <b-button
+              class="w-25"
+              @click="onOk"
+              variant="outline-primary">
+              {{ $t('modal.next') }}
+            </b-button>
           </tab-content>
           <tab-content
             :title="$t('settings.contact-info')">
@@ -205,6 +230,12 @@
                 trim>
               </b-form-input>
             </b-form-group>
+            <b-button
+              class="w-25"
+              @click="onOk"
+              variant="outline-primary">
+              {{ $t('modal.next') }}
+            </b-button>
           </tab-content>
           <tab-content
             :title="$t('settings.monitoring')">
@@ -229,6 +260,12 @@
                 max-rows="4"
                 ></b-form-textarea>
             </b-form-group>
+            <b-button
+              class="w-25"
+              @click="onOk"
+              variant="outline-primary">
+              {{ $t('modal.next') }}
+            </b-button>
           </tab-content>
           <tab-content
             :title="$t('settings.customCode')">
@@ -252,6 +289,12 @@
                 max-rows="4"
                 ></b-form-textarea>
             </div>
+            <b-button
+              class="w-25"
+              @click="onOk"
+              variant="outline-primary">
+              {{ $t('modal.next') }}
+            </b-button>
           </tab-content>
           <tab-content
             :title="$t('export')">
@@ -300,7 +343,7 @@
                       >
                       {{ $t('settings.exportJavascriptSingleFile') }}
                     </b-form-checkbox>
-                      <ExportBox></ExportBox>
+                    <ExportBox></ExportBox>
           </tab-content>
         </form-wizard>
       </div>
@@ -335,7 +378,7 @@ export default {
   name: 'ModalSettings',
   data () {
     return {
-      startIndex: 7,
+      startIndex: 0,
       currentStep: '',
       siteSettings: {},
       pickedLinkSrc: null

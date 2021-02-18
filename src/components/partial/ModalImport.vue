@@ -2,7 +2,6 @@
   <b-modal
     @hidden="onHide"
     v-model="showModal"
-    class="modal-setting modal-box"
     :title="$t('import')">
     <template slot="modal-footer">
       <b-button
@@ -28,11 +27,11 @@
       v-else
       class="upload-image-widget p-5 m-2">
       <div>
-        <h1>
+        <h3>
           <icon class="upload-image-widget--icon"
                 size="lg"
                 name="upload"></icon>
-        </h1>
+        </h3>
         <button class="btn btn-lg btn-link">
         <h4 class="mt-4 p-2">
           {{ $t('modal.drop_maize_json') }}
