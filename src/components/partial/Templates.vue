@@ -1,15 +1,18 @@
 <template>
-  <div class="templates">
-    <h4 class="mb-5 text-center"> {{ $t('messages.pick_from_templates') }} </h4>
-    <b-card-group deck>
+  <div class="templates w-100 d-block">
+    <h4 class="m-3 text-center one-line"> {{ $t('messages.pick_from_templates') }} </h4>
+    <b-card-group
+      class="m-auto w-50"
+      center
+      deck>
       <b-card
-        class="pointer template-card"
+        class="pointer m-auto template-card"
         v-for="(template, key) in CONFIG.templates"
         @click="setTemplate(template.url)"
         img-alt="Image"
         img-top
         tag="article"
-        style="max-width: 20rem;" >
+        style="max-width: 10rem;" >
         <img
         class="w-100"
         :src="template.img" />

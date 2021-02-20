@@ -69,7 +69,7 @@
         </div>
         </draggable>
         <div
-          class="w-50 m-auto"
+          class="m-auto"
           v-if="currentWidgetList.length == 0">
           <Templates></Templates>
           <h4 class="text-center mt-5">{{ $t('messages.start_with_widgets') }}</h4>

@@ -11,6 +11,7 @@ import slider from './slider'
 import slides from './slides'
 import frame from './frame'
 import streamline from './streamline'
+import adstexts from './adstexts'
 
 export default {
   clientsideuploaderbackground,
@@ -25,5 +26,6 @@ export default {
   slider,
   slides,
   frame,
-  streamline
+  streamline,
+  adstexts
 }

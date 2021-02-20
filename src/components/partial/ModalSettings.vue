@@ -54,12 +54,6 @@
                   class="form-control"
                   :placeholder="$t('settings.language-placeholder')">
               </div>
-              <b-button
-                class="w-25"
-                @click="onOk"
-                variant="outline-primary">
-                {{ $t('modal.next') }}
-              </b-button>
             </form>
           </tab-content>
           <tab-content
@@ -100,12 +94,6 @@
                 class="form-control"
                 :placeholder="$t('settings.type-placeholder')">
             </div>
-            <b-button
-              class="w-25"
-              @click="onOk"
-              variant="outline-primary">
-              {{ $t('modal.next') }}
-            </b-button>
           </tab-content>
           <tab-content
             :title="$t('settings.header')">
@@ -181,12 +169,6 @@
                   :placeholder="$t('settings.facebookAppID-placeholder')">
               </div>
             </form>
-            <b-button
-              class="w-25"
-              @click="onOk"
-              variant="outline-primary">
-              {{ $t('modal.next') }}
-            </b-button>
           </tab-content>
           <tab-content
             :title="$t('settings.contact-info')">
@@ -230,12 +212,6 @@
                 trim>
               </b-form-input>
             </b-form-group>
-            <b-button
-              class="w-25"
-              @click="onOk"
-              variant="outline-primary">
-              {{ $t('modal.next') }}
-            </b-button>
           </tab-content>
           <tab-content
             :title="$t('settings.monitoring')">
@@ -260,12 +236,6 @@
                 max-rows="4"
                 ></b-form-textarea>
             </b-form-group>
-            <b-button
-              class="w-25"
-              @click="onOk"
-              variant="outline-primary">
-              {{ $t('modal.next') }}
-            </b-button>
           </tab-content>
           <tab-content
             :title="$t('settings.customCode')">
@@ -289,12 +259,6 @@
                 max-rows="4"
                 ></b-form-textarea>
             </div>
-            <b-button
-              class="w-25"
-              @click="onOk"
-              variant="outline-primary">
-              {{ $t('modal.next') }}
-            </b-button>
           </tab-content>
           <tab-content
             :title="$t('export')">

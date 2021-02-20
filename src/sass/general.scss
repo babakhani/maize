@@ -11,6 +11,11 @@ body{
   background: rgba($gray-c, 0.3);
 }
 
+.oneline {
+  overflow: auto;
+  white-space: nowrap;
+}
+
 .ltr {
   direction: ltr;
   text-align: left;

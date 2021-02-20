@@ -8,7 +8,7 @@
       class="widget-text-editable--toolbox--group">
       <button :title="$t('toolbox.text')"
       v-b-tooltip.hover.top.small
-      @click="openExtensions(['Editor', 'Texty', 'Lorem'])"
+      @click="openExtensions(['Editor', 'Texty', 'Lorem', 'AdsTexts'])"
       class="btn btn-sm widget-text-editable--toolbox--button">
         <icon name="life-ring" />
       </button>
